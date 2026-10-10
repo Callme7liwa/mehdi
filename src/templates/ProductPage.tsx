@@ -78,7 +78,7 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
           </div>
 
           <div className="btns">
-            <a className="btn btn-primary" href="#commander">{taches ? t.orderRange : t.order}<BagIcon /></a>
+            <a className="btn btn-primary" href="#commander">{t.order}<BagIcon /></a>
             <a className="btn btn-wa" href={waLink(waMsg)} target="_blank" rel="noopener">{t.orderWhatsApp}<WaIcon /></a>
           </div>
 
@@ -159,11 +159,11 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
 
         <section className="sec wrap" id="commander" aria-labelledby="commander-t">
           <div className="sec-head">
-            <h2 id="commander-t">{taches ? t.orderRange : t.orderTitle}</h2>
+            <h2 id="commander-t">{t.orderTitle}</h2>
             <p className="lead">{t.orderLead}</p>
           </div>
           <div className="grid c2" style={{ alignItems: "start" }}>
-            <OrderBox locale={locale} product={taches ? "taches" : "yeux"} />
+            <OrderBox locale={locale} product={taches ? "taches" : "yeux"} unitKey={taches ? p.key : undefined} />
             <div className="card sand" style={{ display: "grid", gap: 14, justifyItems: "start" }}>
               <h3>{t.preferWhatsApp}</h3>
               <p>{taches ? t.preferWhatsAppRange : t.preferWhatsAppYeux}</p>

@@ -9,11 +9,13 @@ export type OrderData = {
   product: "taches" | "yeux";
   formats: Record<"petit" | "grand", { label: string; labelFr: string; price: number; was: number; content: string }>;
   yeuxPrice: number;
+  /** Vente à l'unité du soin de la page (Petit format). Absent : seule la gamme (ou le sérum contour des yeux) se commande. */
+  unit?: { name: string; nameFr: string; size: string; sizeFr: string; price: number };
   /** Villes proposées, dans la langue de la page. */
   cities: string[];
 };
 export type OrderText = Record<
-  | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
+  | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
   | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
@@ -32,13 +34,17 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const yeux = data.product === "yeux";
   const [fmt, setFmt] = useState<"petit" | "grand">("petit");
   const [qty, setQty] = useState<1 | 3>(3);
+  /* sur la page d'un soin de la gamme : le soin seul (par défaut) ou la gamme complète */
+  const [what, setWhat] = useState<"unit" | "gamme">(data.unit ? "unit" : "gamme");
+  const [units, setUnits] = useState(1);
+  const unit = what === "unit" ? data.unit : undefined;
   const [err, setErr] = useState("");
   const [bad, setBad] = useState<string[]>([]);
   const [doneName, setDoneName] = useState<string | null>(null);
 
   const price = yeux ? data.yeuxPrice : data.formats[fmt].price;
   const per = Math.round((price * 2) / 3);
-  const total = qty === 3 ? price * 2 : price;
+  const total = unit ? unit.price * units : qty === 3 ? price * 2 : price;
   const word = yeux ? t.serumWord : t.rangeWord, words = yeux ? t.serumsWord : t.rangesWord;
 
   const flush = async () => {
@@ -71,16 +77,17 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
     }
     setErr("");
     if (v("site")) return; // robot détecté (champ piège rempli)
-    const what = yeux ? "Sérum contour des yeux" : data.formats[fmt].labelFr;
+    const label = yeux ? "Sérum contour des yeux" : data.formats[fmt].labelFr;
     const order = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
       ticket: String(Math.floor(1000 + Math.random() * 9000)),
       nom: v("nom"), tel: v("tel"), ville: v("ville"), adresse: v("adresse"),
-      produit: yeux ? "Sérum contour des yeux" : "Gamme anti-taches",
-      format: yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
-      quantite: qty === 3 ? "3 (2 + 1 offerte)" : "1",
+      // le tableur des commandes reçoit toujours des libellés en français
+      produit: unit ? `${unit.nameFr} (à l'unité)` : yeux ? "Sérum contour des yeux" : "Gamme anti-taches",
+      format: unit ? `Petit format (${unit.sizeFr})` : yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
+      quantite: unit ? String(units) : qty === 3 ? "3 (2 + 1 offerte)" : "1",
       total,
-      offre: `${what}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`,
+      offre: unit ? `${unit.nameFr}, ${units} × ${unit.price} DH` : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`,
       page: location.href.split("#")[0],
     };
     writeQ([...readQ(), order]);
@@ -101,7 +108,35 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const invalid = (n: string) => (bad.includes(n) ? { "aria-invalid": true as const } : {});
   return (
     <form className="order" onSubmit={submit} noValidate>
-      {!yeux && (
+      {data.unit && (
+        <fieldset>
+          <legend>{t.chooseWhat}</legend>
+          <div className="opts">
+            <label className="opt">
+              <input type="radio" name={`${id}-what`} checked={what === "unit"} onChange={() => setWhat("unit")} />
+              <b>{t.unitAlone}</b>
+              <span>{data.unit.name}, {data.unit.size}</span>
+              <span><em>{data.unit.price} {t.dh}</em></span>
+            </label>
+            <label className="opt">
+              <input type="radio" name={`${id}-what`} checked={what === "gamme"} onChange={() => setWhat("gamme")} />
+              <b>{t.fullRange}</b>
+              <span>{t.from} <em>{data.formats.petit.price} {t.dh}</em> {t.insteadOf} <s>{data.formats.petit.was} {t.dh}</s></span>
+            </label>
+          </div>
+        </fieldset>
+      )}
+      {unit && (
+        <fieldset>
+          <legend>{t.quantity}</legend>
+          <div className="stepper">
+            <button type="button" aria-label={t.less} disabled={units <= 1} onClick={() => setUnits((n) => Math.max(1, n - 1))}>−</button>
+            <output aria-live="polite">{units}</output>
+            <button type="button" aria-label={t.more} disabled={units >= 9} onClick={() => setUnits((n) => Math.min(9, n + 1))}>+</button>
+          </div>
+        </fieldset>
+      )}
+      {!yeux && !unit && (
         <fieldset>
           <legend>{t.chooseFormat}</legend>
           <div className="opts">
@@ -116,7 +151,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           </div>
         </fieldset>
       )}
-      <fieldset>
+      {!unit && <fieldset>
         <legend>{yeux ? t.chooseOfferOnly : t.chooseOffer}</legend>
         <div className="opts">
           <label className="opt">
@@ -131,7 +166,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
             {!yeux && <span>{t.insteadOf} <s>{data.formats[fmt].was} {t.dh}</s></span>}
           </label>
         </div>
-      </fieldset>
+      </fieldset>}
       <fieldset>
         <legend>{t.yourInfo}</legend>
         <div className="fields">

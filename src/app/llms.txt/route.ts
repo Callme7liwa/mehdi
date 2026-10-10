@@ -33,6 +33,7 @@ export function GET() {
     `| Grand format | ${ml("grand")} | ${G.price} DH | ${G.was} DH | ${bundleTotal(G.price)} DH les 3 gammes (${bundleUnit(G.price)} DH la gamme) |`,
     "",
     "Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte.",
+    "Chaque soin se commande aussi à l'unité, en Petit format, au prix à l'unité indiqué ci-dessus (formulaire de la page du soin, ou WhatsApp).",
     "",
     `## ${yeux.name.fr} ${yeux.no}`,
     "",

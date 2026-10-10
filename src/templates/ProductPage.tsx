@@ -37,7 +37,7 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
     <>
       <JsonLd
         data={graph(
-          orgLd(),
+          orgLd(locale),
           webPageLd({ locale, path: path(p), title: title(p, locale), description: p.metaDescription[locale], image: p.photos[0], type: "ItemPage" }),
           breadcrumbLd(locale, crumbs),
           productLd(p, locale),
@@ -165,8 +165,8 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
           <div className="grid c2" style={{ alignItems: "start" }}>
             <OrderBox locale={locale} product={taches ? "taches" : "yeux"} />
             <div className="card sand" style={{ display: "grid", gap: 14, justifyItems: "start" }}>
-              <h3>{locale === "ar" ? "تفضلين واتساب؟" : "Tu préfères WhatsApp ?"}</h3>
-              <p>{locale === "ar" ? "اكتبي لنا مباشرة لطلب هذا المنتج أو لطرح سؤال." : taches ? "Écris-nous pour commander ce soin seul, ou pour poser une question avant de te décider." : "Écris-nous pour commander ou pour poser une question avant de te décider."}</p>
+              <h3>{t.preferWhatsApp}</h3>
+              <p>{taches ? t.preferWhatsAppRange : t.preferWhatsAppYeux}</p>
               <a className="btn btn-wa" href={waLink(waMsg)} target="_blank" rel="noopener">{t.orderWhatsApp}<WaIcon /></a>
               <p className="updated" dir="ltr">{site.whatsapp.display}</p>
             </div>
@@ -178,13 +178,13 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
           <FaqList items={faqs} />
         </section>
 
-        {locale === "fr" && (
+        {(
           <section className="sec wrap" aria-labelledby="problemes">
             <div className="sec-head"><h2 id="problemes">{t.problems}</h2></div>
             <ul className="chips">
               {p.problems.map((slug) => {
                 const pg = problemPages.find((x) => x.slug === slug)!;
-                return <li key={slug}><Link href={`/${slug}`}>{pg.label}</Link></li>;
+                return <li key={slug}><Link href={localePath(locale, `/${slug}`)}>{pg.label[locale]}</Link></li>;
               })}
             </ul>
           </section>

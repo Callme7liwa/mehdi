@@ -2,6 +2,7 @@
    Mêmes couleurs, polices et boutons que la page d'accueil.
    Propriétés logiques partout (inline-start/end) : le même CSS sert en français et en arabe (RTL). */
 :root {
+  --dir: 1;
   --bordeaux: #4a0d16;
   --red: #d42235;
   --red-deep: #b51a2b;
@@ -20,7 +21,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-html[dir="rtl"] body { font-family: var(--font-plex-arabic), var(--sans); line-height: 1.8; }
+html[dir="rtl"] body { line-height: 1.85; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 3px; border-radius: 6px; }
@@ -43,7 +44,6 @@ html[dir="rtl"] .kicker { letter-spacing: 0; font-size: 15px; }
 
 /* ---- Boutons (mêmes pilules que l'accueil) ---- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 26px; border: 0; border-radius: 999px; font: 600 16px var(--sans); text-decoration: none; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
-html[dir="rtl"] .btn { font-family: var(--font-plex-arabic), var(--sans); }
 .btn svg { width: 20px; height: 20px; flex: none; }
 .btn-primary { background: var(--red); color: #fff; box-shadow: 0 10px 24px -12px rgba(212, 34, 53, 0.8); }
 .btn-primary:hover { background: var(--red-deep); transform: translateY(-1px); }
@@ -207,8 +207,19 @@ main { display: block; }
 
 /* ---- 404 ---- */
 .nf { min-height: 70vh; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; padding: 48px var(--gutter); }
-.nf .big { font-family: var(--serif); font-size: clamp(90px, 20vw, 180px); line-height: 0.9; color: var(--red); }
+.nf .big { font-family: var(--serif); font-weight: 600; font-size: clamp(90px, 20vw, 180px); line-height: 0.9; color: var(--red); }
 
 /* liens dans les pastilles */
 .chips li a { text-decoration: none; }
 .chips li:has(a):hover { box-shadow: inset 0 0 0 2px var(--bordeaux); }
+
+/* ---- Sélecteur de langue ---- */
+/* sur mobile, il est dans le menu ; à partir de 560 px, il est aussi dans la barre */
+.top-in > .lang { display: none; padding: 8px 12px; border-radius: 999px; font-size: 15px; font-weight: 500; color: var(--bordeaux); text-decoration: none; white-space: nowrap; }
+.top-in > .lang:hover { background: rgba(74, 13, 22, 0.07); }
+.top-menu .lang { border-top: 1px solid var(--line); margin-top: 6px; }
+@media (min-width: 560px) {
+  .top-in > .lang { display: inline-block; margin-inline-start: auto; }
+  .top-in > .lang + .top-cta { margin-inline-start: 0; }
+}
+@media (min-width: 900px) { .top-in > .lang { margin-inline-start: 0; } }

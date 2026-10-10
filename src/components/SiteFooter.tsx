@@ -11,7 +11,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
   return (
     <footer className="foot2">
       <div className="wrap">
-        <nav className="foot2-cols" aria-label="Pied de page">
+        <nav className="foot2-cols" aria-label={t.footerNav}>
           <div>
             <p className="t">{t.footProducts}</p>
             <ul>
@@ -19,23 +19,19 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
               <li><Link href={localePath(locale, "/soins")}>{t.allProducts}</Link></li>
             </ul>
           </div>
-          {locale === "fr" && (
-            <>
-              <div>
-                <p className="t">{t.footAdvice}</p>
-                <ul>{problemPages.map((p) => <li key={p.slug}><Link href={`/${p.slug}`}>{p.label}</Link></li>)}</ul>
-              </div>
-              <div>
-                <p className="t">{t.footBrand}</p>
-                <ul>{trustPages.map((p) => <li key={p.path}><Link href={p.path}>{p.label}</Link></li>)}</ul>
-              </div>
-            </>
-          )}
+          <div>
+            <p className="t">{t.footAdvice}</p>
+            <ul>{problemPages.map((p) => <li key={p.slug}><Link href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
+          </div>
+          <div>
+            <p className="t">{t.footBrand}</p>
+            <ul>{trustPages.map((p) => <li key={p.path}><Link href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}</ul>
+          </div>
           <div>
             <p className="t">{t.footFollow}</p>
             <ul>
-              <li><a href={site.instagram.url} target="_blank" rel="noopener">Instagram {site.instagram.handle}</a></li>
-              <li><a href={waLink()} target="_blank" rel="noopener">WhatsApp <span dir="ltr">&nbsp;{site.whatsapp.display}</span></a></li>
+              <li><a href={site.instagram.url} target="_blank" rel="noopener">{locale === "ar" ? "إنستغرام" : "Instagram"}&nbsp;<span dir="ltr">{site.instagram.handle}</span></a></li>
+              <li><a href={waLink()} target="_blank" rel="noopener">{locale === "ar" ? "واتساب" : "WhatsApp"}&nbsp;<span dir="ltr">{site.whatsapp.display}</span></a></li>
               <li><a href={locale === "fr" ? "/" : "/ar"}>{t.home}</a></li>
               <li><a href={locale === "fr" ? "/ar" : "/"} lang={locale === "fr" ? "ar" : "fr"}>{t.otherLang}</a></li>
             </ul>

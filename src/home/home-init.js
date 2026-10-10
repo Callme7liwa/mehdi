@@ -4,12 +4,23 @@
    Seules les données (prix, contenances, avis, WhatsApp…) viennent maintenant de `cfg`,
    construit dans HomePage.tsx à partir de src/data/. */
 export function initHome(cfg) {
+  /* TXT : textes de l'interface dans la langue de la page (src/home/text-js.ts).
+     RTL : page en arabe, lecture de droite à gauche. D vaut -1 en RTL : il inverse les déplacements horizontaux. */
+  const TXT = cfg.t;
+  const RTL = cfg.rtl;
+  const D = RTL ? -1 : 1;
+  const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k]);
+  /* distance entre le début de la piste (gauche en LTR, droite en RTL) et le début d'un élément */
+  const startGap = (track, item) => {
+    const cs = getComputedStyle(track), tr = track.getBoundingClientRect(), ir = item.getBoundingClientRect();
+    return RTL ? (tr.right - parseFloat(cs.paddingRight)) - ir.right : ir.left - (tr.left + parseFloat(cs.paddingLeft));
+  };
   (() => {
     const btn = document.querySelector(".burger");
     const sheet = document.getElementById("sheet");
     const setOpen = (open) => {
       btn.setAttribute("aria-expanded", String(open));
-      btn.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      btn.setAttribute("aria-label", open ? TXT.menuClose : TXT.menuOpen);
       sheet.classList.toggle("open", open);
       if (open) sheet.querySelector("a").focus({ preventScroll: true });
     };
@@ -42,8 +53,8 @@ export function initHome(cfg) {
     const routine = document.querySelector(".routine");
     const buttons = document.querySelectorAll(".switch button");
     const COPY = {
-      matin: "<b>Routine du matin</b> : 4 étapes, écran solaire compris",
-      soir: "<b>Routine du soir</b> : 3 étapes, sans écran solaire",
+      matin: TXT.phaseMatin,
+      soir: TXT.phaseSoir,
     };
     const setPhase = (phase, save) => {
       hero.dataset.phase = phase;
@@ -391,7 +402,7 @@ export function initHome(cfg) {
       const tr = p > 0.02;
       if (tr !== wasTravel) {
         wasTravel = tr;
-        pins.forEach((pin, i) => pin.setAttribute("aria-label", tr ? `Aller à l'étape ${i + 1}` : pin.querySelector("img").alt));
+        pins.forEach((pin, i) => pin.setAttribute("aria-label", tr ? fill(TXT.goToStep, { n: i + 1 }) : pin.querySelector("img").alt));
       }
       content.style.pointerEvents = p > 0.05 ? "none" : "";
 
@@ -532,7 +543,7 @@ export function initHome(cfg) {
     bigs.forEach((b, i) => b.addEventListener("click", () => OTAGE.openQuick && OTAGE.openQuick(i, b)));
 
     /* Titre de la routine selon le moment choisi */
-    const syncHead = () => (head.textContent = hero.dataset.phase === "soir" ? "Ta routine du soir" : "Ta routine du matin");
+    const syncHead = () => (head.textContent = hero.dataset.phase === "soir" ? TXT.routineSoir : TXT.routineMatin);
     new MutationObserver(syncHead).observe(hero, { attributes: true, attributeFilter: ["data-phase"] });
     syncHead();
 
@@ -584,9 +595,9 @@ export function initHome(cfg) {
       $(".qv-size").textContent = d.size;
       $(".qv-lead").textContent = d.lead;
       $(".qv-chips").innerHTML = d.chips.map((c) => `<li>${c}</li>`).join("");
-      $(".qv-how").innerHTML = `<b>Comment :</b> ${d.how}`;
+      $(".qv-how").innerHTML = `<b>${TXT.how}</b> ${d.how}`;
       $(".qv-when").innerHTML = d.when;
-      $(".qv-buy .o-lbl").textContent = "Commander la gamme";
+      $(".qv-buy .o-lbl").textContent = TXT.orderRange;
       $(".qv-more").href = d.url;
     };
     const open = (i, from) => {
@@ -640,8 +651,8 @@ export function initHome(cfg) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     /* Contenances de chaque format : à modifier ici uniquement (null = contenance à compléter) */
     const F = cfg.formats;
-    const NOMS = { gel: "Gel nettoyant", serum: "Sérum", creme: "Crème", ecran: "Écran solaire" };
-    const mlTxt = (v) => (v ? `${v} ml` : "");
+    const NOMS = TXT.noms;
+    const mlTxt = (v) => (v ? `${v} ${TXT.ml}` : "");
     /* liste des contenances sur chaque carte de format */
     sec.querySelectorAll(".fmt-card").forEach((c) => {
       const f = F[c.dataset.fmt];
@@ -653,25 +664,25 @@ export function initHome(cfg) {
     let fmt = "petit", qty = 3; // l'offre 2 + 1 est proposée d'emblée, on peut repasser à 1 gamme
     /* Produits vendus : la gamme anti-taches (2 formats) et le sérum contour des yeux */
     let prod = "taches";
-    const YEUX = { name: "Sérum contour des yeux", price: cfg.yeuxPrice, was: null, s: "sérum", pl: "sérums", offert: "offert", content: "15 ml, aloe vera, acide hyaluronique, caféine" };
+    const YEUX = { name: TXT.yeuxName, price: cfg.yeuxPrice, was: null, s: TXT.yeuxWord, pl: TXT.yeuxWords, offert: TXT.yeuxFree, content: TXT.yeuxContent };
     const P = () => prod === "yeux" ? YEUX : {
-      name: `Gamme ${F[fmt].label}`, price: F[fmt].price, was: F[fmt].was, s: "gamme", pl: "gammes", offert: "offerte",
-      content: Object.keys(NOMS).map((k) => `${NOMS[k]}${F[fmt].ml[k] ? " " + F[fmt].ml[k] + " ml" : ""}`).join(", "),
+      name: fill(TXT.gammeName, { label: F[fmt].label }), price: F[fmt].price, was: F[fmt].was, s: TXT.gammeWord, pl: TXT.gammeWords, offert: TXT.gammeFree,
+      content: Object.keys(NOMS).map((k) => `${NOMS[k]}${F[fmt].ml[k] ? " " + F[fmt].ml[k] + " " + TXT.ml : ""}`).join(TXT.comma),
     };
     const fmtCh = sec.querySelector(".fmt").closest(".ch");
     /* Galerie : photos du produit avec ses avantages (une galerie par problème) */
     let galFor = null;
-    const pic = (alt) => [...document.querySelectorAll(".camp img")].find((i) => i.alt.includes(alt))?.src;
+    const pic = (file) => [...document.querySelectorAll(".camp img")].find((i) => decodeURIComponent(i.src).includes(file))?.src;
     const GAL = () => prod === "yeux" ? [
-      { img: document.querySelector('.src-yeux-life')?.src, t: "Bille rafraîchissante", s: "Un applicateur bille pour le contour de l'œil, matin et soir." },
-      { img: sec.style.getPropertyValue("--ypack").replace(/^url\(['"]?|['"]?\)$/g, "").trim(), pack: true, t: "Caféine, acide hyaluronique, aloe vera", s: "Les 3 actifs du sérum N° 05, en 15 ml." },
-      { img: pic("pluie de flacons"), t: "Fabriqué au Maroc", s: "Livraison offerte partout au Maroc, paiement à la livraison." },
+      { img: document.querySelector('.src-yeux-life')?.src, ...TXT.galYeux[0] },
+      { img: sec.style.getPropertyValue("--ypack").replace(/^url\(['"]?|['"]?\)$/g, "").trim(), pack: true, ...TXT.galYeux[1] },
+      { img: pic("flacons-otage-trousse"), ...TXT.galYeux[2] },
     ] : [
-      { img: pic("Éclat"), t: "Une routine complète", s: "Nettoyer, traiter, hydrater, protéger : 4 soins qui travaillent ensemble." },
-      { img: pic("tend le sérum"), t: "Alpha-arbutine, matcha, calendula", s: "Le trio du sérum anti-taches N° 02." },
-      { img: pic("gel nettoyant tenu"), t: "Figue de Barbarie et louban", s: "Des ingrédients d'ici, dans un gel nettoyant sans sulfate." },
-      { img: pic("bouée"), t: "SPF 50, haute protection", s: "UVA et UVB, pour que les taches ne reviennent pas." },
-      { img: pic("papier rouge"), t: "Fabriqué au Maroc", s: "Livraison offerte partout au Maroc, paiement à la livraison." },
+      { img: pic("affiche-eclat"), ...TXT.galTaches[0] },
+      { img: pic("femme-serum"), ...TXT.galTaches[1] },
+      { img: pic("gel-nettoyant-anti-taches-mains"), ...TXT.galTaches[2] },
+      { img: pic("plage-bouee"), ...TXT.galTaches[3] },
+      { img: pic("papier-rouge"), ...TXT.galTaches[4] },
     ];
     const ogTrack = document.querySelector(".og-track"), ogDots = document.querySelector(".og-dots");
     const buildGallery = () => {
@@ -685,7 +696,7 @@ export function initHome(cfg) {
       const items = [...ogTrack.children]; if (!items.length) return;
       const pl = parseFloat(getComputedStyle(ogTrack).paddingLeft);
       let idx = 0, best = 1e9;
-      items.forEach((c, i) => { const d = Math.abs(c.offsetLeft - ogTrack.offsetLeft - pl - ogTrack.scrollLeft); if (d < best) { best = d; idx = i; } });
+      items.forEach((c, i) => { const d = Math.abs(startGap(ogTrack, c)); if (d < best) { best = d; idx = i; } });
       [...ogDots.children].forEach((d, i) => d.classList.toggle("on", i === idx));
     };
     let ogT = false;
@@ -722,15 +733,15 @@ export function initHome(cfg) {
       const L = [];
       if (qty === 1) {
         L.push({ k: "main", l: `1 × ${f.name}`, r: money(f.price) });
-        if (f.was) L.push({ k: "was", cls: "sub", l: "Prix boutique", r: `<s>${money(f.was)}</s>` });
+        if (f.was) L.push({ k: "was", cls: "sub", l: TXT.shopPrice, r: `<s>${money(f.was)}</s>` });
       } else {
         L.push({ k: "main", l: `2 × ${f.name}`, r: money(f.price * 2) });
         L.push({ k: "gift", l: `1 × ${f.name}`, r: `<s>${money(f.price)}</s>0,00`, stamp: f.offert });
-        L.push({ k: "per", cls: "sub per", l: `Soit, par ${f.s}`, r: `<s>${money(f.price)}</s>${money(Math.round((f.price * 2) / 3))}` });
+        L.push({ k: "per", cls: "sub per", l: fill(TXT.perItem, { s: f.s }), r: `<s>${money(f.price)}</s>${money(Math.round((f.price * 2) / 3))}` });
       }
-      L.push({ k: "ml", cls: "sub", l: (qty === 3 ? `Chaque ${f.s} : ` : "Contenu : ") + f.content, r: "" });
-      L.push({ k: "liv", l: "Livraison", r: "Offerte" });
-      L.push({ k: "pay", l: "Paiement", r: "À la livraison" });
+      L.push({ k: "ml", cls: "sub", l: (qty === 3 ? fill(TXT.each, { s: f.s }) : TXT.content) + f.content, r: "" });
+      L.push({ k: "liv", l: TXT.delivery, r: TXT.deliveryFree });
+      L.push({ k: "pay", l: TXT.payment, r: TXT.paymentCod });
       return L;
     };
     const html = (x) => `<span>${x.l}</span><span class="r">${x.r}</span>${x.stamp ? `<span class="stamp">${x.stamp}</span>` : ""}`;
@@ -767,8 +778,11 @@ export function initHome(cfg) {
       const f = P();
       const total = qty === 3 ? f.price * 2 : f.price;
       const save = qty === 3 ? f.price : (f.was ? f.was - f.price : 0);
-      const what = prod === "yeux" ? "Sérum contour des yeux" : F[fmt].label;
-      return { total, save, recap: `${what}, ${qty === 3 ? `2 ${f.pl} + 1 ${f.offert}` : `1 ${f.s}`}` };
+      const what = prod === "yeux" ? TXT.yeuxName : F[fmt].label;
+      // recapFr : toujours en français, c'est ce qui est écrit dans le tableur des commandes
+      const whatFr = prod === "yeux" ? "Sérum contour des yeux" : F[fmt].labelFr;
+      const recapFr = `${whatFr}, ${qty === 3 ? (prod === "yeux" ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : prod === "yeux" ? "1 sérum" : "1 gamme"}`;
+      return { total, save, recapFr, recap: `${what}${TXT.comma}${qty === 3 ? fill(TXT.recapBundle, { pl: f.pl, free: f.offert }) : fill(TXT.recapOne, { s: f.s })}` };
     };
     const render = (first) => {
       sec.querySelectorAll(".fmt-card").forEach((c) => {
@@ -784,7 +798,7 @@ export function initHome(cfg) {
       });
       sec.classList.toggle("p-yeux", prod === "yeux");
       if (galFor !== prod) { galFor = prod; buildGallery(); }
-      $("[data-offer-for]").textContent = prod === "yeux" ? "Pour ton sérum contour des yeux." : "Pour ta routine anti-taches.";
+      $("[data-offer-for]").textContent = prod === "yeux" ? TXT.offerForYeux : TXT.offerForTaches;
       sec.querySelectorAll(".psw").forEach((b) => { const on = b.dataset.prod === prod; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
       fmtCh.hidden = true; // le format se change dans le formulaire (bouton Grand format)
       print(first);
@@ -795,10 +809,10 @@ export function initHome(cfg) {
       count($("[data-mini]"), t.total);
       $("[data-recap]").textContent = t.recap;
       const f = P(), per = Math.round((f.price * 2) / 3);
-      $("[data-badge]").textContent = `2 + 1 ${f.offert}`;
-      $("[data-n3]").textContent = `3 ${f.pl}`;
-      $("[data-n1]").textContent = `1 ${f.s}`;
-      $("[data-unit]").textContent = prod === "yeux" ? "DH le sérum" : "DH la gamme";
+      $("[data-badge]").textContent = fill(TXT.badge, { free: f.offert });
+      $("[data-n3]").textContent = fill(TXT.three, { pl: f.pl });
+      $("[data-n1]").textContent = fill(TXT.one, { s: f.s });
+      $("[data-unit]").textContent = prod === "yeux" ? TXT.unitYeux : TXT.unitGamme;
       // option 3 gammes
       $("[data-o-old]").textContent = f.price;
       count($("[data-o-per]"), per);
@@ -811,13 +825,13 @@ export function initHome(cfg) {
       sec.querySelectorAll(".fmt-card").forEach((c) => {
         const g = F[c.dataset.fmt], gp = Math.round((g.price * 2) / 3);
         c.querySelector(".fmt-price").innerHTML = qty === 3
-          ? `<b>${gp}</b> DH <small>la gamme</small>`
-          : `<b>${g.price}</b> DH`;
+          ? fill(TXT.fmtPer, { p: gp })
+          : fill(TXT.fmtOne, { p: g.price });
         c.querySelector(".fmt-was").innerHTML = qty === 3
-          ? `<span>Total ${g.price * 2} DH pour 3</span>`
-          : `<s>${g.was} DH</s><em>−${g.was - g.price} DH</em>`;
+          ? fill(TXT.fmtTotal3, { t: g.price * 2 })
+          : fill(TXT.fmtWas, { was: g.was, diff: g.was - g.price });
       });
-      $("[data-mini-lbl]").textContent = qty === 3 ? `3 ${f.pl}` : `1 ${f.s}`;
+      $("[data-mini-lbl]").textContent = qty === 3 ? fill(TXT.three, { pl: f.pl }) : fill(TXT.one, { s: f.s });
       $("[data-total2]").textContent = t.total;
       $("[data-total3]").textContent = t.total;
       sec.querySelectorAll(".fsw").forEach((b) => { const on = b.dataset.f === fmt; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
@@ -826,10 +840,10 @@ export function initHome(cfg) {
         ups.hidden = prod === "yeux";
         const grand = fmt === "grand";
         ups.setAttribute("aria-pressed", String(grand));
-        $("[data-ups-t]").textContent = grand ? "Grand format choisi" : "Passer au Grand format";
+        $("[data-ups-t]").textContent = grand ? TXT.upsOn : TXT.upsOff;
         $("[data-ups-s]").textContent = grand
-          ? (qty === 3 ? `Gel ${G.ml.gel} ml, sérum ${G.ml.serum} ml, crème ${G.ml.creme} ml. Touche pour revenir au Petit format (${Pt.price * 2} DH).` : `Flacons plus grands. Touche pour revenir au Petit format (${Pt.price} DH).`)
-          : (qty === 3 ? `Flacons plus grands : ${Math.round((G.price * 2) / 3)} DH la gamme, ${G.price * 2} DH les 3.` : `Flacons plus grands : ${G.price} DH au lieu de ${G.was} DH.`);
+          ? (qty === 3 ? fill(TXT.upsBackBundle, { gel: G.ml.gel, serum: G.ml.serum, creme: G.ml.creme, total: Pt.price * 2 }) : fill(TXT.upsBack, { total: Pt.price }))
+          : (qty === 3 ? fill(TXT.upsGoBundle, { per: Math.round((G.price * 2) / 3), total: G.price * 2 }) : fill(TXT.upsGo, { price: G.price, was: G.was }));
       }
       // le surligneur repasse sur l'économie
       if (!first && !reduce) {
@@ -1002,8 +1016,8 @@ export function initHome(cfg) {
       });
       if (bad.length) {
         err.textContent = bad.length === 1 && bad[0].name === "tel"
-          ? "Vérifie ton numéro : 10 chiffres, qui commencent par 05, 06 ou 07."
-          : "Remplis les champs en rouge pour qu'on puisse te livrer.";
+          ? TXT.errPhone
+          : TXT.errFields;
         bad[0].focus();
         return;
       }
@@ -1019,17 +1033,17 @@ export function initHome(cfg) {
         ville: String(fd.get("ville") || "").trim(),
         adresse: String(fd.get("adresse") || "").trim(),
         produit: prod === "yeux" ? "Sérum contour des yeux" : "Gamme anti-taches",
-        format: prod === "yeux" ? "Unique (15 ml)" : F[fmt].label,
+        format: prod === "yeux" ? "Unique (15 ml)" : F[fmt].labelFr,
         quantite: qty === 3 ? "3 (2 + 1 offerte)" : "1",
         total: t.total,
-        offre: t.recap,
+        offre: t.recapFr,
         page: location.href.split("#")[0],
       };
       sendOrder(order);
-      $("[data-thanks]").textContent = `Merci, ${String(fd.get("nom")).trim().split(/\s+/)[0]} !`;
+      $("[data-thanks]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       $(".stub-act").hidden = true;
       $(".stub-done").hidden = false;
-      $("[data-thanks2]").textContent = `Merci, ${String(fd.get("nom")).trim().split(/\s+/)[0]} !`;
+      $("[data-thanks2]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       form.hidden = true;
       $(".cur-done").hidden = false;
       sec.classList.add("done", "locked");
@@ -1076,7 +1090,7 @@ export function initHome(cfg) {
       sec.style.height = (H + span * 1.15) + "px";       // 1 px de scroll vertical ≈ 0,87 px de déplacement
       top = sec.getBoundingClientRect().top + window.scrollY;
       total = Math.max(1, sec.offsetHeight - H);
-      centers = posters.map((p) => p.offsetLeft + p.offsetWidth / 2);
+      centers = posters.map((p) => { if (!RTL) return p.offsetLeft + p.offsetWidth / 2; const r = p.getBoundingClientRect(); return r.left + r.width / 2; });
       cur = target = read();
       apply(cur);
     };
@@ -1084,12 +1098,13 @@ export function initHome(cfg) {
 
     let last = -1;
     const apply = (k) => {
-      const x = -span * k;
+      const x = -span * k * D;                            // en RTL, le mur part de la droite et avance vers la droite
       track.style.transform = `translate3d(${x.toFixed(1)}px, 0, 0)`;
       bar.style.setProperty("--cp", k.toFixed(4));
       let best = 0, bd = 1e9;
       posters.forEach((p, i) => {
-        const c = centers[i] + x;                         // centre de l'affiche à l'écran
+        const cs = centers[i] + x;                        // centre de l'affiche à l'écran
+        const c = RTL ? W - cs : cs;                      // en RTL on raisonne en miroir : les affiches arrivent par la gauche
         const d = (c - W / 2) / W;                        // -0.5 … 0.5 quand elle est visible
         // collée en arrivant par la droite : elle se déroule et se pose
         const enter = Math.min(1, Math.max(0, (W * 1.05 - c) / (W * 0.45)));
@@ -1098,7 +1113,7 @@ export function initHome(cfg) {
         p.style.setProperty("--sc", (0.94 + 0.06 * e).toFixed(4));
         p.style.setProperty("--lift", ((1 - e) * 26).toFixed(1) + "px");
         // profondeur : l'image glisse un peu dans son cadre
-        p.style.setProperty("--px", (-d * 26).toFixed(1) + "px");
+        p.style.setProperty("--px", (-d * 26 * D).toFixed(1) + "px");
         if (Math.abs(c - W / 2) < bd) { bd = Math.abs(c - W / 2); best = i; }
       });
       if (best !== last) { last = best; cc.textContent = String(best + 1).padStart(2, "0"); }
@@ -1126,7 +1141,7 @@ export function initHome(cfg) {
       if (horiz === null && Math.hypot(dx, dy) > 8) horiz = Math.abs(dx) > Math.abs(dy) || e.pointerType === "mouse";
       if (!horiz) return;
       dragged = Math.abs(dx) > 6;
-      window.scrollTo(0, sScroll - (dx / 0.87) * (e.pointerType === "mouse" ? 1 : 1.1));
+      window.scrollTo(0, sScroll - (dx * D / 0.87) * (e.pointerType === "mouse" ? 1 : 1.1));
     }, { passive: true });
     const up = () => { sx = null; setTimeout(() => (dragged = false), 0); };
     window.addEventListener("pointerup", up);
@@ -1180,7 +1195,7 @@ export function initHome(cfg) {
         me.classList.add("read");
         if (reduce) { bubble("them", a.map((x) => `<p>${x}</p>`).join("")); busy = false; return; }
         const t = document.createElement("div");
-        t.className = "typing"; t.setAttribute("aria-label", "OTAGE écrit…");
+        t.className = "typing"; t.setAttribute("aria-label", TXT.typing);
         t.innerHTML = "<i></i><i></i><i></i>";
         log.appendChild(t); bottom();
         setTimeout(() => { t.remove(); bubble("them", a.map((x) => `<p>${x}</p>`).join("")); busy = false; }, wait);
@@ -1199,7 +1214,7 @@ export function initHome(cfg) {
       const open = all.hidden;
       all.hidden = !open;
       allBtn.setAttribute("aria-expanded", String(open));
-      allBtn.textContent = open ? "Masquer la liste des réponses" : "Voir toutes les réponses d'un coup";
+      allBtn.textContent = open ? TXT.hideAll : TXT.showAll;
       if (open) all.querySelector("summary").focus();
     });
 
@@ -1349,7 +1364,7 @@ export function initHome(cfg) {
       - exemple: true affiche l'étiquette « Exemple ». Supprime ces exemples avant la mise en ligne.
     */
     const AVIS = cfg.reviews;
-    const NOMS = ["Gel nettoyant", "Sérum anti-taches", "Crème anti-taches", "Écran solaire SPF 50"];
+    const NOMS = TXT.reviewNames;
     const KEYS = ["gel", "serum", "creme", "ecran"];
     const track = sec.querySelector(".rv-track"), dots = sec.querySelector(".rv-dots");
     if (!AVIS.length) { sec.hidden = true; return; }
@@ -1360,11 +1375,11 @@ export function initHome(cfg) {
       const ini = (a.prenom || "?").trim().charAt(0).toUpperCase();
       const gamme = a.soin === "gamme";
       const thumb = gamme ? document.querySelector(".pin.gel img").src : document.querySelector(`.pin.${KEYS[a.soin]} img`).src;
-      const msgs = a.messages.map((m) => `<div class="rb ${m.de === "otage" ? "o" : "c"}"${m.rtl ? ' dir="rtl" lang="ar"' : ""}>${m.photo ? `<img src="${esc(m.photo)}" alt="Photo envoyée par ${esc(a.prenom)}" loading="lazy">` : ""}${esc(m.texte)}<time>${esc(m.heure || "")}</time></div>`).join("");
-      return `<article class="rcard" aria-label="Avis de ${esc(a.prenom)}, ${esc(a.ville)}">
-        <div class="rc-top"><span class="rc-av" aria-hidden="true">${esc(ini)}</span><span class="rc-who"><b>${esc(a.prenom)}</b><span>${esc(a.ville)}</span></span>${a.exemple ? '<span class="rc-demo">Exemple</span>' : ""}</div>
+      const msgs = a.messages.map((m) => `<div class="rb ${m.de === "otage" ? "o" : "c"}"${m.rtl ? ' dir="rtl" lang="ar"' : ' dir="ltr" lang="fr"'}>${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(fill(TXT.photoBy, { name: a.prenom }))}" loading="lazy">` : ""}${esc(m.texte)}<time dir="ltr" lang="fr">${esc(m.heure || "")}</time></div>`).join("");
+      return `<article class="rcard" aria-label="${esc(fill(TXT.reviewOf, { name: a.prenom, city: a.ville }))}">
+        <div class="rc-top"><span class="rc-av" aria-hidden="true">${esc(ini)}</span><span class="rc-who"><b dir="ltr" lang="fr">${esc(a.prenom)}</b><span>${esc(a.ville)}</span></span>${a.exemple ? `<span class="rc-demo">${TXT.example}</span>` : ""}</div>
         <div class="rc-log">${msgs}</div>
-        <button type="button" class="rc-prod" data-i="${i}"><img src="${thumb}" alt=""><span>${gamme ? "La gamme complète" : NOMS[a.soin]}</span><i aria-hidden="true">+</i></button>
+        <button type="button" class="rc-prod" data-i="${i}"><img src="${thumb}" alt=""><span>${gamme ? TXT.fullRange : NOMS[a.soin]}</span><i aria-hidden="true">+</i></button>
       </article>`;
     }).join("");
     track.querySelectorAll(".rc-prod").forEach((b) => b.addEventListener("click", () => {
@@ -1378,13 +1393,13 @@ export function initHome(cfg) {
     dots.innerHTML = cards.map(() => "<i></i>").join("");
     const prev = sec.querySelector(".rv-prev"), next = sec.querySelector(".rv-next");
     const upd = () => {
-      const x = track.scrollLeft, max = track.scrollWidth - track.clientWidth - 2;
+      const x = Math.abs(track.scrollLeft), max = track.scrollWidth - track.clientWidth - 2; // scrollLeft est négatif en RTL
       let idx = 0, best = 1e9;
-      cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft - track.offsetLeft - x - parseFloat(getComputedStyle(track).paddingLeft)); if (d < best) { best = d; idx = i; } });
+      cards.forEach((c, i) => { const d = Math.abs(startGap(track, c)); if (d < best) { best = d; idx = i; } });
       [...dots.children].forEach((d, i) => d.classList.toggle("on", i === idx));
       prev.disabled = x < 4; next.disabled = x > max;
     };
-    const step = (dir) => track.scrollBy({ left: dir * (cards[0].offsetWidth + 16), behavior: "smooth" });
+    const step = (dir) => track.scrollBy({ left: D * dir * (cards[0].offsetWidth + 16), behavior: "smooth" });
     prev.addEventListener("click", () => step(-1));
     next.addEventListener("click", () => step(1));
     let t = false;
@@ -1409,13 +1424,13 @@ export function initHome(cfg) {
       const upd = () => {
         const pl = parseFloat(getComputedStyle(track).paddingLeft);
         let idx = 0, best = 1e9;
-        items.forEach((c, i) => { const d = Math.abs(c.offsetLeft - track.offsetLeft - pl - track.scrollLeft); if (d < best) { best = d; idx = i; } });
+        items.forEach((c, i) => { const d = Math.abs(startGap(track, c)); if (d < best) { best = d; idx = i; } });
         if (dots) [...dots.children].forEach((d, i) => d.classList.toggle("on", i === idx));
-        if (prev) { prev.disabled = track.scrollLeft < 4; next.disabled = track.scrollLeft > track.scrollWidth - track.clientWidth - 4; }
+        if (prev) { const x = Math.abs(track.scrollLeft); prev.disabled = x < 4; next.disabled = x > track.scrollWidth - track.clientWidth - 4; }
       };
-      const go = (i) => { const c = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollTo({ left: c.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: reduce ? "auto" : "smooth" }); };
-      prev && prev.addEventListener("click", () => track.scrollBy({ left: -(items[0].offsetWidth + 12), behavior: "smooth" }));
-      next && next.addEventListener("click", () => track.scrollBy({ left: items[0].offsetWidth + 12, behavior: "smooth" }));
+      const go = (i) => { const c = items[Math.max(0, Math.min(items.length - 1, i))]; track.scrollBy({ left: D * startGap(track, c), behavior: reduce ? "auto" : "smooth" }); };
+      prev && prev.addEventListener("click", () => track.scrollBy({ left: -D * (items[0].offsetWidth + 12), behavior: "smooth" }));
+      next && next.addEventListener("click", () => track.scrollBy({ left: D * (items[0].offsetWidth + 12), behavior: "smooth" }));
       let t = false;
       track.addEventListener("scroll", () => { if (!t) { t = true; requestAnimationFrame(() => { t = false; upd(); }); } }, { passive: true });
       window.addEventListener("resize", upd);

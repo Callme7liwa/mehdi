@@ -21,7 +21,7 @@ const copy = {
     description: "منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. توصيل مجاني.",
     h1: "منتجات OTAGE",
     lead: "روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، توصيل مجاني والدفع عند الاستلام.",
-    offer: (p: number, b: number) => `المجموعة الكاملة ضد البقع ابتداءً من ${p} درهم، أو ${b} درهم للمجموعة مع عرض 2 + 1.`,
+    offer: (p: number, b: number) => `المجموعة الكاملة ضد البقع ابتداءً من ${p} درهم، أو ${b} درهم للمجموعة مع عرض ⁦2 + 1⁩.`,
   },
 };
 
@@ -34,7 +34,7 @@ export default function ProductsIndex({ locale }: { locale: Locale }) {
   return (
     <>
       <JsonLd
-        data={graph(orgLd(), webPageLd({ locale, path: "/soins", title: c.title, description: c.description, type: "CollectionPage" }), breadcrumbLd(locale, crumbs), {
+        data={graph(orgLd(locale), webPageLd({ locale, path: "/soins", title: c.title, description: c.description, type: "CollectionPage" }), breadcrumbLd(locale, crumbs), {
           "@type": "ItemList",
           itemListElement: products.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.name[locale], url: abs(localePath(locale, `/soins/${p.slug}`)) })),
         })}
@@ -52,7 +52,7 @@ export default function ProductsIndex({ locale }: { locale: Locale }) {
           <div className="band">
             <h2>{gamme.name[locale]}</h2>
             <p>{c.offer(P, bundleUnit(P))}</p>
-            <a className="btn btn-primary" href={locale === "fr" ? "/#offres" : "/ar#commander"}>{t.orderRange}<BagIcon /></a>
+            <a className="btn btn-primary" href={`${localePath(locale, "/")}#offres`}>{t.orderRange}<BagIcon /></a>
           </div>
         </section>
       </main>

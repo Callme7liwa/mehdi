@@ -39,23 +39,23 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
 /* ---------- JSON-LD ---------- */
 
 const ORG = { "@id": abs("/#organization") };
-const MAROC = { "@type": "Country", name: "Maroc" };
+const maroc = (locale: Locale = "fr") => ({ "@type": "Country", name: locale === "ar" ? "المغرب" : "Maroc" });
 
-export const orgLd = () => ({
+export const orgLd = (locale: Locale = "fr") => ({
   "@type": "Organization",
   "@id": abs("/#organization"),
   name: site.name,
   url: abs("/"),
   logo: { "@type": "ImageObject", url: abs("/images/icon-512.png"), width: 512, height: 512 },
   image: abs(OG_IMAGE.src),
-  description: site.description.fr,
-  slogan: site.slogan.fr,
+  description: site.description[locale],
+  slogan: site.slogan[locale],
   sameAs: [site.instagram.url],
-  areaServed: MAROC,
+  areaServed: maroc(locale),
   contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: site.whatsapp.e164, availableLanguage: ["fr", "ar"], areaServed: "MA" },
 });
 
-export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: "fr-MA", publisher: ORG });
+export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
 
 export const webPageLd = (o: { locale: Locale; path: string; title: string; description: string; image?: Img; type?: string }) => {
   const url = abs(localePath(o.locale, o.path));
@@ -114,14 +114,14 @@ export const offerLd = (price: number, url: string) => ({
   ...returnPolicy(),
 });
 
-const productBase = (name: string, description: string, images: Img[], category: string) => ({
+const productBase = (name: string, description: string, images: Img[], category: string, locale: Locale = "fr") => ({
   "@type": "Product",
   name,
   description,
   image: images.map((i) => abs(i.src)),
   brand: { "@type": "Brand", name: site.name },
   manufacturer: ORG,
-  countryOfOrigin: MAROC,
+  countryOfOrigin: maroc(locale),
   category,
 });
 
@@ -131,7 +131,7 @@ export function productLd(p: Product, locale: Locale) {
   const price = p.unitPrice.petit as number;
   const size = p.ml.petit ? `${p.ml.petit} ml` : undefined;
   return {
-    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches"),
+    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], locale === "ar" ? (p.range === "yeux" ? "العناية بمحيط العين" : "العناية بالوجه ضد البقع") : p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches", locale),
     "@id": `${url}#product`,
     url,
     ...(size ? { size } : {}),
@@ -149,18 +149,21 @@ export function gammeLd(format: FormatKey, desc: string) {
   };
 }
 
-export const articleLd = (o: { path: string; title: string; description: string; image: Img }) => ({
-  "@type": "Article",
-  "@id": `${abs(o.path)}#article`,
-  headline: o.title,
-  description: o.description,
-  image: abs(o.image.src),
-  inLanguage: "fr-MA",
-  datePublished: site.updated,
-  dateModified: site.updated,
-  author: ORG,
-  publisher: ORG,
-  mainEntityOfPage: abs(o.path),
-});
+export const articleLd = (o: { locale: Locale; path: string; title: string; description: string; image: Img }) => {
+  const url = abs(localePath(o.locale, o.path));
+  return {
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: o.title,
+    description: o.description,
+    image: abs(o.image.src),
+    inLanguage: o.locale === "ar" ? "ar-MA" : "fr-MA",
+    datePublished: site.updated,
+    dateModified: site.updated,
+    author: ORG,
+    publisher: ORG,
+    mainEntityOfPage: url,
+  };
+};
 
 export const graph = (...nodes: object[]) => ({ "@context": "https://schema.org", "@graph": nodes });

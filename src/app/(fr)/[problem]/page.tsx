@@ -8,11 +8,11 @@ export const generateStaticParams = () => problems.map((p) => ({ problem: p.slug
 
 export async function generateMetadata({ params }: PageProps<"/[problem]">) {
   const p = problemBySlug((await params).problem);
-  return p ? problemMetadata(p) : {};
+  return p ? problemMetadata(p, "fr") : {};
 }
 
 export default async function Page({ params }: PageProps<"/[problem]">) {
   const p = problemBySlug((await params).problem);
   if (!p) notFound();
-  return <ProblemPage p={p} />;
+  return <ProblemPage p={p} locale="fr" />;
 }

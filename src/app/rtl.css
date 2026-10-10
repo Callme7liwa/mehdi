@@ -1,0 +1,34 @@
+/* Adaptations pour l'arabe (pages /ar, dir="rtl").
+   La mise en page elle-même s'inverse toute seule : home.css et site.css utilisent des propriétés logiques
+   (inline-start/end) et la variable --dir pour les déplacements. Ce fichier ne contient que ce que le sens
+   de lecture ne règle pas : les polices, la typographie arabe et les icônes directionnelles. */
+html[dir="rtl"] {
+  /* l'arabe d'abord (IBM Plex Sans Arabic), puis DM Sans pour les chiffres et les mots latins */
+  --font-dm-sans: var(--font-ar), var(--font-latin);
+  /* prix en Bodoni, ticket en DM Mono : le mot arabe qui suit (درهم…) retombe sur la police arabe */
+  --font-bodoni: var(--font-bodoni-latin), var(--font-ar);
+  --font-dm-mono: var(--font-mono-latin), var(--font-ar);
+  --font-plex-arabic: var(--font-ar);
+  /* -1 : inverse les déplacements horizontaux écrits avec calc(… * var(--dir)) */
+  --dir: -1;
+}
+
+/* L'arabe est une écriture liée : aucun espacement entre les lettres, pas de capitales */
+html[dir="rtl"] body :not([dir="ltr"], [dir="ltr"] *) { letter-spacing: 0 !important; text-transform: none !important; }
+
+/* Interlignage : les lettres arabes montent et descendent plus que les lettres latines */
+html[dir="rtl"] body { line-height: 1.75; }
+html[dir="rtl"] :is(h1, h2, h3, .title, .o-lbl) { line-height: 1.35; }
+html[dir="rtl"] :is(h1, h2, h3, .title) { font-weight: 600; }
+html[dir="rtl"] .title { line-height: 1.3; }
+html[dir="rtl"] .title .kick { font-size: clamp(14px, 1.4vw, 17px); font-weight: 500; margin-bottom: 0.9em; opacity: 0.85; }
+html[dir="rtl"] .title mark { padding-block: 0.02em 0.12em; }
+
+/* Flèches et chevrons : ils pointent dans le sens de la lecture (propriété scale, indépendante des animations) */
+html[dir="rtl"] :is(.pb-go, .hz-arr, .car-nav svg, .rv-nav svg, .cta-l svg, .chip i svg, .drop-arrow) { scale: -1 1; }
+
+/* Ce qui ne s'inverse pas : numéros de téléphone */
+html[dir="rtl"] input[type="tel"] { direction: ltr; text-align: right; }
+
+/* Page 404 : le bloc arabe est lisible même sans JavaScript */
+[data-nf="ar"] { --sans: var(--font-ar), var(--font-latin), sans-serif; font-family: var(--sans); }

@@ -1,7 +1,8 @@
 import "./home.css";
 import { gamme, productByKey, rangeProducts } from "@/data/products";
 import { reviews } from "@/data/reviews";
-import { site } from "@/data/site";
+import { site, type Locale } from "@/data/site";
+import { localePath } from "@/lib/seo";
 import HomeScripts from "./HomeScripts";
 import type { HomeConfig } from "./home-init";
 import Campaign from "./sections/Campaign";
@@ -15,6 +16,8 @@ import Hero from "./sections/Hero";
 import Hesite from "./sections/Hesite";
 import Offers from "./sections/Offers";
 import QuickView from "./sections/QuickView";
+import { homeText } from "./text";
+import { homeJsText } from "./text-js";
 
 const lowerFirst = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
 const ml = (f: "petit" | "grand") => ({
@@ -25,47 +28,56 @@ const ml = (f: "petit" | "grand") => ({
 });
 
 /** Données passées aux scripts d'animation : tout vient de src/data/. */
-const cfg: HomeConfig = {
-  whatsapp: site.whatsapp.wa,
-  ordersEndpoint: site.ordersEndpoint,
-  formats: {
-    petit: { label: gamme.formats.petit.label.fr, price: gamme.formats.petit.price, was: gamme.formats.petit.was, ml: ml("petit") },
-    grand: { label: gamme.formats.grand.label.fr, price: gamme.formats.grand.price, was: gamme.formats.grand.was, ml: ml("grand") },
-  },
-  yeuxPrice: productByKey("yeux").unitPrice.petit as number,
-  quick: rangeProducts.map((p) => ({
-    num: `${p.no} / 04`,
-    name: p.name.fr,
-    size: `${p.ml.grand} ml`,
-    lead: p.lead.fr,
-    chips: p.ingredients.map((i) => i.fr),
-    how: lowerFirst(p.how.fr),
-    when: `Étape ${p.step} de la routine, <b>${p.step === 4 ? "le matin uniquement" : "matin et soir"}</b>.`,
-    url: `/soins/${p.slug}`,
-  })),
-  reviews,
-};
+function config(locale: Locale): HomeConfig {
+  const ar = locale === "ar";
+  const t = homeJsText[locale];
+  const fmt = (f: "petit" | "grand") => ({ label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, price: gamme.formats[f].price, was: gamme.formats[f].was, ml: ml(f) });
+  return {
+    t,
+    rtl: ar,
+    whatsapp: site.whatsapp.wa,
+    ordersEndpoint: site.ordersEndpoint,
+    formats: { petit: fmt("petit"), grand: fmt("grand") },
+    yeuxPrice: productByKey("yeux").unitPrice.petit as number,
+    quick: rangeProducts.map((p) => ({
+      num: `${p.no} / 04`,
+      name: p.name[locale],
+      size: `${p.ml.grand} ${t.ml}`,
+      lead: p.lead[locale],
+      chips: p.ingredients.map((i) => i[locale]),
+      how: ar ? p.how.ar : lowerFirst(p.how.fr),
+      when: ar
+        ? `الخطوة ${p.step} في الروتين، <b>${p.step === 4 ? "في الصباح فقط" : "صباحًا ومساءً"}</b>.`
+        : `Étape ${p.step} de la routine, <b>${p.step === 4 ? "le matin uniquement" : "matin et soir"}</b>.`,
+      url: localePath(locale, `/soins/${p.slug}`),
+    })),
+    // les messages des clientes restent dans leur langue d'origine ; seule l'étiquette est traduite
+    reviews: reviews.map((r) => ({ ...r, ville: r.ville === "Cliente OTAGE" ? t.customer : r.ville })),
+  };
+}
 
 /* Avant l'affichage : le ciel prend tout de suite la bonne couleur (matin ou soir, heure du Maroc),
    sans attendre le chargement des scripts. Même règle que setPhase() dans home-init.js. */
 const phaseScript = `(function(){try{var h=document.querySelector(".hero"),s=null,hr;try{s=localStorage.getItem("otage-moment")}catch(e){}try{hr=Number(new Intl.DateTimeFormat("fr-FR",{hour:"numeric",hourCycle:"h23",timeZone:"Africa/Casablanca"}).format(new Date()))}catch(e){hr=new Date().getHours()}var p=s==="matin"||s==="soir"?s:hr>=5&&hr<17?"matin":"soir";h.dataset.phase=p;h.querySelectorAll(".switch button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.set===p))});if(p==="soir")h.querySelector(".pin.ecran").classList.add("off")}catch(e){}})()`;
 
-export default function HomePage() {
+/** La page d'accueil animée, en français (/) ou en arabe (/ar, de droite à gauche). */
+export default function HomePage({ locale }: { locale: Locale }) {
+  const t = homeText[locale];
   return (
     <>
-      <Hero />
+      <Hero t={t} locale={locale} />
       <script dangerouslySetInnerHTML={{ __html: phaseScript }} />
-      <QuickView />
-      <Diagnostic />
-      <Offers />
-      <Discover />
-      <Campaign />
-      <Faq />
-      <Gallery />
-      <Footer />
-      <Hesite />
-      <Fab />
-      <HomeScripts cfg={cfg} />
+      <QuickView t={t} />
+      <Diagnostic t={t} />
+      <Offers t={t} />
+      <Discover t={t} locale={locale} />
+      <Campaign t={t} />
+      <Faq t={t} locale={locale} />
+      <Gallery t={t} />
+      <Footer t={t} locale={locale} />
+      <Hesite t={t} />
+      <Fab t={t} />
+      <HomeScripts cfg={config(locale)} />
     </>
   );
 }

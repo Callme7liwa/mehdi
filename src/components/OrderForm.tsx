@@ -9,6 +9,8 @@ export type OrderData = {
   product: "taches" | "yeux";
   formats: Record<"petit" | "grand", { label: string; labelFr: string; price: number; was: number; content: string }>;
   yeuxPrice: number;
+  /** Villes proposées, dans la langue de la page. */
+  cities: string[];
 };
 export type OrderText = Record<
   | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
@@ -19,7 +21,6 @@ export type OrderText = Record<
 
 const QUEUE = "otage-commandes-en-attente"; // même file d'attente que la page d'accueil
 const CLIENT = "otage-client";
-const CITIES = ["Casablanca", "Rabat", "Salé", "Fès", "Marrakech", "Tanger", "Agadir", "Meknès", "Oujda", "Kénitra", "Tétouan", "El Jadida"];
 const telOk = (v: string) => /^(?:\+212|00212|0)[5-7]\d{8}$/.test(v.replace(/[\s.-]/g, ""));
 
 const readQ = (): object[] => { try { return JSON.parse(localStorage.getItem(QUEUE) || "[]"); } catch { return []; } };
@@ -138,7 +139,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           <label className="field">{t.phone}<input name="tel" type="tel" inputMode="tel" autoComplete="tel" dir="ltr" placeholder={t.phonePh} {...invalid("tel")} /></label>
           <label className="field">{t.city}<input name="ville" list={`${id}-villes`} autoComplete="address-level2" placeholder={t.cityPh} {...invalid("ville")} /></label>
           <label className="field"><span>{t.address} <small>{t.addressOpt}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.addressPh} /></label>
-          <datalist id={`${id}-villes`}>{CITIES.map((c) => <option key={c}>{c}</option>)}</datalist>
+          <datalist id={`${id}-villes`}>{data.cities.map((c) => <option key={c}>{c}</option>)}</datalist>
         </div>
         <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       </fieldset>

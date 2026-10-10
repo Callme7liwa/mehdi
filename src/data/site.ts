@@ -62,8 +62,9 @@ export const site = {
   updated: "2026-10-10",
 
   /** Les pages en arabe restent hors de l'index Google (noindex, absentes du sitemap et des hreflang)
-      tant que la traduction n'a pas été relue par un natif. Passer à true après relecture. */
-  arIndexable: false,
+      tant que la traduction n'a pas été relue par un natif. Après relecture : remplacer la ligne par
+      `arIndexable: true,`. (AR_INDEXABLE=1 au build permet de tester sans modifier ce fichier.) */
+  arIndexable: process.env.AR_INDEXABLE === "1",
 } as const;
 
 /** Adresse absolue d'un chemin du site. */

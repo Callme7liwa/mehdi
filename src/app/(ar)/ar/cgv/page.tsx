@@ -46,7 +46,8 @@ export default function Page() {
       <p>يتم الدفع عند الاستلام، نقدًا، عند تسليم الطرد. لا يُطلب أي دفع عبر الإنترنت.</p>
 
       <h2>7. الإرجاع، الاستبدال والشكايات</h2>
-      <p>{site.returns ? site.returns.ar : <Todo locale="ar">سياسة الإرجاع (المدة، الشروط، التكاليف، المنتجات المفتوحة)</Todo>}</p>
+      <p>{site.claims.ar}</p>
+      <p>{site.returns ? site.returns.ar : <Todo locale="ar">مدة الإرجاع والتكاليف</Todo>}</p>
       <p>لأي شكاية، راسلينا عبر واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span>.</p>
 
       <h2>8. احتياطات الاستعمال</h2>

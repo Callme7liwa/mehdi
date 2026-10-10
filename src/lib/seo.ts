@@ -52,7 +52,16 @@ export const orgLd = (locale: Locale = "fr") => ({
   slogan: site.slogan[locale],
   sameAs: [site.instagram.url],
   areaServed: maroc(locale),
-  contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: site.whatsapp.e164, availableLanguage: ["fr", "ar"], areaServed: "MA" },
+  email: site.email,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: site.whatsapp.e164,
+    email: site.email,
+    availableLanguage: ["fr", "ar"],
+    areaServed: "MA",
+    hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
+  },
 });
 
 export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
@@ -91,12 +100,12 @@ const shipping = () => ({
   shippingDestination: { "@type": "DefinedRegion", addressCountry: site.delivery.country },
   deliveryTime: {
     "@type": "ShippingDeliveryTime",
-    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
+    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
     transitTime: { "@type": "QuantitativeValue", minValue: Math.round(site.delivery.minHours / 24), maxValue: Math.round(site.delivery.maxHours / 24), unitCode: "DAY" },
   },
 });
 
-/** Politique de retour : absente du JSON-LD tant que site.returns n'est pas renseigné (TODO). */
+/** Politique de retour : pas de hasMerchantReturnPolicy tant que le délai et les frais ne sont pas définis (TODO, site.returns). */
 const returnPolicy = () =>
   site.returns
     ? { hasMerchantReturnPolicy: { "@type": "MerchantReturnPolicy", applicableCountry: "MA", returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays: site.returns.days, returnMethod: "https://schema.org/ReturnByMail" } }

@@ -24,9 +24,12 @@ export const site = {
     /** Format wa.me : international, sans + ni espaces. */
     wa: "212688918201",
     e164: "+212688918201",
-    display: "06 88 91 82 01",
+    display: "+212 6 88 91 82 01",
   },
   instagram: { handle: "@otage.1", url: "https://www.instagram.com/otage.1/" },
+  email: "Dr.mouldwa@gmail.com",
+  /** Disponibilité du service client. */
+  availability: { fr: "24 h/24", ar: "على مدار الساعة" } as L,
 
   /** Application web Google Apps Script qui reçoit les commandes (Google Sheet + e-mail). */
   ordersEndpoint: "https://script.google.com/macros/s/AKfycbx3oe7dX8dQH3r7bBNo0am2F4Egk9jNVdc5h6-yvWQ-e55La6RJCxxH1vkp8KOIf_tb/exec",
@@ -34,16 +37,22 @@ export const site = {
   delivery: {
     country: "MA",
     free: true,
-    minHours: 48,
+    minHours: 24,
     maxHours: 72,
-    label: { fr: "48 à 72 h", ar: "من 48 إلى 72 ساعة" } as L,
+    label: { fr: "24 à 72 h", ar: "من 24 إلى 72 ساعة" } as L,
   },
   payment: {
     fr: "Paiement à la livraison, en espèces",
     ar: "الدفع عند الاستلام، نقدًا",
   } as L,
 
-  /** TODO : politique de retour (délai en jours, conditions, frais). null = non affichée, absente du JSON-LD. */
+  /** Réclamations : ce qu'OTAGE accepte aujourd'hui. Les modalités de retour ou d'échange se donnent sur WhatsApp. */
+  claims: {
+    fr: "Nous acceptons les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite. Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp.",
+    ar: "نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية. طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب.",
+  } as L,
+
+  /** TODO : délai de retour (en jours) et frais. null = pas de hasMerchantReturnPolicy dans le JSON-LD. */
   returns: null as null | { days: number; fr: string; ar: string },
 
   /** TODO : informations juridiques à fournir pour les mentions légales et les CGV. */

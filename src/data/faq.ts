@@ -26,6 +26,7 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
     { q: "Le sérum contour des yeux, c'est pour qui ?", a: ["Pour les cernes et le contour des yeux fatigué. Il contient de l'aloe vera, de l'acide hyaluronique et de la caféine, en 15 ml, avec un applicateur bille.", `Il coûte ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`] },
     { q: "Et après ma commande ?", a: ["On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part.", "Tu paies à la réception, c'est tout."] },
+    { q: "Et si j'ai un problème avec ma commande ?", a: ["On accepte les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite.", "Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp."] },
     { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban."] },
   ],
   /* À relire par un natif. Même ordre et mêmes informations que le français. */
@@ -44,6 +45,7 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "أنا حامل أو مرضعة، هل يمكنني استعماله؟", a: ["اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا."] },
     { q: "سيروم محيط العين، لمن هو؟", a: ["للهالات السوداء ومحيط العين المتعب. يحتوي على الألوفيرا، حمض الهيالورونيك والكافيين، في 15 مل، مع بكرة دوارة.", `ثمنه ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض ⁦2 + 1⁩.`] },
     { q: "وماذا بعد طلبي؟", a: ["نتصل بك لتأكيد طلبك وعنوانك، ثم يُرسل طردك.", "تدفعين عند الاستلام، وهذا كل شيء."] },
+    { q: "وماذا لو كانت هناك مشكلة في طلبي؟", a: ["نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية.", "طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب."] },
     { q: "أين تُصنع منتجاتكم؟", a: ["في المغرب، بمكونات مثل التين الشوكي واللبان."] },
   ],
 };

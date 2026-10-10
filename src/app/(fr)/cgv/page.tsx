@@ -44,7 +44,8 @@ export default function Page() {
       <p>Le paiement se fait à la livraison, en espèces, à la remise du colis. Aucun paiement n'est demandé en ligne.</p>
 
       <h2>7. Retours, échanges et réclamations</h2>
-      <p>{site.returns ? site.returns.fr : <Todo>politique de retour (délai, conditions, frais, produits ouverts)</Todo>}</p>
+      <p>{site.claims.fr}</p>
+      <p>{site.returns ? site.returns.fr : <Todo>délai de retour et frais</Todo>}</p>
       <p>Pour toute réclamation, écris-nous sur WhatsApp au <span dir="ltr">{site.whatsapp.display}</span>.</p>
 
       <h2>8. Précautions d'emploi</h2>

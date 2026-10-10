@@ -15,7 +15,7 @@ const info = {
 };
 export const metadata = textMetadata(info, "ar");
 
-const questions = ["متى أدفع؟", "هل التوصيل مدفوع؟", "كم يستغرق التوصيل؟", "وماذا بعد طلبي؟"];
+const questions = ["متى أدفع؟", "هل التوصيل مدفوع؟", "كم يستغرق التوصيل؟", "وماذا بعد طلبي؟", "وماذا لو كانت هناك مشكلة في طلبي؟"];
 const items = faq.ar.filter((f) => questions.includes(f.q));
 
 export default function Page() {
@@ -42,8 +42,9 @@ export default function Page() {
         <li>لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية.</li>
       </ul>
 
-      <h2>مشكلة في طردك؟</h2>
-      <p>طرد متضرر، خطأ في الطلب أو سؤال عن الإرجاع: راسلينا على <a href={waLink("مرحبًا OTAGE، لدي سؤال عن طلبي.")} target="_blank" rel="noopener">واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span></a>، وننظر في الأمر معك.</p>
+      <h2>الشكايات</h2>
+      <p>{site.claims.ar}</p>
+      <p>راسلينا على <a href={waLink("مرحبًا OTAGE، لدي شكاية بخصوص طلبي.")} target="_blank" rel="noopener">واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span></a>، وننظر في الأمر معك.</p>
 
       <h2 id="faq">الأسئلة الشائعة</h2>
       <FaqList items={items} />

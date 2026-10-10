@@ -32,6 +32,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
             <ul>
               <li><a href={site.instagram.url} target="_blank" rel="noopener">{locale === "ar" ? "إنستغرام" : "Instagram"}&nbsp;<span dir="ltr">{site.instagram.handle}</span></a></li>
               <li><a href={waLink()} target="_blank" rel="noopener">{locale === "ar" ? "واتساب" : "WhatsApp"}&nbsp;<span dir="ltr">{site.whatsapp.display}</span></a></li>
+              <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
               <li><a href={locale === "fr" ? "/" : "/ar"}>{t.home}</a></li>
               <li><a href={locale === "fr" ? "/ar" : "/"} lang={locale === "fr" ? "ar" : "fr"}>{t.otherLang}</a></li>
             </ul>

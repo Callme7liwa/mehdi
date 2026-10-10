@@ -7,8 +7,8 @@ import TextPage, { textMetadata } from "@/templates/TextPage";
 const info = {
   path: "/contact",
   label: "اتصلي بنا",
-  title: "اتصلي بـ OTAGE: واتساب وإنستغرام",
-  description: "سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلي OTAGE على واتساب أو إنستغرام. المؤسسون يجيبون بأنفسهم.",
+  title: "اتصلي بـ OTAGE: واتساب، بريد إلكتروني وإنستغرام",
+  description: "سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلي OTAGE على واتساب، بالبريد الإلكتروني أو على إنستغرام. نجيبك على مدار الساعة.",
   h1: "اتصلي بنا",
   schemaType: "ContactPage",
 };
@@ -20,6 +20,12 @@ export default function Page() {
       <h2>واتساب</h2>
       <p>الأسرع: <b dir="ltr">{site.whatsapp.display}</b> (<span dir="ltr">{site.whatsapp.e164}</span>).</p>
       <p><a className="btn btn-wa" href={waLink("مرحبًا OTAGE، لدي سؤال.")} target="_blank" rel="noopener">راسلينا على واتساب<WaIcon /></a></p>
+
+      <h2>البريد الإلكتروني</h2>
+      <p><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></p>
+
+      <h2>أوقات الرد</h2>
+      <p>نجيبك {site.availability.ar}، طيلة أيام الأسبوع.</p>
 
       <h2>إنستغرام</h2>
       <p><a href={site.instagram.url} target="_blank" rel="noopener"><span dir="ltr">{site.instagram.handle}</span></a>: جديدنا، والرسائل الخاصة لمراسلتنا.</p>

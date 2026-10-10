@@ -13,7 +13,7 @@ const info = {
 };
 export const metadata = textMetadata(info);
 
-const questions = ["Je paie quand ?", "La livraison est payante ?", "Je suis livrée en combien de temps ?", "Et après ma commande ?"];
+const questions = ["Je paie quand ?", "La livraison est payante ?", "Je suis livrée en combien de temps ?", "Et après ma commande ?", "Et si j'ai un problème avec ma commande ?"];
 const items = faq.fr.filter((f) => questions.includes(f.q));
 
 export default function Page() {
@@ -40,9 +40,10 @@ export default function Page() {
         <li>Rien à payer en ligne, pas besoin de carte bancaire.</li>
       </ul>
 
-      <h2>Un problème avec ton colis ?</h2>
-      {/* TODO : politique de retour et d'échange (délai, conditions, frais) à fournir par OTAGE. Rien n'est promis ici. */}
-      <p>Colis abîmé, erreur dans la commande ou question sur un retour : écris-nous sur <a href={waLink("Bonjour OTAGE, j'ai une question sur ma commande.")} target="_blank" rel="noopener">WhatsApp au {site.whatsapp.display}</a>, on regarde ça avec toi.</p>
+      <h2>Réclamations</h2>
+      {/* TODO : délai de retour et frais à définir par OTAGE (site.returns). */}
+      <p>{site.claims.fr}</p>
+      <p>Écris-nous sur <a href={waLink("Bonjour OTAGE, j'ai une réclamation concernant ma commande.")} target="_blank" rel="noopener">WhatsApp au <span dir="ltr">{site.whatsapp.display}</span></a>, on regarde ça avec toi.</p>
 
       <h2 id="faq">Questions fréquentes</h2>
       <FaqList items={items} />

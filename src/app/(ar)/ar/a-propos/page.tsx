@@ -10,8 +10,8 @@ const F = site.founder;
 const info = {
   path: "/a-propos",
   label: "من نحن",
-  title: "من نحن: OTAGE ومؤسسها الدكتور الصديقي المهدي",
-  description: "OTAGE علامة مغربية لمستحضرات التجميل أسسها الدكتور الصديقي المهدي، صيدلي، على أساس الشفافية والصدق والثقة.",
+  title: `من نحن: OTAGE ومؤسسها ${F.nameAr}`,
+  description: `OTAGE علامة مغربية لمستحضرات التجميل أسسها ${F.nameAr}، صيدلي، على أساس الشفافية والصدق والثقة.`,
   h1: "OTAGE: عناية صادقة، مصنوعة في المغرب",
   schemaType: "AboutPage",
 };
@@ -22,10 +22,10 @@ export default function Page() {
     <TextPage locale="ar" info={info} extraLd={[founderLd("ar")]} lead="OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. وعدنا في جملة واحدة: لا نبيع الوهم، نبيع النتيجة.">
       <h2>المؤسس</h2>
       <Img className="founder" src={F.photo} alt={F.alt.ar} width={900} height={1125} sizes="(max-width: 700px) 70vw, 320px" />
-      <p><b>الدكتور الصديقي المهدي</b> {F.jobTitle.ar}، {F.specialty.ar}. هو مؤسس OTAGE.</p>
+      <p><b>{F.nameAr}</b> {F.jobTitle.ar}، {F.specialty.ar}. هو مؤسس OTAGE.</p>
       <blockquote className="quote">
         <p>«{F.story.ar}»</p>
-        <footer>الدكتور الصديقي المهدي، مؤسس OTAGE</footer>
+        <footer>{F.nameAr}، مؤسس OTAGE</footer>
       </blockquote>
 
       <h2>ماذا نقدم</h2>

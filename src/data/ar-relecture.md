@@ -28,7 +28,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Commander | اطلبي الآن |
 | Ouvrir le menu | فتح القائمة |
 | Menu | القائمة |
-| Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE | الدكتور الصديقي المهدي، صيدلي، مؤسس OTAGE |
+| Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE | الدكتور المهدي الصديقي، صيدلي، مؤسس OTAGE |
 | 85 % de satisfaction, enquête auprès de 20 clientes | 85 % رضا، حسب استطلاع شمل 20 زبونة |
 | Routine anti-taches | روتين ضد البقع |
 | Des soins honnêtes. | عناية صادقة. |
@@ -117,7 +117,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | DH, tu économises | درهم، توفرين |
 | DH | درهم |
 | 1 gamme | مجموعة واحدة |
-| Tu hésites ?Avis, résultats, ou parle aux fondateurs | مترددة؟آراء، نتائج، أو تحدثي مع المؤسسين |
+| Tu hésites ?Avis, résultats, ou parle au fondateur | مترددة؟آراء، نتائج، أو تحدثي مع المؤسس |
 | Informations de livraison | معلومات التوصيل |
 | Dernière étape, 20 secondes et c'est fini | آخر خطوة، 20 ثانية وينتهي الأمر |
 | Où est-ce qu'on te livre ? | أين نوصل طلبك؟ |
@@ -305,7 +305,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Tu hésites ? C'est normal. | مترددة؟ هذا طبيعي. |
 | Trois façons de te décider, sans pression. | ثلاث طرق لتقرري، بدون أي ضغط. |
 | Les résultats | النتائج |
-| Les fondateurs | المؤسسون |
+| Le fondateur | المؤسس |
 | Aperçu : ces messages sont des exemples. Remplace-les par de vrais avis de clientes avant la mise en ligne. | معاينة: هذه الرسائل أمثلة. يجب تعويضها بآراء حقيقية قبل النشر. |
 | Avis précédents | الآراء السابقة |
 | Avis de clientes, à faire défiler | آراء الزبونات، مرّري لقراءتها |
@@ -319,8 +319,8 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Tu paies à la livraison. Rien à avancer en ligne. | تدفعين عند الاستلام. لا شيء يُدفع مسبقًا عبر الإنترنت. |
 | Livraison offerte partout au Maroc. | توصيل مجاني في كل أنحاء المغرب. |
 | Fabriqué au Maroc, avec des ingrédients d'ici. | صنع في المغرب، بمكونات من هنا. |
-| Salam ! Ici les fondateurs d'OTAGE. Une question sur ta peau, un soin ou ta commande ? Écris-nous directement, on te répond nous-mêmes. | سلام! معك مؤسسو OTAGE. سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلينا مباشرة، ونجيبك بأنفسنا. |
-| Écrire aux fondateurs sur WhatsApp | راسلي المؤسسين على واتساب |
+| Salam ! Ici le fondateur d'OTAGE. Une question sur ta peau, un soin ou ta commande ? Écris-moi directement, je te réponds moi-même. | سلام! معك مؤسس OTAGE. سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسليني مباشرة، وأجيبك بنفسي. |
+| Écrire au fondateur sur WhatsApp | راسلي المؤسس على واتساب |
 | Poser ma question | اطرحي سؤالك |
 | C'est bon, je commande | تمام، أطلب الآن |
 | dès 199 DH la gamme avec l'offre 2 + 1 | ابتداءً من 199 درهم للمجموعة مع عرض 2 + 1 |
@@ -707,14 +707,13 @@ Français : `/a-propos` · Arabe : `/ar/a-propos` · Source de l'arabe : src/app
 
 | Français | العربية |
 |---|---|
-| **Titre de l'onglet (title)** À propos d'OTAGE et de son fondateur, le Dr Seddiki El Mehdi | من نحن: OTAGE ومؤسسها الدكتور الصديقي المهدي |
-| **Description (Google)** OTAGE est une marque marocaine de cosmétique fondée par le Dr Seddiki El Mehdi, pharmacien, sur une volonté de transparence, d'honnêteté et de confiance. | OTAGE علامة مغربية لمستحضرات التجميل أسسها الدكتور الصديقي المهدي، صيدلي، على أساس الشفافية والصدق والثقة. |
+| **Titre de l'onglet (title)** À propos d'OTAGE et de son fondateur, le Dr Seddiki El Mehdi | من نحن: OTAGE ومؤسسها الدكتور المهدي الصديقي |
+| **Description (Google)** OTAGE est une marque marocaine de cosmétique fondée par le Dr Seddiki El Mehdi, pharmacien, sur une volonté de transparence, d'honnêteté et de confiance. | OTAGE علامة مغربية لمستحضرات التجميل أسسها الدكتور المهدي الصديقي، صيدلي، على أساس الشفافية والصدق والثقة. |
 | OTAGE : des soins honnêtes, fabriqués au Maroc | OTAGE: عناية صادقة، مصنوعة في المغرب |
 | OTAGE est une marque marocaine de cosmétique naturelle. Notre promesse tient en une phrase : on ne vend pas du rêve, on vend le résultat. | OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. وعدنا في جملة واحدة: لا نبيع الوهم، نبيع النتيجة. |
-| Le fondateur | المؤسس |
-| Dr Seddiki El Mehdi est pharmacien, spécialisé en produits cosmétiques et compléments alimentaires. Il a fondé OTAGE. | الدكتور الصديقي المهدي صيدلي، متخصص في مستحضرات التجميل والمكملات الغذائية. هو مؤسس OTAGE. |
+| Dr Seddiki El Mehdi est pharmacien, spécialisé en produits cosmétiques et compléments alimentaires. Il a fondé OTAGE. | الدكتور المهدي الصديقي صيدلي، متخصص في مستحضرات التجميل والمكملات الغذائية. هو مؤسس OTAGE. |
 | « J'ai constaté la présence de nombreux produits cosmétiques falsifiés sur le marché marocain. Face à ce constat, j'ai décidé de créer OTAGE, une marque de cosmétiques fondée sur une volonté de transparence, d'honnêteté et de confiance. Mon objectif est de proposer des produits avec une attention particulière portée à leur qualité et à la transparence des informations communiquées. » | «لاحظت وجود عدد كبير من مستحضرات التجميل المزورة في السوق المغربية. أمام هذا الواقع، قررت إنشاء OTAGE، علامة لمستحضرات التجميل قائمة على الشفافية والصدق والثقة. هدفي هو تقديم منتجات مع عناية خاصة بجودتها وبشفافية المعلومات المقدمة عنها.» |
-| Dr Seddiki El Mehdi, fondateur d'OTAGE | الدكتور الصديقي المهدي، مؤسس OTAGE |
+| Dr Seddiki El Mehdi, fondateur d'OTAGE | الدكتور المهدي الصديقي، مؤسس OTAGE |
 | Ce que nous faisons | ماذا نقدم |
 | Nous proposons une routine anti-taches en 4 soins, pensée pour les taches brunes, les taches pigmentaires et le teint irrégulier, ainsi qu'un sérum contour des yeux pour les cernes. | نقدم روتينًا ضد البقع من 4 منتجات، مصممًا للبقع البنية، البقع الصبغية ولون البشرة غير الموحد، وكذلك سيرومًا لمحيط العين للهالات السوداء. |
 | (N° 01) : figue de Barbarie, louban, sans sulfate. | (N° 01): التين الشوكي، اللبان، بدون سلفات. |
@@ -945,4 +944,4 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 
 ---
 
-773 textes à relire.
+772 textes à relire.

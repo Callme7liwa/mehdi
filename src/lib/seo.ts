@@ -69,7 +69,8 @@ export const orgLd = (locale: Locale = "fr") => ({
 export const founderLd = (locale: Locale = "fr") => ({
   "@type": "Person",
   "@id": abs("/#founder"),
-  name: site.founder.name,
+  name: locale === "ar" ? site.founder.nameAr : site.founder.name,
+  ...(locale === "ar" ? { alternateName: site.founder.name } : { alternateName: site.founder.nameAr }),
   givenName: site.founder.givenName,
   familyName: site.founder.familyName,
   honorificPrefix: "Dr",

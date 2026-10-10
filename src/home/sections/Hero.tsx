@@ -49,13 +49,6 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         <div className="proof">
           <div className="faces" aria-hidden="true"><span>S</span><span>H</span><span>N</span></div>
           <div>
-            <div className="stars rating" role="img" aria-label={t.hero5Etoiles}>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z" /></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z" /></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z" /></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z" /></svg>
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z" /></svg>
-            </div>
             <p>{t.hero85DeNosClientes}</p>
           </div>
         </div>

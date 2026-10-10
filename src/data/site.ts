@@ -28,6 +28,8 @@ export const site = {
   },
   instagram: { handle: "@otage.1", url: "https://www.instagram.com/otage.1/" },
   email: "Dr.mouldwa@gmail.com",
+  /** Satisfaction : résultat d'une enquête interne, toujours affiché avec la taille de l'échantillon. Jamais dans le JSON-LD. */
+  satisfaction: { percent: 85, sample: 20 },
   /** Disponibilité du service client. */
   availability: { fr: "24 h/24", ar: "على مدار الساعة" } as L,
 

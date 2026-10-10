@@ -13,7 +13,7 @@ export type OrderData = {
 export type OrderText = Record<
   | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
-  | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
+  | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
 >;
 
@@ -108,7 +108,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
               <label className="opt" key={f}>
                 <input type="radio" name={`${id}-fmt`} checked={fmt === f} onChange={() => setFmt(f)} />
                 <b>{data.formats[f].label}</b>
-                <span><em>{data.formats[f].price} DH</em> {t.insteadOf} <s>{data.formats[f].was} DH</s></span>
+                <span><em>{data.formats[f].price} {t.dh}</em> {t.insteadOf} <s>{data.formats[f].was} {t.dh}</s></span>
                 <span>{data.formats[f].content}</span>
               </label>
             ))}
@@ -121,13 +121,13 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           <label className="opt">
             <input type="radio" name={`${id}-qty`} checked={qty === 3} onChange={() => setQty(3)} />
             <span className="tag">{t.bundle}</span>
-            <b>3 {words} : {price * 2} DH</b>
-            <span><em>{per} DH</em> {yeux ? t.perSerum : t.perRange}, {t.save} {price} DH</span>
+            <b>3 {words} : {price * 2} {t.dh}</b>
+            <span><em>{per} {t.dh}</em> {yeux ? t.perSerum : t.perRange}, {t.save} {price} {t.dh}</span>
           </label>
           <label className="opt">
             <input type="radio" name={`${id}-qty`} checked={qty === 1} onChange={() => setQty(1)} />
-            <b>1 {word} : {price} DH</b>
-            {!yeux && <span>{t.insteadOf} <s>{data.formats[fmt].was} DH</s></span>}
+            <b>1 {word} : {price} {t.dh}</b>
+            {!yeux && <span>{t.insteadOf} <s>{data.formats[fmt].was} {t.dh}</s></span>}
           </label>
         </div>
       </fieldset>
@@ -142,10 +142,10 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
         </div>
         <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       </fieldset>
-      <p className="order-total"><span>{t.total}</span><b>{total} DH</b></p>
+      <p className="order-total"><span>{t.total}</span><b>{total} {t.dh}</b></p>
       <p className="order-err" role="alert">{err}</p>
       <button type="submit" className="btn btn-primary">{t.submit}<BagIcon /></button>
-      <p className="order-note">{t.youPay} <b>{total} DH</b> {t.payNote}</p>
+      <p className="order-note">{t.youPay} <b>{total} {t.dh}</b> {t.payNote}</p>
     </form>
   );
 }

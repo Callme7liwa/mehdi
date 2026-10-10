@@ -62,7 +62,7 @@ export default function Campaign({ t }: { t: HomeText }) {
           </div>
         </div>
         <div className="camp-foot" aria-hidden="true">
-          <span className="camp-count"><b data-cc="">01</b> / <span data-ct="">12</span></span>
+          <span className="camp-count" dir="ltr"><b data-cc="">01</b> / <span data-ct="">12</span></span>
           <span className="camp-bar"><i></i></span>
           <span className="camp-hint">{t.campaignFaisDefiler}</span>
         </div>

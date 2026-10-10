@@ -41,15 +41,15 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
 const ORG = { "@id": abs("/#organization") };
 const MAROC = { "@type": "Country", name: "Maroc" };
 
-export const orgLd = () => ({
+export const orgLd = (locale: Locale = "fr") => ({
   "@type": "Organization",
   "@id": abs("/#organization"),
   name: site.name,
   url: abs("/"),
   logo: { "@type": "ImageObject", url: abs("/images/icon-512.png"), width: 512, height: 512 },
   image: abs(OG_IMAGE.src),
-  description: site.description.fr,
-  slogan: site.slogan.fr,
+  description: site.description[locale],
+  slogan: site.slogan[locale],
   sameAs: [site.instagram.url],
   areaServed: MAROC,
   contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: site.whatsapp.e164, availableLanguage: ["fr", "ar"], areaServed: "MA" },

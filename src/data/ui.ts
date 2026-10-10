@@ -123,7 +123,7 @@ const ar: Ui = {
   insteadOf: "بدل",
   unit: "للقطعة، الحجم الصغير",
   rangeFrom: "المجموعة الكاملة (4 منتجات) ابتداءً من",
-  bundle: "عرض 2 + 1",
+  bundle: "عرض ⁦2 + 1⁩",
   bundleText: "اشتري 2 والثالث مجانًا",
   freeDelivery: "توصيل مجاني في كل أنحاء المغرب",
   deliveryTime: "التوصيل خلال",

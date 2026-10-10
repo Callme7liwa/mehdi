@@ -118,7 +118,7 @@ const ar: HomeJsText = {
   recapOne: "1 {s}",
   offerForYeux: "لسيروم محيط العين.",
   offerForTaches: "لروتينك ضد البقع.",
-  badge: "2 + 1 {free}",
+  badge: "\u20662 + 1\u2069 {free}",
   three: "3 {pl}",
   one: "1 {s}",
   unitYeux: "درهم للسيروم",

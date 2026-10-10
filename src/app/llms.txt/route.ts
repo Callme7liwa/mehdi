@@ -1,6 +1,7 @@
 /* /llms.txt : résumé du site pour les assistants IA, généré à partir de src/data/. */
 import { faq, plain } from "@/data/faq";
 import { problems } from "@/data/problems";
+import { problemsAr } from "@/data/problems.ar";
 import { bundleTotal, bundleUnit, gamme, ingredientList, products, rangeProducts, yeuxPrice } from "@/data/products";
 import { trustPages } from "@/data/pages";
 import { abs, formatDate, site } from "@/data/site";
@@ -16,7 +17,7 @@ export function GET() {
     "",
     `> ${site.name} est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50) et un sérum contour des yeux, fabriqués au Maroc. Vente en ligne au Maroc, livraison offerte en ${site.delivery.label.fr}, paiement à la livraison.`,
     "",
-    `Devise : « ${site.slogan.fr} » Site en français (version arabe sous /ar). Dernière mise à jour : ${formatDate(site.updated, "fr")}.`,
+    `Devise : « ${site.slogan.fr} » Site en français, avec une version arabe complète sous /ar. Dernière mise à jour : ${formatDate(site.updated, "fr")}.`,
     "",
     "## La gamme anti-taches",
     "",
@@ -62,6 +63,18 @@ export function GET() {
     `- [Accueil](${abs("/")}) : présentation et commande`,
     `- [Tous les soins](${abs("/soins")})`,
     ...trustPages.map((p) => `- [${p.label.fr}](${abs(p.path)})`),
+    "",
+    "## النسخة العربية (version arabe)",
+    "",
+    `> ${site.description.ar} ${site.slogan.ar}`,
+    "",
+    `- [الصفحة الرئيسية](${abs("/ar")})`,
+    `- [كل المنتجات](${abs("/ar/soins")})`,
+    ...products.map((p) => `- [${p.name.ar} ${p.no}](${abs(`/ar/soins/${p.slug}`)}) : ${p.lead.ar} ${ingredientList(p, "ar")}.`),
+    ...problemsAr.map((p) => `- [${p.label}](${abs(`/ar/${p.slug}`)}) : ${p.metaDescription}`),
+    ...trustPages.map((p) => `- [${p.label.ar}](${abs(`/ar${p.path}`)})`),
+    "",
+    `الأسعار بالدرهم المغربي: مجموعة العناية ضد البقع ${P.price} درهم (الحجم الصغير) أو ${G.price} درهم (الحجم الكبير)؛ سيروم محيط العين ${yeuxPrice} درهم. التوصيل خلال ${site.delivery.label.ar}، والدفع عند الاستلام.`,
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

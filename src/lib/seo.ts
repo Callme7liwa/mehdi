@@ -55,7 +55,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: site.whatsapp.e164, availableLanguage: ["fr", "ar"], areaServed: "MA" },
 });
 
-export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: "fr-MA", publisher: ORG });
+export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
 
 export const webPageLd = (o: { locale: Locale; path: string; title: string; description: string; image?: Img; type?: string }) => {
   const url = abs(localePath(o.locale, o.path));
@@ -149,18 +149,21 @@ export function gammeLd(format: FormatKey, desc: string) {
   };
 }
 
-export const articleLd = (o: { path: string; title: string; description: string; image: Img }) => ({
-  "@type": "Article",
-  "@id": `${abs(o.path)}#article`,
-  headline: o.title,
-  description: o.description,
-  image: abs(o.image.src),
-  inLanguage: "fr-MA",
-  datePublished: site.updated,
-  dateModified: site.updated,
-  author: ORG,
-  publisher: ORG,
-  mainEntityOfPage: abs(o.path),
-});
+export const articleLd = (o: { locale: Locale; path: string; title: string; description: string; image: Img }) => {
+  const url = abs(localePath(o.locale, o.path));
+  return {
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: o.title,
+    description: o.description,
+    image: abs(o.image.src),
+    inLanguage: o.locale === "ar" ? "ar-MA" : "fr-MA",
+    datePublished: site.updated,
+    dateModified: site.updated,
+    author: ORG,
+    publisher: ORG,
+    mainEntityOfPage: url,
+  };
+};
 
 export const graph = (...nodes: object[]) => ({ "@context": "https://schema.org", "@graph": nodes });

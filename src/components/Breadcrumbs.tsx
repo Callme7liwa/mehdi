@@ -15,7 +15,7 @@ export default function Breadcrumbs({ locale, items }: { locale: Locale; items: 
           ) : it.path === "/" ? (
             <li key={it.path}><a href={localePath(locale, "/")}>{it.name}</a></li>
           ) : (
-            <li key={it.path}><Link href={localePath(locale, it.path)}>{it.name}</Link></li>
+            <li key={it.path}><Link prefetch={false} href={localePath(locale, it.path)}>{it.name}</Link></li>
           ),
         )}
       </ol>

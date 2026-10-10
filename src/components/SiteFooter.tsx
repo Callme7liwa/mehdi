@@ -15,17 +15,17 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
           <div>
             <p className="t">{t.footProducts}</p>
             <ul>
-              {products.map((p) => <li key={p.slug}><Link href={localePath(locale, `/soins/${p.slug}`)}>{p.name[locale]}</Link></li>)}
-              <li><Link href={localePath(locale, "/soins")}>{t.allProducts}</Link></li>
+              {products.map((p) => <li key={p.slug}><Link prefetch={false} href={localePath(locale, `/soins/${p.slug}`)}>{p.name[locale]}</Link></li>)}
+              <li><Link prefetch={false} href={localePath(locale, "/soins")}>{t.allProducts}</Link></li>
             </ul>
           </div>
           <div>
             <p className="t">{t.footAdvice}</p>
-            <ul>{problemPages.map((p) => <li key={p.slug}><Link href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
+            <ul>{problemPages.map((p) => <li key={p.slug}><Link prefetch={false} href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
           </div>
           <div>
             <p className="t">{t.footBrand}</p>
-            <ul>{trustPages.map((p) => <li key={p.path}><Link href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}</ul>
+            <ul>{trustPages.map((p) => <li key={p.path}><Link prefetch={false} href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}</ul>
           </div>
           <div>
             <p className="t">{t.footFollow}</p>

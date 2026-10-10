@@ -1,0 +1,53 @@
+# OTAGE
+
+> OTAGE est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50) et un sérum contour des yeux, fabriqués au Maroc. Vente en ligne au Maroc, livraison offerte, paiement à la livraison.
+
+Devise : « Des soins honnêtes, fabriqués au Maroc. » Site en français. Dernière mise à jour : 10 octobre 2026.
+
+## La gamme anti-taches
+
+Pour les taches brunes, les taches pigmentaires (hyperpigmentation) et le teint irrégulier. Une gamme = les 4 soins ci-dessous, vendus ensemble.
+
+- **N°01 Gel nettoyant anti-taches** : nettoie en douceur sans dessécher. Figue de Barbarie, louban, sans sulfate. Matin et soir, sur peau humide : masser 30 secondes, rincer.
+- **N°02 Sérum anti-taches** : le soin concentré de la gamme, qui cible les taches. Alpha-arbutine, matcha, calendula. Matin et soir : 3 à 4 gouttes sur peau sèche, en tapotant.
+- **N°03 Crème anti-taches** : hydrate, unifie le teint et scelle le sérum. Niacinamide, acide hyaluronique, AHA. Matin et soir : une noisette sur le visage et le cou.
+- **N°04 Écran solaire SPF 50** : haute protection UVA/UVB, pour que les taches ne reviennent pas. Le matin, en dernier ; renouveler toutes les 2 heures au soleil.
+
+Routine du matin : les 4 soins. Routine du soir : les 3 premiers, sans écran solaire.
+
+### Prix (en dirhams marocains, livraison comprise)
+
+| Format | Contenances | Prix de la gamme | Prix boutique | Avec l'offre 2 + 1 |
+|---|---|---|---|---|
+| Petit format | gel 125 ml, sérum 15 ml, crème 30 ml, écran solaire SPF 50 | 299 DH | 496 DH | 598 DH les 3 gammes (199 DH la gamme) |
+| Grand format | gel 200 ml, sérum 30 ml, crème 50 ml, écran solaire 50 ml | 599 DH | 815 DH | 1 198 DH les 3 gammes (399 DH la gamme) |
+
+Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte.
+
+## Sérum contour des yeux N°05
+
+Pour les cernes et le contour des yeux fatigué. 15 ml, applicateur bille. Aloe vera, acide hyaluronique, caféine. Matin et soir : passer la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapoter. Prix : 130 DH, ou 87 DH le sérum avec l'offre 2 + 1.
+
+## Bientôt
+
+- Déodorant : en préparation, pas encore en vente.
+
+## Commander, livraison et paiement
+
+- Commande sur le site, en 20 secondes : nom, téléphone, ville, adresse (facultative).
+- OTAGE appelle la cliente pour confirmer la commande et l'adresse, puis le colis part.
+- Livraison offerte partout au Maroc.
+- Paiement à la livraison, en espèces. Rien à payer en ligne.
+
+## Conseils d'utilisation
+
+- Résultats : les taches s'estompent petit à petit, pas du jour au lendemain. La régularité matin et soir et l'écran solaire chaque matin comptent ; le rythme varie d'une peau à l'autre.
+- Peau sensible : faire un essai sur une petite zone (pli du coude, derrière l'oreille) et attendre 24 h.
+- Grossesse ou allaitement : demander d'abord l'avis d'un médecin ou d'un pharmacien.
+
+## Liens
+
+- [Site officiel]({{SITE_URL}}/) : présentation, commande
+- [Les offres]({{SITE_URL}}/#offres) : prix et formulaire de commande
+- [Questions fréquentes]({{SITE_URL}}/#questions)
+- [Instagram @otage.1](https://www.instagram.com/otage.1/) : contact et actualités

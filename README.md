@@ -42,7 +42,7 @@ Chaque page française a son équivalent sous `/ar`, de droite à gauche : accue
 | Je veux… | Où |
 |---|---|
 | relire tout l'arabe au même endroit | `src/data/ar-relecture.md` (français et arabe côte à côte, avec le fichier source à corriger) |
-| corriger un texte de l'accueil | `src/home/text.ts` (sections) et `src/home/text-js.ts` (ticket, chat, fenêtres) |
+| corriger un texte de l'accueil | `src/home/text.ts` (sections) et `src/home/text-js.ts` (ticket, fenêtres), `src/home/chat/chat-text.ts` (chat des questions) |
 | corriger un produit, la FAQ, un bouton | `src/data/products.ts`, `src/data/faq.ts`, `src/data/ui.ts` |
 | corriger une page conseil | `src/data/problems.ar.ts` |
 | corriger une page de confiance | `src/app/(ar)/ar/<page>/page.tsx` |
@@ -57,3 +57,16 @@ npm run relecture                # régénère src/data/ar-relecture.md
 Le même CSS sert dans les deux sens : `home.css` et `site.css` utilisent des propriétés logiques (`inline-start`/`end`) et la variable `--dir`. `src/app/rtl.css` ne contient que la typographie arabe et les icônes directionnelles.
 
 Les pages arabes restent hors de l'index Google tant que la traduction n'est pas relue par un natif. Après relecture, mettre `arIndexable: true` dans `src/data/site.ts` : elles entrent dans le sitemap et les balises hreflang (fr-MA / ar-MA / x-default).
+
+## Performance
+
+```bash
+npm run build && npm run start   # dans un terminal
+npm run check:budget             # échoue si une page dépasse son poids autorisé (JS, CSS, HTML, polices préchargées)
+npm run analyze                  # carte interactive de ce que contient chaque fichier JavaScript (Turbopack)
+npm run blur                     # régénère les aperçus flous après l'ajout ou le remplacement d'une photo
+```
+
+- Polices : hébergées dans `public/fonts/`, déclarées dans `src/app/fonts.css`. Chaque layout ne précharge que la police de son texte principal (`src/components/FontPreload.tsx`) ; les autres sont téléchargées quand la page en a besoin. Si un fichier change, changer son suffixe `-v1` (cache d'un an).
+- Images : servies en AVIF ou WebP par `next/image`. Une image optimisée est gardée un an en cache : pour remplacer une photo, lui donner un nouveau nom de fichier.
+- Les budgets sont dans `scripts/check-budget.mjs`. Le socle de Next.js et React pèse à lui seul environ 130 Ko de JavaScript compressé.

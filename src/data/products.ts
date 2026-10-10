@@ -76,8 +76,9 @@ export const products: Product[] = [
     pack: img("gel-nettoyant-anti-taches-n01-200ml.webp", 122, 480, "Gel nettoyant anti-taches OTAGE N°01", "جل منظف ضد البقع OTAGE رقم 01"),
     hd: img("gel-nettoyant-anti-taches-n01-hd.webp", 255, 1000, "Gel nettoyant anti-taches OTAGE N°01, 200 ml", "جل منظف ضد البقع OTAGE رقم 01، 200 مل"),
     photos: [
-      img("cliente-gel-nettoyant-anti-taches.webp", 1000, 1000, "Une cliente souriante tend le gel nettoyant", "زبونة مبتسمة تحمل الجل المنظف"),
-      img("gel-nettoyant-anti-taches-mains.webp", 747, 1000, "Le gel nettoyant tenu entre deux mains", "الجل المنظف بين يدين"),
+      img("cliente-gel-nettoyant-anti-taches.webp", 1600, 1600, "Une cliente souriante tend le gel nettoyant", "زبونة مبتسمة تحمل الجل المنظف"),
+      img("gel-nettoyant-anti-taches-mains.webp", 1195, 1600, "Le gel nettoyant tenu entre deux mains", "الجل المنظف بين يدين"),
+      img("gel-nettoyant-anti-taches-n01-fond-blanc.webp", 1092, 1092, "Gel nettoyant anti-taches OTAGE N°01, flacon sur fond blanc", "جل منظف ضد البقع OTAGE رقم 01 على خلفية بيضاء"),
     ],
     problems: ["taches-pigmentaires", "taches-acne"],
     extraFaq: [
@@ -119,7 +120,8 @@ export const products: Product[] = [
     hd: img("serum-anti-taches-n02-hd.webp", 381, 1000, "Sérum anti-taches OTAGE N°02, 30 ml", "سيروم ضد البقع OTAGE رقم 02، 30 مل"),
     photos: [
       img("affiche-eclat-serum-anti-taches.webp", 664, 1000, "Affiche « Éclat » avec le sérum anti-taches", "ملصق «إشراقة» مع السيروم ضد البقع"),
-      img("femme-serum-anti-taches.webp", 747, 1000, "Une femme tend le sérum anti-taches", "امرأة تحمل السيروم ضد البقع"),
+      img("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches", "امرأة تحمل السيروم ضد البقع"),
+      img("serum-anti-taches-n02-fond-blanc.webp", 1092, 1092, "Sérum anti-taches OTAGE N°02, flacon sur fond blanc", "سيروم ضد البقع OTAGE رقم 02 على خلفية بيضاء"),
     ],
     problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
     extraFaq: [
@@ -163,7 +165,10 @@ export const products: Product[] = [
     unitPrice: { petit: 130, grand: null /* TODO */ },
     pack: img("creme-anti-taches-n03-50ml.webp", 117, 480, "Crème anti-taches OTAGE N°03", "كريم ضد البقع OTAGE رقم 03"),
     hd: img("creme-anti-taches-n03-hd.webp", 243, 1000, "Crème anti-taches OTAGE N°03, 50 ml", "كريم ضد البقع OTAGE رقم 03، 50 مل"),
-    photos: [img("panneau-ton-teint-revele-creme-anti-taches.webp", 747, 1000, "Panneau publicitaire « Ton teint, révélé » avec la crème anti-taches", "لوحة إعلانية «لون بشرتك، كما هو» مع الكريم ضد البقع")],
+    photos: [
+      img("panneau-ton-teint-revele-creme-anti-taches.webp", 1195, 1600, "Panneau publicitaire « Ton teint, révélé » avec la crème anti-taches", "لوحة إعلانية «لون بشرتك، كما هو» مع الكريم ضد البقع"),
+      img("creme-anti-taches-n03-fond-blanc.webp", 1092, 1092, "Crème anti-taches OTAGE N°03, flacon sur fond blanc", "كريم ضد البقع OTAGE رقم 03 على خلفية بيضاء"),
+    ],
     problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
     extraFaq: [
       {
@@ -201,7 +206,10 @@ export const products: Product[] = [
     unitPrice: { petit: 112, grand: null /* TODO */ },
     pack: img("ecran-solaire-spf50-n04-50ml.webp", 117, 480, "Écran solaire SPF 50 OTAGE N°04", "واقي الشمس SPF 50 من OTAGE رقم 04"),
     hd: img("ecran-solaire-spf50-n04-hd.webp", 245, 1000, "Écran solaire SPF 50 OTAGE N°04, 50 ml", "واقي الشمس SPF 50 من OTAGE رقم 04، 50 مل"),
-    photos: [img("ecran-solaire-spf50-plage-bouee.webp", 1000, 1000, "L'écran solaire à la plage, à travers une bouée", "واقي الشمس على الشاطئ، من خلال عوامة")],
+    photos: [
+      img("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire à la plage, à travers une bouée", "واقي الشمس على الشاطئ، من خلال عوامة"),
+      img("ecran-solaire-spf50-n04-fond-blanc.webp", 1092, 1092, "Écran solaire SPF 50 OTAGE N°04, flacon sur fond blanc", "واقي الشمس SPF 50 من OTAGE رقم 04 على خلفية بيضاء"),
+    ],
     problems: ["taches-pigmentaires", "melasma-grossesse", "taches-acne"],
     extraFaq: [
       {
@@ -242,8 +250,8 @@ export const products: Product[] = [
     step: null,
     ml: { petit: 15 },
     unitPrice: { petit: 130 },
-    pack: img("serum-contour-des-yeux-n05-15ml.webp", 177, 700, "Sérum contour des yeux OTAGE N°05, 15 ml", "سيروم محيط العين OTAGE رقم 05، 15 مل"),
-    photos: [img("serum-contour-des-yeux-n05-application.webp", 600, 803, "Sérum contour des yeux N°05 tenu près du visage", "سيروم محيط العين رقم 05 قرب الوجه")],
+    pack: img("serum-contour-des-yeux-n05-15ml.webp", 227, 896, "Sérum contour des yeux OTAGE N°05, 15 ml", "سيروم محيط العين OTAGE رقم 05، 15 مل"),
+    photos: [img("serum-contour-des-yeux-n05-application.webp", 1195, 1600, "Sérum contour des yeux N°05 tenu près du visage", "سيروم محيط العين رقم 05 قرب الوجه")],
     problems: ["cernes"],
     extraFaq: [
       {
@@ -268,9 +276,9 @@ export const gamme = {
     grand: { label: { fr: "Grand format", ar: "الحجم الكبير" } as L, price: 599, was: 815 },
   } satisfies Record<FormatKey, { label: L; price: number; was: number }>,
   photos: [
-    img("gamme-anti-taches-otage-trousse.webp", 1100, 1100, "La gamme anti-taches OTAGE dans sa trousse", "مجموعة العناية ضد البقع من OTAGE في حقيبتها"),
-    img("gamme-anti-taches-4-soins-papier-rouge.webp", 1000, 1000, "Les 4 soins tenus par des mains à travers un papier rouge", "المنتجات الأربعة بين أيدٍ من خلال ورق أحمر"),
-    img("flacons-otage-trousse.webp", 1000, 1000, "Une pluie de flacons OTAGE sort d'une trousse", "عبوات OTAGE تخرج من حقيبة"),
+    img("gamme-anti-taches-otage-trousse.webp", 1600, 1600, "La gamme anti-taches OTAGE dans sa trousse", "مجموعة العناية ضد البقع من OTAGE في حقيبتها"),
+    img("gamme-anti-taches-4-soins-papier-rouge.webp", 1600, 1600, "Les 4 soins tenus par des mains à travers un papier rouge", "المنتجات الأربعة بين أيدٍ من خلال ورق أحمر"),
+    img("flacons-otage-trousse.webp", 1600, 1600, "Une pluie de flacons OTAGE sort d'une trousse", "عبوات OTAGE تخرج من حقيبة"),
   ],
 };
 

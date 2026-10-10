@@ -35,7 +35,7 @@ export const problems: ProblemPage[] = [
     h1: "Taches pigmentaires sur le visage : causes, conseils et routine",
     metaTitle: "Taches pigmentaires du visage : causes et routine | OTAGE",
     metaDescription: "D'où viennent les taches pigmentaires (hyperpigmentation), ce qui les fait foncer et quelle routine anti-taches adopter. Soins fabriqués au Maroc.",
-    image: image("gamme-anti-taches-4-soins-papier-rouge.webp", 1000, 1000, "Les 4 soins de la routine anti-taches OTAGE"),
+    image: image("gamme-anti-taches-4-soins-papier-rouge.webp", 1600, 1600, "Les 4 soins de la routine anti-taches OTAGE"),
     intro: [
       "Une tache pigmentaire est une zone de peau plus foncée que le reste du visage. On parle aussi de taches brunes ou d'hyperpigmentation. Elles ne sont pas dangereuses dans la grande majorité des cas, mais elles peuvent gêner.",
       "Cette page explique d'où elles viennent, ce qui les aggrave, et comment construire une routine régulière pour les atténuer petit à petit.",
@@ -97,7 +97,7 @@ export const problems: ProblemPage[] = [
     h1: "Cernes et contour des yeux fatigué : causes et gestes simples",
     metaTitle: "Cernes : causes, conseils et soin contour des yeux | OTAGE",
     metaDescription: "Pourquoi les cernes apparaissent, les gestes simples pour un regard moins fatigué et comment utiliser un sérum contour des yeux à la caféine.",
-    image: image("serum-contour-des-yeux-n05-application.webp", 600, 803, "Sérum contour des yeux OTAGE N°05 tenu près du visage"),
+    image: image("serum-contour-des-yeux-n05-application.webp", 1195, 1600, "Sérum contour des yeux OTAGE N°05 tenu près du visage"),
     intro: [
       "Les cernes sont des zones plus sombres ou creusées sous les yeux. La peau y est très fine : tout se voit plus vite qu'ailleurs sur le visage, la fatigue comme les petits vaisseaux.",
       "Ils sont très courants et sans gravité dans la plupart des cas. On ne les efface pas d'un coup, mais quelques habitudes et un soin adapté peuvent aider le contour des yeux à paraître moins fatigué.",
@@ -153,7 +153,7 @@ export const problems: ProblemPage[] = [
     h1: "Taches d'acné : pourquoi les boutons laissent des marques",
     metaTitle: "Taches d'acné : causes, conseils et routine | OTAGE",
     metaDescription: "Les marques brunes laissées par les boutons sont une hyperpigmentation post-inflammatoire. Ce qui les aggrave, ce qui aide, et quelle routine suivre.",
-    image: image("femme-serum-anti-taches.webp", 747, 1000, "Une femme tend le sérum anti-taches OTAGE"),
+    image: image("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches OTAGE"),
     intro: [
       "Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache, appelée hyperpigmentation post-inflammatoire. La peau a fabriqué plus de pigment à l'endroit de l'inflammation.",
       "Ces taches s'atténuent avec le temps, plus ou moins vite selon les peaux. Les peaux mates et foncées y sont plus sujettes.",
@@ -214,7 +214,7 @@ export const problems: ProblemPage[] = [
     h1: "Mélasma et masque de grossesse : comprendre et protéger sa peau",
     metaTitle: "Mélasma (masque de grossesse) : causes et conseils | OTAGE",
     metaDescription: "Le mélasma, ou masque de grossesse, donne des taches brunes sur le visage. Ses causes, le rôle du soleil, et quoi demander à son médecin avant tout soin.",
-    image: image("ecran-solaire-spf50-plage-bouee.webp", 1000, 1000, "L'écran solaire SPF 50 OTAGE à la plage"),
+    image: image("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire SPF 50 OTAGE à la plage"),
     intro: [
       "Le mélasma se présente comme des taches brunes aux contours irréguliers, souvent symétriques, sur le front, les joues, le nez ou au-dessus de la lèvre. Quand il apparaît pendant la grossesse, on l'appelle le masque de grossesse.",
       "Il est sans danger pour la santé, mais il peut durer. Voici ce qu'on sait de ses causes et ce qui aide à le limiter.",

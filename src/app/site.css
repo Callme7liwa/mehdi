@@ -208,3 +208,7 @@ main { display: block; }
 /* ---- 404 ---- */
 .nf { min-height: 70vh; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; padding: 48px var(--gutter); }
 .nf .big { font-family: var(--serif); font-size: clamp(90px, 20vw, 180px); line-height: 0.9; color: var(--red); }
+
+/* liens dans les pastilles */
+.chips li a { text-decoration: none; }
+.chips li:has(a):hover { box-shadow: inset 0 0 0 2px var(--bordeaux); }

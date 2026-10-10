@@ -898,7 +898,6 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | À la livraison | عند الاستلام |
 | Pour ton sérum contour des yeux. | لسيروم محيط العين. |
 | Pour ta routine anti-taches. | لروتينك ضد البقع. |
-| 2 + 1 {free} | 2 + 1 {free} |
 | DH le sérum | درهم للسيروم |
 | DH la gamme | درهم للمجموعة |
 | <b>{p}</b> DH <small>la gamme</small> | <b>{p}</b> درهم <small>للمجموعة</small> |
@@ -960,4 +959,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-781 textes à relire.
+780 textes à relire.

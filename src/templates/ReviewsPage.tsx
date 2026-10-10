@@ -58,7 +58,7 @@ export default function ReviewsPage({ locale }: { locale: Locale }) {
         <header className="page-head">
           <h1>{c.h1}</h1>
           <p className="lead">{c.lead}</p>
-          <p><b><bdi>{site.satisfaction.percent} %</bdi></b> {locale === "ar" ? `رضا، حسب استطلاع شمل ${site.satisfaction.sample} زبونة.` : `de satisfaction, d'après une enquête auprès de ${site.satisfaction.sample} clientes.`}</p>
+          <p><b>{site.satisfaction.percent} %</b> {locale === "ar" ? `رضا، حسب استطلاع شمل ${site.satisfaction.sample} زبونة.` : `de satisfaction, d'après une enquête auprès de ${site.satisfaction.sample} clientes.`}</p>
         </header>
 
         <section className="sec" id="avis">

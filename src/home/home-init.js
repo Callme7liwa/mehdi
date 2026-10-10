@@ -707,7 +707,7 @@ export function initHome(cfg) {
     $("[data-tkno]").textContent = String(Math.floor(1000 + Math.random() * 9000));
     try {
       const stamp = new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Africa/Casablanca" }).format(new Date()).replace(" ", "  ");
-      $("[data-tkdate]").textContent = RTL ? "\u2066" + stamp + "\u2069" : stamp; // en arabe : la date puis l'heure, dans cet ordre
+      $("[data-tkdate]").textContent = stamp;
     } catch (e) {}
     $("[data-inside]").innerHTML = ["gel", "serum", "creme", "ecran"].map((k) => `<li><img src="${document.querySelector(`.pin.${k} img`).src}" alt=""></li>`).join("");
 

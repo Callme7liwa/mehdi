@@ -112,10 +112,10 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
             <p>
               {yeux
                 ? ar
-                  ? `${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض \u20662 + 1\u2069. `
+                  ? `${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1. `
                   : `${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1. `
                 : ar
-                  ? `المنتجات الأربعة ابتداءً من ${P.price} درهم بدل ${P.was} درهم، أو ${bundleUnit(P.price)} درهم للمجموعة مع عرض \u20662 + 1\u2069. `
+                  ? `المنتجات الأربعة ابتداءً من ${P.price} درهم بدل ${P.was} درهم، أو ${bundleUnit(P.price)} درهم للمجموعة مع عرض 2 + 1. `
                   : `Les 4 soins dès ${P.price} DH au lieu de ${P.was} DH, ou ${bundleUnit(P.price)} DH la gamme avec l'offre 2 + 1. `}
               {ar ? `توصيل مجاني في كل أنحاء المغرب خلال ${site.delivery.label.ar}، والدفع عند الاستلام.` : `Livraison offerte partout au Maroc en ${site.delivery.label.fr}, paiement à la livraison.`}
             </p>

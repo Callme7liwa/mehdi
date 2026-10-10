@@ -16,7 +16,7 @@ const info = {
 };
 export const metadata = textMetadata(info, "ar");
 const P = gamme.formats.petit, G = gamme.formats.grand;
-const offer = "⁦2 + 1⁩";
+const offer = "2 + 1";
 
 export default function Page() {
   return (

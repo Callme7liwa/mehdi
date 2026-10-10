@@ -29,7 +29,7 @@ function Card({ p, locale }: { p: Product; locale: Locale }) {
               ? `السعة: ${p.ml.grand} مل في الحجم الكبير، ${p.ml.petit} مل في الحجم الصغير. يباع ضمن مجموعة العناية ضد البقع: ${P.price} درهم بالحجم الصغير، ${G.price} درهم بالحجم الكبير.`
               : `Contenance : ${p.ml.grand} ml en Grand format, ${p.ml.petit} ml en Petit format. Vendu dans la gamme anti-taches : ${P.price} DH en Petit format, ${G.price} DH en Grand format.`
             : ar
-              ? `الثمن: ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض ⁦2 + 1⁩.`
+              ? `الثمن: ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1.`
               : `Prix : ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`}
         </p>
         <a className="pc-link" href={localePath(locale, `/soins/${p.slug}`)}>{ar ? "صفحة المنتج الكاملة" : "Voir la fiche complète"}<span aria-hidden="true"> {ar ? "←" : "→"}</span></a>

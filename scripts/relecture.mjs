@@ -21,7 +21,7 @@ const PAGES = [
   ["/cgv", "Conditions générales de vente", "src/app/(ar)/ar/cgv/page.tsx"],
 ];
 
-const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/[⁦⁩‎‏]/g, "");
+const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/[‪‬‎‏]/g, "");
 const cell = (s) => s.replace(/\|/g, "\\|").replace(/\s+/g, " ").trim();
 
 /** Textes d'une page, dans l'ordre : balises du <head>, puis blocs de texte et attributs lus à l'écran. */

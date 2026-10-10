@@ -1,24 +1,33 @@
-/* Textes mixtes en arabe. Dans une phrase écrite de droite à gauche, le navigateur réordonne les fragments latins ou
-   numériques faits de plusieurs morceaux : « 2 + 1 » s'affiche « 1 + 2 », « 85 % » devient « % 85 », « −50 » devient « 50− »,
-   « @otage.1 » devient « otage.1@ », un numéro de téléphone s'affiche à l'envers, groupe par groupe.
-   On entoure donc chaque fragment de caractères d'isolement Unicode (LRI … PDI) : il s'affiche tel qu'il est écrit.
-   Ces caractères sont invisibles et fonctionnent aussi dans les attributs (alt, aria-label, title…).
-   Un mot latin seul (OTAGE) ou un nombre seul (299) ne peut pas être réordonné : on n'y touche pas.
-   Vérifié par `npm run check:bidi`. */
-export const LRI = "\u2066", PDI = "\u2069";
-const ARABIC = /[؀-ۿ]/;
-const WORD = "[A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF0-9]+";
-const GAP = "[ \u00A0\u202F]";
-/** Un fragment latin ou numérique : mots et nombres reliés par des espaces ou des signes, signe ou % compris. */
-export const FRAGMENT = new RegExp(`[@+\u2212-]?${WORD}(?:(?:${GAP}*[.,@/_:+\u00D7\u00B0\u2013\u2212-]${GAP}*|${GAP}+)${WORD})*(?:${GAP}?%)?`, "g");
-const SINGLE = new RegExp(`^${WORD}$`);
+/* Textes mixtes en arabe : ce qui se lit de droite à gauche, et ce qui reste de gauche à droite.
 
-const isolateText = (text: string) => text.replace(FRAGMENT, (m) => (SINGLE.test(m) ? m : LRI + m + PDI));
+   Dans une phrase arabe, une expression faite de nombres et de signes se lit comme le reste de la phrase, de droite à
+   gauche : pour « 2 + 1 مجانًا », l'œil rencontre d'abord 2, puis +, puis 1, puis مجانًا ; pour « 85 % », 85 puis %.
+   C'est ce que fait le navigateur tout seul : on ne touche donc PAS à ces expressions. (Les forcer de gauche à droite
+   les fait lire « 1 + 2 » et « % 85 » par une lectrice arabophone : c'était l'erreur de la première version.)
+
+   Seuls les fragments qui forment un tout écrit en latin restent de gauche à droite : numéros de téléphone
+   (« +212 6 88 91 82 01 »), adresses e-mail, identifiants (« @otage.1 »), adresses de sites. Sans protection, le
+   navigateur les découpe (« otage.1@ », groupes de chiffres dans le désordre). isolate() les entoure de caractères
+   d'isolement Unicode (LRI … PDI), invisibles, qui fonctionnent aussi dans les attributs (alt, aria-label…).
+   Vérifié par `npm run check:bidi`, sur les pages rendues dans de vrais navigateurs. */
+export const LRI = "\u2066", PDI = "\u2069";
+const ARABIC = /[\u0600-\u06FF]/;
+const GAP = "[ \u00A0\u202F]";
+/** Numéro de téléphone : au moins trois groupes de chiffres séparés par des espaces, avec ou sans « + ». */
+export const PHONE = `\\+?\\d+(?:${GAP}\\d+){2,}`;
+/** Identifiant, e-mail ou adresse : des lettres latines et des chiffres reliés par . @ / _ - (ou précédés de @). */
+export const LATIN_UNIT = "@[A-Za-z0-9]+(?:[.@/_-][A-Za-z0-9]+)*|[A-Za-z0-9]+(?:[.@/_-][A-Za-z0-9]+)*[.@_][A-Za-z0-9]+(?:[.@/_-][A-Za-z0-9]+)*";
+/** Les fragments à garder de gauche à droite. */
+export const LTR_UNIT = new RegExp(`${PHONE}|${LATIN_UNIT}`, "g");
+/** Une expression qui se lit dans le sens de la phrase : nombres reliés par un signe entouré d'espaces, ou nombre suivi de %. */
+export const EXPRESSION = new RegExp(`\\d+(?:[.,]\\d+)?(?:${GAP}+[+\u00D7x/\u2013\u2212-]${GAP}+\\d+(?:[.,]\\d+)?)+(?:${GAP}?%)?|\\d+(?:[.,]\\d+)?${GAP}?%`, "g");
+
+const isolateText = (text: string) => text.replace(LTR_UNIT, (m) => (/[A-Za-z]/.test(m) || /\d[ \u00A0\u202F]/.test(m) ? LRI + m + PDI : m));
 
 /** Retire les caractères d'isolement (données structurées, messages envoyés, comparaisons). */
 export const unisolate = (text: string) => text.replace(/[\u2066\u2069]/g, "");
 
-/** Isole les fragments latins ou numériques d'un texte arabe (les balises HTML sont laissées intactes).
+/** Garde de gauche à droite les numéros de téléphone, e-mails et identifiants d'un texte arabe (balises HTML intactes).
     Sans effet sur un texte sans lettres arabes. */
 export const isolate = (text: string) =>
   ARABIC.test(text) ? unisolate(text).split(/(<[^>]*>|\{[^}]*\})/).map((part, i) => (i % 2 ? part : isolateText(part))).join("") : text;

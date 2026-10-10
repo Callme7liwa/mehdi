@@ -16,7 +16,7 @@ import Hero from "./sections/Hero";
 import Hesite from "./sections/Hesite";
 import Offers from "./sections/Offers";
 import QuickView from "./sections/QuickView";
-import { isolateAll, LRI, PDI } from "@/lib/bidi";
+import { isolateAll } from "@/lib/bidi";
 import { homeText } from "./text";
 import { homeJsText } from "./text-js";
 
@@ -41,7 +41,7 @@ function config(locale: Locale): HomeConfig {
     formats: { petit: fmt("petit"), grand: fmt("grand") },
     yeuxPrice: productByKey("yeux").unitPrice.petit as number,
     quick: rangeProducts.map((p) => ({
-      num: ar ? `${LRI}${p.no} / 04${PDI}` : `${p.no} / 04`,
+      num: `${p.no} / 04`,
       name: p.name[locale],
       size: `${p.ml.grand} ${t.ml}`,
       lead: p.lead[locale],

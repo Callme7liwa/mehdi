@@ -19,4 +19,20 @@ for (const file of walk(out).filter((f) => TEXT.has(extname(f)))) {
   if (after.includes("{{SITE_URL}}")) throw new Error(`{{SITE_URL}} non remplacé dans ${file}`);
   if (after !== before) writeFileSync(file, after);
 }
-console.log(`dist/ prêt pour ${siteUrl}`);
+/* FAQPage : générée à partir de la FAQ visible (#faq-all), pour que les deux textes restent identiques */
+const page = join(out, "index.html");
+let html = readFileSync(page, "utf8");
+const text = (h) => h.replace(/<\/p>\s*<p>/g, " ").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ")
+  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+const faqBlock = html.match(/<div class="faq-all" id="faq-all">([\s\S]*?)\n    <\/div>/);
+if (!faqBlock) throw new Error("FAQ #faq-all introuvable dans index.html");
+const faq = [...faqBlock[1].matchAll(/<details><summary>([\s\S]*?)<\/summary><div class="a">([\s\S]*?)<\/div><\/details>/g)]
+  .map(([, q, a]) => ({ "@type": "Question", name: text(q), acceptedAnswer: { "@type": "Answer", text: text(a) } }));
+if (!faq.length) throw new Error("Aucune question trouvée dans la FAQ");
+const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${siteUrl}/#faq`, mainEntity: faq };
+html = html.replace("<!--FAQ_JSONLD-->", `<script type="application/ld+json">\n${JSON.stringify(faqLd, null, 1).replaceAll("</", "<\\/")}\n</script>`);
+/* chaque bloc JSON-LD doit être du JSON valide */
+for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(json);
+writeFileSync(page, html);
+
+console.log(`dist/ prêt pour ${siteUrl} (FAQ : ${faq.length} questions)`);

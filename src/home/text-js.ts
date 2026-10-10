@@ -142,7 +142,7 @@ const ar: HomeJsText = {
   reviewNames: ["جل منظف", "سيروم ضد البقع", "كريم ضد البقع", "واقي الشمس SPF 50"],
   fullRange: "المجموعة الكاملة",
   photoBy: "صورة أرسلتها {name}",
-  reviewOf: "رأي {name}، {city}",
+  reviewOf: "رأي {city}",
   example: "مثال",
   customer: "زبونة OTAGE",
   galTaches: [

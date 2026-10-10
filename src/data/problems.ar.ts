@@ -233,7 +233,14 @@ const ar: Record<string, Ar> = {
 };
 
 /** Les pages en arabe : mêmes adresses, mêmes images et mêmes produits que le français. */
+const imageAlt: Record<string, string> = {
+  "taches-pigmentaires": "المنتجات الأربعة لروتين OTAGE ضد البقع",
+  cernes: "سيروم محيط العين OTAGE رقم 05 قرب الوجه",
+  "taches-acne": "امرأة تحمل سيروم OTAGE ضد البقع",
+  "melasma-grossesse": "واقي الشمس SPF 50 من OTAGE على الشاطئ",
+};
+
 export const problemsAr: ProblemPage[] = problems.map((p) => {
   const t = ar[p.slug];
-  return { ...p, ...t, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
+  return { ...p, ...t, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
 });

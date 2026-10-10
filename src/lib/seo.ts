@@ -39,7 +39,7 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
 /* ---------- JSON-LD ---------- */
 
 const ORG = { "@id": abs("/#organization") };
-const MAROC = { "@type": "Country", name: "Maroc" };
+const maroc = (locale: Locale = "fr") => ({ "@type": "Country", name: locale === "ar" ? "المغرب" : "Maroc" });
 
 export const orgLd = (locale: Locale = "fr") => ({
   "@type": "Organization",
@@ -51,7 +51,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   description: site.description[locale],
   slogan: site.slogan[locale],
   sameAs: [site.instagram.url],
-  areaServed: MAROC,
+  areaServed: maroc(locale),
   contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: site.whatsapp.e164, availableLanguage: ["fr", "ar"], areaServed: "MA" },
 });
 
@@ -114,14 +114,14 @@ export const offerLd = (price: number, url: string) => ({
   ...returnPolicy(),
 });
 
-const productBase = (name: string, description: string, images: Img[], category: string) => ({
+const productBase = (name: string, description: string, images: Img[], category: string, locale: Locale = "fr") => ({
   "@type": "Product",
   name,
   description,
   image: images.map((i) => abs(i.src)),
   brand: { "@type": "Brand", name: site.name },
   manufacturer: ORG,
-  countryOfOrigin: MAROC,
+  countryOfOrigin: maroc(locale),
   category,
 });
 
@@ -131,7 +131,7 @@ export function productLd(p: Product, locale: Locale) {
   const price = p.unitPrice.petit as number;
   const size = p.ml.petit ? `${p.ml.petit} ml` : undefined;
   return {
-    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches"),
+    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], locale === "ar" ? (p.range === "yeux" ? "العناية بمحيط العين" : "العناية بالوجه ضد البقع") : p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches", locale),
     "@id": `${url}#product`,
     url,
     ...(size ? { size } : {}),

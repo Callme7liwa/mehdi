@@ -652,7 +652,7 @@ export function initHome(cfg) {
     /* Contenances de chaque format : à modifier ici uniquement (null = contenance à compléter) */
     const F = cfg.formats;
     const NOMS = TXT.noms;
-    const mlTxt = (v) => (v ? `${v} ml` : "");
+    const mlTxt = (v) => (v ? `${v} ${TXT.ml}` : "");
     /* liste des contenances sur chaque carte de format */
     sec.querySelectorAll(".fmt-card").forEach((c) => {
       const f = F[c.dataset.fmt];
@@ -1375,9 +1375,9 @@ export function initHome(cfg) {
       const ini = (a.prenom || "?").trim().charAt(0).toUpperCase();
       const gamme = a.soin === "gamme";
       const thumb = gamme ? document.querySelector(".pin.gel img").src : document.querySelector(`.pin.${KEYS[a.soin]} img`).src;
-      const msgs = a.messages.map((m) => `<div class="rb ${m.de === "otage" ? "o" : "c"}"${m.rtl ? ' dir="rtl" lang="ar"' : ' dir="ltr" lang="fr"'}>${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(fill(TXT.photoBy, { name: a.prenom }))}" loading="lazy">` : ""}${esc(m.texte)}<time>${esc(m.heure || "")}</time></div>`).join("");
+      const msgs = a.messages.map((m) => `<div class="rb ${m.de === "otage" ? "o" : "c"}"${m.rtl ? ' dir="rtl" lang="ar"' : ' dir="ltr" lang="fr"'}>${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(fill(TXT.photoBy, { name: a.prenom }))}" loading="lazy">` : ""}${esc(m.texte)}<time dir="ltr" lang="fr">${esc(m.heure || "")}</time></div>`).join("");
       return `<article class="rcard" aria-label="${esc(fill(TXT.reviewOf, { name: a.prenom, city: a.ville }))}">
-        <div class="rc-top"><span class="rc-av" aria-hidden="true">${esc(ini)}</span><span class="rc-who"><b>${esc(a.prenom)}</b><span>${esc(a.ville)}</span></span>${a.exemple ? `<span class="rc-demo">${TXT.example}</span>` : ""}</div>
+        <div class="rc-top"><span class="rc-av" aria-hidden="true">${esc(ini)}</span><span class="rc-who"><b dir="ltr" lang="fr">${esc(a.prenom)}</b><span>${esc(a.ville)}</span></span>${a.exemple ? `<span class="rc-demo">${TXT.example}</span>` : ""}</div>
         <div class="rc-log">${msgs}</div>
         <button type="button" class="rc-prod" data-i="${i}"><img src="${thumb}" alt=""><span>${gamme ? TXT.fullRange : NOMS[a.soin]}</span><i aria-hidden="true">+</i></button>
       </article>`;

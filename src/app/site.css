@@ -1,3 +1,4 @@
+@import "./fonts.css";
 /* Pages intérieures OTAGE (produits, conseils, confiance).
    Mêmes couleurs, polices et boutons que la page d'accueil.
    Propriétés logiques partout (inline-start/end) : le même CSS sert en français et en arabe (RTL). */
@@ -196,7 +197,8 @@ main { display: block; }
 .band p { color: rgba(247, 239, 230, 0.82); }
 
 /* ---- Pied de page ---- */
-.foot2 { margin-top: clamp(40px, 7vw, 88px); padding: clamp(36px, 6vw, 64px) 0 0; background: linear-gradient(180deg, var(--cream), #f3d2c2 60%, #e8a58f); color: var(--bordeaux); }
+/* pied de page : mis en page seulement à son approche (hauteur réservée : environ 1300 px sur mobile, 500 px sur ordinateur) */
+.foot2 { content-visibility: auto; contain-intrinsic-size: auto 1300px; margin-top: clamp(40px, 7vw, 88px); padding: clamp(36px, 6vw, 64px) 0 0; background: linear-gradient(180deg, var(--cream), #f3d2c2 60%, #e8a58f); color: var(--bordeaux); }
 .foot2-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px 32px; }
 .foot2 .t { margin-bottom: 10px; font-size: 13px; font-weight: 600; color: rgba(74, 13, 22, 0.65); }
 .foot2 ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
@@ -246,3 +248,4 @@ main { display: block; }
 .stepper button { width: 44px; height: 44px; border: 0; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 1px var(--line); font: 600 20px var(--sans); color: var(--bordeaux); cursor: pointer; }
 .stepper button[disabled] { opacity: 0.4; cursor: default; }
 .stepper output { min-width: 44px; text-align: center; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--bordeaux); }
+@media (min-width: 900px) { .foot2 { contain-intrinsic-size: auto 500px; } }

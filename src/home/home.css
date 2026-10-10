@@ -1,3 +1,4 @@
+@import "../app/fonts.css";
 /* ============ Tokens ============ */
 :root {
   --dir: 1; /* -1 en arabe (voir rtl.css) : inverse les déplacements horizontaux */

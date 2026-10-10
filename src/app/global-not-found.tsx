@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./site.css";
 import "./rtl.css";
-import { fontVars } from "./fonts";
-import { arFontVars } from "./fonts-ar";
 import { BagIcon } from "@/components/icons";
 import { products } from "@/data/products";
 import { ui } from "@/data/ui";
@@ -48,7 +46,7 @@ function Block({ locale }: { locale: Locale }) {
 /** Page 404 commune à tout le site, en français ou en arabe selon l'adresse. */
 export default function GlobalNotFound() {
   return (
-    <html lang="fr" className={`${fontVars} ${arFontVars}`} suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: pick }} />
         <Block locale="fr" />

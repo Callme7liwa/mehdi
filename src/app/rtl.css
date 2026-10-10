@@ -20,9 +20,22 @@ html[dir="rtl"] body :not([dir="ltr"], [dir="ltr"] *) { letter-spacing: 0 !impor
 html[dir="rtl"] body { line-height: 1.75; }
 html[dir="rtl"] :is(h1, h2, h3, .title, .o-lbl) { line-height: 1.35; }
 html[dir="rtl"] :is(h1, h2, h3, .title) { font-weight: 600; }
-html[dir="rtl"] .title { line-height: 1.3; }
-html[dir="rtl"] .title .kick { font-size: clamp(14px, 1.4vw, 17px); font-weight: 500; margin-bottom: 0.9em; opacity: 0.85; }
-html[dir="rtl"] .title mark { padding-block: 0.02em 0.12em; }
+/* Hero : le premier écran arabe montre exactement ce que montre le premier écran français.
+   Le titre arabe a besoin d'un interligne plus ouvert (1,2 au lieu de 1,04 ou 1,06) : on réduit sa taille d'autant,
+   pour que chaque ligne occupe la même hauteur qu'en français (taille × interligne identique).
+   Mesuré par blocs à 8 tailles d'écran : captures-arabe/hero-100vh/. */
+html[dir="rtl"] .title { --fr-lh: 1.04; }
+@media (min-width: 900px) { html[dir="rtl"] .title { --fr-lh: 1.06; } }
+html[dir="rtl"] .title .line:not(.kick) { font-size: calc(1em * var(--fr-lh) / 1.2); line-height: 1.2; }
+/* surtitre : plus grand qu'en français (lisibilité de l'arabe), la marge en dessous compense pour garder la même hauteur totale */
+html[dir="rtl"] .title .kick { font-size: clamp(14px, 1.4vw, 17px); font-weight: 500; opacity: 0.85; margin-bottom: calc(2.3 * clamp(11px, 1.1vw, 13px) - 1.2 * clamp(14px, 1.4vw, 17px)); }
+/* mot encadré : la police arabe réserve beaucoup de place au-dessus et au-dessous des lettres, le cadre débordait
+   sur la ligne suivante (points de « في »). On lui donne sa propre hauteur, calée sur les lettres. */
+html[dir="rtl"] .title mark { display: inline-block; line-height: 1.02; padding-block: 0.04em 0.06em; vertical-align: baseline; }
+/* badge et atouts : mêmes hauteurs de ligne qu'en français */
+html[dir="rtl"] .perks { line-height: 1.3; }
+/* sur mobile, le texte du badge tient sur une ligne en arabe et sur deux en français : on réserve la même hauteur */
+@media (max-width: 480px) { html[dir="rtl"] .proof > div:last-child { display: grid; align-content: center; min-height: calc(3px + 2.6 * 13px); } }
 
 /* Flèches et chevrons : ils pointent dans le sens de la lecture (propriété scale, indépendante des animations) */
 html[dir="rtl"] :is(.pb-go, .hz-arr, .car-nav svg, .rv-nav svg, .cta-l svg, .chip i svg, .drop-arrow) { scale: -1 1; }

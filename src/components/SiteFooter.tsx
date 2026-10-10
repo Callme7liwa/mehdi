@@ -19,18 +19,14 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
               <li><Link href={localePath(locale, "/soins")}>{t.allProducts}</Link></li>
             </ul>
           </div>
-          {locale === "fr" && (
-            <>
-              <div>
-                <p className="t">{t.footAdvice}</p>
-                <ul>{problemPages.map((p) => <li key={p.slug}><Link href={`/${p.slug}`}>{p.label}</Link></li>)}</ul>
-              </div>
-              <div>
-                <p className="t">{t.footBrand}</p>
-                <ul>{trustPages.map((p) => <li key={p.path}><Link href={p.path}>{p.label}</Link></li>)}</ul>
-              </div>
-            </>
-          )}
+          <div>
+            <p className="t">{t.footAdvice}</p>
+            <ul>{problemPages.map((p) => <li key={p.slug}><Link href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
+          </div>
+          <div>
+            <p className="t">{t.footBrand}</p>
+            <ul>{trustPages.map((p) => <li key={p.path}><Link href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}</ul>
+          </div>
           <div>
             <p className="t">{t.footFollow}</p>
             <ul>

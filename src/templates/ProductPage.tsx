@@ -178,13 +178,13 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
           <FaqList items={faqs} />
         </section>
 
-        {locale === "fr" && (
+        {(
           <section className="sec wrap" aria-labelledby="problemes">
             <div className="sec-head"><h2 id="problemes">{t.problems}</h2></div>
             <ul className="chips">
               {p.problems.map((slug) => {
                 const pg = problemPages.find((x) => x.slug === slug)!;
-                return <li key={slug}><Link href={`/${slug}`}>{pg.label}</Link></li>;
+                return <li key={slug}><Link href={localePath(locale, `/${slug}`)}>{pg.label[locale]}</Link></li>;
               })}
             </ul>
           </section>

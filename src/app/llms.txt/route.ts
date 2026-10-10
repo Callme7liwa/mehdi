@@ -61,7 +61,7 @@ export function GET() {
     "",
     `- [Accueil](${abs("/")}) : présentation et commande`,
     `- [Tous les soins](${abs("/soins")})`,
-    ...trustPages.map((p) => `- [${p.label}](${abs(p.path)})`),
+    ...trustPages.map((p) => `- [${p.label.fr}](${abs(p.path)})`),
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

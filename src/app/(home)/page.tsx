@@ -33,7 +33,7 @@ export default function Page() {
           faqLd(faq.fr, abs("/#faq")),
         )}
       />
-      <HomePage />
+      <HomePage locale="fr" />
     </>
   );
 }

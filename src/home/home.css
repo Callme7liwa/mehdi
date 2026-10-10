@@ -2722,4 +2722,15 @@ a.qv-more { display: inline-flex; align-items: center; justify-content: center; 
   .proof-long { display: none; }
   .proof-short { display: inline; }
   .proof p { margin: 0; white-space: nowrap; color: var(--t-title); }
+
+  /* 4. Moins de bruit */
+  /* pastille « 2 + 1 offerte » : droite, posée sur le bord du bouton, sans recouvrir son texte */
+  .flag { top: -17px; inset-inline-end: 18px; padding: 4px 10px; line-height: 16px; transform: none; animation-name: flagInFlat; }
+  /* lauriers : discrets, et masqués sur les petits écrans (la place qu'ils occupent est gardée) */
+  .pins .laurel { opacity: 0.45; }
+  /* petits textes sur le ciel : contraste AA (4,5:1) le matin comme le soir */
+  .arabic span { color: #7a0c17; }
+  .faces span:nth-child(3) { background: #9a4a41; }
 }
+@media (max-width: 399px) { .pins .laurel { visibility: hidden; } }
+@keyframes flagInFlat { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }

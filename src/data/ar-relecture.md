@@ -30,6 +30,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Menu | القائمة |
 | Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE | الدكتور المهدي الصديقي، صيدلي، مؤسس OTAGE |
 | 85 % de satisfaction, enquête auprès de 20 clientes | 85 % رضا، حسب استطلاع شمل 20 زبونة |
+| 85 % de satisfaction (20 clientes) | 85 % رضا (20 زبونة) |
 | Routine anti-taches | روتين ضد البقع |
 | Des soins honnêtes. | عناية صادقة. |
 | Fabriqués au Maroc | مصنوعة في المغرب |
@@ -959,4 +960,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-780 textes à relire.
+781 textes à relire.

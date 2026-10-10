@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { bundleUnit, gamme, yeuxPrice } from "@/data/products";
 import { site } from "@/data/site";
 import TextPage, { textMetadata, Todo } from "@/templates/TextPage";
@@ -50,7 +51,7 @@ export default function Page() {
       <p>Les soins OTAGE sont des produits cosmétiques, à usage externe. Fais un essai sur une petite zone avant la première utilisation. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. Enceinte ou allaitante, demande d'abord l'avis de ton médecin ou de ton pharmacien.</p>
 
       <h2>9. Données personnelles</h2>
-      <p>Les données recueillies servent uniquement à traiter la commande. Voir les <a href="/mentions-legales">mentions légales</a>.</p>
+      <p>Les données recueillies servent uniquement à traiter la commande. Voir les <Link href="/mentions-legales">mentions légales</Link>.</p>
 
       <h2>10. Droit applicable</h2>
       <p>Les présentes conditions sont soumises au droit marocain. <Todo>tribunal compétent en cas de litige</Todo></p>

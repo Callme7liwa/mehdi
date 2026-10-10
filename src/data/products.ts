@@ -284,3 +284,7 @@ export const bundleTotal = (price: number) => price * bundle.buy;
 export const yeuxPrice = productByKey("yeux").unitPrice.petit as number;
 
 export const fmtMl = (v?: number) => (v ? `${v} ml` : "");
+
+/** Liste des ingrédients en une phrase : « figue de Barbarie, louban, sans sulfate » (les sigles gardent leurs majuscules). */
+export const ingredientList = (p: Product, locale: "fr" | "ar" = "fr") =>
+  p.ingredients.map((i) => (locale === "fr" && !/^[A-Z]{2}/.test(i.fr) ? i.fr.charAt(0).toLowerCase() + i.fr.slice(1) : i[locale])).join(locale === "ar" ? "، " : ", ");

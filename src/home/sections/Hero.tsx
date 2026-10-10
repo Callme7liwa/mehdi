@@ -38,6 +38,7 @@ export default function Hero() {
       <div className="content">
         <div className="avatar">
           {/* Photo du docteur : remplacer src par l'image (carrée, 240×240 px minimum) */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- avatar provisoire en SVG intégré */}
           <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20fill%3D%22%23f7efe6%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2247%22%20r%3D%2221%22%20fill%3D%22%23e4c3bd%22/%3E%3Cpath%20d%3D%22M22%20120c3-25%2019-38%2038-38s35%2013%2038%2038z%22%20fill%3D%22%23e4c3bd%22/%3E%3C/svg%3E" alt="Docteur partenaire OTAGE" width={240} height={240} decoding="async" />
         </div>
 

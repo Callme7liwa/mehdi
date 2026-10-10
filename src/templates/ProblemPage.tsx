@@ -71,7 +71,7 @@ export default function ProblemPage({ p }: { p: Problem }) {
                   <div className="pcard-body">
                     <h3>{x.name.fr}</h3>
                     <p>{why}</p>
-                    <p>{x.ingredients.map((i) => i.fr).join(", ")}.</p>
+                    <p>{x.ingredients.map((i) => i.fr).join(", ")}</p>
                     <span className="pcard-more">Voir le soin<span aria-hidden="true"> →</span></span>
                   </div>
                 </Link>

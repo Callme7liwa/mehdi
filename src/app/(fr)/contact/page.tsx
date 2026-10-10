@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { WaIcon } from "@/components/icons";
 import { site, waLink } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
@@ -23,7 +24,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener">{site.instagram.handle}</a> : nos nouveautés, et les messages privés pour nous écrire.</p>
 
       <h2>Commander</h2>
-      <p>Tu peux commander <a href="/#offres">sur le site</a> ou directement sur WhatsApp. Livraison offerte partout au Maroc en {site.delivery.label.fr}, paiement à la livraison.</p>
+      <p>Tu peux commander <Link href="/#offres">sur le site</Link> ou directement sur WhatsApp. Livraison offerte partout au Maroc en {site.delivery.label.fr}, paiement à la livraison.</p>
       {/* TODO : horaires de réponse, adresse e-mail et adresse postale, si OTAGE souhaite les afficher. */}
     </TextPage>
   );

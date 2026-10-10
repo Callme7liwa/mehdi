@@ -11,6 +11,12 @@ const eslintConfig = defineConfig([
       "react/no-unescaped-entities": "off",
     },
   },
+  {
+    // L'accueil animé et la page 404 ont leur propre layout racine : on y entre et on en sort par un
+    // rechargement complet de page, avec de simples liens <a>, comme sur le site d'origine.
+    files: ["src/home/**", "src/app/global-not-found.tsx"],
+    rules: { "@next/next/no-html-link-for-pages": "off" },
+  },
   globalIgnores([
     ".next/**",
     "out/**",

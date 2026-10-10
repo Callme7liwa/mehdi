@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products } from "@/data/products";
+import { ingredientList, products } from "@/data/products";
 import { site, waLink } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -22,7 +22,7 @@ export default function Page() {
       <p>Nous fabriquons au Maroc une routine anti-taches en 4 soins, pensée pour les taches brunes, les taches pigmentaires et le teint irrégulier, ainsi qu'un sérum contour des yeux pour les cernes.</p>
       <ul>
         {products.map((p) => (
-          <li key={p.slug}><Link href={`/soins/${p.slug}`}>{p.name.fr}</Link> ({p.no}) : {p.ingredients.map((i) => i.fr.toLowerCase()).join(", ")}.</li>
+          <li key={p.slug}><Link href={`/soins/${p.slug}`}>{p.name.fr}</Link> ({p.no}) : {ingredientList(p)}.</li>
         ))}
       </ul>
 

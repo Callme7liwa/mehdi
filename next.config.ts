@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 85],
+    // AVIF pour les navigateurs qui le lisent, WebP pour les autres
+    formats: ["image/avif", "image/webp"],
+    // une image optimisée garde la même adresse tant que son fichier ne change pas de nom : cache d'un an
+    minimumCacheTTL: 31536000,
   },
   async redirects() {
     return [
@@ -19,6 +23,11 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        // polices : le nom du fichier porte sa version (-v1), on peut donc les garder un an
+        source: "/fonts/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
       {
         source: "/:dir(images|videos)/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }],

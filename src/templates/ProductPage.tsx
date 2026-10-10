@@ -50,10 +50,11 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
       <div className="wrap pd">
         <div className="pd-media">
           <div className="pd-pack">
-            <Img src={(p.hd ?? p.pack).src} alt={(p.hd ?? p.pack).alt[locale]} width={(p.hd ?? p.pack).w} height={(p.hd ?? p.pack).h} sizes="(max-width: 900px) 130px, 200px" loading="eager" preload fetchPriority="high" />
+            <Img src={(p.hd ?? p.pack).src} alt={(p.hd ?? p.pack).alt[locale]} width={(p.hd ?? p.pack).w} height={(p.hd ?? p.pack).h} sizes="(max-width: 900px) 130px, 200px" loading="eager" />
           </div>
+          {/* la première photo est la plus grande image de l'écran : elle seule est préchargée en priorité */}
           <div className="pd-thumbs">
-            {p.photos.map((ph, i) => <Img key={ph.src} src={ph.src} alt={ph.alt[locale]} width={ph.w} height={ph.h} sizes="(max-width: 900px) 50vw, 240px" loading={i === 0 ? "eager" : "lazy"} fetchPriority={i === 0 ? "high" : "auto"} />)}
+            {p.photos.map((ph, i) => <Img key={ph.src} src={ph.src} alt={ph.alt[locale]} width={ph.w} height={ph.h} sizes="(max-width: 900px) 50vw, 240px" loading={i === 0 ? "eager" : "lazy"} preload={i === 0} fetchPriority={i === 0 ? "high" : "auto"} />)}
           </div>
         </div>
 

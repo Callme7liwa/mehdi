@@ -30,6 +30,8 @@ const texts = {
     heroFaq: "FAQ",
     heroCommander: "Commander",
     hero85DeNosClientes: "85 % de satisfaction, enquête auprès de 20 clientes",
+    // version courte du badge, sur mobile (une seule ligne)
+    hero85Court: "85 % de satisfaction (20 clientes)",
     heroRoutineAntiTaches: "Routine anti-taches",
     heroDesSoins: "Des soins ",
     heroHonnetes: "honnêtes.",
@@ -313,6 +315,7 @@ const texts = {
     heroFaq: "الأسئلة",
     heroCommander: "اطلبي الآن",
     hero85DeNosClientes: "85 % رضا، حسب استطلاع شمل 20 زبونة",
+    hero85Court: "85 % رضا (20 زبونة)",
     heroRoutineAntiTaches: "روتين ضد البقع",
     heroDesSoins: "عناية ",
     heroHonnetes: "صادقة.",

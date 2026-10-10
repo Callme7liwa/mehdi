@@ -47,7 +47,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         <div className="proof">
           <div className="faces" aria-hidden="true"><span>S</span><span>H</span><span>N</span></div>
           <div>
-            <p>{t.hero85DeNosClientes}</p>
+            <p><span className="proof-long">{t.hero85DeNosClientes}</span><span className="proof-short">{t.hero85Court}</span></p>
           </div>
         </div>
 

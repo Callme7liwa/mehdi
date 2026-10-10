@@ -526,6 +526,7 @@ a { color: inherit; }
 .proof .rating { position: static; display: flex; gap: 2px; color: var(--red); opacity: 1; }
 .rating svg { width: 14px; height: 14px; }
 .proof p { margin: 3px 0 0; font-size: 13px; line-height: 1.3; color: var(--t-soft); }
+.proof-short { display: none; } /* version courte : mobile seulement (voir « Hero sur mobile ») */
 
 .title {
   margin: var(--s2) 0 0;
@@ -2716,4 +2717,9 @@ a.qv-more { display: inline-flex; align-items: center; justify-content: center; 
   .title { font-size: clamp(30px, 9.4vw, 60px); }
   .title .line:not(.kick) { letter-spacing: -0.01em; }
   .title .kick { opacity: 1; }
+
+  /* 3. Preuve sociale : version courte, sur une seule ligne */
+  .proof-long { display: none; }
+  .proof-short { display: inline; }
+  .proof p { margin: 0; white-space: nowrap; color: var(--t-title); }
 }

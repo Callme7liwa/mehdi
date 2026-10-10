@@ -61,20 +61,20 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
 
         <div className="pins">
           <div className="laurel l" aria-hidden="true"></div>
-          <div className="lane" role="list" aria-label={t.heroLaGammeAntiTaches}>
-            <a className="pin gel" href="#gel-nettoyant" role="listitem">
+          <div className="lane" role="group" aria-label={t.heroLaGammeAntiTaches}>
+            <a className="pin gel" href="#gel-nettoyant">
               <Img src="/images/gel-nettoyant-anti-taches-n01-200ml.webp" alt={t.heroGelNettoyantAntiTaches} width={122} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroGelNettoyant}<b>{t.heroN01}</b></span>
             </a>
-            <a className="pin serum" href="#serum" role="listitem">
+            <a className="pin serum" href="#serum">
               <Img src="/images/serum-anti-taches-n02-30ml.webp" alt={t.heroSerumAntiTachesN} width={183} height={480} loading="eager" preload fetchPriority="high" />
               <span className="tag" aria-hidden="true">{t.heroSerum}<b>{t.heroN02}</b></span>
             </a>
-            <a className="pin creme" href="#creme" role="listitem">
+            <a className="pin creme" href="#creme">
               <Img src="/images/creme-anti-taches-n03-50ml.webp" alt={t.heroCremeAntiTachesN} width={117} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroCreme}<b>{t.heroN03}</b></span>
             </a>
-            <a className="pin ecran" href="#ecran-solaire" role="listitem" suppressHydrationWarning>
+            <a className="pin ecran" href="#ecran-solaire" suppressHydrationWarning>
               <Img src="/images/ecran-solaire-spf50-n04-50ml.webp" alt={t.heroEcranSolaireSpf50} width={117} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroEcranSolaireSpf502}<b>{t.heroN04}</b></span>
             </a>

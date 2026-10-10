@@ -65,6 +65,7 @@ export const reviews: Review[] = [
       { de: "otage", texte: "bse7tk", heure: "21:38" },
     ],
     traduction: {
+      ar: "حفظك الله دكتور. دكتور، بدأت النضارة تظهر وتقريبًا كل البقع اختفت بنسبة 95 في المئة. شكرًا جزيلًا لك. والله. لن أنسى فضلك أبدًا، وإن أردت أسجل شهادة صوتية. رد OTAGE: الحمد لله، هذا بفضل الله، وأنا مجرد سبب. بالصحة.",
       fr: "Que Dieu vous garde, docteur. Docteur, l'éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci infiniment. Vraiment. Je n'oublierai jamais votre bienfait ; si vous voulez, je fais un audio de témoignage. Réponse d'OTAGE : Dieu merci, c'est grâce à Dieu, moi je ne suis qu'un moyen. À votre santé.",
     },
   },

@@ -8,8 +8,9 @@
   --ink: #2a0a0f;
   --muted: rgba(42, 10, 15, 0.68);
   --page: #f7efe6;
-  --laurel-l: url("/images/laurier-gauche.webp");
-  --laurel-r: url("/images/laurier-droit.webp");
+  /* lauriers : 46 px de large au plus sur mobile ; la grande version sert à partir de 900 px (voir plus bas) */
+  --laurel-l: url("/images/laurier-gauche-petit.webp");
+  --laurel-r: url("/images/laurier-droit-petit.webp");
 
   /* Espacements fluides : compacts sur mobile, aérés sur desktop */
   --gutter: clamp(16px, 4.5vw, 32px);
@@ -1443,7 +1444,7 @@ html.qv-lock { overflow: hidden; }
 .chip:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--bordeaux), 0 0 0 3px var(--cream), 0 0 0 5px var(--bordeaux); }
 .chip.used { display: none; }
 .qchips:empty::before { content: "Tu as fait le tour des questions."; padding: 12px 6px; font-size: 14px; color: var(--muted); }
-.wa { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; min-height: 44px; border-radius: 999px; background: #1f8a4c; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+.wa { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; min-height: 44px; border-radius: 999px; background: #1a7f45; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
 .wa svg { width: 18px; height: 18px; }
 
 .faq-all { display: grid; gap: 8px; }
@@ -1556,7 +1557,7 @@ html.qv-lock { overflow: hidden; }
 }
 .foot-about { position: relative; width: min(720px, 100%); margin: clamp(32px, 6vh, 56px) auto 0; text-align: center; font-size: 14px; line-height: 1.6; color: rgba(74, 13, 22, 0.72); }
 .foot-upd { white-space: nowrap; }
-.foot-legal { position: relative; margin: 0 calc(-1 * var(--gutter)); padding: 14px var(--gutter) calc(20px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 13px; color: rgba(255, 245, 238, 0.9); background: #b84a55; }
+.foot-legal { position: relative; margin: 0 calc(-1 * var(--gutter)); padding: 14px var(--gutter) calc(20px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 13px; color: #fff; background: #b34651; }
 @media (max-width: 899px) { .foot-legal { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); } }
 
 
@@ -1740,7 +1741,7 @@ html.qv-lock { overflow: hidden; }
 .pb-txt { display: grid; gap: 3px; min-width: 0; }
 .pb-txt b { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; color: var(--bordeaux); }
 .pb-txt > span { font-size: 14px; color: var(--muted); }
-.pb-txt em { justify-self: start; margin-top: 6px; padding: 4px 10px; border-radius: 999px; background: rgba(212, 34, 53, 0.1); color: var(--red); font-style: normal; font-size: 12.5px; font-weight: 700; }
+.pb-txt em { justify-self: start; margin-top: 6px; padding: 4px 10px; border-radius: 999px; background: rgba(212, 34, 53, 0.1); color: #c71f31; font-style: normal; font-size: 12.5px; font-weight: 700; }
 .pb-txt em.soon-tag { background: rgba(74, 13, 22, 0.07); color: var(--muted); }
 .pb-go { width: 22px; height: 22px; color: var(--bordeaux); transition: transform 0.35s cubic-bezier(.2, .8, .2, 1); }
 .pbc[aria-checked="true"] { background: var(--bordeaux); box-shadow: 0 22px 40px -24px rgba(74, 13, 22, 0.7); transform: none; }
@@ -2627,3 +2628,8 @@ html.qv-lock { overflow: hidden; }
 a.qv-more { display: inline-flex; align-items: center; justify-content: center; }
 .rv-more { margin: 12px 0 0; text-align: center; font-size: 14px; }
 .rv-more a { color: var(--bordeaux); font-weight: 600; text-underline-offset: 3px; }
+
+/* ---- Lauriers en grande taille sur les grands écrans ---- */
+@media (min-width: 900px) {
+  :root { --laurel-l: url("/images/laurier-gauche.webp"); --laurel-r: url("/images/laurier-droit.webp"); }
+}

@@ -45,9 +45,9 @@ for (const path of PAGES) {
   // JSON-LD : toutes les valeurs de texte, sauf adresses, types et énumérations schema.org
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     const walk = (v, k) => {
-      if (typeof v === "string") { if (!k.startsWith("@") && !/^https?:|^\+?\d/.test(v) && !["priceCurrency", "currency", "unitCode", "addressCountry", "inLanguage", "contactType", "availableLanguage", "areaServed"].includes(k)) for (const w of bad(v)) problems.push(`JSON-LD ${k} : « ${w} »`); }
+      if (typeof v === "string") { if (!k.startsWith("@") && !/^https?:|^\+?\d/.test(v) && !["priceCurrency", "currency", "unitCode", "dayOfWeek", "opens", "closes", "email", "addressCountry", "inLanguage", "contactType", "availableLanguage", "areaServed"].includes(k)) for (const w of bad(v)) problems.push(`JSON-LD ${k} : « ${w} »`); }
       else if (Array.isArray(v)) v.forEach((x) => walk(x, k));
-      else if (v && typeof v === "object") for (const [kk, vv] of Object.entries(v)) walk(vv, kk);
+      else if (v && typeof v === "object") { if (v["@type"] === "Person") return; /* nom propre du fondateur */ for (const [kk, vv] of Object.entries(v)) walk(vv, kk); }
     };
     walk(JSON.parse(json), "");
   }

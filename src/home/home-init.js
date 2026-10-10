@@ -1076,6 +1076,11 @@ export function initHome(cfg) {
     }, true));
 
     /* l'affiche vidéo ne joue que lorsqu'elle est à l'écran */
+    /* l'image d'attente de la vidéo n'est chargée qu'à l'approche du mur d'affiches */
+    if (video && video.dataset.poster) {
+      const setPoster = () => { video.poster = video.dataset.poster; };
+      if ("IntersectionObserver" in window) { const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { setPoster(); io.disconnect(); } }, { rootMargin: "150% 0px" }); io.observe(sec); } else setPoster();
+    }
     if (video) video.muted = true; // React ne pose pas l'attribut muted : sans lui, la lecture automatique est bloquée
     if (video && "IntersectionObserver" in window && !reduce) {
       new IntersectionObserver(([en]) => { en.isIntersecting ? video.play().catch(() => {}) : video.pause(); }, { threshold: 0.4 }).observe(video);

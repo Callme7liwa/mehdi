@@ -1,6 +1,7 @@
 /* Questions fréquentes. Les chiffres viennent de products.ts et site.ts : rien n'est écrit en double.
    Les réponses peuvent contenir <b>…</b> ; chaque élément du tableau `a` est un paragraphe. */
-import { site, type L, type Locale } from "./site";
+import { site, type Locale } from "./site";
+import { isolateAll } from "../lib/bidi";
 import { bundleTotal, bundleUnit, gamme, productByKey, yeuxPrice, type Product } from "./products";
 
 export type Faq = { q: string; a: string[] };
@@ -30,7 +31,7 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban."] },
   ],
   /* À relire par un natif. Même ordre et mêmes informations que le français. */
-  ar: [
+  ar: isolateAll([
     { q: "متى أدفع؟", a: ["عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك.", "لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية."] },
     { q: "هل التوصيل مدفوع؟", a: ["لا، التوصيل <b>مجاني في كل أنحاء المغرب</b>، مهما كان الحجم أو عدد المجموعات."] },
     { q: "كم يستغرق التوصيل؟", a: [`<b>${site.delivery.label.ar}</b>، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك.`] },
@@ -47,8 +48,35 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "وماذا بعد طلبي؟", a: ["نتصل بك لتأكيد طلبك وعنوانك، ثم يُرسل طردك.", "تدفعين عند الاستلام، وهذا كل شيء."] },
     { q: "وماذا لو كانت هناك مشكلة في طلبي؟", a: ["نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية.", "طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب."] },
     { q: "أين تُصنع منتجاتكم؟", a: ["في المغرب، بمكونات مثل التين الشوكي واللبان."] },
-  ],
+  ]),
 };
+
+/* ---------- Organisation du chat de l'accueil ----------
+   Une ligne par question, dans le même ordre que `faq.fr` et `faq.ar`.
+   id : nom court ; cat : catégorie ; next : questions de suivi proposées après la réponse. */
+export type FaqCat = "commande" | "produits" | "peau";
+export const faqMeta: { id: string; cat: FaqCat; next: string[] }[] = [
+  { id: "pay", cat: "commande", next: ["after", "delay", "claims"] },
+  { id: "shipcost", cat: "commande", next: ["delay", "pay", "after"] },
+  { id: "delay", cat: "commande", next: ["shipcost", "after", "pay"] },
+  { id: "bundle", cat: "commande", next: ["price", "contents", "delay"] },
+  { id: "price", cat: "commande", next: ["bundle", "contents", "shipcost"] },
+  { id: "contents", cat: "produits", next: ["ingredients", "routine", "price"] },
+  { id: "routine", cat: "produits", next: ["results", "spf", "ingredients"] },
+  { id: "ingredients", cat: "produits", next: ["sensitive", "pregnancy", "origin"] },
+  { id: "results", cat: "produits", next: ["routine", "spf", "sensitive"] },
+  { id: "spf", cat: "produits", next: ["routine", "results"] },
+  { id: "sensitive", cat: "peau", next: ["pregnancy", "ingredients"] },
+  { id: "pregnancy", cat: "peau", next: ["sensitive", "ingredients"] },
+  { id: "eyes", cat: "produits", next: ["routine", "price"] },
+  { id: "after", cat: "commande", next: ["delay", "claims", "pay"] },
+  { id: "claims", cat: "commande", next: ["after", "delay"] },
+  { id: "origin", cat: "produits", next: ["ingredients", "contents"] },
+];
+/** Les 4 questions proposées à l'ouverture du chat : prix, livraison, paiement, résultats. */
+export const faqStarters = ["price", "delay", "pay", "results"];
+/** Les 3 sujets du chat, dans l'ordre (libellés dans src/home/chat/chat-text.ts). */
+export const faqCats: FaqCat[] = ["commande", "produits", "peau"];
 
 const T = <K extends string>(locale: Locale, fr: K, ar: string) => (locale === "ar" ? ar : fr);
 
@@ -92,6 +120,7 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
   }
 
   for (const x of p.extraFaq) out.push({ q: x.q[locale], a: [x.a[locale]] });
+  if (locale === "ar") out.splice(0, out.length, ...isolateAll(out));
 
   const base = faq[locale];
   const find = (frQ: string, arQ: string) => base.find((x) => x.q === (locale === "ar" ? arQ : frQ));
@@ -108,4 +137,3 @@ function articleLe(lower: string) {
 /** Texte brut d'une réponse (JSON-LD, llms.txt). */
 export const plain = (f: Faq) => f.a.join(" ").replace(/<[^>]+>/g, "");
 
-export type { L };

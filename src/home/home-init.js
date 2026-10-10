@@ -706,7 +706,8 @@ export function initHome(cfg) {
     $(".tk-logo").src = document.querySelector(".logo img").src;
     $("[data-tkno]").textContent = String(Math.floor(1000 + Math.random() * 9000));
     try {
-      $("[data-tkdate]").textContent = new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Africa/Casablanca" }).format(new Date()).replace(" ", "  ");
+      const stamp = new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Africa/Casablanca" }).format(new Date()).replace(" ", "  ");
+      $("[data-tkdate]").textContent = RTL ? "\u2066" + stamp + "\u2069" : stamp; // en arabe : la date puis l'heure, dans cet ordre
     } catch (e) {}
     $("[data-inside]").innerHTML = ["gel", "serum", "creme", "ecran"].map((k) => `<li><img src="${document.querySelector(`.pin.${k} img`).src}" alt=""></li>`).join("");
 
@@ -985,7 +986,7 @@ export function initHome(cfg) {
     const post = (o) => fetch(ORDERS_ENDPOINT, {
       method: "POST", keepalive: true,
       headers: { "Content-Type": "text/plain;charset=utf-8" }, // évite la requête préalable CORS
-      body: JSON.stringify(o),
+      body: JSON.stringify(o).replace(/[\u2066\u2069]/g, ""), // sans les caractères d'isolement des textes arabes
     }).then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); }); // refusée par Google : la commande reste en attente
     const flush = async () => {
       if (!ORDERS_ENDPOINT) return;
@@ -1160,61 +1161,14 @@ export function initHome(cfg) {
     measure();
   })();
 
-  /* ================= Les questions : conversation ================= */
+  /* ================= Les questions =================
+     Le chat est un composant React (src/home/chat/). Ici : seulement la liste complète des réponses,
+     écrite dans le HTML, que l'on replie derrière son bouton. */
   (() => {
     const sec = document.querySelector(".faq");
     if (!sec) return;
-    /* Numéro WhatsApp au format international, sans + ni espaces (ex. 212612345678). Vide = bouton masqué. */
-    const WHATSAPP = cfg.whatsapp;
-    const SEND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>';
-    /* questions et réponses lues dans la FAQ écrite en HTML (#faq-all) */
     const all = sec.querySelector(".faq-all"), allBtn = sec.querySelector(".faq-all-btn");
-    const QA = [...all.querySelectorAll("details")].map((d) => ({
-      q: d.querySelector("summary").textContent.trim(),
-      a: [...d.querySelectorAll(".a p")].map((p) => p.innerHTML),
-    }));
     all.hidden = true; // visible sans JavaScript (robots, lecteurs), repliée derrière le bouton sinon
-    const log = sec.querySelector(".chat-log"), chips = sec.querySelector(".qchips");
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    sec.querySelector(".chat-av img").src = document.querySelector(".logo img").src;
-    const now = () => new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-    log.querySelector("time").textContent = now();
-
-    const bottom = () => { log.scrollTop = log.scrollHeight; };
-    const bubble = (who, html) => {
-      const m = document.createElement("div");
-      m.className = "msg " + who;
-      m.innerHTML = html + `<time>${now()}</time>`;
-      log.appendChild(m); bottom();
-      return m;
-    };
-    let busy = false;
-    const ask = (i, chip) => {
-      if (busy) return;
-      busy = true;
-      chip.classList.add("used");
-      const me = bubble("me", `<p>${QA[i].q}</p>`);
-      const a = QA[i].a;
-      const wait = reduce ? 0 : Math.min(1500, 550 + a.join(" ").length * 6);
-      setTimeout(() => {
-        me.classList.add("read");
-        if (reduce) { bubble("them", a.map((x) => `<p>${x}</p>`).join("")); busy = false; return; }
-        const t = document.createElement("div");
-        t.className = "typing"; t.setAttribute("aria-label", TXT.typing);
-        t.innerHTML = "<i></i><i></i><i></i>";
-        log.appendChild(t); bottom();
-        setTimeout(() => { t.remove(); bubble("them", a.map((x) => `<p>${x}</p>`).join("")); busy = false; }, wait);
-      }, reduce ? 0 : 450);
-    };
-    QA.forEach((x, i) => {
-      const b = document.createElement("button");
-      b.type = "button"; b.className = "chip";
-      b.innerHTML = `${x.q}<i>${SEND}</i>`;
-      b.addEventListener("click", () => { touched = true; ask(i, b); });
-      chips.appendChild(b);
-    });
-
-    /* toutes les réponses d'un coup */
     allBtn.addEventListener("click", () => {
       const open = all.hidden;
       all.hidden = !open;
@@ -1222,19 +1176,6 @@ export function initHome(cfg) {
       allBtn.textContent = open ? TXT.hideAll : TXT.showAll;
       if (open) all.querySelector("summary").focus();
     });
-
-    if (WHATSAPP) { const wa = sec.querySelector(".wa"); wa.href = `https://wa.me/${WHATSAPP}`; wa.hidden = false; }
-
-    /* petite démonstration à l'arrivée : la 1re question se pose toute seule, une seule fois */
-    let touched = false;
-    if ("IntersectionObserver" in window && !reduce) {
-      const io = new IntersectionObserver(([en]) => {
-        if (!en.isIntersecting) return;
-        io.disconnect();
-        setTimeout(() => { if (!touched) ask(0, chips.children[0]); }, 900);
-      }, { threshold: 0.5 });
-      io.observe(sec.querySelector(".chat"));
-    }
   })();
 
   /* ================= Pour les clientes pressées ================= */
@@ -1265,7 +1206,7 @@ export function initHome(cfg) {
     let offersVisible = false, askVisible = false, footVisible = false, dgVisible = false, done = false;
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(([en]) => { offersVisible = en.isIntersecting; sync(); }, { threshold: 0.12 }).observe(offers);
-      const ask = document.querySelector(".chat-ask");
+      const ask = document.querySelector(".chat-zone");
       if (ask) new IntersectionObserver(([en]) => { askVisible = en.isIntersecting; sync(); }).observe(ask);
       const dgSec = document.querySelector(".dg"), dgx = document.querySelector(".dgx");
       let a1 = false, a2 = false;

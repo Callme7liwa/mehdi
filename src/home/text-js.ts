@@ -56,7 +56,6 @@ const fr = {
   errFields: "Remplis les champs en rouge pour qu'on puisse te livrer.",
   thanks: "Merci, {name} !",
   // chat
-  typing: "OTAGE écrit…",
   hideAll: "Masquer la liste des réponses",
   showAll: "Voir toutes les réponses d'un coup",
   // avis
@@ -126,7 +125,7 @@ const ar: HomeJsText = {
   fmtPer: "<b>{p}</b> درهم <small>للمجموعة</small>",
   fmtOne: "<b>{p}</b> درهم",
   fmtTotal3: "<span>المجموع {t} درهم للثلاث</span>",
-  fmtWas: "<s>{was} درهم</s><em>−{diff} درهم</em>",
+  fmtWas: "<s>{was} درهم</s><em>\u2066−{diff}\u2069 درهم</em>",
   upsOn: "تم اختيار الحجم الكبير",
   upsOff: "الانتقال إلى الحجم الكبير",
   upsBackBundle: "جل {gel} مل، سيروم {serum} مل، كريم {creme} مل. اضغطي للعودة إلى الحجم الصغير ({total} درهم).",
@@ -136,7 +135,6 @@ const ar: HomeJsText = {
   errPhone: "تحققي من رقمك: 10 أرقام تبدأ بـ 05 أو 06 أو 07.",
   errFields: "املئي الخانات باللون الأحمر حتى نتمكن من التوصيل.",
   thanks: "شكرًا، {name}!",
-  typing: "OTAGE يكتب…",
   hideAll: "إخفاء قائمة الأجوبة",
   showAll: "عرض كل الأجوبة دفعة واحدة",
   reviewNames: ["جل منظف", "سيروم ضد البقع", "كريم ضد البقع", "واقي الشمس SPF 50"],

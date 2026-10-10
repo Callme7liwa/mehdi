@@ -27,6 +27,9 @@ html[dir="rtl"] .title mark { padding-block: 0.02em 0.12em; }
 /* Flèches et chevrons : ils pointent dans le sens de la lecture (propriété scale, indépendante des animations) */
 html[dir="rtl"] :is(.pb-go, .hz-arr, .car-nav svg, .rv-nav svg, .cta-l svg, .chip i svg, .drop-arrow) { scale: -1 1; }
 
+html[dir="rtl"] :is(.chip.back .dir svg, .qnav.q-prev svg) { scale: 1 1; }
+html[dir="rtl"] .qnav.q-next svg { scale: -1 1; }
+
 /* Ce qui ne s'inverse pas : numéros de téléphone */
 html[dir="rtl"] input[type="tel"] { direction: ltr; text-align: right; }
 

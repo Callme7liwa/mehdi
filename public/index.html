@@ -3194,7 +3194,23 @@ html.qv-lock { overflow: hidden; }
       </div>
     </div>
 
-    <div class="faq-all" id="faq-all" hidden></div>
+    <!-- La FAQ : écrite ici une seule fois. Le chat et le JSON-LD FAQPage (généré au build) la lisent. -->
+    <div class="faq-all" id="faq-all">
+      <details><summary>Je paie quand ?</summary><div class="a"><p>À la livraison, en espèces, quand le livreur te remet ton colis.</p><p>Rien à payer en ligne, pas besoin de carte bancaire.</p></div></details>
+      <details><summary>La livraison est payante ?</summary><div class="a"><p>Non, elle est <b>offerte partout au Maroc</b>, quel que soit le format ou le nombre de gammes.</p></div></details>
+      <details><summary>C'est quoi l'offre 2 + 1 ?</summary><div class="a"><p>Tu prends 2 gammes, la 3e est offerte.</p><p>En Petit format : <b>199 DH la gamme</b> au lieu de 299 DH, soit 598 DH les 3. En Grand format : <b>399 DH</b> au lieu de 599 DH, soit 1 198 DH les 3.</p></div></details>
+      <details><summary>Combien coûte la gamme anti-taches ?</summary><div class="a"><p>Le Petit format coûte <b>299 DH</b> la gamme au lieu de 496 DH, le Grand format <b>599 DH</b> au lieu de 815 DH.</p><p>Avec l'offre 2 + 1, la gamme revient à 199 DH en Petit format et à 399 DH en Grand format. La livraison est offerte.</p></div></details>
+      <details><summary>Qu'est-ce qu'il y a dans une gamme ?</summary><div class="a"><p>Les 4 soins de la routine : gel nettoyant, sérum anti-taches, crème anti-taches et écran solaire SPF 50.</p><p>En Grand format : gel 200 ml, sérum 30 ml, crème 50 ml et écran solaire 50 ml. En Petit format, les flacons sont plus petits : gel 125 ml, sérum 15 ml, crème 30 ml.</p></div></details>
+      <details><summary>Comment j'utilise la routine ?</summary><div class="a"><p>Le matin : gel nettoyant, sérum, crème, puis écran solaire.</p><p>Le soir : les 3 premiers, sans écran solaire. Le sérum, c'est le cœur de la routine contre les taches.</p></div></details>
+      <details><summary>Quels sont les ingrédients actifs ?</summary><div class="a"><p>Gel nettoyant : figue de Barbarie et louban, sans sulfate. Sérum anti-taches : alpha-arbutine, matcha et calendula. Crème anti-taches : niacinamide, acide hyaluronique et AHA.</p><p>L'écran solaire SPF 50 offre une haute protection UVA/UVB.</p></div></details>
+      <details><summary>Je vois des résultats quand ?</summary><div class="a"><p>Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain.</p><p>Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Sans protection, les taches reviennent. Le rythme varie d'une peau à l'autre.</p></div></details>
+      <details><summary>Pourquoi l'écran solaire est indispensable ?</summary><div class="a"><p>Parce que sans protection, les taches reviennent.</p><p>L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil.</p></div></details>
+      <details><summary>J'ai la peau sensible</summary><div class="a"><p>Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h.</p><p>En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel.</p></div></details>
+      <details><summary>Je suis enceinte ou j'allaite, je peux l'utiliser ?</summary><div class="a"><p>Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr.</p></div></details>
+      <details><summary>Le sérum contour des yeux, c'est pour qui ?</summary><div class="a"><p>Pour les cernes et le contour des yeux fatigué. Il contient de l'aloe vera, de l'acide hyaluronique et de la caféine, en 15 ml, avec un applicateur bille.</p><p>Il coûte 130 DH, ou 87 DH le sérum avec l'offre 2 + 1.</p></div></details>
+      <details><summary>Et après ma commande ?</summary><div class="a"><p>On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part.</p><p>Tu paies à la réception, c'est tout.</p></div></details>
+      <details><summary>Vos soins sont fabriqués où ?</summary><div class="a"><p>Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban.</p></div></details>
+    </div>
   </div>
 </section>
 
@@ -4476,17 +4492,13 @@ document.querySelectorAll(".o-btn").forEach((b) => {
   /* Numéro WhatsApp au format international, sans + ni espaces (ex. 212612345678). Vide = bouton masqué. */
   const WHATSAPP = "";
   const SEND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>';
-  const QA = [
-    { q: "Je paie quand ?", a: ["À la livraison, en espèces, quand le livreur te remet ton colis.", "Rien à payer en ligne, pas besoin de carte bancaire."] },
-    { q: "La livraison est payante ?", a: ["Non, elle est <b>offerte partout au Maroc</b>, quel que soit le format ou le nombre de gammes."] },
-    { q: "C'est quoi l'offre 2 + 1 ?", a: ["Tu prends 2 gammes, la 3e est offerte.", "En Petit format : <b>199 DH la gamme</b> au lieu de 299 DH, soit 598 DH les 3. En Grand format : <b>399 DH</b> au lieu de 599 DH, soit 1 198 DH les 3."] },
-    { q: "Comment j'utilise la routine ?", a: ["Le matin : gel nettoyant, sérum, crème, puis écran solaire.", "Le soir : les 3 premiers, sans écran solaire. Le sérum, c'est le cœur de la routine contre les taches."] },
-    { q: "Je vois des résultats quand ?", a: ["Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain.", "Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Sans protection, les taches reviennent. Le rythme varie d'une peau à l'autre."] },
-    { q: "J'ai la peau sensible", a: ["Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h.", "En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel."] },
-    { q: "Je suis enceinte, je peux l'utiliser ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
-    { q: "Et après ma commande ?", a: ["On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part.", "Tu paies à la réception, c'est tout."] },
-    { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban."] },
-  ];
+  /* questions et réponses lues dans la FAQ écrite en HTML (#faq-all) */
+  const all = sec.querySelector(".faq-all"), allBtn = sec.querySelector(".faq-all-btn");
+  const QA = [...all.querySelectorAll("details")].map((d) => ({
+    q: d.querySelector("summary").textContent.trim(),
+    a: [...d.querySelectorAll(".a p")].map((p) => p.innerHTML),
+  }));
+  all.hidden = true; // visible sans JavaScript (robots, lecteurs), repliée derrière le bouton sinon
   const log = sec.querySelector(".chat-log"), chips = sec.querySelector(".qchips");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   sec.querySelector(".chat-av img").src = document.querySelector(".logo img").src;
@@ -4527,9 +4539,7 @@ document.querySelectorAll(".o-btn").forEach((b) => {
     chips.appendChild(b);
   });
 
-  /* toutes les réponses d'un coup (et pour les moteurs de recherche) */
-  const all = sec.querySelector(".faq-all"), allBtn = sec.querySelector(".faq-all-btn");
-  all.innerHTML = QA.map((x) => `<details><summary>${x.q}</summary><div class="a">${x.a.map((p) => `<p>${p}</p>`).join("")}</div></details>`).join("");
+  /* toutes les réponses d'un coup */
   allBtn.addEventListener("click", () => {
     const open = all.hidden;
     all.hidden = !open;

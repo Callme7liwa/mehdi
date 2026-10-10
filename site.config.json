@@ -1,4 +1,0 @@
-{
-  "siteUrl": "https://otage-maroc.vercel.app",
-  "TODO": "Adresse provisoire. Remplacer siteUrl par le domaine définitif (ex. https://www.otage.ma), sans / à la fin, puis redéployer : toutes les URLs du site sont mises à jour au build."
-}

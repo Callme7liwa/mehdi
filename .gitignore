@@ -7,3 +7,7 @@ node_modules/
 *.log
 .vercel
 dist/
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo

@@ -207,14 +207,19 @@ main { display: block; }
 
 /* ---- 404 ---- */
 .nf { min-height: 70vh; display: grid; place-content: center; justify-items: center; gap: 18px; text-align: center; padding: 48px var(--gutter); }
-.nf .big { font-family: var(--serif); font-size: clamp(90px, 20vw, 180px); line-height: 0.9; color: var(--red); }
+.nf .big { font-family: var(--serif); font-weight: 600; font-size: clamp(90px, 20vw, 180px); line-height: 0.9; color: var(--red); }
 
 /* liens dans les pastilles */
 .chips li a { text-decoration: none; }
 .chips li:has(a):hover { box-shadow: inset 0 0 0 2px var(--bordeaux); }
 
 /* ---- Sélecteur de langue ---- */
-.top .lang { margin-inline-start: auto; padding: 8px 12px; border-radius: 999px; font-size: 15px; font-weight: 500; color: var(--bordeaux); text-decoration: none; white-space: nowrap; }
-.top .lang:hover { background: rgba(74, 13, 22, 0.07); }
-.top .lang + .top-cta { margin-inline-start: 0; }
-@media (min-width: 900px) { .top .lang { margin-inline-start: 0; } }
+/* sur mobile, il est dans le menu ; à partir de 560 px, il est aussi dans la barre */
+.top-in > .lang { display: none; padding: 8px 12px; border-radius: 999px; font-size: 15px; font-weight: 500; color: var(--bordeaux); text-decoration: none; white-space: nowrap; }
+.top-in > .lang:hover { background: rgba(74, 13, 22, 0.07); }
+.top-menu .lang { border-top: 1px solid var(--line); margin-top: 6px; }
+@media (min-width: 560px) {
+  .top-in > .lang { display: inline-block; margin-inline-start: auto; }
+  .top-in > .lang + .top-cta { margin-inline-start: 0; }
+}
+@media (min-width: 900px) { .top-in > .lang { margin-inline-start: 0; } }

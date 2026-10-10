@@ -2,7 +2,7 @@
    La mise en page elle-même s'inverse toute seule : home.css et site.css utilisent des propriétés logiques
    (inline-start/end) et la variable --dir pour les déplacements. Ce fichier ne contient que ce que le sens
    de lecture ne règle pas : les polices, la typographie arabe et les icônes directionnelles. */
-html[dir="rtl"], [data-nf="ar"] {
+html[dir="rtl"] {
   /* l'arabe d'abord (IBM Plex Sans Arabic), puis DM Sans pour les chiffres et les mots latins */
   --font-dm-sans: var(--font-ar), var(--font-latin);
   /* prix en Bodoni, ticket en DM Mono : le mot arabe qui suit (درهم…) retombe sur la police arabe */
@@ -31,4 +31,4 @@ html[dir="rtl"] :is(.pb-go, .hz-arr, .car-nav svg, .rv-nav svg, .cta-l svg, .chi
 html[dir="rtl"] input[type="tel"] { direction: ltr; text-align: right; }
 
 /* Page 404 : le bloc arabe est lisible même sans JavaScript */
-[data-nf="ar"] { font-family: var(--font-ar), var(--sans); }
+[data-nf="ar"] { --sans: var(--font-ar), var(--font-latin), sans-serif; font-family: var(--sans); }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./site.css";
 import "./rtl.css";
 import { fontVars } from "./fonts";
-import { arabic } from "./fonts-ar";
+import { arFontVars } from "./fonts-ar";
 import { BagIcon } from "@/components/icons";
 import { products } from "@/data/products";
 import { ui } from "@/data/ui";
@@ -26,7 +26,7 @@ function Block({ locale }: { locale: Locale }) {
             {/* eslint-disable-next-line @next/next/no-img-element -- page 404 : image simple, sans optimisation */}
             <img src="/images/logo-otage.webp" alt="OTAGE" width={206} height={96} />
           </a>
-          <a className="btn btn-dark btn-sm top-cta" href={`${home}#offres`}>{t.order}<BagIcon /></a>
+          <a className="btn btn-dark btn-sm top-cta" style={{ marginInlineStart: "auto" }} href={`${home}#offres`}>{t.order}<BagIcon /></a>
         </div>
       </header>
       <main className="nf">
@@ -48,7 +48,7 @@ function Block({ locale }: { locale: Locale }) {
 /** Page 404 commune à tout le site, en français ou en arabe selon l'adresse. */
 export default function GlobalNotFound() {
   return (
-    <html lang="fr" className={`${fontVars} ${arabic.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${fontVars} ${arFontVars}`} suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: pick }} />
         <Block locale="fr" />

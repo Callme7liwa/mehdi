@@ -35,6 +35,7 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
           <nav aria-label={t.menu}>
             <a href={home}>{t.home}</a>
             {links.map((l) => <Link key={l.href} href={l.href}>{l.label}</Link>)}
+            <LangSwitch label={t.langSwitch} title={t.langSwitchLabel} />
           </nav>
         </details>
       </div>

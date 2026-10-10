@@ -35,6 +35,24 @@ Les pages, le JSON-LD, le sitemap et `llms.txt` lisent tous ces fichiers : une m
 - `apps-script/` : le script Google qui reçoit les commandes (Google Sheet + e-mail).
 - `legacy/` : l'ancien site statique, gardé pour référence.
 
-## Pages arabes
+## Version arabe (/ar)
 
-Elles restent hors de l'index Google tant que la traduction n'est pas relue par un natif. Après relecture, passer `arIndexable` à `true` dans `src/data/site.ts` : elles entrent dans le sitemap et les balises hreflang.
+Chaque page française a son équivalent sous `/ar`, de droite à gauche : accueil animé, soins, conseils peau, pages de confiance, page 404.
+
+| Je veux… | Où |
+|---|---|
+| relire tout l'arabe au même endroit | `src/data/ar-relecture.md` (français et arabe côte à côte, avec le fichier source à corriger) |
+| corriger un texte de l'accueil | `src/home/text.ts` (sections) et `src/home/text-js.ts` (ticket, chat, fenêtres) |
+| corriger un produit, la FAQ, un bouton | `src/data/products.ts`, `src/data/faq.ts`, `src/data/ui.ts` |
+| corriger une page conseil | `src/data/problems.ar.ts` |
+| corriger une page de confiance | `src/app/(ar)/ar/<page>/page.tsx` |
+
+```bash
+npm run build && npm run start   # dans un terminal
+npm run check:ar                 # vérifie qu'aucun texte français ne reste sur les pages arabes
+npm run relecture                # régénère src/data/ar-relecture.md
+```
+
+Le même CSS sert dans les deux sens : `home.css` et `site.css` utilisent des propriétés logiques (`inline-start`/`end`) et la variable `--dir`. `src/app/rtl.css` ne contient que la typographie arabe et les icônes directionnelles.
+
+Les pages arabes restent hors de l'index Google tant que la traduction n'est pas relue par un natif. Après relecture, mettre `arIndexable: true` dans `src/data/site.ts` : elles entrent dans le sitemap et les balises hreflang (fr-MA / ar-MA / x-default).

@@ -499,7 +499,7 @@ a { color: inherit; }
   color: var(--t-title);
 }
 .title .line { display: block; white-space: nowrap; }
-.title .kick { margin-bottom: 0.7em; font-size: clamp(12px, 1.25vw, 15px); font-weight: 600; letter-spacing: 0.16em; line-height: 1.2; text-transform: uppercase; opacity: 0.78; }
+.title .kick { margin-bottom: 1.1em; font-size: clamp(11px, 1.1vw, 13px); font-weight: 600; letter-spacing: 0.16em; line-height: 1.2; text-transform: uppercase; opacity: 0.78; }
 .title mark {
   background: var(--red);
   color: var(--cream);

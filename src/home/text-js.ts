@@ -125,7 +125,7 @@ const ar: HomeJsText = {
   fmtPer: "<b>{p}</b> درهم <small>للمجموعة</small>",
   fmtOne: "<b>{p}</b> درهم",
   fmtTotal3: "<span>المجموع {t} درهم للثلاث</span>",
-  fmtWas: "<s>{was} درهم</s><em>−{diff} درهم</em>",
+  fmtWas: "<s>{was} درهم</s><em>وفّري {diff} درهم</em>",
   upsOn: "تم اختيار الحجم الكبير",
   upsOff: "الانتقال إلى الحجم الكبير",
   upsBackBundle: "جل {gel} مل، سيروم {serum} مل، كريم {creme} مل. اضغطي للعودة إلى الحجم الصغير ({total} درهم).",

@@ -151,11 +151,11 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Idéal pour commencer | مثالي للبداية |
 | Petit format | الحجم الصغير |
 | 299 DH | 299 درهم |
-| 496 DH−197 DH | 496 درهم−197 درهم |
+| 496 DH−197 DH | 496 درهموفّري 197 درهم |
 | Meilleure économie | أفضل توفير |
 | Grand format | الحجم الكبير |
 | 599 DH | 599 درهم |
-| 815 DH−216 DH | 815 درهم−216 درهم |
+| 815 DH−216 DH | 815 درهموفّري 216 درهم |
 | Une gamme, ce sont les 4 soins de la routine | المجموعة تضم منتجات الروتين الأربعة |
 | Soins de la peau, fabriqués au Maroc | عناية بالبشرة، مصنوعة في المغرب |
 | Ticket n° | تذكرة رقم |
@@ -903,7 +903,7 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | <b>{p}</b> DH <small>la gamme</small> | <b>{p}</b> درهم <small>للمجموعة</small> |
 | <b>{p}</b> DH | <b>{p}</b> درهم |
 | <span>Total {t} DH pour 3</span> | <span>المجموع {t} درهم للثلاث</span> |
-| <s>{was} DH</s><em>−{diff} DH</em> | <s>{was} درهم</s><em>−{diff} درهم</em> |
+| <s>{was} DH</s><em>−{diff} DH</em> | <s>{was} درهم</s><em>وفّري {diff} درهم</em> |
 | Grand format choisi | تم اختيار الحجم الكبير |
 | Passer au Grand format | الانتقال إلى الحجم الكبير |
 | Gel {gel} ml, sérum {serum} ml, crème {creme} ml. Touche pour revenir au Petit format ({total} DH). | جل {gel} مل، سيروم {serum} مل، كريم {creme} مل. اضغطي للعودة إلى الحجم الصغير ({total} درهم). |

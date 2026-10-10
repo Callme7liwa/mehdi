@@ -162,6 +162,8 @@ const texts = {
     offersTicketN: "Ticket n° ",
     offersTotal2: "Total",
     offersTuEconomises2: "Tu économises ",
+    // devant l'écart de prix d'une carte de format : « −197 DH » en français, « وفّري 197 درهم » en arabe (sans signe moins)
+    offersEcart: "−",
     offersMerciDeChoisirDes: "Merci de choisir des soins honnêtes.",
     offersConfirme: "Confirmé",
     offersPaiementALaLivraison: "Paiement à la livraison",
@@ -443,6 +445,7 @@ const texts = {
     offersTicketN: "تذكرة رقم ",
     offersTotal2: "المجموع",
     offersTuEconomises2: "توفرين ",
+    offersEcart: "وفّري ",
     offersMerciDeChoisirDes: "شكرًا لاختيارك عناية صادقة.",
     offersConfirme: "مؤكَّد",
     offersPaiementALaLivraison: "الدفع عند الاستلام",

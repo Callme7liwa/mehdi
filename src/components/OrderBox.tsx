@@ -1,0 +1,23 @@
+import OrderForm, { type OrderData, type OrderText } from "./OrderForm";
+import { gamme, productByKey, yeuxPrice, type FormatKey } from "@/data/products";
+import { site, type Locale } from "@/data/site";
+import { ui } from "@/data/ui";
+
+const content = (f: FormatKey, locale: Locale) =>
+  (["gel", "serum", "creme", "ecran"] as const)
+    .map((k) => {
+      const p = productByKey(k);
+      const short = { gel: { fr: "Gel", ar: "جل" }, serum: { fr: "sérum", ar: "سيروم" }, creme: { fr: "crème", ar: "كريم" }, ecran: { fr: "écran solaire", ar: "واقي شمس" } }[k][locale];
+      return `${short} ${p.ml[f]} ${locale === "ar" ? "مل" : "ml"}`;
+    })
+    .join(locale === "ar" ? "، " : ", ");
+
+/** Le formulaire de commande, prêt pour une langue et un produit (gamme anti-taches ou sérum contour des yeux). */
+export default function OrderBox({ locale, product }: { locale: Locale; product: "taches" | "yeux" }) {
+  const t = ui[locale];
+  const fmt = (f: FormatKey) => ({ label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, price: gamme.formats[f].price, was: gamme.formats[f].was, content: content(f, locale) });
+  const data: OrderData = { endpoint: site.ordersEndpoint, product, formats: { petit: fmt("petit"), grand: fmt("grand") }, yeuxPrice };
+  const keys: (keyof OrderText)[] = ["chooseFormat", "chooseOffer", "chooseOfferOnly", "yourInfo", "perRange", "perSerum", "rangeWord", "rangesWord", "serumWord", "serumsWord", "free", "freeM", "save", "total", "name", "namePh", "phone", "phonePh", "city", "cityPh", "address", "addressOpt", "addressPh", "submit", "payNote", "youPay", "errPhone", "errFields", "thanks", "done", "insteadOf", "bundle"];
+  const text = Object.fromEntries(keys.map((k) => [k, t[k]])) as OrderText;
+  return <OrderForm data={data} t={text} />;
+}

@@ -223,3 +223,16 @@ main { display: block; }
   .top-in > .lang + .top-cta { margin-inline-start: 0; }
 }
 @media (min-width: 900px) { .top-in > .lang { margin-inline-start: 0; } }
+
+/* ---- Page des avis : capture d'origine + texte retranscrit ---- */
+.rvw-list { display: grid; gap: 20px; }
+.rvw { display: grid; gap: 20px; align-items: start; }
+@media (min-width: 700px) { .rvw { grid-template-columns: 260px minmax(0, 1fr); gap: 32px; } }
+.rvw-shot { width: 100%; max-width: 300px; height: auto; border-radius: 22px; box-shadow: 0 20px 40px -28px rgba(74, 13, 22, 0.7); justify-self: center; }
+.rvw-text { display: grid; gap: 10px; }
+.rvw-text h2 { font-size: clamp(22px, 2.6vw, 28px); }
+.rvw-quote { margin: 6px 0 0; padding: 0; display: grid; gap: 6px; justify-items: start; }
+.rvw-quote p { padding: 9px 14px; border-radius: 18px; background: var(--cream); font-size: 15.5px; line-height: 1.45; max-width: 46ch; }
+.rvw-quote p.o { background: var(--bordeaux); color: var(--cream); justify-self: end; }
+.rvw-quote p[dir="rtl"] { font-family: var(--font-ar, var(--font-plex-arabic)), var(--sans); }
+.rvw-tr { font-size: 14.5px; color: var(--muted); }

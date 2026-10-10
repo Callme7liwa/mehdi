@@ -1371,7 +1371,7 @@ export function initHome(cfg) {
     sec.querySelector(".rv-demo").hidden = !AVIS.some((a) => a.exemple);
     const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-    track.innerHTML = AVIS.map((a, i) => {
+    if (!track.children.length) track.innerHTML = AVIS.map((a, i) => {
       const ini = (a.prenom || "?").trim().charAt(0).toUpperCase();
       const gamme = a.soin === "gamme";
       const thumb = gamme ? document.querySelector(".pin.gel img").src : document.querySelector(`.pin.${KEYS[a.soin]} img`).src;

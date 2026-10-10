@@ -10,6 +10,7 @@ export const problemPages: { slug: string; label: L }[] = [
 ];
 
 export const trustPages: { path: string; label: L }[] = [
+  { path: "/avis", label: { fr: "Avis de clientes", ar: "آراء الزبونات" } },
   { path: "/a-propos", label: { fr: "À propos", ar: "من نحن" } },
   { path: "/livraison-paiement", label: { fr: "Livraison et paiement", ar: "التوصيل والدفع" } },
   { path: "/contact", label: { fr: "Contact", ar: "اتصلي بنا" } },

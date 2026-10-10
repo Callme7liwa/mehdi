@@ -2625,3 +2625,5 @@ html.qv-lock { overflow: hidden; }
 .pc-link { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 600; color: var(--bordeaux); text-decoration: underline; text-decoration-color: rgba(74, 13, 22, 0.3); text-underline-offset: 3px; }
 .pc-link:hover { text-decoration-color: currentColor; }
 a.qv-more { display: inline-flex; align-items: center; justify-content: center; }
+.rv-more { margin: 12px 0 0; text-align: center; font-size: 14px; }
+.rv-more a { color: var(--bordeaux); font-weight: 600; text-underline-offset: 3px; }

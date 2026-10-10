@@ -10,7 +10,7 @@ const PAGES = [
   "/ar", "/ar/soins",
   ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"].map((s) => `/ar/soins/${s}`),
   "/ar/taches-pigmentaires", "/ar/cernes", "/ar/taches-acne", "/ar/melasma-grossesse",
-  "/ar/a-propos", "/ar/livraison-paiement", "/ar/contact", "/ar/mentions-legales", "/ar/cgv",
+  "/ar/avis", "/ar/a-propos", "/ar/livraison-paiement", "/ar/contact", "/ar/mentions-legales", "/ar/cgv",
 ];
 const LATIN = /[A-Za-zÀ-ÖØ-öø-ÿ]{2,}/g;
 const decode = (s) => s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ");

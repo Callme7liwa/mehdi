@@ -1,7 +1,16 @@
 import type { HomeText } from "../text";
+import { homeJsText, type HomeJsText } from "../text-js";
+import { reviews } from "@/data/reviews";
+import type { Locale } from "@/data/site";
+import { localePath } from "@/lib/seo";
 import Img from "@/components/Img";
 
-export default function Hesite({ t }: { t: HomeText }) {
+export default function Hesite({ t, locale }: { t: HomeText; locale: Locale }) {
+  const js = homeJsText[locale];
+  return <HesiteView t={t} locale={locale} js={js} />;
+}
+
+function HesiteView({ t, locale, js }: { t: HomeText; locale: Locale; js: HomeJsText }) {
   return (
     <dialog className="hz" aria-labelledby="hz-title">
       <div className="hz-card">
@@ -19,10 +28,23 @@ export default function Hesite({ t }: { t: HomeText }) {
             <p className="rv-demo" hidden>{t.hesiteApercuCesMessagesSont}</p>
         <div className="rv-rail">
           <button type="button" className="rv-nav rv-prev" aria-label={t.hesiteAvisPrecedents}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg></button>
-          <div className="rv-track" tabIndex={0} aria-label={t.hesiteAvisDeClientesA}></div>
+          <div className="rv-track" tabIndex={0} aria-label={t.hesiteAvisDeClientesA}>
+            {reviews.map((a, i) => (
+              <article className="rcard" key={a.prenom} aria-label={js.reviewOf.replace("{name}", a.prenom).replace("{city}", js.customer)}>
+                <div className="rc-top"><span className="rc-av" aria-hidden="true">{a.prenom.charAt(0).toUpperCase()}</span><span className="rc-who"><b dir="ltr" lang="fr">{a.prenom}</b><span>{js.customer}</span></span></div>
+                <div className="rc-log">
+                  {a.messages.map((m, k) => (
+                    <div key={k} className={`rb ${m.de === "otage" ? "o" : "c"}`} dir={m.rtl ? "rtl" : "ltr"} lang={m.rtl ? "ar" : "fr"}>{m.texte}<time dir="ltr" lang="fr">{m.heure || ""}</time></div>
+                  ))}
+                </div>
+                <button type="button" className="rc-prod" data-i={i}><Img src="/images/gel-nettoyant-anti-taches-n01-200ml.webp" alt="" width={122} height={480} /><span>{a.soin === "gamme" ? js.fullRange : js.reviewNames[a.soin]}</span><i aria-hidden="true">+</i></button>
+              </article>
+            ))}
+          </div>
           <button type="button" className="rv-nav rv-next" aria-label={t.hesiteAvisSuivants}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg></button>
         </div>
         <div className="rv-dots" aria-hidden="true"></div>
+          <p className="rv-more"><a href={localePath(locale, "/avis")}>{locale === "ar" ? "شاهدي لقطات الرسائل الأصلية" : "Voir les captures des messages"}</a></p>
           </div>
         </div>
 

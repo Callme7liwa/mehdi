@@ -75,7 +75,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Faq t={t} locale={locale} />
       <Gallery t={t} />
       <Footer t={t} locale={locale} />
-      <Hesite t={t} />
+      <Hesite t={t} locale={locale} />
       <Fab t={t} />
       <HomeScripts cfg={config(locale)} />
     </>

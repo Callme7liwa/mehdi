@@ -11,6 +11,7 @@ const PAGES = [
   ["/soins", "Tous les soins", "src/templates/ProductsIndex.tsx, src/data/products.ts"],
   ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"].map((s) => [`/soins/${s}`, `Fiche produit : ${s}`, "src/data/products.ts, src/data/ui.ts (libellés), src/data/faq.ts (FAQ)"]),
   ...["taches-pigmentaires", "cernes", "taches-acne", "melasma-grossesse"].map((s) => [`/${s}`, `Conseils peau : ${s}`, "src/data/problems.ar.ts"]),
+  ["/avis", "Avis de clientes", "src/templates/ReviewsPage.tsx, src/data/reviews.ts"],
   ["/a-propos", "À propos", "src/app/(ar)/ar/a-propos/page.tsx"],
   ["/livraison-paiement", "Livraison et paiement", "src/app/(ar)/ar/livraison-paiement/page.tsx"],
   ["/contact", "Contact", "src/app/(ar)/ar/contact/page.tsx"],

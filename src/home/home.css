@@ -2710,4 +2710,10 @@ a.qv-more { display: inline-flex; align-items: center; justify-content: center; 
   /* « Commander » de la barre du haut : masqué tant qu'on est sur le premier écran, de retour dès qu'on défile */
   .nav .navBtn { transition: opacity 0.3s ease, visibility 0.3s; }
   .hero:not(.travel) .nav .navBtn { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  /* 2. Titre : lettres moins serrées (−0,01em au lieu de −0,055em), taille ajustée pour que
+     « Des soins honnêtes. » tienne toujours sur une ligne dès 320 px. Mot encadré : crème sur rouge (4,5:1). */
+  .title { font-size: clamp(30px, 9.4vw, 60px); }
+  .title .line:not(.kick) { letter-spacing: -0.01em; }
+  .title .kick { opacity: 1; }
 }

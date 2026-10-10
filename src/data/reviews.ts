@@ -30,7 +30,7 @@ export const reviews: Review[] = [
     soin: "gamme",
     date: { fr: "17 septembre", ar: "17 شتنبر" },
     capture: {
-      src: "/images/avis/avis-nabila-gamme-anti-taches.webp", w: 739, h: 1600,
+      src: "/images/avis/avis-cliente-nabila-instagram.webp", w: 739, h: 1600,
       alt: { fr: "Capture d'un message Instagram de Nabila : « Elle est juste PARFAITE », à propos de la gamme anti-taches OTAGE", ar: "لقطة لرسالة إنستغرام من نبيلة عن مجموعة OTAGE ضد البقع: «إنها ببساطة مثالية»" },
     },
     messages: [
@@ -52,7 +52,7 @@ export const reviews: Review[] = [
     soin: "gamme",
     date: { fr: "5 septembre", ar: "5 شتنبر" },
     capture: {
-      src: "/images/avis/avis-awatef-gamme-anti-taches.webp", w: 739, h: 1600,
+      src: "/images/avis/avis-cliente-awatef-instagram.webp", w: 739, h: 1600,
       alt: { fr: "Capture d'un message Instagram d'Awatef, en arabe, à propos de ses taches après la gamme anti-taches OTAGE", ar: "لقطة لرسالة إنستغرام من عواطف عن البقع بعد استعمال مجموعة OTAGE ضد البقع" },
     },
     messages: [

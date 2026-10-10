@@ -52,6 +52,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   slogan: site.slogan[locale],
   sameAs: [site.instagram.url],
   areaServed: maroc(locale),
+  founder: { "@id": abs("/#founder") },
   email: site.email,
   contactPoint: {
     "@type": "ContactPoint",
@@ -62,6 +63,20 @@ export const orgLd = (locale: Locale = "fr") => ({
     areaServed: "MA",
     hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
   },
+});
+
+/** Le fondateur. À placer dans le même graphe que l'Organization (qui y renvoie par `founder`). */
+export const founderLd = (locale: Locale = "fr") => ({
+  "@type": "Person",
+  "@id": abs("/#founder"),
+  name: site.founder.name,
+  givenName: site.founder.givenName,
+  familyName: site.founder.familyName,
+  honorificPrefix: "Dr",
+  jobTitle: site.founder.jobTitle[locale],
+  description: `${site.founder.jobTitle[locale]}${locale === "ar" ? "، " : ", "}${site.founder.specialty[locale]}`,
+  image: abs(site.founder.photo),
+  worksFor: ORG,
 });
 
 export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });

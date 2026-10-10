@@ -4,7 +4,7 @@ import { faq } from "@/data/faq";
 import { fmtMl, gamme, ingredientList, productByKey, products, type FormatKey } from "@/data/products";
 import { abs } from "@/data/site";
 import HomePage from "@/home/HomePage";
-import { faqLd, gammeLd, graph, orgLd, pageMetadata, productLd, webPageLd, websiteLd } from "@/lib/seo";
+import { faqLd, founderLd, gammeLd, graph, orgLd, pageMetadata, productLd, webPageLd, websiteLd } from "@/lib/seo";
 
 const title = "Sérum et crème anti-taches fabriqués au Maroc | OTAGE";
 const description = "Routine anti-taches OTAGE : gel nettoyant, sérum, crème et écran solaire SPF 50 contre les taches pigmentaires. Fabriqué au Maroc, paiement à la livraison.";
@@ -25,6 +25,7 @@ export default function Page() {
       <JsonLd
         data={graph(
           orgLd(),
+          founderLd(),
           websiteLd(),
           webPageLd({ locale: "fr", path: "/", title, description }),
           gammeLd("petit", gammeDesc("petit")),

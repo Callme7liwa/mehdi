@@ -290,7 +290,6 @@
     ? { outA: 0, outB: 0.1, flyA: 0.04, flyB: 0.3, mistIn: 0.2, mistPeak: 0.3, mistOut: 0.4, moveA: 0.24, moveB: 0.42, uiA: 0.36, uiB: 0.44, stepsA: 0.44 }
     : { outA: 0, outB: 0.2, flyA: 0.06, flyB: 0.8, mistIn: 0.5, mistPeak: 0.8, mistOut: 1.04, moveA: 2, moveB: 3, uiA: 2, uiB: 3, stepsA: 0.99 };
 
-  if (ROUTINE) bigs.forEach((b) => { const im = b.querySelector("img"); if (im.dataset.src && !im.getAttribute("src")) im.src = im.dataset.src; });
   let base = [], slots = [], W = 0, H = 0, vh = 0, total = 1, jTop = 0, mobile = true, mob = null;
 
   const measure = () => {
@@ -589,7 +588,7 @@ document.querySelectorAll(".o-btn").forEach((b) => {
   const fill = (i) => {
     const d = P[i];
     current = i;
-    $(".qv-media img").src = bigImgs[i].dataset.src || bigImgs[i].src;
+    $(".qv-media img").src = bigImgs[i].src;
     $(".qv-media img").alt = d.name;
     $(".qv-num span").textContent = d.num;
     $(".qv-title").textContent = d.name;

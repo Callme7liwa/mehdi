@@ -1,9 +1,11 @@
 /* Génère src/data/ar-relecture.md : tous les textes arabes du site, page par page, avec le français en regard.
    Usage : lancer le site (npm run start), puis `npm run relecture`.
    Les textes sont lus dans les pages servies (français et arabe), dans l'ordre d'affichage : rien n'est oublié.
-   Les textes écrits par les animations de l'accueil (ticket, chat…) viennent de src/home/text-js.ts. */
+   Les textes écrits par les animations de l'accueil (ticket, fenêtres…) viennent de src/home/text-js.ts,
+   ceux du chat des questions de src/home/chat/chat-text.ts. */
 import { writeFileSync } from "node:fs";
 import { homeJsText } from "../src/home/text-js.ts";
+import { chatText } from "../src/home/chat/chat-text.ts";
 
 const BASE = process.env.BASE || "http://localhost:3000";
 const PAGES = [
@@ -32,7 +34,7 @@ async function texts(path) {
   body = body.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>|<!--[\s\S]*?-->/g, "");
   // les balises de mise en forme restent dans la phrase ; les autres (liens, blocs) séparent les textes
   body = body.replace(/<span\b[^>]*dir="ltr"[^>]*>([^<]*)<\/span>/g, "$1");
-  body = body.replace(/<\/?(?:b|em|s|mark|small|strong|time|i|u)\b[^>]*>/g, "");
+  body = body.replace(/<\/?(?:b|bdi|em|s|mark|small|strong|time|i|u)\b[^>]*>/g, "");
   const out = [];
   for (const part of body.split(/(<[^>]+>)/)) {
     if (part.startsWith("<")) {
@@ -83,6 +85,11 @@ md += `\n## Accueil : textes écrits par les animations (ticket, chat, fenêtres
 const flat = (o, p = "") => Object.entries(o).flatMap(([k, v]) => (typeof v === "string" ? [[p + k, v]] : flat(v, `${p}${k}.`)));
 const frJs = Object.fromEntries(flat(homeJsText.fr)), arJs = Object.fromEntries(flat(homeJsText.ar));
 for (const k of Object.keys(frJs)) { if (frJs[k] === arJs[k]) continue; total++; md += `| ${cell(decode(frJs[k]))} | ${cell(decode(arJs[k]))} |\n`; }
+
+// textes du chat des questions (les questions et les réponses sont listées plus haut, dans la page d'accueil)
+md += `\n## Accueil : textes du chat des questions\n\nSource de l'arabe : src/home/chat/chat-text.ts.\n\n| Français | العربية |\n|---|---|\n`;
+const frChat = Object.fromEntries(flat(chatText.fr)), arChat = Object.fromEntries(flat(chatText.ar));
+for (const k of Object.keys(frChat)) { if (frChat[k] === arChat[k] || seenAll.has(frChat[k] + "\u0000" + arChat[k])) continue; total++; md += `| ${cell(frChat[k])} | ${cell(arChat[k])} |\n`; }
 
 md += `\n---\n\n${total} textes à relire.\n`;
 writeFileSync(new URL("../src/data/ar-relecture.md", import.meta.url), md);

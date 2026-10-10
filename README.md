@@ -50,6 +50,7 @@ Chaque page française a son équivalent sous `/ar`, de droite à gauche : accue
 ```bash
 npm run build && npm run start   # dans un terminal
 npm run check:ar                 # vérifie qu'aucun texte français ne reste sur les pages arabes
+npm run check:bidi               # vérifie que « 2 + 1 », prix, numéros… s'affichent dans le bon ordre en arabe
 npm run relecture                # régénère src/data/ar-relecture.md
 ```
 

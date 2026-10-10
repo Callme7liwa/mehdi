@@ -102,7 +102,7 @@ export const abs = (path = "/") => `${site.url}${path === "/" ? "/" : path}`;
 
 /** Lien WhatsApp avec un message pré-rempli. */
 export const waLink = (message?: string) =>
-  `https://wa.me/${site.whatsapp.wa}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
+  `https://wa.me/${site.whatsapp.wa}${message ? `?text=${encodeURIComponent(message.replace(/[\u2066\u2069]/g, ""))}` : ""}`;
 
 export const formatDate = (iso: string, locale: Locale) =>
   new Intl.DateTimeFormat(locale === "ar" ? "ar-MA" : "fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(iso + "T00:00:00Z"));

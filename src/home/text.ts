@@ -2,7 +2,9 @@
    Les clés sont utilisées par les composants de src/home/sections/.
    Le français est le texte d'origine du site. L'arabe est « À relire par un natif ». */
 
-export const homeText = {
+import { isolateAll } from "../lib/bidi";
+
+const texts = {
   fr: {
     // Hero
     heroOtageAccueil: "OTAGE, accueil",
@@ -223,15 +225,9 @@ export const homeText = {
     campaign21Offerte: "2 + 1 offerte",
     campaignFaisDefiler: "Fais défiler",
     // Faq
-    faqConversationAvecOtage: "Conversation avec OTAGE",
-    faqQuestions: "Questions",
     faqLesQuestionsQuOn: "Les questions qu'on nous pose.",
     faqToucheUneQuestionOn: "Touche une question : on te répond comme sur WhatsApp, sans détour.",
     faqVoirToutesLesReponses: "Voir toutes les réponses d'un coup",
-    faqOtage: "OTAGE",
-    faqServiceClient: "Service client",
-    faqSalamToucheUneQuestion: "Salam ! Touche une question en bas, on te répond tout de suite.",
-    faqUneAutreQuestionEcris: "Une autre question ? Écris-nous sur WhatsApp",
     // Gallery
     galleryLeProduitEnPhotos: "Le produit en photos",
     galleryCeQuiFaitLa: "Ce qui fait la différence.",
@@ -258,7 +254,7 @@ export const homeText = {
     footerLivraisonOfferte: "Livraison offerte",
     footerPaiementALaLivraison: "Paiement à la livraison",
     footerOtageEstUneMarque: "OTAGE est une marque marocaine de cosmétique naturelle. Sa gamme anti-taches réunit 4 soins fabriqués au Maroc : un gel nettoyant, un sérum anti-taches, une crème anti-taches et un écran solaire SPF 50, pour atténuer les taches pigmentaires et l'hyperpigmentation, puis éviter qu'elles reviennent. OTAGE propose aussi un sérum contour des yeux pour les cernes. Livraison offerte partout au Maroc, paiement à la livraison.",
-    footerOtageDesSoinsHonnetes: " OTAGE. Des soins honnêtes, fabriqués au Maroc. ",
+    footerOtageDesSoinsHonnetes: " Des soins honnêtes, fabriqués au Maroc. ",
     footerMisAJourLe: "Mis à jour le ",
     // Hesite
     hesiteFermer: "Fermer",
@@ -510,15 +506,9 @@ export const homeText = {
     campaign21Offerte: "⁦2 + 1⁩ مجانًا",
     campaignFaisDefiler: "مرّري",
     // Faq
-    faqConversationAvecOtage: "محادثة مع OTAGE",
-    faqQuestions: "الأسئلة",
     faqLesQuestionsQuOn: "أسئلة تُطرح علينا كثيرًا.",
     faqToucheUneQuestionOn: "اضغطي على سؤال: نجيبك كما في واتساب، بكل صراحة.",
     faqVoirToutesLesReponses: "عرض كل الأجوبة دفعة واحدة",
-    faqOtage: "OTAGE",
-    faqServiceClient: "خدمة الزبونات",
-    faqSalamToucheUneQuestion: "سلام! اضغطي على سؤال في الأسفل، ونجيبك حالًا.",
-    faqUneAutreQuestionEcris: "سؤال آخر؟ راسلينا على واتساب",
     // Gallery
     galleryLeProduitEnPhotos: "المنتج بالصور",
     galleryCeQuiFaitLa: "ما يصنع الفرق.",
@@ -545,7 +535,7 @@ export const homeText = {
     footerLivraisonOfferte: "توصيل مجاني",
     footerPaiementALaLivraison: "الدفع عند الاستلام",
     footerOtageEstUneMarque: "OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. مجموعتها ضد البقع تضم 4 منتجات مصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50، للتخفيف من البقع الصبغية وفرط التصبغ ثم تفادي عودتها. تقدم OTAGE أيضًا سيروم محيط العين للهالات السوداء. توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام.",
-    footerOtageDesSoinsHonnetes: " OTAGE. عناية صادقة، مصنوعة في المغرب. ",
+    footerOtageDesSoinsHonnetes: " عناية صادقة، مصنوعة في المغرب. ",
     footerMisAJourLe: "آخر تحديث: ",
     // Hesite
     hesiteFermer: "إغلاق",
@@ -578,5 +568,7 @@ export const homeText = {
     fabCommander: "اطلبي الآن",
   },
 } as const;
+
+export const homeText = { fr: texts.fr, ar: isolateAll(texts.ar) };
 
 export type HomeText = Record<keyof (typeof homeText)["fr"], string>;

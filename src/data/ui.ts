@@ -1,5 +1,6 @@
 /* Textes d'interface des pages intérieures, en français et en arabe.
    Arabe : « À relire par un natif ». */
+import { isolateAll } from "../lib/bidi";
 import type { Locale } from "./site";
 
 const fr = {
@@ -119,7 +120,7 @@ const fr = {
 
 export type Ui = typeof fr;
 
-const ar: Ui = {
+const ar: Ui = isolateAll({
   skip: "الانتقال إلى المحتوى",
   home: "الرئيسية",
   products: "المنتجات",
@@ -229,6 +230,6 @@ const ar: Ui = {
   notFoundTitle: "هذه الصفحة غير موجودة",
   notFoundText: "ربما الرابط قديم. اكتشفي منتجاتنا من الصفحة الرئيسية.",
   backHome: "العودة إلى الرئيسية",
-};
+});
 
 export const ui: Record<Locale, Ui> = { fr, ar };

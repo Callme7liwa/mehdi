@@ -2,6 +2,7 @@
    Même structure et même contenu que src/data/problems.ts (français), dans le même ordre.
    TOUS LES TEXTES DE CE FICHIER SONT « À RELIRE PAR UN NATIF » (et, comme le français, par un dermatologue
    ou un pharmacien). Aucune promesse médicale. */
+import { isolateAll, isolateAr } from "../lib/bidi";
 import { problems, type ProblemPage } from "./problems";
 
 type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products"> & { products: string[] };
@@ -240,7 +241,7 @@ const imageAlt: Record<string, string> = {
   "melasma-grossesse": "واقي الشمس SPF 50 من OTAGE على الشاطئ",
 };
 
-export const problemsAr: ProblemPage[] = problems.map((p) => {
-  const t = ar[p.slug];
+export const problemsAr: ProblemPage[] = isolateAr(problems.map((p) => {
+  const t = isolateAll(ar[p.slug]);
   return { ...p, ...t, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
-});
+}));

@@ -87,7 +87,7 @@ export default function Offers({ t }: { t: HomeText }) {
                     <span className="fmt-tag">{t.offersIdealPourCommencer}</span>
                     <span className="fmt-name">{t.offersPetitFormat}</span>
                     <span className="fmt-price"><b>{P.price}</b>{t.offersDh}</span>
-                    <span className="fmt-was"><s>{P.was}{t.offersDh}</s><em>−{P.was - P.price}{t.offersDh}</em></span>
+                    <span className="fmt-was"><s>{P.was}{t.offersDh}</s><em><bdi>−{P.was - P.price}</bdi>{t.offersDh}</em></span>
                   </span>
                   <span className="tick" aria-hidden="true"></span>
                 </button>
@@ -97,7 +97,7 @@ export default function Offers({ t }: { t: HomeText }) {
                     <span className="fmt-tag hot">{t.offersMeilleureEconomie}</span>
                     <span className="fmt-name">{t.offersGrandFormat}</span>
                     <span className="fmt-price"><b>{G.price}</b>{t.offersDh}</span>
-                    <span className="fmt-was"><s>{G.was}{t.offersDh}</s><em>−{G.was - G.price}{t.offersDh}</em></span>
+                    <span className="fmt-was"><s>{G.was}{t.offersDh}</s><em><bdi>−{G.was - G.price}</bdi>{t.offersDh}</em></span>
                   </span>
                   <span className="tick" aria-hidden="true"></span>
                 </button>

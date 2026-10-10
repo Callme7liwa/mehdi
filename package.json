@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:ar": "node scripts/check-arabic.mjs",
+    "check:bidi": "node --no-warnings scripts/check-bidi.mjs",
     "relecture": "node --no-warnings scripts/relecture.mjs"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "bidi-js": "^1.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "typescript": "^5"

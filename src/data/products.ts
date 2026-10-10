@@ -1,5 +1,6 @@
 /* Produits OTAGE : la seule source pour les prix (en dirhams, MAD), contenances et ingrédients.
    Les textes français viennent du site d'origine. Les textes arabes sont « À relire par un natif ». */
+import { isolateAr } from "../lib/bidi";
 import type { L } from "./site";
 
 export type ProductKey = "gel" | "serum" | "creme" | "ecran" | "yeux";
@@ -44,7 +45,7 @@ export interface Product {
 
 const img = (file: string, w: number, h: number, fr: string, ar: string): Img => ({ src: `/images/${file}`, w, h, alt: { fr, ar } });
 
-export const products: Product[] = [
+export const products: Product[] = isolateAr([
   {
     key: "gel",
     slug: "gel-nettoyant",
@@ -260,7 +261,7 @@ export const products: Product[] = [
       },
     ],
   },
-];
+]);
 
 export const productBySlug = (slug: string) => products.find((p) => p.slug === slug);
 export const productByKey = (key: ProductKey) => products.find((p) => p.key === key)!;

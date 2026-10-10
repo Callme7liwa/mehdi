@@ -7,6 +7,7 @@
    - exemple: true affiche l'étiquette « Exemple » (à retirer avant la mise en ligne).
    Aucune note ni aggregateRating / Review dans le JSON-LD : ce ne sont pas des avis notés et vérifiables. */
 import type { Img } from "./products";
+import { isolateAr } from "../lib/bidi";
 import type { L } from "./site";
 
 export type ReviewMessage = { de: "cliente" | "otage"; texte: string; heure?: string; rtl?: boolean; photo?: string };
@@ -23,7 +24,7 @@ export type Review = {
   traduction?: Partial<L>;
 };
 
-export const reviews: Review[] = [
+export const reviews: Review[] = isolateAr([
   {
     prenom: "Nabila",
     ville: "Cliente OTAGE",
@@ -69,4 +70,4 @@ export const reviews: Review[] = [
       fr: "Que Dieu vous garde, docteur. Docteur, l'éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci infiniment. Vraiment. Je n'oublierai jamais votre bienfait ; si vous voulez, je fais un audio de témoignage. Réponse d'OTAGE : Dieu merci, c'est grâce à Dieu, moi je ne suis qu'un moyen. À votre santé.",
     },
   },
-];
+]);

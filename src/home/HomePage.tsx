@@ -16,6 +16,7 @@ import Hero from "./sections/Hero";
 import Hesite from "./sections/Hesite";
 import Offers from "./sections/Offers";
 import QuickView from "./sections/QuickView";
+import { isolateAll, LRI, PDI } from "@/lib/bidi";
 import { homeText } from "./text";
 import { homeJsText } from "./text-js";
 
@@ -30,7 +31,7 @@ const ml = (f: "petit" | "grand") => ({
 /** Données passées aux scripts d'animation : tout vient de src/data/. */
 function config(locale: Locale): HomeConfig {
   const ar = locale === "ar";
-  const t = homeJsText[locale];
+  const t = ar ? isolateAll(homeJsText.ar) : homeJsText.fr;
   const fmt = (f: "petit" | "grand") => ({ label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, price: gamme.formats[f].price, was: gamme.formats[f].was, ml: ml(f) });
   return {
     t,
@@ -40,7 +41,7 @@ function config(locale: Locale): HomeConfig {
     formats: { petit: fmt("petit"), grand: fmt("grand") },
     yeuxPrice: productByKey("yeux").unitPrice.petit as number,
     quick: rangeProducts.map((p) => ({
-      num: `${p.no} / 04`,
+      num: ar ? `${LRI}${p.no} / 04${PDI}` : `${p.no} / 04`,
       name: p.name[locale],
       size: `${p.ml.grand} ${t.ml}`,
       lead: p.lead[locale],
@@ -52,7 +53,7 @@ function config(locale: Locale): HomeConfig {
       url: localePath(locale, `/soins/${p.slug}`),
     })),
     // les messages des clientes restent dans leur langue d'origine ; seule l'étiquette est traduite
-    reviews: reviews.map((r) => ({ ...r, ville: r.ville === "Cliente OTAGE" ? t.customer : r.ville })),
+    reviews: (ar ? isolateAll(reviews) : reviews).map((r) => ({ ...r, ville: r.ville === "Cliente OTAGE" ? t.customer : r.ville })),
   };
 }
 

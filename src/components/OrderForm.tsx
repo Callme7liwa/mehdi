@@ -51,7 +51,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
     const left: object[] = [];
     for (const o of readQ()) {
       try {
-        const r = await fetch(data.endpoint, { method: "POST", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(o) });
+        const r = await fetch(data.endpoint, { method: "POST", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(o).replace(/[\u2066\u2069]/g, "") });
         if (!r.ok) throw new Error("HTTP " + r.status);
       } catch { left.push(o); }
     }

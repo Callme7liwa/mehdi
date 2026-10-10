@@ -227,20 +227,23 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Voir toutes les réponses d'un coup | عرض كل الأجوبة دفعة واحدة |
 | Conversation avec OTAGE | محادثة مع OTAGE |
 | Service client | خدمة الزبونات |
-| Salam ! Touche une question en bas, on te répond tout de suite. | سلام! اضغطي على سؤال في الأسفل، ونجيبك حالًا. |
-| Questions | الأسئلة |
-| Une autre question ? Écris-nous sur WhatsApp | سؤال آخر؟ راسلينا على واتساب |
+| Recommencer | البدء من جديد |
+| Salam 👋 Pose ta question ou choisis un sujet : on te répond tout de suite. | سلام 👋 اطرحي سؤالك أو اختاري موضوعًا: نجيبك حالًا. |
+| Questions proposées | أسئلة مقترحة |
+| Combien coûte la gamme anti-taches ? | كم ثمن مجموعة العناية ضد البقع؟ |
+| Je suis livrée en combien de temps ? | كم يستغرق التوصيل؟ |
 | Je paie quand ? | متى أدفع؟ |
+| Je vois des résultats quand ? | متى أرى النتائج؟ |
+| Autres questions | أسئلة أخرى |
+| Écrire sur WhatsApp | راسلينا على واتساب |
 | À la livraison, en espèces, quand le livreur te remet ton colis. | عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك. |
 | Rien à payer en ligne, pas besoin de carte bancaire. | لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية. |
 | La livraison est payante ? | هل التوصيل مدفوع؟ |
 | Non, elle est offerte partout au Maroc, quel que soit le format ou le nombre de gammes. | لا، التوصيل مجاني في كل أنحاء المغرب، مهما كان الحجم أو عدد المجموعات. |
-| Je suis livrée en combien de temps ? | كم يستغرق التوصيل؟ |
 | Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
 | C'est quoi l'offre 2 + 1 ? | ما هو عرض 2 + 1؟ |
 | Tu prends 2 gammes, la 3e est offerte. | تأخذين مجموعتين، والثالثة مجانًا. |
 | En Petit format : 199 DH la gamme au lieu de 299 DH, soit 598 DH les 3. En Grand format : 399 DH au lieu de 599 DH, soit 1 198 DH les 3. | بالحجم الصغير: 199 درهم للمجموعة بدل 299 درهم، أي 598 درهم للثلاث. بالحجم الكبير: 399 درهم بدل 599 درهم، أي 1 198 درهم للثلاث. |
-| Combien coûte la gamme anti-taches ? | كم ثمن مجموعة العناية ضد البقع؟ |
 | Le Petit format coûte 299 DH la gamme au lieu de 496 DH, le Grand format 599 DH au lieu de 815 DH. | الحجم الصغير بـ 299 درهم للمجموعة بدل 496 درهم، والحجم الكبير بـ 599 درهم بدل 815 درهم. |
 | Avec l'offre 2 + 1, la gamme revient à 199 DH en Petit format et à 399 DH en Grand format. La livraison est offerte. | مع عرض 2 + 1، تصبح المجموعة بـ 199 درهم بالحجم الصغير و399 درهم بالحجم الكبير. التوصيل مجاني. |
 | Qu'est-ce qu'il y a dans une gamme ? | ماذا تحتوي المجموعة؟ |
@@ -252,7 +255,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Quels sont les ingrédients actifs ? | ما هي المكونات الفعالة؟ |
 | Gel nettoyant : figue de Barbarie et louban, sans sulfate. Sérum anti-taches : alpha-arbutine, matcha et calendula. Crème anti-taches : niacinamide, acide hyaluronique et AHA. | الجل المنظف: التين الشوكي واللبان، بدون سلفات. سيروم ضد البقع: ألفا أربوتين، ماتشا وآذريون. كريم ضد البقع: نياسيناميد، حمض الهيالورونيك وأحماض AHA. |
 | L'écran solaire SPF 50 offre une haute protection UVA/UVB. | واقي الشمس SPF 50 يوفر حماية عالية من UVA و UVB. |
-| Je vois des résultats quand ? | متى أرى النتائج؟ |
 | Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain. | بصراحة: البقع تخف شيئًا فشيئًا، وليس بين ليلة وضحاها. |
 | Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Sans protection, les taches reviennent. Le rythme varie d'une peau à l'autre. | المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. بدون حماية، تعود البقع. الوتيرة تختلف من بشرة إلى أخرى. |
 | Pourquoi l'écran solaire est indispensable ? | لماذا واقي الشمس ضروري؟ |
@@ -769,7 +771,6 @@ Français : `/contact` · Arabe : `/ar/contact` · Source de l'arabe : src/app/(
 | Nous contacter | اتصلي بنا |
 | Une question sur ta peau, un soin ou ta commande ? Écris-nous directement, on te répond nous-mêmes. | سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلينا مباشرة، ونجيبك بأنفسنا. |
 | Le plus rapide : +212 6 88 91 82 01 (+212688918201). | الأسرع: +212 6 88 91 82 01 (+212688918201). |
-| Écrire sur WhatsApp | راسلينا على واتساب |
 | E-mail | البريد الإلكتروني |
 | Disponibilité | أوقات الرد |
 | Nous répondons 24 h/24, 7 jours sur 7. | نجيبك على مدار الساعة، طيلة أيام الأسبوع. |
@@ -913,7 +914,6 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Vérifie ton numéro : 10 chiffres, qui commencent par 05, 06 ou 07. | تحققي من رقمك: 10 أرقام تبدأ بـ 05 أو 06 أو 07. |
 | Remplis les champs en rouge pour qu'on puisse te livrer. | املئي الخانات باللون الأحمر حتى نتمكن من التوصيل. |
 | Merci, {name} ! | شكرًا، {name}! |
-| OTAGE écrit… | OTAGE يكتب… |
 | Masquer la liste des réponses | إخفاء قائمة الأجوبة |
 | Voir toutes les réponses d'un coup | عرض كل الأجوبة دفعة واحدة |
 | Gel nettoyant | جل منظف |
@@ -942,6 +942,22 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Fabriqué au Maroc | صنع في المغرب |
 | Livraison offerte partout au Maroc, paiement à la livraison. | توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام. |
 
+## Accueil : textes du chat des questions
+
+Source de l'arabe : src/home/chat/chat-text.ts.
+
+| Français | العربية |
+|---|---|
+| Choisis un sujet : | اختاري موضوعًا: |
+| Commande et livraison | الطلب والتوصيل |
+| Produits et utilisation | المنتجات والاستعمال |
+| Peau sensible et grossesse | البشرة الحساسة والحمل |
+| Sujets | المواضيع |
+| OTAGE écrit… | OTAGE يكتب… |
+| Tu as fait le tour des questions. Une autre ? Écris-nous sur WhatsApp. | لقد طرحت كل الأسئلة. سؤال آخر؟ راسلينا على واتساب. |
+| Bonjour OTAGE, j'ai une question. | مرحبًا OTAGE، لدي سؤال. |
+| Bonjour OTAGE, j'ai une question : | مرحبًا OTAGE، لدي سؤال: |
+
 ---
 
-772 textes à relire.
+781 textes à relire.

@@ -53,7 +53,7 @@ export const products: Product[] = [
     range: "taches",
     name: { fr: "Gel nettoyant anti-taches", ar: "جل منظف ضد البقع" },
     h1: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع، خالٍ من السلفات" },
-    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate, fabriqué au Maroc", ar: "جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب" },
+    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate, au Maroc", ar: "جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب" },
     metaDescription: {
       fr: "Gel nettoyant anti-taches OTAGE N°01 : figue de Barbarie, louban, sans sulfate. Nettoie en douceur sans dessécher. Fabriqué au Maroc, paiement à la livraison.",
       ar: "جل منظف ضد البقع من OTAGE رقم 01: التين الشوكي، اللبان، بدون سلفات. ينظف بلطف دون تجفيف البشرة. مصنوع في المغرب، الدفع عند الاستلام.",
@@ -97,7 +97,7 @@ export const products: Product[] = [
     h1: { fr: "Sérum anti-taches à l'alpha-arbutine, fabriqué au Maroc", ar: "سيروم ضد البقع بالألفا أربوتين، مصنوع في المغرب" },
     metaTitle: { fr: "Sérum anti-taches Maroc à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين في المغرب" },
     metaDescription: {
-      fr: "Sérum anti-taches OTAGE N°02 : alpha-arbutine, matcha, calendula. Le soin concentré qui cible les taches pigmentaires. Fabriqué au Maroc, paiement à la livraison.",
+      fr: "Sérum anti-taches OTAGE N°02 : alpha-arbutine, matcha, calendula. Le soin concentré qui cible les taches pigmentaires. Fabriqué au Maroc, payé à la livraison.",
       ar: "سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Le soin concentré de la gamme, qui cible les taches.", ar: "العناية المركزة في المجموعة، تستهدف البقع." },

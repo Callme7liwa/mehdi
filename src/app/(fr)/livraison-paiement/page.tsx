@@ -7,7 +7,7 @@ import TextPage, { textMetadata } from "@/templates/TextPage";
 const info = {
   path: "/livraison-paiement",
   label: "Livraison et paiement",
-  title: "Livraison offerte au Maroc et paiement à la livraison | OTAGE",
+  title: "Livraison offerte et paiement à la livraison | OTAGE",
   description: `Livraison OTAGE offerte partout au Maroc en ${site.delivery.label.fr}. Paiement à la livraison, en espèces : rien à payer en ligne. On t'appelle pour confirmer ta commande.`,
   h1: "Livraison et paiement",
 };

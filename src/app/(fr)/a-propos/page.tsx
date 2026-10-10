@@ -7,7 +7,7 @@ const info = {
   path: "/a-propos",
   label: "À propos",
   title: "À propos d'OTAGE, soins honnêtes fabriqués au Maroc",
-  description: "OTAGE est une marque marocaine de cosmétique naturelle : une routine anti-taches en 4 soins et un sérum contour des yeux, fabriqués au Maroc, payés à la livraison.",
+  description: "OTAGE est une marque marocaine de cosmétique naturelle : une routine anti-taches en 4 soins et un sérum contour des yeux, fabriqués au Maroc.",
   h1: "OTAGE : des soins honnêtes, fabriqués au Maroc",
   schemaType: "AboutPage",
 };

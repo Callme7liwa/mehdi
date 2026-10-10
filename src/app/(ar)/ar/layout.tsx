@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "../../site.css";
-import { bodoni, dmSans, plexArabicMain } from "../../fonts";
+import { bodoni, dmSans, plexArabicMain } from "../../fonts-ar";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { site } from "@/data/site";

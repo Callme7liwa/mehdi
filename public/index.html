@@ -539,6 +539,7 @@ a { color: inherit; }
   color: var(--t-title);
 }
 .title .line { display: block; white-space: nowrap; }
+.title .kick { margin-bottom: 0.7em; font-size: clamp(12px, 1.25vw, 15px); font-weight: 600; letter-spacing: 0.16em; line-height: 1.2; text-transform: uppercase; opacity: 0.78; }
 .title mark {
   background: var(--red);
   color: var(--cream);
@@ -1592,6 +1593,8 @@ html.qv-lock { overflow: hidden; }
   transform: translateY(var(--word, 18%));
   opacity: 0.92;
 }
+.foot-about { position: relative; width: min(720px, 100%); margin: clamp(32px, 6vh, 56px) auto 0; text-align: center; font-size: 14px; line-height: 1.6; color: rgba(74, 13, 22, 0.72); }
+.foot-upd { white-space: nowrap; }
 .foot-legal { position: relative; margin: 0 calc(-1 * var(--gutter)); padding: 14px var(--gutter) calc(20px + env(safe-area-inset-bottom, 0px)); text-align: center; font-size: 13px; color: rgba(255, 245, 238, 0.9); background: #b84a55; }
 @media (max-width: 899px) { .foot-legal { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); } }
 
@@ -1731,7 +1734,7 @@ html.qv-lock { overflow: hidden; }
 .dg-r-soon { background: linear-gradient(160deg, #f3d9c9, #e9b7a6); }
 .dg-r-txt { padding: 22px 20px 22px; }
 .dg-k { margin: 0; font-size: 13px; font-weight: 600; color: var(--red); }
-.dg-r h3 { margin: 4px 0 0; font-size: clamp(26px, 3.4vw, 38px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); }
+.dg-r h2 { margin: 4px 0 0; font-size: clamp(26px, 3.4vw, 38px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); }
 .dg-no { font-family: "Bodoni Moda", Didot, Georgia, serif; font-size: 0.7em; color: var(--red); letter-spacing: 0; white-space: nowrap; }
 .dg-r-txt > p { margin: 10px 0 0; font-size: 15.5px; line-height: 1.5; }
 .dg-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
@@ -1822,7 +1825,7 @@ html.qv-lock { overflow: hidden; }
 /* ---------- Carrousel des soins (problème choisi) ---------- */
 .dg-car { display: block; padding: 22px 0 18px; background: #fff; }
 .car-head { padding: 0 20px; }
-.car-head h3 { margin: 4px 0 0; font-size: clamp(24px, 3.4vw, 36px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); }
+.car-head h2 { margin: 4px 0 0; font-size: clamp(24px, 3.4vw, 36px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); }
 .car-sub { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
 .car-rail { position: relative; margin-top: 16px; }
 .car-track { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding: 4px 20px 10px; scroll-padding: 0 20px; scrollbar-width: none; }
@@ -1842,13 +1845,14 @@ html.qv-lock { overflow: hidden; }
 .pc-no { position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 999px; background: rgba(255, 252, 248, 0.9); color: var(--red); font-family: "Bodoni Moda", Didot, Georgia, serif; font-size: 14px; font-weight: 600; }
 .pc-when { position: absolute; right: 12px; top: 12px; padding: 4px 10px; border-radius: 999px; background: var(--bordeaux); color: var(--cream); font-size: 11.5px; font-weight: 600; }
 .pc-body { padding: 14px 16px 16px; }
-.pc-body h4 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; color: var(--bordeaux); }
+.pc-body h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; color: var(--bordeaux); }
 .pc-size { font-size: 12.5px; color: var(--muted); font-weight: 500; margin-left: 4px; }
 .pc-body p { margin: 6px 0 0; font-size: 14px; line-height: 1.45; }
 .pc-body ul { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 0; padding: 0; list-style: none; }
 .pc-body li { padding: 4px 9px; border-radius: 999px; background: #fff; font-size: 12px; font-weight: 500; color: var(--bordeaux); }
 .pc-how { color: var(--muted); font-size: 13.5px !important; }
 .pc-how b { color: var(--bordeaux); }
+.pc-meta { color: var(--muted); font-size: 12.5px !important; }
 .car-nav { position: absolute; top: 50%; z-index: 2; width: 44px; height: 44px; margin-top: -22px; display: none; place-items: center; border: 0; border-radius: 50%; background: #fff; color: var(--bordeaux); box-shadow: 0 10px 22px -10px rgba(74, 13, 22, 0.5); cursor: pointer; transition: opacity 0.3s ease; }
 .car-nav svg { width: 18px; height: 18px; }
 .car-prev { left: 8px; } .car-next { right: 8px; }
@@ -2711,6 +2715,7 @@ html.qv-lock { overflow: hidden; }
     </div>
 
     <h1 class="title">
+      <span class="line kick">Routine anti-taches</span>
       <span class="line">Des soins <mark>honnêtes.</mark></span>
       <span class="line">Fabriqués au Maroc</span>
     </h1>
@@ -2790,7 +2795,7 @@ html.qv-lock { overflow: hidden; }
       </article>
       <article class="step" data-i="1" aria-hidden="true">
         <p class="step-count">Étape 2 sur 4</p>
-        <h2>Sérum anti‑taches</h2>
+        <h2>Sérum anti-taches</h2>
         <p class="step-lead">Le soin concentré de la gamme, qui cible les taches.</p>
         <ul class="chips"><li>Matcha</li><li>Calendula</li><li>Alpha-arbutine</li></ul>
         <p class="step-how"><b>Comment :</b> 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts.</p>
@@ -2798,7 +2803,7 @@ html.qv-lock { overflow: hidden; }
       </article>
       <article class="step" data-i="2" aria-hidden="true">
         <p class="step-count">Étape 3 sur 4</p>
-        <h2>Crème anti‑taches</h2>
+        <h2>Crème anti-taches</h2>
         <p class="step-lead">Hydrate, unifie le teint et scelle le sérum.</p>
         <ul class="chips"><li>Niacinamide</li><li>Acide hyaluronique</li><li>AHA</li></ul>
         <p class="step-how"><b>Comment :</b> une noisette sur le visage et le cou, en mouvements vers le haut.</p>
@@ -2851,17 +2856,17 @@ html.qv-lock { overflow: hidden; }
   <div class="dg-in">
     <header class="dg-head">
       <h2 id="dg-title">Qu'est-ce qui te gêne ?</h2>
-      <p>Choisis, on te montre le bon soin.</p>
+      <p>Taches pigmentaires, cernes ou odeurs : choisis, on te montre le bon soin.</p>
     </header>
     <div class="dg-cards pb" role="radiogroup" aria-label="Ton problème">
       <button type="button" class="dg-card pbc" role="radio" aria-checked="true" data-pb="taches">
         <span class="pb-ic ic-taches" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="pb-txt"><b>J'ai des taches</b><span>Taches brunes, teint irrégulier</span><em>Offre 2 + 1</em></span>
+        <span class="pb-txt"><b>J'ai des taches</b><span>Taches pigmentaires, teint irrégulier</span><em>Offre 2 + 1</em></span>
         <svg class="pb-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
       <button type="button" class="dg-card pbc" role="radio" aria-checked="false" data-pb="yeux">
         <span class="pb-ic ic-cernes" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="lid" d="M10 30c6-9 14-13 22-13s16 4 22 13c-6 9-14 13-22 13s-16-4-22-13z"/><circle class="iris" cx="32" cy="30" r="7"/><path class="dark" d="M14 40c5 7 11 10 18 10s13-3 18-10"/></svg></span>
-        <span class="pb-txt"><b>J'ai des cernes</b><span>Contour des yeux fatigué</span><em>Offre 2 + 1</em></span>
+        <span class="pb-txt"><b>J'ai des cernes</b><span>Cernes, contour des yeux fatigué</span><em>Offre 2 + 1</em></span>
         <svg class="pb-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
       <button type="button" class="dg-card pbc soon" role="radio" aria-checked="false" data-pb="odeurs">
@@ -2879,7 +2884,7 @@ html.qv-lock { overflow: hidden; }
   <div class="of-in">
     <header class="of-head">
       <h2 id="offers-title">L'offre à ne pas rater.</h2>
-      <p><span data-offer-for>Pour ta routine anti‑taches.</span> Ton ticket s'écrit en direct : tout est affiché, rien n'est caché.</p>
+      <p><span data-offer-for>Pour ta routine anti-taches.</span> Ton ticket s'écrit en direct : tout est affiché, rien n'est caché.</p>
     </header>
 
     <div class="tk-grid">
@@ -3026,12 +3031,29 @@ html.qv-lock { overflow: hidden; }
       <article class="dg-r dg-car" data-r="taches" aria-label="La routine anti-taches">
         <div class="car-head">
           <p class="dg-k">Pour les taches</p>
-          <h3>La routine anti‑taches, en 4 soins</h3>
-          <p class="car-sub">Fais défiler pour découvrir chaque soin.</p>
+          <h2>La routine anti-taches, en 4 soins</h2>
+          <p class="car-sub">Contre les taches brunes, les taches pigmentaires et le teint irrégulier. Fais défiler pour découvrir chaque soin.</p>
         </div>
         <div class="car-rail">
           <button type="button" class="car-nav car-prev" aria-label="Soin précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <div class="car-track" tabindex="0" data-car="taches"></div>
+          <div class="car-track" tabindex="0" data-car="taches">
+          <article class="pc" id="gel-nettoyant">
+            <div class="pc-pic"><img src="/images/gel-nettoyant-anti-taches-n01-200ml.webp" alt="Gel nettoyant anti-taches OTAGE N°01" width="122" height="480" loading="lazy" decoding="async"><span class="pc-no">N° 01</span><span class="pc-when">Matin et soir</span></div>
+            <div class="pc-body"><h3>Gel nettoyant anti-taches<span class="pc-size">200 ml</span></h3><p>Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.</p><ul><li>Figue de Barbarie</li><li>Louban</li><li>Sans sulfate</li></ul><p class="pc-how"><b>Comment :</b> sur peau humide, masse 30 secondes, puis rince.</p><p class="pc-meta">Contenance : 200 ml en Grand format, 125 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format.</p></div>
+          </article>
+          <article class="pc" id="serum">
+            <div class="pc-pic"><img src="/images/serum-anti-taches-n02-30ml.webp" alt="Sérum anti-taches OTAGE N°02" width="183" height="480" loading="lazy" decoding="async"><span class="pc-no">N° 02</span><span class="pc-when">Matin et soir</span></div>
+            <div class="pc-body"><h3>Sérum anti-taches<span class="pc-size">30 ml</span></h3><p>Le soin concentré de la gamme, qui cible les taches.</p><ul><li>Matcha</li><li>Calendula</li><li>Alpha-arbutine</li></ul><p class="pc-how"><b>Comment :</b> 3 à 4 gouttes sur peau sèche, en tapotant.</p><p class="pc-meta">Contenance : 30 ml en Grand format, 15 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format.</p></div>
+          </article>
+          <article class="pc" id="creme">
+            <div class="pc-pic"><img src="/images/creme-anti-taches-n03-50ml.webp" alt="Crème anti-taches OTAGE N°03" width="117" height="480" loading="lazy" decoding="async"><span class="pc-no">N° 03</span><span class="pc-when">Matin et soir</span></div>
+            <div class="pc-body"><h3>Crème anti-taches<span class="pc-size">50 ml</span></h3><p>Hydrate, unifie le teint et scelle le sérum.</p><ul><li>Niacinamide</li><li>Acide hyaluronique</li><li>AHA</li></ul><p class="pc-how"><b>Comment :</b> une noisette sur le visage et le cou.</p><p class="pc-meta">Contenance : 50 ml en Grand format, 30 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format.</p></div>
+          </article>
+          <article class="pc" id="ecran-solaire">
+            <div class="pc-pic"><img src="/images/ecran-solaire-spf50-n04-50ml.webp" alt="Écran solaire SPF 50 OTAGE N°04" width="117" height="480" loading="lazy" decoding="async"><span class="pc-no">N° 04</span><span class="pc-when">Le matin</span></div>
+            <div class="pc-body"><h3>Écran solaire SPF 50<span class="pc-size">50 ml</span></h3><p>Protège des UVA et des UVB pour que les taches ne reviennent pas.</p><ul><li>Haute protection</li><li>UVA/UVB</li></ul><p class="pc-how"><b>Comment :</b> en dernier, le matin. Renouvelle toutes les 2 heures au soleil.</p><p class="pc-meta">Contenance : 50 ml en Grand format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format.</p></div>
+          </article>
+          </div>
           <button type="button" class="car-nav car-next" aria-label="Soin suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
         <div class="car-dots" aria-hidden="true"></div>
@@ -3043,11 +3065,20 @@ html.qv-lock { overflow: hidden; }
       <article class="dg-r dg-car" data-r="yeux" aria-label="Le soin des cernes" hidden>
         <div class="car-head">
           <p class="dg-k">Pour les cernes</p>
-          <h3>Le sérum contour des yeux</h3>
-          <p class="car-sub">Ce qu'il faut savoir avant de l'adopter.</p>
+          <h2>Le sérum contour des yeux</h2>
+          <p class="car-sub">Pour les cernes et le contour des yeux fatigué. Ce qu'il faut savoir avant de l'adopter.</p>
         </div>
         <div class="car-rail">
-          <div class="car-track" tabindex="0" data-car="yeux"></div>
+          <div class="car-track" tabindex="0" data-car="yeux">
+          <article class="pc" id="contour-des-yeux">
+            <div class="pc-pic"><img src="/images/serum-contour-des-yeux-n05-15ml.webp" alt="Sérum contour des yeux OTAGE N°05, 15 ml" width="177" height="700" loading="lazy" decoding="async"><span class="pc-no">N° 05</span><span class="pc-when">Matin et soir</span></div>
+            <div class="pc-body"><h3>Sérum contour des yeux<span class="pc-size">15 ml</span></h3><p>Un applicateur bille pour le contour de l'œil.</p><ul><li>Aloe vera</li><li>Acide hyaluronique</li><li>Caféine</li></ul><p class="pc-how"><b>Comment :</b> passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement.</p><p class="pc-meta">Prix : 130 DH, ou 87 DH le sérum avec l'offre 2 + 1.</p></div>
+          </article>
+          <article class="pc" id="contour-des-yeux-sur-la-peau">
+            <div class="pc-pic full"><img src="/images/serum-contour-des-yeux-n05-application.webp" alt="Sérum contour des yeux N°05 tenu près du visage" width="600" height="803" loading="lazy" decoding="async"><span class="pc-no">N° 05</span></div>
+            <div class="pc-body"><h3>Sur la peau</h3><p>Une texture légère qui se glisse sous le maquillage, matin et soir.</p></div>
+          </article>
+          </div>
         </div>
         <div class="car-offer">
           <span class="co-txt"><b>Offre 2 + 1 :</b> le sérum à <em>87 DH</em> <s>130 DH</s></span>
@@ -3058,10 +3089,10 @@ html.qv-lock { overflow: hidden; }
         <div class="dg-r-pic dg-r-soon" aria-hidden="true"><span>Bientôt</span></div>
         <div class="dg-r-txt">
           <p class="dg-k">Pour les odeurs</p>
-          <h3>Notre déodorant arrive bientôt.</h3>
+          <h2>Notre déodorant arrive bientôt.</h2>
           <p>On le prépare avec le même soin que le reste de la gamme. En attendant, découvre nos autres soins.</p>
           <div class="dg-act">
-            <button type="button" class="dg-link" data-pick="taches">Voir les soins anti‑taches</button>
+            <button type="button" class="dg-link" data-pick="taches">Voir les soins anti-taches</button>
             <button type="button" class="dg-link" data-pick="yeux">Voir le contour des yeux</button>
           </div>
         </div>
@@ -3217,8 +3248,9 @@ html.qv-lock { overflow: hidden; }
       </div>
     </nav>
   </div>
+  <p class="foot-about">OTAGE est une marque marocaine de cosmétique naturelle. Sa gamme anti-taches réunit 4 soins fabriqués au Maroc : un gel nettoyant, un sérum anti-taches, une crème anti-taches et un écran solaire SPF 50, pour atténuer les taches pigmentaires et l'hyperpigmentation, puis éviter qu'elles reviennent. OTAGE propose aussi un sérum contour des yeux pour les cernes. Livraison offerte partout au Maroc, paiement à la livraison.</p>
   <div class="foot-word" aria-hidden="true"></div>
-  <p class="foot-legal">© <span data-year>2026</span> OTAGE. Des soins honnêtes, fabriqués au Maroc.</p>
+  <p class="foot-legal">© <span data-year>2026</span> OTAGE. Des soins honnêtes, fabriqués au Maroc. <span class="foot-upd">Mis à jour le <time datetime="2026-10-10">10 octobre 2026</time>.</span></p>
 </footer>
 
 <dialog class="hz" aria-labelledby="hz-title">
@@ -3277,7 +3309,7 @@ html.qv-lock { overflow: hidden; }
 
 <div class="fab" aria-hidden="true">
   <span class="fab-pics" aria-hidden="true"></span>
-  <span class="fab-txt"><b>La routine anti‑taches</b><span>dès <em>199 DH</em> la gamme avec l'offre 2 + 1</span></span>
+  <span class="fab-txt"><b>La routine anti-taches</b><span>dès <em>199 DH</em> la gamme avec l'offre 2 + 1</span></span>
   <a href="#offres" class="o-btn o-primary o-md fab-go" data-order tabindex="-1"><span class="o-lbl">Commander</span><span class="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg></span></a>
 </div>
 
@@ -3850,15 +3882,15 @@ document.querySelectorAll(".o-btn").forEach((b) => {
   const hero = document.querySelector(".hero");
   const bigImgs = [...document.querySelectorAll(".big img")];
   const P = [
-    { num: "N° 01 / 04", name: "Gel nettoyant anti‑taches", size: "200 ml", href: "#gel-nettoyant",
+    { num: "N° 01 / 04", name: "Gel nettoyant anti-taches", size: "200 ml", href: "#gel-nettoyant",
       lead: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.",
       chips: ["Figue de Barbarie", "Louban", "Sans sulfate"],
       how: "matin et soir, sur peau humide. Masse 30 secondes, puis rince.", when: "Étape 1 de la routine, <b>matin et soir</b>." },
-    { num: "N° 02 / 04", name: "Sérum anti‑taches", size: "30 ml", href: "#serum",
+    { num: "N° 02 / 04", name: "Sérum anti-taches", size: "30 ml", href: "#serum",
       lead: "Le soin concentré de la gamme, qui cible les taches.",
       chips: ["Matcha", "Calendula", "Alpha-arbutine"],
       how: "3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts.", when: "Étape 2 de la routine, <b>matin et soir</b>." },
-    { num: "N° 03 / 04", name: "Crème anti‑taches", size: "50 ml", href: "#creme",
+    { num: "N° 03 / 04", name: "Crème anti-taches", size: "50 ml", href: "#creme",
       lead: "Hydrate, unifie le teint et scelle le sérum.",
       chips: ["Niacinamide", "Acide hyaluronique", "AHA"],
       how: "une noisette sur le visage et le cou, en mouvements vers le haut.", when: "Étape 3 de la routine, <b>matin et soir</b>." },
@@ -4082,7 +4114,7 @@ document.querySelectorAll(".o-btn").forEach((b) => {
     });
     sec.classList.toggle("p-yeux", prod === "yeux");
     if (galFor !== prod) { galFor = prod; buildGallery(); }
-    $("[data-offer-for]").textContent = prod === "yeux" ? "Pour ton sérum contour des yeux." : "Pour ta routine anti‑taches.";
+    $("[data-offer-for]").textContent = prod === "yeux" ? "Pour ton sérum contour des yeux." : "Pour ta routine anti-taches.";
     sec.querySelectorAll(".psw").forEach((b) => { const on = b.dataset.prod === prod; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
     fmtCh.hidden = true; // le format se change dans le formulaire (bouton Grand format)
     print(first);
@@ -4667,7 +4699,7 @@ document.querySelectorAll(".o-btn").forEach((b) => {
       { de: "otage", texte: "alhamdulilah hadshi bfadl aallah ama ana hir sabab", heure: "21:38" },
       { de: "otage", texte: "bse7tk", heure: "21:38" } ] },
   ];
-  const NOMS = ["Gel nettoyant", "Sérum anti‑taches", "Crème anti‑taches", "Écran solaire SPF 50"];
+  const NOMS = ["Gel nettoyant", "Sérum anti-taches", "Crème anti-taches", "Écran solaire SPF 50"];
   const KEYS = ["gel", "serum", "creme", "ecran"];
   const track = sec.querySelector(".rv-track"), dots = sec.querySelector(".rv-dots");
   if (!AVIS.length) { sec.hidden = true; return; }
@@ -4718,26 +4750,6 @@ document.querySelectorAll(".o-btn").forEach((b) => {
   const offers = document.querySelector(".offers");
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const glide = (y) => (window.OTAGE && OTAGE.glideTo ? OTAGE.glideTo(y) : window.scrollTo({ top: y, behavior: "smooth" }));
-
-  /* contenu des carrousels (photos reprises des flacons du site) */
-  const src = (k) => { const b = document.querySelector(`.big[data-i="${k}"] img`); return (b && (b.dataset.src || b.src)) || document.querySelector(`.pin.${["gel","serum","creme","ecran"][k]} img`).src; };
-  const TACHES = [
-    { no: "N° 01", name: "Gel nettoyant", size: "200 ml", when: "Matin et soir", img: src(0), lead: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.", chips: ["Figue de Barbarie", "Louban", "Sans sulfate"], how: "sur peau humide, masse 30 secondes, puis rince." },
-    { no: "N° 02", name: "Sérum anti‑taches", size: "30 ml", when: "Matin et soir", img: src(1), lead: "Le soin concentré de la gamme, qui cible les taches.", chips: ["Matcha", "Calendula", "Alpha-arbutine"], how: "3 à 4 gouttes sur peau sèche, en tapotant." },
-    { no: "N° 03", name: "Crème anti‑taches", size: "50 ml", when: "Matin et soir", img: src(2), lead: "Hydrate, unifie le teint et scelle le sérum.", chips: ["Niacinamide", "Acide hyaluronique", "AHA"], how: "une noisette sur le visage et le cou." },
-    { no: "N° 04", name: "Écran solaire SPF 50", size: "50 ml", when: "Le matin", img: src(3), lead: "Protège des UVA et des UVB pour que les taches ne reviennent pas.", chips: ["Haute protection", "UVA/UVB"], how: "en dernier, le matin. Renouvelle toutes les 2 heures au soleil." },
-  ];
-  const yeuxImg = document.querySelector('.src-yeux-life').src;
-  const YEUX = [
-    { no: "N° 05", name: "Sérum contour des yeux", size: "15 ml", when: "Matin et soir", img: offers.style.getPropertyValue("--ypack").replace(/^url\(['"]?|['"]?\)$/g, "").trim(), lead: "Un applicateur bille pour le contour de l'œil.", chips: ["Aloe vera", "Acide hyaluronique", "Caféine"], how: "passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement." },
-    { no: "N° 05", name: "Sur la peau", size: "", when: "", img: yeuxImg, full: true, lead: "Une texture légère qui se glisse sous le maquillage, matin et soir.", chips: [], how: "" },
-  ];
-  const card = (x) => `<article class="pc">
-      <div class="pc-pic${x.full ? " full" : ""}"><img src="${x.img}" alt="${x.name}" loading="lazy"><span class="pc-no">${x.no}</span>${x.when ? `<span class="pc-when">${x.when}</span>` : ""}</div>
-      <div class="pc-body"><h4>${x.name}${x.size ? `<span class="pc-size">${x.size}</span>` : ""}</h4><p>${x.lead}</p>${x.chips.length ? `<ul>${x.chips.map((c) => `<li>${c}</li>`).join("")}</ul>` : ""}${x.how ? `<p class="pc-how"><b>Comment :</b> ${x.how}</p>` : ""}</div>
-    </article>`;
-  document.querySelector('[data-car="taches"]').innerHTML = TACHES.map(card).join("");
-  document.querySelector('[data-car="yeux"]').innerHTML = YEUX.map(card).join("");
 
   /* carrousel : points + flèches */
   const cars = [...document.querySelectorAll(".dg-car")].map((art) => {

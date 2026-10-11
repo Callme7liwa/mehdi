@@ -9,7 +9,6 @@ Tout ce qui suit se fait à la main, dans l'ordre. Rien n'est en ligne tant que 
 - [ ] Relecture du pharmacien : `docs/relecture-pharmacien.docx`. Une fois validée, mettre `medicalReview: { validated: true, date: "AAAA-MM-JJ" }` dans `src/data/site.ts` : les 4 pages conseils sortent du noindex et affichent « Relu par Dr Seddiki El Mehdi, pharmacien ».
 - [ ] Relecture de l'arabe par un natif (`src/data/ar-relecture.md`), puis `arIndexable: true` dans `src/data/site.ts`. Nom arabe de la marque (« أوتاج للعناية بالبشرة ») et du fondateur à confirmer.
 - [ ] Numéro d'enregistrement DMP de chaque produit (`dmp` dans `src/data/products.ts`) : il s'affiche sur la fiche dès qu'il est renseigné.
-- [ ] Grille des frais de livraison par ville (aujourd'hui : « de 35 à 45 DH selon la ville »).
 - [ ] Confirmer que le sérum contour des yeux suit bien la règle « achat à l'unité » (livraison de 35 à 45 DH).
 
 ## 1. Fusion et déploiement

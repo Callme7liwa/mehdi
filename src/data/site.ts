@@ -72,7 +72,7 @@ export const site = {
     minHours: 24,
     maxHours: 72,
     label: { fr: "24 à 72 h", ar: "من 24 إلى 72 ساعة" } as L,
-    /** Frais pour un achat à l'unité, en DH. TODO : grille des frais par ville (le client annonce « de 35 à 45 DH selon la ville »). */
+    /** Frais pour un achat à l'unité, en DH : une fourchette. Le montant exact est confirmé à la cliente par téléphone. */
     unitFee: { min: 35, max: 45 },
     feeLabel: { fr: "35 à 45 DH selon la ville", ar: "من 35 إلى 45 درهمًا حسب المدينة" } as L,
     /** La règle complète, en une phrase. */

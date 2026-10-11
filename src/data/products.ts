@@ -17,8 +17,6 @@ export interface Product {
   /** Gamme dans laquelle le produit est vendu sur le site. */
   range: "taches" | "yeux";
   name: L;
-  /** Autre nom courant du produit, s'il y en a un. */
-  aka?: L;
   h1: L;
   metaTitle: L;
   metaDescription: L;
@@ -142,7 +140,6 @@ export const products: Product[] = isolateAr([
     no: "N° 03",
     range: "taches",
     name: { fr: "Crème anti-taches", ar: "كريم ضد البقع" },
-    aka: { fr: "crème éclaircissante", ar: "كريم مفتّح" },
     h1: { fr: "Crème anti-taches à la niacinamide, fabriquée au Maroc", ar: "كريم ضد البقع بالنياسيناميد، مصنوع في المغرب" },
     metaTitle: { fr: "Crème anti-taches Maroc à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد في المغرب" },
     metaDescription: {

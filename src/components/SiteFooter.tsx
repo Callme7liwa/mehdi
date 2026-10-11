@@ -41,7 +41,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
         <p className="foot2-about">{site.description[locale]} {t.freeDelivery}. {t.cod}.</p>
       </div>
       <p className="foot2-legal">
-        © {new Date().getFullYear()} OTAGE. {t.rights} {t.updated} <time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>.
+        © {new Date().getFullYear()} {site.brand[locale]}. {t.rights} {t.updated} <time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>.
       </p>
     </footer>
   );

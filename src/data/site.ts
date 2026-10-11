@@ -10,7 +10,11 @@ export const locales: Locale[] = ["fr", "ar"];
 export const site = {
   /** Domaine officiel, sans / à la fin. */
   url: "https://otage.ma",
+  /** Nom court de la marque (logo, textes). */
   name: "OTAGE",
+  /** Nom complet, pour distinguer la marque du mot courant « otage » : titres, données structurées, pied de page.
+      TODO : nom arabe à confirmer par le client et à relire par un natif. */
+  brand: { fr: "OTAGE Cosmétiques", ar: "أوتاج للعناية بالبشرة" } as L,
   slogan: {
     fr: "Des soins honnêtes, fabriqués au Maroc.",
     ar: "عناية صادقة، مصنوعة في المغرب.",

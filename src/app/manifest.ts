@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "OTAGE, soins anti-taches fabriqués au Maroc",
+    name: "OTAGE Cosmétiques, soins anti-taches fabriqués au Maroc",
     short_name: "OTAGE",
     lang: "fr-MA",
     start_url: "/",

@@ -3,7 +3,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   const manifest = {
-    name: "OTAGE، عناية ضد البقع مصنوعة في المغرب",
+    name: "أوتاج للعناية بالبشرة (OTAGE)، عناية ضد البقع مصنوعة في المغرب",
     short_name: "OTAGE",
     lang: "ar-MA",
     dir: "rtl",

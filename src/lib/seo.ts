@@ -31,7 +31,7 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
     description,
     alternates: { canonical: url, languages: hidden ? undefined : languages },
     robots: hidden ? { index: false, follow: true } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
-    openGraph: { type, siteName: site.name, locale: locale === "ar" ? "ar_MA" : "fr_MA", url, title, description, images: [img] },
+    openGraph: { type, siteName: site.brand[locale], locale: locale === "ar" ? "ar_MA" : "fr_MA", url, title, description, images: [img] },
     twitter: { card: "summary_large_image", title, description, images: [img] },
   };
 }
@@ -44,7 +44,8 @@ const maroc = (locale: Locale = "fr") => ({ "@type": "Country", name: locale ===
 export const orgLd = (locale: Locale = "fr") => ({
   "@type": "Organization",
   "@id": abs("/#organization"),
-  name: site.name,
+  name: site.brand[locale],
+  alternateName: [site.name, site.brand[locale === "ar" ? "fr" : "ar"]],
   url: abs("/"),
   logo: { "@type": "ImageObject", url: abs("/images/icon-512.png"), width: 512, height: 512 },
   image: abs(OG_IMAGE.src),
@@ -84,7 +85,7 @@ export const founderLd = (locale: Locale = "fr") => ({
 /** Le relecteur des pages conseils (JSON-LD reviewedBy), quand la relecture est confirmée. */
 export const reviewerLd = (locale: Locale = "fr") => ({ "@type": "Person", "@id": abs("/#founder"), name: locale === "ar" ? site.founder.nameAr : site.founder.name, jobTitle: site.founder.jobTitle[locale] });
 
-export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
+export const websiteLd = (locale: Locale = "fr") => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.brand[locale], alternateName: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
 
 export const webPageLd = (o: { locale: Locale; path: string; title: string; description: string; image?: Img; type?: string }) => {
   const url = abs(localePath(o.locale, o.path));

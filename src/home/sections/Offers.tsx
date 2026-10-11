@@ -1,6 +1,7 @@
 import type { HomeText } from "../text";
 import Img from "@/components/Img";
 import { bundleTotal, bundleUnit, gamme } from "@/data/products";
+import { cities } from "@/data/cities";
 import { site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
@@ -62,11 +63,10 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   <p className="back-recap"><span data-recap=""></span><b><span data-total2="">{P.price}</span>{t.offersDh}</b></p>
                   <label className="fld"><span>{t.offersNomComplet}</span><input name="nom" autoComplete="name" placeholder={t.offersExSalmaBennani} /></label>
                   <label className="fld"><span>{t.offersTelephone}</span><input name="tel" type="tel" inputMode="tel" autoComplete="tel" placeholder="06 12 34 56 78" /></label>
-                  <label className="fld"><span>{t.offersVille}</span><input name="ville" list="villes" autoComplete="address-level2" placeholder={t.offersExCasablanca} /></label>
-                  <div className="city-chips" aria-label={t.offersVillesFrequentes}><button type="button">{t.offersCasablanca}</button><button type="button">{t.offersRabat}</button><button type="button">{t.offersMarrakech}</button><button type="button">{t.offersFes}</button><button type="button">{t.offersTanger}</button><button type="button">{t.offersAgadir}</button></div>
+                  <label className="fld"><span>{t.offersVille}</span><input name="ville" list="villes" autoComplete="address-level2" placeholder={t.offersExCasablanca} aria-describedby="tk-ville-info" /><small id="tk-ville-info" className="fld-info">{t.offersAutreVille}</small></label>
                   <label className="fld"><span>{t.offersAdresse}<small>{t.offersFacultatifOnPeutLa}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.offersQuartierRueNumero} /></label>
                   <label className="fld"><span>{t.offersEmail}<small>{t.offersEmailOpt}</small></span><input name="email" type="email" inputMode="email" autoComplete="email" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="tk-email-info" /><small id="tk-email-info" className="fld-info"><b>{t.offersEmailHint}</b> {t.offersEmailConsent}</small></label>
-                  <datalist id="villes"><option>{t.offersCasablanca}</option><option>{t.offersRabat}</option><option>{t.offersSale}</option><option>{t.offersFes}</option><option>{t.offersMarrakech}</option><option>{t.offersTanger}</option><option>{t.offersAgadir}</option><option>{t.offersMeknes}</option><option>{t.offersOujda}</option><option>{t.offersKenitra}</option><option>{t.offersTetouan}</option><option>{t.offersElJadida}</option></datalist>
+                  <datalist id="villes">{cities.map((c) => <option key={c.fr}>{c[locale]}</option>)}</datalist>
                   <button type="button" className="hz-open hz-mini" data-hz="avis"><span className="hz-faces" aria-hidden="true"><i>S</i><i>H</i><i>N</i></span><span className="hz-txt"><b>{t.offersTuHesites}</b><small>{t.offersAvisResultatsOuParle}</small></span><svg className="hz-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
                   <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <label className="agree">

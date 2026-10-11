@@ -1025,6 +1025,10 @@ a { color: inherit; }
 .o-btn { flex-shrink: 0; min-width: max-content; }
 .ctas .o-btn { width: 100%; min-width: 0; }
 .step .o-btn { margin-top: 16px; }
+/* chaque étape renvoie à la fiche de son soin ; un seul bouton « Commander », à la dernière étape */
+.step-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--bordeaux); text-decoration: underline; text-decoration-color: rgba(74, 13, 22, 0.3); text-underline-offset: 4px; }
+.step-link:hover { text-decoration-color: currentColor; }
+.step .step-link + .o-btn { margin-top: 6px; }
 @media (min-width: 640px) {
   .ctas .o-btn { width: auto; }
 }

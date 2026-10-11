@@ -129,7 +129,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="step-lead">{t.heroNettoieEnDouceurSans}</p>
             <ul className="chips"><li>{t.heroFigueDeBarbarie}</li><li>{t.heroLouban}</li><li>{t.heroSansSulfate}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroMatinEtSoirSur}</p>
-            <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
+            <a className="step-link" href={localePath(locale, "/soins/gel-nettoyant")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
           </article>
           <article className="step" data-i="1" aria-hidden="true">
             <p className="step-count">{t.heroEtape2Sur4}</p>
@@ -137,7 +137,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="step-lead">{t.heroLeSoinConcentreDe}</p>
             <ul className="chips"><li>{t.heroMatcha}</li><li>{t.heroCalendula}</li><li>{t.heroAlphaArbutine}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.hero3A4Gouttes}</p>
-            <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
+            <a className="step-link" href={localePath(locale, "/soins/serum-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
           </article>
           <article className="step" data-i="2" aria-hidden="true">
             <p className="step-count">{t.heroEtape3Sur4}</p>
@@ -145,7 +145,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="step-lead">{t.heroHydrateUnifieLeTeint}</p>
             <ul className="chips"><li>{t.heroNiacinamide}</li><li>{t.heroAcideHyaluronique}</li><li>{t.heroAha}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroUneNoisetteSurLe}</p>
-            <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
+            <a className="step-link" href={localePath(locale, "/soins/creme-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
           </article>
           <article className="step" data-i="3" aria-hidden="true">
             <p className="step-count">{t.heroEtape4Sur4}</p>
@@ -154,6 +154,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroHauteProtection}</li><li>{t.heroUvaUvb}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroLeMatinEnDernier}</p>
             <p className="step-note">{t.heroLeSoirTaRoutine}</p>
+            <a className="step-link" href={localePath(locale, "/soins/ecran-solaire-spf50")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
             <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
           </article>
           <ol className="rail" aria-label={t.heroEtapes}>

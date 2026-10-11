@@ -12,6 +12,7 @@
     "check:budget": "node scripts/check-budget.mjs",
     "analyze": "next analyze",
     "relecture": "node --no-warnings scripts/relecture.mjs",
+    "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "blur": "node scripts/blur.mjs"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "bidi-js": "^1.1.0",
+    "docx": "^9.10.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "playwright": "^1.47.2",

@@ -81,6 +81,9 @@ export const founderLd = (locale: Locale = "fr") => ({
   worksFor: ORG,
 });
 
+/** Le relecteur des pages conseils (JSON-LD reviewedBy), quand la relecture est confirmée. */
+export const reviewerLd = (locale: Locale = "fr") => ({ "@type": "Person", "@id": abs("/#founder"), name: locale === "ar" ? site.founder.nameAr : site.founder.name, jobTitle: site.founder.jobTitle[locale] });
+
 export const websiteLd = () => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
 
 export const webPageLd = (o: { locale: Locale; path: string; title: string; description: string; image?: Img; type?: string }) => {

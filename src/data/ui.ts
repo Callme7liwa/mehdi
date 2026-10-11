@@ -111,6 +111,7 @@ const fr = {
   // pages conseils et pages de texte
   advice: "Conseils peau",
   byTeam: "par l'équipe OTAGE",
+  reviewedBy: "Relu par",
   askPro: "Demande l'avis d'un professionnel.",
   routineSteps: "La routine, étape par étape",
   routineSummary: "Le matin : les 4 étapes. Le soir : les 3 premières, sans écran solaire.",
@@ -246,6 +247,7 @@ const ar: Ui = isolateAll({
   done: "تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل.",
   advice: "نصائح للبشرة",
   byTeam: "من فريق OTAGE",
+  reviewedBy: "راجعه",
   askPro: "استشيري مختصًا.",
   routineSteps: "الروتين خطوة بخطوة",
   routineSummary: "في الصباح: الخطوات الأربع. في المساء: الثلاث الأولى، بدون واقي الشمس.",

@@ -109,6 +109,13 @@ export const site = {
     hebergeur: "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
   },
 
+  /** Relecture des pages conseils (taches pigmentaires, cernes, taches d'acné, mélasma et grossesse) par le pharmacien.
+      Tant que `validated` est false : ces 4 pages restent hors de l'index (noindex, absentes du sitemap et de llms.txt)
+      et n'affichent aucune mention de relecture.
+      Quand la relecture est confirmée : mettre `validated: true` et la date (AAAA-MM-JJ). Les pages affichent alors
+      « Relu par Dr Seddiki El Mehdi, pharmacien, le … » et le JSON-LD porte reviewedBy + lastReviewed. */
+  medicalReview: { validated: false as boolean, date: null as string | null },
+
   /** Date de dernière mise à jour du contenu (affichée et envoyée aux moteurs). */
   updated: "2026-10-10",
 

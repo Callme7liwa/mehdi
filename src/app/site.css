@@ -275,3 +275,5 @@ main { display: block; }
 .stepper button[disabled] { opacity: 0.4; cursor: default; }
 .stepper output { min-width: 44px; text-align: center; font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--bordeaux); }
 @media (min-width: 900px) { .foot2 { contain-intrinsic-size: auto 500px; } }
+/* page conseil en plusieurs parties (mélasma / grossesse) */
+.prose h2.part { margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--line); }

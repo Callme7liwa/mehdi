@@ -14,7 +14,8 @@ export interface ProblemPage {
   metaDescription: string;
   image: Img;
   intro: string[];
-  sections: { h2: string; body: Block[] }[];
+  /** `part` : titre d'une grande partie, affiché avant la section (les titres des sections passent alors en h3). */
+  sections: { part?: string; h2: string; body: Block[] }[];
   /** Encadré « demande l'avis d'un professionnel ». */
   advice: string;
   productsTitle: string;
@@ -79,13 +80,13 @@ export const problems: ProblemPage[] = [
       { key: "gel", why: "Étape 1. Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins." },
       { key: "serum", why: "Étape 2. Le soin concentré de la gamme, qui cible les taches." },
       { key: "creme", why: "Étape 3. Hydrate, unifie le teint et scelle le sérum." },
-      { key: "ecran", why: "Étape 4, le matin. Protège des UVA et des UVB pour que les taches ne reviennent pas." },
+      { key: "ecran", why: "Étape 4, le matin. Protège des UVA et des UVB pour limiter le retour des taches." },
     ],
     routine: true,
     faq: [
       { q: "Combien de temps faut-il pour atténuer une tache pigmentaire ?", a: ["Il n'y a pas de délai garanti. Les taches s'estompent petit à petit, pas du jour au lendemain, et le rythme varie d'une peau à l'autre. Ce qui compte, c'est la régularité matin et soir et l'écran solaire chaque matin."] },
       { q: "Les taches peuvent-elles revenir ?", a: ["Oui, surtout avec le soleil. Sans protection solaire, les taches reviennent. C'est pour cela que l'écran solaire SPF 50 fait partie de la routine du matin."] },
-      { q: "Faut-il mettre de l'écran solaire même quand il n'y a pas de soleil ?", a: ["Oui. Les UV traversent les nuages et les vitres. Applique l'écran solaire chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil."] },
+      { q: "Faut-il mettre de l'écran solaire même quand il n'y a pas de soleil ?", a: ["Oui. Les UVA traversent les nuages et les vitres. Applique l'écran solaire chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil."] },
       { q: "J'ai la peau sensible, je peux suivre une routine anti-taches ?", a: ["Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel."] },
     ],
   },
@@ -155,15 +156,15 @@ export const problems: ProblemPage[] = [
     metaDescription: "Les marques brunes laissées par les boutons sont une hyperpigmentation post-inflammatoire. Ce qui les aggrave, ce qui aide, et quelle routine suivre.",
     image: image("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches OTAGE"),
     intro: [
-      "Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache, appelée hyperpigmentation post-inflammatoire. La peau a fabriqué plus de pigment à l'endroit de l'inflammation.",
-      "Ces taches s'atténuent avec le temps, plus ou moins vite selon les peaux. Les peaux mates et foncées y sont plus sujettes.",
+      "Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache. Quand elle est brune, on parle d'hyperpigmentation post-inflammatoire : la peau a fabriqué plus de pigment à l'endroit de l'inflammation. Quand elle est rose ou rouge, ce sont de petits vaisseaux encore dilatés (érythème post-inflammatoire).",
+      "Ces marques s'atténuent avec le temps, plus ou moins vite selon les peaux. Les taches brunes sont plus fréquentes sur les peaux mates et foncées.",
     ],
     sections: [
       {
         h2: "Tache ou cicatrice : faire la différence",
         body: [
           { list: [
-            "Une tache est plate : seule la couleur change (brun, rose, violacé). C'est le sujet de cette page.",
+            "Une tache est plate : seule la couleur change (brun, rose, violacé). C'est le sujet de cette page ; la routine anti-taches concerne surtout les marques brunes.",
             "Une cicatrice modifie le relief de la peau : un creux ou une bosse. Un soin cosmétique ne change pas le relief ; c'est au dermatologue de proposer une solution.",
           ] },
         ],
@@ -197,7 +198,7 @@ export const problems: ProblemPage[] = [
       { key: "gel", why: "Étape 1. Un nettoyage doux, sans sulfate, qui ne dessèche pas." },
       { key: "serum", why: "Étape 2. Le soin concentré de la gamme, qui cible les taches." },
       { key: "creme", why: "Étape 3. Hydrate et unifie le teint." },
-      { key: "ecran", why: "Étape 4, le matin. Sans protection, les taches reviennent." },
+      { key: "ecran", why: "Étape 4, le matin. Sans protection solaire, les taches foncent et reviennent plus facilement." },
     ],
     routine: true,
     faq: [
@@ -211,7 +212,7 @@ export const problems: ProblemPage[] = [
   {
     slug: "melasma-grossesse",
     label: "Mélasma et grossesse",
-    h1: "Mélasma et masque de grossesse : comprendre et protéger sa peau",
+    h1: "Mélasma et masque de grossesse : comprendre, et précautions pendant la grossesse",
     metaTitle: "Mélasma (masque de grossesse) : causes et conseils | OTAGE",
     metaDescription: "Le mélasma, ou masque de grossesse, donne des taches brunes sur le visage. Ses causes, le rôle du soleil, et quoi demander à son médecin avant tout soin.",
     image: image("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire SPF 50 OTAGE à la plage"),
@@ -221,6 +222,7 @@ export const problems: ProblemPage[] = [
     ],
     sections: [
       {
+        part: "1. Le mélasma : comprendre",
         h2: "Pourquoi le mélasma apparaît-il ?",
         body: [
           { list: [
@@ -231,12 +233,25 @@ export const problems: ProblemPage[] = [
         ],
       },
       {
+        h2: "Ce qui aide à le limiter",
+        body: [
+          { list: [
+            "Se protéger du soleil tous les jours, toute l'année : chapeau, ombre, écran solaire à haute protection, renouvelé toutes les 2 heures au soleil.",
+            "Éviter les expositions aux heures les plus chaudes.",
+            "Ne pas irriter la peau : pas de gommage agressif ni de produit qui pique ou qui brûle.",
+            "Être patiente : le mélasma s'atténue lentement et revient facilement avec le soleil. Aucun soin cosmétique ne peut promettre de le faire disparaître.",
+          ] },
+          "Un mélasma étendu, ancien ou qui te gêne beaucoup se montre à un dermatologue : il existe des traitements médicaux, qui se décident avec lui.",
+        ],
+      },
+      {
+        part: "2. Grossesse et allaitement : les précautions",
         h2: "Que faire pendant la grossesse ?",
         body: [
           { list: [
             "Se protéger du soleil tous les jours : chapeau, ombre, et une protection solaire validée par ton médecin ou ton pharmacien.",
-            "Éviter les expositions aux heures les plus chaudes.",
             "Ne pas multiplier les produits : pendant la grossesse et l'allaitement, chaque soin doit être validé par un professionnel de santé.",
+            "Ne commencer aucun traitement des taches sans avis médical : certains actifs utilisés contre les taches ou les rides (rétinoïdes, hydroquinone) sont déconseillés pendant la grossesse.",
             "Rester patiente : le masque de grossesse s'atténue souvent dans les mois qui suivent l'accouchement, mais pas toujours.",
           ] },
         ],
@@ -252,7 +267,7 @@ export const problems: ProblemPage[] = [
     productsTitle: "Les soins OTAGE, à voir avec ton médecin",
     productsIntro: "Ces soins font partie de la routine anti-taches OTAGE. Pendant la grossesse ou l'allaitement, ne les utilise qu'avec l'accord de ton médecin ou de ton pharmacien.",
     products: [
-      { key: "ecran", why: "Écran solaire SPF 50, haute protection UVA/UVB : le geste du matin pour que les taches ne reviennent pas." },
+      { key: "ecran", why: "Écran solaire SPF 50, haute protection UVA/UVB : le geste du matin pour limiter le retour des taches." },
       { key: "serum", why: "Le soin concentré de la gamme, qui cible les taches." },
       { key: "creme", why: "Hydrate, unifie le teint et scelle le sérum." },
     ],

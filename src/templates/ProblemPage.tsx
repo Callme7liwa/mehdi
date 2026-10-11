@@ -8,6 +8,7 @@ import { BagIcon, WaIcon } from "@/components/icons";
 import { problems, type ProblemPage as Problem } from "@/data/problems";
 import { bundleUnit, gamme, productByKey, rangeProducts, yeuxPrice } from "@/data/products";
 import { abs, formatDate, site, waLink, type Locale } from "@/data/site";
+import { reviewerLd } from "@/lib/seo";
 import { problemsAr } from "@/data/problems.ar";
 import { ui } from "@/data/ui";
 import { articleLd, breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
@@ -18,8 +19,13 @@ const nbsp = (t: string) => t.replace(/ ([:?!])/g, "\u00a0$1");
 /** Les pages conseils dans une langue (mêmes adresses, sous /ar pour l'arabe). */
 export const problemsFor = (locale: Locale) => (locale === "ar" ? problemsAr : problems);
 
-export const problemMetadata = (p: Problem, locale: Locale): Metadata =>
-  pageMetadata({ locale, path: `/${p.slug}`, title: p.metaTitle, description: p.metaDescription, image: p.image, type: "article", hasAr: true });
+/** Relecture du pharmacien confirmée (site.medicalReview) : sinon les pages conseils restent hors de l'index. */
+const reviewed = site.medicalReview.validated && Boolean(site.medicalReview.date);
+
+export const problemMetadata = (p: Problem, locale: Locale): Metadata => {
+  const m = pageMetadata({ locale, path: `/${p.slug}`, title: p.metaTitle, description: p.metaDescription, image: p.image, type: "article", hasAr: true });
+  return reviewed ? m : { ...m, robots: { index: false, follow: true } };
+};
 
 /** Page « problème de peau » : causes, conseils, routine, soins OTAGE adaptés, FAQ. */
 export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale }) {
@@ -28,13 +34,14 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
   const path = `/${p.slug}`;
   const crumbs: Crumb[] = [{ name: t.home, path: "/" }, { name: p.label, path }];
   const yeux = p.products.every((x) => x.key === "yeux");
+  const parts = p.sections.some((s) => s.part);
   const P = gamme.formats.petit;
   return (
     <>
       <JsonLd
         data={graph(
           orgLd(locale),
-          webPageLd({ locale, path, title: p.metaTitle, description: p.metaDescription, image: p.image }),
+          { ...webPageLd({ locale, path, title: p.metaTitle, description: p.metaDescription, image: p.image }), ...(reviewed ? { reviewedBy: reviewerLd(locale), lastReviewed: site.medicalReview.date } : {}) },
           breadcrumbLd(locale, crumbs),
           articleLd({ locale, path, title: p.h1, description: p.metaDescription, image: p.image }),
           faqLd(p.faq, `${abs(localePath(locale, path))}#faq`),
@@ -48,12 +55,15 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
             <h1>{nbsp(p.h1)}</h1>
             {p.intro.map((t) => <p className="lead" key={t}>{t}</p>)}
             <p className="updated">{t.updated} <time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>{ar ? "، " : ", "}{t.byTeam}.</p>
+            {/* affiché seulement quand la relecture est confirmée dans site.medicalReview */}
+            {reviewed && <p className="updated reviewed">{t.reviewedBy} {ar ? site.founder.nameAr : site.founder.name}{ar ? "، " : ", "}{site.founder.jobTitle[locale].toLowerCase()}{ar ? "، " : ", "}<time dateTime={site.medicalReview.date!}>{formatDate(site.medicalReview.date!, locale)}</time>.</p>}
           </header>
 
           <div className="prose">
             {p.sections.map((s) => (
               <section key={s.h2} style={{ display: "grid", gap: 14 }}>
-                <h2>{nbsp(s.h2)}</h2>
+                {s.part && <h2 className="part">{nbsp(s.part)}</h2>}
+                {parts ? <h3>{nbsp(s.h2)}</h3> : <h2>{nbsp(s.h2)}</h2>}
                 {s.body.map((b, i) => (typeof b === "string" ? <p key={i}>{b}</p> : <ul key={i}>{b.list.map((li) => <li key={li}>{li}</li>)}</ul>))}
               </section>
             ))}

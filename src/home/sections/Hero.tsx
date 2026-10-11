@@ -2,6 +2,7 @@ import type { HomeText } from "../text";
 import Img from "@/components/Img";
 import { gamme } from "@/data/products";
 import { site, type Locale } from "@/data/site";
+import { localePath } from "@/lib/seo";
 
 export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
   return (
@@ -22,7 +23,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
       <header className="nav">
         <a href={locale === "ar" ? "/ar" : "/"} className="logo" aria-label={t.heroOtageAccueil}><Img src="/images/logo-otage.webp" alt={t.heroOtage} width={206} height={96} loading="eager" /></a>
         <nav className="links" aria-label={t.heroNavigationPrincipale}>
-          <a href="#decouvrir">{t.heroSoins}</a>
+          <a href={localePath(locale, "/soins")}>{t.heroSoins}</a>
           <a href="#ingredients">{t.heroIngredients}</a>
           <a href="#avis" data-hz-link="">{t.heroAvis}</a>
           <a href="#questions">{t.heroFaq}</a>
@@ -31,7 +32,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         <a href="#offres" className="o-btn o-dark o-sm navBtn"><span className="o-lbl">{t.heroCommander}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
         <button className="burger" type="button" aria-label={t.heroOuvrirLeMenu} aria-expanded="false" aria-controls="sheet"><span></span></button>
         <nav className="sheet" id="sheet" aria-label={t.heroMenu}>
-          <a href="#decouvrir">{t.heroSoins}</a>
+          <a href={localePath(locale, "/soins")}>{t.heroSoins}</a>
           <a href="#ingredients">{t.heroIngredients}</a>
           <a href="#avis" data-hz-link="">{t.heroAvis}</a>
           <a href="#questions">{t.heroFaq}</a>
@@ -62,19 +63,19 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         <div className="pins">
           <div className="laurel l" aria-hidden="true"></div>
           <div className="lane" role="group" aria-label={t.heroLaGammeAntiTaches}>
-            <a className="pin gel" href="#gel-nettoyant">
+            <a className="pin gel" href={localePath(locale, "/soins/gel-nettoyant")}>
               <Img src="/images/gel-nettoyant-anti-taches-n01-200ml.webp" alt={t.heroGelNettoyantAntiTaches} width={122} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroGelNettoyant}<b>{t.heroN01}</b></span>
             </a>
-            <a className="pin serum" href="#serum">
+            <a className="pin serum" href={localePath(locale, "/soins/serum-anti-taches")}>
               <Img src="/images/serum-anti-taches-n02-30ml.webp" alt={t.heroSerumAntiTachesN} width={183} height={480} loading="eager" preload fetchPriority="high" />
               <span className="tag" aria-hidden="true">{t.heroSerum}<b>{t.heroN02}</b></span>
             </a>
-            <a className="pin creme" href="#creme">
+            <a className="pin creme" href={localePath(locale, "/soins/creme-anti-taches")}>
               <Img src="/images/creme-anti-taches-n03-50ml.webp" alt={t.heroCremeAntiTachesN} width={117} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroCreme}<b>{t.heroN03}</b></span>
             </a>
-            <a className="pin ecran" href="#ecran-solaire" suppressHydrationWarning>
+            <a className="pin ecran" href={localePath(locale, "/soins/ecran-solaire-spf50")} suppressHydrationWarning>
               <Img src="/images/ecran-solaire-spf50-n04-50ml.webp" alt={t.heroEcranSolaireSpf50} width={117} height={480} loading="eager" />
               <span className="tag" aria-hidden="true">{t.heroEcranSolaireSpf502}<b>{t.heroN04}</b></span>
             </a>

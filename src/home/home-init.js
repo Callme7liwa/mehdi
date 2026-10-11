@@ -1439,14 +1439,8 @@ export function initHome(cfg) {
     pick("taches", { reveal: false });
     OTAGE.pick = pick;
 
-    /* « Voir la routine » partout sur le site : la carte des taches, sur le bon soin */
-    window.OTAGE = window.OTAGE || {};
-    OTAGE.showRoutine = (i = 0) => {
-      pick("taches", { reveal: false });
-      const r = document.querySelector('.dg-r[data-r="taches"]');
-      glide(r.getBoundingClientRect().top + window.scrollY - 70);
-      setTimeout(() => cars[0].go(i), 300);
-    };
+    /* « Revoir la routine » : la routine du haut de page, où les 4 soins sont présentés (une seule fois) */
+    document.querySelectorAll("[data-routine]").forEach((b) => b.addEventListener("click", () => window.OTAGE && OTAGE.goToStep && OTAGE.goToStep(0)));
 
     // le bouton « Trouver mon soin » du hero mène ici
     document.querySelectorAll('[data-glide-to="#diagnostic"]').forEach((a) => a.addEventListener("click", (e) => {

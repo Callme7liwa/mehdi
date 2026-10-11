@@ -1,10 +1,9 @@
 import type { HomeText } from "../text";
 import Img from "@/components/Img";
-import { bundleUnit, gamme, productByKey, products, yeuxPrice, type Product } from "@/data/products";
+import { bundleUnit, productByKey, products, yeuxPrice, type Product } from "@/data/products";
 import type { Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
-const P = gamme.formats.petit, G = gamme.formats.grand;
 const rangeCards = products.filter((p) => p.range === "taches");
 const yeux = productByKey("yeux");
 const lowerFirst = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
@@ -24,11 +23,7 @@ function Card({ p, locale }: { p: Product; locale: Locale }) {
         <ul>{p.ingredients.map((i) => <li key={i.fr}>{i[locale]}</li>)}</ul>
         <p className="pc-how"><b>{ar ? "الطريقة:" : "Comment :"}</b> {ar ? p.how.ar : lowerFirst(p.how.fr)}</p>
         <p className="pc-meta">
-          {taches
-            ? ar
-              ? `السعة: ${p.ml.grand} مل في الحجم الكبير، ${p.ml.petit} مل في الحجم الصغير. يباع ضمن مجموعة العناية ضد البقع: ${P.price} درهم بالحجم الصغير، ${G.price} درهم بالحجم الكبير.`
-              : `Contenance : ${p.ml.grand} ml en Grand format, ${p.ml.petit} ml en Petit format. Vendu dans la gamme anti-taches : ${P.price} DH en Petit format, ${G.price} DH en Grand format.`
-            : ar
+          {ar
               ? `الثمن: ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1.`
               : `Prix : ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`}
         </p>
@@ -50,26 +45,24 @@ function YeuxSkin({ locale }: { locale: Locale }) {
 
 export default function Discover({ t, locale }: { t: HomeText; locale: Locale }) {
   return (
-    <section className="dgx" id="decouvrir" aria-label={t.discoverDecouvrirLesSoins}>
+    <section className="dgx" id="decouvrir" aria-label={t.discoverDecouvrirLesSoins} style={{ "--bag-dg": "url('/images/gamme-anti-taches-otage-trousse-vignette.webp')" } as React.CSSProperties}>
       <div className="dg-in">
         <div className="dg-res" aria-live="polite">
-          <article className="dg-r dg-car" data-r="taches" aria-label={t.discoverLaRoutineAntiTaches}>
-            <div className="car-head">
+          {/* Résultat « taches » : les 4 soins sont présentés une seule fois, dans la routine du haut de page.
+              Ici, un rappel court avec un lien vers chaque fiche (contenances, prix à l'unité, mode d'emploi). */}
+          <article className="dg-r" data-r="taches" aria-label={t.discoverLaRoutineAntiTaches}>
+            <div className="dg-r-pic dg-r-gamme" aria-hidden="true"></div>
+            <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesTaches}</p>
-              <h2>{t.discoverLaRoutineAntiTaches2}</h2>
-              <p className="car-sub">{t.discoverContreLesTachesBrunes}</p>
-            </div>
-            <div className="car-rail">
-              <button type="button" className="car-nav car-prev" aria-label={t.discoverSoinPrecedent}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg></button>
-              <div className="car-track" tabIndex={0} data-car="taches">
-              {rangeCards.map((p) => <Card key={p.key} p={p} locale={locale} />)}
-            </div>
-              <button type="button" className="car-nav car-next" aria-label={t.discoverSoinSuivant}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg></button>
-            </div>
-            <div className="car-dots" aria-hidden="true"></div>
-            <div className="car-offer">
-              <span className="co-txt"><b>{t.discoverOffre21}</b>{t.discoverLaGammeA}<em>{bundleUnit(P.price)}{t.discoverDh}</em> <s>{P.price}{t.discoverDh}</s></span>
-              <button type="button" className="o-btn o-primary o-md" data-see-offer="taches"><span className="o-lbl">{t.discoverVoirLOffre}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg></span></button>
+              <h2>{t.discoverLaRoutineAntiTaches}</h2>
+              <p>{t.discoverContreLesTachesBrunes}</p>
+              <ul className="dg-fiches">
+                {rangeCards.map((p) => <li key={p.key}><a href={localePath(locale, `/soins/${p.slug}`)}>{p.name[locale]}</a></li>)}
+              </ul>
+              <div className="dg-act">
+                <button type="button" className="o-btn o-primary o-md" data-see-offer="taches"><span className="o-lbl">{t.discoverVoirLOffre}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg></span></button>
+                <button type="button" className="dg-link" data-routine="">{t.discoverVoirLaRoutine}</button>
+              </div>
             </div>
           </article>
           <article className="dg-r dg-car" data-r="yeux" aria-label={t.discoverLeSoinDesCernes} hidden>
@@ -85,7 +78,7 @@ export default function Discover({ t, locale }: { t: HomeText; locale: Locale })
             </div>
             </div>
             <div className="car-offer">
-              <span className="co-txt"><b>{t.discoverOffre21}</b>{t.discoverLeSerumA}<em>{bundleUnit(yeuxPrice)}{t.discoverDh}</em> <s>{yeuxPrice}{t.discoverDh}</s></span>
+              <span className="co-txt"><b>{t.discoverOffre21}</b>{t.discoverLeSerumA}<em>{bundleUnit(yeuxPrice)}{t.discoverDh}</em></span>
               <button type="button" className="o-btn o-primary o-md" data-see-offer="yeux"><span className="o-lbl">{t.discoverVoirLOffre}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg></span></button>
             </div>
           </article>

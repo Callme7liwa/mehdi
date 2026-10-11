@@ -1766,6 +1766,10 @@ html.qv-lock { overflow: hidden; }
 .dg-price { font-size: 15px !important; font-weight: 500; color: var(--bordeaux); }
 .dg-price b { font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 30px; color: var(--red); margin-inline-end: 4px; }
 .dg-price span { display: block; font-size: 13px; color: var(--muted); }
+/* les 4 soins de la routine, en liens vers leur fiche */
+.dg-fiches { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.dg-fiches a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1.5px rgba(74, 13, 22, 0.14); font-size: 14px; font-weight: 600; color: var(--bordeaux); text-decoration: none; }
+@media (hover: hover) { .dg-fiches a:hover { box-shadow: inset 0 0 0 2px var(--bordeaux); } }
 .dg-act { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }
 .dg-link { min-height: 44px; padding: 0 2px; border: 0; background: none; font: 600 15px var(--font-dm-sans), Arial, sans-serif; color: var(--bordeaux); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(74, 13, 22, 0.3); cursor: pointer; }
 @media (max-width: 420px) {

@@ -7,7 +7,11 @@ const AI_AND_SEARCH = [
   "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended",
 ];
 
+/** Déploiement d'aperçu Vercel (branche, pull request) : rien n'est indexable, et aucun sitemap n'est annoncé. */
+const PREVIEW = process.env.VERCEL_ENV === "preview";
+
 export default function robots(): MetadataRoute.Robots {
+  if (PREVIEW) return { rules: [{ userAgent: "*", disallow: "/" }] };
   return {
     rules: [
       { userAgent: "*", allow: "/" },

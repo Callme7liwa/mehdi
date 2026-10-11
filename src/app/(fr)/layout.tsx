@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "../site.css";
+import Analytics from "@/components/Analytics";
 import FontPreload from "@/components/FontPreload";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -17,6 +18,7 @@ export default function FrLayout({ children }: { children: React.ReactNode }) {
         <SiteHeader locale="fr" />
         {children}
         <SiteFooter locale="fr" />
+        <Analytics gaId={site.gaId} locale="fr" />
       </body>
     </html>
   );

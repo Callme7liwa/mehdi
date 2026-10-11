@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "../../site.css";
 import "../../rtl.css";
+import Analytics from "@/components/Analytics";
 import FontPreload from "@/components/FontPreload";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -18,6 +19,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
         <SiteHeader locale="ar" />
         {children}
         <SiteFooter locale="ar" />
+        <Analytics gaId={site.gaId} locale="ar" />
       </body>
     </html>
   );

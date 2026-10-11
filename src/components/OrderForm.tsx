@@ -112,6 +112,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
       page: location.href.split("#")[0],
     };
     writeQ([...readQ(), order]);
+    window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: unitMode ? "unite" : yeux ? "contour_des_yeux" : "gamme", format: order.format, value: total } }));
     flush();
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse })); } catch {} // repris par l'accueil à la prochaine commande
     // récapitulatif affiché à l'écran et repris dans le message WhatsApp, dans la langue de la page
@@ -147,12 +148,12 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           <legend>{t.chooseWhat}</legend>
           <div className="opts">
             <label className="opt">
-              <input type="radio" name={`${id}-what`} checked={what === "unit"} onChange={() => setWhat("unit")} />
+              <input type="radio" name={`${id}-what`} checked={what === "unit"} onChange={() => { setWhat("unit"); window.dispatchEvent(new CustomEvent("otage:choice", { detail: { type: "unite" } })); }} />
               <b>{t.unitAlone}</b>
               <span>{t.unitHint}</span>
             </label>
             <label className="opt">
-              <input type="radio" name={`${id}-what`} checked={what === "gamme"} onChange={() => setWhat("gamme")} />
+              <input type="radio" name={`${id}-what`} checked={what === "gamme"} onChange={() => { setWhat("gamme"); window.dispatchEvent(new CustomEvent("otage:choice", { detail: { type: "gamme" } })); }} />
               <b>{t.fullRange}</b>
               <span>{t.from} <em>{data.formats.petit.price} {t.dh}</em> {t.insteadOf} <s>{data.formats.petit.was} {t.dh}</s></span>
             </label>

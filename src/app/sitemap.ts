@@ -5,6 +5,7 @@ import { routes } from "@/lib/routes";
 
 /** Toutes les pages indexables, avec leurs images. Les pages arabes s'ajoutent quand site.arIndexable passe à true. */
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (process.env.VERCEL_ENV === "preview") return []; // déploiement d'aperçu : aucun sitemap
   const lastModified = site.updated;
   const out: MetadataRoute.Sitemap = [];
   for (const r of routes.filter((x) => x.indexed)) {

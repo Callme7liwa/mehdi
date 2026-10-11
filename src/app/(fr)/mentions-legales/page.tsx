@@ -41,8 +41,10 @@ export default function Page() {
       <p>Conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, tu peux demander l'accès, la rectification ou la suppression de tes données en nous écrivant sur WhatsApp.</p>
       <p>Déclaration à la CNDP : <Todo>numéro de déclaration ou d'autorisation CNDP</Todo></p>
 
-      <h2>Cookies</h2>
+      <h2 id="cookies">Cookies et mesure d'audience</h2>
       <p>Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper.</p>
+      {/* affiché seulement quand la mesure d'audience est configurée (site.gaId) */}
+      {site.gaId && <p>Avec ton accord seulement, nous mesurons la fréquentation du site avec Google Analytics (pages vues, clics sur WhatsApp, commandes envoyées). Sans ton accord, aucun script de mesure n'est chargé et aucun cookie de mesure n'est déposé. Tu peux changer d'avis à tout moment en rouvrant <a href="#cookies">cette section</a> : la question t'est reposée.</p>}
 
       <h2>Produits cosmétiques</h2>
       <p>Les soins OTAGE sont des produits cosmétiques. Ils ne remplacent pas un avis médical. En cas de doute, de grossesse, d'allaitement ou de réaction cutanée, demande l'avis d'un médecin ou d'un pharmacien.</p>

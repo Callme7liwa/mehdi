@@ -56,6 +56,12 @@ export const site = {
   /** Disponibilité du service client. */
   availability: { fr: "24 h/24", ar: "على مدار الساعة" } as L,
 
+  /** IndexNow (Bing et moteurs associés) : la clé est aussi servie par public/<clé>.txt. Voir scripts/indexnow.mjs. */
+  indexNowKey: "65dc62b65bf579e0df3674fa69bed1fc",
+  /** Mesure d'audience GA4 : identifiant « G-XXXXXXX » lu dans NEXT_PUBLIC_GA_ID (variable d'environnement Vercel).
+      TODO : créer la propriété GA4 et renseigner la variable. Sans identifiant, aucun script et aucune bannière. */
+  gaId: process.env.NEXT_PUBLIC_GA_ID || "",
+
   /** Application web Google Apps Script qui reçoit les commandes (Google Sheet + e-mail). */
   ordersEndpoint: "https://script.google.com/macros/s/AKfycbx3oe7dX8dQH3r7bBNo0am2F4Egk9jNVdc5h6-yvWQ-e55La6RJCxxH1vkp8KOIf_tb/exec",
 
@@ -121,7 +127,7 @@ export const site = {
   medicalReview: { validated: false as boolean, date: null as string | null },
 
   /** Date de dernière mise à jour du contenu (affichée et envoyée aux moteurs). */
-  updated: "2026-10-10",
+  updated: "2026-10-11",
 
   /** Les pages en arabe restent hors de l'index Google (noindex, absentes du sitemap et des hreflang)
       tant que la traduction n'a pas été relue par un natif. Après relecture : remplacer la ligne par

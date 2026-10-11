@@ -11,6 +11,7 @@
     "check:bidi": "node --no-warnings scripts/check-bidi.mjs",
     "check:budget": "node scripts/check-budget.mjs",
     "analyze": "next analyze",
+    "indexnow": "node scripts/indexnow.mjs",
     "relecture": "node --no-warnings scripts/relecture.mjs",
     "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "blur": "node scripts/blur.mjs"

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "../../rtl.css";
+import Analytics from "@/components/Analytics";
 import FontPreload from "@/components/FontPreload";
 import { site } from "@/data/site";
 
@@ -11,7 +12,10 @@ export default function HomeArLayout({ children }: { children: React.ReactNode }
   return (
     <html lang="ar" dir="rtl">
       <head><FontPreload locale="ar" /></head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics gaId={site.gaId} locale="ar" />
+      </body>
     </html>
   );
 }

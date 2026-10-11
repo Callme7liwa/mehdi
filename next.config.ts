@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import { frezabioRedirects } from "./src/data/redirects-frezabio";
+
+/** Environnement Vercel : "production" (otage.ma), "preview" (branche, pull request) ou rien (en local). */
+const ENV = process.env.VERCEL_ENV;
+const DOMAIN = "otage.ma";
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -19,10 +24,21 @@ const nextConfig: NextConfig = {
       { source: "/fr", destination: "/", statusCode: 301 },
       { source: "/fr/:path*", destination: "/:path*", statusCode: 301 },
       { source: "/site.webmanifest", destination: "/manifest.webmanifest", statusCode: 301 },
+      // un seul domaine : www.otage.ma → otage.ma
+      { source: "/:path*", has: [{ type: "host", value: `www.${DOMAIN}` }], destination: `https://${DOMAIN}/:path*`, statusCode: 301 },
+      // en production, toute adresse *.vercel.app (otage-maroc.vercel.app compris) renvoie vers otage.ma.
+      // Les déploiements d'aperçu ne sont pas redirigés : ils restent consultables, en noindex (voir headers).
+      ...(ENV === "production"
+        ? [{ source: "/:path*", has: [{ type: "host" as const, value: "(?<sub>.+)\\.vercel\\.app" }], destination: `https://${DOMAIN}/:path*`, statusCode: 301 as const }]
+        : []),
+      // ancien domaine frezabio.com : prêt, activé seulement avec FREZABIO_REDIRECT=1 (voir src/data/redirects-frezabio.ts)
+      ...(process.env.FREZABIO_REDIRECT === "1" ? frezabioRedirects(DOMAIN) : []),
     ];
   },
   async headers() {
     return [
+      // déploiements d'aperçu : jamais dans les moteurs de recherche
+      ...(ENV === "preview" ? [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }] : []),
       {
         // polices : le nom du fichier porte sa version (-v1), on peut donc les garder un an
         source: "/fonts/:path*",

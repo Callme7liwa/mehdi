@@ -868,7 +868,7 @@ export function initHome(cfg) {
       });
     });
     /* choix du produit */
-    const setProduct = (p) => { if (p === prod || sec.classList.contains("done")) return; prod = p; render(); };
+    const setProduct = (p) => { if (p === prod || sec.classList.contains("done")) return; prod = p; render(); window.dispatchEvent(new CustomEvent("otage:choice", { detail: { type: p === "yeux" ? "contour_des_yeux" : "gamme" } })); };
     sec.querySelectorAll(".psw").forEach((b) => b.addEventListener("click", () => setProduct(b.dataset.prod)));
     window.OTAGE = window.OTAGE || {};
     OTAGE.setProduct = setProduct;
@@ -1045,6 +1045,7 @@ export function initHome(cfg) {
         page: location.href.split("#")[0],
       };
       sendOrder(order);
+      window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: prod === "yeux" ? "contour_des_yeux" : "gamme", format: order.format, value: t.total } })); // mesure d'audience, si acceptée
       $("[data-thanks]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       $(".stub-act").hidden = true;
       $(".stub-done").hidden = false;

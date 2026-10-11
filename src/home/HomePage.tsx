@@ -74,7 +74,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Discover t={t} locale={locale} />
       <Campaign t={t} />
       <Faq t={t} locale={locale} />
-      <Gallery t={t} />
+      <Gallery t={t} locale={locale} />
       <Footer t={t} locale={locale} />
       <Hesite t={t} locale={locale} />
       <Fab t={t} />

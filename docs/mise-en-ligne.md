@@ -11,6 +11,10 @@ Tout ce qui suit se fait à la main, dans l'ordre. Rien n'est en ligne tant que 
 - [ ] Numéro d'enregistrement DMP de chaque produit (`dmp` dans `src/data/products.ts`) : il s'affiche sur la fiche dès qu'il est renseigné.
 - [ ] Confirmer que le sérum contour des yeux suit bien la règle « achat à l'unité » (livraison de 35 à 45 DH).
 
+## 0. Commandes et e-mails (avant de fusionner)
+
+Les commandes passent maintenant par le serveur du site. **Sans la variable `ORDERS_ENDPOINT` sur Vercel, aucune commande n'est enregistrée.** Suivre `docs/emails.md` : variables d'environnement, mise à jour du script Google, domaine Resend et enregistrements DNS.
+
 ## 1. Fusion et déploiement
 
 1. Fusionner `nextjs-migration` dans `main` et pousser : Vercel déploie en production.

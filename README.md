@@ -70,3 +70,35 @@ npm run blur                     # régénère les aperçus flous après l'ajout
 - Polices : hébergées dans `public/fonts/`, déclarées dans `src/app/fonts.css`. Chaque layout ne précharge que la police de son texte principal (`src/components/FontPreload.tsx`) ; les autres sont téléchargées quand la page en a besoin. Si un fichier change, changer son suffixe `-v1` (cache d'un an).
 - Images : servies en AVIF ou WebP par `next/image`. Une image optimisée est gardée un an en cache : pour remplacer une photo, lui donner un nouveau nom de fichier.
 - Les budgets sont dans `scripts/check-budget.mjs`. Le socle de Next.js et React pèse à lui seul environ 130 Ko de JavaScript compressé.
+
+## Commandes et e-mails
+
+Le formulaire envoie la commande à la route serveur `/api/order` (`src/app/api/order/route.ts`), qui valide les champs, recalcule les prix à partir de `src/data/products.ts`, attribue le numéro (`OTG-AAMM-1234`), enregistre dans le Google Sheet, puis envoie les e-mails par Resend : la confirmation à la cliente (si elle a donné son adresse, en français ou en arabe) et une notification à la boutique. L'e-mail n'est jamais bloquant.
+
+```bash
+npm run email:preview    # aperçu local des e-mails (site lancé avec npm run dev), sans rien envoyer
+npm run build && npm run check:order   # teste la route avec un faux tableur et un faux Resend
+```
+
+### Variables d'environnement à créer sur Vercel (Settings → Environment Variables)
+
+| Variable | Valeur |
+|---|---|
+| `ORDERS_ENDPOINT` | Adresse du script Google Apps Script (`https://script.google.com/macros/s/…/exec`). **Obligatoire** : sans elle, aucune commande n'est enregistrée. |
+| `RESEND_API_KEY` | Clé API Resend (« Sending access », domaine `otage.ma`). Sans elle, les commandes passent mais aucun e-mail ne part. |
+| `SHOP_EMAIL` | Adresse qui reçoit la notification interne de chaque commande. |
+| `EMAIL_FROM` | Facultatif. Par défaut : `OTAGE Cosmétiques <commandes@otage.ma>`. |
+| `NEXT_PUBLIC_GA_ID` | Facultatif. Identifiant Google Analytics 4. |
+
+En local : copier `.env.example` en `.env.local`.
+
+### Enregistrements DNS à ajouter dans Cloudflare (Proxy status « DNS only »)
+
+| Type | Nom | Contenu | Priorité |
+|---|---|---|---|
+| MX | `send` | `feedback-smtp.eu-west-1.amazonses.com` (selon la région choisie dans Resend) | 10 |
+| TXT | `send` | `v=spf1 include:amazonses.com ~all` | |
+| TXT | `resend._domainkey` | `p=…` (clé DKIM affichée par Resend, à copier telle quelle) | |
+| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:Dr.mouldwa@gmail.com` | |
+
+Les valeurs exactes des trois premiers sont celles affichées par Resend après l'ajout du domaine. Le détail (compte Resend, mise à jour du script Google, tests dans les messageries, mail-tester) est dans [docs/emails.md](docs/emails.md).

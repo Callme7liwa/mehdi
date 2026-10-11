@@ -137,6 +137,8 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Agadir | أكادير |
 | Adresse facultatif, on peut la noter au téléphone | العنوان اختياري، يمكن تسجيله عبر الهاتف |
 | Quartier, rue, numéro | الحي، الشارع، الرقم |
+| E-mailfacultatif | البريد الإلكترونياختياري |
+| Recevez votre confirmation par email. Ton adresse sert uniquement à t'envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
 | Salé | سلا |
 | Meknès | مكناس |
 | Oujda | وجدة |
@@ -427,6 +429,7 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Petit format, 30 ml112 DH | الحجم الصغير, 30 مل112 درهم |
 | Grand format, 50 ml190 DH | الحجم الكبير, 50 مل190 درهم |
 | Quantité : Écran solaire SPF 50 | الكمية : واقي الشمس SPF 50 |
+| E-mail facultatif | البريد الإلكتروني اختياري |
 | Sous-total | المجموع الفرعي |
 | 35 à 45 DH selon la ville | من 35 إلى 45 درهمًا حسب المدينة |
 | de 126 à 136 DH | من 126 إلى 136 درهم |
@@ -948,7 +951,11 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Flacons plus grands. Touche pour revenir au Petit format ({total} DH). | عبوات أكبر. اضغطي للعودة إلى الحجم الصغير ({total} درهم). |
 | Flacons plus grands : {per} DH la gamme, {total} DH les 3. | عبوات أكبر: {per} درهم للمجموعة، {total} درهم للثلاث. |
 | Flacons plus grands : {price} DH au lieu de {was} DH. | عبوات أكبر: {price} درهم بدل {was} درهم. |
-| Vérifie ton numéro : 10 chiffres, qui commencent par 05, 06 ou 07. | تحققي من رقمك: 10 أرقام تبدأ بـ 05 أو 06 أو 07. |
+| Vérifie ton numéro : 10 chiffres, qui commencent par 06 ou 07. | تحققي من رقمك: 10 أرقام تبدأ بـ 06 أو 07. |
+| Vérifie ton adresse e-mail (ou laisse le champ vide). | تحققي من بريدك الإلكتروني (أو اتركي الخانة فارغة). |
+| Tu as déjà passé plusieurs commandes. Réessaie plus tard, ou écris-nous sur WhatsApp. | لقد قدمتِ عدة طلبات. حاولي لاحقًا، أو راسلينا عبر واتساب. |
+| La commande n'a pas pu être enregistrée. Réessaie, ou écris-nous sur WhatsApp. | تعذر تسجيل الطلب. حاولي من جديد، أو راسلينا عبر واتساب. |
+| Connexion coupée : ta commande partira dès qu'elle revient. | الاتصال مقطوع: سيُرسل طلبك حالما يعود. |
 | Remplis les champs en rouge pour qu'on puisse te livrer. | املئي الخانات باللون الأحمر حتى نتمكن من التوصيل. |
 | Merci, {name} ! | شكرًا، {name}! |
 | Coche la case pour accepter les CGV et la politique de retour. | ضعي علامة في الخانة للموافقة على الشروط العامة للبيع وسياسة الإرجاع. |
@@ -1002,4 +1009,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-823 textes à relire.
+830 textes à relire.

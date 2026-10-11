@@ -1,10 +1,14 @@
 /* POST /api/order : la seule porte d'entrée des commandes.
    Le navigateur envoie ce que la cliente a choisi ; le serveur valide, recalcule les prix à partir de
-   src/data/products.ts, attribue le numéro de commande, enregistre dans le tableur, puis renvoie le numéro.
+   src/data/products.ts, attribue le numéro de commande, enregistre dans le tableur, renvoie le numéro,
+   puis envoie l'e-mail de confirmation (si la cliente a donné son adresse).
    L'adresse du script Google (ORDERS_ENDPOINT) reste côté serveur. */
 import { orderNumber, phoneE164, priceOrder, validateOrder } from "@/lib/order/compute";
 import { count, limited, remember, replay } from "@/lib/order/guard";
-import { recordOrder } from "@/lib/order/sheet";
+import { after } from "next/server";
+import { renderConfirmation } from "@/emails/render";
+import { sendEmail } from "@/lib/email/send";
+import { noteEmail, recordOrder } from "@/lib/order/sheet";
 
 export const dynamic = "force-dynamic";
 
@@ -46,6 +50,16 @@ export async function POST(req: Request) {
     return json({ ok: false, error: "enregistrement" }, 502);
   }
   count("phone", phone); count("ip", ip);
+
+  // E-mail de confirmation : envoyé après la réponse, jamais bloquant. La commande est déjà enregistrée ;
+  // ce qu'il advient de l'e-mail est noté dans le tableur (« envoyé », « échec : … »).
+  const mail = { locale: order.locale, numero, date: new Date(), nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse, priced };
+  after(async () => {
+    if (!order.email) return;
+    const sent = await renderConfirmation(mail).then((m) => sendEmail({ to: order.email!, ...m })).catch((e) => ({ ok: false as const, error: String(e) }));
+    if (!sent.ok) console.error("E-mail de confirmation non envoyé :", numero, sent.error);
+    await noteEmail(numero, sent.ok ? "envoyé" : `échec : ${sent.error}`.slice(0, 200));
+  });
 
   const response = { ok: true, numero, subtotal: priced.subtotal, fee: priced.fee, total: priced.total, saving: priced.saving };
   if (id) remember(id, response);

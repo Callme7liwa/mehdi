@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FaqList from "@/components/FaqList";
 import { faq } from "@/data/faq";
 import { abs, site, waLink } from "@/data/site";
@@ -13,7 +14,7 @@ const info = {
 };
 export const metadata = textMetadata(info);
 
-const questions = ["Je paie quand ?", "La livraison est payante ?", "Je suis livrée en combien de temps ?", "Et après ma commande ?", "Et si j'ai un problème avec ma commande ?"];
+const questions = ["Je paie quand ?", "La livraison est payante ?", "Je suis livrée en combien de temps ?", "Et après ma commande ?", "Et si j'ai un problème avec ma commande ?", "Je peux retourner ma commande ?"];
 const items = faq.fr.filter((f) => questions.includes(f.q));
 
 export default function Page() {
@@ -41,8 +42,17 @@ export default function Page() {
         <li>Rien à payer en ligne, pas besoin de carte bancaire.</li>
       </ul>
 
+      <h2 id="retours">Retours et droit de rétractation</h2>
+      <p><b>{site.returns.right.fr}</b></p>
+      <ul>
+        <li>Tu as {site.returns.days} jours après la réception de ton colis pour nous dire que tu veux le retourner, même si tu as simplement changé d'avis.</li>
+        <li>Les produits doivent être non ouverts et non utilisés.</li>
+        <li>Les frais de retour sont pris en charge par OTAGE.</li>
+        <li>Tu choisis : remboursement ou échange.</li>
+      </ul>
+      <p>Pour lancer un retour, écris-nous sur <a href={waLink("Bonjour OTAGE, je souhaite retourner ma commande.")} target="_blank" rel="noopener">WhatsApp au <span dir="ltr">{site.whatsapp.display}</span></a> avec ton nom et ton numéro de commande. Le détail est dans les <Link href="/cgv">conditions générales de vente</Link>.</p>
+
       <h2>Réclamations</h2>
-      {/* TODO : délai de retour et frais à définir par OTAGE (site.returns). */}
       <p>{site.claims.fr}</p>
       <p>Écris-nous sur <a href={waLink("Bonjour OTAGE, j'ai une réclamation concernant ma commande.")} target="_blank" rel="noopener">WhatsApp au <span dir="ltr">{site.whatsapp.display}</span></a>, on regarde ça avec toi.</p>
 

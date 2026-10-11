@@ -12,7 +12,7 @@ const info = {
   title: "الشروط العامة للبيع | OTAGE",
   description: "الشروط العامة للبيع لدى OTAGE: المنتجات، الأسعار بالدرهم، الطلب، التوصيل المجاني في المغرب، والدفع عند الاستلام.",
   h1: "الشروط العامة للبيع",
-  draft: !L.raisonSociale || !site.returns,
+  draft: !L.raisonSociale,
 };
 export const metadata = textMetadata(info, "ar");
 const P = gamme.formats.petit, G = gamme.formats.grand;
@@ -45,10 +45,14 @@ export default function Page() {
       <h2>6. الدفع</h2>
       <p>يتم الدفع عند الاستلام، نقدًا، عند تسليم الطرد. لا يُطلب أي دفع عبر الإنترنت.</p>
 
-      <h2>7. الإرجاع، الاستبدال والشكايات</h2>
+      <h2 id="retours">7. حق التراجع، الإرجاع والشكايات</h2>
+      <p><b>{site.returns.right.ar}</b></p>
+      <p>للزبونة أجل {site.returns.days} أيام من تاريخ استلام طلبها لممارسة حق التراجع، دون تبرير ودون أي غرامة. يكفي إخبار OTAGE داخل هذا الأجل، عبر واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span> أو بالبريد الإلكتروني <span dir="ltr">{site.email}</span>، مع ذكر الاسم ورقم الطلب.</p>
+      {/* À faire valider par un juriste : exception des produits cosmétiques ouverts (voir la version française). */}
+      <p>يجب أن تكون المنتجات المرجعة غير مفتوحة وغير مستعملة، في غلافها الأصلي. مصاريف الإرجاع تتحملها OTAGE.</p>
+      {/* À faire valider par un juriste : délai de remboursement (voir la version française). */}
+      <p>حسب اختيار الزبونة، ترد OTAGE المبالغ المدفوعة أو تستبدل المنتج. <Todo locale="ar">أجل استرجاع المبلغ (يُراجع مع مستشار قانوني)</Todo></p>
       <p>{site.claims.ar}</p>
-      <p>{site.returns ? site.returns.ar : <Todo locale="ar">مدة الإرجاع والتكاليف</Todo>}</p>
-      <p>لأي شكاية، راسلينا عبر واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span>.</p>
 
       <h2>8. احتياطات الاستعمال</h2>
       <p>منتجات OTAGE مستحضرات تجميل، للاستعمال الخارجي. جربي على منطقة صغيرة قبل أول استعمال. في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. إن كنت حاملًا أو مرضعة، اسألي أولًا طبيبك أو الصيدلي.</p>

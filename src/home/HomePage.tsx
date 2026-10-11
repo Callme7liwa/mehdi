@@ -38,6 +38,7 @@ function config(locale: Locale): HomeConfig {
     rtl: ar,
     whatsapp: site.whatsapp.wa,
     ordersEndpoint: site.ordersEndpoint,
+    retractation: site.returns.short[locale],
     formats: { petit: fmt("petit"), grand: fmt("grand") },
     yeuxPrice: productByKey("yeux").unitPrice.petit as number,
     quick: rangeProducts.map((p) => ({
@@ -70,7 +71,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <script dangerouslySetInnerHTML={{ __html: phaseScript }} />
       <QuickView t={t} />
       <Diagnostic t={t} />
-      <Offers t={t} />
+      <Offers t={t} locale={locale} />
       <Discover t={t} locale={locale} />
       <Campaign t={t} />
       <Faq t={t} locale={locale} />

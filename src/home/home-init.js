@@ -1024,6 +1024,8 @@ export function initHome(cfg) {
         bad[0].focus();
         return;
       }
+      // case obligatoire : CGV et politique de retour
+      if (form.elements.cgv && !form.elements.cgv.checked) { err.textContent = TXT.errTerms; form.elements.cgv.focus(); return; }
       err.textContent = "";
       const fd = new FormData(form);
       const t = totals();
@@ -1047,6 +1049,15 @@ export function initHome(cfg) {
       $(".stub-act").hidden = true;
       $(".stub-done").hidden = false;
       $("[data-thanks2]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
+      // confirmation : récapitulatif, livraison, total, et le même texte prêt à envoyer sur WhatsApp
+      {
+        const liv = prod === "yeux" ? `${TXT.deliveryFee} (${TXT.deliveryFeeNote})` : TXT.deliveryFree;
+        const lignes = [fill(TXT.orderNo, { n: order.ticket }), t.recap, `${TXT.delivery}${TXT.comma === ", " ? " : " : ": "}${liv}`, `${TXT.totalWord}${TXT.comma === ", " ? " : " : ": "}${t.total} ${TXT.dhWord}${prod === "yeux" ? " + " + TXT.delivery.toLowerCase() : ""}`];
+        $("[data-done-recap]").innerHTML = lignes.map((l) => `<span>${l}</span>`).join("");
+        const msg = [fill(TXT.waHello, { n: order.ticket }), ...lignes.slice(1).map((l) => "- " + l), cfg.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
+        const wa = $("[data-done-wa]");
+        if (cfg.whatsapp) wa.href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`; else wa.hidden = true;
+      }
       form.hidden = true;
       $(".cur-done").hidden = false;
       sec.classList.add("done", "locked");

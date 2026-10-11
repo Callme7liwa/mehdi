@@ -53,6 +53,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   sameAs: [site.instagram.url],
   areaServed: maroc(locale),
   founder: { "@id": abs("/#founder") },
+  hasMerchantReturnPolicy: returnPolicy(),
   email: site.email,
   contactPoint: {
     "@type": "ContactPoint",
@@ -124,11 +125,20 @@ const shipping = (unit: boolean) => ({
   },
 });
 
-/** Politique de retour : pas de hasMerchantReturnPolicy tant que le délai et les frais ne sont pas définis (TODO, site.returns). */
-const returnPolicy = () =>
-  site.returns
-    ? { hasMerchantReturnPolicy: { "@type": "MerchantReturnPolicy", applicableCountry: "MA", returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays: site.returns.days, returnMethod: "https://schema.org/ReturnByMail" } }
-    : {};
+/** Politique de retour, déclarée une fois, au niveau de l'Organization : 7 jours, retour gratuit par colis, produits neufs. */
+const returnPolicy = () => ({
+  "@type": "MerchantReturnPolicy",
+  "@id": abs("/#politique-de-retour"),
+  applicableCountry: "MA",
+  returnPolicyCountry: "MA",
+  returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+  merchantReturnDays: site.returns.days,
+  returnMethod: "https://schema.org/ReturnByMail",
+  returnFees: "https://schema.org/FreeReturn",
+  refundType: ["https://schema.org/FullRefund", "https://schema.org/ExchangeRefund"],
+  itemCondition: "https://schema.org/NewCondition",
+  merchantReturnLink: abs("/livraison-paiement#retours"),
+});
 
 /** `unit` : achat à l'unité (livraison payante) ; sinon gamme complète (livraison offerte). */
 export const offerLd = (price: number, url: string, unit: boolean) => ({
@@ -140,7 +150,7 @@ export const offerLd = (price: number, url: string, unit: boolean) => ({
   itemCondition: "https://schema.org/NewCondition",
   seller: ORG,
   shippingDetails: shipping(unit),
-  ...returnPolicy(),
+  hasMerchantReturnPolicy: { "@id": abs("/#politique-de-retour") },
 });
 
 const productBase = (name: string, description: string, images: Img[], category: string, locale: Locale = "fr") => ({

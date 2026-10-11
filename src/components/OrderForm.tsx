@@ -15,13 +15,18 @@ export type OrderData = {
   unitDefault?: string;
   /** Frais de livraison d'un achat à l'unité, en DH (la gamme complète est livrée gratuitement). */
   fee: { min: number; max: number; label: string };
+  /** Liens des CGV et de la politique de retour, numéro WhatsApp, rappel du droit de rétractation. */
+  cgvUrl: string;
+  returnsUrl: string;
+  whatsapp: string;
+  retractation: string;
   /** Villes proposées, dans la langue de la page. */
   cities: string[];
 };
 export type OrderText = Record<
   | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseProducts" | "unitHint" | "errEmpty" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
-  | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
+  | "comma" | "colon" | "bang" | "agreeA" | "agreeCgv" | "agreeAnd" | "agreeReturns" | "errTerms" | "recapTitle" | "orderNo" | "waConfirm" | "waHello" | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
 >;
 
@@ -48,7 +53,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const setItem = (key: string, change: Partial<{ fmt: "petit" | "grand"; qty: number }>) => setCart((c) => ({ ...c, [key]: { ...c[key], ...change } }));
   const [err, setErr] = useState("");
   const [bad, setBad] = useState<string[]>([]);
-  const [doneName, setDoneName] = useState<string | null>(null);
+  const [done, setDone] = useState<{ name: string; ticket: string; lines: string[]; toPay: string; delivery: string } | null>(null);
 
   const price = yeux ? data.yeuxPrice : data.formats[fmt].price;
   const per = Math.round((price * 2) / 3);
@@ -87,6 +92,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
       return;
     }
     if (unitMode && !picked.length) { setErr(t.errEmpty); return; }
+    if (!fd.get("cgv")) { setErr(t.errTerms); (e.currentTarget.elements.namedItem("cgv") as HTMLInputElement).focus(); return; }
     setErr("");
     if (v("site")) return; // robot détecté (champ piège rempli)
     const label = yeux ? "Sérum contour des yeux" : data.formats[fmt].labelFr;
@@ -108,14 +114,27 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
     writeQ([...readQ(), order]);
     flush();
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse })); } catch {} // repris par l'accueil à la prochaine commande
-    setDoneName(order.nom.split(/\s+/)[0]);
+    // récapitulatif affiché à l'écran et repris dans le message WhatsApp, dans la langue de la page
+    const lines = unitMode
+      ? picked.map((x) => `${x.qty} × ${x.u.name}${t.comma}${x.f.label} (${x.f.size})${t.colon}${x.f.price * x.qty} ${t.dh}`)
+      : [`${qty === 3 ? `3 ${words} (${t.bundle})` : `1 ${word}`}${yeux ? "" : `${t.comma}${data.formats[fmt].label}`}${t.colon}${total} ${t.dh}`];
+    setDone({ name: order.nom.split(/\s+/)[0], ticket: order.ticket, lines, toPay, delivery: fee ? fee.label : t.deliveryFree });
   };
 
-  if (doneName !== null) {
+  if (done) {
+    const message = [`${t.waHello} ${done.ticket}${t.colon.trimEnd()}`, ...done.lines.map((l) => `- ${l}`), `${t.delivery}${t.colon}${done.delivery}`, `${t.total}${t.colon}${done.toPay}`, data.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
     return (
       <div className="order order-done" role="status">
-        <h3>{t.thanks}, {doneName} !</h3>
+        <h3>{t.thanks}{t.comma}{done.name}{t.bang}</h3>
         <p>{t.done}</p>
+        <div className="order-recap">
+          <p><b>{t.recapTitle}</b> <span>{t.orderNo} <bdi>{done.ticket}</bdi></span></p>
+          <ul>{done.lines.map((l) => <li key={l}>{l}</li>)}</ul>
+          <p><span>{t.delivery}</span><b>{done.delivery}</b></p>
+          <p className="order-total"><span>{t.total}</span><b>{done.toPay}</b></p>
+        </div>
+        <p className="order-note">{data.retractation}</p>
+        <a className="btn btn-wa" href={`https://wa.me/${data.whatsapp}?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener">{t.waConfirm}</a>
       </div>
     );
   }
@@ -215,6 +234,10 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
         <p><span>{t.delivery}</span><b>{fee ? fee.label : t.deliveryFree}</b></p>
         <p className="order-total"><span>{t.total}</span><b>{toPay}</b></p>
       </div>
+      <label className="agree">
+        <input type="checkbox" name="cgv" required />
+        <span>{t.agreeA} <a href={data.cgvUrl} target="_blank" rel="noopener">{t.agreeCgv}</a> {t.agreeAnd} <a href={data.returnsUrl} target="_blank" rel="noopener">{t.agreeReturns}</a>.</span>
+      </label>
       <p className="order-err" role="alert">{err}</p>
       <button type="submit" className="btn btn-primary">{t.submit}<BagIcon /></button>
       <p className="order-note">{t.youPay} <b>{toPay}</b> {t.payNote}{fee ? ` ${t.feeNote}` : ""}</p>

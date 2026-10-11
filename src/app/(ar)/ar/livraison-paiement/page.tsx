@@ -1,3 +1,4 @@
+import Link from "next/link";
 import FaqList from "@/components/FaqList";
 import { faq } from "@/data/faq";
 import { abs, site, waLink } from "@/data/site";
@@ -15,7 +16,7 @@ const info = {
 };
 export const metadata = textMetadata(info, "ar");
 
-const questions = ["متى أدفع؟", "هل التوصيل مدفوع؟", "كم يستغرق التوصيل؟", "وماذا بعد طلبي؟", "وماذا لو كانت هناك مشكلة في طلبي؟"];
+const questions = ["متى أدفع؟", "هل التوصيل مدفوع؟", "كم يستغرق التوصيل؟", "وماذا بعد طلبي؟", "وماذا لو كانت هناك مشكلة في طلبي؟", "هل يمكنني إرجاع طلبي؟"];
 const items = faq.ar.filter((f) => questions.includes(f.q));
 
 export default function Page() {
@@ -42,6 +43,16 @@ export default function Page() {
         <li>عند الاستلام، نقدًا.</li>
         <li>لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية.</li>
       </ul>
+
+      <h2 id="retours">الإرجاع وحق التراجع</h2>
+      <p><b>{site.returns.right.ar}</b></p>
+      <ul>
+        <li>لديك {site.returns.days} أيام بعد استلام طردك لتخبرينا أنك تريدين إرجاعه، حتى لو غيّرتِ رأيك فقط.</li>
+        <li>يجب أن تكون المنتجات غير مفتوحة وغير مستعملة.</li>
+        <li>مصاريف الإرجاع تتحملها OTAGE.</li>
+        <li>لك الاختيار: استرجاع المبلغ أو الاستبدال.</li>
+      </ul>
+      <p>لبدء الإرجاع، راسلينا على <a href={waLink("مرحبًا OTAGE، أريد إرجاع طلبي.")} target="_blank" rel="noopener">واتساب على الرقم <span dir="ltr">{site.whatsapp.display}</span></a> مع اسمك ورقم طلبك. التفاصيل في <Link href="/ar/cgv">الشروط العامة للبيع</Link>.</p>
 
       <h2>الشكايات</h2>
       <p>{site.claims.ar}</p>

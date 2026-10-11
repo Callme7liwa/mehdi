@@ -9,6 +9,8 @@ export interface HomeConfig {
   /** Numéro WhatsApp au format wa.me (vide = boutons masqués). */
   whatsapp: string;
   ordersEndpoint: string;
+  /** Rappel du droit de rétractation, repris dans le message WhatsApp de confirmation. */
+  retractation: string;
   /** Formats de la gamme anti-taches : prix et contenances. labelFr sert au tableur des commandes. */
   formats: Record<"petit" | "grand", { label: string; labelFr: string; price: number; was: number; ml: Record<"gel" | "serum" | "creme" | "ecran", number | null> }>;
   yeuxPrice: number;

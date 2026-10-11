@@ -27,7 +27,8 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
     { q: "Le sérum contour des yeux, c'est pour qui ?", a: ["Pour les cernes et le contour des yeux fatigué. Il contient de l'aloe vera, de l'acide hyaluronique et de la caféine, en 15 ml, avec un applicateur bille.", `Il coûte ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`] },
     { q: "Et après ma commande ?", a: ["On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part.", "Tu paies à la réception, c'est tout."] },
-    { q: "Et si j'ai un problème avec ma commande ?", a: ["On accepte les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite.", "Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp."] },
+    { q: "Et si j'ai un problème avec ma commande ?", a: [site.claims.fr, "Et si le produit ne te convient pas, tu as 7 jours pour le retourner (voir la question sur les retours)."] },
+    { q: "Je peux retourner ma commande ?", a: [`Oui. Tu as <b>${site.returns.days} jours après la réception</b> pour changer d'avis : c'est ton droit de rétractation (article 36 de la loi 31-08).`, "Les produits doivent être non ouverts et non utilisés. Les frais de retour sont pris en charge par OTAGE, et tu choisis : remboursement ou échange. Écris-nous sur WhatsApp pour lancer le retour."] },
     { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban."] },
   ],
   /* À relire par un natif. Même ordre et mêmes informations que le français. */
@@ -46,7 +47,8 @@ export const faq: Record<Locale, Faq[]> = {
     { q: "أنا حامل أو مرضعة، هل يمكنني استعماله؟", a: ["اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا."] },
     { q: "سيروم محيط العين، لمن هو؟", a: ["للهالات السوداء ومحيط العين المتعب. يحتوي على الألوفيرا، حمض الهيالورونيك والكافيين، في 15 مل، مع بكرة دوارة.", `ثمنه ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1.`] },
     { q: "وماذا بعد طلبي؟", a: ["نتصل بك لتأكيد طلبك وعنوانك، ثم يُرسل طردك.", "تدفعين عند الاستلام، وهذا كل شيء."] },
-    { q: "وماذا لو كانت هناك مشكلة في طلبي؟", a: ["نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية.", "طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب."] },
+    { q: "وماذا لو كانت هناك مشكلة في طلبي؟", a: [site.claims.ar, "وإذا لم يناسبك المنتج، لديك 7 أيام لإرجاعه (انظري سؤال الإرجاع)."] },
+    { q: "هل يمكنني إرجاع طلبي؟", a: [`نعم. لديك <b>${site.returns.days} أيام بعد الاستلام</b> لتغيير رأيك: هذا حقك في التراجع (المادة 36 من القانون رقم 31-08).`, "يجب أن تكون المنتجات غير مفتوحة وغير مستعملة. مصاريف الإرجاع تتحملها OTAGE، ولك الاختيار: استرجاع المبلغ أو الاستبدال. راسلينا عبر واتساب لبدء الإرجاع."] },
     { q: "أين تُصنع منتجاتكم؟", a: ["في المغرب، بمكونات مثل التين الشوكي واللبان."] },
   ]),
 };
@@ -69,8 +71,9 @@ export const faqMeta: { id: string; cat: FaqCat; next: string[] }[] = [
   { id: "sensitive", cat: "peau", next: ["pregnancy", "ingredients"] },
   { id: "pregnancy", cat: "peau", next: ["sensitive", "ingredients"] },
   { id: "eyes", cat: "produits", next: ["routine", "price"] },
-  { id: "after", cat: "commande", next: ["delay", "claims", "pay"] },
-  { id: "claims", cat: "commande", next: ["after", "delay"] },
+  { id: "after", cat: "commande", next: ["delay", "returns", "claims"] },
+  { id: "claims", cat: "commande", next: ["returns", "after", "delay"] },
+  { id: "returns", cat: "commande", next: ["claims", "shipcost", "delay"] },
   { id: "origin", cat: "produits", next: ["ingredients", "contents"] },
 ];
 /** Les 4 questions proposées à l'ouverture du chat : prix, livraison, paiement, résultats. */

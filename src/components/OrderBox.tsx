@@ -2,6 +2,7 @@ import OrderForm, { type OrderData, type OrderText } from "./OrderForm";
 import { gamme, productByKey, rangeProducts, unitFormats, yeuxPrice, type FormatKey, type ProductKey } from "@/data/products";
 import { site, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
+import { localePath } from "@/lib/seo";
 
 const CITIES: Record<Locale, string[]> = {
   fr: ["Casablanca", "Rabat", "Salé", "Fès", "Marrakech", "Tanger", "Agadir", "Meknès", "Oujda", "Kénitra", "Tétouan", "El Jadida"],
@@ -29,8 +30,9 @@ export default function OrderBox({ locale, product, unitKey }: { locale: Locale;
         formats: Object.fromEntries(unitFormats(u).map((f) => [f, { label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, size: `${u.ml[f]} ${mlWord}`, sizeFr: `${u.ml[f]} ml`, price: u.unitPrice[f] as number }])),
       }))
     : undefined;
-  const data: OrderData = { endpoint: site.ordersEndpoint, product, formats: { petit: fmt("petit"), grand: fmt("grand") }, yeuxPrice, cities: CITIES[locale], units, unitDefault: unitKey, fee: { ...site.delivery.unitFee, label: site.delivery.feeLabel[locale] } };
-  const keys: (keyof OrderText)[] = ["chooseWhat", "unitAlone", "fullRange", "from", "quantity", "less", "more", "chooseProducts", "unitHint", "errEmpty", "delivery", "deliveryFree", "subtotal", "totalFrom", "totalTo", "feeNote", "chooseFormat", "chooseOffer", "chooseOfferOnly", "yourInfo", "perRange", "perSerum", "rangeWord", "rangesWord", "serumWord", "serumsWord", "free", "freeM", "save", "total", "name", "namePh", "phone", "phonePh", "city", "cityPh", "address", "addressOpt", "addressPh", "submit", "payNote", "youPay", "errPhone", "errFields", "thanks", "done", "insteadOf", "bundle", "dh"];
+  const data: OrderData = { endpoint: site.ordersEndpoint, product, formats: { petit: fmt("petit"), grand: fmt("grand") }, yeuxPrice, cities: CITIES[locale], units, unitDefault: unitKey, fee: { ...site.delivery.unitFee, label: site.delivery.feeLabel[locale] },
+    cgvUrl: localePath(locale, "/cgv"), returnsUrl: localePath(locale, "/livraison-paiement") + "#retours", whatsapp: site.whatsapp.wa, retractation: site.returns.short[locale] };
+  const keys: (keyof OrderText)[] = ["chooseWhat", "unitAlone", "fullRange", "from", "quantity", "less", "more", "chooseProducts", "unitHint", "errEmpty", "comma", "colon", "bang", "agreeA", "agreeCgv", "agreeAnd", "agreeReturns", "errTerms", "recapTitle", "orderNo", "waConfirm", "waHello", "delivery", "deliveryFree", "subtotal", "totalFrom", "totalTo", "feeNote", "chooseFormat", "chooseOffer", "chooseOfferOnly", "yourInfo", "perRange", "perSerum", "rangeWord", "rangesWord", "serumWord", "serumsWord", "free", "freeM", "save", "total", "name", "namePh", "phone", "phonePh", "city", "cityPh", "address", "addressOpt", "addressPh", "submit", "payNote", "youPay", "errPhone", "errFields", "thanks", "done", "insteadOf", "bundle", "dh"];
   const text = Object.fromEntries(keys.map((k) => [k, t[k]])) as OrderText;
   return <OrderForm data={data} t={text} />;
 }

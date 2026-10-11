@@ -194,6 +194,14 @@ main { display: block; }
 .order-total b { font-family: var(--serif); font-size: 30px; color: var(--red); }
 .order-err { min-height: 0; font-size: 14px; font-weight: 600; color: var(--red); }
 .order-note { font-size: 14px; color: var(--muted); }
+.agree { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--ink); cursor: pointer; }
+.agree input { flex: none; width: 22px; height: 22px; margin: 0; accent-color: var(--bordeaux); }
+.agree a { color: var(--bordeaux); font-weight: 600; }
+.order-recap { display: grid; gap: 6px; width: 100%; padding: 14px 16px; border-radius: 18px; background: var(--cream); }
+.order-recap p { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 15px; }
+.order-recap ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: 15px; }
+.order-recap .order-total { padding-top: 8px; border-top: 1px dashed var(--line); }
+.order-recap .order-total b { font-size: 22px; }
 .order-done { display: grid; gap: 10px; justify-items: start; }
 
 /* ---- Bandeau d'appel ---- */

@@ -10,7 +10,7 @@ const info = {
   title: "Conditions générales de vente | OTAGE",
   description: "Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison au Maroc, paiement à la livraison, retour sous 7 jours.",
   h1: "Conditions générales de vente",
-  draft: !L.raisonSociale || !site.returns,
+  draft: !L.raisonSociale,
 };
 export const metadata = textMetadata(info);
 const P = gamme.formats.petit, G = gamme.formats.grand;
@@ -43,10 +43,19 @@ export default function Page() {
       <h2>6. Paiement</h2>
       <p>Le paiement se fait à la livraison, en espèces, à la remise du colis. Aucun paiement n'est demandé en ligne.</p>
 
-      <h2>7. Retours, échanges et réclamations</h2>
+      <h2 id="retours">7. Droit de rétractation, retours et réclamations</h2>
+      <p><b>{site.returns.right.fr}</b></p>
+      <p>La cliente dispose d'un délai de {site.returns.days} jours à compter de la réception de sa commande pour exercer son droit de rétractation, sans avoir à se justifier ni à payer de pénalité. Il suffit de prévenir OTAGE dans ce délai, sur WhatsApp au <span dir="ltr">{site.whatsapp.display}</span> ou par e-mail à <span dir="ltr">{site.email}</span>, en indiquant son nom et son numéro de commande.</p>
+      {/* À faire valider par un juriste : exception des produits cosmétiques ouverts.
+          Le site écrit « produits non ouverts et non utilisés » ; vérifier que cette condition est compatible avec les
+          exceptions au droit de rétractation prévues par la loi 31-08 (produits descellés ne pouvant être repris pour des
+          raisons d'hygiène) et la formuler comme la loi l'exige. */}
+      <p>Les produits retournés doivent être non ouverts et non utilisés, dans leur emballage d'origine. Les frais de retour sont pris en charge par OTAGE.</p>
+      {/* À faire valider par un juriste : délai de remboursement.
+          La loi 31-08 encadre le délai dans lequel le vendeur doit rembourser après une rétractation ; le délai exact
+          et son point de départ sont à confirmer avant d'être écrits ici. */}
+      <p>Au choix de la cliente, OTAGE rembourse les sommes versées ou échange le produit. <Todo>délai de remboursement (à valider par un juriste)</Todo></p>
       <p>{site.claims.fr}</p>
-      <p>{site.returns ? site.returns.fr : <Todo>délai de retour et frais</Todo>}</p>
-      <p>Pour toute réclamation, écris-nous sur WhatsApp au <span dir="ltr">{site.whatsapp.display}</span>.</p>
 
       <h2>8. Précautions d'emploi</h2>
       <p>Les soins OTAGE sont des produits cosmétiques, à usage externe. Fais un essai sur une petite zone avant la première utilisation. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. Enceinte ou allaitante, demande d'abord l'avis de ton médecin ou de ton pharmacien.</p>

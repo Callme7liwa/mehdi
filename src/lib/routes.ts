@@ -20,7 +20,7 @@ export const routes: Route[] = [
     priority: 0.4,
     hasAr: true,
     // mentions légales et CGV : hors index tant que les informations juridiques manquent (voir site.legal, site.returns)
-    indexed: p.path === "/mentions-legales" ? legalReady : p.path === "/cgv" ? legalReady && Boolean(site.returns) : true,
+    indexed: p.path === "/mentions-legales" ? legalReady : p.path === "/cgv" ? legalReady : true,
     images: [],
   })),
 ];

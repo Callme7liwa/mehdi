@@ -76,14 +76,26 @@ export const site = {
     ar: "الدفع عند الاستلام، نقدًا",
   } as L,
 
-  /** Réclamations : ce qu'OTAGE accepte aujourd'hui. Les modalités de retour ou d'échange se donnent sur WhatsApp. */
+  /** Réclamations (produit abîmé, erreur de commande). */
   claims: {
-    fr: "Nous acceptons les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite. Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp.",
-    ar: "نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية. طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب.",
+    fr: "Produit abîmé ou erreur dans ta commande ? Écris-nous sur WhatsApp : on échange le produit ou on te rembourse, sans frais pour toi.",
+    ar: "منتج متضرر أو خطأ في طلبك؟ راسلينا عبر واتساب: نستبدل المنتج أو نرد لك المبلغ، دون أي مصاريف عليك.",
   } as L,
 
-  /** TODO : délai de retour (en jours) et frais. null = pas de hasMerchantReturnPolicy dans le JSON-LD. */
-  returns: null as null | { days: number; fr: string; ar: string },
+  /** Retours et droit de rétractation (loi 31-08 sur la protection du consommateur, article 36). */
+  returns: {
+    days: 7,
+    /** La politique, en clair. */
+    fr: "Tu peux retourner ta commande dans les 7 jours qui suivent sa réception, même si tu as simplement changé d'avis. Les produits doivent être non ouverts et non utilisés. Les frais de retour sont pris en charge par OTAGE. Au choix : remboursement ou échange.",
+    ar: "يمكنك إرجاع طلبك خلال 7 أيام من استلامه، حتى لو غيّرتِ رأيك فقط. يجب أن تكون المنتجات غير مفتوحة وغير مستعملة. مصاريف الإرجاع تتحملها OTAGE. ولك الاختيار: استرجاع المبلغ أو الاستبدال.",
+    /** La mention légale, en une ligne. */
+    right: {
+      fr: "Droit de rétractation : 7 jours à compter de la réception (article 36 de la loi 31-08 sur la protection du consommateur).",
+      ar: "حق التراجع: 7 أيام من تاريخ الاستلام (المادة 36 من القانون رقم 31-08 المتعلق بحماية المستهلك).",
+    } as L,
+    /** Rappel court, pour la confirmation de commande. */
+    short: { fr: "Droit de rétractation de 7 jours après réception (loi 31-08).", ar: "حق التراجع خلال 7 أيام من الاستلام (القانون 31-08)." } as L,
+  },
 
   /** TODO : informations juridiques à fournir pour les mentions légales et les CGV. */
   legal: {

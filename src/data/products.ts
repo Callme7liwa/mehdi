@@ -29,6 +29,9 @@ export interface Product {
   step: number | null;
   /** Contenance en ml par format. */
   ml: Partial<Record<FormatKey, number>>;
+  /** Numéro d'enregistrement du produit à la DMP (Direction du médicament et de la pharmacie).
+      TODO : à fournir par le client pour chaque soin. Tant qu'il est absent, la fiche ne l'affiche pas. */
+  dmp?: string | null;
   /** Prix à l'unité en DH par format. */
   unitPrice: Partial<Record<FormatKey, number | null>>;
   pack: Img;

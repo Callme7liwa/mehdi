@@ -8,7 +8,7 @@ import { OG_IMAGE } from "./seo";
 export type Route = { path: string; images: string[]; priority: number; hasAr: boolean; indexed: boolean };
 
 const img = (src: string) => abs(src);
-const legalReady = Boolean(site.legal.raisonSociale && site.legal.ice && site.legal.adresse);
+const legalReady = Boolean(site.legal.raisonSociale && site.legal.formeJuridique && site.legal.ice && site.legal.rc && site.legal.adresse && site.legal.cndp);
 
 export const routes: Route[] = [
   { path: "/", priority: 1, hasAr: true, indexed: true, images: [OG_IMAGE.src, ...gamme.photos.map((p) => p.src), ...products.map((p) => p.pack.src)].map(img) },
@@ -21,7 +21,7 @@ export const routes: Route[] = [
     priority: 0.4,
     hasAr: true,
     // mentions légales et CGV : hors index tant que les informations juridiques manquent (voir site.legal, site.returns)
-    indexed: p.path === "/mentions-legales" ? legalReady : p.path === "/cgv" ? legalReady : true,
+    indexed: p.path === "/mentions-legales" ? legalReady : p.path === "/cgv" ? legalReady && Boolean(site.legal.tribunal) : true,
     images: [],
   })),
 ];

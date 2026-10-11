@@ -107,7 +107,8 @@ export const site = {
     short: { fr: "Droit de rétractation de 7 jours après réception (loi 31-08).", ar: "حق التراجع خلال 7 أيام من الاستلام (القانون 31-08)." } as L,
   },
 
-  /** TODO : informations juridiques à fournir pour les mentions légales et les CGV. */
+  /** TODO : informations juridiques à fournir pour les mentions légales et les CGV.
+      Tant qu'une valeur est null, la page affiche « À compléter » à sa place et reste hors de l'index (noindex). */
   legal: {
     raisonSociale: null as string | null, // TODO
     formeJuridique: null as string | null, // TODO
@@ -116,6 +117,8 @@ export const site = {
     adresse: null as string | null, // TODO
     email: null as string | null, // TODO
     directeurPublication: null as string | null, // TODO
+    cndp: null as string | null, // TODO numéro de déclaration ou d'autorisation CNDP (loi 09-08)
+    tribunal: null as string | null, // TODO tribunal compétent en cas de litige (CGV)
     hebergeur: "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
   },
 

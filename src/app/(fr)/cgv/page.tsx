@@ -10,7 +10,7 @@ const info = {
   title: "Conditions générales de vente | OTAGE",
   description: "Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison au Maroc, paiement à la livraison, retour sous 7 jours.",
   h1: "Conditions générales de vente",
-  draft: !L.raisonSociale,
+  draft: !L.raisonSociale || !L.tribunal,
 };
 export const metadata = textMetadata(info);
 const P = gamme.formats.petit, G = gamme.formats.grand;
@@ -64,7 +64,7 @@ export default function Page() {
       <p>Les données recueillies servent uniquement à traiter la commande. Voir les <Link href="/mentions-legales">mentions légales</Link>.</p>
 
       <h2>10. Droit applicable</h2>
-      <p>Les présentes conditions sont soumises au droit marocain. <Todo>tribunal compétent en cas de litige</Todo></p>
+      <p>Les présentes conditions sont soumises au droit marocain. {L.tribunal ?? <Todo>tribunal compétent en cas de litige</Todo>}</p>
     </TextPage>
   );
 }

@@ -88,6 +88,8 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
             <li><ClockIcon />{t.deliveryTime} {site.delivery.label[locale]}</li>
             <li><CashIcon />{t.cod}</li>
             <li><PinIcon />{t.madeInMorocco}</li>
+            {/* numéro d'enregistrement DMP : affiché dès qu'il est renseigné dans products.ts */}
+            {p.dmp && <li><PinIcon />{t.dmp} <bdi>{p.dmp}</bdi></li>}
           </ul>
         </div>
       </div>

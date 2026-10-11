@@ -12,7 +12,7 @@ const info = {
   title: "الشروط العامة للبيع | OTAGE",
   description: "الشروط العامة للبيع لدى OTAGE: المنتجات، الأسعار بالدرهم، الطلب، التوصيل المجاني في المغرب، والدفع عند الاستلام.",
   h1: "الشروط العامة للبيع",
-  draft: !L.raisonSociale,
+  draft: !L.raisonSociale || !L.tribunal,
 };
 export const metadata = textMetadata(info, "ar");
 const P = gamme.formats.petit, G = gamme.formats.grand;
@@ -61,7 +61,7 @@ export default function Page() {
       <p>تُستعمل المعطيات المجمعة فقط لمعالجة الطلب. انظري <Link href="/ar/mentions-legales">الإشعار القانوني</Link>.</p>
 
       <h2>10. القانون المطبق</h2>
-      <p>تخضع هذه الشروط للقانون المغربي. <Todo locale="ar">المحكمة المختصة في حال النزاع</Todo></p>
+      <p>تخضع هذه الشروط للقانون المغربي. {L.tribunal ?? <Todo locale="ar">المحكمة المختصة في حال النزاع</Todo>}</p>
     </TextPage>
   );
 }

@@ -9,7 +9,7 @@ const info = {
   description: "Mentions légales du site otage.ma : éditeur, hébergeur, propriété intellectuelle et données personnelles.",
   h1: "Mentions légales",
   // tant que les informations juridiques ne sont pas renseignées dans src/data/site.ts, la page reste hors de l'index
-  draft: !L.raisonSociale || !L.ice || !L.adresse,
+  draft: !L.raisonSociale || !L.formeJuridique || !L.ice || !L.rc || !L.adresse || !L.cndp,
 };
 export const metadata = textMetadata(info);
 const v = (value: string | null, what: string) => value ?? <Todo>{what}</Todo>;
@@ -39,7 +39,7 @@ export default function Page() {
       <h2>Données personnelles</h2>
       <p>Quand tu passes une commande, nous recueillons ton nom, ton numéro de téléphone, ta ville et, si tu la donnes, ton adresse. Ces informations servent uniquement à confirmer et livrer ta commande. Elles sont enregistrées dans un tableur Google (Google Sheets) et transmises au transporteur pour la livraison. Elles ne sont pas vendues.</p>
       <p>Conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, tu peux demander l'accès, la rectification ou la suppression de tes données en nous écrivant sur WhatsApp.</p>
-      <p>Déclaration à la CNDP : <Todo>numéro de déclaration ou d'autorisation CNDP</Todo></p>
+      <p>Déclaration à la CNDP : {v(L.cndp, "numéro de déclaration ou d'autorisation CNDP")}</p>
 
       <h2 id="cookies">Cookies et mesure d'audience</h2>
       <p>Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper.</p>

@@ -120,7 +120,7 @@ const fr = {
   seeOffer: "Voir l'offre",
   otherAdvice: "Autres conseils peau",
   todo: "À compléter",
-  dmp: "Enregistrement DMP n°",
+  // dmp: "Enregistrement DMP n°", (libellé retiré avec la ligne DMP des fiches : voir ProductPage.tsx)
   breadcrumb: "Fil d'Ariane",
   footerNav: "Pied de page",
   langSwitch: "العربية",
@@ -257,7 +257,7 @@ const ar: Ui = isolateAll({
   seeOffer: "اكتشفي العرض",
   otherAdvice: "نصائح أخرى للبشرة",
   todo: "يُستكمل لاحقًا",
-  dmp: "رقم التسجيل لدى مديرية الأدوية والصيدلة:",
+  // dmp: "رقم التسجيل لدى مديرية الأدوية والصيدلة:",
   breadcrumb: "مسار التصفح",
   footerNav: "أسفل الصفحة",
   langSwitch: "Français",

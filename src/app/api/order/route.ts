@@ -6,7 +6,7 @@
 import { orderNumber, phoneE164, priceOrder, validateOrder } from "@/lib/order/compute";
 import { count, limited, remember, replay } from "@/lib/order/guard";
 import { after } from "next/server";
-import { renderConfirmation } from "@/emails/render";
+import { renderConfirmation, renderShopNotification } from "@/emails/render";
 import { sendEmail } from "@/lib/email/send";
 import { noteEmail, recordOrder } from "@/lib/order/sheet";
 
@@ -35,6 +35,7 @@ export async function POST(req: Request) {
   if (limited("phone", phone) || limited("ip", ip)) return json({ ok: false, error: "limite" }, 429);
 
   const priced = priceOrder(order);
+  const page = typeof body.page === "string" ? body.page.slice(0, 200) : "";
   let numero = orderNumber();
   try {
     numero = await recordOrder({
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
       // le total du tableur est celui des produits ; les frais éventuels sont écrits dans la colonne « Offre »
       total: priced.subtotal,
       email: order.email ?? "", langue: order.locale,
-      page: typeof body.page === "string" ? body.page.slice(0, 200) : "",
+      page,
     });
   } catch (e) {
     console.error("Commande non enregistrée :", e);
@@ -55,6 +56,12 @@ export async function POST(req: Request) {
   // ce qu'il advient de l'e-mail est noté dans le tableur (« envoyé », « échec : … »).
   const mail = { locale: order.locale, numero, date: new Date(), nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse, priced };
   after(async () => {
+    // notification interne de la boutique (SHOP_EMAIL), pour chaque commande
+    const shop = process.env.SHOP_EMAIL;
+    if (shop) {
+      const told = await renderShopNotification({ ...mail, email: order.email, page }).then((m) => sendEmail({ to: shop, ...m, replyTo: order.email })).catch((e) => ({ ok: false as const, error: String(e) }));
+      if (!told.ok) console.error("Notification interne non envoyée :", numero, told.error);
+    }
     if (!order.email) return;
     const sent = await renderConfirmation(mail).then((m) => sendEmail({ to: order.email!, ...m })).catch((e) => ({ ok: false as const, error: String(e) }));
     if (!sent.ok) console.error("E-mail de confirmation non envoyé :", numero, sent.error);

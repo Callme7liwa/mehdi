@@ -3,6 +3,8 @@
 import { render } from "@react-email/render";
 import { site } from "@/data/site";
 import OrderConfirmation, { amount, firstName, orderDate, type OrderEmail } from "./OrderConfirmation";
+import ShopNotification, { confirmMessage, shopSubject, type ShopEmail } from "./ShopNotification";
+import { phoneE164 } from "@/lib/order/compute";
 import { emailText, fill } from "./text";
 
 export type Rendered = { subject: string; html: string; text: string };
@@ -67,4 +69,22 @@ export function textConfirmation(o: OrderEmail) {
 
 export async function renderConfirmation(o: OrderEmail): Promise<Rendered> {
   return { subject: fill(emailText[o.locale].subject, { n: o.numero }), html: await render(<OrderConfirmation {...o} />), text: textConfirmation(o) };
+}
+
+/** La notification interne de la boutique (toujours en français). */
+export async function renderShopNotification(o: ShopEmail): Promise<Rendered> {
+  const p = o.priced, tel = phoneE164(o.tel);
+  const text = [
+    `Nouvelle commande ${o.numero}${o.locale === "ar" ? " (page en arabe)" : ""}`,
+    "",
+    `Cliente : ${o.nom}`, `Téléphone : ${o.tel} (${tel})`, `Ville : ${o.ville}`, `Adresse : ${o.adresse || "à demander au téléphone"}`, `E-mail : ${o.email || "non renseigné"}`, `Date : ${orderDate(o.date, "fr")}`,
+    "",
+    ...p.lines.map((l) => `${l.qty} × ${l.name.fr}, ${l.detail.fr} : ${l.offered ? "offert" : `${l.total} DH`}`),
+    `Sous-total : ${p.subtotal} DH`,
+    `Livraison : ${p.fee ? `${p.fee.min} à ${p.fee.max} DH selon la ville (à confirmer à la cliente)` : "offerte"}`,
+    `Total à encaisser : ${amount(p.total, "fr")}`,
+    "",
+    `Confirmer sur WhatsApp : https://wa.me/${tel.slice(1)}?text=${encodeURIComponent(confirmMessage(o))}`,
+  ].join("\n");
+  return { subject: shopSubject(o), html: await render(<ShopNotification {...o} />), text };
 }

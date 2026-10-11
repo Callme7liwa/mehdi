@@ -17,9 +17,12 @@
     "blur": "node scripts/blur.mjs"
   },
   "dependencies": {
+    "@react-email/components": "^1.0.12",
+    "@react-email/render": "^2.1.0",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "resend": "^6.32.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -37,7 +37,6 @@ function config(locale: Locale): HomeConfig {
     t,
     rtl: ar,
     whatsapp: site.whatsapp.wa,
-    ordersEndpoint: site.ordersEndpoint,
     retractation: site.returns.short[locale],
     formats: { petit: fmt("petit"), grand: fmt("grand") },
     yeuxPrice: productByKey("yeux").unitPrice.petit as number,

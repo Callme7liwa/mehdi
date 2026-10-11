@@ -4,7 +4,8 @@ import { useEffect, useId, useState } from "react";
 import { BagIcon } from "./icons";
 
 export type OrderData = {
-  endpoint: string;
+  /** Langue de la page : celle de l'e-mail de confirmation. */
+  locale: "fr" | "ar";
   /** Produit commandé : la gamme anti-taches (2 formats) ou le sérum contour des yeux. */
   product: "taches" | "yeux";
   formats: Record<"petit" | "grand", { label: string; labelFr: string; price: number; was: number; content: string }>;
@@ -26,13 +27,13 @@ export type OrderData = {
 export type OrderText = Record<
   | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseProducts" | "unitHint" | "errEmpty" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
-  | "comma" | "colon" | "bang" | "agreeA" | "agreeCgv" | "agreeAnd" | "agreeReturns" | "errTerms" | "recapTitle" | "orderNo" | "waConfirm" | "waHello" | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
+  | "errEmail" | "errLimit" | "errServer" | "sending" | "doneOffline" | "doneEmail" | "comma" | "colon" | "bang" | "agreeA" | "agreeCgv" | "agreeAnd" | "agreeReturns" | "errTerms" | "recapTitle" | "orderNo" | "waConfirm" | "waHello" | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
 >;
 
 const QUEUE = "otage-commandes-en-attente"; // même file d'attente que la page d'accueil
 const CLIENT = "otage-client";
-const telOk = (v: string) => /^(?:\+212|00212|0)[5-7]\d{8}$/.test(v.replace(/[\s.-]/g, ""));
+const telOk = (v: string) => /^(?:\+212|00212|0)[67]\d{8}$/.test(v.replace(/[\s.\-()]/g, "")); // mobile marocain : 06 ou 07
 
 const readQ = (): object[] => { try { return JSON.parse(localStorage.getItem(QUEUE) || "[]"); } catch { return []; } };
 const writeQ = (q: object[]) => { try { localStorage.setItem(QUEUE, JSON.stringify(q)); } catch {} };
@@ -53,7 +54,8 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const setItem = (key: string, change: Partial<{ fmt: "petit" | "grand"; qty: number }>) => setCart((c) => ({ ...c, [key]: { ...c[key], ...change } }));
   const [err, setErr] = useState("");
   const [bad, setBad] = useState<string[]>([]);
-  const [done, setDone] = useState<{ name: string; ticket: string; lines: string[]; toPay: string; delivery: string } | null>(null);
+  const [done, setDone] = useState<{ name: string; ticket: string; lines: string[]; toPay: string; delivery: string; email: string } | null>(null);
+  const [sending, setSending] = useState(false);
 
   const price = yeux ? data.yeuxPrice : data.formats[fmt].price;
   const per = Math.round((price * 2) / 3);
@@ -63,13 +65,22 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const toPay = fee ? `${t.totalFrom} ${total + fee.min} ${t.totalTo} ${total + fee.max} ${t.dh}` : `${total} ${t.dh}`;
   const word = yeux ? t.serumWord : t.rangeWord, words = yeux ? t.serumsWord : t.rangesWord;
 
+  /* Envoi au serveur du site (/api/order), qui valide, recalcule les prix et enregistre la commande.
+     Réponses : commande acceptée (avec son numéro), champs refusés, trop de commandes, ou panne (on réessaiera). */
+  type Sent = { ok: true; numero: string; total: { min: number; max: number } } | { ok: false; error: string; fields?: string[] } | null;
+  const send = async (o: object): Promise<Sent> => {
+    try {
+      const r = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(o) });
+      if (r.status >= 500) return null;
+      return (await r.json()) as Sent;
+    } catch { return null; } // hors connexion
+  };
+  /* commandes restées en attente (connexion coupée au moment de valider) : renvoyées au retour sur le site */
   const flush = async () => {
     const left: object[] = [];
     for (const o of readQ()) {
-      try {
-        const r = await fetch(data.endpoint, { method: "POST", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(o).replace(/[\u2066\u2069]/g, "") });
-        if (!r.ok) throw new Error("HTTP " + r.status);
-      } catch { left.push(o); }
+      if (!(o as { kind?: string }).kind) continue; // ancien format : ne peut plus être envoyé
+      if ((await send(o)) === null) left.push(o);
     }
     writeQ(left);
   };
@@ -80,56 +91,66 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    if (sending) return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const v = (n: string) => String(fd.get(n) || "").trim();
-    const wrong = ["nom", "tel", "ville"].filter((n) => (n === "tel" ? !telOk(v(n)) : v(n).length < 2));
+    const focus = (n: string) => (form.elements.namedItem(n) as HTMLInputElement | null)?.focus();
+    const wrong = ["nom", "tel", "ville", "email"].filter((n) => (n === "tel" ? !telOk(v(n)) : n === "email" ? v(n) !== "" && !/^\S+@\S+\.\S{2,}$/.test(v(n)) : v(n).length < 2));
     setBad(wrong);
     if (wrong.length) {
-      setErr(wrong.length === 1 && wrong[0] === "tel" ? t.errPhone : t.errFields);
-      (e.currentTarget.elements.namedItem(wrong[0]) as HTMLInputElement).focus();
+      setErr(wrong.length === 1 && wrong[0] === "tel" ? t.errPhone : wrong.length === 1 && wrong[0] === "email" ? t.errEmail : t.errFields);
+      focus(wrong[0]);
       return;
     }
     if (unitMode && !picked.length) { setErr(t.errEmpty); return; }
-    if (!fd.get("cgv")) { setErr(t.errTerms); (e.currentTarget.elements.namedItem("cgv") as HTMLInputElement).focus(); return; }
+    if (!fd.get("cgv")) { setErr(t.errTerms); focus("cgv"); return; }
     setErr("");
-    if (v("site")) return; // robot détecté (champ piège rempli)
-    const label = yeux ? "Sérum contour des yeux" : data.formats[fmt].labelFr;
+    // le navigateur n'envoie que les choix ; les prix sont recalculés par le serveur
     const order = {
-      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
-      ticket: String(Math.floor(1000 + Math.random() * 9000)),
-      nom: v("nom"), tel: v("tel"), ville: v("ville"), adresse: v("adresse"),
-      // le tableur des commandes reçoit toujours des libellés en français
-      produit: unitMode ? "Soins à l'unité" : yeux ? "Sérum contour des yeux" : "Gamme anti-taches",
-      format: unitMode ? [...new Set(picked.map((x) => x.f.labelFr))].join(" + ") : yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
-      quantite: unitMode ? String(picked.reduce((n, x) => n + x.qty, 0)) : qty === 3 ? "3 (2 + 1 offerte)" : "1",
-      total,
-      offre: (unitMode
-        ? picked.map((x) => `${x.qty} × ${x.u.nameFr}, ${x.f.labelFr} (${x.f.sizeFr}), ${x.f.price} DH`).join(" ; ")
-        : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`)
-        + (fee ? ` + livraison ${fee.min} à ${fee.max} DH selon la ville (total de ${total + fee.min} à ${total + fee.max} DH)` : " (livraison offerte)"),
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), // un renvoi du même formulaire ne crée pas de doublon
+      locale: data.locale,
+      kind: unitMode ? "unite" : yeux ? "yeux" : "gamme",
+      format: fmt,
+      bundle: !unitMode && qty === 3,
+      items: unitMode ? picked.map((x) => ({ key: x.u.key, format: cart[x.u.key].fmt, qty: x.qty })) : undefined,
+      nom: v("nom"), tel: v("tel"), ville: v("ville"), adresse: v("adresse"), email: v("email"),
+      site: v("site"), // champ piège : vide pour une personne
       page: location.href.split("#")[0],
     };
-    writeQ([...readQ(), order]);
-    window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: unitMode ? "unite" : yeux ? "contour_des_yeux" : "gamme", format: order.format, value: total } }));
-    flush();
+    setSending(true);
+    const res = await send(order);
+    setSending(false);
+    if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
+      const fields = res.fields ?? [];
+      setBad(fields);
+      setErr(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.includes("email") && fields.length === 1 ? t.errEmail : fields.length ? t.errFields : t.errServer);
+      if (fields.length) focus(fields[0]);
+      return;
+    }
+    if (!res) writeQ([...readQ(), order]); // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
+    window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: unitMode ? "unite" : yeux ? "contour_des_yeux" : "gamme", format: unitMode ? "mixte" : fmt, value: total } }));
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse })); } catch {} // repris par l'accueil à la prochaine commande
     // récapitulatif affiché à l'écran et repris dans le message WhatsApp, dans la langue de la page
     const lines = unitMode
       ? picked.map((x) => `${x.qty} × ${x.u.name}${t.comma}${x.f.label} (${x.f.size})${t.colon}${x.f.price * x.qty} ${t.dh}`)
       : [`${qty === 3 ? `3 ${words} (${t.bundle})` : `1 ${word}`}${yeux ? "" : `${t.comma}${data.formats[fmt].label}`}${t.colon}${total} ${t.dh}`];
-    setDone({ name: order.nom.split(/\s+/)[0], ticket: order.ticket, lines, toPay, delivery: fee ? fee.label : t.deliveryFree });
+    // le total affiché est celui du serveur
+    const pay = res ? (res.total.min === res.total.max ? `${res.total.min} ${t.dh}` : `${t.totalFrom} ${res.total.min} ${t.totalTo} ${res.total.max} ${t.dh}`) : toPay;
+    setDone({ name: order.nom.split(/\s+/)[0], ticket: res ? res.numero : "", lines, toPay: pay, delivery: fee ? fee.label : t.deliveryFree, email: res ? order.email : "" });
   };
 
   if (done) {
-    const message = [`${t.waHello} ${done.ticket}${t.colon.trimEnd()}`, ...done.lines.map((l) => `- ${l}`), `${t.delivery}${t.colon}${done.delivery}`, `${t.total}${t.colon}${done.toPay}`, data.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
+    const message = [`${t.waHello}${done.ticket ? ` ${done.ticket}` : ""}${t.colon.trimEnd()}`, ...done.lines.map((l) => `- ${l}`), `${t.delivery}${t.colon}${done.delivery}`, `${t.total}${t.colon}${done.toPay}`, data.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
     return (
       <div className="order order-done" role="status">
         <h3>{t.thanks}{t.comma}{done.name}{t.bang}</h3>
-        <p>{t.done}</p>
+        <p>{done.ticket ? t.done : t.doneOffline}</p>
+        {done.email && <p className="order-note">{t.doneEmail} <bdi>{done.email}</bdi>.</p>}
         <div className="order-recap">
-          <p><b>{t.recapTitle}</b> <span>{t.orderNo} <bdi>{done.ticket}</bdi></span></p>
+          <p><b>{t.recapTitle}</b> {done.ticket && <span>{t.orderNo} <bdi>{done.ticket}</bdi></span>}</p>
           <ul>{done.lines.map((l) => <li key={l}>{l}</li>)}</ul>
           <p><span>{t.delivery}</span><b>{done.delivery}</b></p>
           <p className="order-total"><span>{t.total}</span><b>{done.toPay}</b></p>
@@ -240,7 +261,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
         <span>{t.agreeA} <a href={data.cgvUrl} target="_blank" rel="noopener">{t.agreeCgv}</a> {t.agreeAnd} <a href={data.returnsUrl} target="_blank" rel="noopener">{t.agreeReturns}</a>.</span>
       </label>
       <p className="order-err" role="alert">{err}</p>
-      <button type="submit" className="btn btn-primary">{t.submit}<BagIcon /></button>
+      <button type="submit" className="btn btn-primary" disabled={sending} aria-busy={sending}>{sending ? t.sending : t.submit}<BagIcon /></button>
       <p className="order-note">{t.youPay} <b>{toPay}</b> {t.payNote}{fee ? ` ${t.feeNote}` : ""}</p>
     </form>
   );

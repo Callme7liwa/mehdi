@@ -979,37 +979,30 @@ export function initHome(cfg) {
     /* passer au Grand format, ou revenir au Petit, sans quitter le formulaire */
     $(".ups").addEventListener("click", () => { fmt = fmt === "petit" ? "grand" : "petit"; render(); });
 
-    /* ---- Envoi des commandes vers le tableur (Google Sheet, ouvrable dans Excel) ----
-       Colle ici l'URL de l'application web Apps Script (se termine par /exec). */
-    const ORDERS_ENDPOINT = cfg.ordersEndpoint;
+    /* ---- Envoi des commandes au serveur du site (/api/order) ----
+       Le serveur valide, recalcule les prix, attribue le numéro de commande et enregistre dans le tableur.
+       Réponse : la commande acceptée (avec son numéro), un refus (champs, trop de commandes), ou null en cas de panne. */
     const QUEUE = "otage-commandes-en-attente";
     const readQ = () => { try { return JSON.parse(localStorage.getItem(QUEUE) || "[]"); } catch (e) { return []; } };
     const writeQ = (q) => { try { localStorage.setItem(QUEUE, JSON.stringify(q)); } catch (e) {} };
-    const post = (o) => fetch(ORDERS_ENDPOINT, {
-      method: "POST", keepalive: true,
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, // évite la requête préalable CORS
-      body: JSON.stringify(o).replace(/[\u2066\u2069]/g, ""), // sans les caractères d'isolement des textes arabes
-    }).then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); }); // refusée par Google : la commande reste en attente
+    const post = (o) => fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(o) })
+      .then((r) => (r.status >= 500 ? null : r.json()), () => null);
+    // commandes restées en attente (connexion coupée au moment de valider) : renvoyées au retour sur le site
     const flush = async () => {
-      if (!ORDERS_ENDPOINT) return;
       const q = readQ(); if (!q.length) return;
       const left = [];
-      for (const o of q) { try { await post(o); } catch (e) { left.push(o); } }
+      for (const o of q) { if (o.kind && (await post(o)) === null) left.push(o); } // sans « kind » : ancien format, abandonné
       writeQ(left);
-    };
-    const sendOrder = (o) => {
-      if (!ORDERS_ENDPOINT) { console.warn("Commande non envoyée : ORDERS_ENDPOINT est vide.", o); return; }
-      // on garde la commande de côté tant qu'elle n'est pas partie (coupure réseau, onglet fermé…)
-      writeQ([...readQ(), o]);
-      flush();
     };
     flush();
     window.addEventListener("online", flush);
 
     /* ---- Valider la commande ---- */
-    const telOk = (v) => /^(?:\+212|00212|0)[5-7]\d{8}$/.test(v.replace(/[\s.-]/g, ""));
-    form.addEventListener("submit", (e) => {
+    const telOk = (v) => /^(?:\+212|00212|0)[67]\d{8}$/.test(v.replace(/[\s.\-()]/g, "")); // mobile marocain : 06 ou 07
+    let sending = false;
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if (sending) return;
       const bad = [];
       ["nom", "tel", "ville"].forEach((n) => {
         const el = form.elements[n];
@@ -1029,23 +1022,36 @@ export function initHome(cfg) {
       err.textContent = "";
       const fd = new FormData(form);
       const t = totals();
-      if (form.elements.site && form.elements.site.value) return; // robot détecté (champ piège rempli)
+      // le navigateur n'envoie que les choix ; les prix sont recalculés par le serveur
       const order = {
-        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), // évite les doublons si la commande est renvoyée
-        ticket: $("[data-tkno]").textContent,
+        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), // un renvoi du même formulaire ne crée pas de doublon
+        locale: RTL ? "ar" : "fr",
+        kind: prod === "yeux" ? "yeux" : "gamme",
+        format: fmt,
+        bundle: qty === 3,
         nom: String(fd.get("nom") || "").trim(),
         tel: String(fd.get("tel") || "").trim(),
         ville: String(fd.get("ville") || "").trim(),
         adresse: String(fd.get("adresse") || "").trim(),
-        produit: prod === "yeux" ? "Sérum contour des yeux" : "Gamme anti-taches",
-        format: prod === "yeux" ? "Unique (15 ml)" : F[fmt].labelFr,
-        quantite: qty === 3 ? "3 (2 + 1 offerte)" : "1",
-        total: t.total,
-        offre: t.recapFr + (prod === "yeux" ? " + livraison 35 à 45 DH selon la ville" : " (livraison offerte)"),
+        email: String(fd.get("email") || "").trim(),
+        site: form.elements.site ? form.elements.site.value : "", // champ piège : vide pour une personne
         page: location.href.split("#")[0],
       };
-      sendOrder(order);
-      window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: prod === "yeux" ? "contour_des_yeux" : "gamme", format: order.format, value: t.total } })); // mesure d'audience, si acceptée
+      const btn = form.querySelector(".tk-send");
+      sending = true; btn.setAttribute("aria-busy", "true"); btn.disabled = true;
+      const res = await post(order);
+      sending = false; btn.removeAttribute("aria-busy"); btn.disabled = false;
+      if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
+        const fields = res.fields || [];
+        fields.forEach((n) => form.elements[n] && form.elements[n].setAttribute("aria-invalid", "true"));
+        err.textContent = res.error === "limite" ? TXT.errLimit : fields.length === 1 && fields[0] === "tel" ? TXT.errPhone : fields.length === 1 && fields[0] === "email" ? TXT.errEmail : fields.length ? TXT.errFields : TXT.errServer;
+        if (fields.length && form.elements[fields[0]]) form.elements[fields[0]].focus();
+        return;
+      }
+      if (!res) writeQ([...readQ(), order]); // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
+      const numero = res ? res.numero : "";
+      if (numero) $("[data-tkno]").textContent = numero.replace(/^OTG-/, "");
+      window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: prod === "yeux" ? "contour_des_yeux" : "gamme", format: prod === "yeux" ? "unique" : fmt, value: t.total } })); // mesure d'audience, si acceptée
       $("[data-thanks]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       $(".stub-act").hidden = true;
       $(".stub-done").hidden = false;
@@ -1053,9 +1059,9 @@ export function initHome(cfg) {
       // confirmation : récapitulatif, livraison, total, et le même texte prêt à envoyer sur WhatsApp
       {
         const liv = prod === "yeux" ? `${TXT.deliveryFee} (${TXT.deliveryFeeNote})` : TXT.deliveryFree;
-        const lignes = [fill(TXT.orderNo, { n: order.ticket }), t.recap, `${TXT.delivery}${TXT.comma === ", " ? " : " : ": "}${liv}`, `${TXT.totalWord}${TXT.comma === ", " ? " : " : ": "}${t.total} ${TXT.dhWord}${prod === "yeux" ? " + " + TXT.delivery.toLowerCase() : ""}`];
+        const lignes = [numero ? fill(TXT.orderNo, { n: numero }) : TXT.doneOffline, t.recap, `${TXT.delivery}${TXT.comma === ", " ? " : " : ": "}${liv}`, `${TXT.totalWord}${TXT.comma === ", " ? " : " : ": "}${t.total} ${TXT.dhWord}${prod === "yeux" ? " + " + TXT.delivery.toLowerCase() : ""}`];
         $("[data-done-recap]").innerHTML = lignes.map((l) => `<span>${l}</span>`).join("");
-        const msg = [fill(TXT.waHello, { n: order.ticket }), ...lignes.slice(1).map((l) => "- " + l), cfg.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
+        const msg = [fill(TXT.waHello, { n: numero }).replace(/\s+([:،])/, "$1"), ...lignes.slice(1).map((l) => "- " + l), cfg.retractation].join("\n").replace(/[\u2066\u2069]/g, "");
         const wa = $("[data-done-wa]");
         if (cfg.whatsapp) wa.href = `https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}`; else wa.hidden = true;
       }

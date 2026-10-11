@@ -62,8 +62,8 @@ export const site = {
       TODO : créer la propriété GA4 et renseigner la variable. Sans identifiant, aucun script et aucune bannière. */
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
 
-  /** Application web Google Apps Script qui reçoit les commandes (Google Sheet + e-mail). */
-  ordersEndpoint: "https://script.google.com/macros/s/AKfycbx3oe7dX8dQH3r7bBNo0am2F4Egk9jNVdc5h6-yvWQ-e55La6RJCxxH1vkp8KOIf_tb/exec",
+  /* L'adresse du script Google qui enregistre les commandes n'est plus ici : elle est dans la variable
+     d'environnement ORDERS_ENDPOINT, lue seulement par le serveur (src/app/api/order/route.ts). */
 
   /** Livraison : partout au Maroc, en 24 à 72 h. Offerte pour une gamme complète ; payante pour un achat à l'unité
       (soins de la gamme achetés séparément, sérum contour des yeux). */

@@ -839,14 +839,7 @@ export function initHome(cfg) {
       $("[data-pay-note]").textContent = prod === "yeux" ? TXT.payNoteFee : TXT.payNoteFree;
       sec.querySelectorAll(".fsw").forEach((b) => { const on = b.dataset.f === fmt; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
       {
-        const ups = $(".ups"), G = F.grand, Pt = F.petit;
-        ups.hidden = prod === "yeux";
-        const grand = fmt === "grand";
-        ups.setAttribute("aria-pressed", String(grand));
-        $("[data-ups-t]").textContent = grand ? TXT.upsOn : TXT.upsOff;
-        $("[data-ups-s]").textContent = grand
-          ? (qty === 3 ? fill(TXT.upsBackBundle, { gel: G.ml.gel, serum: G.ml.serum, creme: G.ml.creme, total: Pt.price * 2 }) : fill(TXT.upsBack, { total: Pt.price }))
-          : (qty === 3 ? fill(TXT.upsGoBundle, { per: Math.round((G.price * 2) / 3), total: G.price * 2 }) : fill(TXT.upsGo, { price: G.price, was: G.was }));
+        // (le bouton « Passer au Grand format » du formulaire n'existe plus : le format se choisit à l'étape 1)
       }
       // le surligneur repasse sur l'économie
       if (!first && !reduce) {
@@ -977,7 +970,6 @@ export function initHome(cfg) {
       });
     });
     /* passer au Grand format, ou revenir au Petit, sans quitter le formulaire */
-    $(".ups").addEventListener("click", () => { fmt = fmt === "petit" ? "grand" : "petit"; render(); });
 
     /* ---- Envoi des commandes au serveur du site (/api/order) ----
        Le serveur valide, recalcule les prix, attribue le numéro de commande et enregistre dans le tableur.
@@ -1415,7 +1407,7 @@ export function initHome(cfg) {
       // l'offre en dessous suit le problème choisi
       if (pb !== "odeurs" && window.OTAGE && OTAGE.setProduct) OTAGE.setProduct(pb);
       if (opts.toOffer && pb !== "odeurs") {
-        // achat facilité : on descend tout de suite sur « Profite de l'offre 2 + 1 »
+        // achat facilité : on descend tout de suite sur la première étape de la commande
         const first = offers.querySelector(".tk-choose .ch");
         offers.classList.add("seen");
         // position réelle (sans l'animation d'entrée de la section)

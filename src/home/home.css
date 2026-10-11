@@ -1936,7 +1936,12 @@ html.qv-lock { overflow: hidden; }
 .fsw:active { transform: scale(0.98); }
 .fsw:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 2px; }
 @media (hover: hover) { .fsw[aria-checked="false"]:hover { background: rgba(255, 255, 255, 0.6); } }
-.offers.p-yeux .fsw-wrap { display: none; }
+.offers.p-yeux .ch-fmt { display: none; }
+/* numéros des étapes : comptés par le CSS, dans l'ordre d'affichage (1. format, 2. quantité, 3. coordonnées) */
+.tk-choose { counter-reset: etape; }
+.tk-choose .ch-title .n::before, .tk-choose .cur-k .n::before { counter-increment: etape; content: counter(etape); }
+.ch-fmt .fsw-wrap { margin-bottom: 0; }
+.ch-fmt { margin-bottom: 26px; }
 .offers.locked .fsw { pointer-events: none; }
 
 /* ================= Le rideau : le formulaire descend tout seul ================= */

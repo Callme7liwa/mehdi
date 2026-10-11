@@ -20,13 +20,18 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
 
 
 
-            <div className="fsw-wrap" role="radiogroup" aria-label={t.offersFormat}>
+            {/* Les étapes dans l'ordre : 1. format, 2. quantité (ou offre), 3. coordonnées. Les numéros sont posés par le CSS
+                (compteur) : une étape masquée, comme le format pour le sérum contour des yeux, ne laisse pas de trou. */}
+            <div className="ch ch-fmt">
+            <h3 className="ch-title" id="ch-f"><span className="n"></span>{t.offersChoisisTonFormat}</h3>
+            <div className="fsw-wrap" role="radiogroup" aria-labelledby="ch-f">
               <button type="button" className="fsw" role="radio" aria-checked="true" data-f="petit"><span className="fsw-pic" style={{ "--s": "0.62" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersPetitFormat}</b><small><em>{P.price}{t.offersDh}</em> <s>{P.was}{t.offersDh}</s></small></span></button>
               <button type="button" className="fsw" role="radio" aria-checked="false" data-f="grand"><span className="fsw-pic" style={{ "--s": "1" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersGrandFormat}</b><small><em>{G.price}{t.offersDh}</em> <s>{G.was}{t.offersDh}</s></small></span></button>
             </div>
+            </div>
 
             <div className="ch">
-              <h3 className="ch-title" id="ch0"><span className="n">1</span>{t.offersProfiteDeLOffre}</h3>
+              <h3 className="ch-title" id="ch0"><span className="n"></span>{t.offersProfiteDeLOffre}</h3>
               <div className="qty" role="radiogroup" aria-labelledby="ch0">
                 <button type="button" className="qopt q3" role="radio" aria-checked="true" data-q="3">
                   <span className="q-badge" data-badge="">{t.offers21Offerte}</span>
@@ -52,14 +57,9 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
               <div className="cur-body">
                 <span className="cur-hem" aria-hidden="true"></span>
                 <form className="cur-form" noValidate aria-label={t.offersInformationsDeLivraison}>
-                  <p className="cur-k"><span className="n">2</span>{t.offersDerniereEtape20Secondes}</p>
+                  <p className="cur-k"><span className="n"></span>{t.offersDerniereEtape20Secondes}</p>
                   <h3 className="cur-t">{t.offersOuEstCeQu}</h3>
                   <p className="back-recap"><span data-recap=""></span><b><span data-total2="">{P.price}</span>{t.offersDh}</b></p>
-                  <button type="button" className="ups" aria-pressed="false">
-                    <span className="ups-pic" aria-hidden="true"></span>
-                    <span className="ups-txt"><b data-ups-t="">{t.offersPasserAuGrandFormat}</b><small data-ups-s=""></small></span>
-                    <span className="ups-sw" aria-hidden="true"><i></i></span>
-                  </button>
                   <label className="fld"><span>{t.offersNomComplet}</span><input name="nom" autoComplete="name" placeholder={t.offersExSalmaBennani} /></label>
                   <label className="fld"><span>{t.offersTelephone}</span><input name="tel" type="tel" inputMode="tel" autoComplete="tel" placeholder="06 12 34 56 78" /></label>
                   <label className="fld"><span>{t.offersVille}</span><input name="ville" list="villes" autoComplete="address-level2" placeholder={t.offersExCasablanca} /></label>
@@ -89,8 +89,9 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
               </div>
             </div>
 
-            <div className="ch">
-              <h3 className="ch-title" id="ch1"><span className="n">2</span>{t.offersChoisisTonFormat}</h3>
+            {/* anciennes cartes de format : le script s'en sert encore pour ses calculs, elles ne s'affichent plus (le format est l'étape 1) */}
+            <div className="ch" hidden>
+              <h3 className="ch-title" id="ch1">{t.offersChoisisTonFormat}</h3>
               <div className="fmt" role="radiogroup" aria-labelledby="ch1">
                 <button type="button" className="fmt-card" role="radio" aria-checked="true" data-fmt="petit">
                   <span className="fmt-pic" style={{ "--s": "0.62" } as React.CSSProperties}></span>

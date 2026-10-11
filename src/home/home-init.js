@@ -734,7 +734,7 @@ export function initHome(cfg) {
       const L = [];
       if (qty === 1) {
         L.push({ k: "main", l: `1 × ${f.name}`, r: money(f.price) });
-        if (f.was) L.push({ k: "was", cls: "sub", l: TXT.shopPrice, r: `<s>${money(f.was)}</s>` });
+        // (le prix des 4 soins à l'unité est déjà barré à l'étape du format : pas de deuxième prix barré sur le ticket)
       } else {
         L.push({ k: "main", l: `2 × ${f.name}`, r: money(f.price * 2) });
         // un seul prix barré par format (celui des 4 soins achetés séparément) : ni l'article offert ni le prix par gamme n'en portent

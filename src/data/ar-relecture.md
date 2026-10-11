@@ -50,8 +50,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | dès 299 DH | ابتداءً من 299 درهم |
 | 2 + 1 offerte | 2 + 1 مجانًا |
 | Trouver mon soin | أي منتج يناسبني؟ |
-| Livraison 24 à 72 h | التوصيل من 24 إلى 72 ساعة |
-| partout au Maroc | في كل أنحاء المغرب |
+| Gamme complète dès 299 DH, livraison offerte | المجموعة الكاملة ابتداءً من 299 درهم، والتوصيل مجاني |
 | Paiement à la livraison | الدفع عند الاستلام |
 | Voir le détail : Gel nettoyant anti-taches | عرض التفاصيل: جل منظف ضد البقع |
 | Voir le soin | اكتشفي المنتج |
@@ -67,7 +66,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Louban | اللبان |
 | Sans sulfate | بدون سلفات |
 | Comment : matin et soir, sur peau humide. Masse 30 secondes, puis rince. | الطريقة: صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
-| Commander la gamme | اطلبي المجموعة |
+| Voir la fiche du soin | صفحة المنتج |
 | Étape 2 sur 4 | الخطوة 2 من 4 |
 | Sérum anti-taches | سيروم ضد البقع |
 | Le soin concentré de la gamme, qui cible les taches. | العناية المركزة في المجموعة، تستهدف البقع. |
@@ -88,6 +87,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Haute protection | حماية عالية |
 | Comment : le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | الطريقة: في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
 | Le soir, ta routine s'arrête à l'étape 3. | في المساء، يتوقف روتينك عند الخطوة 3. |
+| Commander la gamme | اطلبي المجموعة |
 | Étapes | الخطوات |
 | Fermer | إغلاق |
 | Voir l'étape dans la routine | مكانه في الروتين |
@@ -105,14 +105,13 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Bientôt | قريبًا |
 | Sérum contour des yeux N°05 tenu près du visage | سيروم محيط العين رقم 05 قرب الوجه |
 | L'offre à ne pas rater. | عرض لا يُفوَّت. |
-| Pour ta routine anti-taches. | لروتينك ضد البقع. |
+| Gamme complète dès 299 DH, livraison offerte. | المجموعة الكاملة ابتداءً من 299 درهم، والتوصيل مجاني. |
 | Ton ticket s'écrit en direct : tout est affiché, rien n'est caché. | تذكرتك تُكتب أمامك: كل شيء ظاهر، ولا شيء مخفي. |
-| Format | الحجم |
-| Petit formatdès 199 DH la gamme | الحجم الصغيرابتداءً من 199 درهم للمجموعة |
-| Grand formatdès 399 DH la gamme | الحجم الكبيرابتداءً من 399 درهم للمجموعة |
-| Profite de l'offre 2 + 1 | استفيدي من عرض 2 + 1 |
+| Choisis ton format | اختاري الحجم |
+| Petit format299 DH 496 DH | الحجم الصغير299 درهم 496 درهم |
+| Grand format599 DH 800 DH | الحجم الكبير599 درهم 800 درهم |
+| Choisis ta quantité | اختاري الكمية |
 | 3 gammes | 3 مجموعات |
-| DH199 | درهم199 |
 | DH la gamme | درهم للمجموعة |
 | Total | المجموع |
 | DH, tu économises | درهم، توفرين |
@@ -120,31 +119,110 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | 1 gamme | مجموعة واحدة |
 | Tu hésites ?Avis, résultats, ou parle au fondateur | مترددة؟آراء، نتائج، أو تحدثي مع المؤسس |
 | Informations de livraison | معلومات التوصيل |
-| Dernière étape, 20 secondes et c'est fini | آخر خطوة، 20 ثانية وينتهي الأمر |
+| Tes coordonnées, 20 secondes et c'est fini | معلوماتك، 20 ثانية وينتهي الأمر |
 | Où est-ce qu'on te livre ? | أين نوصل طلبك؟ |
-| Passer au Grand format | الانتقال إلى الحجم الكبير |
 | Nom complet | الاسم الكامل |
 | Ex. Salma Bennani | مثال: سلمى بناني |
 | Téléphone | الهاتف |
 | Ville | المدينة |
-| Ex. Casablanca | مثال: الدار البيضاء |
-| Villes fréquentes | مدن شائعة |
-| Casablanca | الدار البيضاء |
-| Rabat | الرباط |
-| Marrakech | مراكش |
-| Fès | فاس |
-| Tanger | طنجة |
-| Agadir | أكادير |
+| Cherche ta ville | ابحثي عن مدينتك |
+| Autre ville ? Écris-la : on livre partout au Maroc. | مدينة أخرى؟ اكتبيها: نوصل إلى كل أنحاء المغرب. |
 | Adresse facultatif, on peut la noter au téléphone | العنوان اختياري، يمكن تسجيله عبر الهاتف |
 | Quartier, rue, numéro | الحي، الشارع، الرقم |
 | E-mailfacultatif | البريد الإلكترونياختياري |
-| Recevez votre confirmation par email. Ton adresse sert uniquement à t'envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
+| Reçois ta confirmation par email. Ton adresse sert uniquement à t'envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
+| Casablanca | الدار البيضاء |
+| Rabat | الرباط |
 | Salé | سلا |
+| Fès | فاس |
+| Marrakech | مراكش |
+| Tanger | طنجة |
+| Agadir | أكادير |
 | Meknès | مكناس |
 | Oujda | وجدة |
 | Kénitra | القنيطرة |
 | Tétouan | تطوان |
+| Témara | تمارة |
+| Safi | آسفي |
+| Mohammédia | المحمدية |
 | El Jadida | الجديدة |
+| Béni Mellal | بني ملال |
+| Nador | الناظور |
+| Khouribga | خريبكة |
+| Settat | سطات |
+| Laâyoune | العيون |
+| Aïn Harrouda | عين حرودة |
+| Aït Melloul | آيت ملول |
+| Al Hoceïma | الحسيمة |
+| Asilah | أصيلة |
+| Azemmour | أزمور |
+| Azilal | أزيلال |
+| Azrou | أزرو |
+| Ben Guerir | ابن جرير |
+| Benslimane | بنسليمان |
+| Berkane | بركان |
+| Berrechid | برشيد |
+| Biougra | بيوكرى |
+| Boujdour | بوجدور |
+| Bouskoura | بوسكورة |
+| Bouznika | بوزنيقة |
+| Chefchaouen | شفشاون |
+| Chichaoua | شيشاوة |
+| Dakhla | الداخلة |
+| Dar Bouazza | دار بوعزة |
+| Dcheira El Jihadia | الدشيرة الجهادية |
+| Demnate | دمنات |
+| Driouch | الدريوش |
+| El Hajeb | الحاجب |
+| El Kelâa des Sraghna | قلعة السراغنة |
+| Errachidia | الرشيدية |
+| Essaouira | الصويرة |
+| Es-Semara | السمارة |
+| Fnideq | الفنيدق |
+| Fquih Ben Salah | الفقيه بن صالح |
+| Guelmim | كلميم |
+| Guercif | جرسيف |
+| Ifrane | إفران |
+| Imzouren | إمزورن |
+| Inezgane | إنزكان |
+| Jerada | جرادة |
+| Kasba Tadla | قصبة تادلة |
+| Khémisset | الخميسات |
+| Khénifra | خنيفرة |
+| Ksar El Kébir | القصر الكبير |
+| Larache | العرائش |
+| Martil | مرتيل |
+| M'diq | المضيق |
+| Médiouna | مديونة |
+| Midelt | ميدلت |
+| Mechra Bel Ksiri | مشرع بلقصيري |
+| Nouaceur | النواصر |
+| Oualidia | الوليدية |
+| Ouarzazate | ورزازات |
+| Ouazzane | وزان |
+| Oued Zem | وادي زم |
+| Oulad Teïma | أولاد تايمة |
+| Sefrou | صفرو |
+| Sidi Bennour | سيدي بنور |
+| Sidi Ifni | سيدي إفني |
+| Sidi Kacem | سيدي قاسم |
+| Sidi Slimane | سيدي سليمان |
+| Sidi Yahya El Gharb | سيدي يحيى الغرب |
+| Skhirat | الصخيرات |
+| Souk El Arbaa | سوق الأربعاء |
+| Tan-Tan | طانطان |
+| Taounate | تاونات |
+| Taourirt | تاوريرت |
+| Taroudant | تارودانت |
+| Tata | طاطا |
+| Taza | تازة |
+| Tiflet | تيفلت |
+| Tinghir | تنغير |
+| Tit Mellil | تيط مليل |
+| Tiznit | تزنيت |
+| Youssoufia | اليوسفية |
+| Zagora | زاكورة |
+| Zaïo | زايو |
 | J'ai lu et j'accepte les | قرأت وأوافق على |
 | CGV | الشروط العامة للبيع |
 | et la | وعلى |
@@ -156,7 +234,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Ta commande est bien enregistrée. On t'appelle pour confirmer avant la livraison. | تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل. |
 | Droit de rétractation de 7 jours après réception (loi 31-08). | حق التراجع خلال 7 أيام من الاستلام (القانون 31-08). |
 | Recevoir le récapitulatif sur WhatsApp | استلام الملخص عبر واتساب |
-| Choisis ton format | اختاري الحجم |
 | Idéal pour commencer | مثالي للبداية |
 | Petit format | الحجم الصغير |
 | 299 DH | 299 درهم |
@@ -175,30 +252,16 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Découvrir les soins | اكتشفي المنتجات |
 | La routine anti-taches | روتين ضد البقع |
 | Pour les taches | للبقع |
-| La routine anti-taches, en 4 soins | روتين ضد البقع، في 4 منتجات |
-| Contre les taches brunes, les taches pigmentaires et le teint irrégulier. Fais défiler pour découvrir chaque soin. | للبقع البنية، البقع الصبغية ولون البشرة غير الموحد. مرّري لاكتشاف كل منتج. |
-| Soin précédent | المنتج السابق |
-| Gel nettoyant anti-taches OTAGE N°01 | جل منظف ضد البقع OTAGE رقم 01 |
-| Matin et soir | صباحًا ومساءً |
+| Contre les taches brunes, les taches pigmentaires et le teint irrégulier : 4 soins qui se suivent, matin et soir. La fiche de chaque soin donne sa contenance, son prix et son mode d'emploi. | للبقع البنية، البقع الصبغية ولون البشرة غير الموحد: 4 منتجات متتالية، صباحًا ومساءً. صفحة كل منتج تبيّن حجمه، ثمنه وطريقة استعماله. |
 | Gel nettoyant anti-taches | جل منظف ضد البقع |
-| 200 ml | 200 مل |
-| Contenance : 200 ml en Grand format, 125 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format. | السعة: 200 مل في الحجم الكبير، 125 مل في الحجم الصغير. يباع ضمن مجموعة العناية ضد البقع: 299 درهم بالحجم الصغير، 599 درهم بالحجم الكبير. |
-| Sérum anti-taches OTAGE N°02 | سيروم ضد البقع OTAGE رقم 02 |
-| 30 ml | 30 مل |
-| Contenance : 30 ml en Grand format, 15 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format. | السعة: 30 مل في الحجم الكبير، 15 مل في الحجم الصغير. يباع ضمن مجموعة العناية ضد البقع: 299 درهم بالحجم الصغير، 599 درهم بالحجم الكبير. |
-| Crème anti-taches OTAGE N°03 | كريم ضد البقع OTAGE رقم 03 |
-| 50 ml | 50 مل |
-| Contenance : 50 ml en Grand format, 30 ml en Petit format. Vendu dans la gamme anti-taches : 299 DH en Petit format, 599 DH en Grand format. | السعة: 50 مل في الحجم الكبير، 30 مل في الحجم الصغير. يباع ضمن مجموعة العناية ضد البقع: 299 درهم بالحجم الصغير، 599 درهم بالحجم الكبير. |
-| Écran solaire SPF 50 OTAGE N°04 | واقي الشمس SPF 50 من OTAGE رقم 04 |
-| Le matin | في الصباح |
-| Soin suivant | المنتج التالي |
-| Offre 2 + 1 : la gamme à 199 DH 299 DH | عرض 2 + 1: المجموعة بـ 199 درهم 299 درهم |
 | Voir l'offre | اكتشفي العرض |
+| Revoir la routine, étape par étape | مراجعة الروتين خطوة بخطوة |
 | Le soin des cernes | عناية الهالات السوداء |
 | Pour les cernes | للهالات السوداء |
 | Le sérum contour des yeux | سيروم محيط العين |
 | Pour les cernes et le contour des yeux fatigué. Ce qu'il faut savoir avant de l'adopter. | للهالات السوداء ومحيط العين المتعب. كل ما يجب معرفته قبل استعماله. |
 | Sérum contour des yeux OTAGE N°05, 15 ml | سيروم محيط العين OTAGE رقم 05، 15 مل |
+| Matin et soir | صباحًا ومساءً |
 | Sérum contour des yeux | سيروم محيط العين |
 | 15 ml | 15 مل |
 | Un applicateur bille pour le contour de l'œil. | بكرة دوارة لمحيط العين. |
@@ -208,7 +271,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Prix : 130 DH, ou 87 DH le sérum avec l'offre 2 + 1. | الثمن: 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1. |
 | Sur la peau | على البشرة |
 | Une texture légère qui se glisse sous le maquillage, matin et soir. | قوام خفيف يوضع تحت المكياج، صباحًا ومساءً. |
-| Offre 2 + 1 : le sérum à 87 DH 130 DH | عرض 2 + 1: السيروم بـ 87 درهم 130 درهم |
+| Offre 2 + 1 : le sérum à 87 DH | عرض 2 + 1: السيروم بـ 87 درهم |
 | Pour les odeurs | للروائح |
 | Notre déodorant arrive bientôt. | مزيل العرق قادم قريبًا. |
 | On le prépare avec le même soin que le reste de la gamme. En attendant, découvre nos autres soins. | نحضّره بنفس العناية التي نوليها لباقي منتجاتنا. في الانتظار، اكتشفي منتجاتنا الأخرى. |
@@ -290,15 +353,18 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Vos soins sont fabriqués où ? | أين تُصنع منتجاتكم؟ |
 | Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban. | في المغرب، بمكونات مثل التين الشوكي واللبان. |
 | Ce qui fait la différence. | ما يصنع الفرق. |
+| Figue de Barbarie, louban, sans sulfate | التين الشوكي، اللبان، بدون سلفات |
+| Matcha, calendula, alpha-arbutine | ماتشا، آذريون (كاليندولا)، ألفا أربوتين |
+| Niacinamide, acide hyaluronique, AHA | نياسيناميد، حمض الهيالورونيك، أحماض AHA |
 | Le produit en photos | المنتج بالصور |
 | Ta routine du soir t'attend. | روتينك المسائي في انتظارك. |
-| Gamme complète : livraison offerte. Paiement à la livraison. | المجموعة الكاملة: توصيل مجاني. الدفع عند الاستلام. |
+| Gamme complète dès 299 DH, livraison offerte. Paiement à la livraison. | المجموعة الكاملة ابتداءً من 299 درهم، والتوصيل مجاني. الدفع عند الاستلام. |
 | Pied de page | أسفل الصفحة |
 | Le site | الموقع |
 | Les affiches | الملصقات |
 | Les avis | الآراء |
 | Les offres | العروض |
-| Vos questions | أسئلتكن |
+| Tes questions | أسئلتكن |
 | Les soins | المنتجات |
 | Conseils peau | نصائح للبشرة |
 | Taches pigmentaires | البقع الصبغية |
@@ -339,7 +405,8 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Écrire au fondateur sur WhatsApp | راسلي المؤسس على واتساب |
 | Poser ma question | اطرحي سؤالك |
 | C'est bon, je commande | تمام، أطلب الآن |
-| dès 199 DH la gamme avec l'offre 2 + 1 | ابتداءً من 199 درهم للمجموعة مع عرض 2 + 1 |
+| Gamme complète | المجموعة الكاملة |
+| dès 299 DH, livraison offerte | ابتداءً من 299 درهم، والتوصيل مجاني |
 
 ## Tous les soins
 
@@ -357,6 +424,10 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Fil d'Ariane | مسار التصفح |
 | Les soins OTAGE | منتجات OTAGE |
 | Une routine anti-taches en 4 soins, et un sérum contour des yeux. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
+| Gel nettoyant anti-taches OTAGE N°01 | جل منظف ضد البقع OTAGE رقم 01 |
+| Sérum anti-taches OTAGE N°02 | سيروم ضد البقع OTAGE رقم 02 |
+| Crème anti-taches OTAGE N°03 | كريم ضد البقع OTAGE رقم 03 |
+| Écran solaire SPF 50 OTAGE N°04 | واقي الشمس SPF 50 من OTAGE رقم 04 |
 | Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir. | بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً. |
 | Gamme anti-taches | مجموعة العناية ضد البقع |
 | La gamme anti-taches complète dès 299 DH, ou 199 DH la gamme avec l'offre 2 + 1. | المجموعة الكاملة ضد البقع ابتداءً من 299 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. |
@@ -392,13 +463,16 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Quand : Matin et soir. | متى : صباحًا ومساءً. |
 | Sa place dans la routine | مكانه في الروتين |
 | La routine anti-taches se fait en 4 étapes le matin, 3 le soir (sans écran solaire). | روتين العناية ضد البقع يتكون من 4 خطوات في الصباح و3 في المساء (بدون واقي الشمس). |
+| Le matin | في الصباح |
 | Contenances et prix | الأحجام والأسعار |
+| Format | الحجم |
 | Contenance | السعة |
 | Prix à l'unité | ثمن القطعة |
 | Dans la gamme (4 soins) | ضمن المجموعة (4 منتجات) |
 | 125 ml | 125 مل |
 | 299 DH au lieu de 496 DH | 299 درهم بدل 496 درهم |
 | Offre 2 + 1 : 199 DH | عرض 2 + 1 : 199 درهم |
+| 200 ml | 200 مل |
 | 140 DH | 140 درهم |
 | 599 DH au lieu de 800 DH | 599 درهم بدل 800 درهم |
 | Offre 2 + 1 : 399 DH | عرض 2 + 1 : 399 درهم |
@@ -467,6 +541,7 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | à l'unité, Petit format (15 ml) | للقطعة، الحجم الصغير (15 مل) |
 | Pour les taches brunes, les taches pigmentaires (hyperpigmentation) et le teint irrégulier. C'est le cœur de la routine contre les taches. | للبقع البنية، البقع الصبغية (فرط التصبغ) واللون غير الموحد. هو قلب روتين العناية ضد البقع. |
 | 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
+| 30 ml | 30 مل |
 | 265 DH | 265 درهم |
 | de 198 à 208 DH | من 198 إلى 208 درهم |
 | Tu paies de 198 à 208 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 198 إلى 208 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
@@ -494,6 +569,7 @@ Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` 
 | à l'unité, Petit format (30 ml) | للقطعة، الحجم الصغير (30 مل) |
 | Pour les peaux au teint irrégulier ou marquées par des taches, qui veulent hydrater et unifier le teint après le sérum. On l'appelle aussi crème éclaircissante. | للبشرة ذات اللون غير الموحد أو التي بها بقع، لترطيبها وتوحيد لونها بعد السيروم. يسمى أيضًا كريمًا مفتّحًا. |
 | Une noisette sur le visage et le cou, en mouvements vers le haut. | كمية صغيرة على الوجه والرقبة، بحركات نحو الأعلى. |
+| 50 ml | 50 مل |
 | 205 DH | 205 درهم |
 | de 165 à 175 DH | من 165 إلى 175 درهم |
 | Tu paies de 165 à 175 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 165 إلى 175 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
@@ -938,7 +1014,7 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Paiement | الدفع |
 | À la livraison | عند الاستلام |
 | Pour ton sérum contour des yeux. | لسيروم محيط العين. |
-| Pour ta routine anti-taches. | لروتينك ضد البقع. |
+| Gamme complète dès {p} DH, livraison offerte. | المجموعة الكاملة ابتداءً من {p} درهم، والتوصيل مجاني. |
 | DH le sérum | درهم للسيروم |
 | DH la gamme | درهم للمجموعة |
 | <b>{p}</b> DH <small>la gamme</small> | <b>{p}</b> درهم <small>للمجموعة</small> |
@@ -1009,4 +1085,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-830 textes à relire.
+906 textes à relire.

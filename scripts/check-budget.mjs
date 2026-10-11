@@ -12,8 +12,9 @@ import { gzipSync } from "node:zlib";
 
 const BASE = process.env.BASE || "http://localhost:3000";
 /* Ko compressés (gzip) : [JavaScript, CSS, HTML, polices préchargées] */
-const HOME = { js: 165, css: 26, html: 46, fonts: 64 };
-const PAGE = { js: 155, css: 8, html: 20, fonts: 64 };
+// HTML : relevé de 46 à 48 Ko (accueil) et de 20 à 22 Ko (pages) avec la liste des 92 villes du formulaire de commande
+const HOME = { js: 165, css: 26, html: 48, fonts: 64 };
+const PAGE = { js: 155, css: 8, html: 22, fonts: 64 };
 const PAGES = [
   ["/", HOME], ["/ar", HOME],
   ["/soins/serum-anti-taches", PAGE], ["/ar/soins/serum-anti-taches", PAGE],

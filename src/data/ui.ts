@@ -88,7 +88,7 @@ const fr = {
   email: "E-mail",
   emailOpt: "facultatif",
   emailPh: "prenom@exemple.com",
-  emailHint: "Recevez votre confirmation par email.",
+  emailHint: "Reçois ta confirmation par email.",
   emailConsent: "Ton adresse sert uniquement à t'envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08).",
   submit: "Valider ma commande",
   payNote: "à la livraison.",

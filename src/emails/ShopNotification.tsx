@@ -12,7 +12,7 @@ export type ShopEmail = OrderEmail & { email?: string; page?: string };
 export const confirmMessage = (o: ShopEmail) =>
   o.locale === "ar"
     ? `مرحبًا ${firstName(o.nom)}، معك OTAGE. توصلنا بطلبك رقم ${o.numero} (${amount(o.priced.total, "ar")}، الدفع عند الاستلام). هل تؤكدين الطلب وعنوان التوصيل؟`
-    : `Bonjour ${firstName(o.nom)}, ici OTAGE. Nous avons bien reçu votre commande ${o.numero} (${amount(o.priced.total, "fr")}, paiement à la livraison). Vous confirmez la commande et l'adresse de livraison ?`;
+    : `Bonjour ${firstName(o.nom)}, ici OTAGE. On a bien reçu ta commande ${o.numero} (${amount(o.priced.total, "fr")}, paiement à la livraison). Tu confirmes la commande et l'adresse de livraison ?`;
 
 export const shopSubject = (o: ShopEmail) => `Nouvelle commande ${o.numero} : ${o.nom}, ${amount(o.priced.total, "fr")}`;
 

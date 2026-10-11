@@ -1,4 +1,4 @@
-/* E-mail de confirmation de commande envoyé à la cliente, en français ou en arabe (droite à gauche).
+/* E-mail de confirmation de commande envoyé à la cliente, en français (tutoiement, comme le site) ou en arabe (droite à gauche).
    Mise en page en tableaux et styles en ligne (messageries), largeur maximale 600 px.
    Rien d'important n'est montré seulement en image : le numéro et le total sont du texte. Aucun pixel de suivi. */
 import { Body, Column, Container, Head, Html, Img, Link, Preview, Row, Section, Text } from "@react-email/components";

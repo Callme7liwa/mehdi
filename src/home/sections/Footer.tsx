@@ -2,7 +2,7 @@ import type { HomeText } from "../text";
 import { problemPages, trustPages } from "@/data/pages";
 import { gamme } from "@/data/products";
 import { products } from "@/data/products";
-import { formatDate, site, type Locale } from "@/data/site";
+import { formatDate, site, type Locale, waLink } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
 export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
@@ -51,7 +51,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="fc-t">{t.footerNousSuivre}</p>
             <ul>
               <li><a href={site.instagram.url} target="_blank" rel="noopener" className="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg><span dir="ltr">{site.instagram.handle}</span></a></li>
-              <li><a href="#" target="_blank" rel="noopener" className="fc-ic foot-wa" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" /></svg><span>{t.footerWhatsapp}</span></a></li>
+              <li><a href={waLink()} target="_blank" rel="noopener" className="fc-ic foot-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" /></svg><span>{t.footerWhatsapp}</span></a></li>
               <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
             </ul>
           </div>

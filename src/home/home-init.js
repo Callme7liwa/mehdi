@@ -1294,9 +1294,6 @@ export function initHome(cfg) {
       window.OTAGE && OTAGE.glideTo ? OTAGE.glideTo(y) : window.scrollTo(0, y);
     }));
     f.querySelector("[data-go-routine]").addEventListener("click", (e) => { e.preventDefault(); window.OTAGE && OTAGE.goToStep && OTAGE.goToStep(0); });
-    // même numéro WhatsApp que la FAQ (à renseigner là-bas)
-    const faqWa = document.querySelector(".faq .wa");
-    if (faqWa && !faqWa.hidden) { const w = f.querySelector(".foot-wa"); w.href = faqWa.href; w.hidden = false; }
     if (reduce) { f.style.setProperty("--sun", "0%"); f.style.setProperty("--word", "0%"); return; }
     // le soleil et le logo montent pendant qu'on arrive en bas de page
     let tick = false;

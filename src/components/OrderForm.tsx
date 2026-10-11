@@ -9,13 +9,15 @@ export type OrderData = {
   product: "taches" | "yeux";
   formats: Record<"petit" | "grand", { label: string; labelFr: string; price: number; was: number; content: string }>;
   yeuxPrice: number;
-  /** Vente à l'unité du soin de la page (Petit format). Absent : seule la gamme (ou le sérum contour des yeux) se commande. */
-  unit?: { name: string; nameFr: string; size: string; sizeFr: string; price: number };
+  /** Vente à l'unité : les soins de la gamme, chacun dans ses formats. Absent : seule la gamme (ou le sérum contour des yeux) se commande. */
+  units?: { key: string; name: string; nameFr: string; formats: Partial<Record<"petit" | "grand", { label: string; labelFr: string; size: string; sizeFr: string; price: number }>> }[];
+  /** Le soin de la page : présélectionné dans la vente à l'unité. */
+  unitDefault?: string;
   /** Villes proposées, dans la langue de la page. */
   cities: string[];
 };
 export type OrderText = Record<
-  | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
+  | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseProducts" | "unitHint" | "errEmpty" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
   | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
@@ -34,17 +36,21 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const yeux = data.product === "yeux";
   const [fmt, setFmt] = useState<"petit" | "grand">("petit");
   const [qty, setQty] = useState<1 | 3>(3);
-  /* sur la page d'un soin de la gamme : le soin seul (par défaut) ou la gamme complète */
-  const [what, setWhat] = useState<"unit" | "gamme">(data.unit ? "unit" : "gamme");
-  const [units, setUnits] = useState(1);
-  const unit = what === "unit" ? data.unit : undefined;
+  /* sur la page d'un soin de la gamme : des soins à l'unité (par défaut) ou la gamme complète */
+  const [what, setWhat] = useState<"unit" | "gamme">(data.units ? "unit" : "gamme");
+  /* panier à l'unité : pour chaque soin, un format et une quantité (0 = pas dans la commande) */
+  const [cart, setCart] = useState<Record<string, { fmt: "petit" | "grand"; qty: number }>>(() =>
+    Object.fromEntries((data.units ?? []).map((u) => [u.key, { fmt: (u.formats.petit ? "petit" : "grand") as "petit" | "grand", qty: u.key === data.unitDefault ? 1 : 0 }])));
+  const unitMode = what === "unit" && Boolean(data.units);
+  const picked = unitMode ? (data.units ?? []).filter((u) => cart[u.key].qty > 0).map((u) => ({ u, f: u.formats[cart[u.key].fmt]!, qty: cart[u.key].qty })) : [];
+  const setItem = (key: string, change: Partial<{ fmt: "petit" | "grand"; qty: number }>) => setCart((c) => ({ ...c, [key]: { ...c[key], ...change } }));
   const [err, setErr] = useState("");
   const [bad, setBad] = useState<string[]>([]);
   const [doneName, setDoneName] = useState<string | null>(null);
 
   const price = yeux ? data.yeuxPrice : data.formats[fmt].price;
   const per = Math.round((price * 2) / 3);
-  const total = unit ? unit.price * units : qty === 3 ? price * 2 : price;
+  const total = unitMode ? picked.reduce((sum, x) => sum + x.f.price * x.qty, 0) : qty === 3 ? price * 2 : price;
   const word = yeux ? t.serumWord : t.rangeWord, words = yeux ? t.serumsWord : t.rangesWord;
 
   const flush = async () => {
@@ -75,6 +81,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
       (e.currentTarget.elements.namedItem(wrong[0]) as HTMLInputElement).focus();
       return;
     }
+    if (unitMode && !picked.length) { setErr(t.errEmpty); return; }
     setErr("");
     if (v("site")) return; // robot détecté (champ piège rempli)
     const label = yeux ? "Sérum contour des yeux" : data.formats[fmt].labelFr;
@@ -83,11 +90,13 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
       ticket: String(Math.floor(1000 + Math.random() * 9000)),
       nom: v("nom"), tel: v("tel"), ville: v("ville"), adresse: v("adresse"),
       // le tableur des commandes reçoit toujours des libellés en français
-      produit: unit ? `${unit.nameFr} (à l'unité)` : yeux ? "Sérum contour des yeux" : "Gamme anti-taches",
-      format: unit ? `Petit format (${unit.sizeFr})` : yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
-      quantite: unit ? String(units) : qty === 3 ? "3 (2 + 1 offerte)" : "1",
+      produit: unitMode ? "Soins à l'unité" : yeux ? "Sérum contour des yeux" : "Gamme anti-taches",
+      format: unitMode ? [...new Set(picked.map((x) => x.f.labelFr))].join(" + ") : yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
+      quantite: unitMode ? String(picked.reduce((n, x) => n + x.qty, 0)) : qty === 3 ? "3 (2 + 1 offerte)" : "1",
       total,
-      offre: unit ? `${unit.nameFr}, ${units} × ${unit.price} DH` : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`,
+      offre: unitMode
+        ? picked.map((x) => `${x.qty} × ${x.u.nameFr}, ${x.f.labelFr} (${x.f.sizeFr}), ${x.f.price} DH`).join(" ; ")
+        : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`,
       page: location.href.split("#")[0],
     };
     writeQ([...readQ(), order]);
@@ -108,15 +117,14 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const invalid = (n: string) => (bad.includes(n) ? { "aria-invalid": true as const } : {});
   return (
     <form className="order" onSubmit={submit} noValidate>
-      {data.unit && (
+      {data.units && (
         <fieldset>
           <legend>{t.chooseWhat}</legend>
           <div className="opts">
             <label className="opt">
               <input type="radio" name={`${id}-what`} checked={what === "unit"} onChange={() => setWhat("unit")} />
               <b>{t.unitAlone}</b>
-              <span>{data.unit.name}, {data.unit.size}</span>
-              <span><em>{data.unit.price} {t.dh}</em></span>
+              <span>{t.unitHint}</span>
             </label>
             <label className="opt">
               <input type="radio" name={`${id}-what`} checked={what === "gamme"} onChange={() => setWhat("gamme")} />
@@ -126,17 +134,35 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           </div>
         </fieldset>
       )}
-      {unit && (
+      {unitMode && (
         <fieldset>
-          <legend>{t.quantity}</legend>
-          <div className="stepper">
-            <button type="button" aria-label={t.less} disabled={units <= 1} onClick={() => setUnits((n) => Math.max(1, n - 1))}>−</button>
-            <output aria-live="polite">{units}</output>
-            <button type="button" aria-label={t.more} disabled={units >= 9} onClick={() => setUnits((n) => Math.min(9, n + 1))}>+</button>
-          </div>
+          <legend>{t.chooseProducts}</legend>
+          <ul className="ulist">
+            {data.units!.map((u) => {
+              const it = cart[u.key];
+              return (
+                <li key={u.key} className={it.qty ? "on" : undefined}>
+                  <b>{u.name}</b>
+                  <div className="ufmt" role="group" aria-label={`${t.chooseFormat} : ${u.name}`}>
+                    {(["petit", "grand"] as const).filter((f) => u.formats[f]).map((f) => (
+                      <label key={f}>
+                        <input type="radio" name={`${id}-${u.key}-fmt`} checked={it.fmt === f} onChange={() => setItem(u.key, { fmt: f, qty: Math.max(1, it.qty) })} />
+                        <span>{u.formats[f]!.label}, {u.formats[f]!.size}<em>{u.formats[f]!.price} {t.dh}</em></span>
+                      </label>
+                    ))}
+                  </div>
+                  <div className="stepper" role="group" aria-label={`${t.quantity} : ${u.name}`}>
+                    <button type="button" aria-label={t.less} disabled={it.qty <= 0} onClick={() => setItem(u.key, { qty: Math.max(0, it.qty - 1) })}>−</button>
+                    <output aria-live="polite">{it.qty}</output>
+                    <button type="button" aria-label={t.more} disabled={it.qty >= 9} onClick={() => setItem(u.key, { qty: Math.min(9, it.qty + 1) })}>+</button>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </fieldset>
       )}
-      {!yeux && !unit && (
+      {!yeux && !unitMode && (
         <fieldset>
           <legend>{t.chooseFormat}</legend>
           <div className="opts">
@@ -151,7 +177,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           </div>
         </fieldset>
       )}
-      {!unit && <fieldset>
+      {!unitMode && <fieldset>
         <legend>{yeux ? t.chooseOfferOnly : t.chooseOffer}</legend>
         <div className="opts">
           <label className="opt">

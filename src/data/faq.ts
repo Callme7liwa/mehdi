@@ -100,11 +100,12 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
   if (p.range === "taches") {
     const sizeFr = sizes.map((f) => `${p.ml[f]} ml en ${gamme.formats[f].label.fr}`).join(", ");
     const sizeAr = sizes.map((f) => `${p.ml[f]} مل في ${gamme.formats[f].label.ar}`).join("، ");
-    const unit = p.unitPrice.petit;
+    const unitFr = sizes.filter((f) => p.unitPrice[f]).map((f) => `<b>${p.unitPrice[f]} DH</b> en ${gamme.formats[f].label.fr}`).join(", ");
+    const unitAr = sizes.filter((f) => p.unitPrice[f]).map((f) => `<b>${p.unitPrice[f]} درهم</b> في ${gamme.formats[f].label.ar}`).join("، ");
     out.push({
       q: T(locale, "Quelle contenance et quel prix ?", "ما الحجم وما الثمن؟"),
       a: [
-        T(locale, `${sizeFr}.${unit ? ` À l'unité, le Petit format coûte <b>${unit} DH</b>.` : ""}`, `${sizeAr}.${unit ? ` ثمن الحجم الصغير منفردًا <b>${unit} درهم</b>.` : ""}`),
+        T(locale, `${sizeFr}. À l'unité : ${unitFr}.`, `${sizeAr}. الثمن منفردًا: ${unitAr}.`),
         T(
           locale,
           `Dans la gamme anti-taches complète (4 soins) : ${P.price} DH en Petit format au lieu de ${P.was} DH, ${G.price} DH en Grand format au lieu de ${G.was} DH. Livraison offerte.`,

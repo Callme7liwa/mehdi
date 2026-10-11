@@ -1,5 +1,5 @@
 import OrderForm, { type OrderData, type OrderText } from "./OrderForm";
-import { gamme, productByKey, yeuxPrice, type FormatKey, type ProductKey } from "@/data/products";
+import { gamme, productByKey, rangeProducts, unitFormats, yeuxPrice, type FormatKey, type ProductKey } from "@/data/products";
 import { site, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
 
@@ -21,11 +21,16 @@ const content = (f: FormatKey, locale: Locale) =>
 export default function OrderBox({ locale, product, unitKey }: { locale: Locale; product: "taches" | "yeux"; unitKey?: ProductKey }) {
   const t = ui[locale];
   const fmt = (f: FormatKey) => ({ label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, price: gamme.formats[f].price, was: gamme.formats[f].was, content: content(f, locale) });
-  // vente à l'unité : Petit format, au prix à l'unité de products.ts (le prix du Grand format à l'unité n'est pas communiqué)
-  const u = unitKey ? productByKey(unitKey) : undefined;
-  const unit = u && u.range === "taches" && u.unitPrice.petit ? { name: u.name[locale], nameFr: u.name.fr, size: `${u.ml.petit} ${locale === "ar" ? "مل" : "ml"}`, sizeFr: `${u.ml.petit} ml`, price: u.unitPrice.petit } : undefined;
-  const data: OrderData = { endpoint: site.ordersEndpoint, product, formats: { petit: fmt("petit"), grand: fmt("grand") }, yeuxPrice, cities: CITIES[locale], unit };
-  const keys: (keyof OrderText)[] = ["chooseWhat", "unitAlone", "fullRange", "from", "quantity", "less", "more", "chooseFormat", "chooseOffer", "chooseOfferOnly", "yourInfo", "perRange", "perSerum", "rangeWord", "rangesWord", "serumWord", "serumsWord", "free", "freeM", "save", "total", "name", "namePh", "phone", "phonePh", "city", "cityPh", "address", "addressOpt", "addressPh", "submit", "payNote", "youPay", "errPhone", "errFields", "thanks", "done", "insteadOf", "bundle", "dh"];
+  // vente à l'unité : les 4 soins de la gamme, dans chacun de leurs formats (prix et contenances de products.ts)
+  const mlWord = locale === "ar" ? "مل" : "ml";
+  const units = unitKey && productByKey(unitKey).range === "taches"
+    ? rangeProducts.map((u) => ({
+        key: u.key, name: u.name[locale], nameFr: u.name.fr,
+        formats: Object.fromEntries(unitFormats(u).map((f) => [f, { label: gamme.formats[f].label[locale], labelFr: gamme.formats[f].label.fr, size: `${u.ml[f]} ${mlWord}`, sizeFr: `${u.ml[f]} ml`, price: u.unitPrice[f] as number }])),
+      }))
+    : undefined;
+  const data: OrderData = { endpoint: site.ordersEndpoint, product, formats: { petit: fmt("petit"), grand: fmt("grand") }, yeuxPrice, cities: CITIES[locale], units, unitDefault: unitKey };
+  const keys: (keyof OrderText)[] = ["chooseWhat", "unitAlone", "fullRange", "from", "quantity", "less", "more", "chooseProducts", "unitHint", "errEmpty", "chooseFormat", "chooseOffer", "chooseOfferOnly", "yourInfo", "perRange", "perSerum", "rangeWord", "rangesWord", "serumWord", "serumsWord", "free", "freeM", "save", "total", "name", "namePh", "phone", "phonePh", "city", "cityPh", "address", "addressOpt", "addressPh", "submit", "payNote", "youPay", "errPhone", "errFields", "thanks", "done", "insteadOf", "bundle", "dh"];
   const text = Object.fromEntries(keys.map((k) => [k, t[k]])) as OrderText;
   return <OrderForm data={data} t={text} />;
 }

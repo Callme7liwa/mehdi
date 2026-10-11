@@ -31,7 +31,7 @@ export interface Product {
   step: number | null;
   /** Contenance en ml par format. */
   ml: Partial<Record<FormatKey, number>>;
-  /** Prix à l'unité en DH par format. null = TODO, prix non communiqué. */
+  /** Prix à l'unité en DH par format. */
   unitPrice: Partial<Record<FormatKey, number | null>>;
   pack: Img;
   /** Grand visuel du flacon (fenêtre « Voir le soin »). */
@@ -73,7 +73,7 @@ export const products: Product[] = isolateAr([
     when: { fr: "Matin et soir", ar: "صباحًا ومساءً" },
     step: 1,
     ml: { petit: 125, grand: 200 },
-    unitPrice: { petit: 91, grand: null /* TODO : prix à l'unité du Grand format */ },
+    unitPrice: { petit: 91, grand: 140 },
     pack: img("gel-nettoyant-anti-taches-n01-200ml.webp", 122, 480, "Gel nettoyant anti-taches OTAGE N°01", "جل منظف ضد البقع OTAGE رقم 01"),
     hd: img("gel-nettoyant-anti-taches-n01-hd.webp", 255, 1000, "Gel nettoyant anti-taches OTAGE N°01, 200 ml", "جل منظف ضد البقع OTAGE رقم 01، 200 مل"),
     photos: [
@@ -116,7 +116,7 @@ export const products: Product[] = isolateAr([
     when: { fr: "Matin et soir", ar: "صباحًا ومساءً" },
     step: 2,
     ml: { petit: 15, grand: 30 },
-    unitPrice: { petit: 163, grand: null /* TODO */ },
+    unitPrice: { petit: 163, grand: 265 },
     pack: img("serum-anti-taches-n02-30ml.webp", 183, 480, "Sérum anti-taches OTAGE N°02", "سيروم ضد البقع OTAGE رقم 02"),
     hd: img("serum-anti-taches-n02-hd.webp", 381, 1000, "Sérum anti-taches OTAGE N°02, 30 ml", "سيروم ضد البقع OTAGE رقم 02، 30 مل"),
     photos: [
@@ -163,7 +163,7 @@ export const products: Product[] = isolateAr([
     when: { fr: "Matin et soir", ar: "صباحًا ومساءً" },
     step: 3,
     ml: { petit: 30, grand: 50 },
-    unitPrice: { petit: 130, grand: null /* TODO */ },
+    unitPrice: { petit: 130, grand: 205 },
     pack: img("creme-anti-taches-n03-50ml.webp", 117, 480, "Crème anti-taches OTAGE N°03", "كريم ضد البقع OTAGE رقم 03"),
     hd: img("creme-anti-taches-n03-hd.webp", 243, 1000, "Crème anti-taches OTAGE N°03, 50 ml", "كريم ضد البقع OTAGE رقم 03، 50 مل"),
     photos: [
@@ -204,7 +204,7 @@ export const products: Product[] = isolateAr([
     when: { fr: "Le matin", ar: "في الصباح" },
     step: 4,
     ml: { petit: 30, grand: 50 },
-    unitPrice: { petit: 112, grand: null /* TODO */ },
+    unitPrice: { petit: 112, grand: 190 },
     pack: img("ecran-solaire-spf50-n04-50ml.webp", 117, 480, "Écran solaire SPF 50 OTAGE N°04", "واقي الشمس SPF 50 من OTAGE رقم 04"),
     hd: img("ecran-solaire-spf50-n04-hd.webp", 245, 1000, "Écran solaire SPF 50 OTAGE N°04, 50 ml", "واقي الشمس SPF 50 من OTAGE رقم 04، 50 مل"),
     photos: [
@@ -269,12 +269,16 @@ export const rangeProducts = products.filter((p) => p.range === "taches");
 
 /* ---------- Ce qui se commande sur le site ---------- */
 
-/** La gamme anti-taches : les 4 soins vendus ensemble, en deux formats. `was` = prix boutique (somme des prix à l'unité). */
+/** Somme des prix à l'unité des 4 soins de la gamme, dans un format : le prix « boutique » de la gamme. */
+const unitSum = (f: FormatKey) => rangeProducts.reduce((sum, p) => sum + (p.unitPrice[f] ?? 0), 0);
+
+/** La gamme anti-taches : les mêmes 4 soins vendus ensemble, en deux formats (seules les contenances changent).
+    `was` = prix des 4 soins achetés à l'unité ; l'économie (was − price) n'est écrite nulle part, elle se calcule. */
 export const gamme = {
   name: { fr: "Gamme anti-taches", ar: "مجموعة العناية ضد البقع" } as L,
   formats: {
-    petit: { label: { fr: "Petit format", ar: "الحجم الصغير" } as L, price: 299, was: 496 },
-    grand: { label: { fr: "Grand format", ar: "الحجم الكبير" } as L, price: 599, was: 815 },
+    petit: { label: { fr: "Petit format", ar: "الحجم الصغير" } as L, price: 299, was: unitSum("petit") },
+    grand: { label: { fr: "Grand format", ar: "الحجم الكبير" } as L, price: 599, was: unitSum("grand") },
   } satisfies Record<FormatKey, { label: L; price: number; was: number }>,
   photos: [
     img("gamme-anti-taches-otage-trousse.webp", 1600, 1600, "La gamme anti-taches OTAGE dans sa trousse", "مجموعة العناية ضد البقع من OTAGE في حقيبتها"),
@@ -297,3 +301,8 @@ export const fmtMl = (v?: number) => (v ? `${v} ml` : "");
 /** Liste des ingrédients en une phrase : « figue de Barbarie, louban, sans sulfate » (les sigles gardent leurs majuscules). */
 export const ingredientList = (p: Product, locale: "fr" | "ar" = "fr") =>
   p.ingredients.map((i) => (locale === "fr" && !/^[A-Z]{2}/.test(i.fr) ? i.fr.charAt(0).toLowerCase() + i.fr.slice(1) : i[locale])).join(locale === "ar" ? "، " : ", ");
+
+/** Économie réalisée en prenant la gamme plutôt que les 4 soins à l'unité, dans un format. */
+export const gammeSaving = (f: FormatKey) => gamme.formats[f].was - gamme.formats[f].price;
+/** Les formats dans lesquels un soin se vend à l'unité (contenance et prix connus). */
+export const unitFormats = (p: Product) => (["petit", "grand"] as const).filter((f) => p.ml[f] && p.unitPrice[f]);

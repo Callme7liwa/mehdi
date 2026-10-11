@@ -140,8 +140,7 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
                     <tr key={f}>
                       <td><b>{gamme.formats[f].label[locale]}</b></td>
                       <td>{p.ml[f]} {ml}</td>
-                      {/* TODO : prix à l'unité du Grand format non communiqué */}
-                      <td>{p.unitPrice[f] ? `${p.unitPrice[f]} ${dh}` : t.onRequest}</td>
+                      <td>{p.unitPrice[f]} {dh}</td>
                       <td><b>{gamme.formats[f].price} {dh}</b> {t.insteadOf} <s>{gamme.formats[f].was} {dh}</s><br />{t.bundle} : {bundleUnit(gamme.formats[f].price)} {dh}</td>
                     </tr>
                   ))}

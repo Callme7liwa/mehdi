@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { abs, site, type Locale } from "@/data/site";
 import { plain, type Faq } from "@/data/faq";
-import { gamme, type FormatKey, type Img, type Product } from "@/data/products";
+import { gamme, unitFormats, type FormatKey, type Img, type Product } from "@/data/products";
 
 /** Chemin d'une page dans une langue : le français est à la racine, l'arabe sous /ar. */
 export const localePath = (locale: Locale, path = "/") => (locale === "ar" ? (path === "/" ? "/ar" : `/ar${path}`) : path);
@@ -150,17 +150,21 @@ const productBase = (name: string, description: string, images: Img[], category:
   category,
 });
 
-/** Un soin, sur sa page produit. Le prix est le prix à l'unité (Petit format pour la gamme anti-taches). */
+/** Un soin, sur sa page produit : une offre par format vendu à l'unité (prix, MAD, disponibilité). */
 export function productLd(p: Product, locale: Locale) {
   const url = abs(localePath(locale, `/soins/${p.slug}`));
-  const price = p.unitPrice.petit as number;
-  const size = p.ml.petit ? `${p.ml.petit} ml` : undefined;
+  const formats = unitFormats(p);
+  const offers = formats.map((f) => ({
+    ...offerLd(p.unitPrice[f] as number, url),
+    name: `${p.name[locale]}${formats.length > 1 ? `, ${gamme.formats[f].label[locale]}` : ""} (${p.ml[f]} ml)`,
+    sku: `OTAGE-${p.no.replace(/\D/g, "")}-${f === "grand" ? "G" : "P"}`,
+  }));
   return {
     ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], locale === "ar" ? (p.range === "yeux" ? "العناية بمحيط العين" : "العناية بالوجه ضد البقع") : p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches", locale),
     "@id": `${url}#product`,
     url,
-    ...(size ? { size } : {}),
-    offers: offerLd(price, url),
+    size: formats.map((f) => `${p.ml[f]} ml`).join(" / "),
+    offers: offers.length > 1 ? offers : offers[0],
   };
 }
 

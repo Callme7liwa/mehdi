@@ -844,29 +844,13 @@ Français : `/mentions-legales` · Arabe : `/ar/mentions-legales` · Source de l
 | **Titre de l'onglet (title)** Mentions légales \| OTAGE | إشعار قانوني \| OTAGE |
 | **Description (Google)** Mentions légales du site otage.ma : éditeur, hébergeur, propriété intellectuelle et données personnelles. | الإشعار القانوني لموقع otage.ma: الناشر، المستضيف، الملكية الفكرية والمعطيات الشخصية. |
 | Éditeur du site | ناشر الموقع |
-| Raison sociale : | الاسم التجاري: |
-| À compléter : raison sociale | يُستكمل لاحقًا: الاسم التجاري |
-| Forme juridique : | الشكل القانوني: |
-| À compléter : forme juridique et capital | يُستكمل لاحقًا: الشكل القانوني ورأس المال |
-| ICE : | ICE: |
-| À compléter : numéro ICE | يُستكمل لاحقًا: رقم التعريف الموحد للمقاولة |
-| Registre du commerce : | السجل التجاري: |
-| À compléter : numéro RC et ville | يُستكمل لاحقًا: رقم السجل التجاري والمدينة |
-| Siège social : | المقر الاجتماعي: |
-| À compléter : adresse | يُستكمل لاحقًا: العنوان |
-| E-mail : | البريد الإلكتروني: |
-| À compléter : adresse e-mail | يُستكمل لاحقًا: عنوان البريد الإلكتروني |
 | Téléphone / WhatsApp : +212688918201 | الهاتف / واتساب: +212688918201 |
-| Directeur de la publication : | مدير النشر: |
-| À compléter : nom du responsable | يُستكمل لاحقًا: اسم المسؤول |
 | Hébergeur | المستضيف |
 | Propriété intellectuelle | الملكية الفكرية |
 | La marque OTAGE, le logo, les textes, les photos et les vidéos de ce site appartiennent à l'éditeur. Toute reproduction sans autorisation écrite est interdite. | علامة OTAGE، الشعار، النصوص، الصور والفيديوهات على هذا الموقع ملك للناشر. يُمنع أي نسخ دون إذن كتابي. |
 | Données personnelles | المعطيات الشخصية |
 | Quand tu passes une commande, nous recueillons ton nom, ton numéro de téléphone, ta ville et, si tu la donnes, ton adresse. Ces informations servent uniquement à confirmer et livrer ta commande. Elles sont enregistrées dans un tableur Google (Google Sheets) et transmises au transporteur pour la livraison. Elles ne sont pas vendues. | حين تطلبين، نجمع اسمك، رقم هاتفك، مدينتك، وعنوانك إن أعطيته. تُستعمل هذه المعلومات فقط لتأكيد طلبك وتوصيله. تُسجل في جدول بيانات Google Sheets وتُسلَّم لشركة التوصيل من أجل التوصيل. لا تُباع. |
 | Conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, tu peux demander l'accès, la rectification ou la suppression de tes données en nous écrivant sur WhatsApp. | طبقًا للقانون المغربي رقم 09-08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي، يمكنك طلب الاطلاع على معطياتك، تصحيحها أو حذفها بمراسلتنا عبر واتساب. |
-| Déclaration à la CNDP : | التصريح لدى اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي: |
-| À compléter : numéro de déclaration ou d'autorisation CNDP | يُستكمل لاحقًا: رقم التصريح أو الإذن |
 | Cookies et mesure d'audience | ملفات تعريف الارتباط وقياس الزيارات |
 | Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper. | هذا الموقع لا يستعمل ملفات تعريف ارتباط إشهارية. يسجل فقط، في متصفحك، اختياراتك في العرض ومعلومات التوصيل التي أدخلتها، حتى لا تعيدي كتابتها. |
 | Produits cosmétiques | مستحضرات التجميل |
@@ -881,14 +865,11 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | **Titre de l'onglet (title)** Conditions générales de vente \| OTAGE | الشروط العامة للبيع \| OTAGE |
 | **Description (Google)** Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison au Maroc, paiement à la livraison, retour sous 7 jours. | الشروط العامة للبيع لدى OTAGE: المنتجات، الأسعار بالدرهم، الطلب، التوصيل المجاني في المغرب، والدفع عند الاستلام. |
 | 1. Objet | 1. الموضوع |
-| Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site otage.ma ou par WhatsApp, entre | تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع otage.ma أو عبر واتساب، بين |
-| À compléter : raison sociale du vendeur | يُستكمل لاحقًا: الاسم التجاري للبائع |
-| et ses clientes et clients au Maroc. | وزبوناته وزبنائه في المغرب. |
+| Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site otage.ma ou par WhatsApp, entre OTAGE et ses clientes et clients au Maroc. | تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع otage.ma أو عبر واتساب، بين OTAGE وزبوناته وزبنائه في المغرب. |
 | 2. Produits | 2. المنتجات |
 | Les produits proposés sont ceux présentés sur le site au jour de la commande : la gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), en Petit ou Grand format, et le sérum contour des yeux. Les photos ne sont pas contractuelles. | المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي الشمس SPF 50)، بالحجم الصغير أو الكبير، وسيروم محيط العين. الصور غير تعاقدية. |
 | 3. Prix | 3. الأسعار |
 | Les prix sont indiqués en dirhams marocains (DH). | الأسعار مبينة بالدرهم المغربي. |
-| À compléter : préciser si les prix sont TTC | يُستكمل لاحقًا: توضيح ما إذا كانت الأسعار شاملة للضرائب |
 | Gamme anti-taches Petit format : 299 DH. Grand format : 599 DH. | مجموعة العناية ضد البقع بالحجم الصغير: 299 درهم. بالحجم الكبير: 599 درهم. |
 | Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte (soit 199 DH la gamme en Petit format, 399 DH en Grand format). | عرض 2 + 1: عند شراء مجموعتين، الثالثة مجانًا (أي 199 درهم للمجموعة بالحجم الصغير، و399 درهم بالحجم الكبير). |
 | Sérum contour des yeux : 130 DH, ou 87 DH le sérum avec l'offre 2 + 1. | سيروم محيط العين: 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1. |
@@ -903,7 +884,6 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | La cliente dispose d'un délai de 7 jours à compter de la réception de sa commande pour exercer son droit de rétractation, sans avoir à se justifier ni à payer de pénalité. Il suffit de prévenir OTAGE dans ce délai, sur WhatsApp au +212 6 88 91 82 01 ou par e-mail à Dr.mouldwa@gmail.com, en indiquant son nom et son numéro de commande. | للزبونة أجل 7 أيام من تاريخ استلام طلبها لممارسة حق التراجع، دون تبرير ودون أي غرامة. يكفي إخبار OTAGE داخل هذا الأجل، عبر واتساب على الرقم +212 6 88 91 82 01 أو بالبريد الإلكتروني Dr.mouldwa@gmail.com، مع ذكر الاسم ورقم الطلب. |
 | Les produits retournés doivent être non ouverts et non utilisés, dans leur emballage d'origine. Les frais de retour sont pris en charge par OTAGE. | يجب أن تكون المنتجات المرجعة غير مفتوحة وغير مستعملة، في غلافها الأصلي. مصاريف الإرجاع تتحملها OTAGE. |
 | Au choix de la cliente, OTAGE rembourse les sommes versées ou échange le produit. | حسب اختيار الزبونة، ترد OTAGE المبالغ المدفوعة أو تستبدل المنتج. |
-| À compléter : délai de remboursement (à valider par un juriste) | يُستكمل لاحقًا: أجل استرجاع المبلغ (يُراجع مع مستشار قانوني) |
 | 8. Précautions d'emploi | 8. احتياطات الاستعمال |
 | Les soins OTAGE sont des produits cosmétiques, à usage externe. Fais un essai sur une petite zone avant la première utilisation. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. Enceinte ou allaitante, demande d'abord l'avis de ton médecin ou de ton pharmacien. | منتجات OTAGE مستحضرات تجميل، للاستعمال الخارجي. جربي على منطقة صغيرة قبل أول استعمال. في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. إن كنت حاملًا أو مرضعة، اسألي أولًا طبيبك أو الصيدلي. |
 | 9. Données personnelles | 9. المعطيات الشخصية |
@@ -911,7 +891,6 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | mentions légales | الإشعار القانوني |
 | 10. Droit applicable | 10. القانون المطبق |
 | Les présentes conditions sont soumises au droit marocain. | تخضع هذه الشروط للقانون المغربي. |
-| À compléter : tribunal compétent en cas de litige | يُستكمل لاحقًا: المحكمة المختصة في حال النزاع |
 
 ## Accueil : textes écrits par les animations (ticket, chat, fenêtres)
 
@@ -1023,4 +1002,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-844 textes à relire.
+823 textes à relire.

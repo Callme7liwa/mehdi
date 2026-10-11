@@ -117,7 +117,7 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
                 : ar
                   ? `المنتجات الأربعة ابتداءً من ${P.price} درهم بدل ${P.was} درهم، أو ${bundleUnit(P.price)} درهم للمجموعة مع عرض 2 + 1. `
                   : `Les 4 soins dès ${P.price} DH au lieu de ${P.was} DH, ou ${bundleUnit(P.price)} DH la gamme avec l'offre 2 + 1. `}
-              {ar ? `توصيل مجاني في كل أنحاء المغرب خلال ${site.delivery.label.ar}، والدفع عند الاستلام.` : `Livraison offerte partout au Maroc en ${site.delivery.label.fr}, paiement à la livraison.`}
+              {ar ? `التوصيل في كل أنحاء المغرب خلال ${site.delivery.label.ar}: مجاني للمجموعة الكاملة، ومن ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام.` : `Livraison en ${site.delivery.label.fr} partout au Maroc : offerte pour la gamme complète, de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville pour un achat à l'unité, paiement à la livraison.`}
             </p>
             <div className="btns">
               <a className="btn btn-primary" href={`${localePath(locale, "/")}${yeux ? "?produit=yeux" : ""}#offres`}>{t.seeOffer}<BagIcon /></a>

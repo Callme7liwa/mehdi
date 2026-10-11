@@ -30,7 +30,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener">{site.instagram.handle}</a> : nos nouveautés, et les messages privés pour nous écrire.</p>
 
       <h2>Commander</h2>
-      <p>Tu peux commander <Link href="/#offres">sur le site</Link> ou directement sur WhatsApp. Livraison offerte partout au Maroc en {site.delivery.label.fr}, paiement à la livraison.</p>
+      <p>Tu peux commander <Link href="/#offres">sur le site</Link> ou directement sur WhatsApp. Livraison en {site.delivery.label.fr} partout au Maroc : offerte pour la gamme complète, de {site.delivery.unitFee.min} à {site.delivery.unitFee.max} DH selon la ville pour un achat à l'unité, paiement à la livraison.</p>
       {/* TODO : adresse postale, si OTAGE souhaite l'afficher. */}
     </TextPage>
   );

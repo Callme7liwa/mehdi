@@ -741,7 +741,8 @@ export function initHome(cfg) {
         L.push({ k: "per", cls: "sub per", l: fill(TXT.perItem, { s: f.s }), r: `<s>${money(f.price)}</s>${money(Math.round((f.price * 2) / 3))}` });
       }
       L.push({ k: "ml", cls: "sub", l: (qty === 3 ? fill(TXT.each, { s: f.s }) : TXT.content) + f.content, r: "" });
-      L.push({ k: "liv", l: TXT.delivery, r: TXT.deliveryFree });
+      // gamme complète : livraison offerte ; sérum contour des yeux (achat à l'unité) : frais selon la ville
+      L.push(prod === "yeux" ? { k: "liv", l: `${TXT.delivery} <small>(${TXT.deliveryFeeNote})</small>`, r: TXT.deliveryFee } : { k: "liv", l: TXT.delivery, r: TXT.deliveryFree });
       L.push({ k: "pay", l: TXT.payment, r: TXT.paymentCod });
       return L;
     };
@@ -835,6 +836,7 @@ export function initHome(cfg) {
       $("[data-mini-lbl]").textContent = qty === 3 ? fill(TXT.three, { pl: f.pl }) : fill(TXT.one, { s: f.s });
       $("[data-total2]").textContent = t.total;
       $("[data-total3]").textContent = t.total;
+      $("[data-pay-note]").textContent = prod === "yeux" ? TXT.payNoteFee : TXT.payNoteFree;
       sec.querySelectorAll(".fsw").forEach((b) => { const on = b.dataset.f === fmt; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
       {
         const ups = $(".ups"), G = F.grand, Pt = F.petit;
@@ -1037,7 +1039,7 @@ export function initHome(cfg) {
         format: prod === "yeux" ? "Unique (15 ml)" : F[fmt].labelFr,
         quantite: qty === 3 ? "3 (2 + 1 offerte)" : "1",
         total: t.total,
-        offre: t.recapFr,
+        offre: t.recapFr + (prod === "yeux" ? " + livraison 35 à 45 DH selon la ville" : " (livraison offerte)"),
         page: location.href.split("#")[0],
       };
       sendOrder(order);

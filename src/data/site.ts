@@ -55,12 +55,21 @@ export const site = {
   /** Application web Google Apps Script qui reçoit les commandes (Google Sheet + e-mail). */
   ordersEndpoint: "https://script.google.com/macros/s/AKfycbx3oe7dX8dQH3r7bBNo0am2F4Egk9jNVdc5h6-yvWQ-e55La6RJCxxH1vkp8KOIf_tb/exec",
 
+  /** Livraison : partout au Maroc, en 24 à 72 h. Offerte pour une gamme complète ; payante pour un achat à l'unité
+      (soins de la gamme achetés séparément, sérum contour des yeux). */
   delivery: {
     country: "MA",
-    free: true,
     minHours: 24,
     maxHours: 72,
     label: { fr: "24 à 72 h", ar: "من 24 إلى 72 ساعة" } as L,
+    /** Frais pour un achat à l'unité, en DH. TODO : grille des frais par ville (le client annonce « de 35 à 45 DH selon la ville »). */
+    unitFee: { min: 35, max: 45 },
+    feeLabel: { fr: "35 à 45 DH selon la ville", ar: "من 35 إلى 45 درهمًا حسب المدينة" } as L,
+    /** La règle complète, en une phrase. */
+    rule: {
+      fr: "Livraison offerte pour la gamme complète ; de 35 à 45 DH selon la ville pour un achat à l'unité",
+      ar: "التوصيل مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة",
+    } as L,
   },
   payment: {
     fr: "Paiement à la livraison, en espèces",

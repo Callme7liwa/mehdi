@@ -13,13 +13,15 @@ export type OrderData = {
   units?: { key: string; name: string; nameFr: string; formats: Partial<Record<"petit" | "grand", { label: string; labelFr: string; size: string; sizeFr: string; price: number }>> }[];
   /** Le soin de la page : présélectionné dans la vente à l'unité. */
   unitDefault?: string;
+  /** Frais de livraison d'un achat à l'unité, en DH (la gamme complète est livrée gratuitement). */
+  fee: { min: number; max: number; label: string };
   /** Villes proposées, dans la langue de la page. */
   cities: string[];
 };
 export type OrderText = Record<
   | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseProducts" | "unitHint" | "errEmpty" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
-  | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
+  | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
 >;
 
@@ -51,6 +53,9 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
   const price = yeux ? data.yeuxPrice : data.formats[fmt].price;
   const per = Math.round((price * 2) / 3);
   const total = unitMode ? picked.reduce((sum, x) => sum + x.f.price * x.qty, 0) : qty === 3 ? price * 2 : price;
+  /* livraison : offerte pour une gamme complète ; à l'unité (soins séparés, sérum contour des yeux), frais selon la ville */
+  const fee = unitMode || yeux ? data.fee : null;
+  const toPay = fee ? `${t.totalFrom} ${total + fee.min} ${t.totalTo} ${total + fee.max} ${t.dh}` : `${total} ${t.dh}`;
   const word = yeux ? t.serumWord : t.rangeWord, words = yeux ? t.serumsWord : t.rangesWord;
 
   const flush = async () => {
@@ -94,9 +99,10 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
       format: unitMode ? [...new Set(picked.map((x) => x.f.labelFr))].join(" + ") : yeux ? "Unique (15 ml)" : data.formats[fmt].labelFr,
       quantite: unitMode ? String(picked.reduce((n, x) => n + x.qty, 0)) : qty === 3 ? "3 (2 + 1 offerte)" : "1",
       total,
-      offre: unitMode
+      offre: (unitMode
         ? picked.map((x) => `${x.qty} × ${x.u.nameFr}, ${x.f.labelFr} (${x.f.sizeFr}), ${x.f.price} DH`).join(" ; ")
-        : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`,
+        : `${label}, ${qty === 3 ? (yeux ? "2 sérums + 1 offert" : "2 gammes + 1 offerte") : yeux ? "1 sérum" : "1 gamme"}`)
+        + (fee ? ` + livraison ${fee.min} à ${fee.max} DH selon la ville (total de ${total + fee.min} à ${total + fee.max} DH)` : " (livraison offerte)"),
       page: location.href.split("#")[0],
     };
     writeQ([...readQ(), order]);
@@ -204,10 +210,14 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
         </div>
         <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       </fieldset>
-      <p className="order-total"><span>{t.total}</span><b>{total} {t.dh}</b></p>
+      <div className="order-sum">
+        {fee && <p><span>{t.subtotal}</span><b>{total} {t.dh}</b></p>}
+        <p><span>{t.delivery}</span><b>{fee ? fee.label : t.deliveryFree}</b></p>
+        <p className="order-total"><span>{t.total}</span><b>{toPay}</b></p>
+      </div>
       <p className="order-err" role="alert">{err}</p>
       <button type="submit" className="btn btn-primary">{t.submit}<BagIcon /></button>
-      <p className="order-note">{t.youPay} <b>{total} {t.dh}</b> {t.payNote}</p>
+      <p className="order-note">{t.youPay} <b>{toPay}</b> {t.payNote}{fee ? ` ${t.feeNote}` : ""}</p>
     </form>
   );
 }

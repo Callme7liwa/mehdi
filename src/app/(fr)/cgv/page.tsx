@@ -8,7 +8,7 @@ const info = {
   path: "/cgv",
   label: "CGV",
   title: "Conditions générales de vente | OTAGE",
-  description: "Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison offerte au Maroc, paiement à la livraison.",
+  description: "Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison au Maroc, paiement à la livraison, retour sous 7 jours.",
   h1: "Conditions générales de vente",
   draft: !L.raisonSociale || !site.returns,
 };
@@ -38,7 +38,7 @@ export default function Page() {
       <p>La commande se passe sur le site (nom, téléphone, ville, adresse) ou par WhatsApp. Elle devient définitive après confirmation par téléphone avec OTAGE.</p>
 
       <h2>5. Livraison</h2>
-      <p>La livraison est offerte partout au Maroc. Le délai indicatif est de {site.delivery.label.fr} après confirmation de la commande.</p>
+      <p>La livraison se fait partout au Maroc. Elle est offerte pour l'achat d'une gamme complète. Pour un achat à l'unité, les frais de livraison sont de {site.delivery.unitFee.min} à {site.delivery.unitFee.max} DH selon la ville ; ils s'ajoutent au total et sont confirmés à la cliente avant l'envoi. Le délai indicatif est de {site.delivery.label.fr} après confirmation de la commande.</p>
 
       <h2>6. Paiement</h2>
       <p>Le paiement se fait à la livraison, en espèces, à la remise du colis. Aucun paiement n'est demandé en ligne.</p>

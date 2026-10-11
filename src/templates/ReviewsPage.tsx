@@ -24,7 +24,7 @@ const copy = {
     translation: "Traduction",
     note: "Chaque peau est différente : ces messages racontent l'expérience de ces clientes, pas une promesse de résultat.",
     cta: "Envie d'essayer ?",
-    ctaText: "Livraison offerte partout au Maroc, paiement à la livraison.",
+    ctaText: "Livraison en 24 à 72 h partout au Maroc, paiement à la livraison.",
   },
   ar: {
     label: "آراء الزبونات",
@@ -39,7 +39,7 @@ const copy = {
     translation: "الترجمة",
     note: "كل بشرة مختلفة: هذه الرسائل تحكي تجربة هؤلاء الزبونات، وليست وعدًا بالنتيجة.",
     cta: "تريدين التجربة؟",
-    ctaText: "توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام.",
+    ctaText: "التوصيل من 24 إلى 72 ساعة في كل أنحاء المغرب، والدفع عند الاستلام.",
   },
 };
 const nameAr: Record<string, string> = { Nabila: "نبيلة", Awatef: "عواطف" };

@@ -84,7 +84,7 @@ export default function ProductPage({ p, locale }: { p: Product; locale: Locale 
           </div>
 
           <ul className="facts">
-            <li><TruckIcon />{t.freeDelivery}</li>
+            <li><TruckIcon />{taches ? t.deliveryFees : `${t.delivery} : ${site.delivery.feeLabel[locale]}`}</li>
             <li><ClockIcon />{t.deliveryTime} {site.delivery.label[locale]}</li>
             <li><CashIcon />{t.cod}</li>
             <li><PinIcon />{t.madeInMorocco}</li>

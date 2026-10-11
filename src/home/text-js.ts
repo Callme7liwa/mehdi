@@ -31,6 +31,10 @@ const fr = {
   content: "Contenu : ",
   delivery: "Livraison",
   deliveryFree: "Offerte",
+  deliveryFee: "35 à 45 DH",
+  deliveryFeeNote: "selon la ville",
+  payNoteFree: " à la livraison. Livraison offerte.",
+  payNoteFee: " à la livraison, plus les frais de livraison (35 à 45 DH selon la ville).",
   payment: "Paiement",
   paymentCod: "À la livraison",
   recapBundle: "2 {pl} + 1 {free}",
@@ -71,12 +75,12 @@ const fr = {
     { t: "Alpha-arbutine, matcha, calendula", s: "Le trio du sérum anti-taches N° 02." },
     { t: "Figue de Barbarie et louban", s: "Des ingrédients d'ici, dans un gel nettoyant sans sulfate." },
     { t: "SPF 50, haute protection", s: "UVA et UVB, pour que les taches ne reviennent pas." },
-    { t: "Fabriqué au Maroc", s: "Livraison offerte partout au Maroc, paiement à la livraison." },
+    { t: "Fabriqué au Maroc", s: "Gamme complète : livraison offerte. Paiement à la livraison." },
   ],
   galYeux: [
     { t: "Bille rafraîchissante", s: "Un applicateur bille pour le contour de l'œil, matin et soir." },
     { t: "Caféine, acide hyaluronique, aloe vera", s: "Les 3 actifs du sérum N° 05, en 15 ml." },
-    { t: "Fabriqué au Maroc", s: "Livraison offerte partout au Maroc, paiement à la livraison." },
+    { t: "Fabriqué au Maroc", s: "Livraison en 24 à 72 h, paiement à la livraison." },
   ],
 };
 
@@ -111,6 +115,10 @@ const ar: HomeJsText = {
   content: "المحتوى: ",
   delivery: "التوصيل",
   deliveryFree: "مجاني",
+  deliveryFee: "من 35 إلى 45 درهمًا",
+  deliveryFeeNote: "حسب المدينة",
+  payNoteFree: " عند الاستلام. التوصيل مجاني.",
+  payNoteFee: " عند الاستلام، زائد مصاريف التوصيل (من 35 إلى 45 درهمًا حسب المدينة).",
   payment: "الدفع",
   paymentCod: "عند الاستلام",
   recapBundle: "2 {pl} + 1 {free}",
@@ -148,12 +156,12 @@ const ar: HomeJsText = {
     { t: "ألفا أربوتين، ماتشا، آذريون", s: "ثلاثي سيروم ضد البقع رقم 02." },
     { t: "التين الشوكي واللبان", s: "مكونات من هنا، في جل منظف بدون سلفات." },
     { t: "SPF 50، حماية عالية", s: "UVA و UVB، حتى لا تعود البقع." },
-    { t: "صنع في المغرب", s: "توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام." },
+    { t: "صنع في المغرب", s: "المجموعة الكاملة: توصيل مجاني. الدفع عند الاستلام." },
   ],
   galYeux: [
     { t: "بكرة منعشة", s: "بكرة دوارة لمحيط العين، صباحًا ومساءً." },
     { t: "كافيين، حمض الهيالورونيك، ألوفيرا", s: "المكونات الثلاثة لسيروم رقم 05، في 15 مل." },
-    { t: "صنع في المغرب", s: "توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام." },
+    { t: "صنع في المغرب", s: "التوصيل من 24 إلى 72 ساعة، والدفع عند الاستلام." },
   ],
 };
 

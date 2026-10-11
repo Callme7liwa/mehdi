@@ -7,8 +7,8 @@ import TextPage, { textMetadata } from "@/templates/TextPage";
 const info = {
   path: "/livraison-paiement",
   label: "Livraison et paiement",
-  title: "Livraison offerte et paiement à la livraison | OTAGE",
-  description: `Livraison OTAGE offerte partout au Maroc en ${site.delivery.label.fr}. Paiement à la livraison, en espèces : rien à payer en ligne. On t'appelle pour confirmer ta commande.`,
+  title: "Livraison, paiement à la livraison et retours | OTAGE",
+  description: `Livraison OTAGE en ${site.delivery.label.fr} partout au Maroc : offerte pour la gamme complète, de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH à l'unité. Paiement à la livraison, en espèces.`,
   h1: "Livraison et paiement",
 };
 export const metadata = textMetadata(info);
@@ -18,7 +18,7 @@ const items = faq.fr.filter((f) => questions.includes(f.q));
 
 export default function Page() {
   return (
-    <TextPage info={info} lead={`Livraison offerte partout au Maroc en ${site.delivery.label.fr}. Tu paies à la réception, en espèces.`} extraLd={[faqLd(items, `${abs(info.path)}#faq`)]}>
+    <TextPage info={info} lead={`Livraison en ${site.delivery.label.fr} partout au Maroc, offerte pour la gamme complète. Tu paies à la réception, en espèces.`} extraLd={[faqLd(items, `${abs(info.path)}#faq`)]}>
       <h2>Comment se passe une commande</h2>
       <ol>
         <li><b>Tu commandes</b> sur le site en 20 secondes (nom, téléphone, ville) ou sur WhatsApp.</li>
@@ -31,7 +31,8 @@ export default function Page() {
       <ul>
         <li>Zone : tout le Maroc.</li>
         <li>Délai : {site.delivery.label.fr}.</li>
-        <li>Frais : offerts, quel que soit le format ou le nombre de gammes.</li>
+        <li>Gamme complète : livraison <b>offerte</b>, quel que soit le format ou le nombre de gammes.</li>
+        <li>Achat à l'unité (un ou plusieurs soins séparés, sérum contour des yeux) : <b>de {site.delivery.unitFee.min} à {site.delivery.unitFee.max} DH selon la ville</b>, ajoutés au total. On te confirme le montant exact par téléphone, avant l'envoi.</li>
       </ul>
 
       <h2>Paiement</h2>

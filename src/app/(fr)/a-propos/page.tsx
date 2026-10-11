@@ -41,7 +41,7 @@ export default function Page() {
         <li><b>Des prix affichés.</b> Le ticket de commande s'écrit sous tes yeux : tout est affiché, rien n'est caché.</li>
         <li><b>Pas de promesse miracle.</b> Les taches s'estompent petit à petit, pas du jour au lendemain. Nous le disons clairement.</li>
         <li><b>Tu paies à la livraison.</b> Rien à avancer en ligne, pas besoin de carte bancaire.</li>
-        <li><b>Livraison offerte</b> partout au Maroc, en {site.delivery.label.fr}.</li>
+        <li><b>Livraison en {site.delivery.label.fr}</b> partout au Maroc : offerte pour la gamme complète, de {site.delivery.unitFee.min} à {site.delivery.unitFee.max} DH selon la ville à l'unité.</li>
       </ul>
 
       <h2>Fabriqué au Maroc, avec un laboratoire partenaire</h2>

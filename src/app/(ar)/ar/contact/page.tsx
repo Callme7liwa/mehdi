@@ -31,7 +31,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener"><span dir="ltr">{site.instagram.handle}</span></a>: جديدنا، والرسائل الخاصة لمراسلتنا.</p>
 
       <h2>الطلب</h2>
-      <p>يمكنك الطلب <Link href="/ar#offres">من الموقع</Link> أو مباشرة عبر واتساب. توصيل مجاني في كل أنحاء المغرب خلال {site.delivery.label.ar}، والدفع عند الاستلام.</p>
+      <p>يمكنك الطلب <Link href="/ar#offres">من الموقع</Link> أو مباشرة عبر واتساب. التوصيل في كل أنحاء المغرب خلال {site.delivery.label.ar}: مجاني للمجموعة الكاملة، ومن {site.delivery.unitFee.min} إلى {site.delivery.unitFee.max} درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام.</p>
     </TextPage>
   );
 }

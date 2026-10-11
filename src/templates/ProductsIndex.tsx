@@ -11,16 +11,16 @@ import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from 
 const copy = {
   fr: {
     title: "Soins anti-taches et contour des yeux | OTAGE",
-    description: "Les 5 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50 et sérum contour des yeux. Livraison offerte.",
+    description: "Les 5 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50 et sérum contour des yeux. Livraison en 24 à 72 h.",
     h1: "Les soins OTAGE",
-    lead: "Une routine anti-taches en 4 soins, et un sérum contour des yeux. Fabriqués au Maroc, livrés gratuitement, payés à la livraison.",
+    lead: "Une routine anti-taches en 4 soins, et un sérum contour des yeux. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.",
     offer: (p: number, b: number) => `La gamme anti-taches complète dès ${p} DH, ou ${b} DH la gamme avec l'offre 2 + 1.`,
   },
   ar: {
     title: "منتجات العناية ضد البقع ومحيط العين | OTAGE",
-    description: "منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. توصيل مجاني.",
+    description: "منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. التوصيل من 24 إلى 72 ساعة.",
     h1: "منتجات OTAGE",
-    lead: "روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، توصيل مجاني والدفع عند الاستلام.",
+    lead: "روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     offer: (p: number, b: number) => `المجموعة الكاملة ضد البقع ابتداءً من ${p} درهم، أو ${b} درهم للمجموعة مع عرض 2 + 1.`,
   },
 };

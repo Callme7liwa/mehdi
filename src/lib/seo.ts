@@ -110,13 +110,16 @@ export const faqLd = (faqs: Faq[], id: string) => ({
   mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: plain(f) } })),
 });
 
-const shipping = () => ({
+/** Livraison : offerte pour une gamme complète ; de 35 à 45 MAD selon la ville pour un achat à l'unité. 1 à 3 jours, au Maroc. */
+const shipping = (unit: boolean) => ({
   "@type": "OfferShippingDetails",
-  shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "MAD" },
+  shippingRate: unit
+    ? { "@type": "MonetaryAmount", minValue: site.delivery.unitFee.min.toFixed(2), maxValue: site.delivery.unitFee.max.toFixed(2), currency: "MAD" }
+    : { "@type": "MonetaryAmount", value: "0", currency: "MAD" },
   shippingDestination: { "@type": "DefinedRegion", addressCountry: site.delivery.country },
   deliveryTime: {
     "@type": "ShippingDeliveryTime",
-    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "DAY" },
+    handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
     transitTime: { "@type": "QuantitativeValue", minValue: Math.round(site.delivery.minHours / 24), maxValue: Math.round(site.delivery.maxHours / 24), unitCode: "DAY" },
   },
 });
@@ -127,7 +130,8 @@ const returnPolicy = () =>
     ? { hasMerchantReturnPolicy: { "@type": "MerchantReturnPolicy", applicableCountry: "MA", returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays: site.returns.days, returnMethod: "https://schema.org/ReturnByMail" } }
     : {};
 
-export const offerLd = (price: number, url: string) => ({
+/** `unit` : achat à l'unité (livraison payante) ; sinon gamme complète (livraison offerte). */
+export const offerLd = (price: number, url: string, unit: boolean) => ({
   "@type": "Offer",
   url,
   price: price.toFixed(2),
@@ -135,7 +139,7 @@ export const offerLd = (price: number, url: string) => ({
   availability: "https://schema.org/InStock",
   itemCondition: "https://schema.org/NewCondition",
   seller: ORG,
-  shippingDetails: shipping(),
+  shippingDetails: shipping(unit),
   ...returnPolicy(),
 });
 
@@ -155,7 +159,7 @@ export function productLd(p: Product, locale: Locale) {
   const url = abs(localePath(locale, `/soins/${p.slug}`));
   const formats = unitFormats(p);
   const offers = formats.map((f) => ({
-    ...offerLd(p.unitPrice[f] as number, url),
+    ...offerLd(p.unitPrice[f] as number, url, true),
     name: `${p.name[locale]}${formats.length > 1 ? `, ${gamme.formats[f].label[locale]}` : ""} (${p.ml[f]} ml)`,
     sku: `OTAGE-${p.no.replace(/\D/g, "")}-${f === "grand" ? "G" : "P"}`,
   }));
@@ -174,7 +178,7 @@ export function gammeLd(format: FormatKey, desc: string) {
   return {
     ...productBase(`${gamme.name.fr} ${site.name}, ${f.label.fr}`, desc, gamme.photos.slice(0, 2), "Soins du visage anti-taches"),
     "@id": abs(`/#gamme-anti-taches-${format}-format`),
-    offers: offerLd(f.price, abs("/#offres")),
+    offers: offerLd(f.price, abs("/#offres"), false),
   };
 }
 

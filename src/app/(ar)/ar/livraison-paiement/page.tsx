@@ -9,8 +9,8 @@ import TextPage, { textMetadata } from "@/templates/TextPage";
 const info = {
   path: "/livraison-paiement",
   label: "التوصيل والدفع",
-  title: "توصيل مجاني في المغرب والدفع عند الاستلام | OTAGE",
-  description: `توصيل OTAGE مجاني في كل أنحاء المغرب خلال ${site.delivery.label.ar}. الدفع عند الاستلام، نقدًا: لا شيء يُدفع عبر الإنترنت. نتصل بك لتأكيد طلبك.`,
+  title: "التوصيل، الدفع عند الاستلام والإرجاع | OTAGE",
+  description: `توصيل OTAGE في كل أنحاء المغرب خلال ${site.delivery.label.ar}: مجاني للمجموعة الكاملة، ومن ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا للمنتجات المنفردة. الدفع عند الاستلام، نقدًا.`,
   h1: "التوصيل والدفع",
 };
 export const metadata = textMetadata(info, "ar");
@@ -20,7 +20,7 @@ const items = faq.ar.filter((f) => questions.includes(f.q));
 
 export default function Page() {
   return (
-    <TextPage locale="ar" info={info} lead={`توصيل مجاني في كل أنحاء المغرب خلال ${site.delivery.label.ar}. تدفعين عند الاستلام، نقدًا.`} extraLd={[faqLd(items, `${abs("/ar" + info.path)}#faq`)]}>
+    <TextPage locale="ar" info={info} lead={`التوصيل في كل أنحاء المغرب خلال ${site.delivery.label.ar}، مجاني للمجموعة الكاملة. تدفعين عند الاستلام، نقدًا.`} extraLd={[faqLd(items, `${abs("/ar" + info.path)}#faq`)]}>
       <h2>كيف يتم الطلب</h2>
       <ol>
         <li><b>تطلبين</b> من الموقع في 20 ثانية (الاسم، الهاتف، المدينة) أو عبر واتساب.</li>
@@ -33,7 +33,8 @@ export default function Page() {
       <ul>
         <li>المنطقة: كل المغرب.</li>
         <li>المدة: {site.delivery.label.ar}.</li>
-        <li>التكلفة: مجانًا، مهما كان الحجم أو عدد المجموعات.</li>
+        <li>المجموعة الكاملة: التوصيل <b>مجاني</b>، مهما كان الحجم أو عدد المجموعات.</li>
+        <li>شراء منتجات منفردة (منتج أو أكثر، سيروم محيط العين): <b>من {site.delivery.unitFee.min} إلى {site.delivery.unitFee.max} درهمًا حسب المدينة</b>، تُضاف إلى المجموع. نؤكد لك المبلغ الدقيق هاتفيًا قبل الإرسال.</li>
       </ul>
 
       <h2>الدفع</h2>

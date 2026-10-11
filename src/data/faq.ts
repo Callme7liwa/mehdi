@@ -14,10 +14,10 @@ const ml = (k: Parameters<typeof productByKey>[0], f: "petit" | "grand") => prod
 export const faq: Record<Locale, Faq[]> = {
   fr: [
     { q: "Je paie quand ?", a: ["À la livraison, en espèces, quand le livreur te remet ton colis.", "Rien à payer en ligne, pas besoin de carte bancaire."] },
-    { q: "La livraison est payante ?", a: ["Non, elle est <b>offerte partout au Maroc</b>, quel que soit le format ou le nombre de gammes."] },
+    { q: "La livraison est payante ?", a: ["Pour une gamme complète, elle est <b>offerte</b>, quel que soit le format ou le nombre de gammes.", `Pour un achat à l'unité, elle coûte <b>de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville</b>, ajoutés au total. On te confirme le montant exact par téléphone.`] },
     { q: "Je suis livrée en combien de temps ?", a: [`Compte <b>${site.delivery.label.fr}</b>, partout au Maroc. On t'appelle d'abord pour confirmer ta commande.`] },
     { q: "C'est quoi l'offre 2 + 1 ?", a: ["Tu prends 2 gammes, la 3e est offerte.", `En Petit format : <b>${bundleUnit(P.price)} DH la gamme</b> au lieu de ${P.price} DH, soit ${nb(bundleTotal(P.price))} DH les 3. En Grand format : <b>${bundleUnit(G.price)} DH</b> au lieu de ${G.price} DH, soit ${nb(bundleTotal(G.price))} DH les 3.`] },
-    { q: "Combien coûte la gamme anti-taches ?", a: [`Le Petit format coûte <b>${P.price} DH</b> la gamme au lieu de ${P.was} DH, le Grand format <b>${G.price} DH</b> au lieu de ${G.was} DH.`, `Avec l'offre 2 + 1, la gamme revient à ${bundleUnit(P.price)} DH en Petit format et à ${bundleUnit(G.price)} DH en Grand format. La livraison est offerte.`] },
+    { q: "Combien coûte la gamme anti-taches ?", a: [`Le Petit format coûte <b>${P.price} DH</b> la gamme au lieu de ${P.was} DH, le Grand format <b>${G.price} DH</b> au lieu de ${G.was} DH.`, `Avec l'offre 2 + 1, la gamme revient à ${bundleUnit(P.price)} DH en Petit format et à ${bundleUnit(G.price)} DH en Grand format. La livraison de la gamme est offerte.`] },
     { q: "Qu'est-ce qu'il y a dans une gamme ?", a: ["Les 4 soins de la routine : gel nettoyant, sérum anti-taches, crème anti-taches et écran solaire SPF 50.", `En Grand format : gel ${ml("gel", "grand")} ml, sérum ${ml("serum", "grand")} ml, crème ${ml("creme", "grand")} ml et écran solaire ${ml("ecran", "grand")} ml. En Petit format : gel ${ml("gel", "petit")} ml, sérum ${ml("serum", "petit")} ml, crème ${ml("creme", "petit")} ml et écran solaire ${ml("ecran", "petit")} ml.`] },
     { q: "Comment j'utilise la routine ?", a: ["Le matin : gel nettoyant, sérum, crème, puis écran solaire.", "Le soir : les 3 premiers, sans écran solaire. Le sérum, c'est le cœur de la routine contre les taches."] },
     { q: "Quels sont les ingrédients actifs ?", a: ["Gel nettoyant : figue de Barbarie et louban, sans sulfate. Sérum anti-taches : alpha-arbutine, matcha et calendula. Crème anti-taches : niacinamide, acide hyaluronique et AHA.", "L'écran solaire SPF 50 offre une haute protection UVA/UVB."] },
@@ -33,10 +33,10 @@ export const faq: Record<Locale, Faq[]> = {
   /* À relire par un natif. Même ordre et mêmes informations que le français. */
   ar: isolateAll([
     { q: "متى أدفع؟", a: ["عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك.", "لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية."] },
-    { q: "هل التوصيل مدفوع؟", a: ["لا، التوصيل <b>مجاني في كل أنحاء المغرب</b>، مهما كان الحجم أو عدد المجموعات."] },
+    { q: "هل التوصيل مدفوع؟", a: ["للمجموعة الكاملة، التوصيل <b>مجاني</b>، مهما كان الحجم أو عدد المجموعات.", `عند شراء منتجات منفردة، ثمنه <b>من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة</b>، يُضاف إلى المجموع. نؤكد لك المبلغ الدقيق هاتفيًا.`] },
     { q: "كم يستغرق التوصيل؟", a: [`<b>${site.delivery.label.ar}</b>، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك.`] },
     { q: "ما هو عرض 2 + 1؟", a: ["تأخذين مجموعتين، والثالثة مجانًا.", `بالحجم الصغير: <b>${bundleUnit(P.price)} درهم للمجموعة</b> بدل ${P.price} درهم، أي ${nb(bundleTotal(P.price))} درهم للثلاث. بالحجم الكبير: <b>${bundleUnit(G.price)} درهم</b> بدل ${G.price} درهم، أي ${nb(bundleTotal(G.price))} درهم للثلاث.`] },
-    { q: "كم ثمن مجموعة العناية ضد البقع؟", a: [`الحجم الصغير بـ <b>${P.price} درهم</b> للمجموعة بدل ${P.was} درهم، والحجم الكبير بـ <b>${G.price} درهم</b> بدل ${G.was} درهم.`, `مع عرض 2 + 1، تصبح المجموعة بـ ${bundleUnit(P.price)} درهم بالحجم الصغير و${bundleUnit(G.price)} درهم بالحجم الكبير. التوصيل مجاني.`] },
+    { q: "كم ثمن مجموعة العناية ضد البقع؟", a: [`الحجم الصغير بـ <b>${P.price} درهم</b> للمجموعة بدل ${P.was} درهم، والحجم الكبير بـ <b>${G.price} درهم</b> بدل ${G.was} درهم.`, `مع عرض 2 + 1، تصبح المجموعة بـ ${bundleUnit(P.price)} درهم بالحجم الصغير و${bundleUnit(G.price)} درهم بالحجم الكبير. توصيل المجموعة مجاني.`] },
     { q: "ماذا تحتوي المجموعة؟", a: ["منتجات الروتين الأربعة: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50.", `بالحجم الكبير: جل ${ml("gel", "grand")} مل، سيروم ${ml("serum", "grand")} مل، كريم ${ml("creme", "grand")} مل وواقي شمس ${ml("ecran", "grand")} مل. بالحجم الصغير: جل ${ml("gel", "petit")} مل، سيروم ${ml("serum", "petit")} مل، كريم ${ml("creme", "petit")} مل وواقي شمس ${ml("ecran", "petit")} مل.`] },
     { q: "كيف أستعمل الروتين؟", a: ["في الصباح: الجل المنظف، السيروم، الكريم، ثم واقي الشمس.", "في المساء: المنتجات الثلاثة الأولى، بدون واقي الشمس. السيروم هو قلب الروتين ضد البقع."] },
     { q: "ما هي المكونات الفعالة؟", a: ["الجل المنظف: التين الشوكي واللبان، بدون سلفات. سيروم ضد البقع: ألفا أربوتين، ماتشا وآذريون. كريم ضد البقع: نياسيناميد، حمض الهيالورونيك وأحماض AHA.", "واقي الشمس SPF 50 يوفر حماية عالية من UVA و UVB."] },
@@ -108,15 +108,15 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
         T(locale, `${sizeFr}. À l'unité : ${unitFr}.`, `${sizeAr}. الثمن منفردًا: ${unitAr}.`),
         T(
           locale,
-          `Dans la gamme anti-taches complète (4 soins) : ${P.price} DH en Petit format au lieu de ${P.was} DH, ${G.price} DH en Grand format au lieu de ${G.was} DH. Livraison offerte.`,
-          `ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): ${P.price} درهم بالحجم الصغير بدل ${P.was} درهم، و${G.price} درهم بالحجم الكبير بدل ${G.was} درهم. التوصيل مجاني.`,
+          `Dans la gamme anti-taches complète (4 soins) : ${P.price} DH en Petit format au lieu de ${P.was} DH, ${G.price} DH en Grand format au lieu de ${G.was} DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
+          `ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): ${P.price} درهم بالحجم الصغير بدل ${P.was} درهم، و${G.price} درهم بالحجم الكبير بدل ${G.was} درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`,
         ),
       ],
     });
   } else {
     out.push({
       q: T(locale, "Quelle contenance et quel prix ?", "ما الحجم وما الثمن؟"),
-      a: [T(locale, `${p.ml.petit} ml. Il coûte <b>${yeuxPrice} DH</b>, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1 (${bundleTotal(yeuxPrice)} DH les 3). Livraison offerte.`, `${p.ml.petit} مل. ثمنه <b>${yeuxPrice} درهم</b>، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1 (${bundleTotal(yeuxPrice)} درهم للثلاثة). التوصيل مجاني.`)],
+      a: [T(locale, `${p.ml.petit} ml. Il coûte <b>${yeuxPrice} DH</b>, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1 (${bundleTotal(yeuxPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`, `${p.ml.petit} مل. ثمنه <b>${yeuxPrice} درهم</b>، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1 (${bundleTotal(yeuxPrice)} درهم للثلاثة). التوصيل: من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`)],
     });
   }
 

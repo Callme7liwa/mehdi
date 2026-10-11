@@ -2733,4 +2733,6 @@ a.qv-more { display: inline-flex; align-items: center; justify-content: center; 
   .faces span:nth-child(3) { background: #9a4a41; }
 }
 @media (max-width: 399px) { .pins .laurel { visibility: hidden; } }
+/* très petits écrans : les deux atouts restent sur une ligne */
+@media (max-width: 359px) { .perks { font-size: 12px; gap: 6px 10px; } .perks li { gap: 4px; } }
 @keyframes flagInFlat { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }

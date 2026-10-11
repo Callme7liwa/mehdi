@@ -68,7 +68,7 @@ export default function Offers({ t }: { t: HomeText }) {
                   <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <p className="tk-err" role="alert"></p>
                   <button type="submit" className="o-btn o-primary o-lg tk-send"><span className="o-lbl">{t.offersValiderMaCommande}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></button>
-                  <p className="cur-note">{t.offersTuPaies}<b><span data-total3="">{P.price}</span>{t.offersDh}</b>{t.offersALaLivraisonLivraison}</p>
+                  <p className="cur-note">{t.offersTuPaies}<b><span data-total3="">{P.price}</span>{t.offersDh}</b><span data-pay-note="">{t.offersALaLivraisonLivraison}</span></p>
                 </form>
                 <div className="cur-done" hidden>
                   <svg className="od-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>

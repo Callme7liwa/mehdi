@@ -12,7 +12,7 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
       <div className="of-in">
         <header className="of-head">
           <h2 id="offers-title">{t.offersLOffreANe}</h2>
-          <p><span data-offer-for="">{t.offersPourTaRoutineAnti}</span>{t.offersTonTicketSEcrit}</p>
+          <p><span data-offer-for="">{t.msgGammeA}{P.price}{t.msgGammeB}{t.offersPourTaRoutineAnti}</span>{t.offersTonTicketSEcrit}</p>
         </header>
 
         <div className="tk-grid">
@@ -21,8 +21,8 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
 
 
             <div className="fsw-wrap" role="radiogroup" aria-label={t.offersFormat}>
-              <button type="button" className="fsw" role="radio" aria-checked="true" data-f="petit"><span className="fsw-pic" style={{ "--s": "0.62" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersPetitFormat}</b><small>{t.offersDes}{bundleUnit(P.price)}{t.offersDhLaGamme}</small></span></button>
-              <button type="button" className="fsw" role="radio" aria-checked="false" data-f="grand"><span className="fsw-pic" style={{ "--s": "1" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersGrandFormat}</b><small>{t.offersDes}{bundleUnit(G.price)}{t.offersDhLaGamme}</small></span></button>
+              <button type="button" className="fsw" role="radio" aria-checked="true" data-f="petit"><span className="fsw-pic" style={{ "--s": "0.62" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersPetitFormat}</b><small><em>{P.price}{t.offersDh}</em> <s>{P.was}{t.offersDh}</s></small></span></button>
+              <button type="button" className="fsw" role="radio" aria-checked="false" data-f="grand"><span className="fsw-pic" style={{ "--s": "1" } as React.CSSProperties} aria-hidden="true"></span><span><b>{t.offersGrandFormat}</b><small><em>{G.price}{t.offersDh}</em> <s>{G.was}{t.offersDh}</s></small></span></button>
             </div>
 
             <div className="ch">
@@ -32,7 +32,7 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   <span className="q-badge" data-badge="">{t.offers21Offerte}</span>
                   <span className="q-pics" aria-hidden="true"><i></i><i></i><i className="gift"><b className="gv"></b><b className="gh"></b></i></span>
                   <span className="q-name" data-n3="">{t.offers3Gammes}</span>
-                  <span className="q-price"><s><span data-o-old="">{P.price}</span>{t.offersDh}</s><b data-o-per="">{bundleUnit(P.price)}</b><span className="u" data-unit="">{t.offersDhLaGamme2}</span></span>
+                  <span className="q-price"><b data-o-per="">{bundleUnit(P.price)}</b><span className="u" data-unit="">{t.offersDhLaGamme2}</span></span>
                   <span className="q-total">{t.offersTotal}<b><span data-o-total="">{bundleTotal(P.price)}</span>{t.offersDh}</b>{t.offersTuEconomises}<em><span data-o-save="">{P.price}</span>{t.offersDh}</em></span>
                   <span className="tick" aria-hidden="true"></span>
                 </button>

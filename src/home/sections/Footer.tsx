@@ -1,5 +1,6 @@
 import type { HomeText } from "../text";
 import { problemPages, trustPages } from "@/data/pages";
+import { gamme } from "@/data/products";
 import { products } from "@/data/products";
 import { formatDate, site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
@@ -11,7 +12,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
       <div className="foot-in">
         <div className="foot-cta">
           <h2 id="foot-title">{t.footerTaRoutineDuSoir}</h2>
-          <p>{t.footerLivraisonOffertePartoutAu}</p>
+          <p>{t.msgGammeA}{gamme.formats.petit.price}{t.msgGammeB}{t.footerLivraisonOffertePartoutAu}</p>
           <a href="#offres" className="o-btn o-primary o-lg" data-order=""><span className="o-lbl">{t.footerCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
         </div>
 

@@ -105,7 +105,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         <ul className="perks">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></svg>
-            <span>{t.heroLivraisonOfferte}<span className="extra">{t.heroPartoutAuMaroc}</span></span>
+            <span>{t.msgGammeA}{gamme.formats.petit.price}{t.msgGammeB}</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /></svg>

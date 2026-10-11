@@ -737,8 +737,9 @@ export function initHome(cfg) {
         if (f.was) L.push({ k: "was", cls: "sub", l: TXT.shopPrice, r: `<s>${money(f.was)}</s>` });
       } else {
         L.push({ k: "main", l: `2 × ${f.name}`, r: money(f.price * 2) });
-        L.push({ k: "gift", l: `1 × ${f.name}`, r: `<s>${money(f.price)}</s>0,00`, stamp: f.offert });
-        L.push({ k: "per", cls: "sub per", l: fill(TXT.perItem, { s: f.s }), r: `<s>${money(f.price)}</s>${money(Math.round((f.price * 2) / 3))}` });
+        // un seul prix barré par format (celui des 4 soins achetés séparément) : ni l'article offert ni le prix par gamme n'en portent
+        L.push({ k: "gift", l: `1 × ${f.name}`, r: "0,00", stamp: f.offert });
+        L.push({ k: "per", cls: "sub per", l: fill(TXT.perItem, { s: f.s }), r: money(Math.round((f.price * 2) / 3)) });
       }
       L.push({ k: "ml", cls: "sub", l: (qty === 3 ? fill(TXT.each, { s: f.s }) : TXT.content) + f.content, r: "" });
       // gamme complète : livraison offerte ; sérum contour des yeux (achat à l'unité) : frais selon la ville
@@ -800,7 +801,7 @@ export function initHome(cfg) {
       });
       sec.classList.toggle("p-yeux", prod === "yeux");
       if (galFor !== prod) { galFor = prod; buildGallery(); }
-      $("[data-offer-for]").textContent = prod === "yeux" ? TXT.offerForYeux : TXT.offerForTaches;
+      $("[data-offer-for]").textContent = prod === "yeux" ? TXT.offerForYeux : fill(TXT.offerForTaches, { p: F.petit.price });
       sec.querySelectorAll(".psw").forEach((b) => { const on = b.dataset.prod === prod; b.setAttribute("aria-checked", String(on)); b.tabIndex = on ? 0 : -1; });
       fmtCh.hidden = true; // le format se change dans le formulaire (bouton Grand format)
       print(first);
@@ -816,7 +817,6 @@ export function initHome(cfg) {
       $("[data-n1]").textContent = fill(TXT.one, { s: f.s });
       $("[data-unit]").textContent = prod === "yeux" ? TXT.unitYeux : TXT.unitGamme;
       // option 3 gammes
-      $("[data-o-old]").textContent = f.price;
       count($("[data-o-per]"), per);
       count($("[data-o-total]"), f.price * 2);
       count($("[data-o-save]"), f.price);

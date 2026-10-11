@@ -1928,6 +1928,8 @@ html.qv-lock { overflow: hidden; }
 }
 .fsw b { display: block; font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; }
 .fsw small { display: block; margin-top: 1px; font-size: 12.5px; color: var(--muted); }
+.fsw small em { font-style: normal; font-weight: 600; color: var(--red); }
+.fsw small s { opacity: 0.75; }
 .fsw-pic { flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--bag) 50% 80% / calc(160% * var(--s)) no-repeat, linear-gradient(180deg, #e2ccaf, #ecd9c2); }
 .fsw[aria-checked="true"] { background: #fff; box-shadow: inset 0 0 0 2px var(--bordeaux), 0 10px 22px -14px rgba(74, 13, 22, 0.55); }
 .fsw[aria-checked="true"] small { color: var(--red); font-weight: 600; }

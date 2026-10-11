@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { bundleUnit, gamme, yeuxPrice } from "@/data/products";
 import { site } from "@/data/site";
-import TextPage, { textMetadata, Todo } from "@/templates/TextPage";
+import TextPage, { textMetadata } from "@/templates/TextPage";
 
 const L = site.legal;
 const info = {
@@ -26,7 +26,8 @@ export default function Page() {
       <p>Les produits proposés sont ceux présentés sur le site au jour de la commande : la gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), en Petit ou Grand format, et le sérum contour des yeux. Les photos ne sont pas contractuelles.</p>
 
       <h2>3. Prix</h2>
-      <p>Les prix sont indiqués en dirhams marocains (DH). <Todo>préciser si les prix sont TTC</Todo></p>
+      {/* retiré tant que ce n'est pas confirmé : préciser si les prix sont TTC */}
+      <p>Les prix sont indiqués en dirhams marocains (DH).</p>
       <ul>
         <li>Gamme anti-taches Petit format : {P.price} DH. Grand format : {G.price} DH.</li>
         <li>Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte (soit {bundleUnit(P.price)} DH la gamme en Petit format, {bundleUnit(G.price)} DH en Grand format).</li>
@@ -54,7 +55,7 @@ export default function Page() {
       {/* À faire valider par un juriste : délai de remboursement.
           La loi 31-08 encadre le délai dans lequel le vendeur doit rembourser après une rétractation ; le délai exact
           et son point de départ sont à confirmer avant d'être écrits ici. */}
-      <p>Au choix de la cliente, OTAGE rembourse les sommes versées ou échange le produit. <Todo>délai de remboursement (à valider par un juriste)</Todo></p>
+      <p>Au choix de la cliente, OTAGE rembourse les sommes versées ou échange le produit.{/* retiré tant que ce n'est pas confirmé : délai de remboursement */}</p>
       <p>{site.claims.fr}</p>
 
       <h2>8. Précautions d'emploi</h2>

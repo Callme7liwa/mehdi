@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { bundleUnit, gamme, yeuxPrice } from "@/data/products";
 import { site } from "@/data/site";
-import TextPage, { textMetadata, Todo } from "@/templates/TextPage";
+import TextPage, { textMetadata } from "@/templates/TextPage";
 
 /* Conditions générales de vente en arabe. Même structure que la page française ; mêmes informations en attente (TODO).
    À RELIRE PAR UN NATIF ET PAR UN JURISTE. */
@@ -28,7 +28,8 @@ export default function Page() {
       <p>المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي الشمس SPF 50)، بالحجم الصغير أو الكبير، وسيروم محيط العين. الصور غير تعاقدية.</p>
 
       <h2>3. الأسعار</h2>
-      <p>الأسعار مبينة بالدرهم المغربي. <Todo locale="ar">توضيح ما إذا كانت الأسعار شاملة للضرائب</Todo></p>
+      {/* retiré tant que ce n'est pas confirmé : préciser si les prix sont TTC */}
+      <p>الأسعار مبينة بالدرهم المغربي.</p>
       <ul>
         <li>مجموعة العناية ضد البقع بالحجم الصغير: {P.price} درهم. بالحجم الكبير: {G.price} درهم.</li>
         <li>عرض {offer}: عند شراء مجموعتين، الثالثة مجانًا (أي {bundleUnit(P.price)} درهم للمجموعة بالحجم الصغير، و{bundleUnit(G.price)} درهم بالحجم الكبير).</li>
@@ -51,7 +52,7 @@ export default function Page() {
       {/* À faire valider par un juriste : exception des produits cosmétiques ouverts (voir la version française). */}
       <p>يجب أن تكون المنتجات المرجعة غير مفتوحة وغير مستعملة، في غلافها الأصلي. مصاريف الإرجاع تتحملها OTAGE.</p>
       {/* À faire valider par un juriste : délai de remboursement (voir la version française). */}
-      <p>حسب اختيار الزبونة، ترد OTAGE المبالغ المدفوعة أو تستبدل المنتج. <Todo locale="ar">أجل استرجاع المبلغ (يُراجع مع مستشار قانوني)</Todo></p>
+      <p>حسب اختيار الزبونة، ترد OTAGE المبالغ المدفوعة أو تستبدل المنتج.{/* retiré tant que ce n'est pas confirmé : délai de remboursement */}</p>
       <p>{site.claims.ar}</p>
 
       <h2>8. احتياطات الاستعمال</h2>

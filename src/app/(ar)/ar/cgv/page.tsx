@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <TextPage locale="ar" info={info}>
       <h2>1. الموضوع</h2>
-      <p>تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع <span dir="ltr">{site.url.replace("https://", "")}</span> أو عبر واتساب، بين {L.raisonSociale ?? <Todo locale="ar">الاسم التجاري للبائع</Todo>} وزبوناته وزبنائه في المغرب.</p>
+      <p>تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع <span dir="ltr">{site.url.replace("https://", "")}</span> أو عبر واتساب، بين {/* la raison sociale remplace « OTAGE » dès que legal.raisonSociale est renseigné */}{L.raisonSociale ?? site.name} وزبوناته وزبنائه في المغرب.</p>
 
       <h2>2. المنتجات</h2>
       <p>المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي الشمس SPF 50)، بالحجم الصغير أو الكبير، وسيروم محيط العين. الصور غير تعاقدية.</p>
@@ -61,7 +61,7 @@ export default function Page() {
       <p>تُستعمل المعطيات المجمعة فقط لمعالجة الطلب. انظري <Link href="/ar/mentions-legales">الإشعار القانوني</Link>.</p>
 
       <h2>10. القانون المطبق</h2>
-      <p>تخضع هذه الشروط للقانون المغربي. {L.tribunal ?? <Todo locale="ar">المحكمة المختصة في حال النزاع</Todo>}</p>
+      <p>تخضع هذه الشروط للقانون المغربي.{/* tribunal compétent : ajouté dès que legal.tribunal est renseigné */}{L.tribunal && ` ${L.tribunal}`}</p>
     </TextPage>
   );
 }

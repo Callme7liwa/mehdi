@@ -108,7 +108,8 @@ export const site = {
   },
 
   /** TODO : informations juridiques à fournir pour les mentions légales et les CGV.
-      Tant qu'une valeur est null, la page affiche « À compléter » à sa place et reste hors de l'index (noindex). */
+      Tant qu'une valeur est null, sa ligne n'est pas affichée (aucun trou visible) et la page reste hors de l'index
+      (noindex). Dès qu'elle est renseignée ici, la ligne réapparaît sur la page. */
   legal: {
     raisonSociale: null as string | null, // TODO
     formeJuridique: null as string | null, // TODO

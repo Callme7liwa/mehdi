@@ -20,7 +20,7 @@ export default function Page() {
   return (
     <TextPage info={info}>
       <h2>1. Objet</h2>
-      <p>Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site {site.url.replace("https://", "")} ou par WhatsApp, entre {L.raisonSociale ?? <Todo>raison sociale du vendeur</Todo>} et ses clientes et clients au Maroc.</p>
+      <p>Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site {site.url.replace("https://", "")} ou par WhatsApp, entre {/* la raison sociale remplace « OTAGE » dès que legal.raisonSociale est renseigné */}{L.raisonSociale ?? site.name} et ses clientes et clients au Maroc.</p>
 
       <h2>2. Produits</h2>
       <p>Les produits proposés sont ceux présentés sur le site au jour de la commande : la gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), en Petit ou Grand format, et le sérum contour des yeux. Les photos ne sont pas contractuelles.</p>
@@ -64,7 +64,7 @@ export default function Page() {
       <p>Les données recueillies servent uniquement à traiter la commande. Voir les <Link href="/mentions-legales">mentions légales</Link>.</p>
 
       <h2>10. Droit applicable</h2>
-      <p>Les présentes conditions sont soumises au droit marocain. {L.tribunal ?? <Todo>tribunal compétent en cas de litige</Todo>}</p>
+      <p>Les présentes conditions sont soumises au droit marocain.{/* tribunal compétent : ajouté dès que legal.tribunal est renseigné */}{L.tribunal && ` ${L.tribunal}`}</p>
     </TextPage>
   );
 }

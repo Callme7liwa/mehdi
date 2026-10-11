@@ -1,5 +1,5 @@
 import { site } from "@/data/site";
-import TextPage, { textMetadata, Todo } from "@/templates/TextPage";
+import TextPage, { textMetadata } from "@/templates/TextPage";
 
 const L = site.legal;
 const info = {
@@ -12,22 +12,24 @@ const info = {
   draft: !L.raisonSociale || !L.formeJuridique || !L.ice || !L.rc || !L.adresse || !L.cndp,
 };
 export const metadata = textMetadata(info);
-const v = (value: string | null, what: string) => value ?? <Todo>{what}</Todo>;
 
 /* Structure à faire valider par un juriste. Les informations manquantes se renseignent dans src/data/site.ts (legal). */
 export default function Page() {
   return (
     <TextPage info={info}>
+      {/* Champs retirés de la page tant que l'information manque (aucun « À compléter » visible) :
+          raison sociale, forme juridique, ICE, registre du commerce, siège social, e-mail, directeur de la publication.
+          Chaque ligne réapparaît toute seule dès que sa valeur est renseignée dans src/data/site.ts (bloc legal). */}
       <h2>Éditeur du site</h2>
       <ul>
-        <li>Raison sociale : {v(L.raisonSociale, "raison sociale")}</li>
-        <li>Forme juridique : {v(L.formeJuridique, "forme juridique et capital")}</li>
-        <li>ICE : {v(L.ice, "numéro ICE")}</li>
-        <li>Registre du commerce : {v(L.rc, "numéro RC et ville")}</li>
-        <li>Siège social : {v(L.adresse, "adresse")}</li>
-        <li>E-mail : {v(L.email, "adresse e-mail")}</li>
+        {L.raisonSociale && <li>Raison sociale : {L.raisonSociale}</li>}
+        {L.formeJuridique && <li>Forme juridique : {L.formeJuridique}</li>}
+        {L.ice && <li>ICE : {L.ice}</li>}
+        {L.rc && <li>Registre du commerce : {L.rc}</li>}
+        {L.adresse && <li>Siège social : {L.adresse}</li>}
+        {L.email && <li>E-mail : {L.email}</li>}
         <li>Téléphone / WhatsApp : <span dir="ltr">{site.whatsapp.e164}</span></li>
-        <li>Directeur de la publication : {v(L.directeurPublication, "nom du responsable")}</li>
+        {L.directeurPublication && <li>Directeur de la publication : {L.directeurPublication}</li>}
       </ul>
 
       <h2>Hébergeur</h2>
@@ -39,7 +41,8 @@ export default function Page() {
       <h2>Données personnelles</h2>
       <p>Quand tu passes une commande, nous recueillons ton nom, ton numéro de téléphone, ta ville et, si tu la donnes, ton adresse. Ces informations servent uniquement à confirmer et livrer ta commande. Elles sont enregistrées dans un tableur Google (Google Sheets) et transmises au transporteur pour la livraison. Elles ne sont pas vendues.</p>
       <p>Conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, tu peux demander l'accès, la rectification ou la suppression de tes données en nous écrivant sur WhatsApp.</p>
-      <p>Déclaration à la CNDP : {v(L.cndp, "numéro de déclaration ou d'autorisation CNDP")}</p>
+      {/* numéro CNDP : la phrase réapparaît dès que legal.cndp est renseigné */}
+      {L.cndp && <p>Déclaration à la CNDP : {L.cndp}</p>}
 
       <h2 id="cookies">Cookies et mesure d'audience</h2>
       <p>Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper.</p>

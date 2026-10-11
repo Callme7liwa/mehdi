@@ -42,7 +42,8 @@ export default function Analytics({ gaId, locale }: { gaId: string; locale: "fr"
     try { choice = localStorage.getItem(KEY); } catch { /* stockage indisponible : on redemandera */ }
     if (choice === "oui") load(gaId);
     const reopen = () => { if (location.hash === "#cookies") setAsk(true); };
-    setAsk(choice === null || location.hash === "#cookies");
+    // la question s'affiche après le premier rendu (le choix est lu dans le navigateur, pas sur le serveur)
+    const first = requestAnimationFrame(() => setAsk(choice === null || location.hash === "#cookies"));
     window.addEventListener("hashchange", reopen);
 
     const send = (name: string, params: Record<string, unknown>) => window.gtag?.("event", name, params);
@@ -52,7 +53,7 @@ export default function Analytics({ gaId, locale }: { gaId: string; locale: "fr"
     document.addEventListener("click", onClick);
     window.addEventListener("otage:order", onOrder);
     window.addEventListener("otage:choice", onChoice);
-    return () => { window.removeEventListener("hashchange", reopen); document.removeEventListener("click", onClick); window.removeEventListener("otage:order", onOrder); window.removeEventListener("otage:choice", onChoice); };
+    return () => { cancelAnimationFrame(first); window.removeEventListener("hashchange", reopen); document.removeEventListener("click", onClick); window.removeEventListener("otage:order", onOrder); window.removeEventListener("otage:choice", onChoice); };
   }, [gaId]);
 
   if (!gaId || !ask) return null;

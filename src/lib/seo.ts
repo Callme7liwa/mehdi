@@ -174,7 +174,7 @@ export function productLd(p: Product, locale: Locale) {
   const formats = unitFormats(p);
   const offers = formats.map((f) => ({
     ...offerLd(p.unitPrice[f] as number, url, true),
-    name: `${p.name[locale]}${formats.length > 1 ? `, ${gamme.formats[f].label[locale]}` : ""} (${p.ml[f]} ml)`,
+    name: `${p.name[locale]}${formats.length > 1 ? `${locale === "ar" ? "، " : ", "}${gamme.formats[f].label[locale]}` : ""} (${p.ml[f]} ${locale === "ar" ? "مل" : "ml"})`,
     sku: `OTAGE-${p.no.replace(/\D/g, "")}-${f === "grand" ? "G" : "P"}`,
   }));
   return {

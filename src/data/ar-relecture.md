@@ -16,7 +16,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 
 | Français | العربية |
 |---|---|
-| **Titre de l'onglet (title)** Sérum et crème anti-taches fabriqués au Maroc \| OTAGE | سيروم وكريم ضد البقع، مصنوعة في المغرب \| OTAGE |
+| **Titre de l'onglet (title)** OTAGE Cosmétiques : sérum et crème anti-taches fabriqués au Maroc | أوتاج للعناية بالبشرة (OTAGE): سيروم وكريم ضد البقع، مصنوعة في المغرب |
 | **Description (Google)** Routine anti-taches OTAGE : gel nettoyant, sérum, crème et écran solaire SPF 50 contre les taches pigmentaires. Fabriqué au Maroc, paiement à la livraison. | روتين OTAGE ضد البقع: جل منظف، سيروم، كريم وواقي الشمس SPF 50 للبقع الصبغية والكلف. مصنوع في المغرب، والدفع عند الاستلام. |
 | OTAGE, accueil | OTAGE، الصفحة الرئيسية |
 | Navigation principale | القائمة الرئيسية |
@@ -50,7 +50,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | dès 299 DH | ابتداءً من 299 درهم |
 | 2 + 1 offerte | 2 + 1 مجانًا |
 | Trouver mon soin | أي منتج يناسبني؟ |
-| Livraison offerte | توصيل مجاني |
+| Livraison 24 à 72 h | التوصيل من 24 إلى 72 ساعة |
 | partout au Maroc | في كل أنحاء المغرب |
 | Paiement à la livraison | الدفع عند الاستلام |
 | Voir le détail : Gel nettoyant anti-taches | عرض التفاصيل: جل منظف ضد البقع |
@@ -143,11 +143,17 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Kénitra | القنيطرة |
 | Tétouan | تطوان |
 | El Jadida | الجديدة |
+| J'ai lu et j'accepte les | قرأت وأوافق على |
+| CGV | الشروط العامة للبيع |
+| et la | وعلى |
+| politique de retour | سياسة الإرجاع |
 | Valider ma commande | تأكيد طلبي |
 | Tu paies | تدفعين |
-| DH à la livraison. Livraison offerte. | درهم عند الاستلام. التوصيل مجاني. |
+| à la livraison. Livraison offerte. | عند الاستلام. التوصيل مجاني. |
 | Merci ! | شكرًا! |
 | Ta commande est bien enregistrée. On t'appelle pour confirmer avant la livraison. | تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل. |
+| Droit de rétractation de 7 jours après réception (loi 31-08). | حق التراجع خلال 7 أيام من الاستلام (القانون 31-08). |
+| Recevoir le récapitulatif sur WhatsApp | استلام الملخص عبر واتساب |
 | Choisis ton format | اختاري الحجم |
 | Idéal pour commencer | مثالي للبداية |
 | Petit format | الحجم الصغير |
@@ -156,7 +162,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Meilleure économie | أفضل توفير |
 | Grand format | الحجم الكبير |
 | 599 DH | 599 درهم |
-| 815 DH−216 DH | 815 درهموفّري 216 درهم |
+| 800 DH−201 DH | 800 درهموفّري 201 درهم |
 | Une gamme, ce sont les 4 soins de la routine | المجموعة تضم منتجات الروتين الأربعة |
 | Soins de la peau, fabriqués au Maroc | عناية بالبشرة، مصنوعة في المغرب |
 | Ticket n° | تذكرة رقم |
@@ -240,13 +246,14 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | À la livraison, en espèces, quand le livreur te remet ton colis. | عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك. |
 | Rien à payer en ligne, pas besoin de carte bancaire. | لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية. |
 | La livraison est payante ? | هل التوصيل مدفوع؟ |
-| Non, elle est offerte partout au Maroc, quel que soit le format ou le nombre de gammes. | لا، التوصيل مجاني في كل أنحاء المغرب، مهما كان الحجم أو عدد المجموعات. |
+| Pour une gamme complète, elle est offerte, quel que soit le format ou le nombre de gammes. | للمجموعة الكاملة، التوصيل مجاني، مهما كان الحجم أو عدد المجموعات. |
+| Pour un achat à l'unité, elle coûte de 35 à 45 DH selon la ville, ajoutés au total. On te confirme le montant exact par téléphone. | عند شراء منتجات منفردة، ثمنه من 35 إلى 45 درهمًا حسب المدينة، يُضاف إلى المجموع. نؤكد لك المبلغ الدقيق هاتفيًا. |
 | Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
 | C'est quoi l'offre 2 + 1 ? | ما هو عرض 2 + 1؟ |
 | Tu prends 2 gammes, la 3e est offerte. | تأخذين مجموعتين، والثالثة مجانًا. |
 | En Petit format : 199 DH la gamme au lieu de 299 DH, soit 598 DH les 3. En Grand format : 399 DH au lieu de 599 DH, soit 1 198 DH les 3. | بالحجم الصغير: 199 درهم للمجموعة بدل 299 درهم، أي 598 درهم للثلاث. بالحجم الكبير: 399 درهم بدل 599 درهم، أي 1 198 درهم للثلاث. |
-| Le Petit format coûte 299 DH la gamme au lieu de 496 DH, le Grand format 599 DH au lieu de 815 DH. | الحجم الصغير بـ 299 درهم للمجموعة بدل 496 درهم، والحجم الكبير بـ 599 درهم بدل 815 درهم. |
-| Avec l'offre 2 + 1, la gamme revient à 199 DH en Petit format et à 399 DH en Grand format. La livraison est offerte. | مع عرض 2 + 1، تصبح المجموعة بـ 199 درهم بالحجم الصغير و399 درهم بالحجم الكبير. التوصيل مجاني. |
+| Le Petit format coûte 299 DH la gamme au lieu de 496 DH, le Grand format 599 DH au lieu de 800 DH. | الحجم الصغير بـ 299 درهم للمجموعة بدل 496 درهم، والحجم الكبير بـ 599 درهم بدل 800 درهم. |
+| Avec l'offre 2 + 1, la gamme revient à 199 DH en Petit format et à 399 DH en Grand format. La livraison de la gamme est offerte. | مع عرض 2 + 1، تصبح المجموعة بـ 199 درهم بالحجم الصغير و399 درهم بالحجم الكبير. توصيل المجموعة مجاني. |
 | Qu'est-ce qu'il y a dans une gamme ? | ماذا تحتوي المجموعة؟ |
 | Les 4 soins de la routine : gel nettoyant, sérum anti-taches, crème anti-taches et écran solaire SPF 50. | منتجات الروتين الأربعة: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50. |
 | En Grand format : gel 200 ml, sérum 30 ml, crème 50 ml et écran solaire 50 ml. En Petit format : gel 125 ml, sérum 15 ml, crème 30 ml et écran solaire 30 ml. | بالحجم الكبير: جل 200 مل، سيروم 30 مل، كريم 50 مل وواقي شمس 50 مل. بالحجم الصغير: جل 125 مل، سيروم 15 مل، كريم 30 مل وواقي شمس 30 مل. |
@@ -273,14 +280,17 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part. | نتصل بك لتأكيد طلبك وعنوانك، ثم يُرسل طردك. |
 | Tu paies à la réception, c'est tout. | تدفعين عند الاستلام، وهذا كل شيء. |
 | Et si j'ai un problème avec ma commande ? | وماذا لو كانت هناك مشكلة في طلبي؟ |
-| On accepte les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite. | نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية. |
-| Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp. | طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب. |
+| Produit abîmé ou erreur dans ta commande ? Écris-nous sur WhatsApp : on échange le produit ou on te rembourse, sans frais pour toi. | منتج متضرر أو خطأ في طلبك؟ راسلينا عبر واتساب: نستبدل المنتج أو نرد لك المبلغ، دون أي مصاريف عليك. |
+| Et si le produit ne te convient pas, tu as 7 jours pour le retourner (voir la question sur les retours). | وإذا لم يناسبك المنتج، لديك 7 أيام لإرجاعه (انظري سؤال الإرجاع). |
+| Je peux retourner ma commande ? | هل يمكنني إرجاع طلبي؟ |
+| Oui. Tu as 7 jours après la réception pour changer d'avis : c'est ton droit de rétractation (article 36 de la loi 31-08). | نعم. لديك 7 أيام بعد الاستلام لتغيير رأيك: هذا حقك في التراجع (المادة 36 من القانون رقم 31-08). |
+| Les produits doivent être non ouverts et non utilisés. Les frais de retour sont pris en charge par OTAGE, et tu choisis : remboursement ou échange. Écris-nous sur WhatsApp pour lancer le retour. | يجب أن تكون المنتجات غير مفتوحة وغير مستعملة. مصاريف الإرجاع تتحملها OTAGE، ولك الاختيار: استرجاع المبلغ أو الاستبدال. راسلينا عبر واتساب لبدء الإرجاع. |
 | Vos soins sont fabriqués où ? | أين تُصنع منتجاتكم؟ |
 | Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban. | في المغرب، بمكونات مثل التين الشوكي واللبان. |
 | Ce qui fait la différence. | ما يصنع الفرق. |
 | Le produit en photos | المنتج بالصور |
 | Ta routine du soir t'attend. | روتينك المسائي في انتظارك. |
-| Livraison offerte partout au Maroc, paiement à la livraison. | توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام. |
+| Gamme complète : livraison offerte. Paiement à la livraison. | المجموعة الكاملة: توصيل مجاني. الدفع عند الاستلام. |
 | Pied de page | أسفل الصفحة |
 | Le site | الموقع |
 | Les affiches | الملصقات |
@@ -302,9 +312,10 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Nous suivre | تابعينا |
 | WhatsApp | واتساب |
 | Nos engagements | التزاماتنا |
-| OTAGE est une marque marocaine de cosmétique naturelle. Sa gamme anti-taches réunit 4 soins fabriqués au Maroc : un gel nettoyant, un sérum anti-taches, une crème anti-taches et un écran solaire SPF 50, pour atténuer les taches pigmentaires et l'hyperpigmentation, puis éviter qu'elles reviennent. OTAGE propose aussi un sérum contour des yeux pour les cernes. Livraison offerte partout au Maroc, paiement à la livraison. | OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. مجموعتها ضد البقع تضم 4 منتجات مصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50، للتخفيف من البقع الصبغية وفرط التصبغ ثم تفادي عودتها. تقدم OTAGE أيضًا سيروم محيط العين للهالات السوداء. توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام. |
-| OTAGE. Des soins honnêtes, fabriqués au Maroc. | OTAGE. عناية صادقة، مصنوعة في المغرب. |
-| Mis à jour le 10 octobre 2026. | آخر تحديث: 10 أكتوبر 2026. |
+| Livraison en 24 à 72 h | التوصيل من 24 إلى 72 ساعة |
+| OTAGE est une marque marocaine de cosmétique naturelle. Sa gamme anti-taches réunit 4 soins fabriqués au Maroc : un gel nettoyant, un sérum anti-taches, une crème anti-taches et un écran solaire SPF 50, pour atténuer les taches pigmentaires et l'hyperpigmentation, puis éviter qu'elles reviennent. OTAGE propose aussi un sérum contour des yeux pour les cernes. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville pour un achat à l'unité. Paiement à la livraison. | OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. مجموعتها ضد البقع تضم 4 منتجات مصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50، للتخفيف من البقع الصبغية وفرط التصبغ ثم تفادي عودتها. تقدم OTAGE أيضًا سيروم محيط العين للهالات السوداء. التوصيل في كل أنحاء المغرب خلال 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة. الدفع عند الاستلام. |
+| OTAGE Cosmétiques. Des soins honnêtes, fabriqués au Maroc. | أوتاج للعناية بالبشرة. عناية صادقة، مصنوعة في المغرب. |
+| Mis à jour le 11 octobre 2026. | آخر تحديث: 11 أكتوبر 2026. |
 | Tu hésites ? C'est normal. | مترددة؟ هذا طبيعي. |
 | Trois façons de te décider, sans pression. | ثلاث طرق لتقرري، بدون أي ضغط. |
 | Les résultats | النتائج |
@@ -320,7 +331,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | de satisfaction. | رضا. |
 | Enquête auprès de 20 clientes. | حسب استطلاع شمل 20 زبونة. |
 | Tu paies à la livraison. Rien à avancer en ligne. | تدفعين عند الاستلام. لا شيء يُدفع مسبقًا عبر الإنترنت. |
-| Livraison offerte partout au Maroc. | توصيل مجاني في كل أنحاء المغرب. |
+| Livraison en 24 à 72 h partout au Maroc. | التوصيل من 24 إلى 72 ساعة في كل أنحاء المغرب. |
 | Fabriqué au Maroc, avec des ingrédients d'ici. | صنع في المغرب، بمكونات من هنا. |
 | Salam ! Ici le fondateur d'OTAGE. Une question sur ta peau, un soin ou ta commande ? Écris-moi directement, je te réponds moi-même. | سلام! معك مؤسس OTAGE. سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسليني مباشرة، وأجيبك بنفسي. |
 | Écrire au fondateur sur WhatsApp | راسلي المؤسس على واتساب |
@@ -335,7 +346,7 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Soins anti-taches et contour des yeux \| OTAGE | منتجات العناية ضد البقع ومحيط العين \| OTAGE |
-| **Description (Google)** Les 5 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50 et sérum contour des yeux. Livraison offerte. | منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. توصيل مجاني. |
+| **Description (Google)** Les 5 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50 et sérum contour des yeux. Livraison en 24 à 72 h. | منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. التوصيل من 24 إلى 72 ساعة. |
 | Aller au contenu | الانتقال إلى المحتوى |
 | OTAGE, Accueil | OTAGE, الرئيسية |
 | Livraison | التوصيل |
@@ -343,15 +354,15 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Accueil | الرئيسية |
 | Fil d'Ariane | مسار التصفح |
 | Les soins OTAGE | منتجات OTAGE |
-| Une routine anti-taches en 4 soins, et un sérum contour des yeux. Fabriqués au Maroc, livrés gratuitement, payés à la livraison. | روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، توصيل مجاني والدفع عند الاستلام. |
+| Une routine anti-taches en 4 soins, et un sérum contour des yeux. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | روتين ضد البقع من 4 منتجات، وسيروم لمحيط العين. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
 | Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir. | بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً. |
 | Gamme anti-taches | مجموعة العناية ضد البقع |
 | La gamme anti-taches complète dès 299 DH, ou 199 DH la gamme avec l'offre 2 + 1. | المجموعة الكاملة ضد البقع ابتداءً من 299 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. |
 | Tous les soins | كل المنتجات |
 | Instagram @otage.1 | إنستغرام @otage.1 |
 | WhatsApp +212 6 88 91 82 01 | واتساب +212 6 88 91 82 01 |
-| Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50) et sérum contour des yeux, fabriqués au Maroc. Livraison offerte partout au Maroc. Paiement à la livraison, en espèces. | علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50) وسيروم محيط العين، مصنوعة في المغرب. توصيل مجاني في كل أنحاء المغرب. الدفع عند الاستلام، نقدًا. |
-| © 2026 OTAGE. Des soins honnêtes, fabriqués au Maroc. Mis à jour le 10 octobre 2026. | © 2026 OTAGE. عناية صادقة، مصنوعة في المغرب. آخر تحديث 10 أكتوبر 2026. |
+| Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50) et sérum contour des yeux, fabriqués au Maroc. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville à l'unité. Paiement à la livraison, en espèces. | علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50) وسيروم محيط العين، مصنوعة في المغرب. التوصيل في كل أنحاء المغرب خلال 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة للمنتجات المنفردة. الدفع عند الاستلام، نقدًا. |
+| © 2026 OTAGE Cosmétiques. Des soins honnêtes, fabriqués au Maroc. Mis à jour le 11 octobre 2026. | © 2026 أوتاج للعناية بالبشرة. عناية صادقة، مصنوعة في المغرب. آخر تحديث 11 أكتوبر 2026. |
 
 ## Fiche produit : gel-nettoyant
 
@@ -368,7 +379,7 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | à l'unité, Petit format (125 ml) | للقطعة، الحجم الصغير (125 مل) |
 | La gamme complète (4 soins) dès 299 DH au lieu de 496 DH. Offre 2 + 1 : 199 DH. | المجموعة الكاملة (4 منتجات) ابتداءً من 299 درهم بدل 496 درهم. عرض 2 + 1 : 199 درهم. |
 | Commander sur WhatsApp | اطلبي عبر واتساب |
-| Livraison offerte partout au Maroc | توصيل مجاني في كل أنحاء المغرب |
+| Livraison offerte pour la gamme ; 35 à 45 DH selon la ville à l'unité | التوصيل مجاني للمجموعة؛ من 35 إلى 45 درهمًا حسب المدينة للمنتج المنفرد |
 | Livraison en 24 à 72 h | التوصيل خلال من 24 إلى 72 ساعة |
 | Paiement à la livraison, en espèces | الدفع عند الاستلام، نقدًا |
 | Fabriqué au Maroc | مصنوع في المغرب |
@@ -386,21 +397,40 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | 125 ml | 125 مل |
 | 299 DH au lieu de 496 DH | 299 درهم بدل 496 درهم |
 | Offre 2 + 1 : 199 DH | عرض 2 + 1 : 199 درهم |
-| Sur demande | عند الطلب |
-| 599 DH au lieu de 815 DH | 599 درهم بدل 815 درهم |
+| 140 DH | 140 درهم |
+| 599 DH au lieu de 800 DH | 599 درهم بدل 800 درهم |
 | Offre 2 + 1 : 399 DH | عرض 2 + 1 : 399 درهم |
-| Livraison offerte partout au Maroc. Paiement à la livraison, en espèces. | توصيل مجاني في كل أنحاء المغرب. الدفع عند الاستلام، نقدًا. |
+| Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville à l'unité. Paiement à la livraison, en espèces. | التوصيل في كل أنحاء المغرب خلال 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة للمنتجات المنفردة. الدفع عند الاستلام، نقدًا. |
 | Le Grand format coûte 599 DH la gamme. | الحجم الكبير: 599 درهم للمجموعة. |
 | Tu paies à la livraison. On t'appelle pour confirmer avant l'envoi. | تدفعين عند الاستلام. نتصل بك لتأكيد الطلب قبل الإرسال. |
 | Que veux-tu commander ? | ماذا تريدين أن تطلبي؟ |
-| Ce soin seul | هذا المنتج وحده |
-| Gel nettoyant anti-taches, 125 ml | جل منظف ضد البقع, 125 مل |
+| Des soins à l'unité | منتجات منفردة |
+| Tu choisis les soins, le format et la quantité. | تختارين المنتجات، الحجم والكمية. |
 | La gamme complète (4 soins) | المجموعة الكاملة (4 منتجات) |
 | dès 299 DH au lieu de 496 DH | ابتداءً من 299 درهم بدل 496 درهم |
-| Quantité | الكمية |
+| Choisis tes soins et leur format | اختاري منتجاتك وحجمها |
+| Choisis ton format : Gel nettoyant anti-taches | اختاري الحجم : جل منظف ضد البقع |
+| Petit format, 125 ml91 DH | الحجم الصغير, 125 مل91 درهم |
+| Grand format, 200 ml140 DH | الحجم الكبير, 200 مل140 درهم |
+| Quantité : Gel nettoyant anti-taches | الكمية : جل منظف ضد البقع |
 | Une unité de moins | قطعة أقل |
 | Une unité de plus | قطعة أكثر |
-| Tu paies 91 DH à la livraison. Livraison offerte. | تدفعين 91 درهم عند الاستلام. التوصيل مجاني. |
+| Choisis ton format : Sérum anti-taches | اختاري الحجم : سيروم ضد البقع |
+| Petit format, 15 ml163 DH | الحجم الصغير, 15 مل163 درهم |
+| Grand format, 30 ml265 DH | الحجم الكبير, 30 مل265 درهم |
+| Quantité : Sérum anti-taches | الكمية : سيروم ضد البقع |
+| Choisis ton format : Crème anti-taches | اختاري الحجم : كريم ضد البقع |
+| Petit format, 30 ml130 DH | الحجم الصغير, 30 مل130 درهم |
+| Grand format, 50 ml205 DH | الحجم الكبير, 50 مل205 درهم |
+| Quantité : Crème anti-taches | الكمية : كريم ضد البقع |
+| Choisis ton format : Écran solaire SPF 50 | اختاري الحجم : واقي الشمس SPF 50 |
+| Petit format, 30 ml112 DH | الحجم الصغير, 30 مل112 درهم |
+| Grand format, 50 ml190 DH | الحجم الكبير, 50 مل190 درهم |
+| Quantité : Écran solaire SPF 50 | الكمية : واقي الشمس SPF 50 |
+| Sous-total | المجموع الفرعي |
+| 35 à 45 DH selon la ville | من 35 إلى 45 درهمًا حسب المدينة |
+| de 126 à 136 DH | من 126 إلى 136 درهم |
+| Tu paies de 126 à 136 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 126 إلى 136 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
 | Tu préfères WhatsApp ? | تفضلين واتساب؟ |
 | Écris-nous pour commander ou pour poser une question avant de te décider. | راسلينا للطلب أو لطرح سؤال قبل أن تقرري. |
 | Questions fréquentes | الأسئلة الشائعة |
@@ -409,13 +439,13 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Que contient le gel nettoyant anti-taches ? | ماذا يحتوي جل منظف ضد البقع؟ |
 | Figue de Barbarie, Louban, Sans sulfate. | التين الشوكي، اللبان، بدون سلفات. |
 | Quelle contenance et quel prix ? | ما الحجم وما الثمن؟ |
-| 125 ml en Petit format, 200 ml en Grand format. À l'unité, le Petit format coûte 91 DH. | 125 مل في الحجم الصغير، 200 مل في الحجم الكبير. ثمن الحجم الصغير منفردًا 91 درهم. |
-| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 815 DH. Livraison offerte. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 815 درهم. التوصيل مجاني. |
+| 125 ml en Petit format, 200 ml en Grand format. À l'unité : 91 DH en Petit format, 140 DH en Grand format. | 125 مل في الحجم الصغير، 200 مل في الحجم الكبير. الثمن منفردًا: 91 درهم في الحجم الصغير، 140 درهم في الحجم الكبير. |
+| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
 | Le gel nettoyant dessèche-t-il la peau ? | هل يجفف الجل المنظف البشرة؟ |
 | Non : il nettoie en douceur sans dessécher. Il est formulé sans sulfate, avec de la figue de Barbarie et du louban. | لا: ينظف بلطف دون تجفيف. تركيبته خالية من السلفات وتحتوي على التين الشوكي واللبان. |
 | Pour quel problème de peau ? | لأي مشكلة في البشرة؟ |
 | À utiliser avec | يُستعمل مع |
-| Mis à jour le 10 octobre 2026. | آخر تحديث 10 أكتوبر 2026. |
+| Mis à jour le 11 octobre 2026. | آخر تحديث 11 أكتوبر 2026. |
 
 ## Fiche produit : serum-anti-taches
 
@@ -434,13 +464,14 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | à l'unité, Petit format (15 ml) | للقطعة، الحجم الصغير (15 مل) |
 | Pour les taches brunes, les taches pigmentaires (hyperpigmentation) et le teint irrégulier. C'est le cœur de la routine contre les taches. | للبقع البنية، البقع الصبغية (فرط التصبغ) واللون غير الموحد. هو قلب روتين العناية ضد البقع. |
 | 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
-| Sérum anti-taches, 15 ml | سيروم ضد البقع, 15 مل |
-| Tu paies 163 DH à la livraison. Livraison offerte. | تدفعين 163 درهم عند الاستلام. التوصيل مجاني. |
+| 265 DH | 265 درهم |
+| de 198 à 208 DH | من 198 إلى 208 درهم |
+| Tu paies de 198 à 208 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 198 إلى 208 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
 | Comment utiliser le sérum anti-taches ? | كيف أستعمل سيروم ضد البقع؟ |
 | C'est l'étape 2 de la routine anti-taches (matin et soir). | هو الخطوة 2 في روتين العناية ضد البقع (صباحًا ومساءً). |
 | Que contient le sérum anti-taches ? | ماذا يحتوي سيروم ضد البقع؟ |
 | Matcha, Calendula, Alpha-arbutine. | ماتشا، آذريون (كاليندولا)، ألفا أربوتين. |
-| 15 ml en Petit format, 30 ml en Grand format. À l'unité, le Petit format coûte 163 DH. | 15 مل في الحجم الصغير، 30 مل في الحجم الكبير. ثمن الحجم الصغير منفردًا 163 درهم. |
+| 15 ml en Petit format, 30 ml en Grand format. À l'unité : 163 DH en Petit format, 265 DH en Grand format. | 15 مل في الحجم الصغير، 30 مل في الحجم الكبير. الثمن منفردًا: 163 درهم في الحجم الصغير، 265 درهم في الحجم الكبير. |
 | Au bout de combien de temps voit-on des résultats ? | متى تظهر النتائج؟ |
 | Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain. Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Le rythme varie d'une peau à l'autre. | بصراحة: البقع تخف تدريجيًا، وليس بين ليلة وضحاها. المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. الوتيرة تختلف من بشرة إلى أخرى. |
 
@@ -460,13 +491,14 @@ Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` 
 | à l'unité, Petit format (30 ml) | للقطعة، الحجم الصغير (30 مل) |
 | Pour les peaux au teint irrégulier ou marquées par des taches, qui veulent hydrater et unifier le teint après le sérum. On l'appelle aussi crème éclaircissante. | للبشرة ذات اللون غير الموحد أو التي بها بقع، لترطيبها وتوحيد لونها بعد السيروم. يسمى أيضًا كريمًا مفتّحًا. |
 | Une noisette sur le visage et le cou, en mouvements vers le haut. | كمية صغيرة على الوجه والرقبة، بحركات نحو الأعلى. |
-| Crème anti-taches, 30 ml | كريم ضد البقع, 30 مل |
-| Tu paies 130 DH à la livraison. Livraison offerte. | تدفعين 130 درهم عند الاستلام. التوصيل مجاني. |
+| 205 DH | 205 درهم |
+| de 165 à 175 DH | من 165 إلى 175 درهم |
+| Tu paies de 165 à 175 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 165 إلى 175 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
 | Comment utiliser la crème anti-taches ? | كيف أستعمل كريم ضد البقع؟ |
 | C'est l'étape 3 de la routine anti-taches (matin et soir). | هو الخطوة 3 في روتين العناية ضد البقع (صباحًا ومساءً). |
 | Que contient la crème anti-taches ? | ماذا يحتوي كريم ضد البقع؟ |
 | Niacinamide, Acide hyaluronique, AHA. | نياسيناميد، حمض الهيالورونيك، أحماض AHA. |
-| 30 ml en Petit format, 50 ml en Grand format. À l'unité, le Petit format coûte 130 DH. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. ثمن الحجم الصغير منفردًا 130 درهم. |
+| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 130 DH en Petit format, 205 DH en Grand format. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 130 درهم في الحجم الصغير، 205 درهم في الحجم الكبير. |
 | Faut-il appliquer la crème avant ou après le sérum ? | هل يوضع الكريم قبل السيروم أم بعده؟ |
 | Après. La crème est l'étape 3 de la routine : elle hydrate, unifie le teint et scelle le sérum appliqué juste avant. | بعده. الكريم هو الخطوة 3 في الروتين: يرطب، يوحد لون البشرة ويثبت السيروم الموضوع قبله. |
 
@@ -485,13 +517,14 @@ Français : `/soins/ecran-solaire-spf50` · Arabe : `/ar/soins/ecran-solaire-spf
 | Pour toutes celles qui suivent une routine anti-taches : sans protection solaire, les taches reviennent. C'est la dernière étape du matin. | لكل من تتبع روتينًا ضد البقع: بدون حماية من الشمس، تعود البقع. هو آخر خطوة في الصباح. |
 | Le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
 | Quand : Le matin. | متى : في الصباح. |
-| Écran solaire SPF 50, 30 ml | واقي الشمس SPF 50, 30 مل |
-| Tu paies 112 DH à la livraison. Livraison offerte. | تدفعين 112 درهم عند الاستلام. التوصيل مجاني. |
+| 190 DH | 190 درهم |
+| de 147 à 157 DH | من 147 إلى 157 درهم |
+| Tu paies de 147 à 157 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 147 إلى 157 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
 | Comment utiliser l'écran solaire SPF 50 ? | كيف أستعمل واقي الشمس SPF 50؟ |
 | C'est l'étape 4 de la routine anti-taches (le matin). | هو الخطوة 4 في روتين العناية ضد البقع (في الصباح). |
 | Que contient l'écran solaire SPF 50 ? | ماذا يحتوي واقي الشمس SPF 50؟ |
 | Haute protection, UVA/UVB. | حماية عالية، UVA/UVB. |
-| 30 ml en Petit format, 50 ml en Grand format. À l'unité, le Petit format coûte 112 DH. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. ثمن الحجم الصغير منفردًا 112 درهم. |
+| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 112 DH en Petit format, 190 DH en Grand format. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 112 درهم في الحجم الصغير، 190 درهم في الحجم الكبير. |
 | Pourquoi l'écran solaire est-il indispensable contre les taches ? | لماذا واقي الشمس ضروري ضد البقع؟ |
 | Parce que sans protection, les taches reviennent. L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil. | لأن البقع تعود بدون حماية. واقي الشمس SPF 50 يحمي من UVA و UVB: ضعيه كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس. |
 | Faut-il le mettre le soir ? | هل يوضع في المساء؟ |
@@ -508,6 +541,7 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Sérum contour des yeux à la caféine, pour les cernes | سيروم محيط العين بالكافيين، للهالات السوداء |
 | (15 ml) | (15 مل) |
 | Offre 2 + 1 : 87 DH (2 achetés, le 3e offert). | عرض 2 + 1 : 87 درهم (اشتري 2 والثالث مجانًا). |
+| Livraison : 35 à 45 DH selon la ville | التوصيل : من 35 إلى 45 درهمًا حسب المدينة |
 | Pour les cernes et le contour des yeux fatigué. | للهالات السوداء ومحيط العين المتعب. |
 | Passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement. | مرري البكرة تحت العين، من الداخل إلى الخارج، ثم ربّتي بلطف. |
 | 87 DH (2 achetés, le 3e offert) | 87 درهم (اشتري 2 والثالث مجانًا) |
@@ -516,12 +550,13 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | 87 DH le sérum, tu économises 130 DH | 87 درهم للسيروم, توفرين 130 درهم |
 | 1 sérum : 130 DH | 1 سيروم : 130 درهم |
 | 260 DH | 260 درهم |
-| Tu paies 260 DH à la livraison. Livraison offerte. | تدفعين 260 درهم عند الاستلام. التوصيل مجاني. |
+| de 295 à 305 DH | من 295 إلى 305 درهم |
+| Tu paies de 295 à 305 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 295 إلى 305 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
 | Comment utiliser le sérum contour des yeux ? | كيف أستعمل سيروم محيط العين؟ |
 | À utiliser matin et soir. | يُستعمل صباحًا ومساءً. |
 | Que contient le sérum contour des yeux ? | ماذا يحتوي سيروم محيط العين؟ |
 | Aloe vera, Acide hyaluronique, Caféine. | ألوفيرا، حمض الهيالورونيك، كافيين. |
-| 15 ml. Il coûte 130 DH, ou 87 DH le sérum avec l'offre 2 + 1 (260 DH les 3). Livraison offerte. | 15 مل. ثمنه 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1 (260 درهم للثلاثة). التوصيل مجاني. |
+| 15 ml. Il coûte 130 DH, ou 87 DH le sérum avec l'offre 2 + 1 (260 DH les 3). Livraison : de 35 à 45 DH selon la ville. | 15 مل. ثمنه 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1 (260 درهم للثلاثة). التوصيل: من 35 إلى 45 درهمًا حسب المدينة. |
 | Peut-on le mettre sous le maquillage ? | هل يمكن وضعه تحت المكياج؟ |
 | Oui : sa texture légère se glisse sous le maquillage, matin et soir. | نعم: قوامه الخفيف يوضع تحت المكياج، صباحًا ومساءً. |
 | Découvrir aussi | اكتشفي أيضًا |
@@ -537,7 +572,7 @@ Français : `/taches-pigmentaires` · Arabe : `/ar/taches-pigmentaires` · Sourc
 | Taches pigmentaires sur le visage : causes, conseils et routine | البقع الصبغية في الوجه: الأسباب، النصائح والروتين |
 | Une tache pigmentaire est une zone de peau plus foncée que le reste du visage. On parle aussi de taches brunes ou d'hyperpigmentation. Elles ne sont pas dangereuses dans la grande majorité des cas, mais elles peuvent gêner. | البقعة الصبغية منطقة من البشرة لونها أغمق من باقي الوجه. تسمى أيضًا البقع البنية أو فرط التصبغ. في أغلب الحالات ليست خطيرة، لكنها قد تكون مزعجة. |
 | Cette page explique d'où elles viennent, ce qui les aggrave, et comment construire une routine régulière pour les atténuer petit à petit. | في هذه الصفحة نشرح من أين تأتي، ما الذي يزيدها، وكيف تبنين روتينًا منتظمًا للتخفيف منها شيئًا فشيئًا. |
-| Mis à jour le 10 octobre 2026, par l'équipe OTAGE. | آخر تحديث 10 أكتوبر 2026، من فريق OTAGE. |
+| Mis à jour le 11 octobre 2026, par l'équipe OTAGE. | آخر تحديث 11 أكتوبر 2026، من فريق OTAGE. |
 | D'où viennent les taches pigmentaires ? | من أين تأتي البقع الصبغية؟ |
 | La couleur de la peau vient d'un pigment, la mélanine. Quand la peau en fabrique trop à un endroit, une tache apparaît. Plusieurs choses peuvent déclencher cette surproduction : | لون البشرة يأتي من صبغة اسمها الميلانين. حين تنتج البشرة كمية زائدة منها في مكان معين، تظهر بقعة. عدة أسباب قد تؤدي إلى ذلك: |
 | Le soleil : c'est la cause la plus fréquente. Les UV stimulent la mélanine, et les taches foncent à chaque exposition sans protection. | الشمس: هي السبب الأكثر شيوعًا. الأشعة فوق البنفسجية تحفز الميلانين، والبقع تصبح أغمق مع كل تعرض للشمس بدون حماية. |
@@ -561,19 +596,19 @@ Français : `/taches-pigmentaires` · Arabe : `/ar/taches-pigmentaires` · Sourc
 | Matcha, Calendula, Alpha-arbutine | ماتشا، آذريون (كاليندولا)، ألفا أربوتين |
 | Étape 3. Hydrate, unifie le teint et scelle le sérum. | الخطوة 3. يرطب، يوحد لون البشرة ويثبت السيروم. |
 | Niacinamide, Acide hyaluronique, AHA | نياسيناميد، حمض الهيالورونيك، أحماض AHA |
-| Étape 4, le matin. Protège des UVA et des UVB pour que les taches ne reviennent pas. | الخطوة 4، في الصباح. يحمي من أشعة UVA و UVB حتى لا تعود البقع. |
+| Étape 4, le matin. Protège des UVA et des UVB pour limiter le retour des taches. | الخطوة 4، في الصباح. يحمي من أشعة UVA و UVB للحد من عودة البقع. |
 | Haute protection, UVA/UVB | حماية عالية، UVA/UVB |
 | La routine, étape par étape | الروتين خطوة بخطوة |
 | Le matin : les 4 étapes. Le soir : les 3 premières, sans écran solaire. | في الصباح: الخطوات الأربع. في المساء: الثلاث الأولى، بدون واقي الشمس. |
 | La gamme anti-taches complète | المجموعة الكاملة ضد البقع |
-| Les 4 soins dès 299 DH au lieu de 496 DH, ou 199 DH la gamme avec l'offre 2 + 1. Livraison offerte partout au Maroc en 24 à 72 h, paiement à la livraison. | المنتجات الأربعة ابتداءً من 299 درهم بدل 496 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. توصيل مجاني في كل أنحاء المغرب خلال من 24 إلى 72 ساعة، والدفع عند الاستلام. |
+| Les 4 soins dès 299 DH au lieu de 496 DH, ou 199 DH la gamme avec l'offre 2 + 1. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville pour un achat à l'unité, paiement à la livraison. | المنتجات الأربعة ابتداءً من 299 درهم بدل 496 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. التوصيل في كل أنحاء المغرب خلال من 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام. |
 | Poser une question sur WhatsApp | اسألينا عبر واتساب |
 | Combien de temps faut-il pour atténuer une tache pigmentaire ? | كم من الوقت يلزم للتخفيف من بقعة صبغية؟ |
 | Il n'y a pas de délai garanti. Les taches s'estompent petit à petit, pas du jour au lendemain, et le rythme varie d'une peau à l'autre. Ce qui compte, c'est la régularité matin et soir et l'écran solaire chaque matin. | لا توجد مدة مضمونة. البقع تخف شيئًا فشيئًا، وليس بين ليلة وضحاها، والوتيرة تختلف من بشرة إلى أخرى. المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. |
 | Les taches peuvent-elles revenir ? | هل يمكن أن تعود البقع؟ |
 | Oui, surtout avec le soleil. Sans protection solaire, les taches reviennent. C'est pour cela que l'écran solaire SPF 50 fait partie de la routine du matin. | نعم، خاصة مع الشمس. بدون حماية من الشمس، تعود البقع. لهذا واقي الشمس SPF 50 جزء من روتين الصباح. |
 | Faut-il mettre de l'écran solaire même quand il n'y a pas de soleil ? | هل أضع واقي الشمس حتى حين لا تكون هناك شمس؟ |
-| Oui. Les UV traversent les nuages et les vitres. Applique l'écran solaire chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil. | نعم. الأشعة فوق البنفسجية تخترق الغيوم والزجاج. ضعي واقي الشمس كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس. |
+| Oui. Les UVA traversent les nuages et les vitres. Applique l'écran solaire chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil. | نعم. أشعة UVA تخترق الغيوم والزجاج. ضعي واقي الشمس كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس. |
 | J'ai la peau sensible, je peux suivre une routine anti-taches ? | بشرتي حساسة، هل يمكنني اتباع روتين ضد البقع؟ |
 | Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. | جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة. في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. |
 | Autres conseils peau | نصائح أخرى للبشرة |
@@ -607,7 +642,7 @@ Français : `/cernes` · Arabe : `/ar/cernes` · Source de l'arabe : src/data/pr
 | OTAGE propose un sérum pensé pour les cernes et le contour des yeux fatigué : | تقدم OTAGE سيرومًا مصممًا للهالات السوداء ومحيط العين المتعب: |
 | 15 ml, applicateur bille. Aloe vera, acide hyaluronique et caféine. Matin et soir. | 15 مل، بكرة دوارة. ألوفيرا، حمض الهيالورونيك وكافيين. صباحًا ومساءً. |
 | Aloe vera, Acide hyaluronique, Caféine | ألوفيرا، حمض الهيالورونيك، كافيين |
-| 130 DH, ou 87 DH le sérum avec l'offre 2 + 1. Livraison offerte partout au Maroc en 24 à 72 h, paiement à la livraison. | 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1. توصيل مجاني في كل أنحاء المغرب خلال من 24 إلى 72 ساعة، والدفع عند الاستلام. |
+| 130 DH, ou 87 DH le sérum avec l'offre 2 + 1. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville pour un achat à l'unité, paiement à la livraison. | 130 درهم، أو 87 درهم للسيروم مع عرض 2 + 1. التوصيل في كل أنحاء المغرب خلال من 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام. |
 | Un sérum peut-il faire disparaître les cernes ? | هل يمكن لسيروم أن يزيل الهالات السوداء؟ |
 | Aucun soin ne peut promettre de les faire disparaître. Selon leur origine (hérédité, peau fine, pigment), les cernes s'atténuent plus ou moins. Un soin régulier et de bonnes habitudes aident le contour des yeux à paraître moins fatigué. | لا يوجد منتج يستطيع أن يعد بإزالتها. حسب سببها (الوراثة، بشرة رقيقة، صبغة)، تخف الهالات بدرجات متفاوتة. العناية المنتظمة والعادات الجيدة تساعد محيط العين ليبدو أقل تعبًا. |
 | Quand appliquer le sérum contour des yeux ? | متى أضع سيروم محيط العين؟ |
@@ -623,10 +658,10 @@ Français : `/taches-acne` · Arabe : `/ar/taches-acne` · Source de l'arabe : s
 | **Titre de l'onglet (title)** Taches d'acné : causes, conseils et routine \| OTAGE | بقع حب الشباب: الأسباب، النصائح والروتين \| OTAGE |
 | **Description (Google)** Les marques brunes laissées par les boutons sont une hyperpigmentation post-inflammatoire. Ce qui les aggrave, ce qui aide, et quelle routine suivre. | الآثار البنية التي تتركها الحبوب تسمى فرط التصبغ بعد الالتهاب. ما الذي يزيدها، ما الذي يساعد، وأي روتين تتبعين. |
 | Taches d'acné : pourquoi les boutons laissent des marques | بقع حب الشباب: لماذا تترك الحبوب آثارًا |
-| Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache, appelée hyperpigmentation post-inflammatoire. La peau a fabriqué plus de pigment à l'endroit de l'inflammation. | بعد الحبة، يبقى غالبًا أثر صغير بني أو وردي. ليس ندبة: إنه بقعة تسمى فرط التصبغ بعد الالتهاب. البشرة أنتجت صبغة أكثر في مكان الالتهاب. |
-| Ces taches s'atténuent avec le temps, plus ou moins vite selon les peaux. Les peaux mates et foncées y sont plus sujettes. | هذه البقع تخف مع الوقت، بسرعة تختلف من بشرة إلى أخرى. البشرة السمراء والداكنة أكثر عرضة لها. |
+| Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache. Quand elle est brune, on parle d'hyperpigmentation post-inflammatoire : la peau a fabriqué plus de pigment à l'endroit de l'inflammation. Quand elle est rose ou rouge, ce sont de petits vaisseaux encore dilatés (érythème post-inflammatoire). | بعد الحبة، يبقى غالبًا أثر صغير بني أو وردي. ليس ندبة: إنه بقعة. حين تكون بنية، تسمى فرط التصبغ بعد الالتهاب: البشرة أنتجت صبغة أكثر في مكان الالتهاب. وحين تكون وردية أو حمراء، فهي أوعية دموية صغيرة ما زالت متوسعة (احمرار بعد الالتهاب). |
+| Ces marques s'atténuent avec le temps, plus ou moins vite selon les peaux. Les taches brunes sont plus fréquentes sur les peaux mates et foncées. | هذه البقع تخف مع الوقت، بسرعة تختلف من بشرة إلى أخرى. البشرة السمراء والداكنة أكثر عرضة لها. |
 | Tache ou cicatrice : faire la différence | بقعة أم ندبة: كيف تفرقين بينهما |
-| Une tache est plate : seule la couleur change (brun, rose, violacé). C'est le sujet de cette page. | البقعة مسطحة: اللون فقط يتغير (بني، وردي، بنفسجي). هذا موضوع هذه الصفحة. |
+| Une tache est plate : seule la couleur change (brun, rose, violacé). C'est le sujet de cette page ; la routine anti-taches concerne surtout les marques brunes. | البقعة مسطحة: اللون فقط يتغير (بني، وردي، بنفسجي). هذا موضوع هذه الصفحة؛ وروتين العناية ضد البقع يهم خصوصًا الآثار البنية. |
 | Une cicatrice modifie le relief de la peau : un creux ou une bosse. Un soin cosmétique ne change pas le relief ; c'est au dermatologue de proposer une solution. | الندبة تغيّر سطح البشرة: حفرة أو نتوء. منتج تجميلي لا يغير سطح البشرة؛ طبيب الجلد هو من يقترح الحل. |
 | Ce qui aggrave les taches d'acné | ما الذي يزيد بقع حب الشباب |
 | Percer ou gratter les boutons : l'inflammation dure plus longtemps et la marque est plus foncée. | عصر الحبوب أو حكها: الالتهاب يطول والأثر يكون أغمق. |
@@ -642,7 +677,7 @@ Français : `/taches-acne` · Arabe : `/ar/taches-acne` · Source de l'arabe : s
 | La gamme anti-taches OTAGE est conçue pour les taches brunes et le teint irrégulier. Elle ne traite pas l'acné elle-même. | مجموعة OTAGE ضد البقع مصممة للبقع البنية ولون البشرة غير الموحد. وهي لا تعالج حب الشباب نفسه. |
 | Étape 1. Un nettoyage doux, sans sulfate, qui ne dessèche pas. | الخطوة 1. تنظيف لطيف، بدون سلفات، لا يجفف البشرة. |
 | Étape 3. Hydrate et unifie le teint. | الخطوة 3. يرطب ويوحد لون البشرة. |
-| Étape 4, le matin. Sans protection, les taches reviennent. | الخطوة 4، في الصباح. بدون حماية، تعود البقع. |
+| Étape 4, le matin. Sans protection solaire, les taches foncent et reviennent plus facilement. | الخطوة 4، في الصباح. بدون حماية، تعود البقع. |
 | Les taches d'acné partent-elles toutes seules ? | هل تزول بقع حب الشباب وحدها؟ |
 | Souvent, elles s'atténuent avec le temps, mais cela peut prendre plusieurs mois et le rythme varie d'une peau à l'autre. Le soleil sans protection les fait durer. | غالبًا تخف مع الوقت، لكن ذلك قد يأخذ عدة أشهر والوتيرة تختلف من بشرة إلى أخرى. الشمس بدون حماية تطيل مدتها. |
 | La routine anti-taches soigne-t-elle l'acné ? | هل يعالج الروتين ضد البقع حب الشباب؟ |
@@ -658,24 +693,32 @@ Français : `/melasma-grossesse` · Arabe : `/ar/melasma-grossesse` · Source de
 |---|---|
 | **Titre de l'onglet (title)** Mélasma (masque de grossesse) : causes et conseils \| OTAGE | الكلف عند الحامل (قناع الحمل): الأسباب والنصائح \| OTAGE |
 | **Description (Google)** Le mélasma, ou masque de grossesse, donne des taches brunes sur le visage. Ses causes, le rôle du soleil, et quoi demander à son médecin avant tout soin. | الكلف، أو قناع الحمل، يظهر على شكل بقع بنية في الوجه. أسبابه، دور الشمس، وما يجب أن تسألي عنه طبيبك قبل أي عناية. |
-| Mélasma et masque de grossesse : comprendre et protéger sa peau | الكلف وقناع الحمل: افهمي بشرتك واحميها |
+| Mélasma et masque de grossesse : comprendre, et précautions pendant la grossesse | الكلف وقناع الحمل: لنفهمه، واحتياطات الحمل |
 | Le mélasma se présente comme des taches brunes aux contours irréguliers, souvent symétriques, sur le front, les joues, le nez ou au-dessus de la lèvre. Quand il apparaît pendant la grossesse, on l'appelle le masque de grossesse. | يظهر الكلف على شكل بقع بنية غير منتظمة الحواف، غالبًا متناظرة، على الجبهة، الخدين، الأنف أو فوق الشفة. حين يظهر خلال الحمل، يسمى قناع الحمل. |
 | Il est sans danger pour la santé, mais il peut durer. Voici ce qu'on sait de ses causes et ce qui aide à le limiter. | لا خطر منه على الصحة، لكنه قد يدوم. هذا ما نعرفه عن أسبابه وما يساعد على الحد منه. |
+| 1. Le mélasma : comprendre | 1. الكلف: لنفهمه |
 | Pourquoi le mélasma apparaît-il ? | لماذا يظهر الكلف؟ |
 | Les hormones : la grossesse, certaines contraceptions et les changements hormonaux stimulent la production de pigment. | الهرمونات: الحمل، بعض وسائل منع الحمل والتغيرات الهرمونية تحفز إنتاج الصبغة. |
 | Le soleil : c'est lui qui déclenche et fonce les taches. Même une courte exposition peut suffire. | الشمس: هي التي تُظهر البقع وتجعلها أغمق. حتى تعرض قصير قد يكفي. |
 | Le terrain : les peaux mates et foncées, et certaines familles, y sont plus sujettes. | طبيعة البشرة: البشرة السمراء والداكنة، وبعض العائلات، أكثر عرضة له. |
+| Ce qui aide à le limiter | ما الذي يساعد على الحد منه |
+| Se protéger du soleil tous les jours, toute l'année : chapeau, ombre, écran solaire à haute protection, renouvelé toutes les 2 heures au soleil. | الحماية من الشمس كل يوم، طوال السنة: قبعة، ظل، وواقي شمس بحماية عالية يُجدَّد كل ساعتين تحت الشمس. |
+| Éviter les expositions aux heures les plus chaudes. | تجنب التعرض للشمس في أشد ساعات الحرارة. |
+| Ne pas irriter la peau : pas de gommage agressif ni de produit qui pique ou qui brûle. | عدم تهييج البشرة: لا تقشير قاسٍ ولا منتج يلسع أو يحرق. |
+| Être patiente : le mélasma s'atténue lentement et revient facilement avec le soleil. Aucun soin cosmétique ne peut promettre de le faire disparaître. | الصبر: الكلف يخف ببطء ويعود بسهولة مع الشمس. لا يمكن لأي مستحضر تجميل أن يعد بإزالته. |
+| Un mélasma étendu, ancien ou qui te gêne beaucoup se montre à un dermatologue : il existe des traitements médicaux, qui se décident avec lui. | الكلف المنتشر أو القديم أو الذي يزعجك كثيرًا يُعرض على طبيب الجلد: توجد علاجات طبية، تُقرَّر معه. |
+| 2. Grossesse et allaitement : les précautions | 2. الحمل والرضاعة: الاحتياطات |
 | Que faire pendant la grossesse ? | ماذا تفعلين خلال الحمل؟ |
 | Se protéger du soleil tous les jours : chapeau, ombre, et une protection solaire validée par ton médecin ou ton pharmacien. | الحماية من الشمس كل يوم: قبعة، ظل، وحماية من الشمس يوافق عليها طبيبك أو الصيدلي. |
-| Éviter les expositions aux heures les plus chaudes. | تجنب التعرض للشمس في أشد ساعات الحرارة. |
 | Ne pas multiplier les produits : pendant la grossesse et l'allaitement, chaque soin doit être validé par un professionnel de santé. | عدم الإكثار من المنتجات: خلال الحمل والرضاعة، كل منتج يجب أن يوافق عليه مختص في الصحة. |
+| Ne commencer aucun traitement des taches sans avis médical : certains actifs utilisés contre les taches ou les rides (rétinoïdes, hydroquinone) sont déconseillés pendant la grossesse. | عدم بدء أي علاج للبقع دون استشارة طبية: بعض المواد الفعالة المستعملة ضد البقع أو التجاعيد (الريتينويدات، الهيدروكينون) لا يُنصح بها خلال الحمل. |
 | Rester patiente : le masque de grossesse s'atténue souvent dans les mois qui suivent l'accouchement, mais pas toujours. | الصبر: قناع الحمل يخف غالبًا في الأشهر التي تلي الولادة، لكن ليس دائمًا. |
 | Et après la grossesse ? | وبعد الحمل؟ |
 | Si les taches persistent après l'accouchement et la fin de l'allaitement, une routine anti-taches régulière et une protection solaire quotidienne peuvent aider à les atténuer petit à petit. Le mélasma revient facilement avec le soleil : la protection reste le geste le plus important. | إذا بقيت البقع بعد الولادة وانتهاء الرضاعة، فروتين منتظم ضد البقع مع حماية يومية من الشمس قد يساعدان على التخفيف منها شيئًا فشيئًا. الكلف يعود بسهولة مع الشمس: الحماية تبقى أهم خطوة. |
 | Demande l'avis d'un professionnel. Enceinte ou allaitante : avant d'utiliser un soin OTAGE, écran solaire compris, demande l'avis de ton médecin ou de ton pharmacien en lui montrant la liste des ingrédients. Un mélasma étendu ou qui persiste doit être vu par un dermatologue. | استشيري مختصًا. حامل أو مرضعة: قبل استعمال أي منتج من OTAGE، بما فيها واقي الشمس، اسألي طبيبك أو الصيدلي مع عرض قائمة المكونات عليه. والكلف المنتشر أو الذي يدوم يجب أن يراه طبيب الجلد قبل أي علاج للكلف. |
 | Les soins OTAGE, à voir avec ton médecin | منتجات OTAGE، باستشارة طبيبك |
 | Ces soins font partie de la routine anti-taches OTAGE. Pendant la grossesse ou l'allaitement, ne les utilise qu'avec l'accord de ton médecin ou de ton pharmacien. | هذه المنتجات جزء من روتين OTAGE ضد البقع. خلال الحمل أو الرضاعة، لا تستعمليها إلا بموافقة طبيبك أو الصيدلي. |
-| Écran solaire SPF 50, haute protection UVA/UVB : le geste du matin pour que les taches ne reviennent pas. | واقي الشمس SPF 50، حماية عالية من UVA و UVB: خطوة الصباح حتى لا تعود البقع. |
+| Écran solaire SPF 50, haute protection UVA/UVB : le geste du matin pour limiter le retour des taches. | واقي الشمس SPF 50، حماية عالية من UVA و UVB: خطوة الصباح للحد من عودة البقع. |
 | Le masque de grossesse disparaît-il après l'accouchement ? | هل يختفي قناع الحمل بعد الولادة؟ |
 | Souvent, il s'atténue dans les mois qui suivent, mais pas toujours et pas complètement chez tout le monde. S'il persiste, demande l'avis d'un dermatologue. | غالبًا يخف في الأشهر التي تليها، لكن ليس دائمًا وليس كليًا عند الجميع. إذا استمر، استشيري طبيب الجلد. |
 | Puis-je utiliser les soins OTAGE enceinte ou pendant l'allaitement ? | هل يمكنني استعمال منتجات OTAGE وأنا حامل أو مرضعة؟ |
@@ -703,6 +746,7 @@ Français : `/avis` · Arabe : `/ar/avis` · Source de l'arabe : src/templates/R
 | Traduction : Que Dieu vous garde, docteur. Docteur, l'éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci infiniment. Vraiment. Je n'oublierai jamais votre bienfait ; si vous voulez, je fais un audio de témoignage. Réponse d'OTAGE : Dieu merci, c'est grâce à Dieu, moi je ne suis qu'un moyen. À votre santé. | الترجمة: حفظك الله دكتور. دكتور، بدأت النضارة تظهر وتقريبًا كل البقع اختفت بنسبة 95 في المئة. شكرًا جزيلًا لك. والله. لن أنسى فضلك أبدًا، وإن أردت أسجل شهادة صوتية. رد OTAGE: الحمد لله، هذا بفضل الله، وأنا مجرد سبب. بالصحة. |
 | Chaque peau est différente : ces messages racontent l'expérience de ces clientes, pas une promesse de résultat. | كل بشرة مختلفة: هذه الرسائل تحكي تجربة هؤلاء الزبونات، وليست وعدًا بالنتيجة. |
 | Envie d'essayer ? | تريدين التجربة؟ |
+| Livraison en 24 à 72 h partout au Maroc, paiement à la livraison. | التوصيل من 24 إلى 72 ساعة في كل أنحاء المغرب، والدفع عند الاستلام. |
 
 ## À propos
 
@@ -728,7 +772,7 @@ Français : `/a-propos` · Arabe : `/ar/a-propos` · Source de l'arabe : src/app
 | Des prix affichés. Le ticket de commande s'écrit sous tes yeux : tout est affiché, rien n'est caché. | أسعار واضحة. تذكرة الطلب تُكتب أمام عينيك: كل شيء ظاهر، ولا شيء مخفي. |
 | Pas de promesse miracle. Les taches s'estompent petit à petit, pas du jour au lendemain. Nous le disons clairement. | بدون وعود خارقة. البقع تخف شيئًا فشيئًا، وليس بين ليلة وضحاها. نقولها بوضوح. |
 | Tu paies à la livraison. Rien à avancer en ligne, pas besoin de carte bancaire. | تدفعين عند الاستلام. لا شيء يُدفع مسبقًا عبر الإنترنت، ولا حاجة لبطاقة بنكية. |
-| Livraison offerte partout au Maroc, en 24 à 72 h. | توصيل مجاني في كل أنحاء المغرب، خلال من 24 إلى 72 ساعة. |
+| Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville à l'unité. | التوصيل خلال من 24 إلى 72 ساعة في كل أنحاء المغرب: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة للمنتجات المنفردة. |
 | Fabriqué au Maroc, avec un laboratoire partenaire | صنع في المغرب، مع مختبر شريك |
 | Nos soins sont fabriqués au Maroc, en collaboration avec un laboratoire partenaire, avec des ingrédients comme la figue de Barbarie et le louban. « ما كنبيعوش الوهم، كنبيعو النتيجة » : c'est notre devise, en darija. | منتجاتنا تُصنع في المغرب، بالتعاون مع مختبر شريك، بمكونات مثل التين الشوكي واللبان. «ما كنبيعوش الوهم، كنبيعو النتيجة»: هذا شعارنا، بالدارجة. |
 | Une question ? On te répond | سؤال؟ نجيبك |
@@ -742,9 +786,9 @@ Français : `/livraison-paiement` · Arabe : `/ar/livraison-paiement` · Source 
 
 | Français | العربية |
 |---|---|
-| **Titre de l'onglet (title)** Livraison offerte et paiement à la livraison \| OTAGE | توصيل مجاني في المغرب والدفع عند الاستلام \| OTAGE |
-| **Description (Google)** Livraison OTAGE offerte partout au Maroc en 24 à 72 h. Paiement à la livraison, en espèces : rien à payer en ligne. On t'appelle pour confirmer ta commande. | توصيل OTAGE مجاني في كل أنحاء المغرب خلال من 24 إلى 72 ساعة. الدفع عند الاستلام، نقدًا: لا شيء يُدفع عبر الإنترنت. نتصل بك لتأكيد طلبك. |
-| Livraison offerte partout au Maroc en 24 à 72 h. Tu paies à la réception, en espèces. | توصيل مجاني في كل أنحاء المغرب خلال من 24 إلى 72 ساعة. تدفعين عند الاستلام، نقدًا. |
+| **Titre de l'onglet (title)** Livraison, paiement à la livraison et retours \| OTAGE | التوصيل، الدفع عند الاستلام والإرجاع \| OTAGE |
+| **Description (Google)** Livraison OTAGE en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH à l'unité. Paiement à la livraison, en espèces. | توصيل OTAGE في كل أنحاء المغرب خلال من 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا للمنتجات المنفردة. الدفع عند الاستلام، نقدًا. |
+| Livraison en 24 à 72 h partout au Maroc, offerte pour la gamme complète. Tu paies à la réception, en espèces. | التوصيل في كل أنحاء المغرب خلال من 24 إلى 72 ساعة، مجاني للمجموعة الكاملة. تدفعين عند الاستلام، نقدًا. |
 | Comment se passe une commande | كيف يتم الطلب |
 | Tu commandes sur le site en 20 secondes (nom, téléphone, ville) ou sur WhatsApp. | تطلبين من الموقع في 20 ثانية (الاسم، الهاتف، المدينة) أو عبر واتساب. |
 | On t'appelle pour confirmer ta commande et ton adresse. | نتصل بك لتأكيد طلبك وعنوانك. |
@@ -752,13 +796,22 @@ Français : `/livraison-paiement` · Arabe : `/ar/livraison-paiement` · Source 
 | Tu paies à la réception, en espèces, quand le livreur te remet ton colis. | تدفعين عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك. |
 | Zone : tout le Maroc. | المنطقة: كل المغرب. |
 | Délai : 24 à 72 h. | المدة: من 24 إلى 72 ساعة. |
-| Frais : offerts, quel que soit le format ou le nombre de gammes. | التكلفة: مجانًا، مهما كان الحجم أو عدد المجموعات. |
+| Gamme complète : livraison offerte, quel que soit le format ou le nombre de gammes. | المجموعة الكاملة: التوصيل مجاني، مهما كان الحجم أو عدد المجموعات. |
+| Achat à l'unité (un ou plusieurs soins séparés, sérum contour des yeux) : de 35 à 45 DH selon la ville, ajoutés au total. On te confirme le montant exact par téléphone, avant l'envoi. | شراء منتجات منفردة (منتج أو أكثر، سيروم محيط العين): من 35 إلى 45 درهمًا حسب المدينة، تُضاف إلى المجموع. نؤكد لك المبلغ الدقيق هاتفيًا قبل الإرسال. |
 | Paiement | الدفع |
 | À la livraison, en espèces. | عند الاستلام، نقدًا. |
-| Réclamations | الشكايات |
-| Nous acceptons les réclamations pour un produit abîmé, une erreur de commande ou si tu n'es pas satisfaite. Les modalités de retour ou d'échange te sont précisées sur demande, sur WhatsApp. | نقبل الشكايات في حال منتج متضرر، خطأ في الطلب أو إذا لم تكوني راضية. طريقة الإرجاع أو الاستبدال نوضحها لك عند الطلب، عبر واتساب. |
-| Écris-nous sur | راسلينا على |
+| Retours et droit de rétractation | الإرجاع وحق التراجع |
+| Droit de rétractation : 7 jours à compter de la réception (article 36 de la loi 31-08 sur la protection du consommateur). | حق التراجع: 7 أيام من تاريخ الاستلام (المادة 36 من القانون رقم 31-08 المتعلق بحماية المستهلك). |
+| Tu as 7 jours après la réception de ton colis pour nous dire que tu veux le retourner, même si tu as simplement changé d'avis. | لديك 7 أيام بعد استلام طردك لتخبرينا أنك تريدين إرجاعه، حتى لو غيّرتِ رأيك فقط. |
+| Les produits doivent être non ouverts et non utilisés. | يجب أن تكون المنتجات غير مفتوحة وغير مستعملة. |
+| Les frais de retour sont pris en charge par OTAGE. | مصاريف الإرجاع تتحملها OTAGE. |
+| Tu choisis : remboursement ou échange. | لك الاختيار: استرجاع المبلغ أو الاستبدال. |
+| Pour lancer un retour, écris-nous sur | لبدء الإرجاع، راسلينا على |
 | WhatsApp au +212 6 88 91 82 01 | واتساب على الرقم +212 6 88 91 82 01 |
+| avec ton nom et ton numéro de commande. Le détail est dans les | مع اسمك ورقم طلبك. التفاصيل في |
+| conditions générales de vente | الشروط العامة للبيع |
+| Réclamations | الشكايات |
+| Écris-nous sur | راسلينا على |
 | , on regarde ça avec toi. | ، وننظر في الأمر معك. |
 
 ## Contact
@@ -780,7 +833,7 @@ Français : `/contact` · Arabe : `/ar/contact` · Source de l'arabe : src/app/(
 | Commander | الطلب |
 | Tu peux commander | يمكنك الطلب |
 | sur le site | من الموقع |
-| ou directement sur WhatsApp. Livraison offerte partout au Maroc en 24 à 72 h, paiement à la livraison. | أو مباشرة عبر واتساب. توصيل مجاني في كل أنحاء المغرب خلال من 24 إلى 72 ساعة، والدفع عند الاستلام. |
+| ou directement sur WhatsApp. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville pour un achat à l'unité, paiement à la livraison. | أو مباشرة عبر واتساب. التوصيل في كل أنحاء المغرب خلال من 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام. |
 
 ## Mentions légales
 
@@ -814,7 +867,7 @@ Français : `/mentions-legales` · Arabe : `/ar/mentions-legales` · Source de l
 | Conformément à la loi marocaine n° 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, tu peux demander l'accès, la rectification ou la suppression de tes données en nous écrivant sur WhatsApp. | طبقًا للقانون المغربي رقم 09-08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي، يمكنك طلب الاطلاع على معطياتك، تصحيحها أو حذفها بمراسلتنا عبر واتساب. |
 | Déclaration à la CNDP : | التصريح لدى اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي: |
 | À compléter : numéro de déclaration ou d'autorisation CNDP | يُستكمل لاحقًا: رقم التصريح أو الإذن |
-| Cookies | ملفات تعريف الارتباط |
+| Cookies et mesure d'audience | ملفات تعريف الارتباط وقياس الزيارات |
 | Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper. | هذا الموقع لا يستعمل ملفات تعريف ارتباط إشهارية. يسجل فقط، في متصفحك، اختياراتك في العرض ومعلومات التوصيل التي أدخلتها، حتى لا تعيدي كتابتها. |
 | Produits cosmétiques | مستحضرات التجميل |
 | Les soins OTAGE sont des produits cosmétiques. Ils ne remplacent pas un avis médical. En cas de doute, de grossesse, d'allaitement ou de réaction cutanée, demande l'avis d'un médecin ou d'un pharmacien. | منتجات OTAGE مستحضرات تجميل. لا تعوض رأيًا طبيًا. في حال الشك، الحمل، الرضاعة أو تفاعل جلدي، استشيري طبيبًا أو صيدليًا. |
@@ -826,8 +879,7 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Conditions générales de vente \| OTAGE | الشروط العامة للبيع \| OTAGE |
-| **Description (Google)** Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison offerte au Maroc, paiement à la livraison. | الشروط العامة للبيع لدى OTAGE: المنتجات، الأسعار بالدرهم، الطلب، التوصيل المجاني في المغرب، والدفع عند الاستلام. |
-| CGV | الشروط العامة للبيع |
+| **Description (Google)** Conditions générales de vente OTAGE : produits, prix en dirhams, commande, livraison au Maroc, paiement à la livraison, retour sous 7 jours. | الشروط العامة للبيع لدى OTAGE: المنتجات، الأسعار بالدرهم، الطلب، التوصيل المجاني في المغرب، والدفع عند الاستلام. |
 | 1. Objet | 1. الموضوع |
 | Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site otage.ma ou par WhatsApp, entre | تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع otage.ma أو عبر واتساب، بين |
 | À compléter : raison sociale du vendeur | يُستكمل لاحقًا: الاسم التجاري للبائع |
@@ -844,12 +896,14 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | 4. Commande | 4. الطلب |
 | La commande se passe sur le site (nom, téléphone, ville, adresse) ou par WhatsApp. Elle devient définitive après confirmation par téléphone avec OTAGE. | يتم الطلب من الموقع (الاسم، الهاتف، المدينة، العنوان) أو عبر واتساب. يصبح الطلب نهائيًا بعد تأكيده هاتفيًا مع OTAGE. |
 | 5. Livraison | 5. التوصيل |
-| La livraison est offerte partout au Maroc. Le délai indicatif est de 24 à 72 h après confirmation de la commande. | التوصيل مجاني في كل أنحاء المغرب. المدة التقريبية هي من 24 إلى 72 ساعة بعد تأكيد الطلب. |
+| La livraison se fait partout au Maroc. Elle est offerte pour l'achat d'une gamme complète. Pour un achat à l'unité, les frais de livraison sont de 35 à 45 DH selon la ville ; ils s'ajoutent au total et sont confirmés à la cliente avant l'envoi. Le délai indicatif est de 24 à 72 h après confirmation de la commande. | يتم التوصيل في كل أنحاء المغرب. هو مجاني عند شراء مجموعة كاملة. عند شراء منتجات منفردة، مصاريف التوصيل من 35 إلى 45 درهمًا حسب المدينة؛ تُضاف إلى المجموع وتُؤكَّد للزبونة قبل الإرسال. المدة التقريبية هي من 24 إلى 72 ساعة بعد تأكيد الطلب. |
 | 6. Paiement | 6. الدفع |
 | Le paiement se fait à la livraison, en espèces, à la remise du colis. Aucun paiement n'est demandé en ligne. | يتم الدفع عند الاستلام، نقدًا، عند تسليم الطرد. لا يُطلب أي دفع عبر الإنترنت. |
-| 7. Retours, échanges et réclamations | 7. الإرجاع، الاستبدال والشكايات |
-| À compléter : délai de retour et frais | يُستكمل لاحقًا: مدة الإرجاع والتكاليف |
-| Pour toute réclamation, écris-nous sur WhatsApp au +212 6 88 91 82 01. | لأي شكاية، راسلينا عبر واتساب على الرقم +212 6 88 91 82 01. |
+| 7. Droit de rétractation, retours et réclamations | 7. حق التراجع، الإرجاع والشكايات |
+| La cliente dispose d'un délai de 7 jours à compter de la réception de sa commande pour exercer son droit de rétractation, sans avoir à se justifier ni à payer de pénalité. Il suffit de prévenir OTAGE dans ce délai, sur WhatsApp au +212 6 88 91 82 01 ou par e-mail à Dr.mouldwa@gmail.com, en indiquant son nom et son numéro de commande. | للزبونة أجل 7 أيام من تاريخ استلام طلبها لممارسة حق التراجع، دون تبرير ودون أي غرامة. يكفي إخبار OTAGE داخل هذا الأجل، عبر واتساب على الرقم +212 6 88 91 82 01 أو بالبريد الإلكتروني Dr.mouldwa@gmail.com، مع ذكر الاسم ورقم الطلب. |
+| Les produits retournés doivent être non ouverts et non utilisés, dans leur emballage d'origine. Les frais de retour sont pris en charge par OTAGE. | يجب أن تكون المنتجات المرجعة غير مفتوحة وغير مستعملة، في غلافها الأصلي. مصاريف الإرجاع تتحملها OTAGE. |
+| Au choix de la cliente, OTAGE rembourse les sommes versées ou échange le produit. | حسب اختيار الزبونة، ترد OTAGE المبالغ المدفوعة أو تستبدل المنتج. |
+| À compléter : délai de remboursement (à valider par un juriste) | يُستكمل لاحقًا: أجل استرجاع المبلغ (يُراجع مع مستشار قانوني) |
 | 8. Précautions d'emploi | 8. احتياطات الاستعمال |
 | Les soins OTAGE sont des produits cosmétiques, à usage externe. Fais un essai sur une petite zone avant la première utilisation. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. Enceinte ou allaitante, demande d'abord l'avis de ton médecin ou de ton pharmacien. | منتجات OTAGE مستحضرات تجميل، للاستعمال الخارجي. جربي على منطقة صغيرة قبل أول استعمال. في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. إن كنت حاملًا أو مرضعة، اسألي أولًا طبيبك أو الصيدلي. |
 | 9. Données personnelles | 9. المعطيات الشخصية |
@@ -895,6 +949,10 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Contenu : | المحتوى: |
 | Livraison | التوصيل |
 | Offerte | مجاني |
+| 35 à 45 DH | من 35 إلى 45 درهمًا |
+| selon la ville | حسب المدينة |
+| à la livraison. Livraison offerte. | عند الاستلام. التوصيل مجاني. |
+| à la livraison, plus les frais de livraison (35 à 45 DH selon la ville). | عند الاستلام، زائد مصاريف التوصيل (من 35 إلى 45 درهمًا حسب المدينة). |
 | Paiement | الدفع |
 | À la livraison | عند الاستلام |
 | Pour ton sérum contour des yeux. | لسيروم محيط العين. |
@@ -914,6 +972,11 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Vérifie ton numéro : 10 chiffres, qui commencent par 05, 06 ou 07. | تحققي من رقمك: 10 أرقام تبدأ بـ 05 أو 06 أو 07. |
 | Remplis les champs en rouge pour qu'on puisse te livrer. | املئي الخانات باللون الأحمر حتى نتمكن من التوصيل. |
 | Merci, {name} ! | شكرًا، {name}! |
+| Coche la case pour accepter les CGV et la politique de retour. | ضعي علامة في الخانة للموافقة على الشروط العامة للبيع وسياسة الإرجاع. |
+| Bonjour OTAGE, voici le récapitulatif de ma commande n° {n} : | مرحبًا OTAGE، هذا ملخص طلبي رقم {n}: |
+| Total | المجموع |
+| DH | درهم |
+| Commande n° {n} | طلب رقم {n} |
 | Masquer la liste des réponses | إخفاء قائمة الأجوبة |
 | Voir toutes les réponses d'un coup | عرض كل الأجوبة دفعة واحدة |
 | Gel nettoyant | جل منظف |
@@ -934,13 +997,13 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | SPF 50, haute protection | SPF 50، حماية عالية |
 | UVA et UVB, pour que les taches ne reviennent pas. | UVA و UVB، حتى لا تعود البقع. |
 | Fabriqué au Maroc | صنع في المغرب |
-| Livraison offerte partout au Maroc, paiement à la livraison. | توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام. |
+| Gamme complète : livraison offerte. Paiement à la livraison. | المجموعة الكاملة: توصيل مجاني. الدفع عند الاستلام. |
 | Bille rafraîchissante | بكرة منعشة |
 | Un applicateur bille pour le contour de l'œil, matin et soir. | بكرة دوارة لمحيط العين، صباحًا ومساءً. |
 | Caféine, acide hyaluronique, aloe vera | كافيين، حمض الهيالورونيك، ألوفيرا |
 | Les 3 actifs du sérum N° 05, en 15 ml. | المكونات الثلاثة لسيروم رقم 05، في 15 مل. |
 | Fabriqué au Maroc | صنع في المغرب |
-| Livraison offerte partout au Maroc, paiement à la livraison. | توصيل مجاني في كل أنحاء المغرب، والدفع عند الاستلام. |
+| Livraison en 24 à 72 h, paiement à la livraison. | التوصيل من 24 إلى 72 ساعة، والدفع عند الاستلام. |
 
 ## Accueil : textes du chat des questions
 
@@ -960,4 +1023,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-781 textes à relire.
+844 textes à relire.

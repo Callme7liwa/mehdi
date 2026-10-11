@@ -29,6 +29,14 @@ export const amount = (t: { min: number; max: number }, locale: Locale) => {
 };
 export const orderDate = (d: Date, locale: Locale) => new Intl.DateTimeFormat(locale === "ar" ? "ar-MA" : "fr-FR", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Africa/Casablanca", numberingSystem: "latn" }).format(d);
 
+/** Fragment écrit de gauche à droite dans une phrase arabe : numéro de commande, téléphone, e-mail. */
+const Ltr = ({ children }: { children: ReactNode }) => <span dir="ltr" style={{ unicodeBidi: "isolate", whiteSpace: "nowrap" }}>{children}</span>;
+const Rule = () => <Section><Row><Column className="rule" style={{ borderTop: `1px solid ${C.line}`, fontSize: 0, lineHeight: 0, height: 1 }}>&nbsp;</Column></Row></Section>;
+/* Les marges intérieures se posent sur une cellule (<td>) : les messageries les ignorent sur un tableau. */
+const Block = ({ children, top = 28 }: { children: ReactNode; top?: number }) => <Section><Row><Column className="pad" style={{ padding: `${top}px 32px 0` }}>{children}</Column></Row></Section>;
+/** Encadré crème (commande, droits). */
+const Panel = ({ children }: { children: ReactNode }) => <Section><Row><Column className="panel" style={{ backgroundColor: C.cream, borderRadius: 14, padding: "16px 18px" }}>{children}</Column></Row></Section>;
+
 export default function OrderConfirmation({ locale, numero, date, nom, tel, ville, adresse, priced, base = site.url }: OrderEmail) {
   const t = emailText[locale], rtl = locale === "ar";
   const dir = rtl ? "rtl" : "ltr", start = rtl ? "right" : "left", end = rtl ? "left" : "right";
@@ -39,13 +47,6 @@ export default function OrderConfirmation({ locale, numero, date, nom, tel, vill
   const small: CSSProperties = { ...p, fontSize: 13, lineHeight: "20px", color: C.soft };
   const h2: CSSProperties = { ...p, fontSize: 18, lineHeight: "26px", fontWeight: 600, color: C.bordeaux, margin: "0 0 12px" };
   const num: CSSProperties = { fontFamily: FONT.serif, fontWeight: 600 };
-  /** Fragment écrit de gauche à droite dans une phrase arabe : numéro de commande, téléphone, e-mail. */
-  const Ltr = ({ children }: { children: ReactNode }) => <span dir="ltr" style={{ unicodeBidi: "isolate", whiteSpace: "nowrap" }}>{children}</span>;
-  const Rule = () => <Section><Row><Column className="rule" style={{ borderTop: `1px solid ${C.line}`, fontSize: 0, lineHeight: 0, height: 1 }}>&nbsp;</Column></Row></Section>;
-  /* Les marges intérieures se posent sur une cellule (<td>) : les messageries les ignorent sur un tableau. */
-  const Block = ({ children, top = 28 }: { children: ReactNode; top?: number }) => <Section><Row><Column className="pad" style={{ padding: `${top}px 32px 0` }}>{children}</Column></Row></Section>;
-  /** Encadré crème (commande, droits). */
-  const Panel = ({ children }: { children: ReactNode }) => <Section><Row><Column className="panel" style={{ backgroundColor: C.cream, borderRadius: 14, padding: "16px 18px" }}>{children}</Column></Row></Section>;
   const kv = (label: string, value: ReactNode) => (
     <Row key={label}>
       <Column className="soft" style={{ ...small, width: "38%", padding: "4px 0", verticalAlign: "top" }}>{label}</Column>

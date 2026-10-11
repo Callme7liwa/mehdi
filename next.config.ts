@@ -42,7 +42,8 @@ const nextConfig: NextConfig = {
       {
         // polices : le nom du fichier porte sa version (-v1), on peut donc les garder un an
         source: "/fonts/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+        // Access-Control-Allow-Origin : les messageries qui chargent les polices du site dans les e-mails l'exigent
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }, { key: "Access-Control-Allow-Origin", value: "*" }],
       },
       {
         source: "/:dir(images|videos)/:path*",

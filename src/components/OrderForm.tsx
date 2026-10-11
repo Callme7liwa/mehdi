@@ -27,7 +27,7 @@ export type OrderData = {
 export type OrderText = Record<
   | "chooseWhat" | "unitAlone" | "fullRange" | "from" | "quantity" | "less" | "more" | "chooseProducts" | "unitHint" | "errEmpty" | "chooseFormat" | "chooseOffer" | "chooseOfferOnly" | "yourInfo" | "perRange" | "perSerum" | "rangeWord" | "rangesWord" | "serumWord" | "serumsWord"
   | "free" | "freeM" | "save" | "total" | "name" | "namePh" | "phone" | "phonePh" | "city" | "cityPh" | "address" | "addressOpt" | "addressPh"
-  | "errEmail" | "errLimit" | "errServer" | "sending" | "doneOffline" | "doneEmail" | "comma" | "colon" | "bang" | "agreeA" | "agreeCgv" | "agreeAnd" | "agreeReturns" | "errTerms" | "recapTitle" | "orderNo" | "waConfirm" | "waHello" | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
+  | "email" | "emailOpt" | "emailPh" | "emailHint" | "emailConsent" | "errEmail" | "errLimit" | "errServer" | "sending" | "doneOffline" | "doneEmail" | "comma" | "colon" | "bang" | "agreeA" | "agreeCgv" | "agreeAnd" | "agreeReturns" | "errTerms" | "recapTitle" | "orderNo" | "waConfirm" | "waHello" | "delivery" | "deliveryFree" | "subtotal" | "totalFrom" | "totalTo" | "feeNote" | "dh" | "submit" | "payNote" | "youPay" | "errPhone" | "errFields" | "thanks" | "done" | "insteadOf" | "bundle",
   string
 >;
 
@@ -247,6 +247,7 @@ export default function OrderForm({ data, t }: { data: OrderData; t: OrderText }
           <label className="field">{t.phone}<input name="tel" type="tel" inputMode="tel" autoComplete="tel" dir="ltr" placeholder={t.phonePh} {...invalid("tel")} /></label>
           <label className="field">{t.city}<input name="ville" list={`${id}-villes`} autoComplete="address-level2" placeholder={t.cityPh} {...invalid("ville")} /></label>
           <label className="field"><span>{t.address} <small>{t.addressOpt}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.addressPh} /></label>
+          <label className="field full"><span>{t.email} <small>{t.emailOpt}</small></span><input name="email" type="email" inputMode="email" autoComplete="email" dir="ltr" placeholder={t.emailPh} aria-describedby={`${id}-email-info`} {...invalid("email")} /><small id={`${id}-email-info`} className="field-info"><b>{t.emailHint}</b> {t.emailConsent}</small></label>
           <datalist id={`${id}-villes`}>{data.cities.map((c) => <option key={c}>{c}</option>)}</datalist>
         </div>
         <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />

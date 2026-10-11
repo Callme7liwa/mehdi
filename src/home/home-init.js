@@ -1004,16 +1004,18 @@ export function initHome(cfg) {
       e.preventDefault();
       if (sending) return;
       const bad = [];
-      ["nom", "tel", "ville"].forEach((n) => {
+      ["nom", "tel", "ville", "email"].forEach((n) => {
         const el = form.elements[n];
-        const ok = n === "tel" ? telOk(el.value) : el.value.trim().length > 1;
+        if (!el) return;
+        // l'e-mail est facultatif : vide, ou une adresse plausible
+        const ok = n === "tel" ? telOk(el.value) : n === "email" ? el.value.trim() === "" || /^\S+@\S+\.\S{2,}$/.test(el.value.trim()) : el.value.trim().length > 1;
         el.setAttribute("aria-invalid", String(!ok));
         if (!ok) bad.push(el);
       });
       if (bad.length) {
         err.textContent = bad.length === 1 && bad[0].name === "tel"
           ? TXT.errPhone
-          : TXT.errFields;
+          : bad.length === 1 && bad[0].name === "email" ? TXT.errEmail : TXT.errFields;
         bad[0].focus();
         return;
       }

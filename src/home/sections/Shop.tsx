@@ -39,8 +39,8 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
         fee={fee}
         links={{ cgv: localePath(locale, "/cgv"), returns: `${localePath(locale, "/livraison-paiement")}#retours` }}
         t={{
-          dh: t.offersDh.trim(), ml: js.ml,
-          see: t.shopVoirLeProduit, seeAria: t.shopVoir, format: t.shopFormat, petit: t.shopPetit, grand: t.shopGrand, unique: t.shopFormatUnique,
+          dh: t.offersDh.trim(), ml: js.ml, comma: js.comma,
+          see: t.shopVoirLeProduit, format: t.shopFormat, petit: t.shopPetit, grand: t.shopGrand, unique: t.shopFormatUnique,
           add: t.shopAjouter, minus: t.shopRetirer, plus: t.shopAjouterUn, prev: t.shopPrecedents, next: t.shopSuivants, track: t.shopProduits,
           article: t.shopArticle, articles: t.shopArticles, plusDelivery: t.shopPlusLivraison, order: t.heroCommander,
           cart: t.shopTonPanier, delivery: js.delivery, feeA: t.shopFraisA, feeB: t.shopFraisB, feeC: t.shopFraisC, subtotal: t.shopTotalProduits, note: t.shopNote,

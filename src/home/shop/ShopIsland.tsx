@@ -148,7 +148,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       try { localStorage.setItem(QUEUE, JSON.stringify([...JSON.parse(localStorage.getItem(QUEUE) || "[]"), order])); } catch { /* stockage indisponible */ }
     }
     window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: "unite", format: [...new Set(entries.map((x) => x.f))].join("+"), value: subtotal } })); // mesure d'audience, si acceptée
-    setDone({ name: val("nom").split(/\s+/)[0], numero: res?.numero || "", subtotal, lines: entries.map((x) => `${x.qty} × ${x.p.name}, ${fmtName(x.p, x.f)} ${x.v.ml} ${t.ml}`) });
+    setDone({ name: val("nom").split(/\s+/)[0], numero: res?.numero || "", subtotal, lines: entries.map((x) => `${x.qty} × ${x.p.name}${t.comma}${fmtName(x.p, x.f)} ${x.v.ml} ${t.ml}`) });
     dlg.current?.querySelector(".qv-card")?.scrollTo(0, 0);
   };
   const bad = (n: string) => (invalid.includes(n) ? { "aria-invalid": true as const } : {});
@@ -164,11 +164,11 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
               const f = sel[p.key], v = p.formats.find((x) => x.f === f)!, k = `${p.key}:${f}`, qty = cart[k] || 0;
               return (
                 <article key={p.key} className={`sp${entries.some((x) => x.p.key === p.key) ? " in" : ""}`}>
-                  <a className="sp-pic" href={p.url} aria-label={`${t.seeAria} ${p.name}`}>
+                  <a className="sp-pic" href={p.url}>
                     <span className="sp-no" aria-hidden="true">N°{p.no}</span>
-                    <span className="sp-see" aria-hidden="true">{t.see}</span>
+                    <span className="sp-see">{t.see}</span>
                     <span className="sp-tag">{v.ml} {t.ml}</span>
-                    <Img src={p.img.src} alt="" width={p.img.w} height={p.img.h} sizes="120px" style={{ "--z": p.formats.length > 1 && f === "petit" ? 0.88 : 1 } as React.CSSProperties} draggable={false} />
+                    <Img src={p.img.src} alt={p.name} width={p.img.w} height={p.img.h} sizes="120px" style={{ "--z": p.formats.length > 1 && f === "petit" ? 0.88 : 1 } as React.CSSProperties} draggable={false} />
                   </a>
                   <div className="sp-body">
                     <h3><a className="sp-ttl" href={p.url}>{p.name}</a></h3>
@@ -214,7 +214,8 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       <dialog className="qv sd" ref={dlg} aria-labelledby="sd-title" onCancel={(e) => { e.preventDefault(); hide(); }} onClick={(e) => { if (!(e.target as HTMLElement).closest(".qv-card")) hide(); }}>
         <div className="qv-card sd-card">
           <button type="button" className="qv-close sd-close" aria-label={t.close} onClick={hide}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg></button>
-          {done ? (
+          {/* le contenu n'est rendu qu'à l'ouverture : le formulaire ne pèse pas dans le HTML de la page */}
+          {!open ? null : done ? (
             <div className="cur-done sd-done">
               <svg className="od-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>
               <h3 id="sd-title" className="cur-t">{done.name ? fill(t.thanks, { name: done.name }) : t.thanksDefault}</h3>

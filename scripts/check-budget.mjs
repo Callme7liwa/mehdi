@@ -13,7 +13,8 @@ import { gzipSync } from "node:zlib";
 const BASE = process.env.BASE || "http://localhost:3000";
 /* Ko compressés (gzip) : [JavaScript, CSS, HTML, polices préchargées] */
 // HTML : relevé de 46 à 48 Ko (accueil) et de 20 à 22 Ko (pages) avec la liste des 92 villes du formulaire de commande
-const HOME = { js: 165, css: 26, html: 48, fonts: 64 };
+// accueil v2 : relevé à 55 à 56 Ko avec les sections « À l'unité » (5 cartes produit) et « Conseils »
+const HOME = { js: 165, css: 26, html: 57, fonts: 64 };
 const PAGE = { js: 155, css: 8, html: 22, fonts: 64 };
 const PAGES = [
   ["/", HOME], ["/ar", HOME],

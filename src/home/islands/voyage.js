@@ -19,7 +19,7 @@ export default function init(cfg) {
     const bigs = [...document.querySelectorAll(".big")];
     const ratio = [255 / 1000, 381 / 1000, 243 / 1000, 245 / 1000];
     let bigBox = [];
-    const above = [".avatar", ".proof", ".title", ".arabic"].map((s) => document.querySelector(s));
+    const above = [".proof", ".title", ".arabic"].map((s) => document.querySelector(s));
     const below = [".moment", ".ctas", ".perks"].map((s) => document.querySelector(s));
     const fades = [...document.querySelectorAll(".side, .pins .laurel, .sky, .sun")];
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

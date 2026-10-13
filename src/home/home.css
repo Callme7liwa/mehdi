@@ -2726,44 +2726,134 @@ a.qv-more { display: inline-flex; align-items: center; justify-content: center; 
 }
 
 
-/* ================= Hero sur mobile : lecture simplifiée =================
-   En dessous de 640 px, le premier écran garde un seul bouton plein, un titre moins serré, une preuve sur une ligne
-   et moins de décor. Mêmes règles en français et en arabe ; l'ordinateur n'est pas concerné. */
+/* ================= Hero sur mobile =================
+   En dessous de 640 px : moins de décor et des contrastes renforcés. Mêmes règles en français et en arabe. */
 @media (max-width: 639px) {
-  /* 1. Un seul bouton plein : « Voir les offres ». « Trouver mon soin » devient un bouton à contour, plus bas. */
-  .ctas .o-ghost {
-    --h: 48px;
-    background: transparent;
-    -webkit-backdrop-filter: none; backdrop-filter: none;
-    box-shadow: inset 0 0 0 1.5px rgba(74, 13, 22, 0.32);
-    font-size: 16px;
-  }
-  .ctas .o-ghost .o-cap { width: 36px; height: 36px; box-shadow: none; }
-  /* « Commander » de la barre du haut : masqué tant qu'on est sur le premier écran, de retour dès qu'on défile */
-  .nav .navBtn { transition: opacity 0.3s ease, visibility 0.3s; }
-  .hero:not(.travel) .nav .navBtn { opacity: 0; visibility: hidden; pointer-events: none; }
-
-  /* 2. Titre : lettres moins serrées (−0,01em au lieu de −0,055em), taille ajustée pour que
-     « Des soins honnêtes. » tienne toujours sur une ligne dès 320 px. Mot encadré : crème sur rouge (4,5:1). */
-  .title { font-size: clamp(30px, 9.4vw, 60px); }
-  .title .line:not(.kick) { letter-spacing: -0.01em; }
-  .title .kick { opacity: 1; }
-
-  /* 3. Preuve sociale : version courte, sur une seule ligne */
-  .proof-long { display: none; }
-  .proof-short { display: inline; }
-  .proof p { margin: 0; white-space: nowrap; color: var(--t-title); }
-
-  /* 4. Moins de bruit */
-  /* pastille « 2 + 1 offerte » : droite, posée sur le bord du bouton, sans recouvrir son texte */
-  .flag { top: -17px; inset-inline-end: 18px; padding: 4px 10px; line-height: 16px; transform: none; animation-name: flagInFlat; }
   /* lauriers : discrets, et masqués sur les petits écrans (la place qu'ils occupent est gardée) */
   .pins .laurel { opacity: 0.45; }
-  /* petits textes sur le ciel : contraste AA (4,5:1) le matin comme le soir */
-  .arabic span { color: #7a0c17; }
   .faces span:nth-child(3) { background: #9a4a41; }
 }
 @media (max-width: 399px) { .pins .laurel { visibility: hidden; } }
 /* très petits écrans : les deux atouts restent sur une ligne */
 @media (max-width: 359px) { .perks { font-size: 12px; gap: 6px 10px; } .perks li { gap: 4px; } }
-@keyframes flagInFlat { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+
+/* ================= Accueil v2 : hero de la maquette validée =================
+   Badge « 85 % » (anneau de texte qui tourne), boucle dessinée autour de « honnêtes. », accroche arabe calligraphiée
+   entre deux traits. Repris de la maquette ; seules les directions (gauche / droite) sont écrites pour les deux sens de lecture. */
+/* ---------- Titre du hero : typographie affinée ---------- */
+.title { font-weight: 600; letter-spacing: -0.045em; font-size: clamp(30px, 8.7vw, 88px); }
+@media (min-width: 900px) { .title { font-size: clamp(56px, 6vw, 84px); } }
+.title .l2 { font-weight: 400; letter-spacing: -0.04em; }
+.hn {
+  position: relative; display: inline-block;
+  margin-inline-start: 0.1em; padding: 0 0.04em;
+  font-family: var(--font-bodoni), Didot, Georgia, serif;
+  font-style: italic; font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--red);
+}
+.hn-loop {
+  position: absolute; inset-inline-start: -6%; top: -12%;
+  width: 112%; height: 126%;
+  overflow: visible; pointer-events: none;
+}
+.hn-loop path {
+  fill: none; stroke: var(--red); stroke-width: 2.6; stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 640; stroke-dashoffset: 640;
+  animation: hnDraw 1.4s cubic-bezier(.6, 0, .2, 1) 0.6s forwards;
+}
+@keyframes hnDraw { to { stroke-dashoffset: 0; } }
+/* arabe calligraphié, seul, entre deux traits */
+.arabic { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-aref), var(--font-plex-arabic), serif; font-weight: 700; font-size: clamp(24px, 5.6vw, 36px); line-height: 1.6; color: var(--bordeaux); }
+.ar-dash { width: clamp(22px, 4vw, 40px); height: 1.5px; background: var(--red); border-radius: 2px; }
+.poster.type.cream p { font-family: var(--font-aref), var(--font-plex-arabic), serif; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .hn-loop path { animation: none; stroke-dashoffset: 0; } }
+
+/* ---------- Preuve du hero : un chiffre, éditorial ---------- */
+.s85 {
+  position: relative;
+  display: grid; grid-template-columns: auto auto auto; align-items: center; column-gap: 16px;
+  margin: 0; padding: 0 0 12px;
+  border: 0; background: none;
+  font: inherit; color: var(--bordeaux); text-align: start; cursor: pointer;
+}
+.s85-num { display: flex; align-items: flex-start; line-height: 0.82; }
+.s85-num b { font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: clamp(48px, 6vw, 64px); font-weight: 500; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.s85-num sup { margin: 2px 0 0 3px; font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 0.42em; font-size: clamp(20px, 2.4vw, 26px); color: var(--red); line-height: 1; }
+.s85-rule { width: 1px; height: 46px; background: rgba(74, 13, 22, 0.25); }
+.s85-txt { display: grid; line-height: 1.2; }
+.s85-l1, .s85-l2 { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+.s85-l2 { font-style: italic; font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 17px; }
+.s85-link { position: relative; justify-self: start; display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
+.s85-link svg { width: 12px; height: 12px; transition: transform 0.35s cubic-bezier(.2, .8, .2, 1); }
+.s85-link::after { content: ""; position: absolute; inset-inline-start: 0; inset-inline-end: 16px; bottom: -2px; height: 1px; background: currentColor; transform: scaleX(0.25); transform-origin: left; transition: transform 0.45s cubic-bezier(.2, .8, .2, 1); }
+.s85:hover .s85-link::after, .s85:focus-visible .s85-link::after { transform: scaleX(1); }
+.s85:hover .s85-link svg { transform: translate(2px, -2px); }
+/* filet de progression : 85 % de la ligne */
+.s85-bar { position: absolute; inset-inline-start: 0; inset-inline-end: 0; bottom: 0; height: 1px; background: rgba(74, 13, 22, 0.15); }
+.s85-bar i { position: absolute; inset-block: 0; inset-inline: 0 15%; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 1.6s cubic-bezier(.2, .8, .2, 1) 0.3s; }
+.s85.go .s85-bar i { transform: scaleX(1); }
+.s85:focus-visible { outline: none; }
+.s85:focus-visible .s85-num b { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+@media (max-height: 700px) and (max-width: 899px) { .s85-num b { font-size: 40px; } .s85-rule { height: 36px; } .s85-link { display: none; } }
+@media (prefers-reduced-motion: reduce) { .s85-bar i { transition: none; transform: scaleX(1); } }
+
+
+/* ---------- 85 % : anneau de texte qui tourne, reflet, comète ---------- */
+.s85-badge { position: relative; display: grid; place-items: center; width: clamp(92px, 9vw, 112px); aspect-ratio: 1; }
+.s85-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; animation: s85spin 16s linear infinite; }
+.s85-ring text { font: 700 9.6px var(--font-dm-sans), Arial, sans-serif; letter-spacing: 0.19em; fill: var(--bordeaux); opacity: 0.75; }
+@keyframes s85spin { to { transform: rotate(360deg); } }
+.s85-badge::before { /* fin cercle rouge derrière le chiffre */
+  content: ""; position: absolute; inset: 22%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 252, 248, 0.85), rgba(255, 252, 248, 0.35));
+  box-shadow: 0 0 0 1px rgba(212, 34, 53, 0.35);
+}
+.s85-badge .s85-num { position: relative; }
+.s85-badge .s85-num b { font-size: clamp(34px, 3.4vw, 42px); }
+.s85-badge .s85-num sup { font-size: clamp(14px, 1.4vw, 17px); }
+/* reflet qui passe sur le chiffre */
+.s85-num b {
+  background: linear-gradient(100deg, var(--bordeaux) 0 42%, #ff5a6c 50%, var(--bordeaux) 58% 100%) 0 0 / 260% 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: s85shine 4.5s ease-in-out 2.4s infinite;
+}
+@keyframes s85shine { 0% { background-position: 100% 0; } 35%, 100% { background-position: 0 0; } }
+.s85-num sup { animation: s85pulse 4.5s ease-in-out 2.4s infinite; display: inline-block; }
+@keyframes s85pulse { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.25); } 45% { transform: scale(1); } }
+/* comète qui parcourt la ligne rouge */
+.s85-bar::after {
+  content: ""; position: absolute; top: -2px; inset-inline-start: 0;
+  width: 26px; height: 5px; border-radius: 4px;
+  background: radial-gradient(closest-side, #fff, rgba(255, 179, 186, 0.9), transparent);
+  filter: blur(0.5px);
+  opacity: 0;
+}
+.s85.go .s85-bar::after { animation: s85comet 3.2s cubic-bezier(.5, 0, .3, 1) 2s infinite; }
+@keyframes s85comet { 0% { inset-inline-start: 0; opacity: 0; } 10% { opacity: 1; } 70% { opacity: 1; } 80%, 100% { inset-inline-start: calc(85% - 26px); opacity: 0; } }
+.s85 { column-gap: 14px; }
+@media (max-height: 700px) and (max-width: 899px) { .s85-badge { width: 76px; } .s85-badge .s85-num b { font-size: 28px; } .s85-ring text { font-size: 10.5px; } }
+@media (prefers-reduced-motion: reduce) { .s85-ring, .s85-num b, .s85-num sup, .s85.go .s85-bar::after { animation: none; } .s85-num b { color: var(--bordeaux); background: none; } }
+
+
+/* petit lien rouge sur le ciel : rouge assombri pour rester lisible (4,5:1) le matin comme le soir */
+.s85-link { color: #a3152a; }
+/* le bouton-preuve remplace l'ancien portrait : même place, même marge */
+.proof.s85 { margin-top: 0; }
+/* surtitre du H1 (mot-clé de la page) : au-dessus du titre, sans le pousser */
+.title .kick { margin-bottom: 0.9em; font-weight: 600; letter-spacing: 0.16em; }
+/* pastille « Nouveau » du menu : son texte vient de data-new (français ou arabe) */
+.sheet a[data-new]::after, .links a[data-new]::after { content: attr(data-new); margin-inline-start: 8px; padding: 2px 8px; border-radius: 999px; background: var(--red); color: var(--cream); font-size: 11px; font-weight: 700; vertical-align: 2px; }
+.sheet a[data-new] { justify-content: flex-start; }
+/* sens de lecture arabe : les traits partent de la droite, la flèche se retourne, pas d'italique ni de Bodoni sur l'arabe */
+html[dir="rtl"] .s85-link::after, html[dir="rtl"] .s85-bar i { transform-origin: right; }
+html[dir="rtl"] .s85-link svg { transform: scaleX(-1); }
+html[dir="rtl"] .s85:hover .s85-link svg { transform: scaleX(-1) translate(2px, -2px); }
+html[dir="rtl"] .hn, html[dir="rtl"] .s85-l2 { font-family: inherit; font-style: normal; letter-spacing: 0; }
+/* texte sur un cercle : le tracé se lit de gauche à droite, les mots arabes restent liés et dans leur sens */
+html[dir="rtl"] .s85-ring text { direction: ltr; letter-spacing: 0; font-size: 13.5px; font-weight: 600; }
+/* petit écran : le texte de la preuve peut passer à la ligne, le badge ne sort jamais de l'écran */
+.s85 { grid-template-columns: auto auto minmax(0, auto); max-width: 100%; }
+@media (max-width: 639px) { .s85-l2 { font-size: 15px; } }

@@ -40,6 +40,8 @@ export default function init() {
 
     document.querySelectorAll(".hz-open").forEach((b) => b.addEventListener("click", () => open(b.dataset.hz, b)));
     document.querySelectorAll("[data-hz-link]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); open("avis", a); }));
+    /* badge « 85 % » du hero : ouvre l'onglet des résultats (le chiffre et sa source) */
+    document.querySelectorAll("[data-hz-res]").forEach((b) => b.addEventListener("click", () => open("res", b)));
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => show(t.dataset.tab));
       t.addEventListener("keydown", (e) => {

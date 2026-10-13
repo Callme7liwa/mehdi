@@ -92,4 +92,28 @@ export default function init(cfg) {
     });
     b.addEventListener("animationend", () => b.classList.remove("tap"));
   });
+
+  /* Chiffre de satisfaction du hero : il compte jusqu'à sa valeur, une fois (le script en ligne de HomePage.tsx l'a mis à 0) */
+  (() => {
+    const s85 = document.querySelector(".s85"); if (!s85) return;
+    const n = s85.querySelector("[data-85]"), target = Number(n.dataset.to || n.textContent);
+    s85.classList.add("go");
+    if (!n.dataset.to || window.matchMedia("(prefers-reduced-motion: reduce)").matches) { n.textContent = target; return; }
+    const t0 = performance.now();
+    const f = (now) => { const k = Math.min(1, (now - t0) / 1600); n.textContent = Math.round(target * (1 - Math.pow(1 - k, 4))); if (k < 1) requestAnimationFrame(f); };
+    requestAnimationFrame(f);
+  })();
+
+  /* Liens du menu vers une section de la page : le menu se referme, puis la page glisse jusqu'à la section */
+  (() => {
+    const closeSheet = () => { const s = document.getElementById("sheet"); if (s && s.classList.contains("open")) document.querySelector(".burger").click(); };
+    document.querySelectorAll("[data-nav]").forEach((a) => a.addEventListener("click", (e) => {
+      const t = document.querySelector(a.getAttribute("href")); if (!t) return;
+      e.preventDefault(); closeSheet();
+      if (t.classList.contains("offers")) t.classList.add("seen");
+      let y = 0; for (let el = t; el; el = el.offsetParent) y += el.offsetTop;
+      history.replaceState(null, "", a.getAttribute("href"));
+      setTimeout(() => (window.OTAGE && OTAGE.glideTo ? OTAGE.glideTo(y - 10) : window.scrollTo({ top: y - 10, behavior: "smooth" })), 150);
+    }));
+  })();
 }

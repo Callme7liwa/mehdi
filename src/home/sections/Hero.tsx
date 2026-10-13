@@ -4,7 +4,23 @@ import { gamme } from "@/data/products";
 import { site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
+const BAG = <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg>;
+
 export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
+  const other = locale === "fr" ? "ar" : "fr";
+  /* Menu : « Soins », « À l'unité » et « FAQ » défilent vers leur section ; « Produits » ouvre la page /soins,
+     « Avis » la page /avis (ou la fenêtre des avis quand le script est chargé). */
+  const links = (
+    <>
+      <a href="#diagnostic" data-nav="">{t.heroSoins}</a>
+      <a href="#unite" data-nav="" data-new={t.heroNouveau}>{t.heroUnite}</a>
+      <a href={localePath(locale, "/soins")}>{t.heroProduits}</a>
+      <a href={localePath(locale, "/avis")} data-hz-link="">{t.heroAvis}</a>
+      <a href="#questions" data-nav="">{t.heroFaq}</a>
+      <a className="lang" href={locale === "fr" ? "/ar" : "/"} lang={other} hrefLang={other}>{locale === "fr" ? "العربية" : "Français"}</a>
+    </>
+  );
+  const order = <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap">{BAG}</span></a>;
   return (
     <div className="journey">
     <section className="hero" data-phase="matin" suppressHydrationWarning>
@@ -23,41 +39,35 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
       <header className="nav">
         <a href={locale === "ar" ? "/ar" : "/"} className="logo" aria-label={t.heroOtageAccueil}><Img src="/images/logo-otage.webp" alt={t.heroOtage} width={206} height={96} loading="eager" /></a>
         <nav className="links" aria-label={t.heroNavigationPrincipale}>
-          <a href={localePath(locale, "/soins")}>{t.heroSoins}</a>
-          <a href="#ingredients">{t.heroIngredients}</a>
-          <a href="#avis" data-hz-link="">{t.heroAvis}</a>
-          <a href="#questions">{t.heroFaq}</a>
-          <a className="lang" href={locale === "fr" ? "/ar" : "/"} lang={locale === "fr" ? "ar" : "fr"} hrefLang={locale === "fr" ? "ar" : "fr"}>{locale === "fr" ? "العربية" : "Français"}</a>
+          {links}
         </nav>
         <a href="#offres" className="o-btn o-dark o-sm navBtn"><span className="o-lbl">{t.heroCommander}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
         <button className="burger" type="button" aria-label={t.heroOuvrirLeMenu} aria-expanded="false" aria-controls="sheet"><span></span></button>
         <nav className="sheet" id="sheet" aria-label={t.heroMenu}>
-          <a href={localePath(locale, "/soins")}>{t.heroSoins}</a>
-          <a href="#ingredients">{t.heroIngredients}</a>
-          <a href="#avis" data-hz-link="">{t.heroAvis}</a>
-          <a href="#questions">{t.heroFaq}</a>
-          <a className="lang" href={locale === "fr" ? "/ar" : "/"} lang={locale === "fr" ? "ar" : "fr"} hrefLang={locale === "fr" ? "ar" : "fr"}>{locale === "fr" ? "العربية" : "Français"}</a>
+          {links}
         </nav>
       </header>
 
       <div className="content">
-        <div className="avatar">
-          <Img src={site.founder.portrait} alt={site.founder.alt[locale]} width={480} height={480} sizes="96px" loading="eager" />
-        </div>
+        {/* Le chiffre vient de l'enquête interne (site.satisfaction) : toujours affiché avec la taille de l'échantillon. */}
+        <button type="button" className="proof s85" data-hz-res="">
+          <span className="s85-badge">
+            <svg className="s85-ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="s85c" d="M60,60 m-49,0 a49,49 0 1,1 98,0 a49,49 0 1,1 -98,0" /></defs><text><textPath href="#s85c" startOffset="0" {...(locale === "ar" ? {} : { textLength: 306, lengthAdjust: "spacing" })}>{t.hero85Anneau}</textPath></text></svg>
+            <span className="s85-num"><b data-85="" suppressHydrationWarning>{site.satisfaction.percent}</b><sup>%</sup></span>
+          </span>
+          <span className="s85-rule" aria-hidden="true"></span>
+          <span className="s85-txt"><span className="s85-l1">{t.hero85DeSatisfaction}</span><span className="s85-l2">{t.hero85EnqueteA}{site.satisfaction.sample}{t.hero85EnqueteB}</span><span className="s85-link">{t.hero85LireLesAvis}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></span></span>
+          <span className="s85-bar" aria-hidden="true"><i></i></span>
+        </button>
 
-        <div className="proof">
-          <div>
-            <p><span className="proof-long">{t.hero85DeNosClientes}</span><span className="proof-short">{t.hero85Court}</span></p>
-          </div>
-        </div>
-
+        {/* Le surtitre « Routine anti-taches » reste dans le H1 : c'est lui qui porte le mot-clé de la page. */}
         <h1 className="title">
           <span className="line kick">{t.heroRoutineAntiTaches}</span>
-          <span className="line">{t.heroDesSoins}<mark>{t.heroHonnetes}</mark></span>
-          <span className="line">{t.heroFabriquesAuMaroc}</span>
+          <span className="line">{t.heroDesSoins}<span className="hn">{t.heroHonnetes}<svg className="hn-loop" viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M16 46 C 14 22, 70 8, 130 9 C 190 10, 232 22, 230 42 C 228 64, 170 74, 112 73 C 56 72, 10 64, 9 44 C 8 30, 30 18, 62 13" /></svg></span></span>
+          <span className="line l2">{t.heroFabriquesAuMaroc}</span>
         </h1>
 
-        <p className="arabic" lang="ar" dir="rtl">{t.heroTxt}<span>{t.heroTxt2}</span></p>
+        <p className="arabic" lang="ar" dir="rtl"><span className="ar-dash" aria-hidden="true"></span>{t.heroAccroche}<span className="ar-dash" aria-hidden="true"></span></p>
 
         <div className="pins">
           <div className="laurel l" aria-hidden="true"></div>
@@ -129,6 +139,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroFigueDeBarbarie}</li><li>{t.heroLouban}</li><li>{t.heroSansSulfate}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroMatinEtSoirSur}</p>
             <a className="step-link" href={localePath(locale, "/soins/gel-nettoyant")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
+            {order}
           </article>
           <article className="step" data-i="1" aria-hidden="true">
             <p className="step-count">{t.heroEtape2Sur4}</p>
@@ -137,6 +148,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroMatcha}</li><li>{t.heroCalendula}</li><li>{t.heroAlphaArbutine}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.hero3A4Gouttes}</p>
             <a className="step-link" href={localePath(locale, "/soins/serum-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
+            {order}
           </article>
           <article className="step" data-i="2" aria-hidden="true">
             <p className="step-count">{t.heroEtape3Sur4}</p>
@@ -145,6 +157,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroNiacinamide}</li><li>{t.heroAcideHyaluronique}</li><li>{t.heroAha}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroUneNoisetteSurLe}</p>
             <a className="step-link" href={localePath(locale, "/soins/creme-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
+            {order}
           </article>
           <article className="step" data-i="3" aria-hidden="true">
             <p className="step-count">{t.heroEtape4Sur4}</p>
@@ -154,7 +167,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="step-how"><b>{t.heroComment}</b>{t.heroLeMatinEnDernier}</p>
             <p className="step-note">{t.heroLeSoirTaRoutine}</p>
             <a className="step-link" href={localePath(locale, "/soins/ecran-solaire-spf50")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
-            <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
+            {order}
           </article>
           <ol className="rail" aria-label={t.heroEtapes}>
             <li><button type="button" data-go="0">01</button></li>

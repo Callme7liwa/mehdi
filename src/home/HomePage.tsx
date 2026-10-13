@@ -58,8 +58,9 @@ function config(locale: Locale): HomeConfig {
 }
 
 /* Avant l'affichage : le ciel prend tout de suite la bonne couleur (matin ou soir, heure du Maroc),
-   sans attendre le chargement des scripts. Même règle que setPhase() dans islands/hero.js. */
-const phaseScript = `(function(){try{var h=document.querySelector(".hero"),s=null,hr;try{s=localStorage.getItem("otage-moment")}catch(e){}try{hr=Number(new Intl.DateTimeFormat("fr-FR",{hour:"numeric",hourCycle:"h23",timeZone:"Africa/Casablanca"}).format(new Date()))}catch(e){hr=new Date().getHours()}var p=s==="matin"||s==="soir"?s:hr>=5&&hr<17?"matin":"soir";h.dataset.phase=p;h.querySelectorAll(".switch button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.set===p))});if(p==="soir")h.querySelector(".pin.ecran").classList.add("off")}catch(e){}})()`;
+   sans attendre le chargement des scripts, et le chiffre de satisfaction part de 0 pour compter jusqu'à sa valeur
+   (remis en place au bout de 4 s si le script ne se charge pas). Même règle que setPhase() dans islands/hero.js. */
+const phaseScript = `(function(){try{var h=document.querySelector(".hero"),s=null,hr;try{s=localStorage.getItem("otage-moment")}catch(e){}try{hr=Number(new Intl.DateTimeFormat("fr-FR",{hour:"numeric",hourCycle:"h23",timeZone:"Africa/Casablanca"}).format(new Date()))}catch(e){hr=new Date().getHours()}var p=s==="matin"||s==="soir"?s:hr>=5&&hr<17?"matin":"soir";h.dataset.phase=p;h.querySelectorAll(".switch button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.set===p))});if(p==="soir")h.querySelector(".pin.ecran").classList.add("off");var n=h.querySelector("[data-85]");if(n&&!matchMedia("(prefers-reduced-motion: reduce)").matches){n.dataset.to=n.textContent;n.textContent="0";setTimeout(function(){if(n.textContent==="0")n.textContent=n.dataset.to},4000)}}catch(e){}})()`;
 
 /** La page d'accueil animée, en français (/) ou en arabe (/ar, de droite à gauche). */
 export default function HomePage({ locale }: { locale: Locale }) {

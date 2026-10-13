@@ -22,8 +22,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // scripts d'animation de l'accueil, repris tels quels du site d'origine
-    "src/home/home-init.js",
+    // scripts des îlots de l'accueil, repris du site d'origine
+    "src/home/islands/*.js",
     "legacy/**",
     "apps-script/**",
   ]),

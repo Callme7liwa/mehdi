@@ -3,8 +3,8 @@ import { gamme, productByKey, rangeProducts } from "@/data/products";
 import { reviews } from "@/data/reviews";
 import { site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
-import HomeScripts from "./HomeScripts";
-import type { HomeConfig } from "./home-init";
+import Island from "./islands/Island";
+import type { HomeConfig } from "./islands/config";
 import Campaign from "./sections/Campaign";
 import Diagnostic from "./sections/Diagnostic";
 import Discover from "./sections/Discover";
@@ -28,7 +28,7 @@ const ml = (f: "petit" | "grand") => ({
   ecran: productByKey("ecran").ml[f] ?? null,
 });
 
-/** Données passées aux scripts d'animation : tout vient de src/data/. */
+/** Données lues par les îlots (src/home/islands/) : tout vient de src/data/. */
 function config(locale: Locale): HomeConfig {
   const ar = locale === "ar";
   const t = ar ? isolateAll(homeJsText.ar) : homeJsText.fr;
@@ -58,7 +58,7 @@ function config(locale: Locale): HomeConfig {
 }
 
 /* Avant l'affichage : le ciel prend tout de suite la bonne couleur (matin ou soir, heure du Maroc),
-   sans attendre le chargement des scripts. Même règle que setPhase() dans home-init.js. */
+   sans attendre le chargement des scripts. Même règle que setPhase() dans islands/hero.js. */
 const phaseScript = `(function(){try{var h=document.querySelector(".hero"),s=null,hr;try{s=localStorage.getItem("otage-moment")}catch(e){}try{hr=Number(new Intl.DateTimeFormat("fr-FR",{hour:"numeric",hourCycle:"h23",timeZone:"Africa/Casablanca"}).format(new Date()))}catch(e){hr=new Date().getHours()}var p=s==="matin"||s==="soir"?s:hr>=5&&hr<17?"matin":"soir";h.dataset.phase=p;h.querySelectorAll(".switch button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.set===p))});if(p==="soir")h.querySelector(".pin.ecran").classList.add("off")}catch(e){}})()`;
 
 /** La page d'accueil animée, en français (/) ou en arabe (/ar, de droite à gauche). */
@@ -68,17 +68,29 @@ export default function HomePage({ locale }: { locale: Locale }) {
     <>
       <Hero t={t} locale={locale} />
       <script dangerouslySetInnerHTML={{ __html: phaseScript }} />
+      <script id="home-cfg" type="application/json" dangerouslySetInnerHTML={{ __html: JSON.stringify(config(locale)).replace(/</g, "\\u003c") }} />
+      <Island name="hero" />
+      <Island name="sky" />
+      <Island name="voyage" />
       <QuickView t={t} />
+      <Island name="quickview" />
       <Diagnostic t={t} />
       <Offers t={t} locale={locale} />
+      <Island name="offers" />
       <Discover t={t} locale={locale} />
       <Campaign t={t} />
+      <Island name="campaign" />
       <Faq t={t} locale={locale} />
+      <Island name="faq" />
       <Gallery t={t} locale={locale} />
       <Footer t={t} locale={locale} />
       <Hesite t={t} locale={locale} />
       <Fab t={t} />
-      <HomeScripts cfg={config(locale)} />
+      <Island name="fab" />
+      <Island name="footer" />
+      <Island name="reviews" />
+      <Island name="diagnostic" />
+      <Island name="hesite" />
     </>
   );
 }

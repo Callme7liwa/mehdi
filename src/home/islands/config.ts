@@ -1,5 +1,5 @@
 import type { Review } from "@/data/reviews";
-import type { HomeJsText } from "./text-js";
+import type { HomeJsText } from "../text-js";
 
 export interface HomeConfig {
   /** Textes écrits par les scripts, dans la langue de la page. */
@@ -18,4 +18,3 @@ export interface HomeConfig {
   reviews: Review[];
 }
 
-export function initHome(cfg: HomeConfig): void;

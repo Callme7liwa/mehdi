@@ -1,6 +1,7 @@
 /* Chargement des îlots de l'accueil : un fichier JavaScript par section, téléchargé à part.
    - hero et voyage démarrent tout de suite (menu, matin / soir, défilement du hero) ;
-   - les autres démarrent l'un après l'autre, dans l'ordre de la page, quand le navigateur est disponible ;
+   - les autres sont téléchargés en même temps, puis démarrent l'un après l'autre, dans l'ordre de la page,
+     quand le navigateur est disponible ;
    - le ciel WebGL attend la fin du chargement de la page : il ne retarde ni le premier affichage ni l'image principale.
    Les données (prix, textes, avis) sont écrites une seule fois dans la page par HomePage.tsx (<script id="home-cfg">). */
 import type { HomeConfig } from "./config";
@@ -48,9 +49,13 @@ export function start(name: IslandName) {
     pageLoaded().then(idle).then(() => (skyAllowed() ? modules.sky().then((m) => m.default()) : undefined)).catch(() => {});
     return;
   }
+  /* Téléchargement tout de suite, en parallèle des autres îlots ; exécution l'une après l'autre, dans l'ordre de la page.
+     (En les téléchargeant un par un, le dernier îlot arrivait plusieurs secondes plus tard sur une connexion lente.) */
+  const loading = modules[name]();
+  loading.catch(() => {});
   queue = queue
     .then(() => (NOW.includes(name) ? undefined : idle()))
-    .then(() => modules[name]())
+    .then(() => loading)
     .then((m) => (m.default as (c: HomeConfig) => void)(getCfg()))
     .catch((e) => console.error(`îlot ${name}`, e));
 }

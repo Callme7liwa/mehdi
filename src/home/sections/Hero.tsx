@@ -50,10 +50,10 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
 
       <div className="content">
         {/* Le chiffre vient de l'enquête interne (site.satisfaction) : toujours affiché avec la taille de l'échantillon. */}
-        <button type="button" className="proof s85" data-hz-res="">
+        <button type="button" className="proof s85 go" data-hz-res="">
           <span className="s85-badge">
             <svg className="s85-ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="s85c" d="M60,60 m-49,0 a49,49 0 1,1 98,0 a49,49 0 1,1 -98,0" /></defs><text><textPath href="#s85c" startOffset="0" {...(locale === "ar" ? {} : { textLength: 306, lengthAdjust: "spacing" })}>{t.hero85Anneau}</textPath></text></svg>
-            <span className="s85-num"><b data-85="" suppressHydrationWarning>{site.satisfaction.percent}</b><sup>%</sup></span>
+            <span className="s85-num"><b aria-hidden="true" style={{ "--to": site.satisfaction.percent } as React.CSSProperties}></b><span className="s85-val">{site.satisfaction.percent}</span><sup>%</sup></span>
           </span>
           <span className="s85-rule" aria-hidden="true"></span>
           <span className="s85-txt"><span className="s85-l1">{t.hero85DeSatisfaction}</span><span className="s85-l2">{t.hero85EnqueteA}{site.satisfaction.sample}{t.hero85EnqueteB}</span><span className="s85-link">{t.hero85LireLesAvis}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg></span></span>

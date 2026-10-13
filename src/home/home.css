@@ -3015,3 +3015,5 @@ html[dir="rtl"] .shop-rail .car-nav svg, html[dir="rtl"] .cs-go svg { transform:
 .sp-ttl:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .sp-pic:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: -3px; }
 @media (prefers-reduced-motion: reduce) { .sp-see { transition: none; } }
+/* cartes « Conseils » : de vrais liens */
+a.cs-card { text-decoration: none; }

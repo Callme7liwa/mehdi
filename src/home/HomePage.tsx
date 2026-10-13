@@ -6,6 +6,7 @@ import { localePath } from "@/lib/seo";
 import Island from "./islands/Island";
 import type { HomeConfig } from "./islands/config";
 import Campaign from "./sections/Campaign";
+import Conseils from "./sections/Conseils";
 import Diagnostic from "./sections/Diagnostic";
 import Discover from "./sections/Discover";
 import Fab from "./sections/Fab";
@@ -83,6 +84,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Discover t={t} locale={locale} />
       <Campaign t={t} />
       <Island name="campaign" />
+      <Conseils t={t} locale={locale} />
       <Faq t={t} locale={locale} />
       <Island name="faq" />
       <Gallery t={t} locale={locale} />

@@ -6,6 +6,25 @@ import { isolateAll } from "../lib/bidi";
 
 const texts = {
   fr: {
+    // Conseils
+    conseilsConseils: "Conseils",
+    conseilsComprendreTaPeau: "Comprendre ta peau.",
+    conseilsDesReponsesSimples: "Des réponses simples, sans promesse miracle.",
+    conseilsReluPar: "Relu par ",
+    conseilsPharmacienLe: ", pharmacien, le ",
+    conseilsTaches: "Les taches pigmentaires",
+    conseilsTachesSub: "Taches brunes, lentigos solaires",
+    conseilsCernes: "Les cernes",
+    conseilsCernesSub: "Pigmentés, vasculaires ou creux",
+    conseilsAcne: "Les taches d'acné",
+    conseilsAcneSub: "Marques brunes après les boutons",
+    conseilsMelasma: "Le mélasma",
+    conseilsMelasmaSub: "Le « masque » des joues et du front",
+    conseilsGrossesse: "Grossesse et allaitement",
+    conseilsGrossesseSub: "Les précautions à connaître",
+    conseilsLire: "Lire",
+    footerALUnite: "À l'unité",
+    footerConseils: "Conseils",
     // À l'unité
     shopALUnite: "À l'unité",
     shopUnSeulSoin: "Un seul soin te suffit ?",
@@ -328,6 +347,25 @@ const texts = {
     fabCommander: "Commander",
   },
   ar: {
+    // Conseils
+    conseilsConseils: "نصائح",
+    conseilsComprendreTaPeau: "افهمي بشرتك.",
+    conseilsDesReponsesSimples: "أجوبة بسيطة، دون وعود خيالية.",
+    conseilsReluPar: "راجعه ",
+    conseilsPharmacienLe: "، صيدلي، بتاريخ ",
+    conseilsTaches: "البقع الصبغية",
+    conseilsTachesSub: "بقع بنية وبقع الشمس",
+    conseilsCernes: "الهالات السوداء",
+    conseilsCernesSub: "صبغية، وعائية أو غائرة",
+    conseilsAcne: "آثار حب الشباب",
+    conseilsAcneSub: "علامات بنية بعد الحبوب",
+    conseilsMelasma: "الكلف",
+    conseilsMelasmaSub: "«قناع» الخدين والجبهة",
+    conseilsGrossesse: "الحمل والرضاعة",
+    conseilsGrossesseSub: "الاحتياطات التي يجب معرفتها",
+    conseilsLire: "اقرئي",
+    footerALUnite: "بالقطعة",
+    footerConseils: "نصائح",
     // À l'unité
     shopALUnite: "بالقطعة",
     shopUnSeulSoin: "منتج واحد يكفيك؟",

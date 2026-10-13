@@ -25,7 +25,9 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
               <li><a href="#avis" data-hz-link="">{t.footerLesAvis}</a></li>
               <li><a href="#diagnostic" data-glide="">{t.footerTrouverMonSoin}</a></li>
               <li><a href="#offres" data-glide="">{t.footerLesOffres}</a></li>
+              <li><a href="#unite" data-glide="">{t.footerALUnite}</a></li>
               <li><a href="#questions" data-glide="">{t.footerVosQuestions}</a></li>
+              <li><a href="#conseils" data-glide="">{t.footerConseils}</a></li>
             </ul>
           </div>
           <div>

@@ -43,7 +43,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
           see: t.shopVoirLeProduit, format: t.shopFormat, petit: t.shopPetit, grand: t.shopGrand, unique: t.shopFormatUnique,
           add: t.shopAjouter, minus: t.shopRetirer, plus: t.shopAjouterUn, prev: t.shopPrecedents, next: t.shopSuivants, track: t.shopProduits,
           article: t.shopArticle, articles: t.shopArticles, plusDelivery: t.shopPlusLivraison, order: t.heroCommander,
-          cart: t.shopTonPanier, delivery: js.delivery, feeA: t.shopFraisA, feeB: t.shopFraisB, feeC: t.shopFraisC, subtotal: t.shopTotalProduits, note: t.shopNote,
+          cart: js.cartTitle, delivery: js.delivery, feeA: t.shopFraisA, feeB: t.shopFraisB, feeC: t.shopFraisC, subtotal: js.cartSubtotal, note: js.cartNote,
           close: t.hesiteFermer,
           nom: t.offersNomComplet, nomEx: t.offersExSalmaBennani, tel: t.offersTelephone, ville: t.offersVille, villeEx: t.offersExCasablanca, villeInfo: t.offersAutreVille,
           adresse: t.offersAdresse, adresseOpt: t.offersFacultatifOnPeutLa, adresseEx: t.offersQuartierRueNumero,

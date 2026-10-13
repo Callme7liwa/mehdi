@@ -3,6 +3,10 @@
    Le français est le texte d'origine du site. L'arabe est « À relire par un natif ». */
 
 const fr = {
+  // fenêtre du panier « À l'unité » (src/home/shop/ShopIsland.tsx)
+  cartTitle: "Ton panier",
+  cartSubtotal: "Total des produits",
+  cartNote: "On te confirme le prix de la livraison au téléphone avant l'envoi. Pour une gamme complète, elle est offerte.",
   comma: ", ",
   ml: "ml",
   menuClose: "Fermer le menu",
@@ -97,6 +101,10 @@ export type HomeJsText = typeof fr;
 
 /* À relire par un natif */
 const ar: HomeJsText = {
+  // fenêtre du panier « À l'unité » (src/home/shop/ShopIsland.tsx)
+  cartTitle: "سلتك",
+  cartSubtotal: "مجموع المنتجات",
+  cartNote: "نؤكد لك ثمن التوصيل هاتفيًا قبل الإرسال. وهو مجاني للمجموعة الكاملة.",
   comma: "، ",
   ml: "مل",
   menuClose: "إغلاق القائمة",

@@ -20,19 +20,21 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | **Description (Google)** Routine anti-taches OTAGE : gel nettoyant, sérum, crème et écran solaire SPF 50 contre les taches pigmentaires. Fabriqué au Maroc, paiement à la livraison. | روتين OTAGE ضد البقع: جل منظف، سيروم، كريم وواقي الشمس SPF 50 للبقع الصبغية والكلف. مصنوع في المغرب، والدفع عند الاستلام. |
 | OTAGE, accueil | OTAGE، الصفحة الرئيسية |
 | Navigation principale | القائمة الرئيسية |
-| Soins | المنتجات |
-| Ingrédients | المكونات |
+| Soins | العناية |
+| À l'unité | بالقطعة |
+| Produits | المنتجات |
 | Avis | الآراء |
 | FAQ | الأسئلة |
 | العربية | Français |
 | Commander | اطلبي الآن |
 | Ouvrir le menu | فتح القائمة |
 | Menu | القائمة |
-| Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE | الدكتور المهدي الصديقي، صيدلي، مؤسس OTAGE |
-| 85 % de satisfaction, enquête auprès de 20 clientes | 85 % رضا، حسب استطلاع شمل 20 زبونة |
-| 85 % de satisfaction (20 clientes) | 85 % رضا (20 زبونة) |
+| de satisfaction | رضا الزبونات |
+| enquête auprès de 20 clientes | حسب استطلاع شمل 20 زبونة |
+| Lire les avis | اقرئي الآراء |
 | Routine anti-taches | روتين ضد البقع |
-| Des soins honnêtes. | عناية صادقة. |
+| Des soins | عناية |
+| honnêtes. | صادقة. |
 | Fabriqués au Maroc | مصنوعة في المغرب |
 | La gamme anti-taches | مجموعة العناية ضد البقع |
 | Gel nettoyant anti-taches N°01, 200 ml | جل منظف ضد البقع رقم 01، 200 مل |
@@ -67,6 +69,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Sans sulfate | بدون سلفات |
 | Comment : matin et soir, sur peau humide. Masse 30 secondes, puis rince. | الطريقة: صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
 | Voir la fiche du soin | صفحة المنتج |
+| Commander la gamme | اطلبي المجموعة |
 | Étape 2 sur 4 | الخطوة 2 من 4 |
 | Sérum anti-taches | سيروم ضد البقع |
 | Le soin concentré de la gamme, qui cible les taches. | العناية المركزة في المجموعة، تستهدف البقع. |
@@ -87,7 +90,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Haute protection | حماية عالية |
 | Comment : le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | الطريقة: في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
 | Le soir, ta routine s'arrête à l'étape 3. | في المساء، يتوقف روتينك عند الخطوة 3. |
-| Commander la gamme | اطلبي المجموعة |
 | Étapes | الخطوات |
 | Fermer | إغلاق |
 | Voir l'étape dans la routine | مكانه في الروتين |
@@ -249,11 +251,50 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Merci de choisir des soins honnêtes. | شكرًا لاختيارك عناية صادقة. |
 | Confirmé | مؤكَّد |
 | Ta commande est enregistrée. On t'appelle pour confirmer avant la livraison. Tu peux garder ce ticket en capture d'écran. | تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل. يمكنك الاحتفاظ بهذه التذكرة في لقطة شاشة. |
+| Un seul soin te suffit ? | منتج واحد يكفيك؟ |
+| Choisis exactement ce qu'il te faut. Paiement à la réception, livraison de 35 à 45 DH selon ta ville. | اختاري بالضبط ما تحتاجينه. الدفع عند الاستلام، والتوصيل من 35 إلى 45 درهمًا حسب مدينتك. |
+| Pour la gamme complète, la livraison est offerte. | التوصيل مجاني للمجموعة الكاملة. |
+| Produits précédents | المنتجات السابقة |
+| Produits à l'unité | منتجات بالقطعة |
+| Voir le produit | شاهدي المنتج |
+| 125 ml | 125 مل |
+| Gel nettoyant anti-taches | جل منظف ضد البقع |
+| Nettoie sans dessécher | ينظف دون تجفيف البشرة |
+| Format, Gel nettoyant anti-taches | الحجم, جل منظف ضد البقع |
+| Petit 125 ml | صغير 125 مل |
+| Grand 200 ml | كبير 200 مل |
+| 91DH | 91درهم |
+| Ajouter Gel nettoyant anti-taches | أضيفي جل منظف ضد البقع |
+| Ajouter | أضيفي |
+| 15 ml | 15 مل |
+| Cible les taches | يستهدف البقع |
+| Format, Sérum anti-taches | الحجم, سيروم ضد البقع |
+| Petit 15 ml | صغير 15 مل |
+| Grand 30 ml | كبير 30 مل |
+| 163DH | 163درهم |
+| Ajouter Sérum anti-taches | أضيفي سيروم ضد البقع |
+| 30 ml | 30 مل |
+| Hydrate, unifie le teint | يرطب ويوحد لون البشرة |
+| Format, Crème anti-taches | الحجم, كريم ضد البقع |
+| Petit 30 ml | صغير 30 مل |
+| Grand 50 ml | كبير 50 مل |
+| 130DH | 130درهم |
+| Ajouter Crème anti-taches | أضيفي كريم ضد البقع |
+| Protège des UVA et des UVB | يحمي من أشعة UVA و UVB |
+| Format, Écran solaire SPF 50 | الحجم, واقي الشمس SPF 50 |
+| 112DH | 112درهم |
+| Ajouter Écran solaire SPF 50 | أضيفي واقي الشمس SPF 50 |
+| Sérum contour des yeux | سيروم محيط العين |
+| Atténue l'aspect des cernes | يخفف مظهر الهالات السوداء |
+| Format unique 15 ml | حجم واحد 15 مل |
+| Ajouter Sérum contour des yeux | أضيفي سيروم محيط العين |
+| Produits suivants | المنتجات التالية |
+| 0 article | 0 منتج |
+| DH + livraison | درهم + التوصيل |
 | Découvrir les soins | اكتشفي المنتجات |
 | La routine anti-taches | روتين ضد البقع |
 | Pour les taches | للبقع |
 | Contre les taches brunes, les taches pigmentaires et le teint irrégulier : 4 soins qui se suivent, matin et soir. La fiche de chaque soin donne sa contenance, son prix et son mode d'emploi. | للبقع البنية، البقع الصبغية ولون البشرة غير الموحد: 4 منتجات متتالية، صباحًا ومساءً. صفحة كل منتج تبيّن حجمه، ثمنه وطريقة استعماله. |
-| Gel nettoyant anti-taches | جل منظف ضد البقع |
 | Voir l'offre | اكتشفي العرض |
 | Revoir la routine, étape par étape | مراجعة الروتين خطوة بخطوة |
 | Le soin des cernes | عناية الهالات السوداء |
@@ -262,8 +303,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Pour les cernes et le contour des yeux fatigué. Ce qu'il faut savoir avant de l'adopter. | للهالات السوداء ومحيط العين المتعب. كل ما يجب معرفته قبل استعماله. |
 | Sérum contour des yeux OTAGE N°05, 15 ml | سيروم محيط العين OTAGE رقم 05، 15 مل |
 | Matin et soir | صباحًا ومساءً |
-| Sérum contour des yeux | سيروم محيط العين |
-| 15 ml | 15 مل |
 | Un applicateur bille pour le contour de l'œil. | بكرة دوارة لمحيط العين. |
 | Aloe vera | ألوفيرا |
 | Caféine | كافيين |
@@ -280,8 +319,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | On l'affiche partout. | نعرضها في كل مكان. |
 | Fais défiler le mur. Touche une affiche pour découvrir le soin. | مرّري على الجدار. اضغطي على ملصق لاكتشاف المنتج. |
 | Affiche « Éclat » avec le sérum anti-taches | ملصق «إشراقة» مع سيروم ضد البقع |
-| Des soins | عناية |
-| honnêtes. | صادقة. |
 | L'écran solaire à la plage, à travers une bouée | واقي الشمس على الشاطئ، من خلال عوامة |
 | Une cliente souriante tend le gel nettoyant | زبونة مبتسمة تحمل الجل المنظف |
 | Panneau publicitaire « Ton teint, révélé » avec la crème | لوحة إعلانية «بشرتك، بإشراقها» مع الكريم |
@@ -294,6 +331,20 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Ta trousse | حقيبتك |
 | t'attend. | في انتظارك. |
 | Fais défiler | مرّري |
+| Conseils | نصائح |
+| Comprendre ta peau. | افهمي بشرتك. |
+| Des réponses simples, sans promesse miracle. | أجوبة بسيطة، دون وعود خيالية. |
+| Les taches pigmentaires | البقع الصبغية |
+| Taches brunes, lentigos solaires | بقع بنية وبقع الشمس |
+| Lire | اقرئي |
+| Les cernes | الهالات السوداء |
+| Pigmentés, vasculaires ou creux | صبغية، وعائية أو غائرة |
+| Les taches d'acné | آثار حب الشباب |
+| Marques brunes après les boutons | علامات بنية بعد الحبوب |
+| Le mélasma | الكلف |
+| Le « masque » des joues et du front | «قناع» الخدين والجبهة |
+| Grossesse et allaitement | الحمل والرضاعة |
+| Les précautions à connaître | الاحتياطات التي يجب معرفتها |
 | Les questions qu'on nous pose. | أسئلة تُطرح علينا كثيرًا. |
 | Touche une question : on te répond comme sur WhatsApp, sans détour. | اضغطي على سؤال: نجيبك كما في واتساب، بكل صراحة. |
 | Voir toutes les réponses d'un coup | عرض كل الأجوبة دفعة واحدة |
@@ -418,6 +469,7 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | **Description (Google)** Les 5 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50 et sérum contour des yeux. Livraison en 24 à 72 h. | منتجات OTAGE الخمسة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50 وسيروم محيط العين. التوصيل من 24 إلى 72 ساعة. |
 | Aller au contenu | الانتقال إلى المحتوى |
 | OTAGE, Accueil | OTAGE, الرئيسية |
+| Soins | المنتجات |
 | Livraison | التوصيل |
 | Contact | اتصل بنا |
 | Accueil | الرئيسية |
@@ -458,6 +510,7 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Fabriqué au Maroc | مصنوع في المغرب |
 | Pour qui ? | لمن هذا المنتج؟ |
 | Pour les peaux qui ont des taches brunes ou un teint irrégulier et qui cherchent un nettoyant doux, sans sulfate. C'est la première étape de la routine anti-taches, matin et soir. | للبشرة التي تعاني من بقع بنية أو لون غير موحد وتبحث عن منظف لطيف بدون سلفات. هو الخطوة الأولى في روتين العناية ضد البقع، صباحًا ومساءً. |
+| Ingrédients | المكونات |
 | Mode d'emploi | طريقة الاستعمال |
 | Matin et soir, sur peau humide. Masse 30 secondes, puis rince. | صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
 | Quand : Matin et soir. | متى : صباحًا ومساءً. |
@@ -469,7 +522,6 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Contenance | السعة |
 | Prix à l'unité | ثمن القطعة |
 | Dans la gamme (4 soins) | ضمن المجموعة (4 منتجات) |
-| 125 ml | 125 مل |
 | 299 DH au lieu de 496 DH | 299 درهم بدل 496 درهم |
 | Offre 2 + 1 : 199 DH | عرض 2 + 1 : 199 درهم |
 | 200 ml | 200 مل |
@@ -541,7 +593,6 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | à l'unité, Petit format (15 ml) | للقطعة، الحجم الصغير (15 مل) |
 | Pour les taches brunes, les taches pigmentaires (hyperpigmentation) et le teint irrégulier. C'est le cœur de la routine contre les taches. | للبقع البنية، البقع الصبغية (فرط التصبغ) واللون غير الموحد. هو قلب روتين العناية ضد البقع. |
 | 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
-| 30 ml | 30 مل |
 | 265 DH | 265 درهم |
 | de 198 à 208 DH | من 198 إلى 208 درهم |
 | Tu paies de 198 à 208 DH à la livraison. Les frais exacts dépendent de ta ville : on te les confirme par téléphone avant l'envoi. | تدفعين من 198 إلى 208 درهم عند الاستلام. المصاريف الدقيقة حسب مدينتك: نؤكدها لك هاتفيًا قبل الإرسال. |
@@ -837,6 +888,7 @@ Français : `/a-propos` · Arabe : `/ar/a-propos` · Source de l'arabe : src/app
 | **Description (Google)** OTAGE est une marque marocaine de cosmétique fondée par le Dr Seddiki El Mehdi, pharmacien, sur une volonté de transparence, d'honnêteté et de confiance. | OTAGE علامة مغربية لمستحضرات التجميل أسسها الدكتور المهدي الصديقي، صيدلي، على أساس الشفافية والصدق والثقة. |
 | OTAGE : des soins honnêtes, fabriqués au Maroc | OTAGE: عناية صادقة، مصنوعة في المغرب |
 | OTAGE est une marque marocaine de cosmétique naturelle. Notre promesse tient en une phrase : on ne vend pas du rêve, on vend le résultat. | OTAGE علامة مغربية لمستحضرات التجميل الطبيعية. وعدنا في جملة واحدة: لا نبيع الوهم، نبيع النتيجة. |
+| Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE | الدكتور المهدي الصديقي، صيدلي، مؤسس OTAGE |
 | Dr Seddiki El Mehdi est pharmacien, spécialisé en produits cosmétiques et compléments alimentaires. Il a fondé OTAGE. | الدكتور المهدي الصديقي صيدلي، متخصص في مستحضرات التجميل والمكملات الغذائية. هو مؤسس OTAGE. |
 | « J'ai constaté la présence de nombreux produits cosmétiques falsifiés sur le marché marocain. Face à ce constat, j'ai décidé de créer OTAGE, une marque de cosmétiques fondée sur une volonté de transparence, d'honnêteté et de confiance. Mon objectif est de proposer des produits avec une attention particulière portée à leur qualité et à la transparence des informations communiquées. » | «لاحظت وجود عدد كبير من مستحضرات التجميل المزورة في السوق المغربية. أمام هذا الواقع، قررت إنشاء OTAGE، علامة لمستحضرات التجميل قائمة على الشفافية والصدق والثقة. هدفي هو تقديم منتجات مع عناية خاصة بجودتها وبشفافية المعلومات المقدمة عنها.» |
 | Dr Seddiki El Mehdi, fondateur d'OTAGE | الدكتور المهدي الصديقي، مؤسس OTAGE |
@@ -977,6 +1029,9 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 
 | Français | العربية |
 |---|---|
+| Ton panier | سلتك |
+| Total des produits | مجموع المنتجات |
+| On te confirme le prix de la livraison au téléphone avant l'envoi. Pour une gamme complète, elle est offerte. | نؤكد لك ثمن التوصيل هاتفيًا قبل الإرسال. وهو مجاني للمجموعة الكاملة. |
 | , | ، |
 | ml | مل |
 | Fermer le menu | إغلاق القائمة |
@@ -1085,4 +1140,4 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 
 ---
 
-906 textes à relire.
+961 textes à relire.

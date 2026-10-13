@@ -28,6 +28,9 @@ Les pages, le JSON-LD, le sitemap et `llms.txt` lisent tous ces fichiers : une m
 ## Structure
 
 - `src/app/(home)/` : la page d'accueil animée (composants dans `src/home/`).
+  - `src/home/sections/` : le HTML de chaque section, rendu côté serveur (hero, diagnostic, offres, « À l'unité », affiches, conseils, FAQ…).
+  - `src/home/islands/` : un script par section, chargé à part (`loader.ts` décide quand). Le ciel WebGL (`sky.js`) démarre après le chargement de la page.
+  - `src/home/shop/` : le panier de la section « À l'unité » (prix lus dans `src/data/products.ts`, frais de livraison dans `src/data/site.ts`).
 - `src/app/(fr)/` : pages produits (`/soins/...`), conseils peau, pages de confiance.
 - `src/app/(ar)/ar/` : pages en arabe, de droite à gauche.
 - `src/templates/` : gabarits de pages. `src/components/` : éléments communs.

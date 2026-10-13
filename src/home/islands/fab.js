@@ -24,7 +24,7 @@ export default function init() {
     document.querySelectorAll("[data-order]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); e.stopImmediatePropagation(); orderNow("taches"); }, true));
 
     /* la barre apparaît dès qu'on quitte le hero, disparaît sur la section des offres */
-    let offersVisible = false, askVisible = false, footVisible = false, dgVisible = false, done = false;
+    let offersVisible = false, askVisible = false, footVisible = false, dgVisible = false, shopVisible = false, done = false;
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(([en]) => { offersVisible = en.isIntersecting; sync(); }, { threshold: 0.12 }).observe(offers);
       const ask = document.querySelector(".chat-zone");
@@ -32,6 +32,9 @@ export default function init() {
       const dgSec = document.querySelector(".dg"), dgx = document.querySelector(".dgx");
       let a1 = false, a2 = false;
       if (dgSec) new IntersectionObserver(([en]) => { a1 = en.isIntersecting; dgVisible = a1 || a2; sync(); }, { threshold: 0.15 }).observe(dgSec);
+      /* « À l'unité » a sa propre barre (le panier) : celle-ci s'efface */
+      const shop = document.querySelector(".shop");
+      if (shop) new IntersectionObserver(([en]) => { shopVisible = en.isIntersecting; sync(); }, { threshold: 0.15 }).observe(shop);
       if (dgx) new IntersectionObserver(([en]) => { a2 = en.isIntersecting; dgVisible = a1 || a2; sync(); }, { threshold: 0.1 }).observe(dgx);
       const footCta = document.querySelector(".foot");
       if (footCta) new IntersectionObserver(([en]) => { footVisible = en.isIntersecting; sync(); }, { threshold: 0.05 }).observe(footCta);
@@ -41,7 +44,7 @@ export default function init() {
       const past = window.scrollY > journey.offsetTop + journey.offsetHeight - window.innerHeight * 0.5;
       const qvOpen = !!document.querySelector("dialog[open]");
       done = offers.classList.contains("done");
-      const show = past && !offersVisible && !askVisible && !footVisible && !dgVisible && !qvOpen && !done;
+      const show = past && !offersVisible && !askVisible && !footVisible && !dgVisible && !shopVisible && !qvOpen && !done;
       fab.classList.toggle("show", show);
       fab.setAttribute("aria-hidden", String(!show));
       fab.querySelector(".fab-go").tabIndex = show ? 0 : -1;

@@ -16,6 +16,7 @@ import Hero from "./sections/Hero";
 import Hesite from "./sections/Hesite";
 import Offers from "./sections/Offers";
 import QuickView from "./sections/QuickView";
+import Shop from "./sections/Shop";
 import { isolateAll } from "@/lib/bidi";
 import { homeText } from "./text";
 import { homeJsText } from "./text-js";
@@ -78,6 +79,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Diagnostic t={t} />
       <Offers t={t} locale={locale} />
       <Island name="offers" />
+      <Shop t={t} locale={locale} />
       <Discover t={t} locale={locale} />
       <Campaign t={t} />
       <Island name="campaign" />

@@ -2,7 +2,8 @@
    Usage : lancer le site (npm run start), puis `npm run relecture`.
    Les textes sont lus dans les pages servies (français et arabe), dans l'ordre d'affichage : rien n'est oublié.
    Les textes écrits par les animations de l'accueil (ticket, fenêtres…) viennent de src/home/text-js.ts,
-   ceux du chat des questions de src/home/chat/chat-text.ts. */
+   ceux du chat des questions de src/home/chat/chat-text.ts. Ceux du ticket des fiches produits qui n'apparaissent
+   qu'après un geste (rappels, erreurs, confirmation) sont dans productUi, src/data/product-pages.ts. */
 import { writeFileSync } from "node:fs";
 import { homeJsText } from "../src/home/text-js.ts";
 import { chatText } from "../src/home/chat/chat-text.ts";
@@ -11,7 +12,7 @@ const BASE = process.env.BASE || "http://localhost:3000";
 const PAGES = [
   ["/", "Accueil", "src/home/text.ts (sections), src/data/products.ts (fiches), src/data/faq.ts (FAQ)"],
   ["/soins", "Tous les soins", "src/templates/ProductsIndex.tsx, src/data/products.ts"],
-  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"].map((s) => [`/soins/${s}`, `Fiche produit : ${s}`, "src/data/products.ts, src/data/ui.ts (libellés), src/data/faq.ts (FAQ)"]),
+  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux", "deodorant-creme"].map((s) => [`/soins/${s}`, `Fiche produit : ${s}`, "src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts"]),
   ...["taches-pigmentaires", "cernes", "taches-acne", "melasma-grossesse"].map((s) => [`/${s}`, `Conseils peau : ${s}`, "src/data/problems.ar.ts"]),
   ["/avis", "Avis de clientes", "src/templates/ReviewsPage.tsx, src/data/reviews.ts"],
   ["/a-propos", "À propos", "src/app/(ar)/ar/a-propos/page.tsx"],

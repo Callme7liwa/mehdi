@@ -8,7 +8,7 @@ const BASE = process.env.BASE || "http://localhost:3000";
 const ALLOW = new Set(["OTAGE", "otage", "Google", "Analytics", "SPF", "UVA", "UVB", "AHA", "ICE", "N", "WhatsApp"]);
 const PAGES = [
   "/ar", "/ar/soins",
-  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"].map((s) => `/ar/soins/${s}`),
+  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux", "deodorant-creme"].map((s) => `/ar/soins/${s}`),
   "/ar/taches-pigmentaires", "/ar/cernes", "/ar/taches-acne", "/ar/melasma-grossesse",
   "/ar/avis", "/ar/a-propos", "/ar/livraison-paiement", "/ar/contact", "/ar/mentions-legales", "/ar/cgv",
 ];

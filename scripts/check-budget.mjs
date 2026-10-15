@@ -16,9 +16,11 @@ const BASE = process.env.BASE || "http://localhost:3000";
 // accueil v2 : relevé à 55 à 56 Ko avec les sections « À l'unité » (5 cartes produit) et « Conseils »
 const HOME = { js: 165, css: 26, html: 57, fonts: 64 };
 const PAGE = { js: 155, css: 8, html: 22, fonts: 64 };
+// fiches produits (maquette « le ticket ») : leur propre feuille de style, plus riche que celle des pages intérieures (9,1 Ko mesurés)
+const PRODUCT = { js: 155, css: 10, html: 22, fonts: 64 };
 const PAGES = [
   ["/", HOME], ["/ar", HOME],
-  ["/soins/serum-anti-taches", PAGE], ["/ar/soins/serum-anti-taches", PAGE],
+  ["/soins/serum-anti-taches", PRODUCT], ["/ar/soins/serum-anti-taches", PRODUCT], ["/soins/deodorant-creme", PRODUCT],
   ["/taches-pigmentaires", PAGE], ["/ar/taches-pigmentaires", PAGE],
   ["/avis", PAGE], ["/ar/avis", PAGE],
 ];
@@ -54,5 +56,5 @@ for (const [path, budget] of PAGES) {
   const cell = (k) => `${ko(got[k]).padStart(5)}/${String(budget[k]).padEnd(3)}`;
   console.log(`${problems.length ? "✗" : "✓"} ${path.padEnd(30)} ${cell("js")} ${cell("css")} ${cell("html")} ${cell("fonts")}${problems.map((p) => "\n   " + p).join("")}`);
 }
-console.log(failed ? `\n${failed} dépassement(s) du budget de performance.` : "\nBudget de performance respecté sur les 8 pages.");
+console.log(failed ? `\n${failed} dépassement(s) du budget de performance.` : `\nBudget de performance respecté sur les ${PAGES.length} pages.`);
 process.exit(failed ? 1 : 0);

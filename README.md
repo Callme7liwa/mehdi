@@ -18,6 +18,7 @@ npm run lint       # vérifie le code
 |---|---|
 | le domaine, le WhatsApp, les délais de livraison, la politique de retour, les infos juridiques | `src/data/site.ts` |
 | un prix, une contenance, un ingrédient, un texte produit (français ou arabe) | `src/data/products.ts` |
+| la mise en scène d'une fiche produit (titre, avantages, étiquette, avis), les textes du ticket | `src/data/product-pages.ts` |
 | une question de la FAQ | `src/data/faq.ts` |
 | un avis client | `src/data/reviews.ts` |
 | un texte des pages « conseils peau » | `src/data/problems.ts` |
@@ -31,7 +32,8 @@ Les pages, le JSON-LD, le sitemap et `llms.txt` lisent tous ces fichiers : une m
   - `src/home/sections/` : le HTML de chaque section, rendu côté serveur (hero, diagnostic, offres, « À l'unité », affiches, conseils, FAQ…).
   - `src/home/islands/` : un script par section, chargé à part (`loader.ts` décide quand). Le ciel WebGL (`sky.js`) démarre après le chargement de la page.
   - `src/home/shop/` : le panier de la section « À l'unité » (prix lus dans `src/data/products.ts`, frais de livraison dans `src/data/site.ts`).
-- `src/app/(fr)/` : pages produits (`/soins/...`), conseils peau, pages de confiance.
+- `src/app/(produit)/` et `src/app/(produit-ar)/` : fiches produits (`/soins/<soin>`, `/ar/soins/<soin>`), avec leur propre mise en page « le ticket qui s'écrit en direct » (composants dans `src/product/`). Le ticket envoie la commande à `/api/order` comme l'accueil ; l'offre 2 + 1 du contour des yeux et du déodorant est calculée par le serveur.
+- `src/app/(fr)/` : liste des soins (`/soins`), conseils peau, pages de confiance.
 - `src/app/(ar)/ar/` : pages en arabe, de droite à gauche.
 - `src/templates/` : gabarits de pages. `src/components/` : éléments communs.
 - `public/images/`, `public/videos/` : médias.
@@ -47,6 +49,7 @@ Chaque page française a son équivalent sous `/ar`, de droite à gauche : accue
 | relire tout l'arabe au même endroit | `src/data/ar-relecture.md` (français et arabe côte à côte, avec le fichier source à corriger) |
 | corriger un texte de l'accueil | `src/home/text.ts` (sections) et `src/home/text-js.ts` (ticket, fenêtres), `src/home/chat/chat-text.ts` (chat des questions) |
 | corriger un produit, la FAQ, un bouton | `src/data/products.ts`, `src/data/faq.ts`, `src/data/ui.ts` |
+| corriger une fiche produit ou le ticket | `src/data/product-pages.ts` |
 | corriger une page conseil | `src/data/problems.ar.ts` |
 | corriger une page de confiance | `src/app/(ar)/ar/<page>/page.tsx` |
 

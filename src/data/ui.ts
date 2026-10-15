@@ -132,7 +132,7 @@ const fr = {
   seeOffer: "Voir l'offre",
   otherAdvice: "Autres conseils peau",
   todo: "À compléter",
-  // dmp: "Enregistrement DMP n°", (libellé retiré avec la ligne DMP des fiches : voir ProductPage.tsx)
+  // dmp: "Enregistrement DMP n°", (libellé retiré avec la ligne DMP des fiches produits)
   breadcrumb: "Fil d'Ariane",
   footerNav: "Pied de page",
   langSwitch: "العربية",

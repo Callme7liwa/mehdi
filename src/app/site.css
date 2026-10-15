@@ -154,6 +154,8 @@ main { display: block; }
 .pcard-pic .num { position: absolute; inset-inline-start: 12px; top: 12px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 252, 248, 0.9); font-size: 14px; }
 .pcard-body { display: grid; gap: 6px; align-content: start; padding: 14px 16px 18px; }
 .pcard-body p { font-size: 14px; color: var(--muted); line-height: 1.45; }
+.pcard-body .pcard-act { font-size: 13px; }
+.pcard-body .pcard-price { font-size: 17px; font-weight: 600; color: var(--bordeaux); }
 .pcard-more { margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--bordeaux); }
 
 /* ---- FAQ (mêmes accordéons que l'accueil) ---- */

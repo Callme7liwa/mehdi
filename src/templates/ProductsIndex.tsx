@@ -3,25 +3,29 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
 import { BagIcon } from "@/components/icons";
-import { bundleUnit, gamme, products } from "@/data/products";
+import { bundleUnit, gamme, products, unitFormats } from "@/data/products";
 import { abs, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
 import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
 
+// le prix le plus bas vient de products.ts (jamais écrit à la main)
+const lowest = Math.min(...products.flatMap((p) => unitFormats(p).map((f) => p.unitPrice[f] as number)));
 const copy = {
   fr: {
     title: "Soins anti-taches, contour des yeux et déodorant | OTAGE",
-    description: "Les 6 soins OTAGE fabriqués au Maroc : gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50, sérum contour des yeux et déodorant crème. Livraison en 24 à 72 h.",
-    h1: "Les soins OTAGE",
-    lead: "Une routine anti-taches en 4 soins, un sérum contour des yeux et un déodorant crème. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.",
-    offer: (p: number, b: number) => `La gamme anti-taches complète dès ${p} DH, ou ${b} DH la gamme avec l'offre 2 + 1.`,
+    description: `Les 6 soins OTAGE fabriqués au Maroc : routine anti-taches, contour des yeux, déodorant. Dès ${lowest} DH, livrés en 24 à 72 h, payés à la livraison.`,
+    h1: "Soins anti-taches, contour des yeux et déodorant",
+    lead: "Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.",
+    offer: (p: number) => `La gamme complète dès ${p} DH, livraison offerte.`,
+    orderRange: (p: number) => `Commander la gamme · ${p} DH`,
   },
   ar: {
     title: "منتجات العناية ضد البقع ومحيط العين ومزيل العرق | OTAGE",
     description: "منتجات OTAGE الستة المصنوعة في المغرب: جل منظف، سيروم ضد البقع، كريم ضد البقع، واقي الشمس SPF 50، سيروم محيط العين ومزيل العرق كريم. التوصيل من 24 إلى 72 ساعة.",
     h1: "منتجات OTAGE",
     lead: "روتين ضد البقع من 4 منتجات، سيروم لمحيط العين ومزيل عرق كريم. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
-    offer: (p: number, b: number) => `المجموعة الكاملة ضد البقع ابتداءً من ${p} درهم، أو ${b} درهم للمجموعة مع عرض 2 + 1.`,
+    offer: (p: number) => `المجموعة الكاملة ضد البقع ابتداءً من ${p} درهم، أو ${bundleUnit(p)} درهم للمجموعة مع عرض 2 + 1.`,
+    orderRange: () => "اطلبي المجموعة",
   },
 };
 
@@ -51,8 +55,8 @@ export default function ProductsIndex({ locale }: { locale: Locale }) {
         <section className="sec">
           <div className="band">
             <h2>{gamme.name[locale]}</h2>
-            <p>{c.offer(P, bundleUnit(P))}</p>
-            <a className="btn btn-primary" href={`${localePath(locale, "/")}#offres`}>{t.orderRange}<BagIcon /></a>
+            <p>{c.offer(P)}</p>
+            <a className="btn btn-primary" href={`${localePath(locale, "/")}#offres`}>{c.orderRange(P)}<BagIcon /></a>
           </div>
         </section>
       </main>

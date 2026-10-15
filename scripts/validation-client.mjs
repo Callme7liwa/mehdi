@@ -24,13 +24,14 @@ const yP = yeux.unitPrice.petit, dP = deo.unitPrice.petit;
 const fee = site.delivery.unitFee;
 const date = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeZone: "Africa/Casablanca" }).format(new Date());
 
-let md = `# Validation avant mise en ligne : fiches produits v2
+let md = `> **Fichier généré par \`npm run validation\` : le copier avant de le remplir.** Le relancer écrase ce fichier, cases cochées comprises.
+
+# Validation avant mise en ligne : fiches produits v2
 
 Document à faire remplir par le client (et par le pharmacien pour les parties indiquées), avant toute mise en ligne.
 Pour chaque ligne : cocher **Validé**, ou **À modifier** en écrivant la bonne valeur. Rien n'est en ligne tant que ce document n'est pas validé.
 
-Généré le ${date} par \`npm run validation\`, à partir du code : les valeurs sont celles que le site affiche aujourd'hui.
-Le relancer écrase ce fichier ; faire remplir une copie (ou une impression).
+Généré le ${date}, à partir du code : les valeurs sont celles que le site affiche aujourd'hui.
 
 Les traductions arabes ne sont pas reprises ici : elles sont toutes dans \`src/data/ar-relecture.md\`, à faire relire par un natif.
 

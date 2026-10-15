@@ -38,6 +38,9 @@ async function texts(path) {
   const desc = html.match(/<meta name="description" content="([^"]*)"/); if (desc) head.push(["Description (Google)", decode(desc[1])]);
   let body = html.slice(html.indexOf("<body"));
   body = body.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<svg[\s\S]*?<\/svg>|<!--[\s\S]*?-->/g, "");
+  // fiches produits : messages des clientes et leur traduction (relus sur la page /avis, où ils sont aussi affichés ;
+  // la fiche arabe ne traduit pas un message déjà en arabe, ce qui décalerait l'alignement)
+  body = body.replace(/<blockquote class="q-dar"[\s\S]*?<\/blockquote>|<p class="q-fr q-tr">[\s\S]*?<\/p>/g, "");
   // les balises de mise en forme restent dans la phrase ; les autres (liens, blocs) séparent les textes
   body = body.replace(/<span\b[^>]*dir="ltr"[^>]*>([^<]*)<\/span>/g, "$1");
   body = body.replace(/<\/?(?:b|bdi|em|s|mark|small|strong|time|i|u)\b[^>]*>/g, "");

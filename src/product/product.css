@@ -137,6 +137,7 @@ button{cursor:pointer}
 .rvw-w{display:flex;flex-direction:column;line-height:1.25}
 .rvw-w b{font-size:15px;color:var(--bx)}
 .rvw-w small{font-size:12px;color:var(--muted)}
+.rvw-ctx{margin:0;font-size:13px;color:var(--text)}
 .q-dar{margin:0;padding:14px 16px;border-radius:18px;border-start-start-radius:4px;background:#f1e9df;font-size:16px;line-height:1.5;color:var(--ink)}
 .q-fr{margin:-2px 0 4px;font-size:14px;line-height:1.5;font-style:italic;color:var(--muted)}
 .cta-line{width:auto;max-width:420px;margin-top:26px}

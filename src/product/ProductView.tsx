@@ -133,11 +133,14 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
                 title={<h2 className="av-t serif" id="t-avis"><em>{t.reviews}</em><sup className="av-n">{pageReviews.length}</sup></h2>}>
                 {pageReviews.map((r, i) => {
                   const said = r.messages.filter((m) => m.de === "cliente"), rtl = said.some((m) => m.rtl);
+                  // traduction : seulement si le message n'est pas déjà dans la langue de la page
+                  const tr = rtl && locale === "ar" ? undefined : (r.traductionCliente ?? r.traduction)?.[locale];
                   return (
                     <article key={r.prenom} className={`rvw rv${i === 0 ? " rvw-big" : ""}`}>
                       <header className="rvw-h"><span className="src src-ig">{locale === "ar" ? "إنستغرام" : "Instagram"}</span><span className="rvw-w"><b>{reviewName(r, locale)}</b><small>{fill(t.reviewMeta, { d: r.date?.[locale] ?? "" })}</small></span></header>
+                      {r.intitule && <p className="rvw-ctx">{r.intitule[locale]}</p>}
                       <blockquote className="q-dar" lang={rtl ? "ar" : "fr"} dir={rtl ? "rtl" : "ltr"}>{said.map((m, k) => <span key={k} style={{ display: "block" }}>{m.texte}</span>)}</blockquote>
-                      {r.traduction?.[locale] && <p className="q-fr">{r.traduction[locale]}</p>}
+                      {tr && <p className="q-fr q-tr">{tr}</p>}
                       <p className="q-fr" style={{ fontStyle: "normal", fontSize: 12 }}>{t.reviewNote} <a href={localePath(locale, "/avis")}>{t.reviewSource}</a></p>
                     </article>
                   );

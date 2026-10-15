@@ -4,8 +4,8 @@
    - soin : 0 gel, 1 sérum, 2 crème, 3 écran solaire, ou "gamme"
    - messages : de "cliente" ou "otage", dans la langue d'origine ; rtl: true pour l'arabe
    - traduction : aide à la lecture dans l'autre langue (À RELIRE : traduction de la darija par nos soins)
-   - produits : les soins que la cliente nomme elle-même dans ses messages ; l'avis s'affiche sur la fiche de
-     ces soins, et seulement sur elle (un avis qui ne nomme aucun soin reste sur /avis et l'accueil)
+   - produits : les fiches produits où l'avis est montré : les soins que la cliente nomme, ou la gamme qu'elle a
+     suivie (avec alors un intitulé « Avis sur la routine complète »). Aucun chiffre de résultat n'est mis en avant.
    - exemple: true affiche l'étiquette « Exemple » (à retirer avant la mise en ligne).
    Aucune note ni aggregateRating / Review dans le JSON-LD : ce ne sont pas des avis notés et vérifiables. */
 import type { Img, ProductKey } from "./products";
@@ -26,6 +26,10 @@ export type Review = {
   date?: L;
   /** Traduction du message dans l'autre langue, si l'original n'est pas dans la langue de la page. */
   traduction?: Partial<L>;
+  /** Fiches produits : intitulé affiché au-dessus du message (ex. « Avis sur la routine complète »). */
+  intitule?: L;
+  /** Fiches produits : traduction des seuls messages de la cliente, quand « traduction » contient aussi la réponse d'OTAGE. */
+  traductionCliente?: Partial<L>;
 };
 
 export const reviews: Review[] = isolateAr([
@@ -57,8 +61,13 @@ export const reviews: Review[] = isolateAr([
     prenom: "Awatef",
     ville: "Cliente OTAGE",
     soin: "gamme",
-    // ses messages parlent des taches et de l'éclat, sans nommer de soin : sur aucune fiche
-    produits: [],
+    // ses messages ne nomment aucun soin : elle a suivi la routine complète, son avis est montré sur les 4 fiches
+    // de la gamme (pas sur le contour des yeux ni le déodorant), avec l'intitulé « Avis sur la routine complète »
+    produits: ["gel", "serum", "creme", "ecran"],
+    intitule: { fr: "Avis sur la routine complète", ar: "رأي في الروتين الكامل" },
+    traductionCliente: {
+      fr: "Que Dieu vous garde, docteur. Docteur, l'éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci infiniment. Vraiment. Je n'oublierai jamais votre bienfait ; si vous voulez, je fais un audio de témoignage.",
+    },
     date: { fr: "5 septembre", ar: "5 شتنبر" },
     capture: {
       src: "/images/avis/avis-cliente-awatef-instagram.webp", w: 739, h: 1600,

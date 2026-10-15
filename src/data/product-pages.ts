@@ -68,26 +68,32 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   serum: {
     tag: { fr: "N° 02 · Routine anti-taches", ar: "رقم 02 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 02 sur 04 · Le soin concentré", ar: "رقم 02 من 04 · العناية المركزة" },
+    eyebrow: { fr: "N° 02 sur 04 · Routine anti-taches", ar: "رقم 02 من 04 · العناية المركزة" },
     title: [{ fr: "Sérum", ar: "سيروم" }, { fr: "anti-taches.", ar: "ضد البقع." }],
-    lede: { fr: "Le soin concentré de la routine : il cible les taches brunes et unifie le teint, goutte après goutte.", ar: "العناية المركزة في الروتين: يستهدف البقع البنية ويوحد لون البشرة، قطرة بعد قطرة." },
+    lede: { fr: "Pour atténuer les taches brunes et unifier le teint, goutte après goutte.", ar: "العناية المركزة في الروتين: يستهدف البقع البنية ويوحد لون البشرة، قطرة بعد قطرة." },
     media: "pack",
     mediaAlt: { fr: "Le flacon compte-gouttes du sérum anti-taches OTAGE, 30 ml", ar: "عبوة السيروم ضد البقع من OTAGE بقطارة، 30 مل" },
-    perks: [
-      { icon: "spots", label: { fr: "Cible les taches", ar: "يستهدف البقع" } },
-      { icon: "leaf", label: { fr: "Matcha", ar: "ماتشا" } },
-      { icon: "flower", label: { fr: "Calendula", ar: "آذريون" } },
-      { icon: "star", label: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" } },
-    ],
+    // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
+    perks: [{ icon: "spots", label: { fr: "Atténue les taches", ar: "يخفف البقع" } }],
     upsell: { flag: { fr: "2× plus de sérum pour {d} DH de plus", ar: "ضعف كمية السيروم مقابل {d} درهم إضافية" }, nudge: { fr: "2× plus de sérum pour {d} DH", ar: "ضعف كمية السيروم مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Trois actifs.", ar: "ثلاثة مكونات فعالة." }, { fr: "Une seule mission.", ar: "مهمة واحدة." }],
+      title: [{ fr: "Le sérum anti-taches :", ar: "ثلاثة مكونات فعالة." }, { fr: "ses 3 actifs.", ar: "مهمة واحدة." }],
       alt: { fr: "L’étiquette du sérum : matcha, calendula, alpha-arbutine, 30 ml", ar: "ملصق السيروم: ماتشا، آذريون، ألفا أربوتين، 30 مل" },
       ingredients: [
-        { name: { fr: "Matcha", ar: "ماتشا" }, where: label, role: { fr: "Un thé vert riche en antioxydants, qui protège la peau des agressions du quotidien.", ar: "شاي أخضر غني بمضادات الأكسدة، يحمي البشرة من الاعتداءات اليومية." }, why: { fr: "Il aide le teint à retrouver de l’éclat.", ar: "يساعد البشرة على استعادة إشراقها." } },
-        { name: { fr: "Calendula", ar: "آذريون (كاليندولا)" }, where: label, role: { fr: "Une fleur connue pour apaiser les peaux sensibles.", ar: "زهرة معروفة بتهدئة البشرة الحساسة." }, why: { fr: "Le sérum reste doux, même appliqué matin et soir.", ar: "يبقى السيروم لطيفًا، حتى عند وضعه صباحًا ومساءً." } },
-        { name: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" }, where: label, role: { fr: "L’actif qui cible les taches brunes en limitant la production de mélanine.", ar: "المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين." }, why: { fr: "C’est lui qui travaille sur les taches, jour après jour.", ar: "هو الذي يعمل على البقع، يومًا بعد يوم." } },
+        { name: { fr: "Matcha", ar: "ماتشا" }, where: label, role: { fr: "Thé vert antioxydant, qui aide le teint à retrouver de l'éclat.", ar: "شاي أخضر غني بمضادات الأكسدة، يحمي البشرة من الاعتداءات اليومية." } },
+        { name: { fr: "Calendula", ar: "آذريون (كاليندولا)" }, where: label, role: { fr: "Fleur apaisante : le sérum reste doux, matin et soir.", ar: "زهرة معروفة بتهدئة البشرة الحساسة." } },
+        { name: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" }, where: label, role: { fr: "Limite la production de mélanine : c'est l'actif qui agit sur les taches.", ar: "المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين." } },
       ],
+    },
+    // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
+    use: {
+      forWho: { fr: "Pour les taches brunes, l'hyperpigmentation et le teint irrégulier. C'est l'étape 2 de la routine, matin et soir.", ar: "للبقع البنية وفرط التصبغ ولون البشرة غير الموحد. هو الخطوة 2 في الروتين، صباحًا ومساءً." },
+      steps: [
+        { fr: "Après le gel nettoyant, sèche ta peau.", ar: "بعد الجل المنظف، جففي بشرتك." },
+        { fr: "Dépose 3 à 4 gouttes sur le visage.", ar: "ضعي 3 إلى 4 قطرات على الوجه." },
+        { fr: "Tapote du bout des doigts, puis applique la crème.", ar: "ربّتي بأطراف الأصابع، ثم ضعي الكريم." },
+      ],
+      results: { fr: "Les taches s'atténuent petit à petit, pas en quelques jours. Le rythme dépend de ta peau, de ta régularité et de l'écran solaire.", ar: "البقع تخف شيئًا فشيئًا، وليس في أيام قليلة. الوتيرة تتوقف على بشرتك وانتظامك وواقي الشمس." },
     },
   },
   creme: {

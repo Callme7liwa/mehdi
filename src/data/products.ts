@@ -101,9 +101,9 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Sérum anti-taches", ar: "سيروم ضد البقع" },
     h1: { fr: "Sérum anti-taches à l'alpha-arbutine, fabriqué au Maroc", ar: "سيروم ضد البقع بالألفا أربوتين، مصنوع في المغرب" },
-    metaTitle: { fr: "Sérum anti-taches Maroc à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين في المغرب" },
+    metaTitle: { fr: "Sérum anti-taches à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين في المغرب" },
     metaDescription: {
-      fr: "Sérum anti-taches OTAGE N°02 : alpha-arbutine, matcha, calendula. Le soin concentré qui cible les taches pigmentaires. Fabriqué au Maroc, payé à la livraison.",
+      fr: "Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès {prix} DH, livré en 24 à 72 h, payé à la livraison.",
       ar: "سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Le soin concentré de la gamme, qui cible les taches.", ar: "العناية المركزة في المجموعة، تستهدف البقع." },
@@ -130,15 +130,7 @@ export const products: Product[] = isolateAr([
       img("serum-anti-taches-n02-fond-blanc.webp", 1092, 1092, "Sérum anti-taches OTAGE N°02, flacon sur fond blanc", "سيروم ضد البقع OTAGE رقم 02 على خلفية بيضاء"),
     ],
     problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
-    extraFaq: [
-      {
-        q: { fr: "Au bout de combien de temps voit-on des résultats ?", ar: "متى تظهر النتائج؟" },
-        a: {
-          fr: "Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain. Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Le rythme varie d'une peau à l'autre.",
-          ar: "بصراحة: البقع تخف تدريجيًا، وليس بين ليلة وضحاها. المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. الوتيرة تختلف من بشرة إلى أخرى.",
-        },
-      },
-    ],
+    extraFaq: [],
   },
   {
     key: "creme",

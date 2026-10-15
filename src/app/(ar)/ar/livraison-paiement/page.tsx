@@ -1,6 +1,6 @@
 import Link from "next/link";
 import FaqList from "@/components/FaqList";
-import { faq } from "@/data/faq";
+import { faqById } from "@/data/faq";
 import { abs, site, waLink } from "@/data/site";
 import { faqLd } from "@/lib/seo";
 import TextPage, { textMetadata } from "@/templates/TextPage";
@@ -16,8 +16,7 @@ const info = {
 };
 export const metadata = textMetadata(info, "ar");
 
-const questions = ["متى أدفع؟", "هل التوصيل مدفوع؟", "كم يستغرق التوصيل؟", "وماذا بعد طلبي؟", "وماذا لو كانت هناك مشكلة في طلبي؟", "هل يمكنني إرجاع طلبي؟"];
-const items = faq.ar.filter((f) => questions.includes(f.q));
+const items = ["pay", "shipcost", "delay", "after", "claims", "returns"].map((id) => faqById("ar", id));
 
 export default function Page() {
   return (

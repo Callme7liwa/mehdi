@@ -13,7 +13,7 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
       <div className="of-in">
         <header className="of-head">
           <h2 id="offers-title">{t.offersLOffreANe}</h2>
-          <p><span data-offer-for="">{t.msgGammeA}{P.price}{t.msgGammeB}{t.offersPourTaRoutineAnti}</span>{t.offersTonTicketSEcrit}</p>
+          <p><span data-offer-for="">{t.offersIntro}</span></p>
         </header>
 
         <div className="tk-grid">
@@ -67,7 +67,6 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   <label className="fld"><span>{t.offersAdresse}<small>{t.offersFacultatifOnPeutLa}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.offersQuartierRueNumero} /></label>
                   <label className="fld"><span>{t.offersEmail}<small>{t.offersEmailOpt}</small></span><input name="email" type="email" inputMode="email" autoComplete="email" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="tk-email-info" /><small id="tk-email-info" className="fld-info"><b>{t.offersEmailHint}</b> {t.offersEmailConsent}</small></label>
                   <datalist id="villes">{cities.map((c) => <option key={c.fr}>{c[locale]}</option>)}</datalist>
-                  <button type="button" className="hz-open hz-mini" data-hz="avis"><span className="hz-faces" aria-hidden="true"><Img src={site.founder.portrait} alt="" width={480} height={480} sizes="36px" /></span><span className="hz-txt"><b>{t.offersTuHesites}</b><small>{t.offersAvisResultatsOuParle}</small></span><svg className="hz-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
                   <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <label className="agree">
                     <input type="checkbox" name="cgv" />

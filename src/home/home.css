@@ -2668,6 +2668,7 @@ html[dir="rtl"] .s85-ring text { direction: ltr; letter-spacing: 0; font-size: 1
 .sp-body { display: grid; gap: 4px; align-content: start; padding: 16px 18px 18px; }
 .sp-body h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
 .sp-for { font-size: 13px; color: var(--muted); }
+.sp-act { font-size: 12.5px; line-height: 1.35; color: var(--muted); }
 .sp-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
 .sp-price { font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--bordeaux); }
 .sp-price small { font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 13px; font-weight: 600; margin-inline-start: 2px; }

@@ -109,18 +109,11 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
 
         <div className="ctas">
           <div className="cta-wrap"><a href="#offres" className="o-btn o-primary o-lg"><span className="o-lbl">{t.heroVoirLesOffres}</span><span className="o-price"><small>{t.heroDes}</small> {gamme.formats.petit.price} <small>{t.heroDh}</small></span></a><span className="flag" aria-hidden="true">{t.hero21Offerte}</span></div>
-          <a href="#diagnostic" className="o-btn o-ghost o-lg" data-glide-to="#diagnostic"><span className="o-lbl">{t.heroTrouverMonSoin}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3.2c2.9 3.6 6 7 6 10.8a6 6 0 0 1-12 0c0-3.8 3.1-7.2 6-10.8z" /><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.4" /></svg></span></a>
+          {/* « Trouver mon soin » retiré : le diagnostic est juste en dessous et dans le menu */}
         </div>
 
         <ul className="perks">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></svg>
-            <span>{t.msgGammeA}{gamme.formats.petit.price}{t.msgGammeB}</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /></svg>
-            {t.heroPaiementALaLivraison}
-          </li>
+          <li>{t.heroPhrase}</li>
         </ul>
       </div>
 

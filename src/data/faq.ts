@@ -2,50 +2,41 @@
    Les réponses peuvent contenir <b>…</b> ; chaque élément du tableau `a` est un paragraphe. */
 import { site, type Locale } from "./site";
 import { isolateAll } from "../lib/bidi";
-import { bundleTotal, bundleUnit, gamme, productByKey, yeuxPrice, type Product } from "./products";
+import { bundleTotal, bundleUnit, gamme, productByKey, type Product } from "./products";
 
 export type Faq = { q: string; a: string[] };
 
 const P = gamme.formats.petit, G = gamme.formats.grand;
-const nb = (n: number) => n.toLocaleString("fr-FR").replace(/ /g, " ");
 const ml = (k: Parameters<typeof productByKey>[0], f: "petit" | "grand") => productByKey(k).ml[f];
 
 /** FAQ générale (page d'accueil, livraison). L'ordre est celui du chat de l'accueil. */
 export const faq: Record<Locale, Faq[]> = {
   fr: [
-    { q: "Je paie quand ?", a: ["À la livraison, en espèces, quand le livreur te remet ton colis.", "Rien à payer en ligne, pas besoin de carte bancaire."] },
-    { q: "La livraison est payante ?", a: ["Pour une gamme complète, elle est <b>offerte</b>, quel que soit le format ou le nombre de gammes.", `Pour un achat à l'unité, elle coûte <b>de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville</b>, ajoutés au total. On te confirme le montant exact par téléphone.`] },
-    { q: "Je suis livrée en combien de temps ?", a: [`Compte <b>${site.delivery.label.fr}</b>, partout au Maroc. On t'appelle d'abord pour confirmer ta commande.`] },
-    { q: "C'est quoi l'offre 2 + 1 ?", a: ["Tu prends 2 gammes, la 3e est offerte.", `En Petit format : <b>${bundleUnit(P.price)} DH la gamme</b> au lieu de ${P.price} DH, soit ${nb(bundleTotal(P.price))} DH les 3. En Grand format : <b>${bundleUnit(G.price)} DH</b> au lieu de ${G.price} DH, soit ${nb(bundleTotal(G.price))} DH les 3.`] },
-    { q: "Combien coûte la gamme anti-taches ?", a: [`Le Petit format coûte <b>${P.price} DH</b> la gamme au lieu de ${P.was} DH, le Grand format <b>${G.price} DH</b> au lieu de ${G.was} DH.`, `Avec l'offre 2 + 1, la gamme revient à ${bundleUnit(P.price)} DH en Petit format et à ${bundleUnit(G.price)} DH en Grand format. La livraison de la gamme est offerte.`] },
-    { q: "Qu'est-ce qu'il y a dans une gamme ?", a: ["Les 4 soins de la routine : gel nettoyant, sérum anti-taches, crème anti-taches et écran solaire SPF 50.", `En Grand format : gel ${ml("gel", "grand")} ml, sérum ${ml("serum", "grand")} ml, crème ${ml("creme", "grand")} ml et écran solaire ${ml("ecran", "grand")} ml. En Petit format : gel ${ml("gel", "petit")} ml, sérum ${ml("serum", "petit")} ml, crème ${ml("creme", "petit")} ml et écran solaire ${ml("ecran", "petit")} ml.`] },
-    { q: "Comment j'utilise la routine ?", a: ["Le matin : gel nettoyant, sérum, crème, puis écran solaire.", "Le soir : les 3 premiers, sans écran solaire. Le sérum, c'est le cœur de la routine contre les taches."] },
-    { q: "Quels sont les ingrédients actifs ?", a: ["Gel nettoyant : figue de Barbarie et louban, sans sulfate. Sérum anti-taches : alpha-arbutine, matcha et calendula. Crème anti-taches : niacinamide, acide hyaluronique et AHA.", "L'écran solaire SPF 50 offre une haute protection UVA/UVB."] },
-    { q: "Je vois des résultats quand ?", a: ["Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain.", "Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Sans protection, les taches reviennent. Le rythme varie d'une peau à l'autre."] },
-    { q: "Pourquoi l'écran solaire est indispensable ?", a: ["Parce que sans protection, les taches reviennent.", "L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil."] },
-    { q: "J'ai la peau sensible", a: ["Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h.", "En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel."] },
-    { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
-    { q: "Le sérum contour des yeux, c'est pour qui ?", a: ["Pour les cernes et le contour des yeux fatigué. Il contient de l'aloe vera, de l'acide hyaluronique et de la caféine, en 15 ml, avec un applicateur bille.", `Il coûte ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`] },
-    { q: "Et après ma commande ?", a: ["On t'appelle pour confirmer ta commande et ton adresse, puis ton colis part.", "Tu paies à la réception, c'est tout."] },
-    { q: "Et si j'ai un problème avec ma commande ?", a: [site.claims.fr, "Et si le produit ne te convient pas, tu as 7 jours pour le retourner (voir la question sur les retours)."] },
-    { q: "Je peux retourner ma commande ?", a: [`Oui. Tu as <b>${site.returns.days} jours après la réception</b> pour changer d'avis : c'est ton droit de rétractation (article 36 de la loi 31-08).`, "Les produits doivent être non ouverts et non utilisés. Les frais de retour sont pris en charge par OTAGE, et tu choisis : remboursement ou échange. Écris-nous sur WhatsApp pour lancer le retour."] },
-    { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec des ingrédients comme la figue de Barbarie et le louban."] },
+    { q: "Je paie quand ?", a: ["À la livraison, en espèces. Rien à payer en ligne, pas de carte bancaire."] },
+    { q: "La livraison est payante ?", a: [`Non pour une gamme complète : elle est <b>offerte</b>. À l'unité, compte <b>${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH</b> selon ta ville.`] },
+    { q: "Je suis livrée en combien de temps ?", a: [`En <b>${site.delivery.label.fr}</b>, partout au Maroc. On t'appelle d'abord pour confirmer.`] },
+    { q: "Combien coûte la gamme anti-taches ?", a: [`<b>${P.price} DH</b> en Petit format, <b>${G.price} DH</b> en Grand format. Avec l'offre 2 + 1, la 3e gamme est offerte.`] },
+    { q: "Qu'est-ce qu'il y a dans une gamme ?", a: ["Gel nettoyant, sérum, crème et écran SPF 50.", `Petit format : ${ml("gel", "petit")}, ${ml("serum", "petit")}, ${ml("creme", "petit")} et ${ml("ecran", "petit")} ml. Grand format : ${ml("gel", "grand")}, ${ml("serum", "grand")}, ${ml("creme", "grand")} et ${ml("ecran", "grand")} ml.`] },
+    { q: "Comment j'utilise la routine ?", a: ["Le matin : gel, sérum, crème, puis écran solaire. Le soir : les 3 premiers, sans écran."] },
+    { q: "Je vois des résultats quand ?", a: ["Pas en quelques jours : les taches s'atténuent petit à petit. Régularité et écran solaire chaque matin comptent le plus."] },
+    { q: "Et si j'ai la peau sensible ?", a: ["Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil."] },
+    { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients."] },
+    { q: "Et après ma commande ?", a: ["On t'appelle pour confirmer ta commande et ton adresse. Ensuite, ton colis part."] },
+    { q: "Et si j'ai un problème avec ma commande ?", a: ["Produit abîmé ou erreur : on échange ou on rembourse, sans frais pour toi. Écris-nous sur WhatsApp."] },
+    { q: "Je peux retourner ma commande ?", a: [`Oui, sous <b>${site.returns.days} jours</b> après réception (loi 31-08, article 36). Produits non ouverts, retour à nos frais, remboursement ou échange.`] },
+    { q: "Vos soins sont fabriqués où ?", a: ["Au Maroc, avec un laboratoire partenaire. Parmi les ingrédients : figue de Barbarie et louban."] },
   ],
   /* À relire par un natif. Même ordre et mêmes informations que le français. */
   ar: isolateAll([
     { q: "متى أدفع؟", a: ["عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك.", "لا شيء يُدفع عبر الإنترنت، ولا حاجة لبطاقة بنكية."] },
     { q: "هل التوصيل مدفوع؟", a: ["للمجموعة الكاملة، التوصيل <b>مجاني</b>، مهما كان الحجم أو عدد المجموعات.", `عند شراء منتجات منفردة، ثمنه <b>من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة</b>، يُضاف إلى المجموع. نؤكد لك المبلغ الدقيق هاتفيًا.`] },
     { q: "كم يستغرق التوصيل؟", a: [`<b>${site.delivery.label.ar}</b>، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك.`] },
-    { q: "ما هو عرض 2 + 1؟", a: ["تأخذين مجموعتين، والثالثة مجانًا.", `بالحجم الصغير: <b>${bundleUnit(P.price)} درهم للمجموعة</b> بدل ${P.price} درهم، أي ${nb(bundleTotal(P.price))} درهم للثلاث. بالحجم الكبير: <b>${bundleUnit(G.price)} درهم</b> بدل ${G.price} درهم، أي ${nb(bundleTotal(G.price))} درهم للثلاث.`] },
     { q: "كم ثمن مجموعة العناية ضد البقع؟", a: [`الحجم الصغير بـ <b>${P.price} درهم</b> للمجموعة بدل ${P.was} درهم، والحجم الكبير بـ <b>${G.price} درهم</b> بدل ${G.was} درهم.`, `مع عرض 2 + 1، تصبح المجموعة بـ ${bundleUnit(P.price)} درهم بالحجم الصغير و${bundleUnit(G.price)} درهم بالحجم الكبير. توصيل المجموعة مجاني.`] },
     { q: "ماذا تحتوي المجموعة؟", a: ["منتجات الروتين الأربعة: جل منظف، سيروم ضد البقع، كريم ضد البقع وواقي الشمس SPF 50.", `بالحجم الكبير: جل ${ml("gel", "grand")} مل، سيروم ${ml("serum", "grand")} مل، كريم ${ml("creme", "grand")} مل وواقي شمس ${ml("ecran", "grand")} مل. بالحجم الصغير: جل ${ml("gel", "petit")} مل، سيروم ${ml("serum", "petit")} مل، كريم ${ml("creme", "petit")} مل وواقي شمس ${ml("ecran", "petit")} مل.`] },
     { q: "كيف أستعمل الروتين؟", a: ["في الصباح: الجل المنظف، السيروم، الكريم، ثم واقي الشمس.", "في المساء: المنتجات الثلاثة الأولى، بدون واقي الشمس. السيروم هو قلب الروتين ضد البقع."] },
-    { q: "ما هي المكونات الفعالة؟", a: ["الجل المنظف: التين الشوكي واللبان، بدون سلفات. سيروم ضد البقع: ألفا أربوتين، ماتشا وآذريون. كريم ضد البقع: نياسيناميد، حمض الهيالورونيك وأحماض AHA.", "واقي الشمس SPF 50 يوفر حماية عالية من UVA و UVB."] },
     { q: "متى أرى النتائج؟", a: ["بصراحة: البقع تخف شيئًا فشيئًا، وليس بين ليلة وضحاها.", "المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. بدون حماية، تعود البقع. الوتيرة تختلف من بشرة إلى أخرى."] },
-    { q: "لماذا واقي الشمس ضروري؟", a: ["لأن البقع تعود بدون حماية.", "واقي الشمس SPF 50 يحمي من UVA و UVB: ضعيه كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس."] },
     { q: "بشرتي حساسة", a: ["جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة.", "في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا."] },
     { q: "أنا حامل أو مرضعة، هل يمكنني استعماله؟", a: ["اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا."] },
-    { q: "سيروم محيط العين، لمن هو؟", a: ["للهالات السوداء ومحيط العين المتعب. يحتوي على الألوفيرا، حمض الهيالورونيك والكافيين، في 15 مل، مع بكرة دوارة.", `ثمنه ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1.`] },
     { q: "وماذا بعد طلبي؟", a: ["نتصل بك لتأكيد طلبك وعنوانك، ثم يُرسل طردك.", "تدفعين عند الاستلام، وهذا كل شيء."] },
     { q: "وماذا لو كانت هناك مشكلة في طلبي؟", a: [site.claims.ar, "وإذا لم يناسبك المنتج، لديك 7 أيام لإرجاعه (انظري سؤال الإرجاع)."] },
     { q: "هل يمكنني إرجاع طلبي؟", a: [`نعم. لديك <b>${site.returns.days} أيام بعد الاستلام</b> لتغيير رأيك: هذا حقك في التراجع (المادة 36 من القانون رقم 31-08).`, "يجب أن تكون المنتجات غير مفتوحة وغير مستعملة. مصاريف الإرجاع تتحملها OTAGE، ولك الاختيار: استرجاع المبلغ أو الاستبدال. راسلينا عبر واتساب لبدء الإرجاع."] },
@@ -61,23 +52,21 @@ export const faqMeta: { id: string; cat: FaqCat; next: string[] }[] = [
   { id: "pay", cat: "commande", next: ["after", "delay", "claims"] },
   { id: "shipcost", cat: "commande", next: ["delay", "pay", "after"] },
   { id: "delay", cat: "commande", next: ["shipcost", "after", "pay"] },
-  { id: "bundle", cat: "commande", next: ["price", "contents", "delay"] },
-  { id: "price", cat: "commande", next: ["bundle", "contents", "shipcost"] },
-  { id: "contents", cat: "produits", next: ["ingredients", "routine", "price"] },
-  { id: "routine", cat: "produits", next: ["results", "spf", "ingredients"] },
-  { id: "ingredients", cat: "produits", next: ["sensitive", "pregnancy", "origin"] },
-  { id: "results", cat: "produits", next: ["routine", "spf", "sensitive"] },
-  { id: "spf", cat: "produits", next: ["routine", "results"] },
-  { id: "sensitive", cat: "peau", next: ["pregnancy", "ingredients"] },
-  { id: "pregnancy", cat: "peau", next: ["sensitive", "ingredients"] },
-  { id: "eyes", cat: "produits", next: ["routine", "price"] },
+  { id: "price", cat: "commande", next: ["contents", "shipcost", "delay"] },
+  { id: "contents", cat: "produits", next: ["routine", "price", "results"] },
+  { id: "routine", cat: "produits", next: ["results", "contents", "sensitive"] },
+  { id: "results", cat: "produits", next: ["routine", "sensitive", "contents"] },
+  { id: "sensitive", cat: "peau", next: ["pregnancy", "routine"] },
+  { id: "pregnancy", cat: "peau", next: ["sensitive", "contents"] },
   { id: "after", cat: "commande", next: ["delay", "returns", "claims"] },
   { id: "claims", cat: "commande", next: ["returns", "after", "delay"] },
   { id: "returns", cat: "commande", next: ["claims", "shipcost", "delay"] },
-  { id: "origin", cat: "produits", next: ["ingredients", "contents"] },
+  { id: "origin", cat: "produits", next: ["contents", "routine"] },
 ];
 /** Les 4 questions proposées à l'ouverture du chat : prix, livraison, paiement, résultats. */
 export const faqStarters = ["price", "delay", "pay", "results"];
+/** Une question de la FAQ générale, par son identifiant (indépendant de sa formulation). */
+export const faqById = (locale: Locale, id: string) => faq[locale][faqMeta.findIndex((m) => m.id === id)];
 /** Les 3 sujets du chat, dans l'ordre (libellés dans src/home/chat/chat-text.ts). */
 export const faqCats: FaqCat[] = ["commande", "produits", "peau"];
 
@@ -127,9 +116,7 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
   for (const x of p.extraFaq) out.push({ q: x.q[locale], a: [x.a[locale]] });
   if (locale === "ar") out.splice(0, out.length, ...isolateAll(out));
 
-  const base = faq[locale];
-  const find = (frQ: string, arQ: string) => base.find((x) => x.q === (locale === "ar" ? arQ : frQ));
-  for (const x of [find("J'ai la peau sensible", "بشرتي حساسة"), find("Je suis enceinte ou j'allaite, je peux l'utiliser ?", "أنا حامل أو مرضعة، هل يمكنني استعماله؟"), find("Je suis livrée en combien de temps ?", "كم يستغرق التوصيل؟")]) if (x) out.push(x);
+  for (const id of ["sensitive", "pregnancy", "delay"]) out.push(faqById(locale, id));
   return out;
 }
 

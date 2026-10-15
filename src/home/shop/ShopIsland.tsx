@@ -14,6 +14,8 @@ export type ShopItem = {
   no: string;
   name: string;
   tag: string;
+  /** Les 3 premiers actifs, séparés par « · ». */
+  actives: string;
   url: string;
   img: { src: string; w: number; h: number };
   /** Pot plus large que haut (déodorant) : affiché plus petit que les flacons. */
@@ -176,6 +178,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
                   <div className="sp-body">
                     <h3><a className="sp-ttl" href={p.url}>{p.name}</a></h3>
                     <span className="sp-for">{p.tag}</span>
+                    <span className="sp-act">{p.actives}</span>
                     {p.formats.length > 1 ? (
                       <span className="sp-fmt" role="radiogroup" aria-label={`${t.format}, ${p.name}`}>
                         {p.formats.map((x) => (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import FaqList from "@/components/FaqList";
-import { faq } from "@/data/faq";
+import { faqById } from "@/data/faq";
 import { abs, site, waLink } from "@/data/site";
 import { faqLd } from "@/lib/seo";
 import TextPage, { textMetadata } from "@/templates/TextPage";
@@ -14,8 +14,7 @@ const info = {
 };
 export const metadata = textMetadata(info);
 
-const questions = ["Je paie quand ?", "La livraison est payante ?", "Je suis livrée en combien de temps ?", "Et après ma commande ?", "Et si j'ai un problème avec ma commande ?", "Je peux retourner ma commande ?"];
-const items = faq.fr.filter((f) => questions.includes(f.q));
+const items = ["pay", "shipcost", "delay", "after", "claims", "returns"].map((id) => faqById("fr", id));
 
 export default function Page() {
   return (

@@ -24,11 +24,6 @@ function Card({ p, locale }: { p: Product; locale: Locale }) {
         <p>{taches ? p.lead[locale] : split(p.lead[locale])[0]}</p>
         <ul>{p.ingredients.map((i) => <li key={i.fr}>{i[locale]}</li>)}</ul>
         <p className="pc-how"><b>{ar ? "الطريقة:" : "Comment :"}</b> {ar ? p.how.ar : lowerFirst(p.how.fr)}</p>
-        <p className="pc-meta">
-          {ar
-              ? `الثمن: ${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1.`
-              : `Prix : ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.`}
-        </p>
         <a className="pc-link" href={localePath(locale, `/soins/${p.slug}`)}>{ar ? "صفحة المنتج الكاملة" : "Voir la fiche complète"}<span aria-hidden="true"> {ar ? "←" : "→"}</span></a>
       </div>
     </article>
@@ -89,7 +84,7 @@ export default function Discover({ t, locale }: { t: HomeText; locale: Locale })
             <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesOdeurs}</p>
               <h2>{t.discoverNotreDeodorantArriveBientot}</h2>
-              <p>{t.discoverOnLePrepareAvec}{deoPrice}{t.discoverDh}.</p>
+              <p>{t.discoverOnLePrepareAvec}{deoPrice}{t.discoverDh}{t.discoverLePotDe}{deo.ml.petit} {locale === "ar" ? "مل" : "ml"}.</p>
               <div className="dg-act">
                 <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}{deoPrice}{t.discoverDh}</a>
               </div>

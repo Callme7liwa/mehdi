@@ -21,6 +21,8 @@ export interface Product {
   metaTitle: L;
   metaDescription: L;
   lead: L;
+  /** Bénéfice en 8 mots max : cartes produits de l'accueil (« À l'unité ») et de /soins. */
+  benefit: L;
   forWho: L;
   ingredients: L[];
   how: L;
@@ -61,6 +63,7 @@ export const products: Product[] = isolateAr([
       ar: "جل منظف ضد البقع من OTAGE رقم 01: التين الشوكي، اللبان، بدون سلفات. ينظف بلطف دون تجفيف البشرة. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.", ar: "ينظف بلطف دون تجفيف البشرة ويهيئها لاستقبال باقي العناية." },
+    benefit: { fr: "Nettoie sans dessécher", ar: "ينظف دون تجفيف البشرة" },
     forWho: {
       fr: "Pour les peaux qui ont des taches brunes ou un teint irrégulier et qui cherchent un nettoyant doux, sans sulfate. C'est la première étape de la routine anti-taches, matin et soir.",
       ar: "للبشرة التي تعاني من بقع بنية أو لون غير موحد وتبحث عن منظف لطيف بدون سلفات. هو الخطوة الأولى في روتين العناية ضد البقع، صباحًا ومساءً.",
@@ -104,6 +107,7 @@ export const products: Product[] = isolateAr([
       ar: "سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Le soin concentré de la gamme, qui cible les taches.", ar: "العناية المركزة في المجموعة، تستهدف البقع." },
+    benefit: { fr: "Atténue les taches brunes", ar: "يخفف البقع البنية" },
     forWho: {
       fr: "Pour les taches brunes, les taches pigmentaires (hyperpigmentation) et le teint irrégulier. C'est le cœur de la routine contre les taches.",
       ar: "للبقع البنية، البقع الصبغية (فرط التصبغ) واللون غير الموحد. هو قلب روتين العناية ضد البقع.",
@@ -150,6 +154,7 @@ export const products: Product[] = isolateAr([
       ar: "كريم ضد البقع من OTAGE رقم 03: نياسيناميد، حمض الهيالورونيك، AHA. يرطب، يوحد لون البشرة ويثبت السيروم. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Hydrate, unifie le teint et scelle le sérum.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم." },
+    benefit: { fr: "Hydrate et unifie le teint", ar: "يرطب ويوحد لون البشرة" },
     forWho: {
       fr: "Pour les peaux au teint irrégulier ou marquées par des taches, qui veulent hydrater et unifier le teint après le sérum. On l'appelle aussi crème éclaircissante.",
       ar: "للبشرة ذات اللون غير الموحد أو التي بها بقع، لترطيبها وتوحيد لونها بعد السيروم. يسمى أيضًا كريمًا مفتّحًا.",
@@ -192,6 +197,7 @@ export const products: Product[] = isolateAr([
       ar: "واقي الشمس من OTAGE رقم 04: SPF 50، حماية عالية من UVA و UVB، حتى لا تعود البقع. آخر خطوة في روتين الصباح. مصنوع في المغرب.",
     },
     lead: { fr: "Protège des UVA et des UVB pour que les taches ne reviennent pas.", ar: "يحمي من أشعة UVA و UVB حتى لا تعود البقع." },
+    benefit: { fr: "Limite le retour des taches", ar: "يحد من عودة البقع" },
     forWho: {
       fr: "Pour toutes celles qui suivent une routine anti-taches : sans protection solaire, les taches reviennent. C'est la dernière étape du matin.",
       ar: "لكل من تتبع روتينًا ضد البقع: بدون حماية من الشمس، تعود البقع. هو آخر خطوة في الصباح.",
@@ -240,6 +246,7 @@ export const products: Product[] = isolateAr([
       ar: "سيروم محيط العين من OTAGE رقم 05، 15 مل، بكرة دوارة: كافيين، حمض الهيالورونيك، ألوفيرا. للهالات السوداء ومحيط العين المتعب. مصنوع في المغرب.",
     },
     lead: { fr: "Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir.", ar: "بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً." },
+    benefit: { fr: "Atténue l'aspect des cernes", ar: "يخفف مظهر الهالات السوداء" },
     forWho: { fr: "Pour les cernes et le contour des yeux fatigué.", ar: "للهالات السوداء ومحيط العين المتعب." },
     ingredients: [
       { fr: "Aloe vera", ar: "ألوفيرا" },
@@ -276,6 +283,7 @@ export const products: Product[] = isolateAr([
       ar: "مزيل العرق كريم من OTAGE رقم 06: بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
+    benefit: { fr: "Agit sur les odeurs, sans aluminium", ar: "يعمل على الروائح، بدون ألمنيوم" },
     forWho: {
       fr: "Pour celles et ceux qui veulent un déodorant sans sels d'aluminium, qui agit sur les odeurs sans bloquer la transpiration.",
       ar: "لمن يبحث عن مزيل عرق بدون أملاح الألمنيوم، يعمل على الروائح دون أن يمنع التعرق.",

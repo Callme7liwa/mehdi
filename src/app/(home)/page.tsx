@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { faq } from "@/data/faq";
 import { fmtMl, gamme, ingredientList, productByKey, products, type FormatKey } from "@/data/products";
-import { abs } from "@/data/site";
+import { abs, site } from "@/data/site";
 import HomePage from "@/home/HomePage";
 import { faqLd, founderLd, gammeLd, graph, orgLd, pageMetadata, productLd, webPageLd, websiteLd } from "@/lib/seo";
 
-const title = "OTAGE Cosmétiques : sérum et crème anti-taches fabriqués au Maroc";
-const description = "Routine anti-taches OTAGE : gel nettoyant, sérum, crème et écran solaire SPF 50 contre les taches pigmentaires. Fabriqué au Maroc, paiement à la livraison.";
+// le prix vient de products.ts : jamais écrit à la main
+const P = gamme.formats.petit.price;
+const title = `Routine anti-taches fabriquée au Maroc, dès ${P} DH | OTAGE`;
+const description = `Gel nettoyant, sérum, crème et écran SPF 50 pour atténuer les taches brunes. Dès ${P} DH, livraison offerte en ${site.delivery.label.fr}, paiement à la livraison.`;
 
 export const metadata: Metadata = pageMetadata({ locale: "fr", path: "/", title, description, hasAr: true });
 

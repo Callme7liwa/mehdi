@@ -1,7 +1,7 @@
 import type { HomeText } from "../text";
 import { homeJsText } from "../text-js";
 import ShopIsland, { type ShopItem } from "../shop/ShopIsland";
-import { products, unitFormats, type ProductKey } from "@/data/products";
+import { products, unitFormats } from "@/data/products";
 import { site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
@@ -11,14 +11,15 @@ import { localePath } from "@/lib/seo";
 export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
   const js = homeJsText[locale];
   const fee = site.delivery.unitFee;
-  const tag: Record<ProductKey, string> = { gel: t.shopPourGel, serum: t.shopPourSerum, creme: t.shopPourCreme, ecran: t.shopPourEcran, yeux: t.shopPourYeux, deo: t.shopPourDeo };
   const items: ShopItem[] = products.map((p) => {
     const img = p.hd ?? p.pack;
     return {
       key: p.key,
       no: p.no.replace(/\D/g, ""),
       name: p.name[locale],
-      tag: tag[p.key],
+      tag: p.benefit[locale],
+      // les 3 premiers actifs : c'est ici, et seulement ici, que les soins sont décrits sur l'accueil
+      actives: p.ingredients.slice(0, 3).map((i) => i[locale]).join(" · "),
       url: localePath(locale, `/soins/${p.slug}`),
       img: { src: img.src, w: img.w, h: img.h },
       wide: img.w / img.h > 0.6,
@@ -31,7 +32,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
         <header className="shop-head">
           <p className="shop-k">{t.shopALUnite}</p>
           <h2 id="shop-title">{t.shopUnSeulSoin}</h2>
-          <p>{t.shopChoisisA}{fee.min}{t.shopChoisisB}{fee.max}{t.shopChoisisC} <span className="shop-tip">{t.shopPourLaGamme}</span></p>
+          <p>{t.shopChoisisA}{fee.min}{t.shopChoisisB}{fee.max}{t.shopChoisisC}</p>
         </header>
       </div>
       <ShopIsland

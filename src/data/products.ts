@@ -266,9 +266,9 @@ export const products: Product[] = isolateAr([
     range: "corps",
     name: { fr: "Déodorant crème", ar: "مزيل العرق كريم" },
     h1: { fr: "Déodorant crème sans sels d'aluminium", ar: "مزيل عرق كريم بدون أملاح الألمنيوم" },
-    metaTitle: { fr: "Déodorant crème sans aluminium, fabriqué au Maroc", ar: "مزيل عرق كريم بدون ألمنيوم، مصنوع في المغرب" },
+    metaTitle: { fr: "Déodorant crème OTAGE, 5 ingrédients", ar: "مزيل عرق كريم بدون ألمنيوم، مصنوع في المغرب" },
     metaDescription: {
-      fr: "Déodorant crème OTAGE N°06 : sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc.",
+      fr: "Déodorant crème sans sels d'aluminium, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison.",
       ar: "مزيل العرق كريم من OTAGE رقم 06: بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
@@ -295,12 +295,7 @@ export const products: Product[] = isolateAr([
       img("deodorant-creme-n06-etiquette.webp", 880, 960, "L'étiquette du pot : oxyde de zinc, huile de coco, huile de jojoba, 50 ml", "ملصق العلبة: أكسيد الزنك، زيت جوز الهند، زيت الجوجوبا، 50 مل"),
     ],
     problems: [],
-    extraFaq: [
-      {
-        q: { fr: "Est-ce qu'il bloque la transpiration ?", ar: "هل يمنع التعرق؟" },
-        a: { fr: "Non. Sans sels d'aluminium, il ne bloque pas la transpiration : il agit sur les odeurs. Transpirer est normal.", ar: "لا. بدون أملاح الألمنيوم، لا يمنع التعرق: يعمل على الروائح. التعرق أمر طبيعي." },
-      },
-    ],
+    extraFaq: [],
   },
 ]);
 

@@ -187,27 +187,23 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   deo: {
     tag: { fr: "N° 06 · Soin du corps · 50 ml", ar: "رقم 06 · العناية بالجسم · 50 مل" },
-    eyebrow: { fr: "Nouveau · Fabriqué au Maroc", ar: "جديد · مصنوع في المغرب" },
-    title: [{ fr: "Déodorant", ar: "مزيل العرق" }, { fr: "crème.", ar: "كريم." }],
-    lede: { fr: "Un baume fondant qui s’occupe des odeurs. Cinq ingrédients, rien d’autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
+    eyebrow: { fr: "N° 06 · Nouveau · 50 ml", ar: "جديد · مصنوع في المغرب" },
+    title: [{ fr: "Déodorant crème", ar: "مزيل العرق" }, { fr: "OTAGE.", ar: "كريم." }],
+    lede: { fr: "Pour les odeurs, avec 5 ingrédients et sans sels d'aluminium.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
     media: "photo",
     mediaAlt: { fr: "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume", ar: "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم" },
-    perks: [
-      { icon: "waves", label: { fr: "Ne bloque pas la transpiration", ar: "لا يمنع التعرق" } },
-      { icon: "noAl", label: { fr: "Sans aluminium", ar: "بدون ألمنيوم" } },
-      { icon: "noP", label: { fr: "Sans parabène", ar: "بدون بارابين" } },
-      { icon: "noSulfate", label: { fr: "Sans sulfate", ar: "بدون سلفات" } },
-    ],
+    // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
+    perks: [{ icon: "waves", label: { fr: "Agit sur les odeurs", ar: "يعمل على الروائح" } }],
     unitWord: { one: { fr: "pot", ar: "علبة" }, many: { fr: "pots", ar: "علب" } },
     lab: {
-      title: [{ fr: "Cinq ingrédients.", ar: "خمسة مكونات." }, { fr: "Pas un de plus.", ar: "ولا واحد زيادة." }],
+      title: [{ fr: "Le déodorant crème :", ar: "خمسة مكونات." }, { fr: "ses 5 ingrédients.", ar: "ولا واحد زيادة." }],
       alt: { fr: "L’étiquette du pot : oxyde de zinc, huile de coco, huile de jojoba, 50 ml", ar: "ملصق العلبة: أكسيد الزنك، زيت جوز الهند، زيت الجوجوبا، 50 مل" },
       ingredients: [
-        { name: { fr: "Oxyde de zinc", ar: "أكسيد الزنك" }, where: label, role: { fr: "Un minéral qui limite le développement des bactéries responsables des odeurs.", ar: "معدن يحد من تكاثر البكتيريا المسؤولة عن الروائح." }, why: { fr: "L’actif principal : il agit sur l’odeur sans bloquer la transpiration.", ar: "المكوّن الأساسي: يعمل على الرائحة دون أن يمنع التعرق." } },
-        { name: { fr: "Huile de coco", ar: "زيت جوز الهند" }, where: label, role: { fr: "Elle donne au baume sa texture fondante et participe à l’action contre les odeurs.", ar: "يمنح البلسم قوامه الذائب ويساهم في محاربة الروائح." }, why: { fr: "Elle fond au contact de la peau : l’application est facile.", ar: "يذوب عند ملامسة البشرة: الاستعمال سهل." } },
-        { name: { fr: "Huile de jojoba", ar: "زيت الجوجوبا" }, where: label, role: { fr: "Elle nourrit et adoucit la peau fine des aisselles.", ar: "يغذي وينعّم البشرة الرقيقة للإبط." }, why: { fr: "Pour une peau confortable, même après le rasage.", ar: "لبشرة مرتاحة، حتى بعد الحلاقة." } },
-        { name: { fr: "Cire d’abeille", ar: "شمع العسل" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Elle donne sa tenue au baume et protège la peau.", ar: "يمنح البلسم تماسكه ويحمي البشرة." }, why: { fr: "Sans elle, la crème serait liquide dans le pot.", ar: "بدونه، يصبح الكريم سائلًا في العلبة." } },
-        { name: { fr: "Vitamine E", ar: "فيتامين E" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Un antioxydant qui protège la formule et la peau.", ar: "مضاد للأكسدة يحمي التركيبة والبشرة." }, why: { fr: "Elle aide la crème à rester stable dans le temps.", ar: "يساعد الكريم على البقاء مستقرًا مع الوقت." } },
+        { name: { fr: "Oxyde de zinc", ar: "أكسيد الزنك" }, where: label, role: { fr: "Limite les bactéries qui causent les odeurs.", ar: "معدن يحد من تكاثر البكتيريا المسؤولة عن الروائح." } },
+        { name: { fr: "Huile de coco", ar: "زيت جوز الهند" }, where: label, role: { fr: "Donne au baume sa texture fondante.", ar: "يمنح البلسم قوامه الذائب ويساهم في محاربة الروائح." } },
+        { name: { fr: "Huile de jojoba", ar: "زيت الجوجوبا" }, where: label, role: { fr: "Nourrit et adoucit la peau des aisselles.", ar: "يغذي وينعّم البشرة الرقيقة للإبط." } },
+        { name: { fr: "Cire d’abeille", ar: "شمع العسل" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Donne sa tenue au baume.", ar: "يمنح البلسم تماسكه ويحمي البشرة." } },
+        { name: { fr: "Vitamine E", ar: "فيتامين E" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Antioxydant qui protège la formule dans le temps.", ar: "مضاد للأكسدة يحمي التركيبة والبشرة." } },
       ],
       // points posés sur la vraie photo de l'étiquette, en % de l'image
       spots: [
@@ -217,6 +213,16 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { x: 30, y: 22, tip: { fr: "Cire d’abeille · dans le baume", ar: "شمع العسل · في البلسم" } },
         { x: 74, y: 25, tip: { fr: "Vitamine E · dans le baume", ar: "فيتامين E · في البلسم" } },
       ],
+    },
+    // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
+    use: {
+      forWho: { fr: "Pour toi si tu veux un déodorant sans sels d'aluminium. Il agit sur les odeurs, pas sur la transpiration.", ar: "لك إن كنت تريدين مزيل عرق بدون أملاح الألمنيوم. يعمل على الروائح، لا على التعرق." },
+      steps: [
+        { fr: "Le matin, sur une aisselle propre et sèche.", ar: "في الصباح، على إبط نظيف وجاف." },
+        { fr: "Prends un peu de baume du bout du doigt.", ar: "خذي قليلًا من البلسم بطرف الإصبع." },
+        { fr: "Laisse-le fondre, puis applique.", ar: "اتركيه يذوب، ثم ضعيه." },
+      ],
+      results: { fr: "Il ne bloque pas la transpiration : transpirer est normal. Il agit sur les odeurs, et la tenue varie d'une personne à l'autre.", ar: "لا يمنع التعرق: التعرق أمر طبيعي. يعمل على الروائح، ومدة فعاليته تختلف من شخص لآخر." },
     },
   },
 } satisfies Record<ProductKey, ProductPageText>);

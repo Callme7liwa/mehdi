@@ -229,9 +229,9 @@ export const products: Product[] = isolateAr([
     range: "yeux",
     name: { fr: "Sérum contour des yeux", ar: "سيروم محيط العين" },
     h1: { fr: "Sérum contour des yeux à la caféine, pour les cernes", ar: "سيروم محيط العين بالكافيين، للهالات السوداء" },
-    metaTitle: { fr: "Sérum contour des yeux pour les cernes, à la caféine", ar: "سيروم محيط العين بالكافيين للهالات السوداء" },
+    metaTitle: { fr: "Sérum contour des yeux à la caféine", ar: "سيروم محيط العين بالكافيين للهالات السوداء" },
     metaDescription: {
-      fr: "Sérum contour des yeux OTAGE N°05, 15 ml, applicateur bille : caféine, acide hyaluronique, aloe vera. Pour les cernes et le regard fatigué. Fabriqué au Maroc.",
+      fr: "Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. {prix} DH, ou 3 pour {lot} DH, payé à la livraison.",
       ar: "سيروم محيط العين من OTAGE رقم 05، 15 مل، بكرة دوارة: كافيين، حمض الهيالورونيك، ألوفيرا. للهالات السوداء ومحيط العين المتعب. مصنوع في المغرب.",
     },
     lead: { fr: "Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir.", ar: "بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً." },
@@ -254,7 +254,7 @@ export const products: Product[] = isolateAr([
     extraFaq: [
       {
         q: { fr: "Peut-on le mettre sous le maquillage ?", ar: "هل يمكن وضعه تحت المكياج؟" },
-        a: { fr: "Oui : sa texture légère se glisse sous le maquillage, matin et soir.", ar: "نعم: قوامه الخفيف يوضع تحت المكياج، صباحًا ومساءً." },
+        a: { fr: "Oui. Sa texture légère se glisse sous le maquillage.", ar: "نعم. قوامه الخفيف يوضع تحت المكياج." },
       },
     ],
   },

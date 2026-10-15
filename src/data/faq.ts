@@ -117,9 +117,10 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
       ],
     });
   } else {
+    const price = p.unitPrice.petit as number;
     out.push({
       q: T(locale, "Quelle contenance et quel prix ?", "ما الحجم وما الثمن؟"),
-      a: [T(locale, `${p.ml.petit} ml. Il coûte <b>${yeuxPrice} DH</b>, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1 (${bundleTotal(yeuxPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`, `${p.ml.petit} مل. ثمنه <b>${yeuxPrice} درهم</b>، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1 (${bundleTotal(yeuxPrice)} درهم للثلاثة). التوصيل: من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`)],
+      a: [T(locale, `${p.ml.petit} ml. Il coûte <b>${price} DH</b>, ou ${bundleUnit(price)} DH ${p.key === "deo" ? "le pot" : "le sérum"} avec l'offre 2 + 1 (${bundleTotal(price)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`, `${p.ml.petit} مل. ثمنه <b>${price} درهم</b>، أو ${bundleUnit(price)} درهم ${p.key === "deo" ? "للعلبة" : "للسيروم"} مع عرض 2 + 1 (${bundleTotal(price)} درهم للثلاثة). التوصيل: من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`)],
     });
   }
 

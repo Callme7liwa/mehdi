@@ -12,11 +12,12 @@ export function GET() {
   const P = gamme.formats.petit, G = gamme.formats.grand;
   const advice = site.medicalReview.validated && Boolean(site.medicalReview.date);
   const yeux = products.find((p) => p.key === "yeux")!;
+  const deo = products.find((p) => p.key === "deo")!, deoPrice = deo.unitPrice.petit as number;
   const ml = (f: "petit" | "grand") => rangeProducts.map((p) => `${p.name.fr.replace(" anti-taches", "").toLowerCase()} ${p.ml[f]} ml`).join(", ");
   const lines = [
     `# ${site.brand.fr}`,
     "",
-    `> ${site.brand.fr} (${site.name}) est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50) et un sérum contour des yeux, fabriqués au Maroc. Vente en ligne au Maroc, livraison en ${site.delivery.label.fr} (offerte pour la gamme complète), paiement à la livraison.`,
+    `> ${site.brand.fr} (${site.name}) est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50) un sérum contour des yeux et un déodorant crème naturel, fabriqués au Maroc. Vente en ligne au Maroc, livraison en ${site.delivery.label.fr} (offerte pour la gamme complète), paiement à la livraison.`,
     "",
     `Devise : « ${site.slogan.fr} » Site en français, avec une version arabe complète sous /ar. Dernière mise à jour : ${formatDate(site.updated, "fr")}.`,
     "",
@@ -39,11 +40,11 @@ export function GET() {
     "",
     `## ${yeux.name.fr} ${yeux.no}`,
     "",
-    `[Page du produit](${abs(`/soins/${yeux.slug}`)}). ${yeux.forWho.fr} ${yeux.ml.petit} ml, applicateur bille. Ingrédients : ${ingredientList(yeux)}. ${yeux.when.fr} : ${yeux.how.fr} Prix : ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1. Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
+    `[Page du produit](${abs(`/soins/${yeux.slug}`)}). ${yeux.forWho.fr} ${yeux.ml.petit} ml, applicateur bille. Ingrédients : ${ingredientList(yeux)}. ${yeux.when.fr} : ${yeux.how.fr} Prix : ${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1 (${bundleTotal(yeuxPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
     "",
-    "## Bientôt",
+    `## ${deo.name.fr} ${deo.no}`,
     "",
-    "- Déodorant : en préparation, pas encore en vente.",
+    `[Page du produit](${abs(`/soins/${deo.slug}`)}). ${deo.forWho.fr} ${deo.ml.petit} ml, sans sels d'aluminium ni parfum. Ingrédients : ${ingredientList(deo)}. ${deo.when.fr} : ${deo.how.fr} Prix : ${deoPrice} DH, ou ${bundleUnit(deoPrice)} DH le pot avec l'offre 2 + 1 (${bundleTotal(deoPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
     "",
     "## Commander, livraison et paiement",
     "",
@@ -77,7 +78,7 @@ export function GET() {
     ...(advice ? problemsAr.map((p) => `- [${p.label}](${abs(`/ar/${p.slug}`)}) : ${p.metaDescription}`) : []),
     ...trustPages.map((p) => `- [${p.label.ar}](${abs(`/ar${p.path}`)})`),
     "",
-    `الأسعار بالدرهم المغربي: مجموعة العناية ضد البقع ${P.price} درهم (الحجم الصغير) أو ${G.price} درهم (الحجم الكبير)؛ سيروم محيط العين ${yeuxPrice} درهم. التوصيل خلال ${site.delivery.label.ar}، والدفع عند الاستلام. ${site.delivery.rule.ar}. ${site.returns.right.ar}`,
+    `الأسعار بالدرهم المغربي: مجموعة العناية ضد البقع ${P.price} درهم (الحجم الصغير) أو ${G.price} درهم (الحجم الكبير)؛ سيروم محيط العين ${yeuxPrice} درهم؛ مزيل العرق كريم ${deoPrice} درهم. التوصيل خلال ${site.delivery.label.ar}، والدفع عند الاستلام. ${site.delivery.rule.ar}. ${site.returns.right.ar}`,
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

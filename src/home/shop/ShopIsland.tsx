@@ -16,6 +16,8 @@ export type ShopItem = {
   tag: string;
   url: string;
   img: { src: string; w: number; h: number };
+  /** Pot plus large que haut (déodorant) : affiché plus petit que les flacons. */
+  wide?: boolean;
   formats: { f: FormatKey; ml: number; price: number }[];
 };
 type Props = { items: ShopItem[]; locale: Locale; fee: { min: number; max: number }; links: { cgv: string; returns: string }; t: Record<string, string> };
@@ -168,7 +170,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
                     <span className="sp-no" aria-hidden="true">N°{p.no}</span>
                     <span className="sp-see">{t.see}</span>
                     <span className="sp-tag">{v.ml} {t.ml}</span>
-                    <Img src={p.img.src} alt={p.name} width={p.img.w} height={p.img.h} sizes="120px" style={{ "--z": p.formats.length > 1 && f === "petit" ? 0.88 : 1 } as React.CSSProperties} draggable={false} />
+                    <Img className={p.wide ? "wide" : undefined} src={p.img.src} alt={p.name} width={p.img.w} height={p.img.h} sizes="200px" style={{ "--z": p.formats.length > 1 && f === "petit" ? 0.88 : 1 } as React.CSSProperties} draggable={false} />
                   </a>
                   <div className="sp-body">
                     <h3><a className="sp-ttl" href={p.url}>{p.name}</a></h3>

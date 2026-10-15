@@ -3,7 +3,7 @@
 import { isolateAr } from "../lib/bidi";
 import type { L } from "./site";
 
-export type ProductKey = "gel" | "serum" | "creme" | "ecran" | "yeux";
+export type ProductKey = "gel" | "serum" | "creme" | "ecran" | "yeux" | "deo";
 export type FormatKey = "petit" | "grand";
 export type Img = { src: string; w: number; h: number; alt: L };
 export type QA = { q: L; a: L };
@@ -15,7 +15,7 @@ export interface Product {
   homeAnchor: string;
   no: string;
   /** Gamme dans laquelle le produit est vendu sur le site. */
-  range: "taches" | "yeux";
+  range: "taches" | "yeux" | "corps";
   name: L;
   h1: L;
   metaTitle: L;
@@ -250,14 +250,58 @@ export const products: Product[] = isolateAr([
     when: { fr: "Matin et soir", ar: "صباحًا ومساءً" },
     step: null,
     ml: { petit: 15 },
-    unitPrice: { petit: 130 },
+    unitPrice: { petit: 185 },
     pack: img("serum-contour-des-yeux-n05-15ml.webp", 227, 896, "Sérum contour des yeux OTAGE N°05, 15 ml", "سيروم محيط العين OTAGE رقم 05، 15 مل"),
+    hd: img("serum-contour-des-yeux-n05-hd.webp", 170, 1000, "Sérum contour des yeux OTAGE N°05, 15 ml", "سيروم محيط العين OTAGE رقم 05، 15 مل"),
     photos: [img("serum-contour-des-yeux-n05-application.webp", 1195, 1600, "Sérum contour des yeux N°05 tenu près du visage", "سيروم محيط العين رقم 05 قرب الوجه")],
     problems: ["cernes"],
     extraFaq: [
       {
         q: { fr: "Peut-on le mettre sous le maquillage ?", ar: "هل يمكن وضعه تحت المكياج؟" },
         a: { fr: "Oui : sa texture légère se glisse sous le maquillage, matin et soir.", ar: "نعم: قوامه الخفيف يوضع تحت المكياج، صباحًا ومساءً." },
+      },
+    ],
+  },
+  {
+    key: "deo",
+    slug: "deodorant-creme",
+    homeAnchor: "deodorant",
+    no: "N° 06",
+    range: "corps",
+    name: { fr: "Déodorant crème", ar: "مزيل العرق كريم" },
+    h1: { fr: "Déodorant crème naturel, sans sels d'aluminium", ar: "مزيل عرق كريم طبيعي، بدون أملاح الألمنيوم" },
+    metaTitle: { fr: "Déodorant crème naturel sans aluminium, fabriqué au Maroc", ar: "مزيل عرق كريم طبيعي بدون ألمنيوم، مصنوع في المغرب" },
+    metaDescription: {
+      fr: "Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. 85 DH, offre 2 + 1, paiement à la livraison partout au Maroc.",
+      ar: "مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. 85 درهم، عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
+    },
+    lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients naturels, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها." },
+    forWho: {
+      fr: "Pour celles et ceux qui veulent un déodorant naturel, sans sels d'aluminium ni parfum, qui agit sur les odeurs sans bloquer la transpiration.",
+      ar: "لمن يبحث عن مزيل عرق طبيعي، بدون أملاح الألمنيوم ولا عطر، يعمل على الروائح دون أن يمنع التعرق.",
+    },
+    ingredients: [
+      { fr: "Oxyde de zinc", ar: "أكسيد الزنك" },
+      { fr: "Huile de coco", ar: "زيت جوز الهند" },
+      { fr: "Huile de jojoba", ar: "زيت الجوجوبا" },
+      { fr: "Cire d'abeille", ar: "شمع العسل" },
+      { fr: "Vitamine E", ar: "فيتامين E" },
+    ],
+    how: { fr: "Prends un peu de baume du bout du doigt, laisse-le fondre puis applique-le sur l'aisselle propre et sèche.", ar: "خذي قليلًا من البلسم بطرف الإصبع، اتركيه يذوب ثم ضعيه على إبط نظيف وجاف." },
+    when: { fr: "Le matin", ar: "في الصباح" },
+    step: null,
+    ml: { petit: 50 },
+    unitPrice: { petit: 85 },
+    pack: img("deodorant-creme-n06-pot.webp", 618, 700, "Déodorant crème OTAGE N°06, pot de 50 ml", "مزيل العرق كريم OTAGE رقم 06، علبة 50 مل"),
+    photos: [
+      img("deodorant-creme-n06-mains.webp", 791, 1400, "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume", "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم"),
+      img("deodorant-creme-n06-etiquette.webp", 880, 960, "L'étiquette du pot : oxyde de zinc, huile de coco, huile de jojoba, 50 ml", "ملصق العلبة: أكسيد الزنك، زيت جوز الهند، زيت الجوجوبا، 50 مل"),
+    ],
+    problems: [],
+    extraFaq: [
+      {
+        q: { fr: "Est-ce qu'il bloque la transpiration ?", ar: "هل يمنع التعرق؟" },
+        a: { fr: "Non. Sans sels d'aluminium, il ne bloque pas la transpiration : il agit sur les odeurs. Transpirer est normal.", ar: "لا. بدون أملاح الألمنيوم، لا يمنع التعرق: يعمل على الروائح. التعرق أمر طبيعي." },
       },
     ],
   },
@@ -295,6 +339,11 @@ export const bundleTotal = (price: number) => price * bundle.buy;
 
 /** Prix du sérum contour des yeux, vendu seul. */
 export const yeuxPrice = productByKey("yeux").unitPrice.petit as number;
+/** Soins vendus en format unique avec l'offre 2 + 1 à l'unité : pour 2 achetés, le 3e est offert (sérum contour des yeux, déodorant). */
+export const bundleKeys: ProductKey[] = ["yeux", "deo"];
+export const hasBundle = (key: ProductKey) => bundleKeys.includes(key);
+/** Articles offerts pour une quantité donnée d'un soin à offre 2 + 1 : 1 tous les 3. */
+export const freeCount = (key: ProductKey, qty: number) => (hasBundle(key) ? Math.floor(qty / (bundle.buy + bundle.free)) * bundle.free : 0);
 
 export const fmtMl = (v?: number) => (v ? `${v} ml` : "");
 

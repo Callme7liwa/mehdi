@@ -11,7 +11,7 @@ import { localePath } from "@/lib/seo";
 export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
   const js = homeJsText[locale];
   const fee = site.delivery.unitFee;
-  const tag: Record<ProductKey, string> = { gel: t.shopPourGel, serum: t.shopPourSerum, creme: t.shopPourCreme, ecran: t.shopPourEcran, yeux: t.shopPourYeux };
+  const tag: Record<ProductKey, string> = { gel: t.shopPourGel, serum: t.shopPourSerum, creme: t.shopPourCreme, ecran: t.shopPourEcran, yeux: t.shopPourYeux, deo: t.shopPourDeo };
   const items: ShopItem[] = products.map((p) => {
     const img = p.hd ?? p.pack;
     return {
@@ -21,6 +21,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
       tag: tag[p.key],
       url: localePath(locale, `/soins/${p.slug}`),
       img: { src: img.src, w: img.w, h: img.h },
+      wide: img.w / img.h > 0.6,
       formats: unitFormats(p).map((f) => ({ f, ml: p.ml[f] as number, price: p.unitPrice[f] as number })),
     };
   });

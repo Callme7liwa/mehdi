@@ -1,12 +1,13 @@
 /* Une commande, recalculée côté serveur : le navigateur envoie ce que la cliente a choisi (produits, formats,
    quantités), jamais des prix. Tout ce qui est en dirhams vient de src/data/products.ts et src/data/site.ts. */
-import { bundle, gamme, productByKey, rangeProducts, unitFormats, yeuxPrice, type FormatKey, type Product, type ProductKey } from "@/data/products";
+import { bundle, freeCount, gamme, productByKey, products as allProducts, rangeProducts, unitFormats, yeuxPrice, type FormatKey, type Product, type ProductKey } from "@/data/products";
 import { site, type L, type Locale } from "@/data/site";
 
 /** Ce que le formulaire envoie. */
 export type OrderInput = {
   locale: Locale;
-  /** gamme : la gamme anti-taches complète ; yeux : le sérum contour des yeux ; unite : des soins de la gamme, séparément. */
+  /** gamme : la gamme anti-taches complète ; yeux : le sérum contour des yeux ; unite : des soins choisis un par un
+      (tous les soins ; offre 2 + 1 appliquée d'office au sérum contour des yeux et au déodorant). */
   kind: "gamme" | "yeux" | "unite";
   format?: FormatKey;
   /** Offre 2 + 1 (gamme ou sérum contour des yeux) : 3 articles, le troisième offert. */
@@ -75,13 +76,18 @@ export function priceOrder(o: OrderInput): PricedOrder {
   } else {
     for (const it of o.items ?? []) {
       const p = productByKey(it.key), price = p.unitPrice[it.format] as number;
-      lines.push({ product: p, name: p.name, detail: both((l) => `${gamme.formats[it.format].label[l]}${l === "ar" ? "، " : ", "}${ml(p, it.format, l)}`), qty: it.qty, unit: price, total: price * it.qty, contents: [] });
+      // soin en format unique : seule la contenance est écrite
+      const detail = unitFormats(p).length > 1 ? both((l) => `${gamme.formats[it.format].label[l]}${l === "ar" ? "، " : ", "}${ml(p, it.format, l)}`) : both((l) => ml(p, it.format, l));
+      const free = freeCount(p.key, it.qty);
+      lines.push({ product: p, name: p.name, detail, qty: it.qty - free, unit: price, total: price * (it.qty - free), contents: [] });
+      if (free) { lines.push({ product: p, name: p.name, detail, qty: free, unit: price, total: 0, offered: true, contents: [] }); saving += price * free; }
     }
+    const fmtFr = (it: { key: ProductKey; format: FormatKey }) => (unitFormats(productByKey(it.key)).length > 1 ? gamme.formats[it.format].label.fr : "Format unique");
     sheet = {
       produit: "Soins à l'unité",
-      format: [...new Set((o.items ?? []).map((it) => gamme.formats[it.format].label.fr))].join(" + "),
+      format: [...new Set((o.items ?? []).map(fmtFr))].join(" + "),
       quantite: String(lines.reduce((n, l) => n + l.qty, 0)),
-      offre: lines.map((l) => `${l.qty} × ${l.name.fr}, ${l.detail.fr}, ${l.unit} DH`).join(" ; "),
+      offre: lines.map((l) => `${l.qty} × ${l.name.fr}, ${l.detail.fr}, ${l.offered ? "offert (2 + 1)" : `${l.unit} DH`}`).join(" ; "),
     };
   }
 
@@ -90,7 +96,7 @@ export function priceOrder(o: OrderInput): PricedOrder {
   const fee = o.kind === "gamme" ? null : { ...site.delivery.unitFee };
   const total = { min: subtotal + (fee?.min ?? 0), max: subtotal + (fee?.max ?? 0) };
   const keys = new Set(lines.flatMap((l) => (l.product ? [l.product.key] : l.contents.map((c) => c.product.key))));
-  const products = [...rangeProducts, productByKey("yeux")].filter((p) => keys.has(p.key));
+  const products = allProducts.filter((p) => keys.has(p.key));
   sheet.offre += fee ? ` + livraison ${fee.min} à ${fee.max} DH selon la ville (total de ${total.min} à ${total.max} DH)` : " (livraison offerte)";
   return { kind: o.kind, lines, subtotal, fee, saving, total, products, sheet };
 }
@@ -128,10 +134,10 @@ export function validateOrder(body: unknown): { ok: true; value: OrderInput } | 
     const merged = new Map<string, { key: ProductKey; format: FormatKey; qty: number }>();
     for (const r of raw.slice(0, 12)) {
       const it = (r && typeof r === "object" ? r : {}) as Record<string, unknown>;
-      const p = rangeProducts.find((x) => x.key === it.key);
+      const p = allProducts.find((x) => x.key === it.key);
       const f = it.format === "grand" ? "grand" : it.format === "petit" ? "petit" : null;
       const qty = Number(it.qty);
-      // un soin de la gamme, dans un format vendu à l'unité, de 1 à 9 exemplaires
+      // un soin, dans un format vendu à l'unité, de 1 à 9 exemplaires
       if (!p || !f || !unitFormats(p).includes(f) || !Number.isInteger(qty) || qty < 1 || qty > 9) { bad.push("items"); break; }
       const id = `${p.key}-${f}`, prev = merged.get(id);
       merged.set(id, { key: p.key, format: f, qty: Math.min(9, (prev?.qty ?? 0) + qty) });

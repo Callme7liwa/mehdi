@@ -178,7 +178,7 @@ export function productLd(p: Product, locale: Locale) {
     sku: `OTAGE-${p.no.replace(/\D/g, "")}-${f === "grand" ? "G" : "P"}`,
   }));
   return {
-    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], locale === "ar" ? (p.range === "yeux" ? "العناية بمحيط العين" : "العناية بالوجه ضد البقع") : p.range === "yeux" ? "Soins du contour des yeux" : "Soins du visage anti-taches", locale),
+    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], { taches: { fr: "Soins du visage anti-taches", ar: "العناية بالوجه ضد البقع" }, yeux: { fr: "Soins du contour des yeux", ar: "العناية بمحيط العين" }, corps: { fr: "Déodorants", ar: "مزيلات العرق" } }[p.range][locale], locale),
     "@id": `${url}#product`,
     url,
     size: formats.map((f) => `${p.ml[f]} ml`).join(" / "),

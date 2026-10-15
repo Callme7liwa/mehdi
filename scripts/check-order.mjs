@@ -74,6 +74,16 @@ const mailTo = (to) => state.emails.filter((e) => [].concat(e.to).includes(to));
   check("À l'unité : 2 sérums Grand + 1 gel Petit = 621 DH, livraison 35 à 45 DH, total de 656 à 666 DH", r.status === 200 && r.body.subtotal === 621 && r.body.fee?.min === 35 && r.body.fee?.max === 45 && r.body.total.min === 656 && r.body.total.max === 666, JSON.stringify(r.body));
   check("… l'e-mail annonce la fourchette et la confirmation par téléphone", mail && mail.text.includes("de 656 à 666 DH") && mail.text.includes("35 à 45 DH selon la ville") && mail.text.includes("confirmé par téléphone"));
 }
+/* 3 bis. Fiche produit : tous les soins dans le même ticket, offre 2 + 1 appliquée par le serveur (contour des yeux, déodorant) */
+{
+  const before = state.emails.length;
+  const r = await post({ locale: "fr", kind: "unite", items: [{ key: "deo", format: "petit", qty: 3 }, { key: "serum", format: "grand", qty: 1 }, { key: "yeux", format: "petit", qty: 2 }], ...person() });
+  await settle(before + 1);
+  check("Ticket : 3 déodorants (1 offert) + 1 sérum Grand + 2 contours des yeux = 805 DH, économie 85 DH", r.status === 200 && r.body.subtotal === 805 && r.body.saving === 85 && r.body.fee?.min === 35, JSON.stringify(r.body));
+  check("… le tableur note le pot offert", /offert \(2 \+ 1\)/.test(state.sheet.at(-1)?.offre ?? ""), state.sheet.at(-1)?.offre);
+  const grandDeo = await post({ locale: "fr", kind: "unite", items: [{ key: "deo", format: "grand", qty: 1 }], ...person() });
+  check("Format qui n'existe pas (déodorant Grand) : refusé (400)", grandDeo.status === 400 && grandDeo.body.fields?.includes("items"), JSON.stringify(grandDeo.body));
+}
 /* 4. Prix falsifié par le navigateur : recalculé par le serveur */
 {
   const r = await post({ locale: "fr", kind: "gamme", format: "grand", bundle: true, total: 1, subtotal: 1, prix: 1, price: 1, fee: 0, items: [{ key: "serum", format: "grand", qty: 1, price: 1 }], ...person() });

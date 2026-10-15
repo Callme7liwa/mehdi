@@ -20,8 +20,8 @@ export const site = {
     ar: "عناية صادقة، مصنوعة في المغرب.",
   } as L,
   description: {
-    fr: "Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50) et sérum contour des yeux, fabriqués au Maroc.",
-    ar: "علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50) وسيروم محيط العين، مصنوعة في المغرب.",
+    fr: "Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), sérum contour des yeux et déodorant crème naturel, fabriqués au Maroc.",
+    ar: "علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50)، سيروم محيط العين ومزيل عرق كريم طبيعي، مصنوعة في المغرب.",
   } as L,
 
   /** Le fondateur de la marque. */

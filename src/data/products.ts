@@ -183,9 +183,9 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Écran solaire SPF 50", ar: "واقي الشمس SPF 50" },
     h1: { fr: "Écran solaire SPF 50, haute protection UVA/UVB", ar: "واقي الشمس SPF 50، حماية عالية من UVA و UVB" },
-    metaTitle: { fr: "Écran solaire SPF 50 anti-taches, fabriqué au Maroc", ar: "واقي الشمس SPF 50 ضد البقع، مصنوع في المغرب" },
+    metaTitle: { fr: "Écran solaire SPF 50 anti-taches", ar: "واقي الشمس SPF 50 ضد البقع، مصنوع في المغرب" },
     metaDescription: {
-      fr: "Écran solaire OTAGE N°04 : SPF 50, haute protection UVA/UVB, pour que les taches ne reviennent pas. Dernière étape de la routine du matin. Fabriqué au Maroc.",
+      fr: "Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès {prix} DH, livré en 24 à 72 h au Maroc, payé à la livraison.",
       ar: "واقي الشمس من OTAGE رقم 04: SPF 50، حماية عالية من UVA و UVB، حتى لا تعود البقع. آخر خطوة في روتين الصباح. مصنوع في المغرب.",
     },
     lead: { fr: "Protège des UVA et des UVB pour que les taches ne reviennent pas.", ar: "يحمي من أشعة UVA و UVB حتى لا تعود البقع." },
@@ -212,15 +212,12 @@ export const products: Product[] = isolateAr([
     problems: ["taches-pigmentaires", "melasma-grossesse", "taches-acne"],
     extraFaq: [
       {
-        q: { fr: "Pourquoi l'écran solaire est-il indispensable contre les taches ?", ar: "لماذا واقي الشمس ضروري ضد البقع؟" },
-        a: {
-          fr: "Parce que sans protection, les taches reviennent. L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil.",
-          ar: "لأن البقع تعود بدون حماية. واقي الشمس SPF 50 يحمي من UVA و UVB: ضعيه كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس.",
-        },
+        q: { fr: "Faut-il le mettre le soir ?", ar: "هل يوضع في المساء؟" },
+        a: { fr: "Non. Le soir, la routine s'arrête à l'étape 3, la crème.", ar: "لا. في المساء، يتوقف الروتين عند الخطوة 3، الكريم." },
       },
       {
-        q: { fr: "Faut-il le mettre le soir ?", ar: "هل يوضع في المساء؟" },
-        a: { fr: "Non. Le soir, la routine s'arrête à l'étape 3 (la crème).", ar: "لا. في المساء، يتوقف الروتين عند الخطوة 3 (الكريم)." },
+        q: { fr: "Faut-il en mettre quand il n'y a pas de soleil ?", ar: "هل أضعه حين لا تكون هناك شمس؟" },
+        a: { fr: "Oui. Les UVA traversent les nuages et les vitres.", ar: "نعم. أشعة UVA تخترق السحب والزجاج." },
       },
     ],
   },

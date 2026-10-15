@@ -128,26 +128,31 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   ecran: {
     tag: { fr: "N° 04 · Routine anti-taches", ar: "رقم 04 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 04 sur 04 · Le geste qui protège tout", ar: "رقم 04 من 04 · الخطوة التي تحمي كل شيء" },
-    title: [{ fr: "Écran", ar: "واقي الشمس" }, { fr: "SPF 50.", ar: "SPF 50." }],
-    lede: { fr: "Le soleil réveille les taches. L’écran les empêche de revenir : le dernier geste du matin, tous les jours.", ar: "الشمس توقظ البقع. والواقي يمنعها من العودة: آخر خطوة في الصباح، كل يوم." },
+    eyebrow: { fr: "N° 04 sur 04 · Routine anti-taches", ar: "رقم 04 من 04 · الخطوة التي تحمي كل شيء" },
+    title: [{ fr: "Écran solaire", ar: "واقي الشمس" }, { fr: "SPF 50.", ar: "SPF 50." }],
+    lede: { fr: "Pour protéger ta peau des UVA et des UVB, et limiter le retour des taches.", ar: "الشمس توقظ البقع. والواقي يمنعها من العودة: آخر خطوة في الصباح، كل يوم." },
     media: "pack",
     mediaAlt: { fr: "Le flacon pompe de l’écran solaire SPF 50 OTAGE, 50 ml", ar: "عبوة واقي الشمس SPF 50 من OTAGE بمضخة، 50 مل" },
-    perks: [
-      { icon: "sun", label: { fr: "SPF 50", ar: "SPF 50" } },
-      { icon: "shield", label: { fr: "UVA / UVB", ar: "UVA / UVB" } },
-      { icon: "noSpots", label: { fr: "Évite le retour des taches", ar: "يمنع عودة البقع" } },
-      { icon: "bottle", label: { fr: "Tous les matins", ar: "كل صباح" } },
-    ],
+    // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
+    perks: [{ icon: "sun", label: { fr: "SPF 50, UVA et UVB", ar: "SPF 50، UVA و UVB" } }],
     upsell: { flag: { fr: "+20 ml pour {d} DH de plus", ar: "‎+20 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+20 ml pour {d} DH", ar: "‎+20 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Sans écran,", ar: "بدون واقي،" }, { fr: "les taches reviennent.", ar: "تعود البقع." }],
+      title: [{ fr: "L'écran SPF 50 :", ar: "بدون واقي،" }, { fr: "ses 2 protections.", ar: "تعود البقع." }],
       alt: { fr: "L’étiquette de l’écran : SPF 50, haute protection UVA/UVB, 50 ml", ar: "ملصق الواقي: SPF 50، حماية عالية من UVA/UVB، ‏50 مل" },
       ingredients: [
-        { name: { fr: "SPF 50", ar: "SPF 50" }, where: label, role: { fr: "Le plus haut niveau de protection contre les coups de soleil (UVB).", ar: "أعلى مستوى من الحماية من حروق الشمس (UVB)." }, why: { fr: "Pour une peau qui a des taches, c’est le minimum recommandé au Maroc.", ar: "للبشرة التي بها بقع، هو الحد الأدنى الموصى به في المغرب." } },
-        { name: { fr: "UVA / UVB", ar: "UVA / UVB" }, where: label, role: { fr: "Il protège des deux types de rayons : UVB (coups de soleil) et UVA (taches, vieillissement).", ar: "يحمي من نوعي الأشعة: UVB (حروق الشمس) و UVA (البقع، الشيخوخة)." }, why: { fr: "Ce sont surtout les UVA qui font revenir les taches.", ar: "أشعة UVA هي التي تعيد البقع خصوصًا." } },
-        { name: { fr: "Le bon geste", ar: "الخطوة الصحيحة" }, where: { fr: "chaque matin", ar: "كل صباح" }, role: { fr: "En dernier, après la crème. Renouvelle toutes les 2 heures au soleil.", ar: "في الأخير، بعد الكريم. جدديه كل ساعتين تحت الشمس." }, why: { fr: "Sans écran, le sérum et la crème travaillent pour rien.", ar: "بدون واقي، يعمل السيروم والكريم بلا فائدة." } },
+        { name: { fr: "SPF 50", ar: "SPF 50" }, where: label, role: { fr: "Le plus haut niveau de protection contre les coups de soleil (UVB).", ar: "أعلى مستوى من الحماية من حروق الشمس (UVB)." } },
+        { name: { fr: "UVA / UVB", ar: "UVA / UVB" }, where: label, role: { fr: "Protège aussi des UVA, ceux qui foncent les taches et les font revenir.", ar: "يحمي من نوعي الأشعة: UVB (حروق الشمس) و UVA (البقع، الشيخوخة)." } },
       ],
+    },
+    // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
+    use: {
+      forWho: { fr: "Pour toute peau qui suit une routine anti-taches. C'est l'étape 4, le matin seulement.", ar: "لكل بشرة تتبع روتينًا ضد البقع. هو الخطوة 4، في الصباح فقط." },
+      steps: [
+        { fr: "Le matin, en dernier, après la crème.", ar: "في الصباح، كآخر خطوة بعد الكريم." },
+        { fr: "Applique sur tout le visage.", ar: "ضعيه على كامل الوجه." },
+        { fr: "Au soleil, renouvelle toutes les 2 heures.", ar: "تحت الشمس، جدديه كل ساعتين." },
+      ],
+      results: { fr: "L'écran ne fait pas disparaître les taches : il limite leur retour. C'est lui qui laisse le sérum et la crème agir.", ar: "الواقي لا يزيل البقع: يحد من عودتها. وهو ما يسمح للسيروم والكريم بالعمل." },
     },
   },
   yeux: {

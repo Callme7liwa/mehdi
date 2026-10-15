@@ -63,7 +63,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         {/* Le surtitre « Routine anti-taches » reste dans le H1 : c'est lui qui porte le mot-clé de la page. */}
         <h1 className="title">
           <span className="line kick">{t.heroRoutineAntiTaches}</span>
-          <span className="line">{t.heroDesSoins}<span className="hn">{t.heroHonnetes}<svg className="hn-loop" viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true"><path d="M16 46 C 14 22, 70 8, 130 9 C 190 10, 232 22, 230 42 C 228 64, 170 74, 112 73 C 56 72, 10 64, 9 44 C 8 30, 30 18, 62 13" /></svg></span></span>
+          <span className="line">{t.heroDesSoins}<span className="hn">{t.heroHonnetes}</span></span>
           <span className="line l2">{t.heroFabriquesAuMaroc}</span>
         </h1>
 

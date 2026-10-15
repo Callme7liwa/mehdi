@@ -6,6 +6,7 @@ import { localePath } from "@/lib/seo";
 
 const rangeCards = products.filter((p) => p.range === "taches");
 const yeux = productByKey("yeux");
+const deo = productByKey("deo");
 const lowerFirst = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
 /** Le sérum contour des yeux a deux fiches : le produit, puis « Sur la peau » (2e phrase de sa présentation). */
 const split = (t: string) => t.split(/(?<=\.)\s+/);
@@ -78,19 +79,18 @@ export default function Discover({ t, locale }: { t: HomeText; locale: Locale })
             </div>
             </div>
             <div className="car-offer">
-              <span className="co-txt"><b>{t.discoverOffre21}</b>{t.discoverLeSerumA}<em>{bundleUnit(yeuxPrice)}{t.discoverDh}</em></span>
+              <span className="co-txt"><b>{t.discoverOffre21}</b>{t.discoverLeSerumA}<em>{bundleUnit(yeuxPrice)}{t.discoverDh}</em> <s>{yeuxPrice}{t.discoverDh}</s></span>
               <button type="button" className="o-btn o-primary o-md" data-see-offer="yeux"><span className="o-lbl">{t.discoverVoirLOffre}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg></span></button>
             </div>
           </article>
           <article className="dg-r" data-r="odeurs" hidden>
-            <div className="dg-r-pic dg-r-soon" aria-hidden="true"><span>{t.discoverBientot}</span></div>
+            <div className="dg-r-pic dg-r-deo" aria-hidden="true"><Img src="/images/deodorant-creme-otage-50ml.webp" alt="" width={720} height={900} sizes="(min-width: 900px) 420px, 100vw" /><span>{t.discoverBientot}</span></div>
             <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesOdeurs}</p>
               <h2>{t.discoverNotreDeodorantArriveBientot}</h2>
               <p>{t.discoverOnLePrepareAvec}</p>
               <div className="dg-act">
-                <button type="button" className="dg-link" data-pick="taches">{t.discoverVoirLesSoinsAnti}</button>
-                <button type="button" className="dg-link" data-pick="yeux">{t.discoverVoirLeContourDes}</button>
+                <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}</a>
               </div>
             </div>
           </article>

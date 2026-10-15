@@ -5,7 +5,7 @@ const NO = <><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></>;
 const letter = (t: string, size: number) => <text x="12" y="15.2" textAnchor="middle" fontSize={size} fontFamily="DM Sans,sans-serif" fontWeight="700" fill="currentColor" stroke="none">{t}</text>;
 const DROP = <path d="M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z" />;
 
-const PERKS: Record<PerkIcon | "price", React.ReactNode> = {
+const PERKS: Record<PerkIcon | "price" | "truck" | "cash" | "back", React.ReactNode> = {
   spots: <><circle cx="12" cy="12" r="8" /><circle cx="9" cy="10" r="1.6" /><circle cx="14.5" cy="13.5" r="2.2" /><circle cx="10" cy="15" r=".9" /></>,
   leaf: <><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14" /><path d="M5 19c3-4 6-7 10-9" /></>,
   flower: <><circle cx="12" cy="12" r="2.5" /><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" /></>,
@@ -28,9 +28,12 @@ const PERKS: Record<PerkIcon | "price", React.ReactNode> = {
   noAl: <>{NO}{letter("Al", 7.5)}</>,
   noP: <>{NO}{letter("P", 8)}</>,
   price: <><path d="M3 12V4h8l10 10-8 8z" /><circle cx="7.5" cy="8.5" r="1.4" /></>,
+  truck: <><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></>,
+  cash: <><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /></>,
+  back: <><path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /></>,
 };
 
-export const PerkSvg = ({ name }: { name: PerkIcon | "price" }) => (
+export const PerkSvg = ({ name }: { name: PerkIcon | "price" | "truck" | "cash" | "back" }) => (
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{PERKS[name]}</svg>
 );
 

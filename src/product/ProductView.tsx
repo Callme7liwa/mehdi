@@ -7,8 +7,10 @@ import JsonLd from "@/components/JsonLd";
 import { cities } from "@/data/cities";
 import { productFaq } from "@/data/faq";
 import { productPages, productUi } from "@/data/product-pages";
+import { problems } from "@/data/problems";
+import { problemsAr } from "@/data/problems.ar";
 import { reviewName, reviewsFor } from "@/data/reviews";
-import { products, unitFormats, hasBundle, type Product } from "@/data/products";
+import { products, unitFormats, hasBundle, type Product, productDescription, nameWithArticle } from "@/data/products";
 import { abs, site, type Locale } from "@/data/site";
 import { breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, productLd, webPageLd } from "@/lib/seo";
 import { CartProvider, MoreCard, Offer, OpenButton, TotalLabel } from "./cart";
@@ -23,11 +25,11 @@ const title = (p: Product, locale: Locale) => `${p.metaTitle[locale]} | OTAGE`;
 /** Villes proposées en un geste dans le ticket (les autres s'écrivent). */
 const QUICK = ["Casablanca", "Rabat", "Fès", "Marrakech", "Tanger", "Agadir", "Meknès", "Oujda"];
 /** Numéros des chapitres : i., ii., iii. en français ; أ. ب. ج. en arabe. */
-const CHAP = { fr: ["i.", "ii.", "iii."], ar: ["أ.", "ب.", "ج."] };
+const CHAP = { fr: ["i.", "ii.", "iii.", "iv."], ar: ["أ.", "ب.", "ج.", "د."] };
 const LOGO = { src: "/images/logo-otage.webp", w: 206, h: 96 };
 
 export function productMetadata(p: Product, locale: Locale): Metadata {
-  return pageMetadata({ locale, path: path(p), title: title(p, locale), description: p.metaDescription[locale], image: p.photos[0] ?? p.hd ?? p.pack, hasAr: true });
+  return pageMetadata({ locale, path: path(p), title: title(p, locale), description: productDescription(p, locale), image: p.photos[0] ?? p.hd ?? p.pack, hasAr: true });
 }
 
 const cartItem = (p: Product, locale: Locale): CartItem => {
@@ -60,14 +62,19 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
   const label = p.key === "deo" ? p.photos[1] : p.hd ?? p.pack;
   const home = localePath(locale, "/");
   const pageReviews = reviewsFor(p.key);
-  const pageNav = [["#etiquette", t.navIngredients], ...(pageReviews.length ? [["#avis", t.navReviews]] : []), ["#maison", t.navMore]];
+  const pageNav = [["#etiquette", t.navIngredients], ...(x.use ? [["#mode-emploi", t.useChap]] : []), ...(pageReviews.length ? [["#avis", t.navReviews]] : []), ["#maison", t.navMore]];
+  // numéros des chapitres : la section « Mode d'emploi » s'insère après l'étiquette
+  const chap = (n: number) => CHAP[locale][n + (n > 0 && !x.use ? -1 : 0)];
+  // maillage fiche → guides : le titre du guide sert d'ancre
+  const guides = p.problems.map((slug) => (locale === "ar" ? problemsAr : problems).find((g) => g.slug === slug)!).map((g) => ({ href: localePath(locale, `/${g.slug}`), label: g.h1 }));
+  const named = nameWithArticle(p, locale), Named = named.charAt(0).toUpperCase() + named.slice(1);
 
   return (
     <>
       <JsonLd
         data={graph(
           orgLd(locale),
-          webPageLd({ locale, path: path(p), title: title(p, locale), description: p.metaDescription[locale], image: media, type: "ItemPage" }),
+          webPageLd({ locale, path: path(p), title: title(p, locale), description: productDescription(p, locale), image: media, type: "ItemPage" }),
           breadcrumbLd(locale, crumbs),
           productLd(p, locale),
           faqLd(faqs, `${url}#faq`),
@@ -91,7 +98,7 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
           <section className="hz" aria-labelledby="t-hero">
             <div className={`hz-media${x.media === "pack" ? " is-pack" : ""}`} data-cursor={t.order}>
               <Img className={x.media === "pack" ? "pack" : undefined} src={media.src} alt={L(x.mediaAlt)} width={media.w} height={media.h} sizes={x.media === "pack" ? "(max-width: 1020px) 40vw, 260px" : "(max-width: 1020px) 100vw, 50vw"} loading="eager" preload fetchPriority="high" />
-              <span className="hz-tag mono">{L(x.tag)}</span>
+              <span className="hz-tag mono">{t.madeIn}</span>
               <OpenButton className="badge" label={fill(t.orderFrom, { p: base })} mag>
                 <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ring" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" /></defs><text>{/* l'arabe garde ses lettres liées (pas d'étirement) et part de la fin du cercle, de droite à gauche */}<textPath href="#ring" {...(locale === "ar" ? { startOffset: "100%" } : { textLength: "249", lengthAdjust: "spacing" })}>{t.ring}</textPath></text></svg>
                 <span><b>{base}</b><small>{t.dh}</small></span>
@@ -102,31 +109,63 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
               <h1 className="hero-title serif" id="t-hero"><span className="ln"><span>{L(x.title[0])}</span></span><span className="ln"><span><em>{L(x.title[1])}</em></span></span></h1>
               <p className="hz-lede">{L(x.lede)}</p>
               <ul className="perks">
-                {x.perks.map((k) => <li key={k.label.fr}><PerkSvg name={k.icon} /><span>{L(k.label)}</span></li>)}
+                {/* le bénéfice du soin, puis les 3 objections (livraison, paiement, retour) ; les actifs sont dans « L'étiquette » */}
+                <li><PerkSvg name={x.perks[0].icon} /><span>{L(x.perks[0].label)}</span></li>
+                <li><PerkSvg name="truck" /><span>{t.atoutDelivery}</span></li>
+                <li><PerkSvg name="cash" /><span>{t.atoutPay}</span></li>
+                <li><PerkSvg name="back" /><span>{t.atoutReturn}</span></li>
                 <li className="perk-price"><PerkSvg name="price" /><span>{priceTag}</span></li>
               </ul>
               <Offer upsellFlag={x.upsell && fill(L(x.upsell.flag), { d: diff })} unitWord={unitWord} />
               <OpenButton className="cta-big" mag><TotalLabel tpl={t.orderTotal} /><i aria-hidden="true"><Arrow /></i></OpenButton>
-              <p className="hz-trust"><span>{t.trustPay}</span><span>{fill(t.trustFee, { a: fee.min, b: fee.max })}</span><span>{t.trustReturn}</span></p>
+              {/* frais de livraison à l'unité, visibles avant toute validation */}
+              <p className="hz-trust"><span>{fill(t.hzFee, { a: fee.min, b: fee.max })}</span></p>
             </div>
           </section>
 
           {/* 2. l'étiquette */}
           <section className="lab" id="etiquette" aria-labelledby="t-lab">
             <div className="pad">
-              <div className="chap mono"><b>{CHAP[locale][0]}</b>{t.labChap}</div>
+              <div className="chap mono"><b>{chap(0)}</b>{t.labChap}</div>
               <h2 className="h2" id="t-lab">{L(x.lab.title[0])} <em>{L(x.lab.title[1])}</em></h2>
               <Ingredients
                 photo={<Img src={label.src} alt={L(x.lab.alt)} width={label.w} height={label.h} sizes="(max-width: 1020px) 100vw, 45vw" />}
                 spots={x.lab.spots?.map((s) => ({ x: s.x, y: s.y, tip: L(s.tip) }))}
-                items={x.lab.ingredients.map((g, i) => ({ n: `0${i + 1}`, name: L(g.name), where: L(g.where), role: L(g.role), why: L(g.why) }))}
+                items={x.lab.ingredients.map((g, i) => ({ n: `0${i + 1}`, name: L(g.name), where: L(g.where), role: L(g.role), why: g.why && L(g.why) }))}
               />
               {/* tant que la relecture du pharmacien n'est pas confirmée (site.medicalReview), on ne l'annonce pas */}
               {site.medicalReview.validated && <div className="lab-note mono">{t.labNote}</div>}
             </div>
           </section>
 
-          {/* 3. les avis : seulement les messages réels qui nomment ce soin (src/data/reviews.ts, champ « produits ») */}
+          {/* 3. mode d'emploi : pour qui (avec les guides), comment, résultats ; H2 en questions */}
+          {x.use && (
+            <section className="use" id="mode-emploi" aria-label={t.useChap}>
+              <div className="chap mono"><b>{chap(1)}</b>{t.useChap}</div>
+              <div className="use-g">
+                <div>
+                  <h2 className="use-t">{fill(t.forWhoQ, { x: Named })}</h2>
+                  <p>{L(x.use.forWho)}</p>
+                  {guides.length > 0 && (
+                    <>
+                      <span className="use-k mono">{t.guides}</span>
+                      <ul className="use-links">{guides.map((g) => <li key={g.href}><a href={g.href}>{g.label}</a></li>)}</ul>
+                    </>
+                  )}
+                </div>
+                <div>
+                  <h2 className="use-t">{fill(t.howQ, { x: named })}</h2>
+                  <ol className="use-steps">{x.use.steps.map((s) => <li key={s.fr}>{L(s)}</li>)}</ol>
+                </div>
+                <div>
+                  <h2 className="use-t">{t.resultsQ}</h2>
+                  <p>{L(x.use.results)}</p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* 4. les avis : seulement les messages réels qui nomment ce soin (src/data/reviews.ts, champ « produits ») */}
           {pageReviews.length > 0 && (
             <section className="revs" id="avis" aria-labelledby="t-avis">
               <Carousel headClass="av-head" trackClass="rv-g" label={t.reviewsTrack} prev={t.prev} next={t.next}
@@ -153,7 +192,7 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
           {/* 4. les questions */}
           <section className="faq" id="faq" aria-labelledby="t-faq">
             <div>
-              <div className="chap mono"><b>{CHAP[locale][1]}</b>{t.faqChap}</div>
+              <div className="chap mono"><b>{chap(2)}</b>{t.faqChap}</div>
               <h2 className="h2" id="t-faq">{t.faqTitle} <em>{t.faqTitleEm}</em></h2>
             </div>
             <div>
@@ -167,7 +206,7 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
 
           {/* 5. le reste de la maison */}
           <section className="maison" id="maison" aria-labelledby="t-maison">
-            <div className="chap mono"><b>{CHAP[locale][2]}</b>{t.moreChap}</div>
+            <div className="chap mono"><b>{chap(3)}</b>{t.moreChap}</div>
             <Carousel headClass="revs-top" trackClass="ms-g" label={t.moreTrack} prev={t.prev} next={t.next}
               title={<h2 className="h2" id="t-maison">{t.moreTitle} <em>{t.moreTitleEm}</em></h2>}
               note={<p className="revs-note">{t.moreNote}</p>}>

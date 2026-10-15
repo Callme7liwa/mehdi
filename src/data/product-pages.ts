@@ -10,7 +10,8 @@ export type PerkIcon =
   | "spots" | "leaf" | "flower" | "star" | "noSulfate" | "fig" | "drop" | "waves" | "drop2" | "halfTone" | "flask" | "helix"
   | "sun" | "shield" | "noSpots" | "bottle" | "eye" | "cup" | "aloe" | "noAl" | "noP";
 
-export type Ingredient = { name: L; where: L; role: L; why: L };
+/** Un actif : une ligne (role). `why` n'est gardé que pour les fiches pas encore réécrites. */
+export type Ingredient = { name: L; where: L; role: L; why?: L };
 
 export type ProductPageText = {
   /** Pastille posée sur la photo. */
@@ -29,6 +30,8 @@ export type ProductPageText = {
   /** Soins à offre 2 + 1 : le mot pour un article (« sérum », « pot »). */
   unitWord?: { one: L; many: L };
   lab: { title: [L, L]; alt: L; ingredients: Ingredient[]; spots?: { x: number; y: number; tip: L }[] };
+  /** Section « Mode d'emploi » : pour qui (60 mots max), étapes numérotées, résultats honnêtes en 2 phrases. */
+  use?: { forWho: L; steps: L[]; results: L };
 };
 
 const label = { fr: "sur l’étiquette", ar: "على الملصق" };
@@ -223,15 +226,27 @@ export const productUi = isolateAr({
   reviewsTrack: { fr: "Avis des clientes, défile horizontalement", ar: "آراء الزبونات، تمرير أفقي" },
   reviewMeta: { fr: "Message Instagram · {d}", ar: "رسالة إنستغرام · {d}" },
   reviewSource: { fr: "Voir la capture d’origine", ar: "رؤية اللقطة الأصلية" },
-  reviewNote: { fr: "Chaque peau est différente : ce message raconte l’expérience d’une cliente, pas une promesse de résultat.", ar: "كل بشرة مختلفة: هذه الرسالة تحكي تجربة زبونة، وليست وعدًا بنتيجة." },
+  reviewNote: { fr: "Chaque peau est différente : c’est un témoignage, pas une promesse.", ar: "كل بشرة مختلفة: هذه شهادة، وليست وعدًا." },
   prev: { fr: "Précédent", ar: "السابق" },
   next: { fr: "Suivant", ar: "التالي" },
   faqChap: { fr: "Questions fréquentes", ar: "أسئلة شائعة" },
   faqTitle: { fr: "Tu te poses", ar: "تتساءلين" },
   faqTitleEm: { fr: "la question ?", ar: "عن شيء؟" },
   moreChap: { fr: "Nos autres soins", ar: "منتجاتنا الأخرى" },
-  moreTitle: { fr: "Le reste de", ar: "باقي" },
-  moreTitleEm: { fr: "la maison.", ar: "منتجاتنا." },
+  moreTitle: { fr: "Les autres", ar: "باقي" },
+  moreTitleEm: { fr: "soins OTAGE.", ar: "منتجات OTAGE." },
+  madeIn: { fr: "Fabrication marocaine", ar: "صنع مغربي" },
+  // section « Mode d'emploi » des fiches
+  useChap: { fr: "Mode d’emploi", ar: "طريقة الاستعمال" },
+  forWhoQ: { fr: "{x}, pour qui ?", ar: "{x}، لمن؟" },
+  howQ: { fr: "Comment utiliser {x} ?", ar: "كيف أستعمل {x}؟" },
+  resultsQ: { fr: "Combien de temps pour voir des résultats ?", ar: "متى تظهر النتائج؟" },
+  guides: { fr: "Nos guides", ar: "دلائلنا" },
+  // tuiles du haut de fiche : les 3 objections, et les frais sous le bouton
+  atoutDelivery: { fr: "Livraison 24 à 72 h", ar: "التوصيل خلال 24 إلى 72 ساعة" },
+  atoutPay: { fr: "Paiement à la livraison", ar: "الدفع عند الاستلام" },
+  atoutReturn: { fr: "Retour 7 jours", ar: "الإرجاع خلال 7 أيام" },
+  hzFee: { fr: "Livraison : {a} à {b} DH selon ta ville.", ar: "التوصيل: من {a} إلى {b} درهم حسب مدينتك." },
   moreNote: { fr: "Ajoute-les au même ticket : une seule livraison.", ar: "أضيفيها إلى نفس الطلب: توصيل واحد." },
   moreTrack: { fr: "Nos autres soins, défile horizontalement", ar: "منتجاتنا الأخرى، تمرير أفقي" },
   see: { fr: "Voir la fiche", ar: "صفحة المنتج" },

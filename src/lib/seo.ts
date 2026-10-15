@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { abs, site, type Locale } from "@/data/site";
 import { plain, type Faq } from "@/data/faq";
-import { gamme, unitFormats, type FormatKey, type Img, type Product } from "@/data/products";
+import { gamme, unitFormats, type FormatKey, type Img, type Product, productDescription } from "@/data/products";
 
 /** Chemin d'une page dans une langue : le français est à la racine, l'arabe sous /ar. */
 export const localePath = (locale: Locale, path = "/") => (locale === "ar" ? (path === "/" ? "/ar" : `/ar${path}`) : path);
@@ -178,7 +178,7 @@ export function productLd(p: Product, locale: Locale) {
     sku: `OTAGE-${p.no.replace(/\D/g, "")}-${f === "grand" ? "G" : "P"}`,
   }));
   return {
-    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, p.metaDescription[locale], [p.hd ?? p.pack, ...p.photos], { taches: { fr: "Soins du visage anti-taches", ar: "العناية بالوجه ضد البقع" }, yeux: { fr: "Soins du contour des yeux", ar: "العناية بمحيط العين" }, corps: { fr: "Déodorants", ar: "مزيلات العرق" } }[p.range][locale], locale),
+    ...productBase(`${p.name[locale]} ${site.name} ${p.no.replace(" ", "")}`, productDescription(p, locale), [p.hd ?? p.pack, ...p.photos], { taches: { fr: "Soins du visage anti-taches", ar: "العناية بالوجه ضد البقع" }, yeux: { fr: "Soins du contour des yeux", ar: "العناية بمحيط العين" }, corps: { fr: "Déodorants", ar: "مزيلات العرق" } }[p.range][locale], locale),
     "@id": `${url}#product`,
     url,
     size: formats.map((f) => `${p.ml[f]} ml`).join(" / "),

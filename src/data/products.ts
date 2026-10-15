@@ -355,6 +355,19 @@ export const freeCount = (key: ProductKey, qty: number) => (hasBundle(key) ? Mat
 
 export const fmtMl = (v?: number) => (v ? `${v} ml` : "");
 
+/** Prix le plus bas d'un soin vendu à l'unité. */
+export const lowestPrice = (p: Product) => Math.min(...(["petit", "grand"] as const).filter((f) => p.unitPrice[f]).map((f) => p.unitPrice[f] as number));
+/** Meta description d'un soin : « {prix} » et « {lot} » (3 avec l'offre 2 + 1) sont remplacés par les prix de ce fichier. */
+export const productDescription = (p: Product, locale: "fr" | "ar") =>
+  p.metaDescription[locale].replace(/\{prix\}/g, String(lowestPrice(p))).replace(/\{lot\}/g, String(bundleTotal(lowestPrice(p))));
+/** « le gel nettoyant anti-taches », « l'écran solaire SPF 50 », « la crème anti-taches » (français) ; le nom seul en arabe. */
+export const nameWithArticle = (p: Product, locale: "fr" | "ar") => {
+  if (locale === "ar") return p.name.ar;
+  const lower = p.name.fr.charAt(0).toLowerCase() + p.name.fr.slice(1);
+  if (/^[aeéèiouh]/i.test(lower)) return `l'${lower}`;
+  return /^crème/.test(lower) ? `la ${lower}` : `le ${lower}`;
+};
+
 /** Liste des ingrédients en une phrase : « figue de Barbarie, louban, sans sulfate » (les sigles gardent leurs majuscules). */
 export const ingredientList = (p: Product, locale: "fr" | "ar" = "fr") =>
   p.ingredients.map((i) => (locale === "fr" && !/^[A-Z]{2}/.test(i.fr) ? i.fr.charAt(0).toLowerCase() + i.fr.slice(1) : i[locale])).join(locale === "ar" ? "، " : ", ");

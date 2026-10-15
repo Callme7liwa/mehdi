@@ -2,7 +2,8 @@
    Les réponses peuvent contenir <b>…</b> ; chaque élément du tableau `a` est un paragraphe. */
 import { site, type Locale } from "./site";
 import { isolateAll } from "../lib/bidi";
-import { bundleTotal, bundleUnit, gamme, productByKey, type Product } from "./products";
+import { bundleTotal, bundleUnit, gamme, hasBundle, nameWithArticle, productByKey, unitFormats, type Product } from "./products";
+import { productPages } from "./product-pages";
 
 export type Faq = { q: string; a: string[] };
 
@@ -74,42 +75,35 @@ const T = <K extends string>(locale: Locale, fr: K, ar: string) => (locale === "
 
 /** FAQ d'une page produit : usage, ingrédients, contenance et prix (générés), puis les questions propres au produit. */
 export function productFaq(p: Product, locale: Locale): Faq[] {
-  const name = p.name[locale];
-  const lower = locale === "fr" ? name.charAt(0).toLowerCase() + name.slice(1) : name;
-  const ing = p.ingredients.map((i) => i[locale]).join(locale === "ar" ? "، " : ", ");
-  const sizes = (["petit", "grand"] as const).filter((f) => p.ml[f]);
+  const page = productPages[p.key];
+  const name = nameWithArticle(p, locale);
   const out: Faq[] = [];
 
-  out.push({
-    q: T(locale, `Comment utiliser ${articleLe(lower)} ?`, `كيف أستعمل ${name}؟`),
-    a: [p.how[locale], p.step ? T(locale, `C'est l'étape ${p.step} de la routine anti-taches (${p.when.fr.toLowerCase()}).`, `هو الخطوة ${p.step} في روتين العناية ضد البقع (${p.when.ar}).`) : T(locale, `À utiliser ${p.when.fr.toLowerCase()}.`, `يُستعمل ${p.when.ar}.`)],
-  });
-  out.push({
-    q: T(locale, `Que contient ${articleLe(lower)} ?`, `ماذا يحتوي ${name}؟`),
-    a: [T(locale, `${ing}.`, `${ing}.`)],
-  });
-
-  if (p.range === "taches") {
-    const sizeFr = sizes.map((f) => `${p.ml[f]} ml en ${gamme.formats[f].label.fr}`).join(", ");
-    const sizeAr = sizes.map((f) => `${p.ml[f]} مل في ${gamme.formats[f].label.ar}`).join("، ");
-    const unitFr = sizes.filter((f) => p.unitPrice[f]).map((f) => `<b>${p.unitPrice[f]} DH</b> en ${gamme.formats[f].label.fr}`).join(", ");
-    const unitAr = sizes.filter((f) => p.unitPrice[f]).map((f) => `<b>${p.unitPrice[f]} درهم</b> في ${gamme.formats[f].label.ar}`).join("، ");
+  // le mode d'emploi a sa section sur la fiche ; il reste ici seulement pour une fiche qui ne l'a pas encore
+  if (!page.use) {
     out.push({
-      q: T(locale, "Quelle contenance et quel prix ?", "ما الحجم وما الثمن؟"),
-      a: [
-        T(locale, `${sizeFr}. À l'unité : ${unitFr}.`, `${sizeAr}. الثمن منفردًا: ${unitAr}.`),
-        T(
-          locale,
-          `Dans la gamme anti-taches complète (4 soins) : ${P.price} DH en Petit format au lieu de ${P.was} DH, ${G.price} DH en Grand format au lieu de ${G.was} DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
-          `ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): ${P.price} درهم بالحجم الصغير بدل ${P.was} درهم، و${G.price} درهم بالحجم الكبير بدل ${G.was} درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`,
-        ),
-      ],
+      q: T(locale, `Comment utiliser ${name} ?`, `كيف أستعمل ${name}؟`),
+      a: [p.how[locale], p.step ? T(locale, `C'est l'étape ${p.step} de la routine anti-taches (${p.when.fr.toLowerCase()}).`, `هو الخطوة ${p.step} في روتين العناية ضد البقع (${p.when.ar}).`) : T(locale, `À utiliser ${p.when.fr.toLowerCase()}.`, `يُستعمل ${p.when.ar}.`)],
+    });
+  }
+  // la composition est dans « L'étiquette » : pas de question en double
+
+  // le prix d'abord (lu dans ce fichier et products.ts), puis une phrase
+  const sizes = unitFormats(p);
+  if (!hasBundle(p.key)) {
+    const it = /^crème/i.test(p.name.fr) ? "Elle" : "Il";
+    const fr = sizes.map((f) => `<b>${p.unitPrice[f]} DH</b> les ${p.ml[f]} ml`).join(", ");
+    const ar = sizes.map((f) => `<b>${p.unitPrice[f]} درهم</b> لـ ${p.ml[f]} مل`).join("، و");
+    out.push({
+      q: T(locale, `Quel prix pour ${name} ?`, `كم ثمن ${name}؟`),
+      a: [T(locale, `${fr}. ${it} est aussi dans la gamme complète, dès ${P.price} DH.`, `${ar}. يوجد أيضًا ضمن المجموعة الكاملة، ابتداءً من ${P.price} درهم.`)],
     });
   } else {
-    const price = p.unitPrice.petit as number;
+    const price = p.unitPrice.petit as number, unit = page.unitWord!;
+    const qty = T(locale, p.key === "deo" ? `le pot de ${p.ml.petit} ml` : `les ${p.ml.petit} ml`, `لـ ${p.ml.petit} مل`);
     out.push({
-      q: T(locale, "Quelle contenance et quel prix ?", "ما الحجم وما الثمن؟"),
-      a: [T(locale, `${p.ml.petit} ml. Il coûte <b>${price} DH</b>, ou ${bundleUnit(price)} DH ${p.key === "deo" ? "le pot" : "le sérum"} avec l'offre 2 + 1 (${bundleTotal(price)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`, `${p.ml.petit} مل. ثمنه <b>${price} درهم</b>، أو ${bundleUnit(price)} درهم ${p.key === "deo" ? "للعلبة" : "للسيروم"} مع عرض 2 + 1 (${bundleTotal(price)} درهم للثلاثة). التوصيل: من ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة.`)],
+      q: T(locale, `Quel prix pour ${name} ?`, `كم ثمن ${name}؟`),
+      a: [T(locale, `<b>${price} DH</b> ${qty}. Avec l'offre 2 + 1 : ${bundleTotal(price)} DH les 3, soit ${bundleUnit(price)} DH le ${unit.one.fr}.`, `<b>${price} درهم</b> ${qty}. مع عرض 2 + 1: ${bundleTotal(price)} درهم للثلاثة، أي ${bundleUnit(price)} درهم لل${unit.one.ar}.`)],
     });
   }
 
@@ -120,11 +114,6 @@ export function productFaq(p: Product, locale: Locale): Faq[] {
   return out;
 }
 
-/** « le sérum… », « l'écran… », « la crème… » */
-function articleLe(lower: string) {
-  if (/^[aeéèiouh]/i.test(lower)) return `l'${lower}`;
-  return /^(crème)/.test(lower) ? `la ${lower}` : `le ${lower}`;
-}
 
 /** Texte brut d'une réponse (JSON-LD, llms.txt). */
 export const plain = (f: Faq) => f.a.join(" ").replace(/<[^>]+>/g, "");

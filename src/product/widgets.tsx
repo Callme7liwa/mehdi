@@ -68,7 +68,7 @@ export function Carousel({ title, note, headClass, trackClass, label, prev, next
 
 /** L'étiquette : la liste des ingrédients, synchronisée avec les points posés sur la photo.
     Sur ordinateur, l'ingrédient ouvert avance tout seul au défilement (sauf juste après un clic). */
-export function Ingredients({ items, spots, photo }: { items: { n: string; name: string; where: string; role: string; why: string }[]; spots?: { x: number; y: number; tip: string }[]; photo: React.ReactNode }) {
+export function Ingredients({ items, spots, photo }: { items: { n: string; name: string; where: string; role: string; why?: string }[]; spots?: { x: number; y: number; tip: string }[]; photo: React.ReactNode }) {
   const [on, setOn] = useState(0);
   const grid = useRef<HTMLDivElement>(null);
   // après un clic, l'avance automatique se met en pause 4 s
@@ -108,7 +108,7 @@ export function Ingredients({ items, spots, photo }: { items: { n: string; name:
               <button type="button" className="ing-b" aria-expanded={i === on} aria-controls={`ix${i}`} onClick={() => pick(i)}>
                 <span className="n" dir="ltr">{g.n}</span><span className="t">{g.name}</span><span className="w">{g.where}</span>
               </button>
-              <div className="ing-x" id={`ix${i}`}><div><p>{g.role}</p><p>{g.why}</p></div></div>
+              <div className="ing-x" id={`ix${i}`}><div><p>{g.role}</p>{g.why && <p>{g.why}</p>}</div></div>
             </li>
           ))}
         </ul>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { bundleUnit, gamme, yeuxPrice } from "@/data/products";
+import { bundleUnit, gamme, products, rangeProducts, unitFormats, yeuxPrice } from "@/data/products";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -23,7 +23,10 @@ export default function Page() {
       <p>Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site {site.url.replace("https://", "")} ou par WhatsApp, entre {/* la raison sociale remplace « OTAGE » dès que legal.raisonSociale est renseigné */}{L.raisonSociale ?? site.name} et ses clientes et clients au Maroc.</p>
 
       <h2>2. Produits</h2>
-      <p>Les produits proposés sont ceux présentés sur le site au jour de la commande : la gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), en Petit ou Grand format, et le sérum contour des yeux. Les photos ne sont pas contractuelles.</p>
+      {/* liste générée depuis src/data/products.ts : un soin ajouté au catalogue y entre de lui-même */}
+      <p>Les produits proposés sont ceux présentés sur le site au jour de la commande :</p>
+      <ul>{products.map((p) => <li key={p.key}>{p.name.fr} ({unitFormats(p).map((f) => `${p.ml[f]} ml`).join(" ou ")})</li>)}</ul>
+      <p>Les {rangeProducts.length} soins de la gamme anti-taches sont aussi vendus ensemble, en Petit ou Grand format. Les photos ne sont pas contractuelles.</p>
 
       <h2>3. Prix</h2>
       {/* retiré tant que ce n'est pas confirmé : préciser si les prix sont TTC */}

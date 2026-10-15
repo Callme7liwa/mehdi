@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { bundleUnit, gamme, yeuxPrice } from "@/data/products";
+import { bundleUnit, gamme, products, rangeProducts, unitFormats, yeuxPrice } from "@/data/products";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -25,7 +25,10 @@ export default function Page() {
       <p>تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع <span dir="ltr">{site.url.replace("https://", "")}</span> أو عبر واتساب، بين {/* la raison sociale remplace « OTAGE » dès que legal.raisonSociale est renseigné */}{L.raisonSociale ?? site.name} وزبوناته وزبنائه في المغرب.</p>
 
       <h2>2. المنتجات</h2>
-      <p>المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي الشمس SPF 50)، بالحجم الصغير أو الكبير، وسيروم محيط العين. الصور غير تعاقدية.</p>
+      {/* قائمة مولّدة من src/data/products.ts */}
+      <p>المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب:</p>
+      <ul>{products.map((p) => <li key={p.key}>{p.name.ar} ({unitFormats(p).map((f) => `${p.ml[f]} مل`).join(" أو ")})</li>)}</ul>
+      <p>تُباع منتجات مجموعة العناية ضد البقع ({rangeProducts.length} منتجات) أيضًا معًا، بالحجم الصغير أو الكبير. الصور غير تعاقدية.</p>
 
       <h2>3. الأسعار</h2>
       {/* retiré tant que ce n'est pas confirmé : préciser si les prix sont TTC */}

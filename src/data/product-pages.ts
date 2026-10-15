@@ -39,25 +39,31 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   gel: {
     tag: { fr: "N° 01 · Routine anti-taches", ar: "رقم 01 · روتين ضد البقع" },
     eyebrow: { fr: "N° 01 sur 04 · Routine anti-taches", ar: "رقم 01 من 04 · روتين ضد البقع" },
-    title: [{ fr: "Gel", ar: "جل" }, { fr: "nettoyant.", ar: "منظف." }],
-    lede: { fr: "Nettoie en douceur, sans dessécher, et prépare la peau à recevoir les soins anti-taches.", ar: "ينظف بلطف، دون تجفيف، ويهيئ البشرة لاستقبال العناية ضد البقع." },
+    title: [{ fr: "Gel nettoyant", ar: "جل" }, { fr: "anti-taches.", ar: "منظف." }],
+    lede: { fr: "Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches.", ar: "ينظف بلطف، دون تجفيف، ويهيئ البشرة لاستقبال العناية ضد البقع." },
     media: "pack",
     mediaAlt: { fr: "Le flacon de gel nettoyant anti-taches OTAGE, 200 ml", ar: "عبوة الجل المنظف ضد البقع من OTAGE، 200 مل" },
-    perks: [
-      { icon: "noSulfate", label: { fr: "Sans sulfate", ar: "بدون سلفات" } },
-      { icon: "fig", label: { fr: "Figue de Barbarie", ar: "التين الشوكي" } },
-      { icon: "drop", label: { fr: "Louban", ar: "اللبان" } },
-      { icon: "waves", label: { fr: "Ne dessèche pas", ar: "لا يجفف البشرة" } },
-    ],
+    // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
+    perks: [{ icon: "waves", label: { fr: "Ne dessèche pas", ar: "لا يجفف البشرة" } }],
     upsell: { flag: { fr: "+75 ml pour {d} DH de plus", ar: "‎+75 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+75 ml pour {d} DH", ar: "‎+75 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Trois mots sur l’étiquette.", ar: "ثلاث كلمات على الملصق." }, { fr: "Tout est dit.", ar: "وكل شيء قيل." }],
+      title: [{ fr: "Le gel nettoyant :", ar: "ثلاث كلمات على الملصق." }, { fr: "ses 3 actifs.", ar: "وكل شيء قيل." }],
       alt: { fr: "L’étiquette du gel : figue de Barbarie, louban, sans sulfate, 200 ml", ar: "ملصق الجل: التين الشوكي، اللبان، بدون سلفات، 200 مل" },
       ingredients: [
-        { name: { fr: "Figue de Barbarie", ar: "التين الشوكي" }, where: label, role: { fr: "Un actif marocain, connu pour adoucir et hydrater la peau.", ar: "مكوّن مغربي معروف بتنعيم البشرة وترطيبها." }, why: { fr: "La peau reste douce après le rinçage, sans tiraillement.", ar: "تبقى البشرة ناعمة بعد الشطف، دون شدّ." } },
-        { name: { fr: "Louban", ar: "اللبان" }, where: label, role: { fr: "Une résine traditionnelle, utilisée depuis longtemps pour purifier la peau.", ar: "راتنج تقليدي يُستعمل منذ زمن طويل لتنقية البشرة." }, why: { fr: "Il aide à nettoyer en profondeur, en douceur.", ar: "يساعد على التنظيف العميق، بلطف." } },
-        { name: { fr: "Sans sulfate", ar: "بدون سلفات" }, where: label, role: { fr: "Une base lavante douce, sans sulfates agressifs.", ar: "قاعدة غسل لطيفة، بدون سلفات قاسية." }, why: { fr: "La peau est propre, sans être décapée : elle est prête pour le sérum.", ar: "البشرة نظيفة دون أن تتجرد: جاهزة للسيروم." } },
+        { name: { fr: "Figue de Barbarie", ar: "التين الشوكي" }, where: label, role: { fr: "Adoucit et hydrate, sans tiraillement après le rinçage.", ar: "مكوّن مغربي معروف بتنعيم البشرة وترطيبها." } },
+        { name: { fr: "Louban", ar: "اللبان" }, where: label, role: { fr: "Résine traditionnelle qui aide à purifier la peau.", ar: "راتنج تقليدي يُستعمل منذ زمن طويل لتنقية البشرة." } },
+        { name: { fr: "Sans sulfate", ar: "بدون سلفات" }, where: label, role: { fr: "Base lavante douce : la peau est propre, sans être décapée.", ar: "قاعدة غسل لطيفة، بدون سلفات قاسية." } },
       ],
+    },
+    // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
+    use: {
+      forWho: { fr: "Pour toi si tu as des taches brunes ou un teint irrégulier. C'est l'étape 1 de la routine, matin et soir.", ar: "لك إن كانت لديك بقع بنية أو لون بشرة غير موحد. هو الخطوة 1 في الروتين، صباحًا ومساءً." },
+      steps: [
+        { fr: "Mouille ton visage, matin et soir.", ar: "بللي وجهك، صباحًا ومساءً." },
+        { fr: "Masse le gel 30 secondes.", ar: "دلّكي بالجل 30 ثانية." },
+        { fr: "Rince, puis applique le sérum anti-taches.", ar: "اشطفي، ثم ضعي السيروم ضد البقع." },
+      ],
+      results: { fr: "Tout de suite : une peau nettoyée en douceur. Sur les taches, c'est la routine complète qui agit, petit à petit.", ar: "فورًا: بشرة نظيفة بلطف. أما البقع، فالروتين الكامل هو الذي يعمل عليها، شيئًا فشيئًا." },
     },
   },
   serum: {

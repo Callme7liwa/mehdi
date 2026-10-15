@@ -57,9 +57,9 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Gel nettoyant anti-taches", ar: "جل منظف ضد البقع" },
     h1: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع، خالٍ من السلفات" },
-    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate, au Maroc", ar: "جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب" },
+    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب" },
     metaDescription: {
-      fr: "Gel nettoyant anti-taches OTAGE N°01 : figue de Barbarie, louban, sans sulfate. Nettoie en douceur sans dessécher. Fabriqué au Maroc, paiement à la livraison.",
+      fr: "Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès {prix} DH, livré en 24 à 72 h partout au Maroc, payé à la livraison.",
       ar: "جل منظف ضد البقع من OTAGE رقم 01: التين الشوكي، اللبان، بدون سلفات. ينظف بلطف دون تجفيف البشرة. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.", ar: "ينظف بلطف دون تجفيف البشرة ويهيئها لاستقبال باقي العناية." },
@@ -89,7 +89,7 @@ export const products: Product[] = isolateAr([
     extraFaq: [
       {
         q: { fr: "Le gel nettoyant dessèche-t-il la peau ?", ar: "هل يجفف الجل المنظف البشرة؟" },
-        a: { fr: "Non : il nettoie en douceur sans dessécher. Il est formulé sans sulfate, avec de la figue de Barbarie et du louban.", ar: "لا: ينظف بلطف دون تجفيف. تركيبته خالية من السلفات وتحتوي على التين الشوكي واللبان." },
+        a: { fr: "Non : il est sans sulfate, avec figue de Barbarie et louban.", ar: "لا: هو بدون سلفات، بالتين الشوكي واللبان." },
       },
     ],
   },

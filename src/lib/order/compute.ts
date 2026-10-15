@@ -18,6 +18,8 @@ export type OrderInput = {
   ville: string;
   adresse?: string;
   email?: string;
+  /** Case « J'ai lu et j'accepte les CGV et la politique de retour » cochée : obligatoire, vérifiée ici. */
+  cgv: true;
 };
 
 export type OrderLine = {
@@ -127,6 +129,8 @@ export function validateOrder(body: unknown): { ok: true; value: OrderInput } | 
   if (!PHONE.test(tel)) bad.push("tel");
   if (ville.length < 2) bad.push("ville");
   if (email && !EMAIL.test(email)) bad.push("email");
+  // consentement aux CGV et à la politique de retour : la case doit avoir été cochée (le booléen true, rien d'autre)
+  if (b.cgv !== true) bad.push("cgv");
 
   let items: OrderInput["items"];
   if (kind === "unite") {
@@ -146,7 +150,7 @@ export function validateOrder(body: unknown): { ok: true; value: OrderInput } | 
     if (!items.length && !bad.includes("items")) bad.push("items");
   }
   if (bad.length || !kind) return { ok: false, fields: bad };
-  return { ok: true, value: { locale, kind, format: kind === "gamme" ? format : undefined, bundle: kind !== "unite" && b.bundle === true, items, nom, tel, ville, adresse: adresse || undefined, email: email || undefined } };
+  return { ok: true, value: { locale, kind, format: kind === "gamme" ? format : undefined, bundle: kind !== "unite" && b.bundle === true, items, nom, tel, ville, adresse: adresse || undefined, email: email || undefined, cgv: true } };
 }
 
 /* ---------- numéro de commande ---------- */

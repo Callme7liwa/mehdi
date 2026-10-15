@@ -4,7 +4,7 @@
    Le script lance le site construit sur le port 8791, branché sur un faux tableur et un faux Resend qu'il démarre
    lui-même (port 8792) : aucune commande ne part vers le vrai Google Sheet, aucun e-mail n'est envoyé.
    Cas testés : commande valide en français et en arabe, gamme Petit et Grand, soins à l'unité avec frais,
-   prix falsifié par le navigateur, robot (champ piège), trop de commandes, e-mail absent, Resend en panne,
+   prix falsifié par le navigateur, robot (champ piège), consentement CGV absent ou faux, trop de commandes, e-mail absent, Resend en panne,
    tableur en panne, champs invalides. */
 import { spawn } from "node:child_process";
 import http from "node:http";
@@ -37,7 +37,7 @@ for (let i = 0; i < 60; i++) { if (await fetch(base + "/api/email-preview").then
 let n = 0, failed = 0;
 const check = (label, ok, detail = "") => { console.log(`${ok ? "✓" : "✗"} ${label}${ok || !detail ? "" : `\n   ${detail}`}`); if (!ok) failed++; };
 /** Chaque commande de test a son téléphone et son adresse IP : les limites anti-spam ne se croisent pas. */
-const person = (extra = {}) => { n++; return { nom: "Salma Test", tel: `06 00 00 ${String(n).padStart(2, "0")} 00`, ville: "Rabat", adresse: "12 rue des Tests", ...extra }; };
+const person = (extra = {}) => { n++; return { nom: "Salma Test", tel: `06 00 00 ${String(n).padStart(2, "0")} 00`, ville: "Rabat", adresse: "12 rue des Tests", cgv: true, ...extra }; };
 const post = async (body, ip = `10.0.0.${n}`) => { const r = await fetch(base + "/api/order", { method: "POST", headers: { "Content-Type": "application/json", "X-Forwarded-For": ip }, body: JSON.stringify(body) }); return { status: r.status, body: await r.json().catch(() => ({})) }; };
 /** Les e-mails partent après la réponse : on attend qu'ils arrivent au faux Resend. */
 const settle = async (emails, notes = state.notes.length) => { for (let i = 0; i < 40 && (state.emails.length < emails || state.notes.length < notes); i++) await sleep(100); await sleep(150); };
@@ -127,9 +127,19 @@ const mailTo = (to) => state.emails.filter((e) => [].concat(e.to).includes(to));
   check("… et l'échec de l'e-mail est noté dans le tableur", state.notes.at(-1)?.ticket === r.body.numero && /^échec/.test(state.notes.at(-1)?.statut ?? ""), JSON.stringify(state.notes.at(-1)));
   state.failResend = false;
 }
+/* 7 bis. Consentement : la case « J'ai lu et j'accepte les CGV et la politique de retour » est vérifiée par le serveur */
+{
+  const rows = state.sheet.length;
+  const none = await post({ locale: "fr", kind: "gamme", format: "petit", ...person({ cgv: undefined }) });
+  check("Sans la case CGV cochée : refusée (400, champ « cgv »), rien d'enregistré", none.status === 400 && none.body.fields?.includes("cgv") && state.sheet.length === rows, JSON.stringify(none.body));
+  const fake = await post({ locale: "ar", kind: "unite", items: [{ key: "deo", format: "petit", qty: 1 }], ...person({ cgv: "on" }) });
+  check("… une valeur autre que true (« on ») : refusée aussi", fake.status === 400 && fake.body.fields?.includes("cgv"), JSON.stringify(fake.body));
+  const no = await post({ locale: "fr", kind: "yeux", ...person({ cgv: false }) });
+  check("… case décochée (false) : refusée", no.status === 400 && no.body.fields?.includes("cgv") && state.sheet.length === rows, JSON.stringify(no.body));
+}
 /* 8. Champs invalides, tableur en panne */
 {
-  const r = await post({ locale: "fr", kind: "gamme", format: "petit", nom: "A", tel: "0512345678", ville: "", email: "pas-une-adresse" });
+  const r = await post({ locale: "fr", kind: "gamme", format: "petit", nom: "A", tel: "0512345678", ville: "", email: "pas-une-adresse", cgv: true });
   check("Téléphone fixe (05), nom, ville et e-mail invalides : 400 avec la liste des champs", r.status === 400 && ["nom", "tel", "ville", "email"].every((f) => r.body.fields?.includes(f)), JSON.stringify(r.body));
   const ok = await post({ locale: "fr", kind: "yeux", ...person({ tel: "+212 7 11 22 33 44" }) });
   check("Téléphone au format +212 7… : accepté", ok.status === 200, JSON.stringify(ok.body));

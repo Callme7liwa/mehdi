@@ -33,6 +33,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
   const [no, setNo] = useState("····");
   const [date, setDate] = useState("");
   const [vals, setVals] = useState({ nom: "", tel: "", ville: "" });
+  const [agree, setAgree] = useState(false);
   const [invalid, setInvalid] = useState<string[]>([]);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
@@ -131,11 +132,19 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
       document.getElementById(`f-${bad[0]}`)?.focus();
       return;
     }
+    // case obligatoire : CGV et politique de retour (vérifiée aussi par le serveur)
+    if (!agree) {
+      setInvalid(["cgv"]); setError(t.errTerms);
+      setShake((n) => n + 1); buzz([30, 40, 30]);
+      if (mobile() && !c.isOpen) c.open();
+      document.getElementById("f-cgv")?.focus();
+      return;
+    }
     setError("");
     const order = {
       id: newId(), locale, kind: "unite",
       items: lines.map((l) => ({ key: l.key, format: l.f, qty: l.qty })),
-      nom: vals.nom.trim(), tel: vals.tel.trim(), ville: vals.ville.trim(), site: "",
+      nom: vals.nom.trim(), tel: vals.tel.trim(), ville: vals.ville.trim(), site: "", cgv: true,
       page: location.href.split("#")[0],
     };
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville })); } catch { /* stockage indisponible */ }
@@ -144,9 +153,9 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
     if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
-      const fields = (res.fields || []).filter((x) => ["nom", "tel", "ville"].includes(x));
+      const fields = (res.fields || []).filter((x) => ["nom", "tel", "ville", "cgv"].includes(x));
       setInvalid(fields);
-      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length ? t.errFields : t.errServer);
+      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "cgv" ? t.errTerms : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length ? t.errFields : t.errServer);
       if (fields.length) document.getElementById(`f-${fields[0]}`)?.focus();
       return;
     }
@@ -166,7 +175,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
   const again = () => {
     c.close();
     if (!done) return;
-    setDone(null); c.reset();
+    setDone(null); setAgree(false); c.reset();
     tk.current?.querySelectorAll<HTMLElement>(".tk-body,.tk-foot").forEach((el) => el.getAnimations().forEach((a) => a.cancel()));
   };
 
@@ -244,6 +253,10 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
               {cities.map((v) => <button key={v} type="button" aria-pressed={vals.ville.trim().toLowerCase() === v.toLowerCase()} onClick={() => { set("ville", v); buzz(8); }}>{v}</button>)}
             </div>
             <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1 }} />
+            <label className="agree">
+              <input id="f-cgv" type="checkbox" name="cgv" checked={agree} onChange={(e) => { setAgree(e.target.checked); if (invalid.includes("cgv")) { const rest = invalid.filter((x) => x !== "cgv"); setInvalid(rest); if (!rest.length) setError(""); } }} {...inv("cgv")} />
+              <span>{t.agreeA} <a href={links.cgv} target="_blank" rel="noopener">{t.agreeCgv}</a> {t.agreeAnd} <a href={links.returns} target="_blank" rel="noopener">{t.agreeReturns}</a>.</span>
+            </label>
             <p className="err" role="alert">{error}</p>
           </div>
         </form>
@@ -257,7 +270,6 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
             <span><Card />{t.noOnline}</span>
             <span><Undo />{t.trustReturn}</span>
           </div>
-          <p className="terms" dangerouslySetInnerHTML={{ __html: fill(t.terms, { cgv: links.cgv, ret: links.returns }) }} />
         </div>
 
         {done && (

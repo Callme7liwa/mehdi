@@ -342,7 +342,9 @@ export default function init(cfg) {
     const flush = async () => {
       const q = readQ(); if (!q.length) return;
       const left = [];
-      for (const o of q) { if (o.kind && (await post(o)) === null) left.push(o); } // sans « kind » : ancien format, abandonné
+      // sans « kind » : ancien format, abandonné. Sans « cgv » : commande mise en attente avant que le serveur ne vérifie
+      // la case ; les formulaires de l'accueil l'exigeaient déjà avant d'enregistrer, la case avait donc été cochée.
+      for (const o of q) { if (o.kind && (await post({ cgv: true, ...o })) === null) left.push(o); }
       writeQ(left);
     };
     flush();
@@ -388,6 +390,7 @@ export default function init(cfg) {
         adresse: String(fd.get("adresse") || "").trim(),
         email: String(fd.get("email") || "").trim(),
         site: form.elements.site ? form.elements.site.value : "", // champ piège : vide pour une personne
+        cgv: true, // case CGV cochée (vérifiée juste au-dessus, et de nouveau par le serveur)
         page: location.href.split("#")[0],
       };
       const btn = form.querySelector(".tk-send");
@@ -397,7 +400,7 @@ export default function init(cfg) {
       if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
         const fields = res.fields || [];
         fields.forEach((n) => form.elements[n] && form.elements[n].setAttribute("aria-invalid", "true"));
-        err.textContent = res.error === "limite" ? TXT.errLimit : fields.length === 1 && fields[0] === "tel" ? TXT.errPhone : fields.length === 1 && fields[0] === "email" ? TXT.errEmail : fields.length ? TXT.errFields : TXT.errServer;
+        err.textContent = res.error === "limite" ? TXT.errLimit : fields.length === 1 && fields[0] === "cgv" ? TXT.errTerms : fields.length === 1 && fields[0] === "tel" ? TXT.errPhone : fields.length === 1 && fields[0] === "email" ? TXT.errEmail : fields.length ? TXT.errFields : TXT.errServer;
         if (fields.length && form.elements[fields[0]]) form.elements[fields[0]].focus();
         return;
       }

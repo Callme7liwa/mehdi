@@ -26,7 +26,7 @@ export async function GET(req: Request) {
   }
   const locale: Locale = q.get("locale") === "ar" ? "ar" : "fr";
   const c = CASES[q.get("cas") ?? ""] ?? CASES["gamme-petit"];
-  const checked = validateOrder({ locale, ...c.order, ...WHO[locale], tel: "06 12 34 56 78", email: "cliente@example.com" });
+  const checked = validateOrder({ locale, ...c.order, ...WHO[locale], tel: "06 12 34 56 78", email: "cliente@example.com", cgv: true });
   if (!checked.ok) return new Response("Cas invalide : " + checked.fields.join(", "), { status: 500 });
   const data = { locale, numero: "OTG-2610-4821", date: new Date("2026-10-11T14:32:00+01:00"), nom: checked.value.nom, tel: "06 12 34 56 78", ville: checked.value.ville, adresse: checked.value.adresse, priced: priceOrder(checked.value), base: url.origin };
   const out: Rendered = mail === "boutique" ? await renderShopNotification({ ...data, email: "cliente@example.com", page: `${url.origin}${locale === "ar" ? "/ar" : ""}/soins/serum-anti-taches` }) : await renderConfirmation(data);

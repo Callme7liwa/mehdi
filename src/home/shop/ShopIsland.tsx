@@ -133,6 +133,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       items: entries.map((x) => ({ key: x.p.key, format: x.f, qty: x.qty })),
       nom: val("nom"), tel: val("tel"), ville: val("ville"), adresse: val("adresse"), email: val("email"),
       site: val("site"), // champ piège : vide pour une personne
+      cgv: true, // case CGV cochée (vérifiée juste au-dessus, et de nouveau par le serveur)
       page: location.href.split("#")[0],
     };
     setSending(true);
@@ -142,7 +143,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
     if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
       const fields = res.fields || [];
       setInvalid(fields);
-      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length === 1 && fields[0] === "email" ? t.errEmail : fields.length ? t.errFields : t.errServer);
+      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "cgv" ? t.errTerms : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length === 1 && fields[0] === "email" ? t.errEmail : fields.length ? t.errFields : t.errServer);
       if (fields.length) focus(fields[0]);
       return;
     }

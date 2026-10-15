@@ -16,3 +16,6 @@ originaux/
 
 # modèle des variables d'environnement : suivi par git (il ne contient aucune valeur)
 !.env.example
+
+# captures « avant » de la mission contenu-v3 (gardées en local, non versionnées)
+docs/contenu-v3/avant/

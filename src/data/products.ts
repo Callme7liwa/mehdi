@@ -140,9 +140,9 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Crème anti-taches", ar: "كريم ضد البقع" },
     h1: { fr: "Crème anti-taches à la niacinamide, fabriquée au Maroc", ar: "كريم ضد البقع بالنياسيناميد، مصنوع في المغرب" },
-    metaTitle: { fr: "Crème anti-taches Maroc à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد في المغرب" },
+    metaTitle: { fr: "Crème anti-taches à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد في المغرب" },
     metaDescription: {
-      fr: "Crème anti-taches OTAGE N°03 : niacinamide, acide hyaluronique, AHA. Hydrate, unifie le teint et scelle le sérum. Fabriquée au Maroc, paiement à la livraison.",
+      fr: "Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès {prix} DH, livrée en 24 à 72 h, payée à la livraison.",
       ar: "كريم ضد البقع من OTAGE رقم 03: نياسيناميد، حمض الهيالورونيك، AHA. يرطب، يوحد لون البشرة ويثبت السيروم. مصنوع في المغرب، الدفع عند الاستلام.",
     },
     lead: { fr: "Hydrate, unifie le teint et scelle le sérum.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم." },
@@ -170,8 +170,8 @@ export const products: Product[] = isolateAr([
     problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
     extraFaq: [
       {
-        q: { fr: "Faut-il appliquer la crème avant ou après le sérum ?", ar: "هل يوضع الكريم قبل السيروم أم بعده؟" },
-        a: { fr: "Après. La crème est l'étape 3 de la routine : elle hydrate, unifie le teint et scelle le sérum appliqué juste avant.", ar: "بعده. الكريم هو الخطوة 3 في الروتين: يرطب، يوحد لون البشرة ويثبت السيروم الموضوع قبله." },
+        q: { fr: "Avant ou après le sérum ?", ar: "قبل السيروم أم بعده؟" },
+        a: { fr: "Après. La crème est l'étape 3 : elle fixe le sérum appliqué juste avant.", ar: "بعده. الكريم هو الخطوة 3: يثبت السيروم الموضوع قبله." },
       },
     ],
   },

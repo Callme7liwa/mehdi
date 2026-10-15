@@ -98,26 +98,32 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   creme: {
     tag: { fr: "N° 03 · Routine anti-taches", ar: "رقم 03 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 03 sur 04 · Hydrate et unifie", ar: "رقم 03 من 04 · يرطب ويوحد" },
+    eyebrow: { fr: "N° 03 sur 04 · Routine anti-taches", ar: "رقم 03 من 04 · يرطب ويوحد" },
     title: [{ fr: "Crème", ar: "كريم" }, { fr: "anti-taches.", ar: "ضد البقع." }],
-    lede: { fr: "Elle hydrate, unifie le teint et scelle le sérum : la dernière étape avant l’écran solaire.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم: آخر خطوة قبل واقي الشمس." },
+    lede: { fr: "Pour hydrater, unifier le teint et fixer le sérum, avant l'écran solaire.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم: آخر خطوة قبل واقي الشمس." },
     media: "pack",
     mediaAlt: { fr: "Le flacon pompe de la crème anti-taches OTAGE, 50 ml", ar: "عبوة الكريم ضد البقع من OTAGE بمضخة، 50 مل" },
-    perks: [
-      { icon: "drop2", label: { fr: "Hydrate", ar: "يرطب" } },
-      { icon: "halfTone", label: { fr: "Unifie le teint", ar: "يوحد لون البشرة" } },
-      { icon: "flask", label: { fr: "Niacinamide", ar: "نياسيناميد" } },
-      { icon: "helix", label: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" } },
-    ],
+    // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
+    perks: [{ icon: "halfTone", label: { fr: "Unifie le teint", ar: "يوحد لون البشرة" } }],
     upsell: { flag: { fr: "+20 ml pour {d} DH de plus", ar: "‎+20 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+20 ml pour {d} DH", ar: "‎+20 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Hydrater, unifier.", ar: "ترطيب وتوحيد." }, { fr: "Sans compliquer.", ar: "دون تعقيد." }],
+      title: [{ fr: "La crème anti-taches :", ar: "ترطيب وتوحيد." }, { fr: "ses 3 actifs.", ar: "دون تعقيد." }],
       alt: { fr: "L’étiquette de la crème : niacinamide, acide hyaluronique, AHA, 50 ml", ar: "ملصق الكريم: نياسيناميد، حمض الهيالورونيك، AHA، ‏50 مل" },
       ingredients: [
-        { name: { fr: "Niacinamide", ar: "نياسيناميد" }, where: label, role: { fr: "La vitamine B3 : elle aide à unifier le teint et à atténuer l’aspect des taches.", ar: "فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع." }, why: { fr: "Elle travaille avec le sérum pour un teint plus régulier.", ar: "يعمل مع السيروم من أجل لون بشرة أكثر انتظامًا." } },
-        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Il retient l’eau dans la peau pour une hydratation durable.", ar: "يحتفظ بالماء في البشرة لترطيب يدوم." }, why: { fr: "La peau reste souple et confortable toute la journée.", ar: "تبقى البشرة مرنة ومرتاحة طوال اليوم." } },
-        { name: { fr: "AHA", ar: "أحماض AHA" }, where: label, role: { fr: "Des acides de fruits qui affinent le grain de peau en douceur.", ar: "أحماض فواكه تنعّم ملمس البشرة بلطف." }, why: { fr: "Ils aident la peau à retrouver de l’éclat. Toujours avec un écran solaire le matin.", ar: "تساعد البشرة على استعادة إشراقها. دائمًا مع واقي الشمس في الصباح." } },
+        { name: { fr: "Niacinamide", ar: "نياسيناميد" }, where: label, role: { fr: "Vitamine B3 : aide à unifier le teint et à atténuer les taches.", ar: "فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع." } },
+        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Retient l'eau : la peau reste souple toute la journée.", ar: "يحتفظ بالماء في البشرة لترطيب يدوم." } },
+        { name: { fr: "AHA", ar: "أحماض AHA" }, where: label, role: { fr: "Acides de fruits qui affinent le grain de peau. Écran solaire le matin.", ar: "أحماض فواكه تنعّم ملمس البشرة بلطف." } },
       ],
+    },
+    // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
+    use: {
+      forWho: { fr: "Pour un teint irrégulier ou marqué par des taches. C'est l'étape 3 de la routine, matin et soir, après le sérum.", ar: "للبشرة ذات اللون غير الموحد أو التي بها بقع. هو الخطوة 3 في الروتين، صباحًا ومساءً، بعد السيروم." },
+      steps: [
+        { fr: "Après le sérum, prends une noisette de crème.", ar: "بعد السيروم، خذي كمية صغيرة من الكريم." },
+        { fr: "Applique sur le visage et le cou.", ar: "ضعيه على الوجه والرقبة." },
+        { fr: "Masse vers le haut. Le matin, termine par l'écran solaire.", ar: "دلّكي نحو الأعلى. في الصباح، اختمي بواقي الشمس." },
+      ],
+      results: { fr: "La peau est hydratée dès l'application. Les taches, elles, s'atténuent petit à petit avec la routine complète.", ar: "البشرة مرطبة منذ الاستعمال. أما البقع فتخف شيئًا فشيئًا مع الروتين الكامل." },
     },
   },
   ecran: {

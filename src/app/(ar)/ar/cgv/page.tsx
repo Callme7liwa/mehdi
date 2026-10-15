@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { bundleUnit, gamme, products, rangeProducts, unitFormats, yeuxPrice } from "@/data/products";
+import { productPages } from "@/data/product-pages";
+import { bundleKeys, bundleUnit, gamme, productByKey, products, rangeProducts, unitFormats } from "@/data/products";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -36,7 +37,8 @@ export default function Page() {
       <ul>
         <li>مجموعة العناية ضد البقع بالحجم الصغير: {P.price} درهم. بالحجم الكبير: {G.price} درهم.</li>
         <li>عرض {offer}: عند شراء مجموعتين، الثالثة مجانًا (أي {bundleUnit(P.price)} درهم للمجموعة بالحجم الصغير، و{bundleUnit(G.price)} درهم بالحجم الكبير).</li>
-        <li>سيروم محيط العين: {yeuxPrice} درهم، أو {bundleUnit(yeuxPrice)} درهم للسيروم مع عرض {offer}.</li>
+        {/* المنتجات المبيعة منفردة مع عرض 2 + 1: مولّدة من src/data/products.ts */}
+        {bundleKeys.map(productByKey).map((p) => <li key={p.key}>{p.name.ar}: {p.unitPrice.petit} درهم، أو {bundleUnit(p.unitPrice.petit as number)} درهم لل{productPages[p.key].unitWord?.one.ar} مع عرض {offer}.</li>)}
       </ul>
       <p>الأسعار المطبقة هي المعروضة وقت الطلب.</p>
 

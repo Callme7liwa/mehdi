@@ -101,7 +101,7 @@ for (const p of products) {
 /* ---------- 5. Points à trancher ---------- */
 md += `## 5. Points à trancher (client)\n\n`;
 md += table(["Point", "Situation actuelle", "Fichier"], [
-  row(["CGV, article 3 « Prix »", `Non modifié (consigne). Il cite la gamme et le contour des yeux (${yP} DH, ${bundleUnit(yP)} DH avec l'offre 2 + 1), mais ni le déodorant (${dP} DH, offre 2 + 1), ni les prix à l'unité des 4 soins de la gamme.`, "src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx"]),
+  row(["CGV, article 3 « Prix »", `Liste générée depuis products.ts : la gamme (Petit et Grand format, offre 2 + 1), puis ${bundleKeys.map((k) => { const p = productByKey(k); return `${p.name.fr.toLowerCase()} ${p.unitPrice.petit} DH (${bundleUnit(p.unitPrice.petit)} DH avec l'offre 2 + 1)`; }).join(" et ")}. Les prix à l'unité des 4 soins de la gamme n'y figurent pas.`, "src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx"]),
   row(["Commandes gardées hors connexion avant la case CGV", "Renvoyées avec cgv: true (les formulaires de l'accueil exigeaient déjà la case avant de les enregistrer).", "src/home/islands/offers.js"]),
 ]);
 

@@ -1194,6 +1194,7 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | Gamme anti-taches Petit format : 299 DH. Grand format : 599 DH. | مجموعة العناية ضد البقع بالحجم الصغير: 299 درهم. بالحجم الكبير: 599 درهم. |
 | Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte (soit 199 DH la gamme en Petit format, 399 DH en Grand format). | عرض 2 + 1: عند شراء مجموعتين، الثالثة مجانًا (أي 199 درهم للمجموعة بالحجم الصغير، و399 درهم بالحجم الكبير). |
 | Sérum contour des yeux : 185 DH, ou 123 DH le sérum avec l'offre 2 + 1. | سيروم محيط العين: 185 درهم، أو 123 درهم للسيروم مع عرض 2 + 1. |
+| Déodorant crème : 85 DH, ou 57 DH le pot avec l'offre 2 + 1. | مزيل العرق كريم: 85 درهم، أو 57 درهم للعلبة مع عرض 2 + 1. |
 | Les prix applicables sont ceux affichés au moment de la commande. | الأسعار المطبقة هي المعروضة وقت الطلب. |
 | 4. Commande | 4. الطلب |
 | La commande se passe sur le site (nom, téléphone, ville, adresse) ou par WhatsApp. Elle devient définitive après confirmation par téléphone avec OTAGE. | يتم الطلب من الموقع (الاسم، الهاتف، المدينة، العنوان) أو عبر واتساب. يصبح الطلب نهائيًا بعد تأكيده هاتفيًا مع OTAGE. |
@@ -1398,4 +1399,4 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 
 ---
 
-1203 textes à relire.
+1204 textes à relire.

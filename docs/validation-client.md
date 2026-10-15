@@ -130,6 +130,6 @@ Textes de la section « L'étiquette, sans filtre », repris des maquettes, où 
 
 | Point | Situation actuelle | Fichier | Validé | À modifier (préciser) |
 |---|---|---|---|---|
-| CGV, article 3 « Prix » | Non modifié (consigne). Il cite la gamme et le contour des yeux (185 DH, 123 DH avec l'offre 2 + 1), mais ni le déodorant (85 DH, offre 2 + 1), ni les prix à l'unité des 4 soins de la gamme. | src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx | ☐ Validé | ☐ À modifier : |
+| CGV, article 3 « Prix » | Liste générée depuis products.ts : la gamme (Petit et Grand format, offre 2 + 1), puis sérum contour des yeux 185 DH (123 DH avec l'offre 2 + 1) et déodorant crème 85 DH (57 DH avec l'offre 2 + 1). Les prix à l'unité des 4 soins de la gamme n'y figurent pas. | src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx | ☐ Validé | ☐ À modifier : |
 | Commandes gardées hors connexion avant la case CGV | Renvoyées avec cgv: true (les formulaires de l'accueil exigeaient déjà la case avant de les enregistrer). | src/home/islands/offers.js | ☐ Validé | ☐ À modifier : |
 

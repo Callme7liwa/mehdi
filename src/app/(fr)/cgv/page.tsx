@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { bundleUnit, gamme, products, rangeProducts, unitFormats, yeuxPrice } from "@/data/products";
+import { productPages } from "@/data/product-pages";
+import { bundleKeys, bundleUnit, gamme, productByKey, products, rangeProducts, unitFormats } from "@/data/products";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -34,7 +35,8 @@ export default function Page() {
       <ul>
         <li>Gamme anti-taches Petit format : {P.price} DH. Grand format : {G.price} DH.</li>
         <li>Offre 2 + 1 : pour 2 gammes achetées, la 3e est offerte (soit {bundleUnit(P.price)} DH la gamme en Petit format, {bundleUnit(G.price)} DH en Grand format).</li>
-        <li>Sérum contour des yeux : {yeuxPrice} DH, ou {bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1.</li>
+        {/* soins vendus seuls avec l'offre 2 + 1 (contour des yeux, déodorant) : générés depuis src/data/products.ts */}
+        {bundleKeys.map(productByKey).map((p) => <li key={p.key}>{p.name.fr} : {p.unitPrice.petit} DH, ou {bundleUnit(p.unitPrice.petit as number)} DH le {productPages[p.key].unitWord?.one.fr} avec l&apos;offre 2 + 1.</li>)}
       </ul>
       <p>Les prix applicables sont ceux affichés au moment de la commande.</p>
 

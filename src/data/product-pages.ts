@@ -1,4 +1,5 @@
 /* Textes des fiches produits (maquettes « le ticket qui s'écrit en direct », newpages/otage-*.html).
+   Les avis ne sont pas ici : chaque fiche montre les messages réels de src/data/reviews.ts qui citent ce soin (champ « produits »).
    Prix, contenances, noms et ingrédients restent dans src/data/products.ts : ici, seulement la mise en scène de chaque fiche.
    {d} est remplacé par l'écart de prix entre le Petit et le Grand format. L'arabe est « À relire par un natif ». */
 import { isolateAr } from "../lib/bidi";
@@ -10,8 +11,6 @@ export type PerkIcon =
   | "sun" | "shield" | "noSpots" | "bottle" | "eye" | "cup" | "aloe" | "noAl" | "noP";
 
 export type Ingredient = { name: L; where: L; role: L; why: L };
-export type Quote = { text: string; lang: "fr" | "ary"; rtl?: boolean };
-export type PageReview = { src: "wa" | "ig"; name: L; meta: L; quotes: Quote[]; tr: L[]; note?: L };
 
 export type ProductPageText = {
   /** Pastille posée sur la photo. */
@@ -30,26 +29,9 @@ export type ProductPageText = {
   /** Soins à offre 2 + 1 : le mot pour un article (« sérum », « pot »). */
   unitWord?: { one: L; many: L };
   lab: { title: [L, L]; alt: L; ingredients: Ingredient[]; spots?: { x: number; y: number; tip: L }[] };
-  reviews: PageReview[];
 };
 
 const label = { fr: "sur l’étiquette", ar: "على الملصق" };
-const AWATEF: PageReview = {
-  src: "wa",
-  name: { fr: "Awatef A.", ar: "عواطف أ." },
-  meta: { fr: "WhatsApp · 5 sept. · routine complète", ar: "واتساب · 5 شتنبر · الروتين الكامل" },
-  quotes: [{ text: "« دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف »", lang: "ary", rtl: true }],
-  tr: [{ fr: "Docteur, l’éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci beaucoup.", ar: "" }],
-  note: { fr: "Résultat avec la routine complète. Résultats individuels, variables d’une peau à l’autre.", ar: "نتيجة مع الروتين الكامل. النتائج فردية وتختلف من بشرة إلى أخرى." },
-};
-const nabila = (what: L): PageReview => ({
-  src: "wa",
-  name: { fr: "Nabila B.", ar: "نبيلة ب." },
-  meta: { fr: "WhatsApp · 17 sept. · a utilisé la gamme", ar: "واتساب · 17 شتنبر · استعملت المجموعة" },
-  quotes: [{ text: "« Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. »", lang: "fr" }],
-  tr: [{ fr: what.fr, ar: `أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. ${what.ar}` }],
-});
-
 export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   gel: {
     tag: { fr: "N° 01 · Routine anti-taches", ar: "رقم 01 · روتين ضد البقع" },
@@ -74,16 +56,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { name: { fr: "Sans sulfate", ar: "بدون سلفات" }, where: label, role: { fr: "Une base lavante douce, sans sulfates agressifs.", ar: "قاعدة غسل لطيفة، بدون سلفات قاسية." }, why: { fr: "La peau est propre, sans être décapée : elle est prête pour le sérum.", ar: "البشرة نظيفة دون أن تتجرد: جاهزة للسيروم." } },
       ],
     },
-    reviews: [
-      {
-        src: "wa",
-        name: { fr: "Nabila B.", ar: "نبيلة ب." },
-        meta: { fr: "WhatsApp · 17 sept. · a utilisé la gamme", ar: "واتساب · 17 شتنبر · استعملت المجموعة" },
-        quotes: [{ text: "« Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. Le gel nettoyant khatir jidan jidan. Il fait bien son travail. »", lang: "fr" }],
-        tr: [{ fr: "« Le gel nettoyant est vraiment, vraiment top. Il fait bien son travail. »", ar: "أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. الجل المنظف ممتاز جدًا جدًا. يقوم بعمله جيدًا." }],
-      },
-      AWATEF,
-    ],
   },
   serum: {
     tag: { fr: "N° 02 · Routine anti-taches", ar: "رقم 02 · روتين ضد البقع" },
@@ -108,7 +80,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { name: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" }, where: label, role: { fr: "L’actif qui cible les taches brunes en limitant la production de mélanine.", ar: "المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين." }, why: { fr: "C’est lui qui travaille sur les taches, jour après jour.", ar: "هو الذي يعمل على البقع، يومًا بعد يوم." } },
       ],
     },
-    reviews: [AWATEF, nabila({ fr: "Avis sur la routine complète, dont le sérum.", ar: "(رأي في الروتين الكامل، ومنه السيروم.)" })],
   },
   creme: {
     tag: { fr: "N° 03 · Routine anti-taches", ar: "رقم 03 · روتين ضد البقع" },
@@ -133,7 +104,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { name: { fr: "AHA", ar: "أحماض AHA" }, where: label, role: { fr: "Des acides de fruits qui affinent le grain de peau en douceur.", ar: "أحماض فواكه تنعّم ملمس البشرة بلطف." }, why: { fr: "Ils aident la peau à retrouver de l’éclat. Toujours avec un écran solaire le matin.", ar: "تساعد البشرة على استعادة إشراقها. دائمًا مع واقي الشمس في الصباح." } },
       ],
     },
-    reviews: [AWATEF, nabila({ fr: "Avis sur la routine complète, dont la crème.", ar: "(رأي في الروتين الكامل، ومنه الكريم.)" })],
   },
   ecran: {
     tag: { fr: "N° 04 · Routine anti-taches", ar: "رقم 04 · روتين ضد البقع" },
@@ -158,7 +128,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { name: { fr: "Le bon geste", ar: "الخطوة الصحيحة" }, where: { fr: "chaque matin", ar: "كل صباح" }, role: { fr: "En dernier, après la crème. Renouvelle toutes les 2 heures au soleil.", ar: "في الأخير، بعد الكريم. جدديه كل ساعتين تحت الشمس." }, why: { fr: "Sans écran, le sérum et la crème travaillent pour rien.", ar: "بدون واقي، يعمل السيروم والكريم بلا فائدة." } },
       ],
     },
-    reviews: [AWATEF, nabila({ fr: "Avis sur la routine complète, dont l’écran solaire.", ar: "(رأي في الروتين الكامل، ومنه واقي الشمس.)" })],
   },
   yeux: {
     tag: { fr: "N° 05 · Contour des yeux", ar: "رقم 05 · محيط العين" },
@@ -183,7 +152,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { name: { fr: "Aloe vera", ar: "ألوفيرا" }, where: label, role: { fr: "Elle apaise et rafraîchit.", ar: "تهدئ وتنعش." }, why: { fr: "Une sensation de fraîcheur dès l’application.", ar: "إحساس بالانتعاش منذ الاستعمال." } },
       ],
     },
-    reviews: [],
   },
   deo: {
     tag: { fr: "N° 06 · Soin du corps · 50 ml", ar: "رقم 06 · العناية بالجسم · 50 مل" },
@@ -218,49 +186,6 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { x: 74, y: 25, tip: { fr: "Vitamine E · dans le baume", ar: "فيتامين E · في البلسم" } },
       ],
     },
-    reviews: [
-      {
-        src: "wa",
-        name: { fr: "Hanane", ar: "حنان" },
-        meta: { fr: "WhatsApp · après 1 semaine", ar: "واتساب · بعد أسبوع" },
-        quotes: [
-          { text: "« Bghit ngoul likoum merci bcp 3la le produit, sara7a 3jbni bzzf. Ça fait une semaine daba bach kandiro. Li 3jbni kter howa anaho le deo mafihch l parfum… 😁 »", lang: "ary" },
-          { text: "« Wakh les frais d livraison li chwiya zaidin, walakin l produit istahl, machi mouchkil. »", lang: "ary" },
-        ],
-        tr: [
-          { fr: "Merci beaucoup pour le produit, franchement il m’a beaucoup plu. Je l’utilise depuis une semaine. Ce que j’aime le plus : il n’a pas de parfum.", ar: "شكرًا جزيلًا على المنتج، بصراحة أعجبني كثيرًا. أستعمله منذ أسبوع. أكثر ما أعجبني: ليس فيه عطر." },
-          { fr: "Même si les frais de livraison sont un peu élevés, le produit les vaut.", ar: "رغم أن مصاريف التوصيل مرتفعة قليلًا، المنتج يستحق." },
-        ],
-      },
-      {
-        src: "ig",
-        name: { fr: "Douja", ar: "دوجة" },
-        meta: { fr: "Instagram · message", ar: "إنستغرام · رسالة" },
-        quotes: [{ text: "« Saraha sd9 wa3r. Ana déjà kandir les déodorants naturels ms 3ndhum wahd lw9t w safi makayb9ach efficace, w sabr m3ak nhar kaml. »", lang: "ary" }],
-        tr: [{ fr: "Franchement, il est top. J’utilisais déjà des déodorants naturels, mais au bout d’un moment ils ne marchent plus. Lui a tenu toute la journée.", ar: "بصراحة، رائع. كنت أستعمل مزيلات عرق طبيعية، لكن بعد مدة لم تعد فعالة. هذا صمد معي اليوم كله." }],
-      },
-      {
-        src: "ig",
-        name: { fr: "Cliente anonyme", ar: "زبونة" },
-        meta: { fr: "Instagram · réponse en story", ar: "إنستغرام · رد على ستوري" },
-        quotes: [{ text: "« Merci dr, deo wala arwa3. Ani 3ndi mochkil hormonat… kan3ra9 3adi, ori7a walou. »", lang: "ary" }],
-        tr: [{ fr: "Merci docteur, le déo est génial. J’ai un souci hormonal : je transpire normalement, mais aucune odeur.", ar: "شكرًا دكتور، مزيل العرق رائع. عندي مشكل هرموني: أتعرق بشكل عادي، لكن بدون أي رائحة." }],
-      },
-      {
-        src: "ig",
-        name: { fr: "Cliente anonyme", ar: "زبونة" },
-        meta: { fr: "Instagram · réponse en story", ar: "إنستغرام · رد على ستوري" },
-        quotes: [{ text: "« Ahssen DÉODORANT NATUREL jeerbt 🌼💜 »", lang: "ary" }],
-        tr: [{ fr: "Le meilleur déodorant naturel que j’ai essayé.", ar: "أفضل مزيل عرق طبيعي جربته." }],
-      },
-      {
-        src: "ig",
-        name: { fr: "Fatifat", ar: "فاتيفات" },
-        meta: { fr: "Instagram · message", ar: "إنستغرام · رسالة" },
-        quotes: [{ text: "« Hta ana zwn bzaffffff ❤️ »", lang: "ary" }],
-        tr: [{ fr: "Moi aussi, je le trouve trop bien !", ar: "وأنا أيضًا، أجده رائعًا جدًا!" }],
-      },
-    ],
   },
 } satisfies Record<ProductKey, ProductPageText>);
 
@@ -296,6 +221,9 @@ export const productUi = isolateAr({
   labNote: { fr: "Rôles relus par notre pharmacien", ar: "أدوار المكونات راجعها صيدلينا" },
   reviews: { fr: "Avis", ar: "آراء" },
   reviewsTrack: { fr: "Avis des clientes, défile horizontalement", ar: "آراء الزبونات، تمرير أفقي" },
+  reviewMeta: { fr: "Message Instagram · {d}", ar: "رسالة إنستغرام · {d}" },
+  reviewSource: { fr: "Voir la capture d’origine", ar: "رؤية اللقطة الأصلية" },
+  reviewNote: { fr: "Chaque peau est différente : ce message raconte l’expérience d’une cliente, pas une promesse de résultat.", ar: "كل بشرة مختلفة: هذه الرسالة تحكي تجربة زبونة، وليست وعدًا بنتيجة." },
   prev: { fr: "Précédent", ar: "السابق" },
   next: { fr: "Suivant", ar: "التالي" },
   faqChap: { fr: "Questions fréquentes", ar: "أسئلة شائعة" },

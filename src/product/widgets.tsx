@@ -55,13 +55,13 @@ export function Carousel({ title, note, headClass, trackClass, label, prev, next
     <>
       <div className={headClass}>
         {title}
-        {note ? <div className="revs-r">{note}{nav}</div> : nav}
+        {note ? <div className="revs-r">{note}{n > 1 && nav}</div> : n > 1 && nav}
       </div>
       <div className={`car ${trackClass}`} ref={car} tabIndex={0} role="group" aria-label={label} onScroll={() => requestAnimationFrame(upd)}
         onKeyDown={(e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); go((e.key === "ArrowRight") !== rtl() ? 1 : -1, false); } }}>
         {children}
       </div>
-      <div className="car-dots" aria-hidden="true">{Array.from({ length: n }, (_, k) => <i key={k} className={k === state.i ? "on" : undefined} />)}</div>
+      {n > 1 && <div className="car-dots" aria-hidden="true">{Array.from({ length: n }, (_, k) => <i key={k} className={k === state.i ? "on" : undefined} />)}</div>}
     </>
   );
 }

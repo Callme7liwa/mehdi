@@ -3,7 +3,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
-import { reviews } from "@/data/reviews";
+import { reviewName, reviews } from "@/data/reviews";
 import { formatDate, site, waLink, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
 import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
@@ -42,7 +42,6 @@ const copy = {
     ctaText: "التوصيل من 24 إلى 72 ساعة في كل أنحاء المغرب، والدفع عند الاستلام.",
   },
 };
-const nameAr: Record<string, string> = { Nabila: "نبيلة", Awatef: "عواطف" };
 
 export const reviewsMetadata = (locale: Locale): Metadata =>
   pageMetadata({ locale, path: "/avis", title: copy[locale].title, description: copy[locale].description, hasAr: true });
@@ -64,7 +63,7 @@ export default function ReviewsPage({ locale }: { locale: Locale }) {
         <section className="sec" id="avis">
           <div className="rvw-list">
             {reviews.filter((r) => r.capture).map((r) => {
-              const name = locale === "ar" ? nameAr[r.prenom] ?? r.prenom : r.prenom;
+              const name = reviewName(r, locale);
               return (
                 <article className="rvw card" key={r.prenom}>
                   <Img className="rvw-shot" src={r.capture!.src} alt={r.capture!.alt[locale]} width={r.capture!.w} height={r.capture!.h} sizes="(max-width: 700px) 70vw, 300px" />

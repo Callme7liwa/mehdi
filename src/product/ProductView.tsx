@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { cities } from "@/data/cities";
 import { productFaq } from "@/data/faq";
 import { productPages, productUi } from "@/data/product-pages";
+import { reviewName, reviewsFor } from "@/data/reviews";
 import { products, unitFormats, hasBundle, type Product } from "@/data/products";
 import { abs, site, type Locale } from "@/data/site";
 import { breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, productLd, webPageLd } from "@/lib/seo";
@@ -58,7 +59,8 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
   const media = x.media === "photo" ? p.photos[0] : p.hd ?? p.pack;
   const label = p.key === "deo" ? p.photos[1] : p.hd ?? p.pack;
   const home = localePath(locale, "/");
-  const pageNav = [["#etiquette", t.navIngredients], ...(x.reviews.length ? [["#avis", t.navReviews]] : []), ["#maison", t.navMore]];
+  const pageReviews = reviewsFor(p.key);
+  const pageNav = [["#etiquette", t.navIngredients], ...(pageReviews.length ? [["#avis", t.navReviews]] : []), ["#maison", t.navMore]];
 
   return (
     <>
@@ -124,23 +126,22 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
             </div>
           </section>
 
-          {/* 3. les avis */}
-          {x.reviews.length > 0 && (
+          {/* 3. les avis : seulement les messages réels qui nomment ce soin (src/data/reviews.ts, champ « produits ») */}
+          {pageReviews.length > 0 && (
             <section className="revs" id="avis" aria-labelledby="t-avis">
               <Carousel headClass="av-head" trackClass="rv-g" label={t.reviewsTrack} prev={t.prev} next={t.next}
-                title={<h2 className="av-t serif" id="t-avis"><em>{t.reviews}</em><sup className="av-n">{x.reviews.length}</sup></h2>}>
-                {x.reviews.map((r, i) => (
-                  <article key={i} className={`rvw rv${i === 0 ? " rvw-big" : ""}`}>
-                    <header className="rvw-h"><span className={`src src-${r.src}`}>{r.src === "wa" ? "WhatsApp" : locale === "ar" ? "إنستغرام" : "Instagram"}</span><span className="rvw-w"><b>{L(r.name)}</b><small>{L(r.meta)}</small></span></header>
-                    {r.quotes.map((q, k) => (
-                      <div key={k} style={{ display: "contents" }}>
-                        <blockquote className="q-dar" lang={q.rtl ? "ary" : "fr"} dir={q.rtl ? "rtl" : "ltr"}>{q.text}</blockquote>
-                        {L(r.tr[k]) && <p className="q-fr">{L(r.tr[k])}</p>}
-                      </div>
-                    ))}
-                    {r.note && <p className="q-fr" style={{ fontStyle: "normal", fontSize: 12 }}>{L(r.note)}</p>}
-                  </article>
-                ))}
+                title={<h2 className="av-t serif" id="t-avis"><em>{t.reviews}</em><sup className="av-n">{pageReviews.length}</sup></h2>}>
+                {pageReviews.map((r, i) => {
+                  const said = r.messages.filter((m) => m.de === "cliente"), rtl = said.some((m) => m.rtl);
+                  return (
+                    <article key={r.prenom} className={`rvw rv${i === 0 ? " rvw-big" : ""}`}>
+                      <header className="rvw-h"><span className="src src-ig">{locale === "ar" ? "إنستغرام" : "Instagram"}</span><span className="rvw-w"><b>{reviewName(r, locale)}</b><small>{fill(t.reviewMeta, { d: r.date?.[locale] ?? "" })}</small></span></header>
+                      <blockquote className="q-dar" lang={rtl ? "ar" : "fr"} dir={rtl ? "rtl" : "ltr"}>{said.map((m, k) => <span key={k} style={{ display: "block" }}>{m.texte}</span>)}</blockquote>
+                      {r.traduction?.[locale] && <p className="q-fr">{r.traduction[locale]}</p>}
+                      <p className="q-fr" style={{ fontStyle: "normal", fontSize: 12 }}>{t.reviewNote} <a href={localePath(locale, "/avis")}>{t.reviewSource}</a></p>
+                    </article>
+                  );
+                })}
               </Carousel>
               <OpenButton className="cta-big cta-line"><TotalLabel tpl={t.tryTotal} /><i aria-hidden="true"><Arrow /></i></OpenButton>
             </section>

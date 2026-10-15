@@ -4,9 +4,11 @@
    - soin : 0 gel, 1 sérum, 2 crème, 3 écran solaire, ou "gamme"
    - messages : de "cliente" ou "otage", dans la langue d'origine ; rtl: true pour l'arabe
    - traduction : aide à la lecture dans l'autre langue (À RELIRE : traduction de la darija par nos soins)
+   - produits : les soins que la cliente nomme elle-même dans ses messages ; l'avis s'affiche sur la fiche de
+     ces soins, et seulement sur elle (un avis qui ne nomme aucun soin reste sur /avis et l'accueil)
    - exemple: true affiche l'étiquette « Exemple » (à retirer avant la mise en ligne).
    Aucune note ni aggregateRating / Review dans le JSON-LD : ce ne sont pas des avis notés et vérifiables. */
-import type { Img } from "./products";
+import type { Img, ProductKey } from "./products";
 import { isolateAr } from "../lib/bidi";
 import type { L } from "./site";
 
@@ -15,6 +17,8 @@ export type Review = {
   prenom: string;
   ville: string;
   soin: 0 | 1 | 2 | 3 | "gamme";
+  /** Soins nommés par la cliente dans ses messages : fiches produits où l'avis est montré. */
+  produits: ProductKey[];
   exemple?: boolean;
   messages: ReviewMessage[];
   /** Capture d'écran d'origine du message. */
@@ -29,6 +33,8 @@ export const reviews: Review[] = isolateAr([
     prenom: "Nabila",
     ville: "Cliente OTAGE",
     soin: "gamme",
+    // « Le gel nettoyant khatir jidan jidan » : le seul soin qu'elle nomme (le reste parle de « la gamme »)
+    produits: ["gel"],
     date: { fr: "17 septembre", ar: "17 شتنبر" },
     capture: {
       src: "/images/avis/avis-cliente-nabila-instagram.webp", w: 739, h: 1600,
@@ -51,6 +57,8 @@ export const reviews: Review[] = isolateAr([
     prenom: "Awatef",
     ville: "Cliente OTAGE",
     soin: "gamme",
+    // ses messages parlent des taches et de l'éclat, sans nommer de soin : sur aucune fiche
+    produits: [],
     date: { fr: "5 septembre", ar: "5 شتنبر" },
     capture: {
       src: "/images/avis/avis-cliente-awatef-instagram.webp", w: 739, h: 1600,
@@ -71,3 +79,9 @@ export const reviews: Review[] = isolateAr([
     },
   },
 ]);
+
+/** Prénom affiché : écrit en arabe sur les pages /ar. */
+const nameAr: Record<string, string> = { Nabila: "نبيلة", Awatef: "عواطف" };
+export const reviewName = (r: Review, locale: "fr" | "ar") => (locale === "ar" ? nameAr[r.prenom] ?? r.prenom : r.prenom);
+/** Les avis qui nomment ce soin : ceux montrés sur sa fiche. */
+export const reviewsFor = (key: ProductKey) => reviews.filter((r) => r.produits.includes(key));

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Img from "./Img";
 import LangSwitch from "./LangSwitch";
-import { BagIcon, MenuIcon } from "./icons";
+import HeaderCta from "./HeaderCta";
+import { MenuIcon } from "./icons";
+import { gamme, productByKey } from "@/data/products";
 import { ui } from "@/data/ui";
 import type { Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
@@ -16,7 +18,10 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
     { href: localePath(locale, "/contact"), label: t.contact },
   ];
   const home = localePath(locale, "/");
-  const orderHref = `${home}#offres`;
+  // le prix sur le bouton, toujours lu dans products.ts
+  const yeux = productByKey("yeux");
+  const fallback = { href: `${home}#offres`, order: t.order, from: t.from, price: `${gamme.formats.petit.price} ${t.dh}` };
+  const byPath = { [localePath(locale, "/cernes")]: { href: localePath(locale, `/soins/${yeux.slug}`), order: t.order, price: `${yeux.unitPrice.petit} ${t.dh}` } };
   return (
     <header className="top">
       <a className="skip" href="#contenu">{t.skip}</a>
@@ -29,7 +34,7 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
           {links.map((l) => <Link key={l.href} href={l.href}>{l.label}</Link>)}
         </nav>
         <LangSwitch label={t.langSwitch} title={t.langSwitchLabel} />
-        <a className="btn btn-dark btn-sm top-cta" href={orderHref}>{t.order}<BagIcon /></a>
+        <HeaderCta fallback={fallback} byPath={byPath} />
         <details className="top-menu">
           <summary aria-label={t.menu}><MenuIcon /></summary>
           <nav aria-label={t.menu}>

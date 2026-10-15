@@ -69,6 +69,7 @@ Les pages arabes restent hors de l'index Google tant que la traduction n'est pas
 ```bash
 npm run build && npm run start   # dans un terminal
 npm run check:budget             # échoue si une page dépasse son poids autorisé (JS, CSS, HTML, polices préchargées)
+npm run check:seo                # fiches produits : canonical, hreflang, Open Graph, JSON-LD Product, sitemap, liens, clé IndexNow
 npm run analyze                  # carte interactive de ce que contient chaque fichier JavaScript (Turbopack)
 npm run blur                     # régénère les aperçus flous après l'ajout ou le remplacement d'une photo
 ```

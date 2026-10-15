@@ -132,7 +132,6 @@ button{cursor:pointer}
 .rvw-big{background:#fff}
 .rvw-h{display:flex;align-items:center;gap:12px}
 .src{flex:none;padding:5px 10px;border-radius:999px;font-size:11.5px;font-weight:600;color:#fff}
-.src-wa{background:#1f9d55}
 .src-ig{background:linear-gradient(45deg,#f09433,#dc2743 55%,#bc1888)}
 .rvw-w{display:flex;flex-direction:column;line-height:1.25}
 .rvw-w b{font-size:15px;color:var(--bx)}

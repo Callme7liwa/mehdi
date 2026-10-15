@@ -17,7 +17,7 @@ export function GET() {
   const lines = [
     `# ${site.brand.fr}`,
     "",
-    `> ${site.brand.fr} (${site.name}) est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50) un sérum contour des yeux et un déodorant crème naturel, fabriqués au Maroc. Vente en ligne au Maroc, livraison en ${site.delivery.label.fr} (offerte pour la gamme complète), paiement à la livraison.`,
+    `> ${site.brand.fr} (${site.name}) est une marque marocaine de cosmétique naturelle. Elle vend une gamme anti-taches en 4 soins (gel nettoyant, sérum anti-taches, crème anti-taches, écran solaire SPF 50), un sérum contour des yeux et un déodorant crème, fabriqués au Maroc. Vente en ligne au Maroc, livraison en ${site.delivery.label.fr} (offerte pour la gamme complète), paiement à la livraison.`,
     "",
     `Devise : « ${site.slogan.fr} » Site en français, avec une version arabe complète sous /ar. Dernière mise à jour : ${formatDate(site.updated, "fr")}.`,
     "",
@@ -44,7 +44,7 @@ export function GET() {
     "",
     `## ${deo.name.fr} ${deo.no}`,
     "",
-    `[Page du produit](${abs(`/soins/${deo.slug}`)}). ${deo.forWho.fr} ${deo.ml.petit} ml, sans sels d'aluminium ni parfum. Ingrédients : ${ingredientList(deo)}. ${deo.when.fr} : ${deo.how.fr} Prix : ${deoPrice} DH, ou ${bundleUnit(deoPrice)} DH le pot avec l'offre 2 + 1 (${bundleTotal(deoPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
+    `[Page du produit](${abs(`/soins/${deo.slug}`)}). ${deo.forWho.fr} ${deo.ml.petit} ml, sans sels d'aluminium. Ingrédients : ${ingredientList(deo)}. ${deo.when.fr} : ${deo.how.fr} Prix : ${deoPrice} DH, ou ${bundleUnit(deoPrice)} DH le pot avec l'offre 2 + 1 (${bundleTotal(deoPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
     "",
     "## Commander, livraison et paiement",
     "",

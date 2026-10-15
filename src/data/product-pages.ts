@@ -157,11 +157,11 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
     tag: { fr: "N° 06 · Soin du corps · 50 ml", ar: "رقم 06 · العناية بالجسم · 50 مل" },
     eyebrow: { fr: "Nouveau · Fabriqué au Maroc", ar: "جديد · مصنوع في المغرب" },
     title: [{ fr: "Déodorant", ar: "مزيل العرق" }, { fr: "crème.", ar: "كريم." }],
-    lede: { fr: "Un baume fondant qui s’occupe des odeurs. Cinq ingrédients naturels, rien d’autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها." },
+    lede: { fr: "Un baume fondant qui s’occupe des odeurs. Cinq ingrédients, rien d’autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
     media: "photo",
     mediaAlt: { fr: "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume", ar: "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم" },
     perks: [
-      { icon: "leaf", label: { fr: "100 % naturel", ar: "طبيعي 100%" } },
+      { icon: "waves", label: { fr: "Ne bloque pas la transpiration", ar: "لا يمنع التعرق" } },
       { icon: "noAl", label: { fr: "Sans aluminium", ar: "بدون ألمنيوم" } },
       { icon: "noP", label: { fr: "Sans parabène", ar: "بدون بارابين" } },
       { icon: "noSulfate", label: { fr: "Sans sulfate", ar: "بدون سلفات" } },

@@ -269,16 +269,16 @@ export const products: Product[] = isolateAr([
     no: "N° 06",
     range: "corps",
     name: { fr: "Déodorant crème", ar: "مزيل العرق كريم" },
-    h1: { fr: "Déodorant crème naturel, sans sels d'aluminium", ar: "مزيل عرق كريم طبيعي، بدون أملاح الألمنيوم" },
-    metaTitle: { fr: "Déodorant crème naturel sans aluminium, fabriqué au Maroc", ar: "مزيل عرق كريم طبيعي بدون ألمنيوم، مصنوع في المغرب" },
+    h1: { fr: "Déodorant crème sans sels d'aluminium", ar: "مزيل عرق كريم بدون أملاح الألمنيوم" },
+    metaTitle: { fr: "Déodorant crème sans aluminium, fabriqué au Maroc", ar: "مزيل عرق كريم بدون ألمنيوم، مصنوع في المغرب" },
     metaDescription: {
-      fr: "Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc.",
-      ar: "مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
+      fr: "Déodorant crème OTAGE N°06 : sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc.",
+      ar: "مزيل العرق كريم من OTAGE رقم 06: بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
     },
-    lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients naturels, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها." },
+    lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
     forWho: {
-      fr: "Pour celles et ceux qui veulent un déodorant naturel, sans sels d'aluminium ni parfum, qui agit sur les odeurs sans bloquer la transpiration.",
-      ar: "لمن يبحث عن مزيل عرق طبيعي، بدون أملاح الألمنيوم ولا عطر، يعمل على الروائح دون أن يمنع التعرق.",
+      fr: "Pour celles et ceux qui veulent un déodorant sans sels d'aluminium, qui agit sur les odeurs sans bloquer la transpiration.",
+      ar: "لمن يبحث عن مزيل عرق بدون أملاح الألمنيوم، يعمل على الروائح دون أن يمنع التعرق.",
     },
     ingredients: [
       { fr: "Oxyde de zinc", ar: "أكسيد الزنك" },

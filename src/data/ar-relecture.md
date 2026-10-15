@@ -103,7 +103,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | J'ai des cernes | عندي هالات سوداء |
 | Cernes, contour des yeux fatigué | هالات سوداء، محيط عين متعب |
 | Des odeurs sous les bras | روائح تحت الإبط |
-| Déodorant crème, 100 % naturel | مزيل عرق كريم، طبيعي 100% |
+| Déodorant crème, sans aluminium | مزيل عرق كريم، بدون ألمنيوم |
 | Nouveau · 85 DH | جديد · 85 درهم |
 | Sérum contour des yeux N°05 tenu près du visage | سيروم محيط العين رقم 05 قرب الوجه |
 | L'offre à ne pas rater. | عرض لا يُفوَّت. |
@@ -291,7 +291,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Ajouter Sérum contour des yeux | أضيفي سيروم محيط العين |
 | 50 ml | 50 مل |
 | Déodorant crème | مزيل العرق كريم |
-| 100 % naturel | طبيعي 100% |
+| Sans sels d'aluminium | بدون أملاح الألمنيوم |
 | Format unique 50 ml | حجم واحد 50 مل |
 | 85DH | 85درهم |
 | Ajouter Déodorant crème | أضيفي مزيل العرق كريم |
@@ -321,7 +321,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Nouveau | جديد |
 | Pour les odeurs | للروائح |
 | Notre déodorant crème est là. | مزيل العرق كريم وصل. |
-| Une formule 100 % naturelle : oxyde de zinc, huile de jojoba, huile de coco, cire d'abeille et vitamine E. 85 DH. | تركيبة طبيعية 100%: أكسيد الزنك، زيت الجوجوبا، زيت جوز الهند، شمع العسل وفيتامين E. 85 درهم. |
+| Cinq ingrédients : oxyde de zinc, huile de jojoba, huile de coco, cire d'abeille et vitamine E. 85 DH. | خمسة مكونات: أكسيد الزنك، زيت الجوجوبا، زيت جوز الهند، شمع العسل وفيتامين E. 85 درهم. |
 | Commander le déodorant · 85 DH | اطلبي مزيل العرق · 85 درهم |
 | On l'affiche partout. | نعرضها في كل مكان. |
 | Fais défiler le mur. Touche une affiche pour découvrir le soin. | مرّري على الجدار. اضغطي على ملصق لاكتشاف المنتج. |
@@ -482,20 +482,20 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Accueil | الرئيسية |
 | Fil d'Ariane | مسار التصفح |
 | Les soins OTAGE | منتجات OTAGE |
-| Une routine anti-taches en 4 soins, un sérum contour des yeux et un déodorant crème naturel. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | روتين ضد البقع من 4 منتجات، سيروم لمحيط العين ومزيل عرق كريم طبيعي. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
+| Une routine anti-taches en 4 soins, un sérum contour des yeux et un déodorant crème. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | روتين ضد البقع من 4 منتجات، سيروم لمحيط العين ومزيل عرق كريم. مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
 | Gel nettoyant anti-taches OTAGE N°01 | جل منظف ضد البقع OTAGE رقم 01 |
 | Sérum anti-taches OTAGE N°02 | سيروم ضد البقع OTAGE رقم 02 |
 | Crème anti-taches OTAGE N°03 | كريم ضد البقع OTAGE رقم 03 |
 | Écran solaire SPF 50 OTAGE N°04 | واقي الشمس SPF 50 من OTAGE رقم 04 |
 | Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir. | بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً. |
 | Déodorant crème OTAGE N°06, pot de 50 ml | مزيل العرق كريم OTAGE رقم 06، علبة 50 مل |
-| Un baume fondant qui s'occupe des odeurs. Cinq ingrédients naturels, rien d'autre. | بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها. |
+| Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre. | بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها. |
 | Gamme anti-taches | مجموعة العناية ضد البقع |
 | La gamme anti-taches complète dès 299 DH, ou 199 DH la gamme avec l'offre 2 + 1. | المجموعة الكاملة ضد البقع ابتداءً من 299 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. |
 | Tous les soins | كل المنتجات |
 | Instagram @otage.1 | إنستغرام @otage.1 |
 | WhatsApp +212 6 88 91 82 01 | واتساب +212 6 88 91 82 01 |
-| Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), sérum contour des yeux et déodorant crème naturel, fabriqués au Maroc. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville à l'unité. Paiement à la livraison, en espèces. | علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50)، سيروم محيط العين ومزيل عرق كريم طبيعي، مصنوعة في المغرب. التوصيل في كل أنحاء المغرب خلال 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة للمنتجات المنفردة. الدفع عند الاستلام، نقدًا. |
+| Marque marocaine de cosmétique naturelle : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), sérum contour des yeux et déodorant crème, fabriqués au Maroc. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville à l'unité. Paiement à la livraison, en espèces. | علامة مغربية لمستحضرات التجميل الطبيعية: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي شمس SPF 50)، سيروم محيط العين ومزيل عرق كريم، مصنوعة في المغرب. التوصيل في كل أنحاء المغرب خلال 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة للمنتجات المنفردة. الدفع عند الاستلام، نقدًا. |
 | © 2026 OTAGE Cosmétiques. Des soins honnêtes, fabriqués au Maroc. Mis à jour le 11 octobre 2026. | © 2026 أوتاج للعناية بالبشرة. عناية صادقة، مصنوعة في المغرب. آخر تحديث 11 أكتوبر 2026. |
 
 ## Fiche produit : gel-nettoyant
@@ -538,12 +538,15 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Une base lavante douce, sans sulfates agressifs. | قاعدة غسل لطيفة، بدون سلفات قاسية. |
 | La peau est propre, sans être décapée : elle est prête pour le sérum. | البشرة نظيفة دون أن تتجرد: جاهزة للسيروم. |
 | Avis | آراء |
+| Précédent | السابق |
+| Suivant | التالي |
 | Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
 | Instagram | إنستغرام |
 | NabilaMessage Instagram · 17 septembre | نبيلةرسالة إنستغرام · 17 شتنبر |
-| « Tbarkllah elik » : bravo à vous. « Khatir jidan jidan » : vraiment excellent. | مرحبًا دكتور. أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. الجل المنظف ممتاز جدًا جدًا. يقوم بعمله جيدًا. |
 | Chaque peau est différente : ce message raconte l’expérience d’une cliente, pas une promesse de résultat. | كل بشرة مختلفة: هذه الرسالة تحكي تجربة زبونة، وليست وعدًا بنتيجة. |
 | Voir la capture d’origine | رؤية اللقطة الأصلية |
+| AwatefMessage Instagram · 5 septembre | عواطفرسالة إنستغرام · 5 شتنبر |
+| Avis sur la routine complète | رأي في الروتين الكامل |
 | Je veux essayer · | أريد التجربة · |
 | ii.Questions fréquentes | ب.أسئلة شائعة |
 | Tu te poses la question ? | تتساءلين عن شيء؟ |
@@ -563,8 +566,6 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | iii.Nos autres soins | ج.منتجاتنا الأخرى |
 | Le reste de la maison. | باقي منتجاتنا. |
 | Ajoute-les au même ticket : une seule livraison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
-| Précédent | السابق |
-| Suivant | التالي |
 | Nos autres soins, défile horizontalement | منتجاتنا الأخرى، تمرير أفقي |
 | Voir la fiche : Sérum anti-taches | صفحة المنتج : سيروم ضد البقع |
 | 163 DH | 163 درهم |
@@ -820,15 +821,16 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 
 | Français | العربية |
 |---|---|
-| **Titre de l'onglet (title)** Déodorant crème naturel sans aluminium, fabriqué au Maroc \| OTAGE | مزيل عرق كريم طبيعي بدون ألمنيوم، مصنوع في المغرب \| OTAGE |
-| **Description (Google)** Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc. | مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب. |
+| **Titre de l'onglet (title)** Déodorant crème sans aluminium, fabriqué au Maroc \| OTAGE | مزيل عرق كريم بدون ألمنيوم، مصنوع في المغرب \| OTAGE |
+| **Description (Google)** Déodorant crème OTAGE N°06 : sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc. | مزيل العرق كريم من OTAGE رقم 06: بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب. |
 | Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume | علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم |
 | N° 06 · Soin du corps · 50 ml | رقم 06 · العناية بالجسم · 50 مل |
 | Commander, à partir de 85 DH | اطلبي، ابتداءً من 85 درهم |
 | Nouveau · Fabriqué au Maroc | جديد · مصنوع في المغرب |
 | Déodorant | مزيل العرق |
 | crème. | كريم. |
-| Un baume fondant qui s’occupe des odeurs. Cinq ingrédients naturels, rien d’autre. | بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها. |
+| Un baume fondant qui s’occupe des odeurs. Cinq ingrédients, rien d’autre. | بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها. |
+| Ne bloque pas la transpiration | لا يمنع التعرق |
 | Sans aluminium | بدون ألمنيوم |
 | Sans parabène | بدون بارابين |
 | 85 DH seulement | 85 درهم فقط |
@@ -1179,7 +1181,14 @@ Français : `/cgv` · Arabe : `/ar/cgv` · Source de l'arabe : src/app/(ar)/ar/c
 | 1. Objet | 1. الموضوع |
 | Les présentes conditions régissent les ventes de produits cosmétiques OTAGE conclues sur le site otage.ma ou par WhatsApp, entre OTAGE et ses clientes et clients au Maroc. | تنظم هذه الشروط بيع مستحضرات التجميل OTAGE عبر موقع otage.ma أو عبر واتساب، بين OTAGE وزبوناته وزبنائه في المغرب. |
 | 2. Produits | 2. المنتجات |
-| Les produits proposés sont ceux présentés sur le site au jour de la commande : la gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), en Petit ou Grand format, et le sérum contour des yeux. Les photos ne sont pas contractuelles. | المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: مجموعة العناية ضد البقع (جل منظف، سيروم، كريم، واقي الشمس SPF 50)، بالحجم الصغير أو الكبير، وسيروم محيط العين. الصور غير تعاقدية. |
+| Les produits proposés sont ceux présentés sur le site au jour de la commande : | المنتجات المعروضة هي تلك المقدمة على الموقع يوم الطلب: |
+| Gel nettoyant anti-taches (125 ml ou 200 ml) | جل منظف ضد البقع (125 مل أو 200 مل) |
+| Sérum anti-taches (15 ml ou 30 ml) | سيروم ضد البقع (15 مل أو 30 مل) |
+| Crème anti-taches (30 ml ou 50 ml) | كريم ضد البقع (30 مل أو 50 مل) |
+| Écran solaire SPF 50 (30 ml ou 50 ml) | واقي الشمس SPF 50 (30 مل أو 50 مل) |
+| Sérum contour des yeux (15 ml) | سيروم محيط العين (15 مل) |
+| Déodorant crème (50 ml) | مزيل العرق كريم (50 مل) |
+| Les 4 soins de la gamme anti-taches sont aussi vendus ensemble, en Petit ou Grand format. Les photos ne sont pas contractuelles. | تُباع منتجات مجموعة العناية ضد البقع (4 منتجات) أيضًا معًا، بالحجم الصغير أو الكبير. الصور غير تعاقدية. |
 | 3. Prix | 3. الأسعار |
 | Les prix sont indiqués en dirhams marocains (DH). | الأسعار مبينة بالدرهم المغربي. |
 | Gamme anti-taches Petit format : 299 DH. Grand format : 599 DH. | مجموعة العناية ضد البقع بالحجم الصغير: 299 درهم. بالحجم الكبير: 599 درهم. |
@@ -1389,4 +1398,4 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 
 ---
 
-1194 textes à relire.
+1203 textes à relire.

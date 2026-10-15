@@ -506,1105 +506,57 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 |---|---|
 | **Titre de l'onglet (title)** Gel nettoyant anti-taches sans sulfate, au Maroc \| OTAGE | جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب \| OTAGE |
 | **Description (Google)** Gel nettoyant anti-taches OTAGE N°01 : figue de Barbarie, louban, sans sulfate. Nettoie en douceur sans dessécher. Fabriqué au Maroc, paiement à la livraison. | جل منظف ضد البقع من OTAGE رقم 01: التين الشوكي، اللبان، بدون سلفات. ينظف بلطف دون تجفيف البشرة. مصنوع في المغرب، الدفع عند الاستلام. |
-| _(structure différente : 253 blocs / 252 blocs, alignement approximatif)_ | |
-| Aller au contenu | الانتقال إلى المحتوى |
-| OTAGE, accueil | OTAGE، الصفحة الرئيسية |
-| otage | otage |
 | Sur cette page | في هذه الصفحة |
 | Ingrédients | المكونات |
-| Avis | الآراء |
 | Nos soins | منتجاتنا |
 | Le flacon de gel nettoyant anti-taches OTAGE, 200 ml | عبوة الجل المنظف ضد البقع من OTAGE، 200 مل |
 | N° 01 · Routine anti-taches | رقم 01 · روتين ضد البقع |
 | Commander, à partir de 91 DH | اطلبي، ابتداءً من 91 درهم |
-| 91DH | 91درهم |
 | N° 01 sur 04 · Routine anti-taches | رقم 01 من 04 · روتين ضد البقع |
 | Gel | جل |
 | nettoyant. | منظف. |
 | Nettoie en douceur, sans dessécher, et prépare la peau à recevoir les soins anti-taches. | ينظف بلطف، دون تجفيف، ويهيئ البشرة لاستقبال العناية ضد البقع. |
-| Sans sulfate | بدون سلفات |
-| Figue de Barbarie | التين الشوكي |
-| Louban | اللبان |
 | Ne dessèche pas | لا يجفف البشرة |
 | Dès 91 DH | ابتداءً من 91 درهم |
-| Choisis ton format | اختاري الحجم |
 | Petit format125 ml · pour essayer | الحجم الصغير125 مل · للتجربة |
 | 91 DH | 91 درهم |
 | +75 ml pour 49 DH de plus | +75 مل مقابل 49 درهم إضافية |
 | Grand format200 ml · le meilleur prix au ml | الحجم الكبير200 مل · أفضل ثمن للمل |
 | 140 DH | 140 درهم |
 | Commander · | اطلبي · |
-| 91 | 91 |
-| DH | درهم |
 | Paiement à la réception | الدفع عند الاستلام |
 | Livraison 35 à 45 DH | التوصيل من 35 إلى 45 درهم |
 | 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
 | i.L’étiquette, sans filtre | أ.الملصق، بدون فلتر |
 | Trois mots sur l’étiquette. Tout est dit. | ثلاث كلمات على الملصق. وكل شيء قيل. |
 | L’étiquette du gel : figue de Barbarie, louban, sans sulfate, 200 ml | ملصق الجل: التين الشوكي، اللبان، بدون سلفات، 200 مل |
-| 01 | 01 |
-| Figue de Barbarie | التين الشوكي |
 | sur l’étiquette | على الملصق |
 | Un actif marocain, connu pour adoucir et hydrater la peau. | مكوّن مغربي معروف بتنعيم البشرة وترطيبها. |
 | La peau reste douce après le rinçage, sans tiraillement. | تبقى البشرة ناعمة بعد الشطف، دون شدّ. |
-| 02 | 02 |
-| Louban | اللبان |
-| sur l’étiquette | على الملصق |
 | Une résine traditionnelle, utilisée depuis longtemps pour purifier la peau. | راتنج تقليدي يُستعمل منذ زمن طويل لتنقية البشرة. |
 | Il aide à nettoyer en profondeur, en douceur. | يساعد على التنظيف العميق، بلطف. |
-| 03 | 03 |
-| Sans sulfate | بدون سلفات |
-| sur l’étiquette | على الملصق |
 | Une base lavante douce, sans sulfates agressifs. | قاعدة غسل لطيفة، بدون سلفات قاسية. |
 | La peau est propre, sans être décapée : elle est prête pour le sérum. | البشرة نظيفة دون أن تتجرد: جاهزة للسيروم. |
 | Avis | آراء |
-| 2 | 2 |
-| Précédent | السابق |
-| Suivant | التالي |
 | Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
-| WhatsApp | WhatsApp |
-| Nabila B.WhatsApp · 17 sept. · a utilisé la gamme | نبيلة ب.واتساب · 17 شتنبر · استعملت المجموعة |
-| « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. Le gel nettoyant khatir jidan jidan. Il fait bien son travail. » | « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. Le gel nettoyant khatir jidan jidan. Il fait bien son travail. » |
-| « Le gel nettoyant est vraiment, vraiment top. Il fait bien son travail. » | أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. الجل المنظف ممتاز جدًا جدًا. يقوم بعمله جيدًا. |
-| WhatsApp | WhatsApp |
-| Awatef A.WhatsApp · 5 sept. · routine complète | عواطف أ.واتساب · 5 شتنبر · الروتين الكامل |
-| « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » | « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » |
-| Docteur, l’éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci beaucoup. | نتيجة مع الروتين الكامل. النتائج فردية وتختلف من بشرة إلى أخرى. |
-| Résultat avec la routine complète. Résultats individuels, variables d’une peau à l’autre. | أريد التجربة · |
-| Je veux essayer · | 91 |
-| 91 | درهم |
-| DH | ب.أسئلة شائعة |
-| ii.Questions fréquentes | تتساءلين عن شيء؟ |
-| Tu te poses la question ? | كيف أستعمل جل منظف ضد البقع؟+ |
-| Comment utiliser le gel nettoyant anti-taches ?+ | صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
-| Matin et soir, sur peau humide. Masse 30 secondes, puis rince. | هو الخطوة 1 في روتين العناية ضد البقع (صباحًا ومساءً). |
-| C'est l'étape 1 de la routine anti-taches (matin et soir). | ماذا يحتوي جل منظف ضد البقع؟+ |
-| Que contient le gel nettoyant anti-taches ?+ | التين الشوكي، اللبان، بدون سلفات. |
-| Figue de Barbarie, Louban, Sans sulfate. | ما الحجم وما الثمن؟+ |
-| Quelle contenance et quel prix ?+ | 125 مل في الحجم الصغير، 200 مل في الحجم الكبير. الثمن منفردًا: 91 درهم في الحجم الصغير، 140 درهم في الحجم الكبير. |
-| 125 ml en Petit format, 200 ml en Grand format. À l'unité : 91 DH en Petit format, 140 DH en Grand format. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
-| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | هل يجفف الجل المنظف البشرة؟+ |
-| Le gel nettoyant dessèche-t-il la peau ?+ | لا: ينظف بلطف دون تجفيف. تركيبته خالية من السلفات وتحتوي على التين الشوكي واللبان. |
-| Non : il nettoie en douceur sans dessécher. Il est formulé sans sulfate, avec de la figue de Barbarie et du louban. | بشرتي حساسة+ |
-| J'ai la peau sensible+ | جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة. |
-| Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. | في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. |
-| En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
-| Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا. |
-| Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr. | كم يستغرق التوصيل؟+ |
-| Je suis livrée en combien de temps ?+ | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
-| Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | ج.منتجاتنا الأخرى |
-| iii.Nos autres soins | باقي منتجاتنا. |
-| Le reste de la maison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
-| Ajoute-les au même ticket : une seule livraison. | السابق |
-| Précédent | التالي |
-| Suivant | منتجاتنا الأخرى، تمرير أفقي |
-| Nos autres soins, défile horizontalement | صفحة المنتج : سيروم ضد البقع |
-| Voir la fiche : Sérum anti-taches | N° 02 |
-| N° 02 | سيروم ضد البقع |
-| Sérum anti-taches | سيروم ضد البقع |
-| Sérum anti-taches | 163 درهم |
-| 163 DH | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : كريم ضد البقع |
-| Voir la fiche : Crème anti-taches | N° 03 |
-| N° 03 | كريم ضد البقع |
-| Crème anti-taches | كريم ضد البقع |
-| Crème anti-taches | 130 درهم |
-| 130 DH | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : واقي الشمس SPF 50 |
-| Voir la fiche : Écran solaire SPF 50 | N° 04 |
-| N° 04 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | 112 درهم |
-| 112 DH | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم محيط العين |
-| Voir la fiche : Sérum contour des yeux | N° 05 |
-| N° 05 | سيروم محيط العين |
-| Sérum contour des yeux | سيروم محيط العين |
-| Sérum contour des yeux | 185 درهم |
-| 185 DH | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | صفحة المنتج : مزيل العرق كريم |
-| Voir la fiche : Déodorant crème | N° 06 |
-| N° 06 | مزيل العرق كريم |
-| Déodorant crème | مزيل العرق كريم |
-| Déodorant crème | 85 درهم |
-| 85 DH | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | otage |
-| otage | عناية صادقة، مصنوعة في المغرب. |
-| Des soins honnêtes, fabriqués au Maroc. | OTAGE |
-| OTAGE | الإرجاع خلال 7 أيام |
-| Retours sous 7 jours | كل المنتجات |
-| Tous les soins | شروط البيع |
-| CGV | WhatsApp |
-| WhatsApp | طلبك |
-| Ta commande | 91 |
-| 91 | درهمالدفع عند الاستلام |
-| DHPayé à la livraison | اطلبي |
-| Commander | otage |
-| otage | تذكرة N° ···· |
-| Ticket N° ···· | إغلاق الطلب |
-| Fermer le ticket | طلبك |
-| Ta commande | 1 منتج |
-| 1 article | جل منظف ضد البقع125 مل · 91 درهم |
-| Gel nettoyant anti-taches125 ml · 91 DH | كمية جل منظف ضد البقع |
-| Quantité de Gel nettoyant anti-taches | تقليل جل منظف ضد البقع |
-| Moins de Gel nettoyant anti-taches | − |
-| − | 1 |
-| 1 | زيادة جل منظف ضد البقع |
-| Plus de Gel nettoyant anti-taches | + |
-| + | 91 |
-| 91 | انتقلي إلى الحجم الكبير: +75 مل مقابل 49 درهم إضافية. |
-| Passe au grand format : +75 ml pour 49 DH de plus. | الحجم الكبير |
-| Grand format | أضيفي إلى طلبك |
-| Ajoute à ta commande | بلمسة واحدة |
-| en 1 tap | سيروم ضد البقع |
-| Sérum anti-taches | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | كريم ضد البقع |
-| Crème anti-taches | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | سيروم محيط العين |
-| Sérum contour des yeux | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | مزيل العرق كريم |
-| Déodorant crème | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | المجموع الفرعي |
-| Sous-total | 91 |
-| 91 | درهم |
-| DH | التوصيل |
-| Livraison | من 35 إلى 45 درهم |
-| 35 à 45 DH | الدفع |
-| Paiement | عند الاستلام |
-| à la réception | مجموع المنتجات |
-| Total produits | 91 |
-| 91 | درهم |
-| DH | نوصل إليك |
-| On te livre | 3 خانات، هذا كل شيء |
-| 3 cases, c’est tout | اسمك |
-| Ton nom | سلمى بناني |
-| Salma Bennani | هاتفك نتصل بك للتأكيد |
-| Ton téléphone on t’appelle pour confirmer | 06 12 34 56 78 |
-| 06 12 34 56 78 | مدينتك |
-| Ta ville | فاس |
-| Fès | مدن سريعة |
-| Villes rapides | الدار البيضاء |
-| Casablanca | الرباط |
-| Rabat | فاس |
-| Fès | مراكش |
-| Marrakech | طنجة |
-| Tanger | أكادير |
-| Agadir | مكناس |
-| Meknès | وجدة |
-| Oujda | تأكيد · |
-| Valider · | 91 |
-| 91 | درهم |
-| DH | اطلبي عبر واتساب |
-| Commander sur WhatsApp | WhatsApp |
-| WhatsApp | لا دفع عبر الإنترنت |
-| Rien à payer en ligne | 7 أيام لتغيير رأيك |
-| 7 jours pour changer d’avis | بالتأكيد، توافقين على |
-| En validant, tu acceptes nos | شروط البيع |
-| CGV | و |
-| et notre | سياسة الإرجاع |
-| politique de retour | . |
-| . |  |
-
-## Fiche produit : serum-anti-taches
-
-Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
-
-| Français | العربية |
-|---|---|
-| **Titre de l'onglet (title)** Sérum anti-taches Maroc à l'alpha-arbutine \| OTAGE | سيروم ضد البقع بالألفا أربوتين في المغرب \| OTAGE |
-| **Description (Google)** Sérum anti-taches OTAGE N°02 : alpha-arbutine, matcha, calendula. Le soin concentré qui cible les taches pigmentaires. Fabriqué au Maroc, payé à la livraison. | سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام. |
-| _(structure différente : 253 blocs / 252 blocs, alignement approximatif)_ | |
-| Aller au contenu | الانتقال إلى المحتوى |
-| OTAGE, accueil | OTAGE، الصفحة الرئيسية |
-| otage | otage |
-| Sur cette page | في هذه الصفحة |
-| Ingrédients | المكونات |
-| Avis | الآراء |
-| Nos soins | منتجاتنا |
-| Le flacon compte-gouttes du sérum anti-taches OTAGE, 30 ml | عبوة السيروم ضد البقع من OTAGE بقطارة، 30 مل |
-| N° 02 · Routine anti-taches | رقم 02 · روتين ضد البقع |
-| Commander, à partir de 163 DH | اطلبي، ابتداءً من 163 درهم |
-| 163DH | 163درهم |
-| N° 02 sur 04 · Le soin concentré | رقم 02 من 04 · العناية المركزة |
-| Sérum | سيروم |
-| anti-taches. | ضد البقع. |
-| Le soin concentré de la routine : il cible les taches brunes et unifie le teint, goutte après goutte. | العناية المركزة في الروتين: يستهدف البقع البنية ويوحد لون البشرة، قطرة بعد قطرة. |
-| Cible les taches | يستهدف البقع |
-| Matcha | ماتشا |
-| Calendula | آذريون |
-| Alpha-arbutine | ألفا أربوتين |
-| Dès 163 DH | ابتداءً من 163 درهم |
-| Choisis ton format | اختاري الحجم |
-| Petit format15 ml · pour essayer | الحجم الصغير15 مل · للتجربة |
-| 163 DH | 163 درهم |
-| 2× plus de sérum pour 102 DH de plus | ضعف كمية السيروم مقابل 102 درهم إضافية |
-| Grand format30 ml · le meilleur prix au ml | الحجم الكبير30 مل · أفضل ثمن للمل |
-| 265 DH | 265 درهم |
-| Commander · | اطلبي · |
-| 163 | 163 |
-| DH | درهم |
-| Paiement à la réception | الدفع عند الاستلام |
-| Livraison 35 à 45 DH | التوصيل من 35 إلى 45 درهم |
-| 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
-| i.L’étiquette, sans filtre | أ.الملصق، بدون فلتر |
-| Trois actifs. Une seule mission. | ثلاثة مكونات فعالة. مهمة واحدة. |
-| L’étiquette du sérum : matcha, calendula, alpha-arbutine, 30 ml | ملصق السيروم: ماتشا، آذريون، ألفا أربوتين، 30 مل |
-| 01 | 01 |
-| Matcha | ماتشا |
-| sur l’étiquette | على الملصق |
-| Un thé vert riche en antioxydants, qui protège la peau des agressions du quotidien. | شاي أخضر غني بمضادات الأكسدة، يحمي البشرة من الاعتداءات اليومية. |
-| Il aide le teint à retrouver de l’éclat. | يساعد البشرة على استعادة إشراقها. |
-| 02 | 02 |
-| Calendula | آذريون (كاليندولا) |
-| sur l’étiquette | على الملصق |
-| Une fleur connue pour apaiser les peaux sensibles. | زهرة معروفة بتهدئة البشرة الحساسة. |
-| Le sérum reste doux, même appliqué matin et soir. | يبقى السيروم لطيفًا، حتى عند وضعه صباحًا ومساءً. |
-| 03 | 03 |
-| Alpha-arbutine | ألفا أربوتين |
-| sur l’étiquette | على الملصق |
-| L’actif qui cible les taches brunes en limitant la production de mélanine. | المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين. |
-| C’est lui qui travaille sur les taches, jour après jour. | هو الذي يعمل على البقع، يومًا بعد يوم. |
-| Avis | آراء |
-| 2 | 2 |
-| Précédent | السابق |
-| Suivant | التالي |
-| Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
-| WhatsApp | WhatsApp |
-| Awatef A.WhatsApp · 5 sept. · routine complète | عواطف أ.واتساب · 5 شتنبر · الروتين الكامل |
-| « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » | « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » |
-| Docteur, l’éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci beaucoup. | نتيجة مع الروتين الكامل. النتائج فردية وتختلف من بشرة إلى أخرى. |
-| Résultat avec la routine complète. Résultats individuels, variables d’une peau à l’autre. | WhatsApp |
-| WhatsApp | نبيلة ب.واتساب · 17 شتنبر · استعملت المجموعة |
-| Nabila B.WhatsApp · 17 sept. · a utilisé la gamme | « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » |
-| « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » | أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. (رأي في الروتين الكامل، ومنه السيروم.) |
-| Avis sur la routine complète, dont le sérum. | أريد التجربة · |
-| Je veux essayer · | 163 |
-| 163 | درهم |
-| DH | ب.أسئلة شائعة |
-| ii.Questions fréquentes | تتساءلين عن شيء؟ |
-| Tu te poses la question ? | كيف أستعمل سيروم ضد البقع؟+ |
-| Comment utiliser le sérum anti-taches ?+ | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
-| 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | هو الخطوة 2 في روتين العناية ضد البقع (صباحًا ومساءً). |
-| C'est l'étape 2 de la routine anti-taches (matin et soir). | ماذا يحتوي سيروم ضد البقع؟+ |
-| Que contient le sérum anti-taches ?+ | ماتشا، آذريون (كاليندولا)، ألفا أربوتين. |
-| Matcha, Calendula, Alpha-arbutine. | ما الحجم وما الثمن؟+ |
-| Quelle contenance et quel prix ?+ | 15 مل في الحجم الصغير، 30 مل في الحجم الكبير. الثمن منفردًا: 163 درهم في الحجم الصغير، 265 درهم في الحجم الكبير. |
-| 15 ml en Petit format, 30 ml en Grand format. À l'unité : 163 DH en Petit format, 265 DH en Grand format. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
-| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | متى تظهر النتائج؟+ |
-| Au bout de combien de temps voit-on des résultats ?+ | بصراحة: البقع تخف تدريجيًا، وليس بين ليلة وضحاها. المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. الوتيرة تختلف من بشرة إلى أخرى. |
-| Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain. Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Le rythme varie d'une peau à l'autre. | بشرتي حساسة+ |
-| J'ai la peau sensible+ | جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة. |
-| Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. | في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. |
-| En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
-| Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا. |
-| Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr. | كم يستغرق التوصيل؟+ |
-| Je suis livrée en combien de temps ?+ | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
-| Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | ج.منتجاتنا الأخرى |
-| iii.Nos autres soins | باقي منتجاتنا. |
-| Le reste de la maison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
-| Ajoute-les au même ticket : une seule livraison. | السابق |
-| Précédent | التالي |
-| Suivant | منتجاتنا الأخرى، تمرير أفقي |
-| Nos autres soins, défile horizontalement | صفحة المنتج : جل منظف ضد البقع |
-| Voir la fiche : Gel nettoyant anti-taches | N° 01 |
-| N° 01 | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | 91 درهم |
-| 91 DH | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : كريم ضد البقع |
-| Voir la fiche : Crème anti-taches | N° 03 |
-| N° 03 | كريم ضد البقع |
-| Crème anti-taches | كريم ضد البقع |
-| Crème anti-taches | 130 درهم |
-| 130 DH | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : واقي الشمس SPF 50 |
-| Voir la fiche : Écran solaire SPF 50 | N° 04 |
-| N° 04 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | 112 درهم |
-| 112 DH | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم محيط العين |
-| Voir la fiche : Sérum contour des yeux | N° 05 |
-| N° 05 | سيروم محيط العين |
-| Sérum contour des yeux | سيروم محيط العين |
-| Sérum contour des yeux | 185 درهم |
-| 185 DH | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | صفحة المنتج : مزيل العرق كريم |
-| Voir la fiche : Déodorant crème | N° 06 |
-| N° 06 | مزيل العرق كريم |
-| Déodorant crème | مزيل العرق كريم |
-| Déodorant crème | 85 درهم |
-| 85 DH | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | otage |
-| otage | عناية صادقة، مصنوعة في المغرب. |
-| Des soins honnêtes, fabriqués au Maroc. | OTAGE |
-| OTAGE | الإرجاع خلال 7 أيام |
-| Retours sous 7 jours | كل المنتجات |
-| Tous les soins | شروط البيع |
-| CGV | WhatsApp |
-| WhatsApp | طلبك |
-| Ta commande | 163 |
-| 163 | درهمالدفع عند الاستلام |
-| DHPayé à la livraison | اطلبي |
-| Commander | otage |
-| otage | تذكرة N° ···· |
-| Ticket N° ···· | إغلاق الطلب |
-| Fermer le ticket | طلبك |
-| Ta commande | 1 منتج |
-| 1 article | سيروم ضد البقع15 مل · 163 درهم |
-| Sérum anti-taches15 ml · 163 DH | كمية سيروم ضد البقع |
-| Quantité de Sérum anti-taches | تقليل سيروم ضد البقع |
-| Moins de Sérum anti-taches | − |
-| − | 1 |
-| 1 | زيادة سيروم ضد البقع |
-| Plus de Sérum anti-taches | + |
-| + | 163 |
-| 163 | انتقلي إلى الحجم الكبير: ضعف كمية السيروم مقابل 102 درهم إضافية. |
-| Passe au grand format : 2× plus de sérum pour 102 DH de plus. | الحجم الكبير |
-| Grand format | أضيفي إلى طلبك |
-| Ajoute à ta commande | بلمسة واحدة |
-| en 1 tap | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | كريم ضد البقع |
-| Crème anti-taches | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | سيروم محيط العين |
-| Sérum contour des yeux | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | مزيل العرق كريم |
-| Déodorant crème | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | المجموع الفرعي |
-| Sous-total | 163 |
-| 163 | درهم |
-| DH | التوصيل |
-| Livraison | من 35 إلى 45 درهم |
-| 35 à 45 DH | الدفع |
-| Paiement | عند الاستلام |
-| à la réception | مجموع المنتجات |
-| Total produits | 163 |
-| 163 | درهم |
-| DH | نوصل إليك |
-| On te livre | 3 خانات، هذا كل شيء |
-| 3 cases, c’est tout | اسمك |
-| Ton nom | سلمى بناني |
-| Salma Bennani | هاتفك نتصل بك للتأكيد |
-| Ton téléphone on t’appelle pour confirmer | 06 12 34 56 78 |
-| 06 12 34 56 78 | مدينتك |
-| Ta ville | فاس |
-| Fès | مدن سريعة |
-| Villes rapides | الدار البيضاء |
-| Casablanca | الرباط |
-| Rabat | فاس |
-| Fès | مراكش |
-| Marrakech | طنجة |
-| Tanger | أكادير |
-| Agadir | مكناس |
-| Meknès | وجدة |
-| Oujda | تأكيد · |
-| Valider · | 163 |
-| 163 | درهم |
-| DH | اطلبي عبر واتساب |
-| Commander sur WhatsApp | WhatsApp |
-| WhatsApp | لا دفع عبر الإنترنت |
-| Rien à payer en ligne | 7 أيام لتغيير رأيك |
-| 7 jours pour changer d’avis | بالتأكيد، توافقين على |
-| En validant, tu acceptes nos | شروط البيع |
-| CGV | و |
-| et notre | سياسة الإرجاع |
-| politique de retour | . |
-| . |  |
-
-## Fiche produit : creme-anti-taches
-
-Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
-
-| Français | العربية |
-|---|---|
-| **Titre de l'onglet (title)** Crème anti-taches Maroc à la niacinamide \| OTAGE | كريم ضد البقع بالنياسيناميد في المغرب \| OTAGE |
-| **Description (Google)** Crème anti-taches OTAGE N°03 : niacinamide, acide hyaluronique, AHA. Hydrate, unifie le teint et scelle le sérum. Fabriquée au Maroc, paiement à la livraison. | كريم ضد البقع من OTAGE رقم 03: نياسيناميد، حمض الهيالورونيك، AHA. يرطب، يوحد لون البشرة ويثبت السيروم. مصنوع في المغرب، الدفع عند الاستلام. |
-| _(structure différente : 253 blocs / 252 blocs, alignement approximatif)_ | |
-| Aller au contenu | الانتقال إلى المحتوى |
-| OTAGE, accueil | OTAGE، الصفحة الرئيسية |
-| otage | otage |
-| Sur cette page | في هذه الصفحة |
-| Ingrédients | المكونات |
-| Avis | الآراء |
-| Nos soins | منتجاتنا |
-| Le flacon pompe de la crème anti-taches OTAGE, 50 ml | عبوة الكريم ضد البقع من OTAGE بمضخة، 50 مل |
-| N° 03 · Routine anti-taches | رقم 03 · روتين ضد البقع |
-| Commander, à partir de 130 DH | اطلبي، ابتداءً من 130 درهم |
-| 130DH | 130درهم |
-| N° 03 sur 04 · Hydrate et unifie | رقم 03 من 04 · يرطب ويوحد |
-| Crème | كريم |
-| anti-taches. | ضد البقع. |
-| Elle hydrate, unifie le teint et scelle le sérum : la dernière étape avant l’écran solaire. | يرطب، يوحد لون البشرة ويثبت السيروم: آخر خطوة قبل واقي الشمس. |
-| Hydrate | يرطب |
-| Unifie le teint | يوحد لون البشرة |
-| Niacinamide | نياسيناميد |
-| Acide hyaluronique | حمض الهيالورونيك |
-| Dès 130 DH | ابتداءً من 130 درهم |
-| Choisis ton format | اختاري الحجم |
-| Petit format30 ml · pour essayer | الحجم الصغير30 مل · للتجربة |
-| 130 DH | 130 درهم |
-| +20 ml pour 75 DH de plus | +20 مل مقابل 75 درهم إضافية |
-| Grand format50 ml · le meilleur prix au ml | الحجم الكبير50 مل · أفضل ثمن للمل |
-| 205 DH | 205 درهم |
-| Commander · | اطلبي · |
-| 130 | 130 |
-| DH | درهم |
-| Paiement à la réception | الدفع عند الاستلام |
-| Livraison 35 à 45 DH | التوصيل من 35 إلى 45 درهم |
-| 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
-| i.L’étiquette, sans filtre | أ.الملصق، بدون فلتر |
-| Hydrater, unifier. Sans compliquer. | ترطيب وتوحيد. دون تعقيد. |
-| L’étiquette de la crème : niacinamide, acide hyaluronique, AHA, 50 ml | ملصق الكريم: نياسيناميد، حمض الهيالورونيك، AHA، 50 مل |
-| 01 | 01 |
-| Niacinamide | نياسيناميد |
-| sur l’étiquette | على الملصق |
-| La vitamine B3 : elle aide à unifier le teint et à atténuer l’aspect des taches. | فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع. |
-| Elle travaille avec le sérum pour un teint plus régulier. | يعمل مع السيروم من أجل لون بشرة أكثر انتظامًا. |
-| 02 | 02 |
-| Acide hyaluronique | حمض الهيالورونيك |
-| sur l’étiquette | على الملصق |
-| Il retient l’eau dans la peau pour une hydratation durable. | يحتفظ بالماء في البشرة لترطيب يدوم. |
-| La peau reste souple et confortable toute la journée. | تبقى البشرة مرنة ومرتاحة طوال اليوم. |
-| 03 | 03 |
-| AHA | أحماض AHA |
-| sur l’étiquette | على الملصق |
-| Des acides de fruits qui affinent le grain de peau en douceur. | أحماض فواكه تنعّم ملمس البشرة بلطف. |
-| Ils aident la peau à retrouver de l’éclat. Toujours avec un écran solaire le matin. | تساعد البشرة على استعادة إشراقها. دائمًا مع واقي الشمس في الصباح. |
-| Avis | آراء |
-| 2 | 2 |
-| Précédent | السابق |
-| Suivant | التالي |
-| Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
-| WhatsApp | WhatsApp |
-| Awatef A.WhatsApp · 5 sept. · routine complète | عواطف أ.واتساب · 5 شتنبر · الروتين الكامل |
-| « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » | « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » |
-| Docteur, l’éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci beaucoup. | نتيجة مع الروتين الكامل. النتائج فردية وتختلف من بشرة إلى أخرى. |
-| Résultat avec la routine complète. Résultats individuels, variables d’une peau à l’autre. | WhatsApp |
-| WhatsApp | نبيلة ب.واتساب · 17 شتنبر · استعملت المجموعة |
-| Nabila B.WhatsApp · 17 sept. · a utilisé la gamme | « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » |
-| « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » | أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. (رأي في الروتين الكامل، ومنه الكريم.) |
-| Avis sur la routine complète, dont la crème. | أريد التجربة · |
-| Je veux essayer · | 130 |
-| 130 | درهم |
-| DH | ب.أسئلة شائعة |
-| ii.Questions fréquentes | تتساءلين عن شيء؟ |
-| Tu te poses la question ? | كيف أستعمل كريم ضد البقع؟+ |
-| Comment utiliser la crème anti-taches ?+ | كمية صغيرة على الوجه والرقبة، بحركات نحو الأعلى. |
-| Une noisette sur le visage et le cou, en mouvements vers le haut. | هو الخطوة 3 في روتين العناية ضد البقع (صباحًا ومساءً). |
-| C'est l'étape 3 de la routine anti-taches (matin et soir). | ماذا يحتوي كريم ضد البقع؟+ |
-| Que contient la crème anti-taches ?+ | نياسيناميد، حمض الهيالورونيك، أحماض AHA. |
-| Niacinamide, Acide hyaluronique, AHA. | ما الحجم وما الثمن؟+ |
-| Quelle contenance et quel prix ?+ | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 130 درهم في الحجم الصغير، 205 درهم في الحجم الكبير. |
-| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 130 DH en Petit format, 205 DH en Grand format. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
-| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | هل يوضع الكريم قبل السيروم أم بعده؟+ |
-| Faut-il appliquer la crème avant ou après le sérum ?+ | بعده. الكريم هو الخطوة 3 في الروتين: يرطب، يوحد لون البشرة ويثبت السيروم الموضوع قبله. |
-| Après. La crème est l'étape 3 de la routine : elle hydrate, unifie le teint et scelle le sérum appliqué juste avant. | بشرتي حساسة+ |
-| J'ai la peau sensible+ | جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة. |
-| Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. | في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. |
-| En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
-| Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا. |
-| Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr. | كم يستغرق التوصيل؟+ |
-| Je suis livrée en combien de temps ?+ | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
-| Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | ج.منتجاتنا الأخرى |
-| iii.Nos autres soins | باقي منتجاتنا. |
-| Le reste de la maison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
-| Ajoute-les au même ticket : une seule livraison. | السابق |
-| Précédent | التالي |
-| Suivant | منتجاتنا الأخرى، تمرير أفقي |
-| Nos autres soins, défile horizontalement | صفحة المنتج : جل منظف ضد البقع |
-| Voir la fiche : Gel nettoyant anti-taches | N° 01 |
-| N° 01 | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | 91 درهم |
-| 91 DH | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم ضد البقع |
-| Voir la fiche : Sérum anti-taches | N° 02 |
-| N° 02 | سيروم ضد البقع |
-| Sérum anti-taches | سيروم ضد البقع |
-| Sérum anti-taches | 163 درهم |
-| 163 DH | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : واقي الشمس SPF 50 |
-| Voir la fiche : Écran solaire SPF 50 | N° 04 |
-| N° 04 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | 112 درهم |
-| 112 DH | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم محيط العين |
-| Voir la fiche : Sérum contour des yeux | N° 05 |
-| N° 05 | سيروم محيط العين |
-| Sérum contour des yeux | سيروم محيط العين |
-| Sérum contour des yeux | 185 درهم |
-| 185 DH | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | صفحة المنتج : مزيل العرق كريم |
-| Voir la fiche : Déodorant crème | N° 06 |
-| N° 06 | مزيل العرق كريم |
-| Déodorant crème | مزيل العرق كريم |
-| Déodorant crème | 85 درهم |
-| 85 DH | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | otage |
-| otage | عناية صادقة، مصنوعة في المغرب. |
-| Des soins honnêtes, fabriqués au Maroc. | OTAGE |
-| OTAGE | الإرجاع خلال 7 أيام |
-| Retours sous 7 jours | كل المنتجات |
-| Tous les soins | شروط البيع |
-| CGV | WhatsApp |
-| WhatsApp | طلبك |
-| Ta commande | 130 |
-| 130 | درهمالدفع عند الاستلام |
-| DHPayé à la livraison | اطلبي |
-| Commander | otage |
-| otage | تذكرة N° ···· |
-| Ticket N° ···· | إغلاق الطلب |
-| Fermer le ticket | طلبك |
-| Ta commande | 1 منتج |
-| 1 article | كريم ضد البقع30 مل · 130 درهم |
-| Crème anti-taches30 ml · 130 DH | كمية كريم ضد البقع |
-| Quantité de Crème anti-taches | تقليل كريم ضد البقع |
-| Moins de Crème anti-taches | − |
-| − | 1 |
-| 1 | زيادة كريم ضد البقع |
-| Plus de Crème anti-taches | + |
-| + | 130 |
-| 130 | انتقلي إلى الحجم الكبير: +20 مل مقابل 75 درهم إضافية. |
-| Passe au grand format : +20 ml pour 75 DH de plus. | الحجم الكبير |
-| Grand format | أضيفي إلى طلبك |
-| Ajoute à ta commande | بلمسة واحدة |
-| en 1 tap | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | سيروم ضد البقع |
-| Sérum anti-taches | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | واقي الشمس SPF 50 |
-| Écran solaire SPF 50 | حجم واقي الشمس SPF 50 |
-| Format de Écran solaire SPF 50 | صغير |
-| Petit | 30 مل · 112 درهم |
-| 30 ml · 112 DH | كبير |
-| Grand | 50 مل · 190 درهم |
-| 50 ml · 190 DH | إضافة واقي الشمس SPF 50 |
-| Ajouter Écran solaire SPF 50 | + أضيفي |
-| + Ajouter | سيروم محيط العين |
-| Sérum contour des yeux | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | مزيل العرق كريم |
-| Déodorant crème | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | المجموع الفرعي |
-| Sous-total | 130 |
-| 130 | درهم |
-| DH | التوصيل |
-| Livraison | من 35 إلى 45 درهم |
-| 35 à 45 DH | الدفع |
-| Paiement | عند الاستلام |
-| à la réception | مجموع المنتجات |
-| Total produits | 130 |
-| 130 | درهم |
-| DH | نوصل إليك |
-| On te livre | 3 خانات، هذا كل شيء |
-| 3 cases, c’est tout | اسمك |
-| Ton nom | سلمى بناني |
-| Salma Bennani | هاتفك نتصل بك للتأكيد |
-| Ton téléphone on t’appelle pour confirmer | 06 12 34 56 78 |
-| 06 12 34 56 78 | مدينتك |
-| Ta ville | فاس |
-| Fès | مدن سريعة |
-| Villes rapides | الدار البيضاء |
-| Casablanca | الرباط |
-| Rabat | فاس |
-| Fès | مراكش |
-| Marrakech | طنجة |
-| Tanger | أكادير |
-| Agadir | مكناس |
-| Meknès | وجدة |
-| Oujda | تأكيد · |
-| Valider · | 130 |
-| 130 | درهم |
-| DH | اطلبي عبر واتساب |
-| Commander sur WhatsApp | WhatsApp |
-| WhatsApp | لا دفع عبر الإنترنت |
-| Rien à payer en ligne | 7 أيام لتغيير رأيك |
-| 7 jours pour changer d’avis | بالتأكيد، توافقين على |
-| En validant, tu acceptes nos | شروط البيع |
-| CGV | و |
-| et notre | سياسة الإرجاع |
-| politique de retour | . |
-| . |  |
-
-## Fiche produit : ecran-solaire-spf50
-
-Français : `/soins/ecran-solaire-spf50` · Arabe : `/ar/soins/ecran-solaire-spf50` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
-
-| Français | العربية |
-|---|---|
-| **Titre de l'onglet (title)** Écran solaire SPF 50 anti-taches, fabriqué au Maroc \| OTAGE | واقي الشمس SPF 50 ضد البقع، مصنوع في المغرب \| OTAGE |
-| **Description (Google)** Écran solaire OTAGE N°04 : SPF 50, haute protection UVA/UVB, pour que les taches ne reviennent pas. Dernière étape de la routine du matin. Fabriqué au Maroc. | واقي الشمس من OTAGE رقم 04: SPF 50، حماية عالية من UVA و UVB، حتى لا تعود البقع. آخر خطوة في روتين الصباح. مصنوع في المغرب. |
-| _(structure différente : 255 blocs / 254 blocs, alignement approximatif)_ | |
-| Aller au contenu | الانتقال إلى المحتوى |
-| OTAGE, accueil | OTAGE، الصفحة الرئيسية |
-| otage | otage |
-| Sur cette page | في هذه الصفحة |
-| Ingrédients | المكونات |
-| Avis | الآراء |
-| Nos soins | منتجاتنا |
-| Le flacon pompe de l’écran solaire SPF 50 OTAGE, 50 ml | عبوة واقي الشمس SPF 50 من OTAGE بمضخة، 50 مل |
-| N° 04 · Routine anti-taches | رقم 04 · روتين ضد البقع |
-| Commander, à partir de 112 DH | اطلبي، ابتداءً من 112 درهم |
-| 112DH | 112درهم |
-| N° 04 sur 04 · Le geste qui protège tout | رقم 04 من 04 · الخطوة التي تحمي كل شيء |
-| Écran | واقي الشمس |
-| SPF 50. | SPF 50. |
-| Le soleil réveille les taches. L’écran les empêche de revenir : le dernier geste du matin, tous les jours. | الشمس توقظ البقع. والواقي يمنعها من العودة: آخر خطوة في الصباح، كل يوم. |
-| SPF 50 | SPF 50 |
-| UVA / UVB | UVA / UVB |
-| Évite le retour des taches | يمنع عودة البقع |
-| Tous les matins | كل صباح |
-| Dès 112 DH | ابتداءً من 112 درهم |
-| Choisis ton format | اختاري الحجم |
-| Petit format30 ml · pour essayer | الحجم الصغير30 مل · للتجربة |
-| 112 DH | 112 درهم |
-| +20 ml pour 78 DH de plus | +20 مل مقابل 78 درهم إضافية |
-| Grand format50 ml · le meilleur prix au ml | الحجم الكبير50 مل · أفضل ثمن للمل |
-| 190 DH | 190 درهم |
-| Commander · | اطلبي · |
-| 112 | 112 |
-| DH | درهم |
-| Paiement à la réception | الدفع عند الاستلام |
-| Livraison 35 à 45 DH | التوصيل من 35 إلى 45 درهم |
-| 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
-| i.L’étiquette, sans filtre | أ.الملصق، بدون فلتر |
-| Sans écran, les taches reviennent. | بدون واقي، تعود البقع. |
-| L’étiquette de l’écran : SPF 50, haute protection UVA/UVB, 50 ml | ملصق الواقي: SPF 50، حماية عالية من UVA/UVB، 50 مل |
-| 01 | 01 |
-| SPF 50 | SPF 50 |
-| sur l’étiquette | على الملصق |
-| Le plus haut niveau de protection contre les coups de soleil (UVB). | أعلى مستوى من الحماية من حروق الشمس (UVB). |
-| Pour une peau qui a des taches, c’est le minimum recommandé au Maroc. | للبشرة التي بها بقع، هو الحد الأدنى الموصى به في المغرب. |
-| 02 | 02 |
-| UVA / UVB | UVA / UVB |
-| sur l’étiquette | على الملصق |
-| Il protège des deux types de rayons : UVB (coups de soleil) et UVA (taches, vieillissement). | يحمي من نوعي الأشعة: UVB (حروق الشمس) و UVA (البقع، الشيخوخة). |
-| Ce sont surtout les UVA qui font revenir les taches. | أشعة UVA هي التي تعيد البقع خصوصًا. |
-| 03 | 03 |
-| Le bon geste | الخطوة الصحيحة |
-| chaque matin | كل صباح |
-| En dernier, après la crème. Renouvelle toutes les 2 heures au soleil. | في الأخير، بعد الكريم. جدديه كل ساعتين تحت الشمس. |
-| Sans écran, le sérum et la crème travaillent pour rien. | بدون واقي، يعمل السيروم والكريم بلا فائدة. |
-| Avis | آراء |
-| 2 | 2 |
-| Précédent | السابق |
-| Suivant | التالي |
-| Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
-| WhatsApp | WhatsApp |
-| Awatef A.WhatsApp · 5 sept. · routine complète | عواطف أ.واتساب · 5 شتنبر · الروتين الكامل |
-| « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » | « دكتور اللمعة بدات تبان و ݣاع ليطاش تقريبا مشاو ب 95 فالمئة. شكراااا ليك بزاااااف » |
-| Docteur, l’éclat commence à se voir et presque toutes les taches sont parties, à 95 %. Merci beaucoup. | نتيجة مع الروتين الكامل. النتائج فردية وتختلف من بشرة إلى أخرى. |
-| Résultat avec la routine complète. Résultats individuels, variables d’une peau à l’autre. | WhatsApp |
-| WhatsApp | نبيلة ب.واتساب · 17 شتنبر · استعملت المجموعة |
-| Nabila B.WhatsApp · 17 sept. · a utilisé la gamme | « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » |
-| « Je reviens vers vous pour vous donner un feedback concernant la gamme. Elle est juste PARFAITE. Tbarkllah elik. » | أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. (رأي في الروتين الكامل، ومنه واقي الشمس.) |
-| Avis sur la routine complète, dont l’écran solaire. | أريد التجربة · |
-| Je veux essayer · | 112 |
-| 112 | درهم |
-| DH | ب.أسئلة شائعة |
-| ii.Questions fréquentes | تتساءلين عن شيء؟ |
-| Tu te poses la question ? | كيف أستعمل واقي الشمس SPF 50؟+ |
-| Comment utiliser l'écran solaire SPF 50 ?+ | في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
-| Le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | هو الخطوة 4 في روتين العناية ضد البقع (في الصباح). |
-| C'est l'étape 4 de la routine anti-taches (le matin). | ماذا يحتوي واقي الشمس SPF 50؟+ |
-| Que contient l'écran solaire SPF 50 ?+ | حماية عالية، UVA/UVB. |
-| Haute protection, UVA/UVB. | ما الحجم وما الثمن؟+ |
-| Quelle contenance et quel prix ?+ | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 112 درهم في الحجم الصغير، 190 درهم في الحجم الكبير. |
-| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 112 DH en Petit format, 190 DH en Grand format. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
-| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | لماذا واقي الشمس ضروري ضد البقع؟+ |
-| Pourquoi l'écran solaire est-il indispensable contre les taches ?+ | لأن البقع تعود بدون حماية. واقي الشمس SPF 50 يحمي من UVA و UVB: ضعيه كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس. |
-| Parce que sans protection, les taches reviennent. L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil. | هل يوضع في المساء؟+ |
-| Faut-il le mettre le soir ?+ | لا. في المساء، يتوقف الروتين عند الخطوة 3 (الكريم). |
-| Non. Le soir, la routine s'arrête à l'étape 3 (la crème). | بشرتي حساسة+ |
-| J'ai la peau sensible+ | جربي أولًا على منطقة صغيرة، في ثنية المرفق أو خلف الأذن، وانتظري 24 ساعة. |
-| Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. | في حال الاحمرار أو التهيج، توقفي واستشيري مختصًا. |
-| En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel. | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
-| Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | اسألي أولًا طبيبك أو الصيدلي، مع عرض قائمة المكونات عليه. هذا أكثر أمانًا. |
-| Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr. | كم يستغرق التوصيل؟+ |
-| Je suis livrée en combien de temps ?+ | من 24 إلى 72 ساعة، في كل أنحاء المغرب. نتصل بك أولًا لتأكيد طلبك. |
-| Compte 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer ta commande. | ج.منتجاتنا الأخرى |
-| iii.Nos autres soins | باقي منتجاتنا. |
-| Le reste de la maison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
-| Ajoute-les au même ticket : une seule livraison. | السابق |
-| Précédent | التالي |
-| Suivant | منتجاتنا الأخرى، تمرير أفقي |
-| Nos autres soins, défile horizontalement | صفحة المنتج : جل منظف ضد البقع |
-| Voir la fiche : Gel nettoyant anti-taches | N° 01 |
-| N° 01 | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | 91 درهم |
-| 91 DH | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم ضد البقع |
-| Voir la fiche : Sérum anti-taches | N° 02 |
-| N° 02 | سيروم ضد البقع |
-| Sérum anti-taches | سيروم ضد البقع |
-| Sérum anti-taches | 163 درهم |
-| 163 DH | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : كريم ضد البقع |
-| Voir la fiche : Crème anti-taches | N° 03 |
-| N° 03 | كريم ضد البقع |
-| Crème anti-taches | كريم ضد البقع |
-| Crème anti-taches | 130 درهم |
-| 130 DH | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | صفحة المنتج : سيروم محيط العين |
-| Voir la fiche : Sérum contour des yeux | N° 05 |
-| N° 05 | سيروم محيط العين |
-| Sérum contour des yeux | سيروم محيط العين |
-| Sérum contour des yeux | 185 درهم |
-| 185 DH | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | صفحة المنتج : مزيل العرق كريم |
-| Voir la fiche : Déodorant crème | N° 06 |
-| N° 06 | مزيل العرق كريم |
-| Déodorant crème | مزيل العرق كريم |
-| Déodorant crème | 85 درهم |
-| 85 DH | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | عناية صادقة. |
-| Des soins honnêtes. | ما كنبيعوش الوهم |
-| ما كنبيعوش الوهم | مصنوعة في المغرب. |
-| Fabriqués au Maroc. | otage |
-| otage | عناية صادقة، مصنوعة في المغرب. |
-| Des soins honnêtes, fabriqués au Maroc. | OTAGE |
-| OTAGE | الإرجاع خلال 7 أيام |
-| Retours sous 7 jours | كل المنتجات |
-| Tous les soins | شروط البيع |
-| CGV | WhatsApp |
-| WhatsApp | طلبك |
-| Ta commande | 112 |
-| 112 | درهمالدفع عند الاستلام |
-| DHPayé à la livraison | اطلبي |
-| Commander | otage |
-| otage | تذكرة N° ···· |
-| Ticket N° ···· | إغلاق الطلب |
-| Fermer le ticket | طلبك |
-| Ta commande | 1 منتج |
-| 1 article | واقي الشمس SPF 5030 مل · 112 درهم |
-| Écran solaire SPF 5030 ml · 112 DH | كمية واقي الشمس SPF 50 |
-| Quantité de Écran solaire SPF 50 | تقليل واقي الشمس SPF 50 |
-| Moins de Écran solaire SPF 50 | − |
-| − | 1 |
-| 1 | زيادة واقي الشمس SPF 50 |
-| Plus de Écran solaire SPF 50 | + |
-| + | 112 |
-| 112 | انتقلي إلى الحجم الكبير: +20 مل مقابل 78 درهم إضافية. |
-| Passe au grand format : +20 ml pour 78 DH de plus. | الحجم الكبير |
-| Grand format | أضيفي إلى طلبك |
-| Ajoute à ta commande | بلمسة واحدة |
-| en 1 tap | جل منظف ضد البقع |
-| Gel nettoyant anti-taches | حجم جل منظف ضد البقع |
-| Format de Gel nettoyant anti-taches | صغير |
-| Petit | 125 مل · 91 درهم |
-| 125 ml · 91 DH | كبير |
-| Grand | 200 مل · 140 درهم |
-| 200 ml · 140 DH | إضافة جل منظف ضد البقع |
-| Ajouter Gel nettoyant anti-taches | + أضيفي |
-| + Ajouter | سيروم ضد البقع |
-| Sérum anti-taches | حجم سيروم ضد البقع |
-| Format de Sérum anti-taches | صغير |
-| Petit | 15 مل · 163 درهم |
-| 15 ml · 163 DH | كبير |
-| Grand | 30 مل · 265 درهم |
-| 30 ml · 265 DH | إضافة سيروم ضد البقع |
-| Ajouter Sérum anti-taches | + أضيفي |
-| + Ajouter | كريم ضد البقع |
-| Crème anti-taches | حجم كريم ضد البقع |
-| Format de Crème anti-taches | صغير |
-| Petit | 30 مل · 130 درهم |
-| 30 ml · 130 DH | كبير |
-| Grand | 50 مل · 205 درهم |
-| 50 ml · 205 DH | إضافة كريم ضد البقع |
-| Ajouter Crème anti-taches | + أضيفي |
-| + Ajouter | سيروم محيط العين |
-| Sérum contour des yeux | حجم واحد |
-| Format unique | 15 مل · 185 درهم |
-| 15 ml · 185 DH | إضافة سيروم محيط العين |
-| Ajouter Sérum contour des yeux | + أضيفي |
-| + Ajouter | مزيل العرق كريم |
-| Déodorant crème | حجم واحد |
-| Format unique | 50 مل · 85 درهم |
-| 50 ml · 85 DH | إضافة مزيل العرق كريم |
-| Ajouter Déodorant crème | + أضيفي |
-| + Ajouter | المجموع الفرعي |
-| Sous-total | 112 |
-| 112 | درهم |
-| DH | التوصيل |
-| Livraison | من 35 إلى 45 درهم |
-| 35 à 45 DH | الدفع |
-| Paiement | عند الاستلام |
-| à la réception | مجموع المنتجات |
-| Total produits | 112 |
-| 112 | درهم |
-| DH | نوصل إليك |
-| On te livre | 3 خانات، هذا كل شيء |
-| 3 cases, c’est tout | اسمك |
-| Ton nom | سلمى بناني |
-| Salma Bennani | هاتفك نتصل بك للتأكيد |
-| Ton téléphone on t’appelle pour confirmer | 06 12 34 56 78 |
-| 06 12 34 56 78 | مدينتك |
-| Ta ville | فاس |
-| Fès | مدن سريعة |
-| Villes rapides | الدار البيضاء |
-| Casablanca | الرباط |
-| Rabat | فاس |
-| Fès | مراكش |
-| Marrakech | طنجة |
-| Tanger | أكادير |
-| Agadir | مكناس |
-| Meknès | وجدة |
-| Oujda | تأكيد · |
-| Valider · | 112 |
-| 112 | درهم |
-| DH | اطلبي عبر واتساب |
-| Commander sur WhatsApp | WhatsApp |
-| WhatsApp | لا دفع عبر الإنترنت |
-| Rien à payer en ligne | 7 أيام لتغيير رأيك |
-| 7 jours pour changer d’avis | بالتأكيد، توافقين على |
-| En validant, tu acceptes nos | شروط البيع |
-| CGV | و |
-| et notre | سياسة الإرجاع |
-| politique de retour | . |
-| . |  |
-
-## Fiche produit : contour-des-yeux
-
-Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
-
-| Français | العربية |
-|---|---|
-| **Titre de l'onglet (title)** Sérum contour des yeux pour les cernes, à la caféine \| OTAGE | سيروم محيط العين بالكافيين للهالات السوداء \| OTAGE |
-| **Description (Google)** Sérum contour des yeux OTAGE N°05, 15 ml, applicateur bille : caféine, acide hyaluronique, aloe vera. Pour les cernes et le regard fatigué. Fabriqué au Maroc. | سيروم محيط العين من OTAGE رقم 05، 15 مل، بكرة دوارة: كافيين، حمض الهيالورونيك، ألوفيرا. للهالات السوداء ومحيط العين المتعب. مصنوع في المغرب. |
-| Sur cette page | في هذه الصفحة |
-| Ingrédients | المكونات |
-| Nos soins | منتجاتنا |
-| Le flacon du sérum contour des yeux OTAGE, 15 ml | عبوة سيروم محيط العين من OTAGE، 15 مل |
-| N° 05 · Contour des yeux | رقم 05 · محيط العين |
-| Commander, à partir de 185 DH | اطلبي، ابتداءً من 185 درهم |
-| N° 05 · Fabriqué au Maroc | رقم 05 · مصنوع في المغرب |
-| Contour | محيط |
-| des yeux. | العين. |
-| Un sérum léger pour la peau fine sous les yeux : il atténue l’aspect des cernes et rafraîchit le regard, matin et soir. | سيروم خفيف للبشرة الرقيقة تحت العينين: يخفف مظهر الهالات وينعش النظرة، صباحًا ومساءً. |
-| Atténue les cernes | يخفف الهالات |
-| 3 pour 370 DH | 3 مقابل 370 درهم |
-| Choisis ton offre | اختاري العرض |
-| 1 sérum15 ml · pour essayer | 1 سيروم15 مل · للتجربة |
-| 185 DH | 185 درهم |
-| 2 achetés = le 3e offert | اشتري 2 = الثالث مجانًا |
-| 3 sérums | 3 سيرومات |
-| offert | مجانًا |
-| ≈ 123 DH le sérum | ≈ 123 درهم للسيروم |
-| 555370 DH | 555370 درهم |
-| Commander · | اطلبي · |
-| Paiement à la réception | الدفع عند الاستلام |
-| Livraison 35 à 45 DH | التوصيل من 35 إلى 45 درهم |
-| 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
-| i.L’étiquette, sans filtre | أ.الملصق، بدون فلتر |
-| Trois actifs. Un regard reposé. | ثلاثة مكونات فعالة. نظرة مرتاحة. |
-| L’étiquette du sérum contour des yeux : aloe vera, acide hyaluronique, caféine, 15 ml | ملصق سيروم محيط العين: ألوفيرا، حمض الهيالورونيك، كافيين، 15 مل |
-| sur l’étiquette | على الملصق |
-| Elle aide à atténuer l’aspect des poches et des cernes. | يساعد على تخفيف مظهر الانتفاخ والهالات. |
-| Le regard paraît moins fatigué. | تبدو النظرة أقل تعبًا. |
-| Il hydrate la peau fine du contour de l’œil. | يرطب البشرة الرقيقة حول العين. |
-| La peau est plus lisse, plus repulpée. | تصبح البشرة أنعم وأكثر امتلاءً. |
-| Elle apaise et rafraîchit. | تهدئ وتنعش. |
-| Une sensation de fraîcheur dès l’application. | إحساس بالانتعاش منذ الاستعمال. |
+| Instagram | إنستغرام |
+| NabilaMessage Instagram · 17 septembre | نبيلةرسالة إنستغرام · 17 شتنبر |
+| « Tbarkllah elik » : bravo à vous. « Khatir jidan jidan » : vraiment excellent. | مرحبًا دكتور. أعود إليكم لأعطيكم رأيي في المجموعة. إنها ببساطة مثالية. تبارك الله عليك. الجل المنظف ممتاز جدًا جدًا. يقوم بعمله جيدًا. |
+| Chaque peau est différente : ce message raconte l’expérience d’une cliente, pas une promesse de résultat. | كل بشرة مختلفة: هذه الرسالة تحكي تجربة زبونة، وليست وعدًا بنتيجة. |
+| Voir la capture d’origine | رؤية اللقطة الأصلية |
+| Je veux essayer · | أريد التجربة · |
 | ii.Questions fréquentes | ب.أسئلة شائعة |
 | Tu te poses la question ? | تتساءلين عن شيء؟ |
-| Comment utiliser le sérum contour des yeux ?+ | كيف أستعمل سيروم محيط العين؟+ |
-| Passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement. | مرري البكرة تحت العين، من الداخل إلى الخارج، ثم ربّتي بلطف. |
-| À utiliser matin et soir. | يُستعمل صباحًا ومساءً. |
-| Que contient le sérum contour des yeux ?+ | ماذا يحتوي سيروم محيط العين؟+ |
-| Aloe vera, Acide hyaluronique, Caféine. | ألوفيرا، حمض الهيالورونيك، كافيين. |
+| Comment utiliser le gel nettoyant anti-taches ?+ | كيف أستعمل جل منظف ضد البقع؟+ |
+| Matin et soir, sur peau humide. Masse 30 secondes, puis rince. | صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
+| C'est l'étape 1 de la routine anti-taches (matin et soir). | هو الخطوة 1 في روتين العناية ضد البقع (صباحًا ومساءً). |
+| Que contient le gel nettoyant anti-taches ?+ | ماذا يحتوي جل منظف ضد البقع؟+ |
+| Figue de Barbarie, Louban, Sans sulfate. | التين الشوكي، اللبان، بدون سلفات. |
 | Quelle contenance et quel prix ?+ | ما الحجم وما الثمن؟+ |
-| 15 ml. Il coûte 185 DH, ou 123 DH le sérum avec l'offre 2 + 1 (370 DH les 3). Livraison : de 35 à 45 DH selon la ville. | 15 مل. ثمنه 185 درهم، أو 123 درهم للسيروم مع عرض 2 + 1 (370 درهم للثلاثة). التوصيل: من 35 إلى 45 درهمًا حسب المدينة. |
-| Peut-on le mettre sous le maquillage ?+ | هل يمكن وضعه تحت المكياج؟+ |
-| Oui : sa texture légère se glisse sous le maquillage, matin et soir. | نعم: قوامه الخفيف يوضع تحت المكياج، صباحًا ومساءً. |
+| 125 ml en Petit format, 200 ml en Grand format. À l'unité : 91 DH en Petit format, 140 DH en Grand format. | 125 مل في الحجم الصغير، 200 مل في الحجم الكبير. الثمن منفردًا: 91 درهم في الحجم الصغير، 140 درهم في الحجم الكبير. |
+| Dans la gamme anti-taches complète (4 soins) : 299 DH en Petit format au lieu de 496 DH, 599 DH en Grand format au lieu de 800 DH. La livraison de la gamme est offerte ; à l'unité, elle coûte de 35 à 45 DH selon la ville. | ضمن مجموعة العناية ضد البقع الكاملة (4 منتجات): 299 درهم بالحجم الصغير بدل 496 درهم، و599 درهم بالحجم الكبير بدل 800 درهم. توصيل المجموعة مجاني؛ وللمنتجات المنفردة، من 35 إلى 45 درهمًا حسب المدينة. |
+| Le gel nettoyant dessèche-t-il la peau ?+ | هل يجفف الجل المنظف البشرة؟+ |
+| Non : il nettoie en douceur sans dessécher. Il est formulé sans sulfate, avec de la figue de Barbarie et du louban. | لا: ينظف بلطف دون تجفيف. تركيبته خالية من السلفات وتحتوي على التين الشوكي واللبان. |
 | J'ai la peau sensible+ | بشرتي حساسة+ |
 | Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
 | Je suis livrée en combien de temps ?+ | كم يستغرق التوصيل؟+ |
@@ -1614,21 +566,15 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Précédent | السابق |
 | Suivant | التالي |
 | Nos autres soins, défile horizontalement | منتجاتنا الأخرى، تمرير أفقي |
-| Voir la fiche : Gel nettoyant anti-taches | صفحة المنتج : جل منظف ضد البقع |
-| 91 DH | 91 درهم |
-| Format de Gel nettoyant anti-taches | حجم جل منظف ضد البقع |
-| Petit | صغير |
-| 125 ml · 91 DH | 125 مل · 91 درهم |
-| Grand | كبير |
-| 200 ml · 140 DH | 200 مل · 140 درهم |
-| Ajouter Gel nettoyant anti-taches | إضافة جل منظف ضد البقع |
-| + Ajouter | + أضيفي |
 | Voir la fiche : Sérum anti-taches | صفحة المنتج : سيروم ضد البقع |
 | 163 DH | 163 درهم |
 | Format de Sérum anti-taches | حجم سيروم ضد البقع |
+| Petit | صغير |
 | 15 ml · 163 DH | 15 مل · 163 درهم |
+| Grand | كبير |
 | 30 ml · 265 DH | 30 مل · 265 درهم |
 | Ajouter Sérum anti-taches | إضافة سيروم ضد البقع |
+| + Ajouter | + أضيفي |
 | Voir la fiche : Crème anti-taches | صفحة المنتج : كريم ضد البقع |
 | 130 DH | 130 درهم |
 | Format de Crème anti-taches | حجم كريم ضد البقع |
@@ -1641,9 +587,13 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | 30 ml · 112 DH | 30 مل · 112 درهم |
 | 50 ml · 190 DH | 50 مل · 190 درهم |
 | Ajouter Écran solaire SPF 50 | إضافة واقي الشمس SPF 50 |
+| Voir la fiche : Sérum contour des yeux | صفحة المنتج : سيروم محيط العين |
+| 185 DH | 185 درهم |
+| Format unique | حجم واحد |
+| 15 ml · 185 DH | 15 مل · 185 درهم |
+| Ajouter Sérum contour des yeux | إضافة سيروم محيط العين |
 | Voir la fiche : Déodorant crème | صفحة المنتج : مزيل العرق كريم |
 | 85 DH | 85 درهم |
-| Format unique | حجم واحد |
 | 50 ml · 85 DH | 50 مل · 85 درهم |
 | Ajouter Déodorant crème | إضافة مزيل العرق كريم |
 | Des soins honnêtes. | عناية صادقة. |
@@ -1657,12 +607,11 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Ticket N° ···· | تذكرة N° ···· |
 | Fermer le ticket | إغلاق الطلب |
 | 1 article | 1 منتج |
-| Sérum contour des yeux15 ml · 185 DH | سيروم محيط العين15 مل · 185 درهم |
-| Quantité de Sérum contour des yeux | كمية سيروم محيط العين |
-| Moins de Sérum contour des yeux | تقليل سيروم محيط العين |
-| Plus de Sérum contour des yeux | زيادة سيروم محيط العين |
-| Prends-en 3 : le 3e est offert. 370 DH les 3 sérums. | خذي 3: الثالث مجانًا. 370 درهم للسيرومات الثلاث. |
-| Passer à 3 | خذي 3 |
+| Gel nettoyant anti-taches125 ml · 91 DH | جل منظف ضد البقع125 مل · 91 درهم |
+| Quantité de Gel nettoyant anti-taches | كمية جل منظف ضد البقع |
+| Moins de Gel nettoyant anti-taches | تقليل جل منظف ضد البقع |
+| Plus de Gel nettoyant anti-taches | زيادة جل منظف ضد البقع |
+| Passe au grand format : +75 ml pour 49 DH de plus. | انتقلي إلى الحجم الكبير: +75 مل مقابل 49 درهم إضافية. |
 | Ajoute à ta commande | أضيفي إلى طلبك |
 | en 1 tap | بلمسة واحدة |
 | Sous-total | المجموع الفرعي |
@@ -1677,11 +626,193 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Ton téléphone on t’appelle pour confirmer | هاتفك نتصل بك للتأكيد |
 | Ta ville | مدينتك |
 | Villes rapides | مدن سريعة |
+| J’ai lu et j’accepte les | قرأت وأوافق على |
 | Valider · | تأكيد · |
 | Commander sur WhatsApp | اطلبي عبر واتساب |
 | Rien à payer en ligne | لا دفع عبر الإنترنت |
-| En validant, tu acceptes nos | بالتأكيد، توافقين على |
-| et notre | و |
+
+## Fiche produit : serum-anti-taches
+
+Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
+
+| Français | العربية |
+|---|---|
+| **Titre de l'onglet (title)** Sérum anti-taches Maroc à l'alpha-arbutine \| OTAGE | سيروم ضد البقع بالألفا أربوتين في المغرب \| OTAGE |
+| **Description (Google)** Sérum anti-taches OTAGE N°02 : alpha-arbutine, matcha, calendula. Le soin concentré qui cible les taches pigmentaires. Fabriqué au Maroc, payé à la livraison. | سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام. |
+| Le flacon compte-gouttes du sérum anti-taches OTAGE, 30 ml | عبوة السيروم ضد البقع من OTAGE بقطارة، 30 مل |
+| N° 02 · Routine anti-taches | رقم 02 · روتين ضد البقع |
+| Commander, à partir de 163 DH | اطلبي، ابتداءً من 163 درهم |
+| N° 02 sur 04 · Le soin concentré | رقم 02 من 04 · العناية المركزة |
+| Sérum | سيروم |
+| anti-taches. | ضد البقع. |
+| Le soin concentré de la routine : il cible les taches brunes et unifie le teint, goutte après goutte. | العناية المركزة في الروتين: يستهدف البقع البنية ويوحد لون البشرة، قطرة بعد قطرة. |
+| Calendula | آذريون |
+| Dès 163 DH | ابتداءً من 163 درهم |
+| Petit format15 ml · pour essayer | الحجم الصغير15 مل · للتجربة |
+| 2× plus de sérum pour 102 DH de plus | ضعف كمية السيروم مقابل 102 درهم إضافية |
+| Grand format30 ml · le meilleur prix au ml | الحجم الكبير30 مل · أفضل ثمن للمل |
+| 265 DH | 265 درهم |
+| Trois actifs. Une seule mission. | ثلاثة مكونات فعالة. مهمة واحدة. |
+| L’étiquette du sérum : matcha, calendula, alpha-arbutine, 30 ml | ملصق السيروم: ماتشا، آذريون، ألفا أربوتين، 30 مل |
+| Un thé vert riche en antioxydants, qui protège la peau des agressions du quotidien. | شاي أخضر غني بمضادات الأكسدة، يحمي البشرة من الاعتداءات اليومية. |
+| Il aide le teint à retrouver de l’éclat. | يساعد البشرة على استعادة إشراقها. |
+| Une fleur connue pour apaiser les peaux sensibles. | زهرة معروفة بتهدئة البشرة الحساسة. |
+| Le sérum reste doux, même appliqué matin et soir. | يبقى السيروم لطيفًا، حتى عند وضعه صباحًا ومساءً. |
+| L’actif qui cible les taches brunes en limitant la production de mélanine. | المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين. |
+| C’est lui qui travaille sur les taches, jour après jour. | هو الذي يعمل على البقع، يومًا بعد يوم. |
+| Comment utiliser le sérum anti-taches ?+ | كيف أستعمل سيروم ضد البقع؟+ |
+| 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
+| C'est l'étape 2 de la routine anti-taches (matin et soir). | هو الخطوة 2 في روتين العناية ضد البقع (صباحًا ومساءً). |
+| Que contient le sérum anti-taches ?+ | ماذا يحتوي سيروم ضد البقع؟+ |
+| Matcha, Calendula, Alpha-arbutine. | ماتشا، آذريون (كاليندولا)، ألفا أربوتين. |
+| 15 ml en Petit format, 30 ml en Grand format. À l'unité : 163 DH en Petit format, 265 DH en Grand format. | 15 مل في الحجم الصغير، 30 مل في الحجم الكبير. الثمن منفردًا: 163 درهم في الحجم الصغير، 265 درهم في الحجم الكبير. |
+| Au bout de combien de temps voit-on des résultats ?+ | متى تظهر النتائج؟+ |
+| Honnêtement : les taches s'estompent petit à petit, pas du jour au lendemain. Ce qui compte, c'est la régularité matin et soir, et l'écran solaire chaque matin. Le rythme varie d'une peau à l'autre. | بصراحة: البقع تخف تدريجيًا، وليس بين ليلة وضحاها. المهم هو الانتظام صباحًا ومساءً، وواقي الشمس كل صباح. الوتيرة تختلف من بشرة إلى أخرى. |
+| Voir la fiche : Gel nettoyant anti-taches | صفحة المنتج : جل منظف ضد البقع |
+| Format de Gel nettoyant anti-taches | حجم جل منظف ضد البقع |
+| 125 ml · 91 DH | 125 مل · 91 درهم |
+| 200 ml · 140 DH | 200 مل · 140 درهم |
+| Ajouter Gel nettoyant anti-taches | إضافة جل منظف ضد البقع |
+| Sérum anti-taches15 ml · 163 DH | سيروم ضد البقع15 مل · 163 درهم |
+| Quantité de Sérum anti-taches | كمية سيروم ضد البقع |
+| Moins de Sérum anti-taches | تقليل سيروم ضد البقع |
+| Plus de Sérum anti-taches | زيادة سيروم ضد البقع |
+| Passe au grand format : 2× plus de sérum pour 102 DH de plus. | انتقلي إلى الحجم الكبير: ضعف كمية السيروم مقابل 102 درهم إضافية. |
+
+## Fiche produit : creme-anti-taches
+
+Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
+
+| Français | العربية |
+|---|---|
+| **Titre de l'onglet (title)** Crème anti-taches Maroc à la niacinamide \| OTAGE | كريم ضد البقع بالنياسيناميد في المغرب \| OTAGE |
+| **Description (Google)** Crème anti-taches OTAGE N°03 : niacinamide, acide hyaluronique, AHA. Hydrate, unifie le teint et scelle le sérum. Fabriquée au Maroc, paiement à la livraison. | كريم ضد البقع من OTAGE رقم 03: نياسيناميد، حمض الهيالورونيك، AHA. يرطب، يوحد لون البشرة ويثبت السيروم. مصنوع في المغرب، الدفع عند الاستلام. |
+| Le flacon pompe de la crème anti-taches OTAGE, 50 ml | عبوة الكريم ضد البقع من OTAGE بمضخة، 50 مل |
+| N° 03 · Routine anti-taches | رقم 03 · روتين ضد البقع |
+| Commander, à partir de 130 DH | اطلبي، ابتداءً من 130 درهم |
+| N° 03 sur 04 · Hydrate et unifie | رقم 03 من 04 · يرطب ويوحد |
+| Crème | كريم |
+| Elle hydrate, unifie le teint et scelle le sérum : la dernière étape avant l’écran solaire. | يرطب، يوحد لون البشرة ويثبت السيروم: آخر خطوة قبل واقي الشمس. |
+| Hydrate | يرطب |
+| Unifie le teint | يوحد لون البشرة |
+| Dès 130 DH | ابتداءً من 130 درهم |
+| Petit format30 ml · pour essayer | الحجم الصغير30 مل · للتجربة |
+| +20 ml pour 75 DH de plus | +20 مل مقابل 75 درهم إضافية |
+| Grand format50 ml · le meilleur prix au ml | الحجم الكبير50 مل · أفضل ثمن للمل |
+| 205 DH | 205 درهم |
+| Hydrater, unifier. Sans compliquer. | ترطيب وتوحيد. دون تعقيد. |
+| L’étiquette de la crème : niacinamide, acide hyaluronique, AHA, 50 ml | ملصق الكريم: نياسيناميد، حمض الهيالورونيك، AHA، 50 مل |
+| La vitamine B3 : elle aide à unifier le teint et à atténuer l’aspect des taches. | فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع. |
+| Elle travaille avec le sérum pour un teint plus régulier. | يعمل مع السيروم من أجل لون بشرة أكثر انتظامًا. |
+| Il retient l’eau dans la peau pour une hydratation durable. | يحتفظ بالماء في البشرة لترطيب يدوم. |
+| La peau reste souple et confortable toute la journée. | تبقى البشرة مرنة ومرتاحة طوال اليوم. |
+| Des acides de fruits qui affinent le grain de peau en douceur. | أحماض فواكه تنعّم ملمس البشرة بلطف. |
+| Ils aident la peau à retrouver de l’éclat. Toujours avec un écran solaire le matin. | تساعد البشرة على استعادة إشراقها. دائمًا مع واقي الشمس في الصباح. |
+| Comment utiliser la crème anti-taches ?+ | كيف أستعمل كريم ضد البقع؟+ |
+| Une noisette sur le visage et le cou, en mouvements vers le haut. | كمية صغيرة على الوجه والرقبة، بحركات نحو الأعلى. |
+| C'est l'étape 3 de la routine anti-taches (matin et soir). | هو الخطوة 3 في روتين العناية ضد البقع (صباحًا ومساءً). |
+| Que contient la crème anti-taches ?+ | ماذا يحتوي كريم ضد البقع؟+ |
+| Niacinamide, Acide hyaluronique, AHA. | نياسيناميد، حمض الهيالورونيك، أحماض AHA. |
+| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 130 DH en Petit format, 205 DH en Grand format. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 130 درهم في الحجم الصغير، 205 درهم في الحجم الكبير. |
+| Faut-il appliquer la crème avant ou après le sérum ?+ | هل يوضع الكريم قبل السيروم أم بعده؟+ |
+| Après. La crème est l'étape 3 de la routine : elle hydrate, unifie le teint et scelle le sérum appliqué juste avant. | بعده. الكريم هو الخطوة 3 في الروتين: يرطب، يوحد لون البشرة ويثبت السيروم الموضوع قبله. |
+| Crème anti-taches30 ml · 130 DH | كريم ضد البقع30 مل · 130 درهم |
+| Quantité de Crème anti-taches | كمية كريم ضد البقع |
+| Moins de Crème anti-taches | تقليل كريم ضد البقع |
+| Plus de Crème anti-taches | زيادة كريم ضد البقع |
+| Passe au grand format : +20 ml pour 75 DH de plus. | انتقلي إلى الحجم الكبير: +20 مل مقابل 75 درهم إضافية. |
+
+## Fiche produit : ecran-solaire-spf50
+
+Français : `/soins/ecran-solaire-spf50` · Arabe : `/ar/soins/ecran-solaire-spf50` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
+
+| Français | العربية |
+|---|---|
+| **Titre de l'onglet (title)** Écran solaire SPF 50 anti-taches, fabriqué au Maroc \| OTAGE | واقي الشمس SPF 50 ضد البقع، مصنوع في المغرب \| OTAGE |
+| **Description (Google)** Écran solaire OTAGE N°04 : SPF 50, haute protection UVA/UVB, pour que les taches ne reviennent pas. Dernière étape de la routine du matin. Fabriqué au Maroc. | واقي الشمس من OTAGE رقم 04: SPF 50، حماية عالية من UVA و UVB، حتى لا تعود البقع. آخر خطوة في روتين الصباح. مصنوع في المغرب. |
+| Le flacon pompe de l’écran solaire SPF 50 OTAGE, 50 ml | عبوة واقي الشمس SPF 50 من OTAGE بمضخة، 50 مل |
+| N° 04 · Routine anti-taches | رقم 04 · روتين ضد البقع |
+| Commander, à partir de 112 DH | اطلبي، ابتداءً من 112 درهم |
+| N° 04 sur 04 · Le geste qui protège tout | رقم 04 من 04 · الخطوة التي تحمي كل شيء |
+| Écran | واقي الشمس |
+| Le soleil réveille les taches. L’écran les empêche de revenir : le dernier geste du matin, tous les jours. | الشمس توقظ البقع. والواقي يمنعها من العودة: آخر خطوة في الصباح، كل يوم. |
+| Évite le retour des taches | يمنع عودة البقع |
+| Tous les matins | كل صباح |
+| Dès 112 DH | ابتداءً من 112 درهم |
+| +20 ml pour 78 DH de plus | +20 مل مقابل 78 درهم إضافية |
+| 190 DH | 190 درهم |
+| Sans écran, les taches reviennent. | بدون واقي، تعود البقع. |
+| L’étiquette de l’écran : SPF 50, haute protection UVA/UVB, 50 ml | ملصق الواقي: SPF 50، حماية عالية من UVA/UVB، 50 مل |
+| Le plus haut niveau de protection contre les coups de soleil (UVB). | أعلى مستوى من الحماية من حروق الشمس (UVB). |
+| Pour une peau qui a des taches, c’est le minimum recommandé au Maroc. | للبشرة التي بها بقع، هو الحد الأدنى الموصى به في المغرب. |
+| Il protège des deux types de rayons : UVB (coups de soleil) et UVA (taches, vieillissement). | يحمي من نوعي الأشعة: UVB (حروق الشمس) و UVA (البقع، الشيخوخة). |
+| Ce sont surtout les UVA qui font revenir les taches. | أشعة UVA هي التي تعيد البقع خصوصًا. |
+| Le bon geste | الخطوة الصحيحة |
+| chaque matin | كل صباح |
+| En dernier, après la crème. Renouvelle toutes les 2 heures au soleil. | في الأخير، بعد الكريم. جدديه كل ساعتين تحت الشمس. |
+| Sans écran, le sérum et la crème travaillent pour rien. | بدون واقي، يعمل السيروم والكريم بلا فائدة. |
+| Comment utiliser l'écran solaire SPF 50 ?+ | كيف أستعمل واقي الشمس SPF 50؟+ |
+| Le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
+| C'est l'étape 4 de la routine anti-taches (le matin). | هو الخطوة 4 في روتين العناية ضد البقع (في الصباح). |
+| Que contient l'écran solaire SPF 50 ?+ | ماذا يحتوي واقي الشمس SPF 50؟+ |
+| Haute protection, UVA/UVB. | حماية عالية، UVA/UVB. |
+| 30 ml en Petit format, 50 ml en Grand format. À l'unité : 112 DH en Petit format, 190 DH en Grand format. | 30 مل في الحجم الصغير، 50 مل في الحجم الكبير. الثمن منفردًا: 112 درهم في الحجم الصغير، 190 درهم في الحجم الكبير. |
+| Pourquoi l'écran solaire est-il indispensable contre les taches ?+ | لماذا واقي الشمس ضروري ضد البقع؟+ |
+| Parce que sans protection, les taches reviennent. L'écran solaire SPF 50 protège des UVA et des UVB : applique-le chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil. | لأن البقع تعود بدون حماية. واقي الشمس SPF 50 يحمي من UVA و UVB: ضعيه كل صباح كآخر خطوة، وجدديه كل ساعتين تحت الشمس. |
+| Faut-il le mettre le soir ?+ | هل يوضع في المساء؟+ |
+| Non. Le soir, la routine s'arrête à l'étape 3 (la crème). | لا. في المساء، يتوقف الروتين عند الخطوة 3 (الكريم). |
+| Écran solaire SPF 5030 ml · 112 DH | واقي الشمس SPF 5030 مل · 112 درهم |
+| Quantité de Écran solaire SPF 50 | كمية واقي الشمس SPF 50 |
+| Moins de Écran solaire SPF 50 | تقليل واقي الشمس SPF 50 |
+| Plus de Écran solaire SPF 50 | زيادة واقي الشمس SPF 50 |
+| Passe au grand format : +20 ml pour 78 DH de plus. | انتقلي إلى الحجم الكبير: +20 مل مقابل 78 درهم إضافية. |
+
+## Fiche produit : contour-des-yeux
+
+Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` · Source de l'arabe : src/data/product-pages.ts (textes de la fiche et du ticket), src/data/products.ts, src/data/faq.ts
+
+| Français | العربية |
+|---|---|
+| **Titre de l'onglet (title)** Sérum contour des yeux pour les cernes, à la caféine \| OTAGE | سيروم محيط العين بالكافيين للهالات السوداء \| OTAGE |
+| **Description (Google)** Sérum contour des yeux OTAGE N°05, 15 ml, applicateur bille : caféine, acide hyaluronique, aloe vera. Pour les cernes et le regard fatigué. Fabriqué au Maroc. | سيروم محيط العين من OTAGE رقم 05، 15 مل، بكرة دوارة: كافيين، حمض الهيالورونيك، ألوفيرا. للهالات السوداء ومحيط العين المتعب. مصنوع في المغرب. |
+| Le flacon du sérum contour des yeux OTAGE, 15 ml | عبوة سيروم محيط العين من OTAGE، 15 مل |
+| N° 05 · Contour des yeux | رقم 05 · محيط العين |
+| Commander, à partir de 185 DH | اطلبي، ابتداءً من 185 درهم |
+| N° 05 · Fabriqué au Maroc | رقم 05 · مصنوع في المغرب |
+| Contour | محيط |
+| des yeux. | العين. |
+| Un sérum léger pour la peau fine sous les yeux : il atténue l’aspect des cernes et rafraîchit le regard, matin et soir. | سيروم خفيف للبشرة الرقيقة تحت العينين: يخفف مظهر الهالات وينعش النظرة، صباحًا ومساءً. |
+| Atténue les cernes | يخفف الهالات |
+| 3 pour 370 DH | 3 مقابل 370 درهم |
+| Choisis ton offre | اختاري العرض |
+| 1 sérum15 ml · pour essayer | 1 سيروم15 مل · للتجربة |
+| 2 achetés = le 3e offert | اشتري 2 = الثالث مجانًا |
+| 3 sérums | 3 سيرومات |
+| offert | مجانًا |
+| ≈ 123 DH le sérum | ≈ 123 درهم للسيروم |
+| 555370 DH | 555370 درهم |
+| Trois actifs. Un regard reposé. | ثلاثة مكونات فعالة. نظرة مرتاحة. |
+| L’étiquette du sérum contour des yeux : aloe vera, acide hyaluronique, caféine, 15 ml | ملصق سيروم محيط العين: ألوفيرا، حمض الهيالورونيك، كافيين، 15 مل |
+| Elle aide à atténuer l’aspect des poches et des cernes. | يساعد على تخفيف مظهر الانتفاخ والهالات. |
+| Le regard paraît moins fatigué. | تبدو النظرة أقل تعبًا. |
+| Il hydrate la peau fine du contour de l’œil. | يرطب البشرة الرقيقة حول العين. |
+| La peau est plus lisse, plus repulpée. | تصبح البشرة أنعم وأكثر امتلاءً. |
+| Elle apaise et rafraîchit. | تهدئ وتنعش. |
+| Une sensation de fraîcheur dès l’application. | إحساس بالانتعاش منذ الاستعمال. |
+| Comment utiliser le sérum contour des yeux ?+ | كيف أستعمل سيروم محيط العين؟+ |
+| Passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement. | مرري البكرة تحت العين، من الداخل إلى الخارج، ثم ربّتي بلطف. |
+| À utiliser matin et soir. | يُستعمل صباحًا ومساءً. |
+| Que contient le sérum contour des yeux ?+ | ماذا يحتوي سيروم محيط العين؟+ |
+| Aloe vera, Acide hyaluronique, Caféine. | ألوفيرا، حمض الهيالورونيك، كافيين. |
+| 15 ml. Il coûte 185 DH, ou 123 DH le sérum avec l'offre 2 + 1 (370 DH les 3). Livraison : de 35 à 45 DH selon la ville. | 15 مل. ثمنه 185 درهم، أو 123 درهم للسيروم مع عرض 2 + 1 (370 درهم للثلاثة). التوصيل: من 35 إلى 45 درهمًا حسب المدينة. |
+| Peut-on le mettre sous le maquillage ?+ | هل يمكن وضعه تحت المكياج؟+ |
+| Oui : sa texture légère se glisse sous le maquillage, matin et soir. | نعم: قوامه الخفيف يوضع تحت المكياج، صباحًا ومساءً. |
+| Sérum contour des yeux15 ml · 185 DH | سيروم محيط العين15 مل · 185 درهم |
+| Quantité de Sérum contour des yeux | كمية سيروم محيط العين |
+| Moins de Sérum contour des yeux | تقليل سيروم محيط العين |
+| Plus de Sérum contour des yeux | زيادة سيروم محيط العين |
+| Prends-en 3 : le 3e est offert. 370 DH les 3 sérums. | خذي 3: الثالث مجانًا. 370 درهم للسيرومات الثلاث. |
+| Passer à 3 | خذي 3 |
 
 ## Fiche produit : deodorant-creme
 
@@ -1690,7 +821,7 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Déodorant crème naturel sans aluminium, fabriqué au Maroc \| OTAGE | مزيل عرق كريم طبيعي بدون ألمنيوم، مصنوع في المغرب \| OTAGE |
-| **Description (Google)** Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. 85 DH, offre 2 + 1, paiement à la livraison partout au Maroc. | مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. 85 درهم، عرض 2 + 1، الدفع عند الاستلام في كل المغرب. |
+| **Description (Google)** Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc. | مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب. |
 | Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume | علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم |
 | N° 06 · Soin du corps · 50 ml | رقم 06 · العناية بالجسم · 50 مل |
 | Commander, à partir de 85 DH | اطلبي، ابتداءً من 85 درهم |
@@ -1725,20 +856,6 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | Vitamine E | فيتامين E |
 | Un antioxydant qui protège la formule et la peau. | مضاد للأكسدة يحمي التركيبة والبشرة. |
 | Elle aide la crème à rester stable dans le temps. | يساعد الكريم على البقاء مستقرًا مع الوقت. |
-| Avis | آراء |
-| Avis des clientes, défile horizontalement | آراء الزبونات، تمرير أفقي |
-| HananeWhatsApp · après 1 semaine | حنانواتساب · بعد أسبوع |
-| Merci beaucoup pour le produit, franchement il m’a beaucoup plu. Je l’utilise depuis une semaine. Ce que j’aime le plus : il n’a pas de parfum. | شكرًا جزيلًا على المنتج، بصراحة أعجبني كثيرًا. أستعمله منذ أسبوع. أكثر ما أعجبني: ليس فيه عطر. |
-| Même si les frais de livraison sont un peu élevés, le produit les vaut. | رغم أن مصاريف التوصيل مرتفعة قليلًا، المنتج يستحق. |
-| Instagram | إنستغرام |
-| DoujaInstagram · message | دوجةإنستغرام · رسالة |
-| Franchement, il est top. J’utilisais déjà des déodorants naturels, mais au bout d’un moment ils ne marchent plus. Lui a tenu toute la journée. | بصراحة، رائع. كنت أستعمل مزيلات عرق طبيعية، لكن بعد مدة لم تعد فعالة. هذا صمد معي اليوم كله. |
-| Cliente anonymeInstagram · réponse en story | زبونةإنستغرام · رد على ستوري |
-| Merci docteur, le déo est génial. J’ai un souci hormonal : je transpire normalement, mais aucune odeur. | شكرًا دكتور، مزيل العرق رائع. عندي مشكل هرموني: أتعرق بشكل عادي، لكن بدون أي رائحة. |
-| Le meilleur déodorant naturel que j’ai essayé. | أفضل مزيل عرق طبيعي جربته. |
-| FatifatInstagram · message | فاتيفاتإنستغرام · رسالة |
-| Moi aussi, je le trouve trop bien ! | وأنا أيضًا، أجده رائعًا جدًا! |
-| Je veux essayer · | أريد التجربة · |
 | Comment utiliser le déodorant crème ?+ | كيف أستعمل مزيل العرق كريم؟+ |
 | Prends un peu de baume du bout du doigt, laisse-le fondre puis applique-le sur l'aisselle propre et sèche. | خذي قليلًا من البلسم بطرف الإصبع، اتركيه يذوب ثم ضعيه على إبط نظيف وجاف. |
 | À utiliser le matin. | يُستعمل في الصباح. |
@@ -1747,9 +864,6 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | 50 ml. Il coûte 85 DH, ou 57 DH le pot avec l'offre 2 + 1 (170 DH les 3). Livraison : de 35 à 45 DH selon la ville. | 50 مل. ثمنه 85 درهم، أو 57 درهم للعلبة مع عرض 2 + 1 (170 درهم للثلاثة). التوصيل: من 35 إلى 45 درهمًا حسب المدينة. |
 | Est-ce qu'il bloque la transpiration ?+ | هل يمنع التعرق؟+ |
 | Non. Sans sels d'aluminium, il ne bloque pas la transpiration : il agit sur les odeurs. Transpirer est normal. | لا. بدون أملاح الألمنيوم، لا يمنع التعرق: يعمل على الروائح. التعرق أمر طبيعي. |
-| Voir la fiche : Sérum contour des yeux | صفحة المنتج : سيروم محيط العين |
-| 15 ml · 185 DH | 15 مل · 185 درهم |
-| Ajouter Sérum contour des yeux | إضافة سيروم محيط العين |
 | Déodorant crème50 ml · 85 DH | مزيل العرق كريم50 مل · 85 درهم |
 | Quantité de Déodorant crème | كمية مزيل العرق كريم |
 | Moins de Déodorant crème | تقليل مزيل العرق كريم |
@@ -1795,10 +909,6 @@ Français : `/taches-pigmentaires` · Arabe : `/ar/taches-pigmentaires` · Sourc
 | Haute protection, UVA/UVB | حماية عالية، UVA/UVB |
 | La routine, étape par étape | الروتين خطوة بخطوة |
 | Le matin : les 4 étapes. Le soir : les 3 premières, sans écran solaire. | في الصباح: الخطوات الأربع. في المساء: الثلاث الأولى، بدون واقي الشمس. |
-| Matin et soir, sur peau humide. Masse 30 secondes, puis rince. | صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
-| 3 à 4 gouttes sur peau sèche, en tapotant du bout des doigts. | 3 إلى 4 قطرات على بشرة جافة، مع التربيت بأطراف الأصابع. |
-| Une noisette sur le visage et le cou, en mouvements vers le haut. | كمية صغيرة على الوجه والرقبة، بحركات نحو الأعلى. |
-| Le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
 | La gamme anti-taches complète | المجموعة الكاملة ضد البقع |
 | Les 4 soins dès 299 DH au lieu de 496 DH, ou 199 DH la gamme avec l'offre 2 + 1. Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, de 35 à 45 DH selon la ville pour un achat à l'unité, paiement à la livraison. | المنتجات الأربعة ابتداءً من 299 درهم بدل 496 درهم، أو 199 درهم للمجموعة مع عرض 2 + 1. التوصيل في كل أنحاء المغرب خلال من 24 إلى 72 ساعة: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام. |
 | Poser une question sur WhatsApp | اسألينا عبر واتساب |
@@ -2209,6 +1319,74 @@ Source de l'arabe : src/home/chat/chat-text.ts.
 | Bonjour OTAGE, j'ai une question. | مرحبًا OTAGE، لدي سؤال. |
 | Bonjour OTAGE, j'ai une question : | مرحبًا OTAGE، لدي سؤال: |
 
+## Fiches produits : textes du ticket et de l'interface
+
+Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`… sont remplacés à l'affichage : ne pas les traduire.
+
+| Français | العربية |
+|---|---|
+| Commander, à partir de {p} DH | اطلبي، ابتداءً من {p} درهم |
+| Paiement à la réception · Partout au Maroc · | الدفع عند الاستلام · في كل المغرب · |
+| Dès {p} DH | ابتداءً من {p} درهم |
+| {p} DH seulement | {p} درهم فقط |
+| 3 pour {p} DH | 3 مقابل {p} درهم |
+| pour essayer | للتجربة |
+| Pour essayer | للتجربة |
+| le meilleur prix au ml | أفضل ثمن للمل |
+| ≈ {p} DH le {u} | ≈ {p} درهم لل{u} |
+| Commander · {t} DH | اطلبي · {t} درهم |
+| Je veux essayer · {t} DH | أريد التجربة · {t} درهم |
+| Livraison {a} à {b} DH | التوصيل من {a} إلى {b} درهم |
+| L’étiquette, sans filtre | الملصق، بدون فلتر |
+| Rôles relus par notre pharmacien | أدوار المكونات راجعها صيدلينا |
+| Message Instagram · {d} | رسالة إنستغرام · {d} |
+| Questions fréquentes | أسئلة شائعة |
+| Tu te poses | تتساءلين |
+| la question ? | عن شيء؟ |
+| Nos autres soins | منتجاتنا الأخرى |
+| Le reste de | باقي |
+| la maison. | منتجاتنا. |
+| Voir la fiche | صفحة المنتج |
+| Ticket | تذكرة |
+| {n} article | {n} منتج |
+| {n} articles | {n} منتجات |
+| Payé à la livraison | الدفع عند الاستلام |
+| {n} articles · + livraison | {n} منتجات · + التوصيل |
+| Quantité de {x} | كمية {x} |
+| Retirer {x} | إزالة {x} |
+| Moins de {x} | تقليل {x} |
+| Plus de {x} | زيادة {x} |
+| dont {n} offert | منها {n} مجانًا |
+| dont {n} offerts | منها {n} مجانًا |
+| Passe au grand format : <b>{x}</b> de plus. | انتقلي إلى الحجم الكبير: <b>{x}</b> إضافية. |
+| Prends-en 3 : <b>le 3e est offert</b>. {p} DH les 3 {u}. | خذي 3: <b>الثالث مجانًا</b>. {p} درهم لل{u} الثلاث. |
+| Ajoute 1 {u} : <b>il est offert</b>. | أضيفي {u} واحدًا: <b>مجانًا</b>. |
+| +1 offert | +1 مجانًا |
+| Ajouté | تمت الإضافة |
+| Ajouter {x} | إضافة {x} |
+| Format de {x} | حجم {x} |
+| à {v} | إلى {v} |
+| {a} à {b} DH | من {a} إلى {b} درهم |
+| Ton téléphone | هاتفك |
+| on t’appelle pour confirmer | نتصل بك للتأكيد |
+| Vérifie ton numéro : 10 chiffres, qui commencent par 06 ou 07. | تحققي من رقمك: 10 أرقام، تبدأ بـ 06 أو 07. |
+| Il manque juste ce qui est souligné en rouge. | ينقص فقط ما هو محدد بالأحمر. |
+| Trop de commandes envoyées d’un coup. Réessaie dans un moment, ou écris-nous sur WhatsApp. | تم إرسال طلبات كثيرة دفعة واحدة. أعيدي المحاولة بعد قليل، أو راسلينا على واتساب. |
+| La commande n’a pas pu être enregistrée. Réessaie, ou écris-nous sur WhatsApp. | تعذر تسجيل الطلب. أعيدي المحاولة، أو راسلينا على واتساب. |
+| Valider · {t} DH | تأكيد · {t} درهم |
+| Coche la case pour accepter les CGV et la politique de retour. | ضعي علامة في الخانة للموافقة على الشروط العامة للبيع وسياسة الإرجاع. |
+| Confirmé | تم التأكيد |
+| Merci, {n} ! | شكرًا، {n}! |
+| Ta commande N° <b>{no}</b> est bien reçue. On t’appelle au <b>{tel}</b> pour confirmer, puis on expédie. Tu paies à la réception. | طلبك رقم <b>{no}</b> وصلنا. سنتصل بك على <b>{tel}</b> للتأكيد، ثم نرسله. تدفعين عند الاستلام. |
+| Ta commande est gardée sur ton téléphone : elle part dès que la connexion revient. On t’appelle au <b>{tel}</b> pour confirmer. Tu paies à la réception. | طلبك محفوظ على هاتفك: سيُرسل بمجرد عودة الاتصال. سنتصل بك على <b>{tel}</b> للتأكيد. تدفعين عند الاستلام. |
+| Continuer la visite | متابعة التصفح |
+| Bonjour OTAGE, je veux commander : | مرحبًا OTAGE، أريد أن أطلب: |
+| Total : {t} DH + livraison | المجموع: {t} درهم + التوصيل |
+| Nom : {v} | الاسم: {v} |
+| Ville : {v} | المدينة: {v} |
+| · Grand | · كبير |
+| ml | مل |
+
 ---
 
-2019 textes à relire.
+1194 textes à relire.

@@ -7,6 +7,11 @@
 import { writeFileSync } from "node:fs";
 import { homeJsText } from "../src/home/text-js.ts";
 import { chatText } from "../src/home/chat/chat-text.ts";
+import { registerHooks } from "node:module";
+
+// src/data/product-pages.ts importe ses voisins sans extension (« ../lib/bidi ») : Node les cherche aussi en .ts
+registerHooks({ resolve: (spec, ctx, next) => { try { return next(spec, ctx); } catch (e) { if (spec.startsWith(".")) return next(spec + ".ts", ctx); throw e; } } });
+const { productUi } = await import("../src/data/product-pages.ts");
 
 const BASE = process.env.BASE || "http://localhost:3000";
 const PAGES = [
@@ -91,6 +96,10 @@ for (const k of Object.keys(frJs)) { if (frJs[k] === arJs[k]) continue; total++;
 md += `\n## Accueil : textes du chat des questions\n\nSource de l'arabe : src/home/chat/chat-text.ts.\n\n| Français | العربية |\n|---|---|\n`;
 const frChat = Object.fromEntries(flat(chatText.fr)), arChat = Object.fromEntries(flat(chatText.ar));
 for (const k of Object.keys(frChat)) { if (frChat[k] === arChat[k] || seenAll.has(frChat[k] + "\u0000" + arChat[k])) continue; total++; md += `| ${cell(frChat[k])} | ${cell(arChat[k])} |\n`; }
+
+// textes du ticket des fiches produits, dont ceux qui n'apparaissent qu'après un geste (rappels, erreurs, confirmation)
+md += `\n## Fiches produits : textes du ticket et de l'interface\n\nSource de l'arabe : src/data/product-pages.ts (productUi). \`{n}\`, \`{p}\`, \`{u}\`… sont remplacés à l'affichage : ne pas les traduire.\n\n| Français | العربية |\n|---|---|\n`;
+for (const v of Object.values(productUi).flat()) { const fr = decode(v.fr), ar = decode(v.ar); if (fr === ar || seenAll.has(fr + "\u0000" + ar)) continue; seenAll.add(fr + "\u0000" + ar); total++; md += `| ${cell(fr)} | ${cell(ar)} |\n`; }
 
 md += `\n---\n\n${total} textes à relire.\n`;
 writeFileSync(new URL("../src/data/ar-relecture.md", import.meta.url), md);

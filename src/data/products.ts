@@ -272,8 +272,8 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Déodorant crème naturel, sans sels d'aluminium", ar: "مزيل عرق كريم طبيعي، بدون أملاح الألمنيوم" },
     metaTitle: { fr: "Déodorant crème naturel sans aluminium, fabriqué au Maroc", ar: "مزيل عرق كريم طبيعي بدون ألمنيوم، مصنوع في المغرب" },
     metaDescription: {
-      fr: "Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. 85 DH, offre 2 + 1, paiement à la livraison partout au Maroc.",
-      ar: "مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. 85 درهم، عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
+      fr: "Déodorant crème OTAGE N°06 : formule 100 % d'origine naturelle, sans sels d'aluminium, 5 ingrédients. Offre 2 + 1, paiement à la livraison partout au Maroc.",
+      ar: "مزيل العرق كريم من OTAGE رقم 06: تركيبة طبيعية 100%، بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients naturels, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات طبيعية، لا شيء غيرها." },
     forWho: {

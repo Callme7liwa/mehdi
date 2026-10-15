@@ -1,5 +1,9 @@
 import type { HomeText } from "../text";
 import Img from "@/components/Img";
+import { productByKey } from "@/data/products";
+
+/** Prix du déodorant (src/data/products.ts), sur sa carte « Nouveau ». */
+const deoPrice = productByKey("deo").unitPrice.petit as number;
 
 export default function Diagnostic({ t }: { t: HomeText }) {
   return (
@@ -22,7 +26,7 @@ export default function Diagnostic({ t }: { t: HomeText }) {
           </button>
           <button type="button" className="dg-card pbc" role="radio" aria-checked="false" data-pb="odeurs">
             <span className="pb-ic pb-photo" aria-hidden="true"><Img src="/images/diagnostic-odeurs-aisselle.webp" alt="" width={320} height={320} sizes="(min-width: 900px) 360px, 76px" /></span>
-            <span className="pb-txt"><b>{t.diagnosticDesOdeursSousLes}</b><span>{t.diagnosticUnDeodorantQuiTient}</span><em>{t.diagnosticBientot}</em></span>
+            <span className="pb-txt"><b>{t.diagnosticDesOdeursSousLes}</b><span>{t.diagnosticUnDeodorantQuiTient}</span><em>{t.diagnosticBientot}{deoPrice}{t.discoverDh}</em></span>
             <svg className="pb-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </button>
         </div>

@@ -163,7 +163,7 @@ const texts = {
     diagnosticCernesContourDesYeux: "Cernes, contour des yeux fatigué",
     diagnosticDesOdeursSousLes: "Des odeurs sous les bras",
     diagnosticUnDeodorantQuiTient: "Déodorant crème, 100 % naturel",
-    diagnosticBientot: "Nouveau · 85 DH",
+    diagnosticBientot: "Nouveau · ",
     // Offers
     offersFormat: "Format",
     offersInformationsDeLivraison: "Informations de livraison",
@@ -244,8 +244,8 @@ const texts = {
     discoverBientot: "Nouveau",
     discoverPourLesOdeurs: "Pour les odeurs",
     discoverNotreDeodorantArriveBientot: "Notre déodorant crème est là.",
-    discoverOnLePrepareAvec: "Une formule 100 % naturelle : oxyde de zinc, huile de jojoba, huile de coco, cire d'abeille et vitamine E. 85 DH.",
-    discoverCommanderLeDeo: "Commander le déodorant · 85 DH",
+    discoverOnLePrepareAvec: "Une formule 100 % naturelle : oxyde de zinc, huile de jojoba, huile de coco, cire d'abeille et vitamine E. ",
+    discoverCommanderLeDeo: "Commander le déodorant · ",
     discoverVoirLesSoinsAnti: "Voir les soins anti-taches",
     discoverVoirLeContourDes: "Voir le contour des yeux",
     // Campaign
@@ -500,7 +500,7 @@ const texts = {
     diagnosticCernesContourDesYeux: "هالات سوداء، محيط عين متعب",
     diagnosticDesOdeursSousLes: "روائح تحت الإبط",
     diagnosticUnDeodorantQuiTient: "مزيل عرق كريم، طبيعي 100%",
-    diagnosticBientot: "جديد · 85 درهم",
+    diagnosticBientot: "جديد · ",
     // Offers
     offersFormat: "الحجم",
     offersInformationsDeLivraison: "معلومات التوصيل",
@@ -580,8 +580,8 @@ const texts = {
     discoverBientot: "جديد",
     discoverPourLesOdeurs: "للروائح",
     discoverNotreDeodorantArriveBientot: "مزيل العرق كريم وصل.",
-    discoverOnLePrepareAvec: "تركيبة طبيعية 100%: أكسيد الزنك، زيت الجوجوبا، زيت جوز الهند، شمع العسل وفيتامين E. ‏85 درهم.",
-    discoverCommanderLeDeo: "اطلبي مزيل العرق · 85 درهم",
+    discoverOnLePrepareAvec: "تركيبة طبيعية 100%: أكسيد الزنك، زيت الجوجوبا، زيت جوز الهند، شمع العسل وفيتامين E. ‏",
+    discoverCommanderLeDeo: "اطلبي مزيل العرق · ",
     discoverVoirLesSoinsAnti: "منتجات ضد البقع",
     discoverVoirLeContourDes: "سيروم محيط العين",
     // Campaign

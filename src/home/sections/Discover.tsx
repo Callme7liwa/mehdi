@@ -7,6 +7,7 @@ import { localePath } from "@/lib/seo";
 const rangeCards = products.filter((p) => p.range === "taches");
 const yeux = productByKey("yeux");
 const deo = productByKey("deo");
+const deoPrice = deo.unitPrice.petit as number;
 const lowerFirst = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
 /** Le sérum contour des yeux a deux fiches : le produit, puis « Sur la peau » (2e phrase de sa présentation). */
 const split = (t: string) => t.split(/(?<=\.)\s+/);
@@ -88,9 +89,9 @@ export default function Discover({ t, locale }: { t: HomeText; locale: Locale })
             <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesOdeurs}</p>
               <h2>{t.discoverNotreDeodorantArriveBientot}</h2>
-              <p>{t.discoverOnLePrepareAvec}</p>
+              <p>{t.discoverOnLePrepareAvec}{deoPrice}{t.discoverDh}.</p>
               <div className="dg-act">
-                <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}</a>
+                <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}{deoPrice}{t.discoverDh}</a>
               </div>
             </div>
           </article>

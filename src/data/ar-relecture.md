@@ -621,12 +621,14 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | à la réception | عند الاستلام |
 | Total produits | مجموع المنتجات |
 | On te livre | نوصل إليك |
-| 3 cases, c’est tout | 3 خانات، هذا كل شيء |
+| 3 cases, l’e-mail si tu veux | 3 خانات، والبريد إن أردت |
 | Ton nom | اسمك |
 | Salma Bennani | سلمى بناني |
 | Ton téléphone on t’appelle pour confirmer | هاتفك نتصل بك للتأكيد |
 | Ta ville | مدينتك |
 | Villes rapides | مدن سريعة |
+| E-mail facultatif | البريد الإلكتروني اختياري |
+| Reçois ta confirmation par email. Ton adresse sert uniquement à t’envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
 | J’ai lu et j’accepte les | قرأت وأوافق على |
 | Valider · | تأكيد · |
 | Commander sur WhatsApp | اطلبي عبر واتساب |
@@ -1379,6 +1381,11 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | {a} à {b} DH | من {a} إلى {b} درهم |
 | Ton téléphone | هاتفك |
 | on t’appelle pour confirmer | نتصل بك للتأكيد |
+| facultatif | اختياري |
+| Reçois ta confirmation par email. | توصلي بتأكيد طلبك عبر البريد الإلكتروني. |
+| Ton adresse sert uniquement à t’envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
+| Vérifie ton adresse e-mail (ou laisse le champ vide). | تحققي من بريدك الإلكتروني (أو اتركي الخانة فارغة). |
+| La confirmation t’est aussi envoyée par e-mail à <b>{email}</b>. | يُرسل إليك تأكيد الطلب أيضًا عبر البريد الإلكتروني إلى <b>{email}</b>. |
 | Vérifie ton numéro : 10 chiffres, qui commencent par 06 ou 07. | تحققي من رقمك: 10 أرقام، تبدأ بـ 06 أو 07. |
 | Il manque juste ce qui est souligné en rouge. | ينقص فقط ما هو محدد بالأحمر. |
 | Trop de commandes envoyées d’un coup. Réessaie dans un moment, ou écris-nous sur WhatsApp. | تم إرسال طلبات كثيرة دفعة واحدة. أعيدي المحاولة بعد قليل، أو راسلينا على واتساب. |
@@ -1399,4 +1406,4 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 
 ---
 
-1204 textes à relire.
+1211 textes à relire.

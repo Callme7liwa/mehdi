@@ -18,10 +18,12 @@ type Props = {
   thumb: { src: string; w: number; h: number };
   logo: { src: string; w: number; h: number };
 };
-type Done = { name: string; numero: string; tel: string };
+type Done = { name: string; numero: string; tel: string; email: string };
 
 const QUEUE = "otage-commandes-en-attente"; // même file d'attente hors connexion que l'accueil (islands/offers.js la renvoie)
 const CLIENT = "otage-client";
+/** E-mail facultatif : vide, ou une adresse plausible (le serveur vérifie de nouveau). */
+const emailOk = (v: string) => v.trim() === "" || /^\S+@\S+\.\S{2,}$/.test(v.trim());
 const telOk = (v: string) => /^(?:\+212|00212|0)[67]\d{8}$/.test(v.replace(/[\s.\-()]/g, ""));
 const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 const esc = (v: string) => v.replace(/[&<>"']/g, (ch) => `&#${ch.charCodeAt(0)};`);
@@ -32,7 +34,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
   const { t, lines, item, others, total, count, locale } = c;
   const [no, setNo] = useState("····");
   const [date, setDate] = useState("");
-  const [vals, setVals] = useState({ nom: "", tel: "", ville: "" });
+  const [vals, setVals] = useState({ nom: "", tel: "", ville: "", email: "" });
   const [agree, setAgree] = useState(false);
   const [invalid, setInvalid] = useState<string[]>([]);
   const [error, setError] = useState("");
@@ -48,7 +50,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
     const raf = requestAnimationFrame(() => {
       setNo(String(Math.floor(1000 + Math.random() * 9000)));
       setDate(new Date().toLocaleDateString(locale === "ar" ? "ar-MA" : "fr-MA", { day: "2-digit", month: "short", year: "numeric" }));
-      try { const s = JSON.parse(localStorage.getItem(CLIENT) || "null"); if (s) setVals({ nom: s.nom || "", tel: s.tel || "", ville: s.ville || "" }); } catch { /* stockage indisponible */ }
+      try { const s = JSON.parse(localStorage.getItem(CLIENT) || "null"); if (s) setVals((v) => ({ ...v, nom: s.nom || "", tel: s.tel || "", ville: s.ville || "" })); } catch { /* stockage indisponible */ }
     });
     return () => cancelAnimationFrame(raf);
   }, [locale]);
@@ -68,7 +70,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
     // 10 chiffres tapés : on passe tout seul à la ville
     if (n === "tel" && telOk(v) && !vals.ville) document.getElementById("f-ville")?.focus();
   };
-  const okCls = (n: keyof typeof vals) => (n === "tel" ? telOk(vals.tel) : vals[n].trim().length > 1) ? "is-ok" : undefined;
+  const okCls = (n: keyof typeof vals) => (n === "tel" ? telOk(vals.tel) : n === "email" ? vals.email.trim() !== "" && emailOk(vals.email) : vals[n].trim().length > 1) ? "is-ok" : undefined;
 
   /* nom affiché d'une ligne */
   const lineName = (i: number) => { const l = lines[i], it = item(l.key); return it.name + (it.formats.length > 1 && l.f === "grand" ? t.grandSuffix : ""); };
@@ -123,10 +125,10 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
     if (sending) return;
     const f = form.current!;
     if ((f.elements.namedItem("site") as HTMLInputElement).value) return; // champ piège
-    const bad = (["nom", "tel", "ville"] as const).filter((n) => (n === "tel" ? !telOk(vals.tel) : vals[n].trim().length < 2));
+    const bad = (["nom", "tel", "ville", "email"] as const).filter((n) => (n === "tel" ? !telOk(vals.tel) : n === "email" ? !emailOk(vals.email) : vals[n].trim().length < 2));
     setInvalid(bad);
     if (bad.length) {
-      setError(bad.length === 1 && bad[0] === "tel" ? t.errPhone : t.errFields);
+      setError(bad.length === 1 && bad[0] === "tel" ? t.errPhone : bad.length === 1 && bad[0] === "email" ? t.errEmail : t.errFields);
       setShake((n) => n + 1); buzz([30, 40, 30]);
       if (mobile() && !c.isOpen) c.open();
       document.getElementById(`f-${bad[0]}`)?.focus();
@@ -144,7 +146,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
     const order = {
       id: newId(), locale, kind: "unite",
       items: lines.map((l) => ({ key: l.key, format: l.f, qty: l.qty })),
-      nom: vals.nom.trim(), tel: vals.tel.trim(), ville: vals.ville.trim(), site: "", cgv: true,
+      nom: vals.nom.trim(), tel: vals.tel.trim(), ville: vals.ville.trim(), email: vals.email.trim(), site: "", cgv: true,
       page: location.href.split("#")[0],
     };
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville })); } catch { /* stockage indisponible */ }
@@ -153,9 +155,9 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
     if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
-      const fields = (res.fields || []).filter((x) => ["nom", "tel", "ville", "cgv"].includes(x));
+      const fields = (res.fields || []).filter((x) => ["nom", "tel", "ville", "email", "cgv"].includes(x));
       setInvalid(fields);
-      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "cgv" ? t.errTerms : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length ? t.errFields : t.errServer);
+      setError(res.error === "limite" ? t.errLimit : fields.length === 1 && fields[0] === "cgv" ? t.errTerms : fields.length === 1 && fields[0] === "email" ? t.errEmail : fields.length === 1 && fields[0] === "tel" ? t.errPhone : fields.length ? t.errFields : t.errServer);
       if (fields.length) document.getElementById(`f-${fields[0]}`)?.focus();
       return;
     }
@@ -170,7 +172,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       await Promise.all(parts.map((el, i) => el.animate([{ transform: "none", opacity: 1 }, { transform: `translateY(40px) rotate(${i ? 1.5 : -1.5}deg)`, opacity: 0 }], { duration: 420, delay: i * 70, easing: "cubic-bezier(.7,0,.2,1)", fill: "forwards" }).finished));
     }
-    setDone({ name: order.nom.split(/\s+/)[0], numero: res?.numero || "", tel: order.tel });
+    setDone({ name: order.nom.split(/\s+/)[0], numero: res?.numero || "", tel: order.tel, email: order.email });
   };
   const again = () => {
     c.close();
@@ -252,6 +254,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
             <div className="cities" role="group" aria-label={t.quickCities}>
               {cities.map((v) => <button key={v} type="button" aria-pressed={vals.ville.trim().toLowerCase() === v.toLowerCase()} onClick={() => { set("ville", v); buzz(8); }}>{v}</button>)}
             </div>
+            <div className="f"><label htmlFor="f-email">{t.email} <small>{t.emailOpt}</small></label><input id="f-email" name="email" type="email" inputMode="email" autoComplete="email" enterKeyHint="done" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="f-email-info" value={vals.email} className={okCls("email")} onChange={(e) => set("email", e.target.value)} {...inv("email")} /><small id="f-email-info" className="f-info"><b>{t.emailHint}</b> {t.emailConsent}</small></div>
             <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1 }} />
             <label className="agree">
               <input id="f-cgv" type="checkbox" name="cgv" checked={agree} onChange={(e) => { setAgree(e.target.checked); if (invalid.includes("cgv")) { const rest = invalid.filter((x) => x !== "cgv"); setInvalid(rest); if (!rest.length) setError(""); } }} {...inv("cgv")} />
@@ -277,6 +280,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
             <div className="stamp" aria-hidden="true"><span>{t.confirmed}</span></div>
             <h3>{done.name ? fill(t.thanks, { n: done.name }) : t.thanksDefault}</h3>
             <p dangerouslySetInnerHTML={{ __html: fill(done.numero ? t.done : t.doneOffline, { no: esc(done.numero), tel: esc(done.tel) }).replace(/<b>([^<]*)<\/b>/g, (m, x) => (/^[\d\s+-]+$|^OTG/.test(x) ? `<b dir="ltr">${x}</b>` : m)) }} />
+            {done.email && <p dangerouslySetInnerHTML={{ __html: fill(t.doneEmail, { email: `<bdi dir="ltr">${esc(done.email)}</bdi>` }) }} />}
             <button type="button" className="btn-ghost" onClick={again}>{t.continue}</button>
           </div>
         )}

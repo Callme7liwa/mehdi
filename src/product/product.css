@@ -301,6 +301,8 @@ button{cursor:pointer}
 .cities::-webkit-scrollbar{display:none}
 .cities button{flex:none;min-height:34px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--bx);font-size:13px}
 .cities button[aria-pressed="true"]{background:var(--bx);color:var(--cream);border-color:var(--bx)}
+.f-info{font-size:12px;line-height:1.45;color:var(--muted)}
+.f-info b{font-weight:600;color:var(--bx)}
 .err{margin:8px 0 0;min-height:18px;font-size:13px;color:var(--red)}
 .tk-foot{padding:14px 20px 18px;border-top:1px solid var(--line);background:var(--paper)}
 .go{position:relative;width:100%;min-height:62px;border:0;border-radius:999px;background:var(--red);color:var(--cream);font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:space-between;padding:0;padding-inline:26px 10px;overflow:hidden;box-shadow:0 18px 34px -16px rgba(196,30,48,.75);transition:transform .3s var(--ease)}

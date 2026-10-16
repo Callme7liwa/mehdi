@@ -75,55 +75,38 @@ export const problems: ProblemPage[] = [
   {
     slug: "cernes",
     label: "Cernes",
-    h1: "Cernes et contour des yeux fatigué : causes et gestes simples",
-    metaTitle: "Cernes : causes, conseils et soin contour des yeux | OTAGE",
-    metaDescription: "Pourquoi les cernes apparaissent, les gestes simples pour un regard moins fatigué et comment utiliser un sérum contour des yeux à la caféine.",
+    h1: "Cernes : causes et gestes pour un regard reposé",
+    metaTitle: "Cernes : causes et soin contour des yeux | OTAGE",
+    metaDescription: "Cernes : d'où ils viennent, les gestes qui aident et comment appliquer un sérum contour des yeux à la caféine. Conseils simples, sans promesse miracle.",
     image: image("serum-contour-des-yeux-n05-application.webp", 1195, 1600, "Sérum contour des yeux OTAGE N°05 tenu près du visage"),
-    intro: [
-      "Les cernes sont des zones plus sombres ou creusées sous les yeux. La peau y est très fine : tout se voit plus vite qu'ailleurs sur le visage, la fatigue comme les petits vaisseaux.",
-      "Ils sont très courants et sans gravité dans la plupart des cas. On ne les efface pas d'un coup, mais quelques habitudes et un soin adapté peuvent aider le contour des yeux à paraître moins fatigué.",
-    ],
+    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
+    intro: ["Les cernes viennent de l'hérédité, de la fatigue, d'une peau fine ou du pigment. Sommeil, protection solaire et soin contour des yeux aident à les atténuer."],
     sections: [
       {
         h2: "Pourquoi a-t-on des cernes ?",
-        body: [
-          { list: [
-            "L'hérédité : certaines familles et certaines carnations ont naturellement le contour des yeux plus foncé.",
-            "Le manque de sommeil et la fatigue, qui rendent le teint plus terne et les cernes plus visibles.",
-            "Une peau très fine sous l'œil, qui laisse voir les petits vaisseaux (cernes bleutés ou violacés).",
-            "Un excès de pigment (cernes bruns), que le soleil et les frottements peuvent accentuer.",
-            "L'âge : la peau s'affine et le contour de l'œil se creuse avec le temps.",
-          ] },
-        ],
+        body: [{ list: ["L'hérédité : certaines familles ont le contour des yeux plus foncé.", "La fatigue : le teint devient terne, les cernes se voient plus.", "Une peau fine : les petits vaisseaux se voient (cernes bleutés).", "Le pigment : cernes bruns, accentués par le soleil et les frottements.", "L'âge : la peau s'affine et le contour de l'œil se creuse."] }],
       },
       {
-        h2: "Les gestes qui aident",
-        body: [
-          { list: [
-            "Dormir suffisamment et à heures régulières, autant que possible.",
-            "Ne pas se frotter les yeux, et se démaquiller en douceur.",
-            "Protéger le contour des yeux du soleil : lunettes, et écran solaire sur le visage.",
-            "Appliquer son soin contour des yeux matin et soir, avec légèreté, sans tirer la peau.",
-          ] },
-        ],
+        h2: "Qu'est-ce qui aide contre les cernes ?",
+        body: [{ list: ["Dormir assez, à heures régulières.", "Ne pas te frotter les yeux ; te démaquiller en douceur.", "Protéger tes yeux du soleil : lunettes et écran solaire.", "Un soin contour des yeux matin et soir, sans tirer la peau."] }],
       },
       {
-        h2: "Comment appliquer un sérum contour des yeux",
-        body: [
-          "Passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement du bout du doigt. Une petite quantité suffit. Le sérum OTAGE a une texture légère qui se glisse sous le maquillage.",
-        ],
+        h2: "Comment appliquer un sérum contour des yeux ?",
+        body: [{ steps: ["Matin et soir, sur peau propre.", "Passe la bille sous l'œil, de l'intérieur vers l'extérieur.", "Tapote doucement du bout du doigt."] }],
       },
     ],
-    advice: "Des cernes apparus brusquement, d'un seul côté, ou accompagnés d'un gonflement ou d'une gêne méritent l'avis d'un médecin. Si tes cernes sont très marqués depuis toujours, un dermatologue pourra t'expliquer leur origine et ce qu'on peut raisonnablement en attendre.",
-    productsTitle: "Le soin OTAGE pour le contour des yeux",
-    productsIntro: "OTAGE propose un sérum pensé pour les cernes et le contour des yeux fatigué :",
-    products: [{ key: "yeux", why: "15 ml, applicateur bille. Aloe vera, acide hyaluronique et caféine. Matin et soir." }],
+    adviceTitle: "Quand consulter un médecin ?",
+    advice: "Si tes cernes apparaissent d'un coup, d'un seul côté, ou avec un gonflement. Un dermatologue peut aussi t'expliquer des cernes très marqués depuis toujours.",
+    productsTitle: "Le soin OTAGE pour les cernes",
+    productsIntro: "",
+    products: [
+      { key: "yeux", why: "Caféine, acide hyaluronique et aloe vera, applicateur bille de 15 ml." },
+    ],
     routine: false,
     faq: [
-      { q: "Un sérum peut-il faire disparaître les cernes ?", a: ["Aucun soin ne peut promettre de les faire disparaître. Selon leur origine (hérédité, peau fine, pigment), les cernes s'atténuent plus ou moins. Un soin régulier et de bonnes habitudes aident le contour des yeux à paraître moins fatigué."] },
-      { q: "Quand appliquer le sérum contour des yeux ?", a: ["Matin et soir. Passe la bille sous l'œil, de l'intérieur vers l'extérieur, puis tapote doucement."] },
-      { q: "Peut-on le mettre sous le maquillage ?", a: ["Oui : sa texture légère se glisse sous le maquillage."] },
-      { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
+      { q: "Un sérum peut-il faire disparaître les cernes ?", a: ["Non, aucun soin ne peut le promettre. Selon leur origine, ils s'atténuent plus ou moins."] },
+      { q: "Peut-on le mettre sous le maquillage ?", a: ["Oui. Sa texture légère se glisse sous le maquillage."] },
+      { q: "Je suis enceinte ou j'allaite, je peux l'utiliser ?", a: ["Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients."] },
     ],
   },
 

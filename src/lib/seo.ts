@@ -31,6 +31,7 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
     description,
     alternates: { canonical: url, languages: hidden ? undefined : languages },
     robots: hidden ? { index: false, follow: true } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+    verification: { google: site.googleVerification },
     openGraph: { type, siteName: site.brand[locale], locale: locale === "ar" ? "ar_MA" : "fr_MA", url, title, description, images: [img] },
     twitter: { card: "summary_large_image", title, description, images: [img] },
   };

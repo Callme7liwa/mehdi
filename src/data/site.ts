@@ -67,6 +67,8 @@ export const site = {
   /** Mesure d'audience GA4 : identifiant « G-XXXXXXX » lu dans NEXT_PUBLIC_GA_ID (variable d'environnement Vercel).
       TODO : créer la propriété GA4 et renseigner la variable. Sans identifiant, aucun script et aucune bannière. */
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
+  /** Google Search Console : jeton de la balise <meta name="google-site-verification"> (propriété otage.ma). */
+  googleVerification: "BjBEMRIG80-T25QYFrUikbX9QefJWi7o4_jDHpaB7LY",
 
   /* L'adresse du script Google qui enregistre les commandes n'est plus ici : elle est dans la variable
      d'environnement ORDERS_ENDPOINT, lue seulement par le serveur (src/app/api/order/route.ts). */

@@ -156,70 +156,44 @@ export const problems: ProblemPage[] = [
   {
     slug: "melasma-grossesse",
     label: "Mélasma et grossesse",
-    h1: "Mélasma et masque de grossesse : comprendre, et précautions pendant la grossesse",
-    metaTitle: "Mélasma (masque de grossesse) : causes et conseils | OTAGE",
-    metaDescription: "Le mélasma, ou masque de grossesse, donne des taches brunes sur le visage. Ses causes, le rôle du soleil, et quoi demander à son médecin avant tout soin.",
+    h1: "Mélasma et masque de grossesse : comprendre et se protéger",
+    metaTitle: "Mélasma et masque de grossesse : que faire ? | OTAGE",
+    metaDescription: "Mélasma et masque de grossesse : causes, rôle du soleil, précautions pendant la grossesse et l'allaitement, et quoi demander à ton médecin avant un soin.",
     image: image("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire SPF 50 OTAGE à la plage"),
-    intro: [
-      "Le mélasma se présente comme des taches brunes aux contours irréguliers, souvent symétriques, sur le front, les joues, le nez ou au-dessus de la lèvre. Quand il apparaît pendant la grossesse, on l'appelle le masque de grossesse.",
-      "Il est sans danger pour la santé, mais il peut durer. Voici ce qu'on sait de ses causes et ce qui aide à le limiter.",
-    ],
+    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
+    intro: ["Le mélasma donne des taches brunes symétriques, souvent pendant la grossesse. Le geste clé : te protéger du soleil, chaque jour."],
     sections: [
       {
-        part: "1. Le mélasma : comprendre",
         h2: "Pourquoi le mélasma apparaît-il ?",
-        body: [
-          { list: [
-            "Les hormones : la grossesse, certaines contraceptions et les changements hormonaux stimulent la production de pigment.",
-            "Le soleil : c'est lui qui déclenche et fonce les taches. Même une courte exposition peut suffire.",
-            "Le terrain : les peaux mates et foncées, et certaines familles, y sont plus sujettes.",
-          ] },
-        ],
+        body: [{ list: ["Les hormones : grossesse, contraception, changements hormonaux.", "Le soleil : il déclenche et fonce les taches, même en peu de temps.", "Le terrain : peaux mates et certaines familles y sont plus sujettes."] }],
       },
       {
-        h2: "Ce qui aide à le limiter",
-        body: [
-          { list: [
-            "Se protéger du soleil tous les jours, toute l'année : chapeau, ombre, écran solaire à haute protection, renouvelé toutes les 2 heures au soleil.",
-            "Éviter les expositions aux heures les plus chaudes.",
-            "Ne pas irriter la peau : pas de gommage agressif ni de produit qui pique ou qui brûle.",
-            "Être patiente : le mélasma s'atténue lentement et revient facilement avec le soleil. Aucun soin cosmétique ne peut promettre de le faire disparaître.",
-          ] },
-          "Un mélasma étendu, ancien ou qui te gêne beaucoup se montre à un dermatologue : il existe des traitements médicaux, qui se décident avec lui.",
-        ],
+        h2: "Qu'est-ce qui aide à le limiter ?",
+        body: [{ list: ["Te protéger du soleil chaque jour : chapeau, ombre, écran.", "Éviter le soleil aux heures chaudes.", "Ne pas irriter la peau : pas de gommage agressif.", "Être patiente : aucun soin ne peut promettre de le faire disparaître."] }],
       },
       {
-        part: "2. Grossesse et allaitement : les précautions",
-        h2: "Que faire pendant la grossesse ?",
-        body: [
-          { list: [
-            "Se protéger du soleil tous les jours : chapeau, ombre, et une protection solaire validée par ton médecin ou ton pharmacien.",
-            "Ne pas multiplier les produits : pendant la grossesse et l'allaitement, chaque soin doit être validé par un professionnel de santé.",
-            "Ne commencer aucun traitement des taches sans avis médical : certains actifs utilisés contre les taches ou les rides (rétinoïdes, hydroquinone) sont déconseillés pendant la grossesse.",
-            "Rester patiente : le masque de grossesse s'atténue souvent dans les mois qui suivent l'accouchement, mais pas toujours.",
-          ] },
-        ],
+        h2: "Enceinte ou allaitante : quelles précautions ?",
+        body: [{ list: ["Te protéger du soleil, avec un écran validé par ton médecin.", "Ne pas multiplier les produits : fais valider chaque soin.", "Aucun traitement des taches sans avis médical.", "Rétinoïdes et hydroquinone sont déconseillés pendant la grossesse."] }],
       },
       {
         h2: "Et après la grossesse ?",
-        body: [
-          "Si les taches persistent après l'accouchement et la fin de l'allaitement, une routine anti-taches régulière et une protection solaire quotidienne peuvent aider à les atténuer petit à petit. Le mélasma revient facilement avec le soleil : la protection reste le geste le plus important.",
-        ],
+        body: ["Le masque s'atténue souvent dans les mois qui suivent, pas toujours. S'il reste, une routine anti-taches et l'écran solaire peuvent aider."],
       },
     ],
-    advice: "Enceinte ou allaitante : avant d'utiliser un soin OTAGE, écran solaire compris, demande l'avis de ton médecin ou de ton pharmacien en lui montrant la liste des ingrédients. Un mélasma étendu ou qui persiste doit être vu par un dermatologue.",
-    productsTitle: "Les soins OTAGE, à voir avec ton médecin",
-    productsIntro: "Ces soins font partie de la routine anti-taches OTAGE. Pendant la grossesse ou l'allaitement, ne les utilise qu'avec l'accord de ton médecin ou de ton pharmacien.",
+    adviceTitle: "Quand consulter un dermatologue ?",
+    advice: "Si ton mélasma est étendu, ancien ou s'il persiste. Il existe des traitements médicaux, à décider avec lui.",
+    productsTitle: "Quels soins OTAGE, avec l'accord de ton médecin ?",
+    productsIntro: "Enceinte ou allaitante, utilise-les seulement après l'accord de ton médecin.",
     products: [
-      { key: "ecran", why: "Écran solaire SPF 50, haute protection UVA/UVB : le geste du matin pour limiter le retour des taches." },
-      { key: "serum", why: "Le soin concentré de la gamme, qui cible les taches." },
-      { key: "creme", why: "Hydrate, unifie le teint et scelle le sérum." },
+      { key: "ecran", why: "Le geste du matin, pour limiter le retour des taches." },
+      { key: "serum", why: "Atténue les taches brunes." },
+      { key: "creme", why: "Hydrate et unifie le teint." },
     ],
     routine: false,
     faq: [
-      { q: "Le masque de grossesse disparaît-il après l'accouchement ?", a: ["Souvent, il s'atténue dans les mois qui suivent, mais pas toujours et pas complètement chez tout le monde. S'il persiste, demande l'avis d'un dermatologue."] },
-      { q: "Puis-je utiliser les soins OTAGE enceinte ou pendant l'allaitement ?", a: ["Demande d'abord l'avis de ton médecin ou de ton pharmacien, en lui montrant la liste des ingrédients. C'est plus sûr."] },
-      { q: "Le soleil aggrave-t-il le mélasma ?", a: ["Oui. Le soleil déclenche et fonce les taches, et le mélasma revient facilement après une exposition. La protection solaire quotidienne est le geste le plus important."] },
+      { q: "Le masque de grossesse disparaît-il après l'accouchement ?", a: ["Souvent, il s'atténue en quelques mois, pas toujours. S'il reste, vois un dermatologue."] },
+      { q: "Puis-je utiliser les soins OTAGE enceinte ou en allaitant ?", a: ["Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients."] },
+      { q: "Le soleil aggrave-t-il le mélasma ?", a: ["Oui. Il fonce les taches et le mélasma revient vite après une exposition."] },
     ],
   },
 ];

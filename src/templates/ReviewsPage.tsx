@@ -13,10 +13,10 @@ import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from 
 const copy = {
   fr: {
     label: "Avis de clientes",
-    title: "Avis de clientes sur la gamme anti-taches | OTAGE",
-    description: "Les messages que des clientes OTAGE nous ont envoyés sur Instagram à propos de la gamme anti-taches : captures d'origine et texte retranscrit.",
-    h1: "Ce que nos clientes nous écrivent",
-    lead: "Des messages reçus sur Instagram, montrés tels qu'ils nous ont été envoyés : la capture d'origine, et le texte retranscrit à côté.",
+    title: "Avis clientes sur la gamme anti-taches | OTAGE",
+    description: "Avis de clientes sur la gamme anti-taches OTAGE : leurs messages Instagram, la capture d'origine et le texte retranscrit, sans retouche ni note.",
+    h1: "Avis clientes sur la gamme anti-taches",
+    lead: "Leurs messages Instagram, tels quels : capture et texte.",
     from: "Message de",
     about: "à propos de la gamme anti-taches",
     client: "Cliente",

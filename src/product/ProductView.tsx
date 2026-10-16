@@ -3,6 +3,7 @@
    le navigateur ajoute le ticket et les gestes. Textes de la fiche : src/data/product-pages.ts ; prix : src/data/products.ts. */
 import type { Metadata } from "next";
 import Img from "@/components/Img";
+import CityList from "@/components/CityList";
 import JsonLd from "@/components/JsonLd";
 import Reassure from "@/components/Reassure";
 import { productFaq } from "@/data/faq";
@@ -237,6 +238,8 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
           thumb={{ src: p.pack.src, w: p.pack.w, h: p.pack.h }}
           logo={LOGO}
         />
+        {/* villes du champ « Ville » du ticket : rendues ici, côté serveur (hors du JavaScript du ticket) */}
+        <CityList id="f-villes" locale={locale} />
         <Fx />
       </CartProvider>
     </>

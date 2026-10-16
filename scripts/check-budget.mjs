@@ -17,7 +17,8 @@ const BASE = process.env.BASE || "http://localhost:3000";
 const HOME = { js: 165, css: 26, html: 57, fonts: 64 };
 const PAGE = { js: 155, css: 8, html: 22, fonts: 64 };
 // fiches produits (maquette « le ticket ») : leur propre feuille de style, plus riche que celle des pages intérieures (9,1 Ko mesurés)
-const PRODUCT = { js: 155, css: 10, html: 22, fonts: 64 };
+// fiches : +1 Ko de HTML depuis que le ticket propose les 92 villes (liste rendue dans le HTML, pas dans le JS)
+const PRODUCT = { js: 155, css: 10, html: 23, fonts: 64 };
 const PAGES = [
   ["/", HOME], ["/ar", HOME],
   ["/soins/serum-anti-taches", PRODUCT], ["/ar/soins/serum-anti-taches", PRODUCT], ["/soins/deodorant-creme", PRODUCT],

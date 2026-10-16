@@ -1,7 +1,8 @@
 import type { HomeText } from "../text";
 import Img from "@/components/Img";
 import { bundleTotal, bundleUnit, gamme } from "@/data/products";
-import CityField, { CityList } from "@/components/CityField";
+import CityField from "@/components/CityField";
+import CityList from "@/components/CityList";
 import { site, type Locale } from "@/data/site";
 import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";

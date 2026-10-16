@@ -117,14 +117,24 @@ export function Ingredients({ items, spots, photo }: { items: { n: string; name:
   );
 }
 
-/** Une question, qui s'ouvre au clic (le texte est dans la page, pour les moteurs aussi). */
-export function Question({ q, children, first }: { q: string; children: React.ReactNode; first?: boolean }) {
-  const [open, setOpen] = useState(Boolean(first));
-  const id = useId();
+/** Les questions : accordéon exclusif (une seule ouverte à la fois), toutes fermées au chargement.
+    Les réponses restent dans le HTML (moteurs, JSON-LD identique) ; fermées, elles sont inertes (ni lues ni atteignables au clavier). */
+export function FaqList({ items }: { items: { q: string; a: string[] }[] }) {
+  const [open, setOpen] = useState<number | null>(null);
+  const base = useId();
   return (
-    <div className="q">
-      <button type="button" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>{q}<i aria-hidden="true">+</i></button>
-      <div className="a" id={id}><div>{children}</div></div>
+    <div className="faq-l">
+      {items.map((f, i) => {
+        const id = `${base}-${i}`, on = open === i;
+        return (
+          <div key={f.q} className={on ? "q on" : "q"}>
+            <h3 className="q-h">
+              <button type="button" id={`${id}-q`} aria-expanded={on} aria-controls={id} onClick={() => setOpen(on ? null : i)}>{f.q}<i aria-hidden="true">+</i></button>
+            </h3>
+            <div className="a" id={id} role="region" aria-labelledby={`${id}-q`} inert={!on}><div>{f.a.map((a, k) => <p key={k} dangerouslySetInnerHTML={{ __html: a }} />)}</div></div>
+          </div>
+        );
+      })}
     </div>
   );
 }

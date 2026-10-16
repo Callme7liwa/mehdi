@@ -1,5 +1,5 @@
 /* Icônes des fiches produits, reprises des maquettes (trait de 1,6 px, 24 × 24). */
-import type { PerkIcon } from "@/data/product-pages";
+import type { PerkIcon, StepIcon } from "@/data/product-pages";
 
 const NO = <><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></>;
 const letter = (t: string, size: number) => <text x="12" y="15.2" textAnchor="middle" fontSize={size} fontFamily="DM Sans,sans-serif" fontWeight="700" fill="currentColor" stroke="none">{t}</text>;
@@ -29,6 +29,29 @@ const PERKS: Record<PerkIcon | "price", React.ReactNode> = {
   noP: <>{NO}{letter("P", 8)}</>,
   price: <><path d="M3 12V4h8l10 10-8 8z" /><circle cx="7.5" cy="8.5" r="1.4" /></>,
 };
+
+/* Pictogrammes des étapes « Comment » du mode d'emploi : même trait que les avantages. */
+const STEPS: Record<StepIcon, React.ReactNode> = {
+  drop: <>{DROP}<path d="M9.6 13.4a2.4 2.4 0 0 0 2.4 2.4" /></>,
+  hands: <><path d="M6.5 12a5.5 5.5 0 0 1 9.4-3.9" /><path d="M16.3 4.6v3.7h-3.7" /><path d="M17.5 12a5.5 5.5 0 0 1-9.4 3.9" /><path d="M7.7 19.4v-3.7h3.7" /></>,
+  rinse: <><path d="M8 4.5c1 1.3 1.6 2.2 1.6 3a1.6 1.6 0 0 1-3.2 0c0-.8.6-1.7 1.6-3z" /><path d="M15.5 3.5c1 1.3 1.6 2.2 1.6 3a1.6 1.6 0 0 1-3.2 0c0-.8.6-1.7 1.6-3z" /><path d="M3 14.5c2 0 2-1.5 4.5-1.5s2.5 1.5 4.5 1.5 2-1.5 4.5-1.5 2.5 1.5 4.5 1.5" /><path d="M3 19c2 0 2-1.5 4.5-1.5S10 19 12 19s2-1.5 4.5-1.5S19 19 21 19" /></>,
+  towel: <><path d="M3 5h18" /><path d="M6 5v13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5" /><path d="M6 15h12" /><path d="M6 12.5h12" /></>,
+  dropper: <><path d="M14.6 4.6a2 2 0 0 1 2.8 0l2 2a2 2 0 0 1 0 2.8L18 10.8 13.2 6z" /><path d="M15.6 8.4l-7.9 7.9-1.3 2.9 2.9-1.3 7.9-7.9" /><path d="M5 18.5c.8 1 1.2 1.7 1.2 2.2a1.2 1.2 0 0 1-2.4 0c0-.5.4-1.2 1.2-2.2z" /></>,
+  tap: <><path d="M10 20.5v-8a1.5 1.5 0 0 1 3 0v3" /><path d="M13 14a1.5 1.5 0 0 1 3 0v1.5" /><path d="M16 15a1.5 1.5 0 0 1 3 0v2a4.5 4.5 0 0 1-4.5 4.5h-1.6a4 4 0 0 1-3.1-1.5L7 16.9a1.4 1.4 0 0 1 2.1-1.8l.9 1" /><path d="M8.2 7.5a4 4 0 0 1 6.6 0" /><path d="M5.6 5.6a7.6 7.6 0 0 1 11.8 0" /></>,
+  jar: <><path d="M6.5 6.5h11a1 1 0 0 1 1 1v2.5h-13V7.5a1 1 0 0 1 1-1z" /><path d="M6 10h12v8a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z" /><path d="M9.5 15h5" /></>,
+  face: <><circle cx="12" cy="9" r="5.5" /><path d="M5 21c.9-3 3.6-5 7-5s6.1 2 7 5" /><path d="M9.6 9.2c.5-.4 1-.4 1.5 0M12.9 9.2c.5-.4 1-.4 1.5 0" /></>,
+  up: <><path d="M8 20V8" /><path d="M5 11l3-3 3 3" /><path d="M16 20V5" /><path d="M13 8l3-3 3 3" /></>,
+  sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" /></>,
+  clock: <><circle cx="12" cy="12.5" r="8.5" /><path d="M12 8v4.5l3 2" /><path d="M9.5 2.5h5" /></>,
+  roller: <><circle cx="12" cy="5.5" r="2.5" /><path d="M8.5 9h7v10a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2z" /><path d="M8.5 13h7" /></>,
+  dayNight: <><circle cx="8" cy="9" r="3" /><path d="M8 3v1.2M8 13.8V15M2 9h1.2M3.8 4.8l.9.9M3.8 13.2l.9-.9M12.2 4.8l-.9.9" /><path d="M21 16.5a5 5 0 0 1-6.5-6.5 5.5 5.5 0 1 0 6.5 6.5z" /></>,
+  finger: <><path d="M10 21v-8a1.5 1.5 0 0 1 3 0v3" /><path d="M13 15a1.5 1.5 0 0 1 3 0v1" /><path d="M16 16a1.5 1.5 0 0 1 3 0v1a4.5 4.5 0 0 1-4.5 4.5" /><path d="M10 17.5l-1.6-1.6a1.4 1.4 0 0 0-2 2l2.6 2.8" /><path d="M9.4 10.6c0-1.4.9-2.5 2.1-2.5s2.1 1.1 2.1 2.5z" /><path d="M11.5 8.1c.3-.8.9-1.3 1.7-1.5" /></>,
+  melt: <><path d="M12 5.5c2.5 3.1 3.9 5.4 3.9 7.6a3.9 3.9 0 0 1-7.8 0c0-2.2 1.4-4.5 3.9-7.6z" /><path d="M5 16c-1-1-1-2 0-3s1-2 0-3" /><path d="M19 16c-1-1-1-2 0-3s1-2 0-3" /></>,
+};
+
+export const StepSvg = ({ name }: { name: StepIcon }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{STEPS[name]}</svg>
+);
 
 export const PerkSvg = ({ name }: { name: PerkIcon | "price" }) => (
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{PERKS[name]}</svg>

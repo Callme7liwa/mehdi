@@ -12,14 +12,14 @@ import { problems } from "@/data/problems";
 import { problemsAr } from "@/data/problems.ar";
 import { reviewName, reviewsFor } from "@/data/reviews";
 import { products, unitFormats, hasBundle, type Product, productDescription, nameWithArticle } from "@/data/products";
-import { abs, site, type Locale } from "@/data/site";
+import { abs, site, waLink, type Locale } from "@/data/site";
 import { breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, productLd, webPageLd } from "@/lib/seo";
 import { CartProvider, MoreCard, Offer, OpenButton, TotalLabel } from "./cart";
 import { fill, type CartItem } from "./shared";
-import { Arrow, PerkSvg, Spark } from "./icons";
+import { Arrow, PerkSvg, Spark, StepSvg, Wa } from "./icons";
 import Ticket from "./Ticket";
 import { uiFor } from "./ui";
-import { Carousel, Fx, Ingredients, Question } from "./widgets";
+import { Carousel, FaqList, Fx, Ingredients } from "./widgets";
 
 const path = (p: Product) => `/soins/${p.slug}`;
 const title = (p: Product, locale: Locale) => `${p.metaTitle[locale]} | OTAGE`;
@@ -136,28 +136,39 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
             </div>
           </section>
 
-          {/* 3. mode d'emploi : pour qui (avec les guides), comment, résultats ; H2 en questions */}
+          {/* 3. mode d'emploi : un seul titre (H2), puis 3 cartes. Les questions complètes restent en H3 (moteurs) ;
+              les surtitres « Pour qui · Comment · Résultats » sont visuels seulement. */}
           {x.use && (
-            <section className="use" id="mode-emploi" aria-label={t.useChap}>
+            <section className="use" id="mode-emploi" aria-labelledby="t-use">
               <div className="chap mono"><b>{chap(1)}</b>{t.useChap}</div>
+              <h2 className="use-h" id="t-use">{fill(t.useTitle, { x: Named })}</h2>
               <div className="use-g">
-                <div>
-                  <h2 className="use-t">{fill(t.forWhoQ, { x: Named })}</h2>
-                  <p>{L(x.use.forWho)}</p>
+                <div className="use-c use-who">
+                  <p className="use-k" aria-hidden="true">{t.useKWho}</p>
+                  <h3 className="use-t">{fill(t.forWhoQ, { x: Named })}</h3>
+                  <p className="use-p">{L(x.use.forWho)}</p>
                   {guides.length > 0 && (
-                    <>
-                      <span className="use-k mono">{t.guides}</span>
-                      <ul className="use-links">{guides.map((g) => <li key={g.href}><a href={g.href}>{g.label}</a></li>)}</ul>
-                    </>
+                    <div className="use-gd">
+                      <p className="use-gk">{t.guides}</p>
+                      <ul className="use-links">{guides.map((g) => <li key={g.href}><a href={g.href}><span>{g.label}</span><i aria-hidden="true">{locale === "ar" ? "←" : "→"}</i></a></li>)}</ul>
+                    </div>
                   )}
                 </div>
-                <div>
-                  <h2 className="use-t">{fill(t.howQ, { x: named })}</h2>
-                  <ol className="use-steps">{x.use.steps.map((s) => <li key={s.fr}>{L(s)}</li>)}</ol>
+                <div className="use-c use-how">
+                  <p className="use-k" aria-hidden="true">{t.useKHow}</p>
+                  <h3 className="use-t">{fill(t.howQ, { x: named })}</h3>
+                  <ol className="use-steps">
+                    {x.use.steps.map((st, i) => (
+                      <li key={st.fr}><span className="st-ic"><StepSvg name={x.use!.icons[i]} /></span><span className="st-x"><span className="st-n">{String(i + 1).padStart(2, "0")}</span><span className="st-t">{L(st)}</span></span></li>
+                    ))}
+                  </ol>
                 </div>
-                <div>
-                  <h2 className="use-t">{t.resultsQ}</h2>
-                  <p>{L(x.use.results)}</p>
+                <div className="use-c use-res">
+                  <p className="use-k" aria-hidden="true">{t.useKRes}</p>
+                  <h3 className="use-t">{fill(t.resultsQ, { x: named })}</h3>
+                  <ol className="use-tl">
+                    {x.use.timeline.map((e) => <li key={e.when.fr}><span className="tl-w">{L(e.when)}</span><span className="tl-t">{L(e.what)}</span></li>)}
+                  </ol>
                 </div>
               </div>
             </section>
@@ -187,19 +198,19 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
             </section>
           )}
 
-          {/* 4. les questions */}
+          {/* 4. les questions : titre sobre, carte « Une autre question ? » (WhatsApp prérempli avec le nom du soin),
+              accordéon exclusif. Le JSON-LD FAQPage est construit à partir des mêmes questions (faqs). */}
           <section className="faq" id="faq" aria-labelledby="t-faq">
-            <div>
+            <div className="faq-side">
               <div className="chap mono"><b>{chap(2)}</b>{t.faqChap}</div>
-              <h2 className="h2" id="t-faq">{t.faqTitle} <em>{t.faqTitleEm}</em></h2>
+              <h2 className="faq-h" id="t-faq">{fill(t.faqH, { x: named })}</h2>
             </div>
-            <div>
-              {faqs.map((f, i) => (
-                <Question key={f.q} q={f.q} first={i === 0}>
-                  {f.a.map((a, k) => <p key={k} dangerouslySetInnerHTML={{ __html: a }} />)}
-                </Question>
-              ))}
-            </div>
+            <FaqList items={faqs} />
+            <aside className="faq-help" aria-label={t.faqHelpT}>
+              <p className="faq-help-t">{t.faqHelpT}</p>
+              <p className="faq-help-p">{fill(t.faqHelpP, { d: site.availability[locale] })}</p>
+              <a className="faq-wa" href={waLink(fill(t.faqHelpMsg, { x: named }))} target="_blank" rel="noopener"><Wa />{t.faqHelpBtn}</a>
+            </aside>
           </section>
 
           {/* 5. le reste de la maison */}

@@ -30,9 +30,13 @@ export type ProductPageText = {
   /** Soins à offre 2 + 1 : le mot pour un article (« sérum », « pot »). */
   unitWord?: { one: L; many: L };
   lab: { title: [L, L]; alt: L; ingredients: Ingredient[]; spots?: { x: number; y: number; tip: L }[] };
-  /** Section « Mode d'emploi » : pour qui (60 mots max), étapes numérotées, résultats honnêtes en 2 phrases. */
-  use?: { forWho: L; steps: L[]; results: L };
+  /** Section « Mode d'emploi » : pour qui (60 mots max), 3 étapes numérotées avec leur pictogramme,
+      et une frise « résultats » : quand, et à quoi s'attendre (uniquement des faits déjà validés, sans promesse chiffrée). */
+  use?: { forWho: L; steps: L[]; icons: StepIcon[]; timeline: { when: L; what: L }[] };
 };
+
+/** Pictogrammes des étapes « Comment » (src/product/icons.tsx, même trait que les autres icônes du site). */
+export type StepIcon = "drop" | "hands" | "rinse" | "towel" | "dropper" | "tap" | "jar" | "face" | "up" | "sun" | "clock" | "roller" | "dayNight" | "finger" | "melt";
 
 const label = { fr: "sur l’étiquette", ar: "على الملصق" };
 export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
@@ -63,7 +67,11 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { fr: "Masse le gel 30 secondes.", ar: "دلّكي بالجل 30 ثانية." },
         { fr: "Rince, puis applique le sérum anti-taches.", ar: "اشطفي، ثم ضعي السيروم ضد البقع." },
       ],
-      results: { fr: "Tout de suite : une peau nettoyée en douceur. Sur les taches, c'est la routine complète qui agit, petit à petit.", ar: "فورًا: بشرة نظيفة بلطف. أما البقع، فالروتين الكامل هو الذي يعمل عليها، شيئًا فشيئًا." },
+      icons: ["drop", "hands", "rinse"],
+      timeline: [
+        { when: { fr: "Dès l'application", ar: "منذ الاستعمال" }, what: { fr: "Une peau nettoyée en douceur.", ar: "بشرة نظيفة بلطف." } },
+        { when: { fr: "Avec la routine complète", ar: "مع الروتين الكامل" }, what: { fr: "Les taches s'atténuent petit à petit.", ar: "تخف البقع شيئًا فشيئًا." } },
+      ],
     },
   },
   serum: {
@@ -93,7 +101,12 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { fr: "Dépose 3 à 4 gouttes sur le visage.", ar: "ضعي 3 إلى 4 قطرات على الوجه." },
         { fr: "Tapote du bout des doigts, puis applique la crème.", ar: "ربّتي بأطراف الأصابع، ثم ضعي الكريم." },
       ],
-      results: { fr: "Les taches s'atténuent petit à petit, pas en quelques jours. Le rythme dépend de ta peau, de ta régularité et de l'écran solaire.", ar: "البقع تخف شيئًا فشيئًا، وليس في أيام قليلة. الوتيرة تتوقف على بشرتك وانتظامك وواقي الشمس." },
+      icons: ["towel", "dropper", "tap"],
+      timeline: [
+        { when: { fr: "Les premiers jours", ar: "في الأيام الأولى" }, what: { fr: "Pas de changement visible : c'est normal.", ar: "لا تغيير واضح: هذا طبيعي." } },
+        { when: { fr: "Avec la régularité", ar: "مع الانتظام" }, what: { fr: "Les taches s'atténuent petit à petit.", ar: "تخف البقع شيئًا فشيئًا." } },
+        { when: { fr: "Ce qui compte", ar: "ما يهم" }, what: { fr: "Ta peau, ta régularité et l'écran solaire.", ar: "بشرتك وانتظامك وواقي الشمس." } },
+      ],
     },
   },
   creme: {
@@ -123,7 +136,11 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { fr: "Applique sur le visage et le cou.", ar: "ضعيه على الوجه والرقبة." },
         { fr: "Masse vers le haut. Le matin, termine par l'écran solaire.", ar: "دلّكي نحو الأعلى. في الصباح، اختمي بواقي الشمس." },
       ],
-      results: { fr: "La peau est hydratée dès l'application. Les taches, elles, s'atténuent petit à petit avec la routine complète.", ar: "البشرة مرطبة منذ الاستعمال. أما البقع فتخف شيئًا فشيئًا مع الروتين الكامل." },
+      icons: ["jar", "face", "up"],
+      timeline: [
+        { when: { fr: "Dès l'application", ar: "منذ الاستعمال" }, what: { fr: "La peau est hydratée.", ar: "البشرة مرطبة." } },
+        { when: { fr: "Avec la routine complète", ar: "مع الروتين الكامل" }, what: { fr: "Les taches s'atténuent petit à petit.", ar: "تخف البقع شيئًا فشيئًا." } },
+      ],
     },
   },
   ecran: {
@@ -152,7 +169,11 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { fr: "Applique sur tout le visage.", ar: "ضعيه على كامل الوجه." },
         { fr: "Au soleil, renouvelle toutes les 2 heures.", ar: "تحت الشمس، جدديه كل ساعتين." },
       ],
-      results: { fr: "L'écran ne fait pas disparaître les taches : il limite leur retour. C'est lui qui laisse le sérum et la crème agir.", ar: "الواقي لا يزيل البقع: يحد من عودتها. وهو ما يسمح للسيروم والكريم بالعمل." },
+      icons: ["sun", "face", "clock"],
+      timeline: [
+        { when: { fr: "Chaque matin", ar: "كل صباح" }, what: { fr: "Il laisse le sérum et la crème agir.", ar: "يسمح للسيروم والكريم بالعمل." } },
+        { when: { fr: "Avec la régularité", ar: "مع الانتظام" }, what: { fr: "Il limite le retour des taches. Il ne les fait pas disparaître.", ar: "يحد من عودة البقع. لا يزيلها." } },
+      ],
     },
   },
   yeux: {
@@ -182,7 +203,11 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
         { fr: "Passe la bille sous l'œil, de l'intérieur vers l'extérieur.", ar: "مرري البكرة تحت العين، من الداخل إلى الخارج." },
         { fr: "Tapote doucement du bout du doigt.", ar: "ربّتي بلطف بطرف الإصبع." },
       ],
-      results: { fr: "Une sensation de fraîcheur dès l'application. Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment.", ar: "إحساس بالانتعاش منذ الاستعمال. أما الهالات، فالنتيجة تتوقف على سببها: الوراثة أو التعب أو الصبغة." },
+      icons: ["dayNight", "roller", "tap"],
+      timeline: [
+        { when: { fr: "Dès l'application", ar: "منذ الاستعمال" }, what: { fr: "Une sensation de fraîcheur.", ar: "إحساس بالانتعاش." } },
+        { when: { fr: "Avec la régularité", ar: "مع الانتظام" }, what: { fr: "Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment.", ar: "على الهالات، النتيجة تتوقف على سببها: الوراثة أو التعب أو الصبغة." } },
+      ],
     },
   },
   deo: {
@@ -192,7 +217,7 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
     title: [{ fr: "Déodorant crème", ar: "مزيل العرق كريم" }, { fr: "OTAGE.", ar: "OTAGE." }],
     lede: { fr: "Pour les odeurs, avec 5 ingrédients seulement.", ar: "للروائح، بـ 5 مكونات فقط." },
     media: "photo",
-    mediaAlt: { fr: "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume", ar: "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم" },
+    mediaAlt: { fr: "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans la crème", ar: "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في الكريم" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "waves", label: { fr: "Agit sur les odeurs", ar: "يعمل على الروائح" } }],
     unitWord: { one: { fr: "pot", ar: "علبة" }, many: { fr: "pots", ar: "علب" } },
@@ -201,29 +226,33 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
       alt: { fr: "L’étiquette du pot : oxyde de zinc, huile de coco, huile de jojoba, 50 ml", ar: "ملصق العلبة: أكسيد الزنك، زيت جوز الهند، زيت الجوجوبا، 50 مل" },
       ingredients: [
         { name: { fr: "Oxyde de zinc", ar: "أكسيد الزنك" }, where: label, role: { fr: "Limite les bactéries qui causent les odeurs.", ar: "يحد من البكتيريا المسؤولة عن الروائح." } },
-        { name: { fr: "Huile de coco", ar: "زيت جوز الهند" }, where: label, role: { fr: "Donne au baume sa texture fondante.", ar: "يمنح البلسم قوامه الذائب." } },
+        { name: { fr: "Huile de coco", ar: "زيت جوز الهند" }, where: label, role: { fr: "Donne à la crème sa texture fondante.", ar: "يمنح الكريم قوامه الذائب." } },
         { name: { fr: "Huile de jojoba", ar: "زيت الجوجوبا" }, where: label, role: { fr: "Nourrit et adoucit la peau des aisselles.", ar: "يغذي وينعّم بشرة الإبط." } },
-        { name: { fr: "Cire d’abeille", ar: "شمع العسل" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Donne sa tenue au baume.", ar: "يمنح البلسم تماسكه." } },
-        { name: { fr: "Vitamine E", ar: "فيتامين E" }, where: { fr: "dans le baume", ar: "في البلسم" }, role: { fr: "Antioxydant qui protège la formule dans le temps.", ar: "مضاد للأكسدة يحمي التركيبة مع الوقت." } },
+        { name: { fr: "Cire d’abeille", ar: "شمع العسل" }, where: { fr: "dans la crème", ar: "في الكريم" }, role: { fr: "Donne sa tenue à la crème.", ar: "يمنح الكريم تماسكه." } },
+        { name: { fr: "Vitamine E", ar: "فيتامين E" }, where: { fr: "dans la crème", ar: "في الكريم" }, role: { fr: "Antioxydant qui protège la formule dans le temps.", ar: "مضاد للأكسدة يحمي التركيبة مع الوقت." } },
       ],
       // points posés sur la vraie photo de l'étiquette, en % de l'image
       spots: [
         { x: 25, y: 83.5, tip: { fr: "Oxyde de zinc", ar: "أكسيد الزنك" } },
         { x: 49, y: 83.5, tip: { fr: "Huile de coco", ar: "زيت جوز الهند" } },
         { x: 74, y: 82.5, tip: { fr: "Huile de jojoba", ar: "زيت الجوجوبا" } },
-        { x: 30, y: 22, tip: { fr: "Cire d’abeille · dans le baume", ar: "شمع العسل · في البلسم" } },
-        { x: 74, y: 25, tip: { fr: "Vitamine E · dans le baume", ar: "فيتامين E · في البلسم" } },
+        { x: 30, y: 22, tip: { fr: "Cire d’abeille · dans la crème", ar: "شمع العسل · في الكريم" } },
+        { x: 74, y: 25, tip: { fr: "Vitamine E · dans la crème", ar: "فيتامين E · في الكريم" } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
     use: {
-      forWho: { fr: "Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration.", ar: "لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق." },
+      forWho: { fr: "Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration : transpirer est normal.", ar: "لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق: التعرق أمر طبيعي." },
       steps: [
         { fr: "Le matin, sur une aisselle propre et sèche.", ar: "في الصباح، على إبط نظيف وجاف." },
-        { fr: "Prends un peu de baume du bout du doigt.", ar: "خذي قليلًا من البلسم بطرف الإصبع." },
-        { fr: "Laisse-le fondre, puis applique.", ar: "اتركيه يذوب، ثم ضعيه." },
+        { fr: "Prends un peu de crème du bout du doigt.", ar: "خذي قليلًا من الكريم بطرف الإصبع." },
+        { fr: "Laisse-la fondre, puis applique.", ar: "اتركيه يذوب، ثم ضعيه." },
       ],
-      results: { fr: "Il ne bloque pas la transpiration : transpirer est normal. Il agit sur les odeurs, et la tenue varie d'une personne à l'autre.", ar: "لا يمنع التعرق: التعرق أمر طبيعي. يعمل على الروائح، ومدة فعاليته تختلف من شخص لآخر." },
+      icons: ["sun", "finger", "melt"],
+      timeline: [
+        { when: { fr: "Dès l'application", ar: "منذ الاستعمال" }, what: { fr: "Il agit sur les odeurs.", ar: "يعمل على الروائح." } },
+        { when: { fr: "Dans la journée", ar: "خلال اليوم" }, what: { fr: "La tenue varie d'une personne à l'autre.", ar: "مدة فعاليته تختلف من شخص لآخر." } },
+      ],
     },
   },
 } satisfies Record<ProductKey, ProductPageText>);
@@ -264,18 +293,29 @@ export const productUi = isolateAr({
   reviewNote: { fr: "Chaque peau est différente : c’est un témoignage, pas une promesse.", ar: "كل بشرة مختلفة: هذه شهادة، وليست وعدًا." },
   prev: { fr: "Précédent", ar: "السابق" },
   next: { fr: "Suivant", ar: "التالي" },
-  faqChap: { fr: "Questions fréquentes", ar: "أسئلة شائعة" },
-  faqTitle: { fr: "Tu te poses", ar: "تتساءلين" },
-  faqTitleEm: { fr: "la question ?", ar: "عن شيء؟" },
+  faqChap: { fr: "FAQ", ar: "الأسئلة" },
+  /** Titre sobre de la FAQ (le grand « Tu te poses la question ? » est retiré). */
+  faqH: { fr: "Questions fréquentes sur {x}", ar: "أسئلة شائعة عن {x}" },
+  faqHelpT: { fr: "Une autre question ?", ar: "سؤال آخر؟" },
+  faqHelpP: { fr: "Écris-nous sur WhatsApp, on te répond {d}.", ar: "راسلينا على واتساب، نجيبك {d}." },
+  faqHelpBtn: { fr: "Écrire sur WhatsApp", ar: "راسلينا على واتساب" },
+  /** Message prérempli : le nom du produit est ajouté. */
+  faqHelpMsg: { fr: "Bonjour OTAGE, j'ai une question sur {x}.", ar: "مرحبًا OTAGE، عندي سؤال عن {x}." },
   moreChap: { fr: "Nos autres soins", ar: "منتجاتنا الأخرى" },
   moreTitle: { fr: "Les autres", ar: "باقي" },
   moreTitleEm: { fr: "soins OTAGE.", ar: "منتجات OTAGE." },
   madeIn: { fr: "Fabrication marocaine", ar: "صنع مغربي" },
   // section « Mode d'emploi » des fiches
   useChap: { fr: "Mode d’emploi", ar: "طريقة الاستعمال" },
+  /** Un seul titre (H2) pour la section ; les 3 questions restent en H3, à petite taille. */
+  useTitle: { fr: "{x}, mode d’emploi", ar: "{x}: طريقة الاستعمال" },
+  /** Surtitres des 3 cartes : visuels seulement (aria-hidden). */
+  useKWho: { fr: "Pour qui", ar: "لمن" },
+  useKHow: { fr: "Comment", ar: "كيف" },
+  useKRes: { fr: "Résultats", ar: "النتائج" },
   forWhoQ: { fr: "{x}, pour qui ?", ar: "{x}، لمن؟" },
   howQ: { fr: "Comment utiliser {x} ?", ar: "كيف أستعمل {x}؟" },
-  resultsQ: { fr: "Combien de temps pour voir des résultats ?", ar: "متى تظهر النتائج؟" },
+  resultsQ: { fr: "Combien de temps pour voir des résultats avec {x} ?", ar: "متى تظهر نتائج {x}؟" },
   guides: { fr: "Nos guides", ar: "دلائلنا" },
   // tuiles du haut de fiche : les 3 objections, et les frais sous le bouton
   hzFee: { fr: "Livraison : {a} à {b} DH selon ta ville.", ar: "التوصيل: من {a} إلى {b} درهم حسب مدينتك." },

@@ -85,7 +85,7 @@ md += table(["Texte", "Contenu affiché", "Source"], [
   row(["Accueil et /soins : bénéfice du déodorant sur sa carte", deo.benefit.fr, "src/data/products.ts, benefit"]),
   row(["Fiches : mention sous chaque avis", productUi.reviewNote.fr, "src/data/product-pages.ts, reviewNote"]),
   row(["Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran)", "Avis sur la routine complète", "src/data/reviews.ts"]),
-  row(["Fiches : titre des questions", `${productUi.faqTitle.fr} ${productUi.faqTitleEm.fr}`, "src/data/product-pages.ts"]),
+  row(["Fiches : titre des questions", productUi.faqH.fr.replace("{x}", "le déodorant crème"), "src/data/product-pages.ts"]),
   row(["Fiches : case de consentement", `${productUi.agreeA.fr} ${productUi.agreeCgv.fr} ${productUi.agreeAnd.fr} ${productUi.agreeReturns.fr}.`, "src/data/product-pages.ts"]),
   row(["Page /soins : chapeau", "Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison.", "src/templates/ProductsIndex.tsx"]),
   row(["Description générale du site (Google, JSON-LD, llms.txt)", site.description.fr, "src/data/site.ts, description"]),
@@ -115,7 +115,7 @@ for (const p of products) {
   md += table(["Texte", "Contenu affiché"], [
     row(["Bénéfice (cartes, accueil, /soins)", p.benefit.fr]),
     row(["Accroche de la fiche", productPages[p.key].lede.fr]),
-    ...(u ? [row(["Pour qui ?", u.forWho.fr]), row(["Comment l'utiliser ?", u.steps.map((s, i) => `${i + 1}. ${s.fr}`).join(" ")]), row(["Résultats", u.results.fr])] : []),
+    ...(u ? [row(["Pour qui ?", u.forWho.fr]), row(["Comment l'utiliser ?", u.steps.map((s, i) => `${i + 1}. ${s.fr}`).join(" ")]), row(["Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée)", u.timeline.map((e) => `${e.when.fr} : ${e.what.fr}`).join(" · ")])] : []),
   ]);
 }
 md += `### Citation du fondateur (À propos)\n\nLa version actuelle reste en ligne ; la version courte ne remplace l'actuelle qu'après votre accord.\n\n`;

@@ -30,7 +30,7 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Contenance | 50 ml, un seul format | src/data/products.ts | ☐ Validé | ☐ À modifier : |
 | Ingrédients (liste complète affichée) | Oxyde de zinc, Huile de coco, Huile de jojoba, Cire d'abeille, Vitamine E | src/data/products.ts, ingredients | ☐ Validé | ☐ À modifier : |
 | Moment d'utilisation | Le matin | src/data/products.ts, when (texte écrit par nous, pas dans la maquette) | ☐ Validé | ☐ À modifier : |
-| Mode d'emploi | Prends un peu de baume du bout du doigt, laisse-le fondre puis applique-le sur l'aisselle propre et sèche. | src/data/products.ts, how (texte écrit par nous, pas dans la maquette) | ☐ Validé | ☐ À modifier : |
+| Mode d'emploi | Prends un peu de crème du bout du doigt, laisse-la fondre puis applique-la sur l'aisselle propre et sèche. | src/data/products.ts, how (texte écrit par nous, pas dans la maquette) | ☐ Validé | ☐ À modifier : |
 | Photos (le texte de l'étiquette doit correspondre au produit vendu) | deodorant-creme-n06-pot.webp ; deodorant-creme-n06-mains.webp ; deodorant-creme-n06-etiquette.webp | public/images/ | ☐ Validé | ☐ À modifier : |
 
 ### Allégations : À valider
@@ -64,7 +64,7 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Accueil et /soins : bénéfice du déodorant sur sa carte | Agit sur les odeurs, 5 ingrédients | src/data/products.ts, benefit | ☐ Validé | ☐ À modifier : |
 | Fiches : mention sous chaque avis | Chaque peau est différente : c’est un témoignage, pas une promesse. | src/data/product-pages.ts, reviewNote | ☐ Validé | ☐ À modifier : |
 | Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran) | Avis sur la routine complète | src/data/reviews.ts | ☐ Validé | ☐ À modifier : |
-| Fiches : titre des questions | Tu te poses la question ? | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
+| Fiches : titre des questions | Questions fréquentes sur le déodorant crème | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
 | Fiches : case de consentement | J’ai lu et j’accepte les CGV et la politique de retour. | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
 | Page /soins : chapeau | Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison. | src/templates/ProductsIndex.tsx | ☐ Validé | ☐ À modifier : |
 | Description générale du site (Google, JSON-LD, llms.txt) | Marque marocaine de soins : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), sérum contour des yeux et déodorant crème, fabriqués au Maroc. | src/data/site.ts, description | ☐ Validé | ☐ À modifier : |
@@ -118,10 +118,10 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Ingrédient | Rôle affiché (une ligne) | Validé | À modifier (préciser) |
 |---|---|---|---|
 | Oxyde de zinc (sur l’étiquette) | Limite les bactéries qui causent les odeurs. | ☐ Validé | ☐ À modifier : |
-| Huile de coco (sur l’étiquette) | Donne au baume sa texture fondante. | ☐ Validé | ☐ À modifier : |
+| Huile de coco (sur l’étiquette) | Donne à la crème sa texture fondante. | ☐ Validé | ☐ À modifier : |
 | Huile de jojoba (sur l’étiquette) | Nourrit et adoucit la peau des aisselles. | ☐ Validé | ☐ À modifier : |
-| Cire d’abeille (dans le baume) | Donne sa tenue au baume. | ☐ Validé | ☐ À modifier : |
-| Vitamine E (dans le baume) | Antioxydant qui protège la formule dans le temps. | ☐ Validé | ☐ À modifier : |
+| Cire d’abeille (dans la crème) | Donne sa tenue à la crème. | ☐ Validé | ☐ À modifier : |
+| Vitamine E (dans la crème) | Antioxydant qui protège la formule dans le temps. | ☐ Validé | ☐ À modifier : |
 
 ## 5. Points à trancher (client)
 
@@ -142,7 +142,7 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Accroche de la fiche | Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour toi si tu as des taches brunes ou un teint irrégulier. C'est l'étape 1 de la routine, matin et soir. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Mouille ton visage, matin et soir. 2. Masse le gel 30 secondes. 3. Rince, puis applique le sérum anti-taches. | ☐ Validé | ☐ À modifier : |
-| Résultats | Tout de suite : une peau nettoyée en douceur. Sur les taches, c'est la routine complète qui agit, petit à petit. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Dès l'application : Une peau nettoyée en douceur. · Avec la routine complète : Les taches s'atténuent petit à petit. | ☐ Validé | ☐ À modifier : |
 
 #### N° 02 · Sérum anti-taches
 
@@ -152,7 +152,7 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Accroche de la fiche | Pour atténuer les taches brunes et unifier le teint, goutte après goutte. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour les taches brunes, l'hyperpigmentation et le teint irrégulier. C'est l'étape 2 de la routine, matin et soir. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Après le gel nettoyant, sèche ta peau. 2. Dépose 3 à 4 gouttes sur le visage. 3. Tapote du bout des doigts, puis applique la crème. | ☐ Validé | ☐ À modifier : |
-| Résultats | Les taches s'atténuent petit à petit, pas en quelques jours. Le rythme dépend de ta peau, de ta régularité et de l'écran solaire. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Les premiers jours : Pas de changement visible : c'est normal. · Avec la régularité : Les taches s'atténuent petit à petit. · Ce qui compte : Ta peau, ta régularité et l'écran solaire. | ☐ Validé | ☐ À modifier : |
 
 #### N° 03 · Crème anti-taches
 
@@ -162,7 +162,7 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Accroche de la fiche | Pour hydrater, unifier le teint et fixer le sérum, avant l'écran solaire. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour un teint irrégulier ou marqué par des taches. C'est l'étape 3 de la routine, matin et soir, après le sérum. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Après le sérum, prends une noisette de crème. 2. Applique sur le visage et le cou. 3. Masse vers le haut. Le matin, termine par l'écran solaire. | ☐ Validé | ☐ À modifier : |
-| Résultats | La peau est hydratée dès l'application. Les taches, elles, s'atténuent petit à petit avec la routine complète. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Dès l'application : La peau est hydratée. · Avec la routine complète : Les taches s'atténuent petit à petit. | ☐ Validé | ☐ À modifier : |
 
 #### N° 04 · Écran solaire SPF 50
 
@@ -172,7 +172,7 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Accroche de la fiche | Pour protéger ta peau des UVA et des UVB, et limiter le retour des taches. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour toute peau qui suit une routine anti-taches. C'est l'étape 4, le matin seulement. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Le matin, en dernier, après la crème. 2. Applique sur tout le visage. 3. Au soleil, renouvelle toutes les 2 heures. | ☐ Validé | ☐ À modifier : |
-| Résultats | L'écran ne fait pas disparaître les taches : il limite leur retour. C'est lui qui laisse le sérum et la crème agir. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Chaque matin : Il laisse le sérum et la crème agir. · Avec la régularité : Il limite le retour des taches. Il ne les fait pas disparaître. | ☐ Validé | ☐ À modifier : |
 
 #### N° 05 · Sérum contour des yeux
 
@@ -182,7 +182,7 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Accroche de la fiche | Pour atténuer l'aspect des cernes et rafraîchir le regard, matin et soir. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour les cernes et le contour des yeux fatigué. Texture légère, applicateur bille, compatible avec le maquillage. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Matin et soir, sur peau propre. 2. Passe la bille sous l'œil, de l'intérieur vers l'extérieur. 3. Tapote doucement du bout du doigt. | ☐ Validé | ☐ À modifier : |
-| Résultats | Une sensation de fraîcheur dès l'application. Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Dès l'application : Une sensation de fraîcheur. · Avec la régularité : Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment. | ☐ Validé | ☐ À modifier : |
 
 #### N° 06 · Déodorant crème
 
@@ -190,9 +190,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 |---|---|---|---|
 | Bénéfice (cartes, accueil, /soins) | Agit sur les odeurs, 5 ingrédients | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour les odeurs, avec 5 ingrédients seulement. | ☐ Validé | ☐ À modifier : |
-| Pour qui ? | Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration. | ☐ Validé | ☐ À modifier : |
-| Comment l'utiliser ? | 1. Le matin, sur une aisselle propre et sèche. 2. Prends un peu de baume du bout du doigt. 3. Laisse-le fondre, puis applique. | ☐ Validé | ☐ À modifier : |
-| Résultats | Il ne bloque pas la transpiration : transpirer est normal. Il agit sur les odeurs, et la tenue varie d'une personne à l'autre. | ☐ Validé | ☐ À modifier : |
+| Pour qui ? | Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration : transpirer est normal. | ☐ Validé | ☐ À modifier : |
+| Comment l'utiliser ? | 1. Le matin, sur une aisselle propre et sèche. 2. Prends un peu de crème du bout du doigt. 3. Laisse-la fondre, puis applique. | ☐ Validé | ☐ À modifier : |
+| Résultats (frise : quand, et à quoi s'attendre ; reformulée depuis le texte déjà affiché, sans promesse chiffrée) | Dès l'application : Il agit sur les odeurs. · Dans la journée : La tenue varie d'une personne à l'autre. | ☐ Validé | ☐ À modifier : |
 
 ### Citation du fondateur (À propos)
 

@@ -3,7 +3,7 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
 import { BagIcon } from "@/components/icons";
-import { bundleUnit, gamme, products, unitFormats } from "@/data/products";
+import { gamme, products, unitFormats } from "@/data/products";
 import { abs, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
 import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";

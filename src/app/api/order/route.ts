@@ -95,3 +95,11 @@ export async function POST(req: Request) {
   if (id) remember(id, response);
   return json(response);
 }
+
+/* GET /api/order : diagnostic des variables d'environnement des commandes, hors production seulement (preview, local).
+   Renvoie seulement si chaque variable est définie (oui / non), jamais sa valeur. */
+export async function GET() {
+  if (process.env.VERCEL_ENV === "production") return new Response("Not found", { status: 404 });
+  const names = ["ORDERS_ENDPOINT", "SHOP_EMAIL", "RESEND_API_KEY", "EMAIL_FROM"] as const;
+  return json({ environnement: process.env.VERCEL_ENV ?? "local", variables: Object.fromEntries(names.map((n) => [n, Boolean(process.env[n])])) });
+}

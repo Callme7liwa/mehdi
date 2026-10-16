@@ -37,6 +37,12 @@ export async function POST(req: Request) {
   const priced = priceOrder(order);
   const page = typeof body.page === "string" ? body.page.slice(0, 200) : "";
   let numero = orderNumber();
+  const mail = { locale: order.locale, numero, date: new Date(), nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse, priced };
+  /* Règle : la cliente ne voit une confirmation que si la commande est enregistrée quelque part.
+     - tableur OK : succès ;
+     - tableur en panne, e-mail de secours à la boutique (SHOP_EMAIL) OK : succès + alerte dans les journaux ;
+     - les deux en panne : 500, la cliente est invitée à commander sur WhatsApp. */
+  let recorded = true;
   try {
     numero = await recordOrder({
       ticket: numero, nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse ?? "",
@@ -46,26 +52,43 @@ export async function POST(req: Request) {
       email: order.email ?? "", langue: order.locale,
       page,
     });
+    mail.numero = numero;
   } catch (e) {
-    console.error("Commande non enregistrée :", e);
-    return json({ ok: false, error: "enregistrement" }, 502);
+    recorded = false;
+    console.error("ALERTE commande non enregistrée dans le tableur :", numero, e);
+  }
+  if (!recorded) {
+    const shop = process.env.SHOP_EMAIL;
+    const rescue = shop
+      ? await renderShopNotification({ ...mail, email: order.email, page })
+        .then((m) => sendEmail({
+          to: shop, replyTo: order.email,
+          subject: `[NON ENREGISTRÉE DANS LE TABLEUR] ${m.subject}`,
+          html: `<p style="color:#c41e30;font-weight:700">⚠ Tableur indisponible : cette commande n'y est pas. À saisir à la main.</p>${m.html}`,
+          text: `⚠ Tableur indisponible : cette commande n'y est pas. À saisir à la main.\n\n${m.text}`,
+        }))
+        .catch((e) => ({ ok: false as const, error: String(e) }))
+      : { ok: false as const, error: "SHOP_EMAIL absent" };
+    if (!rescue.ok) {
+      console.error("COMMANDE PERDUE : ni tableur ni e-mail de secours :", numero, rescue.error);
+      return json({ ok: false, error: "enregistrement" }, 500);
+    }
+    console.error("ALERTE commande", numero, "envoyée seulement par e-mail à la boutique (tableur indisponible)");
   }
   count("phone", phone); count("ip", ip);
 
-  // E-mail de confirmation : envoyé après la réponse, jamais bloquant. La commande est déjà enregistrée ;
-  // ce qu'il advient de l'e-mail est noté dans le tableur (« envoyé », « échec : … »).
-  const mail = { locale: order.locale, numero, date: new Date(), nom: order.nom, tel: order.tel, ville: order.ville, adresse: order.adresse, priced };
+  // E-mails : envoyés après la réponse, jamais bloquants. La commande est déjà enregistrée (tableur ou e-mail de secours).
   after(async () => {
-    // notification interne de la boutique (SHOP_EMAIL), pour chaque commande
+    // notification interne de la boutique (SHOP_EMAIL), pour chaque commande (déjà envoyée en secours si le tableur est en panne)
     const shop = process.env.SHOP_EMAIL;
-    if (shop) {
+    if (shop && recorded) {
       const told = await renderShopNotification({ ...mail, email: order.email, page }).then((m) => sendEmail({ to: shop, ...m, replyTo: order.email })).catch((e) => ({ ok: false as const, error: String(e) }));
       if (!told.ok) console.error("Notification interne non envoyée :", numero, told.error);
     }
     if (!order.email) return;
     const sent = await renderConfirmation(mail).then((m) => sendEmail({ to: order.email!, ...m })).catch((e) => ({ ok: false as const, error: String(e) }));
     if (!sent.ok) console.error("E-mail de confirmation non envoyé :", numero, sent.error);
-    await noteEmail(numero, sent.ok ? "envoyé" : `échec : ${sent.error}`.slice(0, 200));
+    if (recorded) await noteEmail(numero, sent.ok ? "envoyé" : `échec : ${sent.error}`.slice(0, 200));
   });
 
   const response = { ok: true, numero, subtotal: priced.subtotal, fee: priced.fee, total: priced.total, saving: priced.saving };

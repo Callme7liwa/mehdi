@@ -143,10 +143,16 @@ const mailTo = (to) => state.emails.filter((e) => [].concat(e.to).includes(to));
   check("Téléphone fixe (05), nom, ville et e-mail invalides : 400 avec la liste des champs", r.status === 400 && ["nom", "tel", "ville", "email"].every((f) => r.body.fields?.includes(f)), JSON.stringify(r.body));
   const ok = await post({ locale: "fr", kind: "yeux", ...person({ tel: "+212 7 11 22 33 44" }) });
   check("Téléphone au format +212 7… : accepté", ok.status === 200, JSON.stringify(ok.body));
+  // tableur en panne : la commande part en secours par e-mail à la boutique ; confirmée seulement si cet e-mail part
   state.failSheet = true;
+  const before = state.emails.length;
+  const rescued = await post({ locale: "fr", kind: "yeux", ...person() });
+  const rescueMail = state.emails.slice(before).find((m) => /NON ENREGISTRÉE DANS LE TABLEUR/.test(m.subject) && [].concat(m.to).includes("boutique@example.com"));
+  check("Tableur en panne, e-mail de secours envoyé : 200 avec numéro, e-mail « NON ENREGISTRÉE DANS LE TABLEUR » reçu par la boutique", rescued.status === 200 && rescued.body.ok === true && /^OTG-/.test(rescued.body.numero) && Boolean(rescueMail), JSON.stringify(rescued.body));
+  state.failResend = true;
   const down = await post({ locale: "fr", kind: "yeux", ...person() });
-  check("Tableur en panne : 502, la commande n'est pas confirmée à tort", down.status === 502 && down.body.ok === false, JSON.stringify(down.body));
-  state.failSheet = false;
+  check("Tableur et e-mail en panne : 500, la commande n'est pas confirmée", down.status === 500 && down.body.ok === false && down.body.error === "enregistrement", JSON.stringify(down.body));
+  state.failSheet = false; state.failResend = false;
 }
 /* 9. Rien n'est sorti de la machine */
 {

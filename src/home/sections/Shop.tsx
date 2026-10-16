@@ -39,7 +39,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
         items={items}
         locale={locale}
         fee={fee}
-        links={{ cgv: localePath(locale, "/cgv"), returns: `${localePath(locale, "/livraison-paiement")}#retours` }}
+        links={{ cgv: localePath(locale, "/cgv"), returns: `${localePath(locale, "/livraison-paiement")}#retours`, wa: site.whatsapp.wa }}
         t={{
           dh: t.offersDh.trim(), ml: js.ml, comma: js.comma,
           see: t.shopVoirLeProduit, format: t.shopFormat, petit: t.shopPetit, grand: t.shopGrand, unique: t.shopFormatUnique,
@@ -53,7 +53,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
           agreeA: t.offersAgreeA, agreeCgv: t.offersAgreeCgv, agreeAnd: t.offersAgreeAnd, agreeReturns: t.offersAgreeReturns,
           send: t.offersValiderMaCommande, pay: t.shopTuPaies, thanksDefault: t.offersMerci, done: t.offersTaCommandeEstBien,
           thanks: js.thanks, orderNo: js.orderNo, offline: js.doneOffline, total: js.totalWord, to: t.shopA,
-          errPhone: js.errPhone, errEmail: js.errEmail, errFields: js.errFields, errTerms: js.errTerms, errLimit: js.errLimit, errServer: js.errServer,
+          errPhone: js.errPhone, errEmail: js.errEmail, errFields: js.errFields, errTerms: js.errTerms, errLimit: js.errLimit, errServer: js.errServer, waOrder: js.waOrder,
         }}
       />
     </section>

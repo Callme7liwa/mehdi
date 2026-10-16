@@ -21,7 +21,6 @@ type Props = {
 };
 type Done = { name: string; numero: string; tel: string; email: string };
 
-const QUEUE = "otage-commandes-en-attente"; // même file d'attente hors connexion que l'accueil (islands/offers.js la renvoie)
 const CLIENT = "otage-client";
 /** E-mail facultatif : vide, ou une adresse plausible (le serveur vérifie de nouveau). */
 const emailOk = (v: string) => v.trim() === "" || /^\S+@\S+\.\S{2,}$/.test(v.trim());
@@ -39,6 +38,7 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
   const [agree, setAgree] = useState(false);
   const [invalid, setInvalid] = useState<string[]>([]);
   const [error, setError] = useState("");
+  const [failWa, setFailWa] = useState(""); // commande non enregistrée : lien WhatsApp avec le ticket
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState<Done | null>(null);
   const [shake, setShake] = useState(0);
@@ -151,7 +151,7 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
       page: location.href.split("#")[0],
     };
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville })); } catch { /* stockage indisponible */ }
-    setSending(true);
+    setSending(true); setFailWa("");
     const res: { ok: boolean; numero?: string; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
@@ -162,8 +162,9 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
       if (fields.length) document.getElementById(`f-${fields[0]}`)?.focus();
       return;
     }
-    if (!res) { // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard depuis l'accueil
-      try { localStorage.setItem(QUEUE, JSON.stringify([...JSON.parse(localStorage.getItem(QUEUE) || "[]"), order])); } catch { /* stockage indisponible */ }
+    if (!res) { // panne du serveur ou hors connexion : la commande n'est enregistrée nulle part, pas de confirmation
+      setError(t.errServer); setFailWa(waHref());
+      return;
     }
     window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: "unite", format: [...new Set(lines.map((l) => l.f))].join("+"), value: total } })); // mesure d'audience, si acceptée
     if (mobile() && !c.isOpen) c.open();
@@ -257,7 +258,7 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
               <input id="f-cgv" type="checkbox" name="cgv" checked={agree} onChange={(e) => { setAgree(e.target.checked); if (invalid.includes("cgv")) { const rest = invalid.filter((x) => x !== "cgv"); setInvalid(rest); if (!rest.length) setError(""); } }} {...inv("cgv")} />
               <span>{t.agreeA} <a href={links.cgv} target="_blank" rel="noopener">{t.agreeCgv}</a> {t.agreeAnd} <a href={links.returns} target="_blank" rel="noopener">{t.agreeReturns}</a>.</span>
             </label>
-            <p className="err" role="alert">{error}</p>
+            <p className="err" role="alert">{error}{error && failWa && <> <a href={failWa} target="_blank" rel="noopener">WhatsApp</a></>}</p>
           </div>
         </form>
 

@@ -148,8 +148,8 @@ export const products: Product[] = isolateAr([
     lead: { fr: "Hydrate, unifie le teint et scelle le sérum.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم." },
     benefit: { fr: "Hydrate et unifie le teint", ar: "يرطب ويوحد لون البشرة" },
     forWho: {
-      fr: "Pour les peaux au teint irrégulier ou marquées par des taches, qui veulent hydrater et unifier le teint après le sérum. On l'appelle aussi crème éclaircissante.",
-      ar: "للبشرة ذات اللون غير الموحد أو التي بها بقع، لترطيبها وتوحيد لونها بعد السيروم. يسمى أيضًا كريمًا مفتّحًا.",
+      fr: "Pour les peaux au teint irrégulier ou marquées par des taches, qui veulent hydrater et unifier le teint après le sérum.",
+      ar: "للبشرة ذات اللون غير الموحد أو التي بها بقع، لترطيبها وتوحيد لونها بعد السيروم.",
     },
     ingredients: [
       { fr: "Niacinamide", ar: "نياسيناميد" },

@@ -23,11 +23,10 @@ export type ShopItem = {
   wide?: boolean;
   formats: { f: FormatKey; ml: number; price: number }[];
 };
-type Props = { items: ShopItem[]; locale: Locale; fee: { min: number; max: number }; links: { cgv: string; returns: string }; t: Record<string, string> };
+type Props = { items: ShopItem[]; locale: Locale; fee: { min: number; max: number }; links: { cgv: string; returns: string; wa: string }; t: Record<string, string> };
 type Done = { name: string; numero: string; lines: string[]; subtotal: number };
 
 const BAG = <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg>;
-const QUEUE = "otage-commandes-en-attente"; // même file d'attente hors connexion que la gamme (islands/offers.js la renvoie)
 const telOk = (v: string) => /^(?:\+212|00212|0)[67]\d{8}$/.test(v.replace(/[\s.\-()]/g, ""));
 /** Identifiant de l'envoi : un renvoi du même formulaire ne crée pas de doublon. */
 const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
@@ -40,6 +39,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
   const [inView, setInView] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState("");
+  const [failWa, setFailWa] = useState(""); // commande non enregistrée : lien WhatsApp avec le panier
   const [invalid, setInvalid] = useState<string[]>([]);
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState<Done | null>(null);
@@ -139,7 +139,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       cgv: true, // case CGV cochée (vérifiée juste au-dessus, et de nouveau par le serveur)
       page: location.href.split("#")[0],
     };
-    setSending(true);
+    setSending(true); setFailWa("");
     const res: { ok: boolean; numero?: string; subtotal?: number; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
@@ -150,8 +150,10 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       if (fields.length) focus(fields[0]);
       return;
     }
-    if (!res) { // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
-      try { localStorage.setItem(QUEUE, JSON.stringify([...JSON.parse(localStorage.getItem(QUEUE) || "[]"), order])); } catch { /* stockage indisponible */ }
+    if (!res) { // panne du serveur ou hors connexion : la commande n'est enregistrée nulle part, pas de confirmation
+      const msg = [t.waOrder, ...entries.map((x) => `- ${x.qty} × ${x.p.name}${t.comma}${fmtName(x.p, x.f)} ${x.v.ml} ${t.ml}`), `- ${subtotal} ${t.dh}`].join("\n");
+      setError(t.errServer); setFailWa(`https://wa.me/${links.wa}?text=${encodeURIComponent(msg)}`);
+      return;
     }
     // mesure d'audience (si acceptée) : commande confirmée par le serveur seulement ; jamais de donnée personnelle
     if (res?.ok) window.dispatchEvent(new CustomEvent("otage:order", { detail: { offre: `unite:${entries.map((x) => `${x.p.key}-${x.f}x${x.qty}`).join("+")}`, value: res.subtotal, numero: res.numero } }));
@@ -260,7 +262,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
                 <input type="checkbox" name="cgv" />
                 <span>{t.agreeA} <a href={links.cgv} target="_blank" rel="noopener">{t.agreeCgv}</a> {t.agreeAnd} <a href={links.returns} target="_blank" rel="noopener">{t.agreeReturns}</a>.</span>
               </label>
-              <p className="tk-err sd-err" role="alert">{error}</p>
+              <p className="tk-err sd-err" role="alert">{error}{error && failWa && <> <a href={failWa} target="_blank" rel="noopener">WhatsApp</a></>}</p>
               <button type="submit" className="o-btn o-primary o-lg tk-send sd-send" disabled={sending} aria-busy={sending || undefined}><span className="o-lbl">{t.send}</span><span className="o-cap">{BAG}</span></button>
               <p className="cur-note">{t.pay}<b>{subtotal + fee.min}{t.to}{subtotal + fee.max} {t.dh}</b></p>
             </form>

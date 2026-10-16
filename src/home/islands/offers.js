@@ -391,7 +391,11 @@ export default function init(cfg) {
         if (fields.length && form.elements[fields[0]]) form.elements[fields[0]].focus();
         return;
       }
-      if (!res) writeQ([...readQ(), order]); // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
+      if (!res) { // panne du serveur ou hors connexion : la commande n'est enregistrée nulle part, pas de confirmation
+        const msg = [TXT.waOrder, `- ${t.recap}`, `- ${TXT.totalWord} : ${t.total} DH`].join("\n");
+        err.innerHTML = `${TXT.errServer} ${cfg.whatsapp ? `<a href="https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">WhatsApp</a>` : ""}`;
+        return;
+      }
       const numero = res ? res.numero : "";
       if (numero) $("[data-tkno]").textContent = numero.replace(/^OTG-/, "");
       // mesure d'audience (si acceptée) : seulement une commande confirmée par le serveur, avec son montant et son numéro.

@@ -98,21 +98,21 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   creme: {
     tag: { fr: "N° 03 · Routine anti-taches", ar: "رقم 03 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 03 sur 04 · Routine anti-taches", ar: "رقم 03 من 04 · يرطب ويوحد" },
+    eyebrow: { fr: "N° 03 sur 04 · Routine anti-taches", ar: "رقم 03 من 04 · روتين ضد البقع" },
     title: [{ fr: "Crème", ar: "كريم" }, { fr: "anti-taches.", ar: "ضد البقع." }],
-    lede: { fr: "Pour hydrater, unifier le teint et fixer le sérum, avant l'écran solaire.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم: آخر خطوة قبل واقي الشمس." },
+    lede: { fr: "Pour hydrater, unifier le teint et fixer le sérum, avant l'écran solaire.", ar: "لترطيب البشرة وتوحيد لونها وتثبيت السيروم، قبل واقي الشمس." },
     media: "pack",
     mediaAlt: { fr: "Le flacon pompe de la crème anti-taches OTAGE, 50 ml", ar: "عبوة الكريم ضد البقع من OTAGE بمضخة، 50 مل" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "halfTone", label: { fr: "Unifie le teint", ar: "يوحد لون البشرة" } }],
     upsell: { flag: { fr: "+20 ml pour {d} DH de plus", ar: "‎+20 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+20 ml pour {d} DH", ar: "‎+20 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "La crème anti-taches :", ar: "ترطيب وتوحيد." }, { fr: "ses 3 actifs.", ar: "دون تعقيد." }],
+      title: [{ fr: "La crème anti-taches :", ar: "الكريم ضد البقع:" }, { fr: "ses 3 actifs.", ar: "مكوناته الثلاثة." }],
       alt: { fr: "L’étiquette de la crème : niacinamide, acide hyaluronique, AHA, 50 ml", ar: "ملصق الكريم: نياسيناميد، حمض الهيالورونيك، AHA، ‏50 مل" },
       ingredients: [
         { name: { fr: "Niacinamide", ar: "نياسيناميد" }, where: label, role: { fr: "Vitamine B3 : aide à unifier le teint et à atténuer les taches.", ar: "فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع." } },
-        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Retient l'eau : la peau reste souple toute la journée.", ar: "يحتفظ بالماء في البشرة لترطيب يدوم." } },
-        { name: { fr: "AHA", ar: "أحماض AHA" }, where: label, role: { fr: "Acides de fruits qui affinent le grain de peau. Écran solaire le matin.", ar: "أحماض فواكه تنعّم ملمس البشرة بلطف." } },
+        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Retient l'eau : la peau reste souple toute la journée.", ar: "يحتفظ بالماء: البشرة تبقى ليّنة طول اليوم." } },
+        { name: { fr: "AHA", ar: "أحماض AHA" }, where: label, role: { fr: "Acides de fruits qui affinent le grain de peau. Écran solaire le matin.", ar: "أحماض فواكه تنعّم ملمس البشرة. واقي الشمس في الصباح." } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)

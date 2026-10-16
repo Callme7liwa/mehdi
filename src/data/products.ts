@@ -140,10 +140,10 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Crème anti-taches", ar: "كريم ضد البقع" },
     h1: { fr: "Crème anti-taches à la niacinamide, fabriquée au Maroc", ar: "كريم ضد البقع بالنياسيناميد، مصنوع في المغرب" },
-    metaTitle: { fr: "Crème anti-taches à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد في المغرب" },
+    metaTitle: { fr: "Crème anti-taches à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد" },
     metaDescription: {
       fr: "Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès {prix} DH, livrée en 24 à 72 h, payée à la livraison.",
-      ar: "كريم ضد البقع من OTAGE رقم 03: نياسيناميد، حمض الهيالورونيك، AHA. يرطب، يوحد لون البشرة ويثبت السيروم. مصنوع في المغرب، الدفع عند الاستلام.",
+      ar: "كريم ضد البقع بالنياسيناميد وحمض الهيالورونيك: يرطب ويوحد لون البشرة. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Hydrate, unifie le teint et scelle le sérum.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم." },
     benefit: { fr: "Hydrate et unifie le teint", ar: "يرطب ويوحد لون البشرة" },

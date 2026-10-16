@@ -36,61 +36,38 @@ export const problems: ProblemPage[] = [
   {
     slug: "taches-pigmentaires",
     label: "Taches pigmentaires",
-    h1: "Taches pigmentaires sur le visage : causes, conseils et routine",
-    metaTitle: "Taches pigmentaires du visage : causes et routine | OTAGE",
-    metaDescription: "D'où viennent les taches pigmentaires (hyperpigmentation), ce qui les fait foncer et quelle routine anti-taches adopter. Soins fabriqués au Maroc.",
+    h1: "Taches pigmentaires : causes et routine pour les atténuer",
+    metaTitle: "Taches pigmentaires : causes et routine | OTAGE",
+    metaDescription: "Taches pigmentaires : d'où elles viennent, ce qui les fonce et la routine pour les atténuer pas à pas. Conseils simples, sans promesse miracle.",
     image: image("gamme-anti-taches-4-soins-papier-rouge.webp", 1600, 1600, "Les 4 soins de la routine anti-taches OTAGE"),
-    intro: [
-      "Une tache pigmentaire est une zone de peau plus foncée que le reste du visage. On parle aussi de taches brunes ou d'hyperpigmentation. Elles ne sont pas dangereuses dans la grande majorité des cas, mais elles peuvent gêner.",
-      "Cette page explique d'où elles viennent, ce qui les aggrave, et comment construire une routine régulière pour les atténuer petit à petit.",
-    ],
+    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
+    intro: ["Une tache pigmentaire est une zone où la peau fabrique trop de mélanine. Pour l'atténuer : écran solaire chaque matin et routine régulière, avec patience."],
     sections: [
       {
         h2: "D'où viennent les taches pigmentaires ?",
-        body: [
-          "La couleur de la peau vient d'un pigment, la mélanine. Quand la peau en fabrique trop à un endroit, une tache apparaît. Plusieurs choses peuvent déclencher cette surproduction :",
-          { list: [
-            "Le soleil : c'est la cause la plus fréquente. Les UV stimulent la mélanine, et les taches foncent à chaque exposition sans protection.",
-            "Les hormones : grossesse, contraception ou changements hormonaux peuvent provoquer un mélasma (le « masque de grossesse »).",
-            "Les marques laissées par un bouton, une brûlure ou une irritation : c'est l'hyperpigmentation post-inflammatoire.",
-            "L'âge : avec le temps et le soleil accumulé, de petites taches apparaissent sur le visage et les mains.",
-          ] },
-        ],
+        body: [{ list: ["Le soleil : les UV stimulent la mélanine, les taches foncent.", "Les hormones : grossesse ou contraception peuvent donner un mélasma.", "Une inflammation : un bouton ou une brûlure laisse une marque brune.", "L'âge : le soleil accumulé fait apparaître de petites taches."] }],
       },
       {
-        h2: "Ce qui aide vraiment",
-        body: [
-          { list: [
-            "Protéger sa peau du soleil tous les jours, même en ville et même en hiver. Sans protection, les taches reviennent.",
-            "Être régulière : une routine suivie matin et soir compte plus que le nombre de produits.",
-            "Être patiente : les taches s'estompent petit à petit, pas du jour au lendemain. Le rythme varie d'une peau à l'autre.",
-            "Éviter de gratter, frotter fort ou percer les boutons : toute irritation peut laisser une nouvelle marque.",
-            "Introduire un nouveau soin progressivement, après un essai sur une petite zone.",
-          ] },
-        ],
-      },
-      {
-        h2: "Une routine anti-taches en 4 étapes",
-        body: [
-          "Le matin : nettoyer, traiter, hydrater, protéger. Le soir : les trois premières étapes, sans écran solaire. C'est la logique de la routine OTAGE, présentée ci-dessous.",
-        ],
+        h2: "Qu'est-ce qui aide vraiment ?",
+        body: [{ list: ["L'écran solaire chaque jour, même en hiver.", "La régularité, matin et soir, plus que le nombre de produits.", "Ne pas gratter ni percer les boutons.", "Tester tout nouveau soin 24 h sur une petite zone."] }],
       },
     ],
-    advice: "Une tache qui change de forme, de couleur ou de taille, qui saigne ou qui démange doit être montrée à un dermatologue. Si tes taches sont étendues ou anciennes, demande aussi son avis : il pourra te dire de quel type de tache il s'agit.",
-    productsTitle: "Les soins OTAGE pour les taches",
-    productsIntro: "La gamme anti-taches OTAGE est conçue pour les taches brunes et le teint irrégulier. Ses 4 soins se complètent :",
+    adviceTitle: "Quand consulter un dermatologue ?",
+    advice: "Dans la plupart des cas, une tache pigmentaire est sans danger. Consulte si elle change de forme, de couleur ou de taille, saigne ou démange.",
+    productsTitle: "Quelle routine pour atténuer les taches ?",
+    productsIntro: "Le matin, les 4 étapes. Le soir, les 3 premières.",
     products: [
-      { key: "gel", why: "Étape 1. Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins." },
-      { key: "serum", why: "Étape 2. Le soin concentré de la gamme, qui cible les taches." },
-      { key: "creme", why: "Étape 3. Hydrate, unifie le teint et scelle le sérum." },
-      { key: "ecran", why: "Étape 4, le matin. Protège des UVA et des UVB pour limiter le retour des taches." },
+      { key: "gel", why: "Masse 30 secondes sur peau humide, puis rince." },
+      { key: "serum", why: "3 à 4 gouttes sur peau sèche, en tapotant." },
+      { key: "creme", why: "Une noisette sur le visage et le cou." },
+      { key: "ecran", why: "Le matin, en dernier." },
     ],
     routine: true,
     faq: [
-      { q: "Combien de temps faut-il pour atténuer une tache pigmentaire ?", a: ["Il n'y a pas de délai garanti. Les taches s'estompent petit à petit, pas du jour au lendemain, et le rythme varie d'une peau à l'autre. Ce qui compte, c'est la régularité matin et soir et l'écran solaire chaque matin."] },
-      { q: "Les taches peuvent-elles revenir ?", a: ["Oui, surtout avec le soleil. Sans protection solaire, les taches reviennent. C'est pour cela que l'écran solaire SPF 50 fait partie de la routine du matin."] },
-      { q: "Faut-il mettre de l'écran solaire même quand il n'y a pas de soleil ?", a: ["Oui. Les UVA traversent les nuages et les vitres. Applique l'écran solaire chaque matin en dernier, et renouvelle-le toutes les 2 heures au soleil."] },
-      { q: "J'ai la peau sensible, je peux suivre une routine anti-taches ?", a: ["Fais d'abord un essai sur une petite zone, dans le pli du coude ou derrière l'oreille, et attends 24 h. En cas de rougeur ou d'irritation, arrête et demande conseil à un professionnel."] },
+      { q: "Combien de temps pour atténuer une tache pigmentaire ?", a: ["Il n'y a pas de délai garanti. Les taches s'atténuent petit à petit, avec régularité et écran solaire."] },
+      { q: "Les taches peuvent-elles revenir ?", a: ["Oui, surtout avec le soleil. C'est pour ça que l'écran SPF 50 est dans la routine du matin."] },
+      { q: "Faut-il de l'écran solaire quand il n'y a pas de soleil ?", a: ["Oui. Les UVA traversent les nuages et les vitres."] },
+      { q: "J'ai la peau sensible, je peux suivre la routine ?", a: ["Fais d'abord un test de 24 h sur une petite zone. En cas de rougeur, arrête et demande conseil."] },
     ],
   },
 

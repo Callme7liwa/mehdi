@@ -266,10 +266,10 @@ export const products: Product[] = isolateAr([
     range: "corps",
     name: { fr: "Déodorant crème", ar: "مزيل العرق كريم" },
     h1: { fr: "Déodorant crème sans sels d'aluminium", ar: "مزيل عرق كريم بدون أملاح الألمنيوم" },
-    metaTitle: { fr: "Déodorant crème OTAGE, 5 ingrédients", ar: "مزيل عرق كريم بدون ألمنيوم، مصنوع في المغرب" },
+    metaTitle: { fr: "Déodorant crème OTAGE, 5 ingrédients", ar: "مزيل العرق كريم OTAGE، 5 مكونات" },
     metaDescription: {
       fr: "Déodorant crème sans sels d'aluminium, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison.",
-      ar: "مزيل العرق كريم من OTAGE رقم 06: بدون أملاح الألمنيوم، 5 مكونات. عرض 2 + 1، الدفع عند الاستلام في كل المغرب.",
+      ar: "مزيل العرق كريم بدون أملاح الألمنيوم، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. {prix} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
     benefit: { fr: "Agit sur les odeurs, sans aluminium", ar: "يعمل على الروائح، بدون ألمنيوم" },

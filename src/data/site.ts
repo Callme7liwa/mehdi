@@ -56,6 +56,8 @@ export const site = {
     display: "+212 6 88 91 82 01",
   },
   instagram: { handle: "@otage.ma", url: "https://www.instagram.com/otage.ma" },
+  /** Fiche d'établissement Google (Google Maps) : lien stable par identifiant (cid), relié au site par le JSON-LD (sameAs). */
+  googleMaps: "https://maps.google.com/?cid=6247617281648532441",
   email: "Dr.mouldwa@gmail.com",
   /** Satisfaction : résultat d'une enquête interne, toujours affiché avec la taille de l'échantillon. Jamais dans le JSON-LD. */
   satisfaction: { percent: 85, sample: 20 },

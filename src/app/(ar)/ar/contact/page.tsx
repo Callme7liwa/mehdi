@@ -30,6 +30,9 @@ export default function Page() {
       <h2>إنستغرام</h2>
       <p><a href={site.instagram.url} target="_blank" rel="noopener"><span dir="ltr">{site.instagram.handle}</span></a>: جديدنا، والرسائل الخاصة لمراسلتنا.</p>
 
+      <h2>خرائط Google</h2>
+      <p><a href={site.googleMaps} target="_blank" rel="noopener"><span dir="ltr">OTAGE.MA</span> على خرائط Google</a>: صفحتنا على Google، للعثور علينا وترك رأيك.</p>
+
       <h2>الطلب</h2>
       <p>اطلبي <Link href="/ar#offres">من الموقع</Link> أو عبر واتساب. التوصيل {site.delivery.label.ar}، والدفع عند الاستلام.</p>
     </TextPage>

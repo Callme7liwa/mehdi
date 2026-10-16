@@ -52,7 +52,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   image: abs(OG_IMAGE.src),
   description: site.description[locale],
   slogan: site.slogan[locale],
-  sameAs: [site.instagram.url],
+  sameAs: [site.instagram.url, site.googleMaps],
   areaServed: maroc(locale),
   founder: { "@id": abs("/#founder") },
   hasMerchantReturnPolicy: returnPolicy(),

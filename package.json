@@ -15,6 +15,7 @@
     "indexnow": "node scripts/indexnow.mjs",
     "email:preview": "node scripts/email-preview.mjs",
     "check:order": "node scripts/check-order.mjs",
+    "check:savings": "node --no-warnings scripts/check-savings.mjs",
     "relecture": "node --no-warnings scripts/relecture.mjs",
     "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "validation": "node --no-warnings scripts/validation-client.mjs",

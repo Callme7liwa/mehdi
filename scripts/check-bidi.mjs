@@ -6,7 +6,7 @@
      gauche : 2 est à droite, puis +, puis 1 ; 85 est à droite de %. Chaque nombre garde ses chiffres dans l'ordre.
    - un numéro de téléphone, un e-mail, un identifiant (« @otage.1 ») restent d'un seul tenant, de gauche à droite.
 
-   Deux contrôles, sur les 17 pages arabes :
+   Deux contrôles, sur les 18 pages arabes :
    1. HTML servi : l'algorithme bidirectionnel Unicode (UAX 9) appliqué à chaque paragraphe. Rapide, sans navigateur.
    2. Page rendue, dans de vrais navigateurs (Chrome, puis Safari/WebKit et Firefox s'ils sont installés), après
       exécution du JavaScript : on lit la position réelle de chaque caractère à l'écran. Couvre aussi les textes écrits
@@ -20,7 +20,7 @@ import { EXPRESSION, LTR_UNIT, isolate } from "../src/lib/bidi.ts";
 const BASE = process.env.BASE || "http://localhost:3000";
 const PAGES = [
   "/ar", "/ar/soins",
-  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"].map((s) => `/ar/soins/${s}`),
+  ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux", "deodorant-creme"].map((s) => `/ar/soins/${s}`),
   "/ar/taches-pigmentaires", "/ar/cernes", "/ar/taches-acne", "/ar/melasma-grossesse",
   "/ar/avis", "/ar/a-propos", "/ar/livraison-paiement", "/ar/contact", "/ar/mentions-legales", "/ar/cgv",
 ];

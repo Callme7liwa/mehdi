@@ -20,6 +20,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
       <a className="lang" href={locale === "fr" ? "/ar" : "/"} lang={other} hrefLang={other}>{locale === "fr" ? "العربية" : "Français"}</a>
     </>
   );
+  // un seul bouton dans la routine : à la fin, après l'étape 4
   const order = <a className="o-btn o-primary o-md" href="#offres" data-order=""><span className="o-lbl">{t.heroCommanderLaGamme}</span><span className="o-cap">{BAG}</span></a>;
   return (
     <div className="journey">
@@ -133,7 +134,6 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroFigueDeBarbarie}</li><li>{t.heroLouban}</li><li>{t.heroSansSulfate}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroMatinEtSoirSur}</p>
             <a className="step-link" href={localePath(locale, "/soins/gel-nettoyant")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
-            {order}
           </article>
           <article className="step" data-i="1" aria-hidden="true">
             <p className="step-count">{t.heroEtape2Sur4}</p>
@@ -142,7 +142,6 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroMatcha}</li><li>{t.heroCalendula}</li><li>{t.heroAlphaArbutine}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.hero3A4Gouttes}</p>
             <a className="step-link" href={localePath(locale, "/soins/serum-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
-            {order}
           </article>
           <article className="step" data-i="2" aria-hidden="true">
             <p className="step-count">{t.heroEtape3Sur4}</p>
@@ -151,7 +150,6 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
             <ul className="chips"><li>{t.heroNiacinamide}</li><li>{t.heroAcideHyaluronique}</li><li>{t.heroAha}</li></ul>
             <p className="step-how"><b>{t.heroComment}</b>{t.heroUneNoisetteSurLe}</p>
             <a className="step-link" href={localePath(locale, "/soins/creme-anti-taches")}>{t.heroVoirLaFiche}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
-            {order}
           </article>
           <article className="step" data-i="3" aria-hidden="true">
             <p className="step-count">{t.heroEtape4Sur4}</p>

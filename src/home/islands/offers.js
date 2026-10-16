@@ -316,7 +316,6 @@ export default function init(cfg) {
       glideY(y - 24);
       setTimeout(() => form.elements.nom.focus({ preventScroll: true }), reduce ? 0 : 1300);
     };
-    $(".tk-detach").addEventListener("click", detach);
     window.OTAGE = window.OTAGE || {};
     OTAGE.detachTicket = detach;
 
@@ -409,7 +408,6 @@ export default function init(cfg) {
       if (numero) $("[data-tkno]").textContent = numero.replace(/^OTG-/, "");
       window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: prod === "yeux" ? "contour_des_yeux" : "gamme", format: prod === "yeux" ? "unique" : fmt, value: t.total } })); // mesure d'audience, si acceptée
       $("[data-thanks]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
-      $(".stub-act").hidden = true;
       $(".stub-done").hidden = false;
       $("[data-thanks2]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       // confirmation : récapitulatif, livraison, total, et le même texte prêt à envoyer sur WhatsApp

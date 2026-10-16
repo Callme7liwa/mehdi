@@ -140,10 +140,6 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                 </div>
                 <div className="stub">
                   <div className="perf" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6" /><circle cx="6" cy="17" r="2.6" /><path d="M8.2 8.4L20 17M8.2 15.6L20 7" /></svg></span></div>
-                  <div className="stub-act">
-                    <button type="button" className="o-btn o-primary o-lg tk-detach"><span className="o-lbl">{t.offersCommander}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6" /><circle cx="6" cy="17" r="2.6" /><path d="M8.2 8.4L20 17M8.2 15.6L20 7" /></svg></span></button>
-
-                  </div>
                   <div className="stub-done" hidden>
                     <p className="done-t" data-thanks="">{t.offersMerci}</p>
                     <p>{t.offersTaCommandeEstEnregistree}</p>

@@ -48,17 +48,16 @@ export default function Campaign({ t }: { t: HomeText }) {
               <span className="p-img"><video src="/videos/ecran-solaire-spf50.mp4" data-poster="/images/ecran-solaire-spf50-video-poster.webp" width={720} height={720} muted loop playsInline preload="none" aria-hidden="true"></video></span>
               <span className="p-tag"><span className="p-name">{t.campaignEcranSolaireSpf502}</span><span className="p-go">{t.campaignVoirLeSoin}<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12" /></svg></i></span></span>
             </button>
-            <button type="button" className="poster photo" data-offres="" style={{ "--r": "-1.4deg" } as React.CSSProperties}>
+            <div className="poster photo" style={{ "--r": "-1.4deg" } as React.CSSProperties}>
               <span className="tape t1" aria-hidden="true"></span><span className="tape t2" aria-hidden="true"></span>
               <span className="p-img"><Img src="/images/flacons-otage-trousse.webp" alt={t.campaignUnePluieDeFlacons} width={1600} height={1600} sizes="(max-width: 640px) 90vw, 640px" /></span>
-              <span className="p-tag"><span className="p-name">{t.campaignLaGammeComplete}</span><span className="p-go">{t.campaignVoirLesOffres}<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12" /></svg></i></span></span>
-            </button>
+              <span className="p-tag"><span className="p-name">{t.campaignLaGammeComplete}</span></span>
+            </div>
             <button type="button" className="poster photo" data-open="0" style={{ "--r": "0.9deg" } as React.CSSProperties}>
               <span className="tape t1" aria-hidden="true"></span><span className="tape t2" aria-hidden="true"></span>
               <span className="p-img"><Img src="/images/gel-nettoyant-anti-taches-mains.webp" alt={t.campaignLeGelNettoyantTenu} width={1195} height={1600} sizes="(max-width: 640px) 90vw, 640px" /></span>
               <span className="p-tag"><span className="p-name">{t.campaignGelNettoyant}</span><span className="p-go">{t.campaignVoirLeSoin}<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12" /></svg></i></span></span>
             </button>
-            <a className="poster type cta" href="#offres" style={{ "--r": "-1deg" } as React.CSSProperties}><span className="tape t1" aria-hidden="true"></span><p>{t.campaignTaTrousse}<br />{t.campaignTAttend}</p><span className="cta-l">{t.campaignVoirLesOffres}<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h13M13 6l6 6-6 6" /></svg></i></span><small>{t.campaign21Offerte}</small></a>
           </div>
         </div>
         <div className="camp-foot" aria-hidden="true">

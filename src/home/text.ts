@@ -269,9 +269,6 @@ const texts = {
     campaignFabriqueAuMaroc: "Fabriqué au Maroc",
     campaignLaGammeComplete: "La gamme complète",
     campaignVoirLesOffres: "Voir les offres",
-    campaignTaTrousse: "Ta trousse",
-    campaignTAttend: "t'attend.",
-    campaign21Offerte: "2 + 1 offerte",
     campaignFaisDefiler: "Fais défiler",
     // Faq
     faqLesQuestionsQuOn: "Les questions qu'on nous pose.",
@@ -595,9 +592,6 @@ const texts = {
     campaignFabriqueAuMaroc: "صنع في المغرب",
     campaignLaGammeComplete: "المجموعة الكاملة",
     campaignVoirLesOffres: "اكتشفي العروض",
-    campaignTaTrousse: "حقيبتك",
-    campaignTAttend: "في انتظارك.",
-    campaign21Offerte: "2 + 1 مجانًا",
     campaignFaisDefiler: "مرّري",
     // Faq
     faqLesQuestionsQuOn: "أسئلة تُطرح علينا كثيرًا.",

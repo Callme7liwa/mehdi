@@ -1259,6 +1259,7 @@ html.qv-lock { overflow: hidden; }
   transition: box-shadow 0.4s ease;
 }
 .poster.photo { padding: 8px 8px 0; }
+div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 .p-img { display: block; height: calc(100% - 8px); overflow: hidden; background: #e8dccb; }
 .p-img img, .p-img video {
   display: block; height: 100%; width: auto;
@@ -2319,8 +2320,8 @@ html.qv-lock { overflow: hidden; }
 @keyframes bagHop { 0%, 100% { transform: none; } 40% { transform: translateY(-3px) rotate(-10deg); } 70% { transform: translateY(0) rotate(6deg); } }
 @media (prefers-reduced-motion: reduce) { .mini-go.nudge, .mini-go.nudge::after, .mini-go.nudge i { animation: none; } }
 /* même invitation sur desktop, sur le bouton du ticket */
-.tk-detach.nudge, .tk-send.nudge { animation: buzz 0.8s cubic-bezier(.36, .07, .19, .97) both; }
-@media (prefers-reduced-motion: reduce) { .tk-detach.nudge, .tk-send.nudge { animation: none; } }
+.tk-send.nudge { animation: buzz 0.8s cubic-bezier(.36, .07, .19, .97) both; }
+@media (prefers-reduced-motion: reduce) { .tk-send.nudge { animation: none; } }
 
 /* ---------- Le ticket ---------- */
 .tk-col { position: relative; max-width: 420px; width: 100%; margin: 0 auto; perspective: 1600px; }
@@ -2429,8 +2430,6 @@ html.qv-lock { overflow: hidden; }
 .perf::before { content: ""; position: absolute; left: -24px; right: -24px; top: 50%; border-top: 2px dashed rgba(43, 34, 35, 0.35); }
 .perf span { position: relative; left: -6px; width: 22px; height: 22px; padding: 2px; background: var(--paper); color: rgba(43, 34, 35, 0.6); }
 .perf svg { width: 100%; height: 100%; }
-.stub-act { display: none !important; } /* le formulaire est maintenant dans le rideau, à côté */
-.tk-detach { width: 100%; }
 
 .stub-done { padding-top: 10px; text-align: center; font-family: var(--font-dm-sans), Arial, sans-serif; }
 .stub-done p { margin: 6px auto 0; max-width: 34ch; font-size: 14px; line-height: 1.5; color: rgba(43, 34, 35, 0.75); }

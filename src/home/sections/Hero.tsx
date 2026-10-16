@@ -2,6 +2,7 @@ import type { HomeText } from "../text";
 import Img from "@/components/Img";
 import { gamme } from "@/data/products";
 import { site, type Locale } from "@/data/site";
+import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";
 
 const BAG = <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg>;
@@ -115,6 +116,7 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
         </div>
 
         <ul className="perks">
+          <Reassure locale={locale} as="li" />
           <li>{t.heroPhrase}</li>
         </ul>
       </div>

@@ -89,7 +89,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Gallery t={t} locale={locale} />
       <Footer t={t} locale={locale} />
       <Hesite t={t} locale={locale} />
-      <Fab t={t} />
+      <Fab t={t} locale={locale} />
       <Island name="fab" />
       <Island name="footer" />
       <Island name="reviews" />

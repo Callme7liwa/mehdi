@@ -3,6 +3,7 @@ import Img from "@/components/Img";
 import { bundleTotal, bundleUnit, gamme } from "@/data/products";
 import CityField, { CityList } from "@/components/CityField";
 import { site, type Locale } from "@/data/site";
+import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";
 
 const P = gamme.formats.petit, G = gamme.formats.grand;
@@ -75,6 +76,7 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   <p className="tk-err" role="alert"></p>
                   <button type="submit" className="o-btn o-primary o-lg tk-send"><span className="o-lbl">{t.offersValiderMaCommande}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></button>
                   <p className="cur-note">{t.offersTuPaies}<b><span data-total3="">{P.price}</span>{t.offersDh}</b><span data-pay-note="">{t.offersALaLivraisonLivraison}</span></p>
+                  <Reassure locale={locale} />
                 </form>
                 <div className="cur-done" hidden>
                   <svg className="od-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" /><path d="M15 27l7 7 15-16" /></svg>
@@ -135,7 +137,7 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   </div>
                   <p className="tk-save"><mark>{t.offersTuEconomises2}<span data-save="">{P.was - P.price}</span>{t.offersDh}</mark></p>
                   <div className="tk-bars" aria-hidden="true"></div>
-                  <div className="tk-ok" aria-hidden="true"><b>{t.offersConfirme}</b><span>{t.offersPaiementALaLivraison}</span></div>
+                  <div className="tk-ok" aria-hidden="true"><b>{t.offersConfirme}</b></div>
                 </div>
                 <div className="stub">
                   <div className="perf" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.6" /><circle cx="6" cy="17" r="2.6" /><path d="M8.2 8.4L20 17M8.2 15.6L20 7" /></svg></span></div>

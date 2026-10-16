@@ -569,6 +569,12 @@ a { color: inherit; }
   color: var(--muted);
 }
 .perks li { display: inline-flex; align-items: center; gap: 6px; }
+/* ligne de réassurance, la même près de chaque bouton principal : livraison · paiement · retour */
+.reassure { font-size: 13px; font-weight: 600; color: var(--bordeaux); text-align: center; }
+.reassure .rs { white-space: nowrap; }
+.perks { flex-direction: column; align-items: center; gap: 4px; }
+.foot-cta .reassure { margin: 12px 0 0; }
+.cur-form .reassure { margin: 4px 0 0; }
 .perks svg { width: 16px; height: 16px; color: var(--red); flex: none; }
 
 /* Sur téléphone, les ingrédients se lisent déjà sur les flacons */
@@ -1476,11 +1482,10 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 .fab-pics img { height: 40px; width: auto; margin-inline-start: -6px; filter: brightness(1.08); }
 .fab-pics img:nth-child(2) { height: 29px; }
 .fab-txt { display: grid; min-width: 0; line-height: 1.25; color: var(--bordeaux); }
-.fab-txt b { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fab-txt span { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fab-txt em { font-style: normal; font-weight: 700; color: var(--red); }
+.fab-txt.reassure { display: grid; flex: 1; font-size: 11.5px; line-height: 1.25; text-align: start; }
+.fab-txt .sep { display: none; } /* barre étroite : une partie par ligne */
 .fab .o-btn { margin-inline-start: auto; }
-@media (max-width: 440px) { .fab-pics { display: none; } .fab { padding-inline-start: 18px; } }
+@media (max-width: 440px) { .fab-pics { display: none; } .fab { padding-inline-start: 18px; } .fab .o-cap { display: none; } .fab .o-btn { padding-inline: 18px; } }
 
 /* formulaire : villes en un toucher, adresse facultative */
 .city-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }

@@ -103,7 +103,6 @@ export default function init(cfg) {
       L.push({ k: "ml", cls: "sub", l: (qty === 3 ? fill(TXT.each, { s: f.s }) : TXT.content) + f.content, r: "" });
       // gamme complète : livraison offerte ; sérum contour des yeux (achat à l'unité) : frais selon la ville
       L.push(prod === "yeux" ? { k: "liv", l: `${TXT.delivery} <small>(${TXT.deliveryFeeNote})</small>`, r: TXT.deliveryFee } : { k: "liv", l: TXT.delivery, r: TXT.deliveryFree });
-      L.push({ k: "pay", l: TXT.payment, r: TXT.paymentCod });
       return L;
     };
     const html = (x) => `<span>${x.l}</span><span class="r">${x.r}</span>${x.stamp ? `<span class="stamp">${x.stamp}</span>` : ""}`;

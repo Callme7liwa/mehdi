@@ -2,6 +2,7 @@ import type { HomeText } from "../text";
 import { homeJsText, type HomeJsText } from "../text-js";
 import { reviews } from "@/data/reviews";
 import type { Locale } from "@/data/site";
+import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";
 import Img from "@/components/Img";
 
@@ -55,8 +56,7 @@ function HesiteView({ t, locale, js }: { t: HomeText; locale: Locale; js: HomeJs
           <p className="res-big">{t.hesiteDeNosClientesSont}</p>
           <p className="res-src">{t.hesiteDApresLesRetours}</p>
           <ul className="res-pts">
-            <li><b>{t.hesiteTuPaiesALa}</b>{t.hesiteRienAAvancerEn}</li>
-            <li><b>{t.hesiteLivraisonOfferte}</b>{t.hesitePartoutAuMaroc}</li>
+            <li><b><Reassure locale={locale} as="span" /></b></li>
             <li><b>{t.hesiteFabriqueAuMaroc}</b>{t.hesiteAvecDesIngredientsD}</li>
           </ul>
         </div>

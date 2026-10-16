@@ -149,6 +149,12 @@ export const site = {
 export const abs = (path = "/") => `${site.url}${path === "/" ? "/" : path}`;
 
 /** Lien WhatsApp avec un message pré-rempli. */
+/** La ligne de réassurance, la même près de chaque bouton principal (accueil et fiches). */
+export const reassure: L = {
+  fr: `Livraison ${site.delivery.minHours}–${site.delivery.maxHours} h · Paiement à la livraison · Retour ${site.returns.days} jours`,
+  ar: `التوصيل ${site.delivery.label.ar} · الدفع عند الاستلام · الإرجاع خلال ${site.returns.days} أيام`,
+};
+
 export const waLink = (message?: string) =>
   `https://wa.me/${site.whatsapp.wa}${message ? `?text=${encodeURIComponent(message.replace(/[\u2066\u2069]/g, ""))}` : ""}`;
 

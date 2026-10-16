@@ -3,6 +3,7 @@ import { problemPages, trustPages } from "@/data/pages";
 import { gamme } from "@/data/products";
 import { products } from "@/data/products";
 import { formatDate, site, type Locale, waLink } from "@/data/site";
+import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";
 
 export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
@@ -14,6 +15,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
           <h2 id="foot-title">{t.footerTaRoutineDuSoir}</h2>
           <p>{t.msgGammeA}{gamme.formats.petit.price}{t.msgGammeB}{t.footerLivraisonOffertePartoutAu}</p>
           <a href="#offres" className="o-btn o-primary o-lg" data-order=""><span className="o-lbl">{t.footerCommanderLaGamme}</span><span className="o-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5.5 8.5h13l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H8.1a1.5 1.5 0 0 1-1.5-1.3z" /><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5" /></svg></span></a>
+          <Reassure locale={locale} />
         </div>
 
         <nav className="foot-cols" aria-label={t.footerPiedDePage}>
@@ -55,14 +57,6 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
               <li><a href={site.instagram.url} target="_blank" rel="noopener" className="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg><span dir="ltr">{site.instagram.handle}</span></a></li>
               <li><a href={waLink()} target="_blank" rel="noopener" className="fc-ic foot-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" /></svg><span>{t.footerWhatsapp}</span></a></li>
               <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
-            </ul>
-          </div>
-          <div>
-            <p className="fc-t">{t.footerNosEngagements}</p>
-            <ul className="fc-plain">
-              <li>{t.footerFabriqueAuMaroc}</li>
-              <li>{t.footerLivraisonOfferte}</li>
-              <li>{t.footerPaiementALaLivraison}</li>
             </ul>
           </div>
         </nav>

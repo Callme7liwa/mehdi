@@ -2647,11 +2647,15 @@ html[dir="rtl"] .s85-ring text { direction: ltr; letter-spacing: 0; font-size: 1
 .sp-pic img { height: 82%; width: auto; filter: brightness(1.06) drop-shadow(0 14px 14px rgba(74, 13, 22, 0.18)); transition: transform 0.7s cubic-bezier(.2, .8, .2, 1); }
 .sp-no { position: absolute; inset-inline-start: 16px; top: 14px; font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 44px; font-weight: 500; line-height: 1; color: rgba(74, 13, 22, 0.14); }
 .sp-tag { position: absolute; inset-inline-end: 14px; top: 16px; padding: 4px 10px; border-radius: 999px; background: rgba(255, 252, 248, 0.9); font-size: 11.5px; font-weight: 700; color: var(--bordeaux); }
-.sp-body { display: grid; gap: 4px; align-content: start; padding: 16px 18px 18px; }
+.sp-body { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 18px 18px; text-align: start; }
+/* cartes alignées : le format et la ligne prix + bouton descendent en bas de carte */
+.sp-body > .sp-fmt { margin-top: auto; }
+.sp-body > .sp-fmt + .sp-row { margin-top: 12px; }
+.sp-body > .sp-act { margin-bottom: 6px; }
 .sp-body h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
 .sp-for { font-size: 13px; color: var(--muted); }
 .sp-act { font-size: 12.5px; line-height: 1.35; color: var(--muted); }
-.sp-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
+.sp-row { display: flex; align-self: stretch; align-items: center; justify-content: space-between; gap: 10px; margin-top: 12px; }
 .sp-price { font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--bordeaux); }
 .sp-price small { font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 13px; font-weight: 600; margin-inline-start: 2px; }
 

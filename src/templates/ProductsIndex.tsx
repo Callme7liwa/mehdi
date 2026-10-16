@@ -17,7 +17,7 @@ const copy = {
     h1: "Soins anti-taches, contour des yeux et déodorant",
     lead: "Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison.",
     offer: (p: number) => `La gamme complète dès ${p} DH, livraison offerte.`,
-    orderRange: (p: number) => `Commander la gamme · ${p} DH`,
+    orderRange: (p: number) => `Commander la gamme · ${p}\u00a0DH`,
   },
   ar: {
     title: "منتجات ضد البقع، لمحيط العين ومزيل العرق | OTAGE",
@@ -25,7 +25,7 @@ const copy = {
     h1: "منتجات ضد البقع، لمحيط العين ومزيل العرق",
     lead: "مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة، والدفع عند الاستلام.",
     offer: (p: number) => `المجموعة الكاملة ابتداءً من ${p} درهم، والتوصيل مجاني.`,
-    orderRange: (p: number) => `اطلبي المجموعة · ${p} درهم`,
+    orderRange: (p: number) => `اطلبي المجموعة · ${p}\u00a0درهم`,
   },
 };
 

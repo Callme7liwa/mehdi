@@ -170,15 +170,17 @@ export function Offer({ upsellFlag, unitWord }: { upsellFlag?: string; unitWord?
 /** Petit / Grand format d'un autre soin (carte ou ticket). */
 export function FormatSwitch({ it, small }: { it: CartItem; small?: boolean }) {
   const { sel, pick, t } = useCart();
+  // contenance et prix, chacun d'un seul tenant (« 91 DH » ne se coupe pas)
+  const qty = (v: CartItem["formats"][number]) => <span className="fq"><span className="nw">{v.ml} {t.ml}</span><span className="sep"> · </span><span className="nw">{v.price} {t.dh}</span></span>;
   if (it.formats.length < 2) {
     const v = it.formats[0];
-    return <div className={`fsw one${small ? " sm" : ""}`}><span><b>{t.unique}</b><span>{v.ml} {t.ml} · {v.price} {t.dh}</span></span></div>;
+    return <div className={`fsw one${small ? " sm" : ""}`}><span><b>{t.unique}</b>{qty(v)}</span></div>;
   }
   return (
     <div className={`fsw${small ? " sm" : ""}`} role="radiogroup" aria-label={fill(t.formatOf, { x: it.name })}>
       {it.formats.map((v) => (
         <button key={v.f} type="button" role="radio" aria-checked={sel[it.key] === v.f} onClick={() => sel[it.key] !== v.f && pick(it.key, v.f)}>
-          <b>{v.f === "petit" ? t.petitShort : t.grandShort}</b><span>{v.ml} {t.ml} · {v.price} {t.dh}</span>
+          <b>{v.f === "petit" ? t.petitShort : t.grandShort}</b>{qty(v)}
         </button>
       ))}
     </div>

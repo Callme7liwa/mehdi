@@ -152,7 +152,8 @@ main { display: block; }
 .pcard-pic { position: relative; display: flex; align-items: flex-end; justify-content: center; height: 200px; padding-top: 14px; background: radial-gradient(ellipse 60% 55% at 50% 72%, #fff, transparent 70%), var(--sand); }
 .pcard-pic img { height: 92%; width: auto; max-width: 80%; object-fit: contain; filter: brightness(1.08) contrast(1.03); }
 .pcard-pic .num { position: absolute; inset-inline-start: 12px; top: 12px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 252, 248, 0.9); font-size: 14px; }
-.pcard-body { display: grid; gap: 6px; align-content: start; padding: 14px 16px 18px; }
+.pcard-body { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px 16px 18px; text-align: start; }
+.pcard-body .pcard-price { margin-top: auto; } /* prix et lien alignés en bas de carte */
 .pcard-body p { font-size: 14px; color: var(--muted); line-height: 1.45; }
 .pcard-body .pcard-act { font-size: 13px; }
 .pcard-body .pcard-price { font-size: 17px; font-weight: 600; color: var(--bordeaux); }

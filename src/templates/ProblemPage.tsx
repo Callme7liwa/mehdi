@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import FaqList from "@/components/FaqList";
-import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
 import { problems, type ProblemPage as Problem } from "@/data/problems";
-import { bundleUnit, gamme, productByKey, rangeProducts, yeuxPrice } from "@/data/products";
+import { bundleTotal, gamme, lowestPrice, productByKey, yeuxPrice } from "@/data/products";
 import { abs, formatDate, site, waLink, type Locale } from "@/data/site";
 import { reviewerLd } from "@/lib/seo";
 import { problemsAr } from "@/data/problems.ar";
@@ -64,73 +63,54 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
               <section key={s.h2} style={{ display: "grid", gap: 14 }}>
                 {s.part && <h2 className="part">{nbsp(s.part)}</h2>}
                 {parts ? <h3>{nbsp(s.h2)}</h3> : <h2>{nbsp(s.h2)}</h2>}
-                {s.body.map((b, i) => (typeof b === "string" ? <p key={i}>{b}</p> : <ul key={i}>{b.list.map((li) => <li key={li}>{li}</li>)}</ul>))}
+                {s.body.map((b, i) => (typeof b === "string" ? <p key={i}>{b}</p> : "steps" in b ? <ol key={i}>{b.steps.map((li) => <li key={li}>{li}</li>)}</ol> : <ul key={i}>{b.list.map((li) => <li key={li}>{li}</li>)}</ul>))}
               </section>
             ))}
-            <p className="note"><b>{t.askPro}</b> {p.advice}</p>
+            {p.adviceTitle ? (
+              <section style={{ display: "grid", gap: 14 }}>
+                <h2>{nbsp(p.adviceTitle)}</h2>
+                <p className="note">{p.advice}</p>
+              </section>
+            ) : (
+              <p className="note"><b>{t.askPro}</b> {p.advice}</p>
+            )}
           </div>
         </article>
 
+        {/* les soins : un lien nommé vers chaque fiche, et le geste (routine) ou ce qu'il apporte ;
+            la routine n'est décrite qu'ici (elle était répétée dans 3 sections) */}
         <section className="sec" aria-labelledby="soins-adaptes" style={{ marginTop: "clamp(36px, 6vw, 72px)" }}>
           <div className="sec-head">
-            <h2 id="soins-adaptes">{p.productsTitle}</h2>
-            <p className="lead">{p.productsIntro}</p>
+            <h2 id="soins-adaptes">{nbsp(p.productsTitle)}</h2>
+            {p.productsIntro && <p className="lead">{p.productsIntro}</p>}
           </div>
-          <div className={`grid ${p.products.length > 3 ? "c4" : p.products.length > 1 ? "c3" : "c2"}`}>
-            {p.products.map(({ key, why }) => {
+          {(() => {
+            const items = p.products.map(({ key, why }) => {
               const x = productByKey(key);
               return (
-                <Link className="pcard" key={key} href={localePath(locale, `/soins/${x.slug}`)}>
-                  <div className="pcard-pic">
-                    <Img src={x.pack.src} alt={x.pack.alt[locale]} width={x.pack.w} height={x.pack.h} />
-                    <span className="num" dir="ltr">{x.no}</span>
-                  </div>
-                  <div className="pcard-body">
-                    <h3>{x.name[locale]}</h3>
-                    <p>{why}</p>
-                    <p>{x.ingredients.map((i) => i[locale]).join(ar ? "، " : ", ")}</p>
-                    <span className="pcard-more">{t.seeProduct}<span aria-hidden="true"> {ar ? "←" : "→"}</span></span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        {p.routine && (
-          <section className="sec" aria-labelledby="routine">
-            <div className="sec-head">
-              <h2 id="routine">{t.routineSteps}</h2>
-              <p>{t.routineSummary}</p>
-            </div>
-            <ol className="steps">
-              {rangeProducts.map((x) => (
-                <li key={x.key}>
+                <li key={key}>
                   <div>
                     <Link href={localePath(locale, `/soins/${x.slug}`)}>{x.name[locale]}</Link>
-                    <br /><span>{x.how[locale]}</span>
+                    {!p.routine && <span dir="ltr"> · {lowestPrice(x)} {ar ? "درهم" : "DH"}</span>}
+                    <br /><span>{why}</span>
                   </div>
                 </li>
-              ))}
-            </ol>
-          </section>
-        )}
+              );
+            });
+            return p.routine ? <ol className="steps">{items}</ol> : <ul className="steps">{items}</ul>;
+          })()}
+        </section>
 
         <section className="sec">
           <div className="band">
             <h2>{yeux ? t.bandYeux : t.bandRange}</h2>
             <p>
               {yeux
-                ? ar
-                  ? `${yeuxPrice} درهم، أو ${bundleUnit(yeuxPrice)} درهم للسيروم مع عرض 2 + 1. `
-                  : `${yeuxPrice} DH, ou ${bundleUnit(yeuxPrice)} DH le sérum avec l'offre 2 + 1. `
-                : ar
-                  ? `المنتجات الأربعة ابتداءً من ${P.price} درهم بدل ${P.was} درهم، أو ${bundleUnit(P.price)} درهم للمجموعة مع عرض 2 + 1. `
-                  : `Les 4 soins dès ${P.price} DH au lieu de ${P.was} DH, ou ${bundleUnit(P.price)} DH la gamme avec l'offre 2 + 1. `}
-              {ar ? `التوصيل في كل أنحاء المغرب خلال ${site.delivery.label.ar}: مجاني للمجموعة الكاملة، ومن ${site.delivery.unitFee.min} إلى ${site.delivery.unitFee.max} درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام.` : `Livraison en ${site.delivery.label.fr} partout au Maroc : offerte pour la gamme complète, de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville pour un achat à l'unité, paiement à la livraison.`}
+                ? ar ? `${yeuxPrice} درهم، أو 3 بـ ${bundleTotal(yeuxPrice)} درهم مع عرض 2 + 1.` : `${yeuxPrice} DH, ou 3 pour ${bundleTotal(yeuxPrice)} DH avec l'offre 2 + 1.`
+                : ar ? `المنتجات الأربعة ابتداءً من ${P.price} درهم، والتوصيل مجاني.` : `Les 4 soins dès ${P.price} DH, livraison offerte.`}
             </p>
             <div className="btns">
-              <a className="btn btn-primary" href={`${localePath(locale, "/")}${yeux ? "?produit=yeux" : ""}#offres`}>{t.seeOffer}<BagIcon /></a>
+              <a className="btn btn-primary" href={`${localePath(locale, "/")}${yeux ? "?produit=yeux" : ""}#offres`}>{t.seeOffer} · {yeux ? "" : `${t.from} `}{yeux ? yeuxPrice : P.price} {t.dh}<BagIcon /></a>
               <a className="btn btn-ghost" href={waLink(ar ? `مرحبًا OTAGE، لدي سؤال عن: ${p.label}.` : `Bonjour OTAGE, j'ai une question sur : ${p.label.toLowerCase()}.`)} target="_blank" rel="noopener">{t.askWhatsApp}<WaIcon /></a>
             </div>
           </div>

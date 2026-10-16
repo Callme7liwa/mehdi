@@ -257,5 +257,6 @@ const imageAlt: Record<string, string> = {
 
 export const problemsAr: ProblemPage[] = isolateAr(problems.map((p) => {
   const t = isolateAll(ar[p.slug]);
-  return { ...p, ...t, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
+  // adviceTitle : seulement celui de l'arabe (sans repli sur le français)
+  return { ...p, ...t, adviceTitle: t.adviceTitle, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
 }));

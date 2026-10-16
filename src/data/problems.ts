@@ -5,7 +5,8 @@
 import type { Faq } from "./faq";
 import type { Img, ProductKey } from "./products";
 
-export type Block = string | { list: string[] };
+/** Un bloc de texte : un paragraphe, une liste à puces, ou des étapes numérotées. */
+export type Block = string | { list: string[] } | { steps: string[] };
 export interface ProblemPage {
   slug: string;
   label: string;
@@ -18,6 +19,8 @@ export interface ProblemPage {
   sections: { part?: string; h2: string; body: Block[] }[];
   /** Encadré « demande l'avis d'un professionnel ». */
   advice: string;
+  /** Titre en question au-dessus de l'encadré (« Quand consulter un dermatologue ? ») ; sans titre, l'encadré commence par « Demande l'avis d'un professionnel ». */
+  adviceTitle?: string;
   productsTitle: string;
   productsIntro: string;
   products: { key: ProductKey; why: string }[];

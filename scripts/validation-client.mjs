@@ -11,6 +11,7 @@ const { products, productByKey, bundle, bundleKeys, bundleUnit, bundleTotal, uni
 const { productPages, productUi } = await import("../src/data/product-pages.ts");
 const { productFaq } = await import("../src/data/faq.ts");
 const { site } = await import("../src/data/site.ts");
+const { problems } = await import("../src/data/problems.ts");
 const { homeText } = await import("../src/home/text.ts");
 const h = homeText.fr;
 
@@ -26,7 +27,7 @@ const date = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeZone: "Af
 
 let md = `> **Fichier généré par \`npm run validation\` : le copier avant de le remplir.** Le relancer écrase ce fichier, cases cochées comprises.
 
-# Validation avant mise en ligne : fiches produits v2
+# Validation avant mise en ligne : fiches produits v2 et contenu v3
 
 Document à faire remplir par le client (et par le pharmacien pour les parties indiquées), avant toute mise en ligne.
 Pour chaque ligne : cocher **Validé**, ou **À modifier** en écrivant la bonne valeur. Rien n'est en ligne tant que ce document n'est pas validé.
@@ -61,7 +62,7 @@ md += table(["Donnée", "Valeur affichée", "Source"], [
 ]);
 md += `### Allégations : À valider\n\n« 100 % naturel » (et « naturel », « ingrédients naturels ») a été **retiré partout** (fiche, méta, JSON-LD, llms.txt, accueil, arabe) en attendant votre validation. Les allégations ci-dessous sont affichées ; elles restent **à valider**.\n\n`;
 md += table(["Allégation", "Où elle apparaît", "Statut"], [
-  row(["Sans sels d'aluminium", "fiche (avantage, titre H1, titre Google, description), accueil (carte « odeurs », « À l'unité »), FAQ, llms.txt", "À valider"]),
+  row(["Sans sels d'aluminium", "fiche (accroche, bénéfice, description Google), accueil (carte « odeurs », « À l'unité »), FAQ, llms.txt. Retiré du H1 et du titre Google en attendant la validation.", "À valider"]),
   row(["Sans parabène", "fiche (avantage)", "À valider"]),
   row(["Ne bloque pas la transpiration (agit sur les odeurs)", "fiche (avantage, « Pour qui ? », FAQ « Est-ce qu'il bloque la transpiration ? »)", "À valider"]),
   row(["Sans sulfate", "fiche (avantage) — venait de la maquette", "À valider"]),
@@ -73,29 +74,30 @@ md += table(["Allégation", "Où elle apparaît", "Statut"], [
 md += `## 3. Textes que nous avons écrits (absents des maquettes) — client\n\n`;
 const deoFaq = productFaq(deo, "fr");
 md += table(["Texte", "Contenu affiché", "Source"], [
-  row(["Déodorant : titre de la page (H1)", deo.h1.fr, "src/data/products.ts, h1"]),
+  row(["Déodorant : titre de la page (H1), neutre", productPages.deo.title.map((t) => t.fr).join(" "), "src/data/product-pages.ts, deo.title"]),
+  row(["Déodorant : variante du H1, activée seulement après validation de « sans aluminium »", "Déodorant crème sans aluminium.", "src/data/product-pages.ts (commentaire au-dessus de deo.title)"]),
   row(["Déodorant : titre dans Google", `${deo.metaTitle.fr} | OTAGE`, "src/data/products.ts, metaTitle"]),
   row(["Déodorant : description dans Google (et JSON-LD)", deo.metaDescription.fr, "src/data/products.ts, metaDescription"]),
   row(["Déodorant : « Pour qui ? »", deo.forWho.fr, "src/data/products.ts, forWho"]),
   ...deoFaq.map((f) => row([`Déodorant : FAQ « ${f.q} »`, f.a.join(" "), "src/data/faq.ts (réponse générée) et products.ts"])),
   row(["Accueil : carte « odeurs »", `${h.diagnosticDesOdeursSousLes} — ${h.diagnosticUnDeodorantQuiTient} — ${h.diagnosticBientot}${dP}${h.discoverDh}`, "src/home/text.ts"]),
   row(["Accueil : résultat « odeurs »", `${h.discoverNotreDeodorantArriveBientot} ${h.discoverOnLePrepareAvec}${dP}${h.discoverDh}. Bouton : ${h.discoverCommanderLeDeo}${dP}${h.discoverDh}`, "src/home/text.ts"]),
-  row(["Accueil, « À l'unité » : sous-titre du déodorant", h.shopPourDeo, "src/home/text.ts, shopPourDeo"]),
+  row(["Accueil et /soins : bénéfice du déodorant sur sa carte", deo.benefit.fr, "src/data/products.ts, benefit"]),
   row(["Fiches : mention sous chaque avis", productUi.reviewNote.fr, "src/data/product-pages.ts, reviewNote"]),
   row(["Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran)", "Avis sur la routine complète", "src/data/reviews.ts"]),
   row(["Fiches : titre des questions", `${productUi.faqTitle.fr} ${productUi.faqTitleEm.fr}`, "src/data/product-pages.ts"]),
   row(["Fiches : case de consentement", `${productUi.agreeA.fr} ${productUi.agreeCgv.fr} ${productUi.agreeAnd.fr} ${productUi.agreeReturns.fr}.`, "src/data/product-pages.ts"]),
-  row(["Page /soins : chapeau", "Une routine anti-taches en 4 soins, un sérum contour des yeux et un déodorant crème. Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.", "src/templates/ProductsIndex.tsx"]),
+  row(["Page /soins : chapeau", "Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.", "src/templates/ProductsIndex.tsx"]),
   row(["Description générale du site (Google, JSON-LD, llms.txt)", site.description.fr, "src/data/site.ts, description"]),
   row(["CGV, article 2 « Produits » : liste générée", products.map((p) => `${p.name.fr} (${unitFormats(p).map((f) => `${p.ml[f]} ml`).join(" ou ")})`).join(" ; "), "src/app/(fr)/cgv/page.tsx, depuis products.ts"]),
 ]);
 
 /* ---------- 4. Rôles des ingrédients ---------- */
-md += `## 4. Rôles des ingrédients « [À VALIDER] » des 6 fiches — pharmacien\n\nTextes de la section « L'étiquette, sans filtre », repris des maquettes, où ils étaient marqués « [À VALIDER] ». La mention « Rôles relus par notre pharmacien » reste masquée tant que \`site.medicalReview.validated\` n'est pas à true.\n\n`;
+md += `## 4. Rôles des ingrédients « [À VALIDER] » des 6 fiches — pharmacien\n\nTextes de la section « L'étiquette, sans filtre », raccourcis à une ligne (contenu v3). La mention « Rôles relus par notre pharmacien » reste masquée tant que \`site.medicalReview.validated\` n'est pas à true.\n\n`;
 for (const p of products) {
   const x = productPages[p.key];
   md += `### ${p.no} · ${p.name.fr}\n\n`;
-  md += table(["Ingrédient", "Rôle affiché", "Ce que ça change (deuxième ligne)"], x.lab.ingredients.map((g) => row([`${g.name.fr} (${g.where.fr})`, g.role.fr, g.why.fr])));
+  md += table(["Ingrédient", "Rôle affiché (une ligne)"], x.lab.ingredients.map((g) => row([`${g.name.fr} (${g.where.fr})`, g.role.fr])));
 }
 
 /* ---------- 5. Points à trancher ---------- */
@@ -104,6 +106,32 @@ md += table(["Point", "Situation actuelle", "Fichier"], [
   row(["CGV, article 3 « Prix »", `Liste générée depuis products.ts : la gamme (Petit et Grand format, offre 2 + 1), puis ${bundleKeys.map((k) => { const p = productByKey(k); return `${p.name.fr.toLowerCase()} ${p.unitPrice.petit} DH (${bundleUnit(p.unitPrice.petit)} DH avec l'offre 2 + 1)`; }).join(" et ")}. Les prix à l'unité des 4 soins de la gamme n'y figurent pas.`, "src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx"]),
   row(["Commandes gardées hors connexion avant la case CGV", "Renvoyées avec cgv: true (les formulaires de l'accueil exigeaient déjà la case avant de les enregistrer).", "src/home/islands/offers.js"]),
 ]);
+
+/* ---------- 6. Contenu v3 : nouveaux textes ---------- */
+md += `## 6. Contenu v3 : nouveaux textes courts (client, pharmacien pour les fiches et les conseils)\n\n### Bénéfice et « Pour qui ? / Comment l'utiliser ? / Résultats » de chaque fiche\n\n`;
+for (const p of products) {
+  const u = productPages[p.key].use;
+  md += `#### ${p.no} · ${p.name.fr}\n\n`;
+  md += table(["Texte", "Contenu affiché"], [
+    row(["Bénéfice (cartes, accueil, /soins)", p.benefit.fr]),
+    row(["Accroche de la fiche", productPages[p.key].lede.fr]),
+    ...(u ? [row(["Pour qui ?", u.forWho.fr]), row(["Comment l'utiliser ?", u.steps.map((s, i) => `${i + 1}. ${s.fr}`).join(" ")]), row(["Résultats", u.results.fr])] : []),
+  ]);
+}
+md += `### Citation du fondateur (À propos)\n\nLa version actuelle reste en ligne ; la version courte ne remplace l'actuelle qu'après votre accord.\n\n`;
+md += table(["Version", "Texte"], [row(["Actuelle (en ligne)", site.founder.story.fr]), row(["Courte (proposée)", site.founder.storyShort.fr])]);
+md += `### Pages conseils réécrites : pharmacien\n\nElles restent en noindex tant que \`site.medicalReview.validated\` n'est pas à true. Une ligne par bloc de la page.\n\n`;
+const blk = (b) => (typeof b === "string" ? b : (b.list ?? b.steps).map((x) => `• ${x}`).join(" "));
+for (const p of problems) {
+  md += `#### /${p.slug} : ${p.h1}\n\n`;
+  md += table(["Bloc", "Texte affiché"], [
+    row(["Réponse directe (en haut de page)", p.intro.join(" ")]),
+    ...p.sections.map((x) => row([x.h2, x.body.map(blk).join(" ")])),
+    row([p.adviceTitle ?? "Avis d'un professionnel", p.advice]),
+    row([p.productsTitle, [p.productsIntro, ...p.products.map((x) => `${productByKey(x.key).name.fr} : ${x.why}`)].filter(Boolean).join(" ")]),
+    ...p.faq.map((q) => row([`FAQ : ${q.q}`, q.a.join(" ")])),
+  ]);
+}
 
 writeFileSync(new URL("../docs/validation-client.md", import.meta.url), md);
 const lines = (md.match(/☐ Validé/g) || []).length;

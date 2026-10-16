@@ -1,9 +1,9 @@
 > **Fichier généré par `npm run validation` : le copier avant de le remplir.** Le relancer écrase ce fichier, cases cochées comprises.
 
-# Validation avant mise en ligne : fiches produits v2 et contenu v3
+# Validation client : fiches produits v2 et contenu v3
 
-Document à faire remplir par le client (et par le pharmacien pour les parties indiquées), avant toute mise en ligne.
-Pour chaque ligne : cocher **Validé**, ou **À modifier** en écrivant la bonne valeur. Rien n'est en ligne tant que ce document n'est pas validé.
+Document à faire remplir par le client (et par le pharmacien pour les parties indiquées).
+Pour chaque ligne : cocher **Validé**, ou **À modifier** en écrivant la bonne valeur. Toute correction sera reportée sur le site.
 
 Généré le 16 octobre 2026, à partir du code : les valeurs sont celles que le site affiche aujourd'hui.
 

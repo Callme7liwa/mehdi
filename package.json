@@ -18,6 +18,7 @@
     "relecture": "node --no-warnings scripts/relecture.mjs",
     "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "validation": "node --no-warnings scripts/validation-client.mjs",
+    "validation:pdf": "node scripts/validation-pdf.mjs",
     "blur": "node scripts/blur.mjs"
   },
   "dependencies": {

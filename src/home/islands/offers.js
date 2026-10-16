@@ -208,7 +208,7 @@ export default function init(cfg) {
       });
     });
     /* choix du produit */
-    const setProduct = (p) => { if (p === prod || sec.classList.contains("done")) return; prod = p; render(); window.dispatchEvent(new CustomEvent("otage:choice", { detail: { type: p === "yeux" ? "contour_des_yeux" : "gamme" } })); };
+    const setProduct = (p) => { if (p === prod || sec.classList.contains("done")) return; prod = p; render(); window.dispatchEvent(new CustomEvent("otage:choice", { detail: { offre: p === "yeux" ? "contour_des_yeux" : "gamme" } })); };
     sec.querySelectorAll(".psw").forEach((b) => b.addEventListener("click", () => setProduct(b.dataset.prod)));
     window.OTAGE = window.OTAGE || {};
     OTAGE.setProduct = setProduct;
@@ -394,7 +394,9 @@ export default function init(cfg) {
       if (!res) writeQ([...readQ(), order]); // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
       const numero = res ? res.numero : "";
       if (numero) $("[data-tkno]").textContent = numero.replace(/^OTG-/, "");
-      window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: prod === "yeux" ? "contour_des_yeux" : "gamme", format: prod === "yeux" ? "unique" : fmt, value: t.total } })); // mesure d'audience, si acceptée
+      // mesure d'audience (si acceptée) : seulement une commande confirmée par le serveur, avec son montant et son numéro.
+      // Jamais de nom, téléphone, ville ni adresse.
+      if (res && res.ok) window.dispatchEvent(new CustomEvent("otage:order", { detail: { offre: prod === "yeux" ? `contour_des_yeux_x${qty}` : `gamme_${fmt}_x${qty}`, value: res.subtotal, numero: res.numero } }));
       $("[data-thanks]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });
       $(".stub-done").hidden = false;
       $("[data-thanks2]").textContent = fill(TXT.thanks, { name: String(fd.get("nom")).trim().split(/\s+/)[0] });

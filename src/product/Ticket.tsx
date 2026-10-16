@@ -152,7 +152,7 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
     };
     try { localStorage.setItem(CLIENT, JSON.stringify({ nom: order.nom, tel: order.tel, ville: order.ville })); } catch { /* stockage indisponible */ }
     setSending(true);
-    const res: { ok: boolean; numero?: string; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
+    const res: { ok: boolean; numero?: string; subtotal?: number; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
     if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
@@ -165,7 +165,8 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
     if (!res) { // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard depuis l'accueil
       try { localStorage.setItem(QUEUE, JSON.stringify([...JSON.parse(localStorage.getItem(QUEUE) || "[]"), order])); } catch { /* stockage indisponible */ }
     }
-    window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: "unite", format: [...new Set(lines.map((l) => l.f))].join("+"), value: total } })); // mesure d'audience, si acceptée
+    // mesure d'audience (si acceptée) : commande confirmée par le serveur seulement ; jamais de donnée personnelle
+    if (res?.ok) window.dispatchEvent(new CustomEvent("otage:order", { detail: { offre: `unite:${lines.map((l) => `${l.key}-${l.f}x${l.qty}`).join("+")}`, value: res.subtotal, numero: res.numero } }));
     if (mobile() && !c.isOpen) c.open();
     buzz([12, 60, 24]);
     // le ticket se détache, puis le tampon tombe

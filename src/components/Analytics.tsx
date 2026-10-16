@@ -1,14 +1,19 @@
 "use client";
 
 /* Mesure d'audience (Google Tag Manager, ou GA4 en direct), seulement avec l'accord de la visiteuse (loi 09-08).
-   - Avec un conteneur GTM (prop gtmId = site.gtmId) : GTM est chargé après « Accepter », et les événements du site sont poussés
-     dans le dataLayer ({ event: "commande_envoyee", … }) : les balises GA4 se configurent dans GTM.
-     Pas de <noscript> GTM : sans JavaScript, la visiteuse ne peut pas donner son accord.
-   - Sans GTM mais avec un identifiant GA4 (NEXT_PUBLIC_GA_ID) : gtag.js en direct, comme avant.
+   - Avec un conteneur GTM (prop gtmId = site.gtmId) : GTM est chargé après « Accepter », et les événements du site sont
+     poussés dans le dataLayer ; les balises GA4 se configurent dans GTM. Pas de <noscript> GTM : sans JavaScript,
+     la visiteuse ne peut pas donner son accord.
+   - Sans GTM mais avec un identifiant GA4 (NEXT_PUBLIC_GA_ID) : gtag.js en direct.
    - Sans aucun des deux : ce composant n'affiche rien et ne charge rien.
-   - Sans accord : aucun script Google n'est chargé, aucun cookie n'est déposé.
-   - Le choix est gardé dans le navigateur ; on peut le changer à l'adresse /mentions-legales#cookies.
-   Événements envoyés : clic_whatsapp, commande_envoyee, choix_offre, visite_ia (arrivée depuis un assistant IA).
+   - Refus ou pas de réponse : aucun script Google, aucun cookie de mesure.
+   - Le choix est gardé dans le navigateur. Le lien « Gérer les cookies » du pied de page (attribut data-cookies)
+     et l'adresse /mentions-legales#cookies rouvrent la question.
+   Événements (liste fermée de champs, jamais de nom, téléphone, ville, adresse ni e-mail) :
+     clic_whatsapp      { page }                                  chemin de la page, sans paramètres
+     choix_offre        { offre }                                 « gamme » ou « contour_des_yeux »
+     commande_envoyee   { value, currency: "MAD", offre, numero } montant calculé par le serveur, numéro OTG-…
+     visite_ia          { source_ia }                             site de l'assistant IA d'où vient la visite
    Le groupe de canaux « Trafic IA » se crée dans l'interface de GA4 : voir docs/mise-en-ligne.md. */
 import { useEffect, useState } from "react";
 
@@ -25,6 +30,23 @@ const TEXT = {
   ar: { msg: "نود قياس عدد زيارات الموقع (الصفحات، النقر على واتساب، الطلبات) بواسطة Google Analytics. لا شيء يُقاس دون موافقتك.", yes: "أوافق", no: "أرفض", more: "للمزيد", label: "قياس الزيارات" },
 };
 
+type Params = Record<string, string | number>;
+/** Champs autorisés par événement : tout autre champ est ignoré. */
+const ALLOWED: Record<string, string[]> = {
+  clic_whatsapp: ["page"],
+  choix_offre: ["offre"],
+  commande_envoyee: ["value", "currency", "offre", "numero"],
+  visite_ia: ["source_ia"],
+};
+const clean = (name: string, params: Record<string, unknown>): Params =>
+  Object.fromEntries((ALLOWED[name] ?? []).filter((k) => typeof params[k] === "string" || typeof params[k] === "number").map((k) => [k, params[k] as string | number]));
+
+function push(id: string, name: string, params: Record<string, unknown>) {
+  const p = clean(name, params);
+  if (id.startsWith("GTM-")) { if (document.getElementById("gtm-js")) window.dataLayer?.push({ event: name, ...p }); }
+  else window.gtag?.("event", name, p);
+}
+
 function load(id: string) {
   window.dataLayer = window.dataLayer || [];
   if (id.startsWith("GTM-")) {
@@ -33,20 +55,20 @@ function load(id: string) {
     const s = document.createElement("script");
     s.id = "gtm-js"; s.async = true; s.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
     document.head.appendChild(s);
-    try { const ref = document.referrer && new URL(document.referrer).hostname; if (ref && AI.test(ref)) window.dataLayer.push({ event: "visite_ia", source_ia: ref }); } catch { /* adresse d'origine illisible */ }
-    return;
+  } else {
+    if (window.gtag) return;
+    window.gtag = function gtag() { window.dataLayer!.push(arguments); }; // eslint-disable-line prefer-rest-params
+    window.gtag("js", new Date());
+    window.gtag("config", id);
+    const s = document.createElement("script");
+    s.async = true; s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.appendChild(s);
   }
-  if (window.gtag) return;
-  window.gtag = function gtag() { window.dataLayer!.push(arguments); }; // eslint-disable-line prefer-rest-params
-  window.gtag("js", new Date());
-  window.gtag("config", id);
-  const s = document.createElement("script");
-  s.async = true; s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
-  document.head.appendChild(s);
-  try { const ref = document.referrer && new URL(document.referrer).hostname; if (ref && AI.test(ref)) window.gtag("event", "visite_ia", { source_ia: ref }); } catch { /* adresse d'origine illisible */ }
+  try { const ref = document.referrer && new URL(document.referrer).hostname; if (ref && AI.test(ref)) push(id, "visite_ia", { source_ia: ref }); } catch { /* adresse d'origine illisible */ }
 }
 
-export default function Analytics({ gaId: ga, gtmId, locale }: { gaId: string; gtmId?: string; locale: "fr" | "ar" }) {
+/** `above` : la page a une barre fixe en bas (accueil, fiches) ; le bandeau se place au-dessus pour ne pas la masquer. */
+export default function Analytics({ gaId: ga, gtmId, locale, above }: { gaId: string; gtmId?: string; locale: "fr" | "ar"; above?: boolean }) {
   const [ask, setAsk] = useState(false);
   // GTM en priorité (les balises GA4 y sont configurées) ; sinon GA4 en direct
   const gaId = gtmId || ga;
@@ -61,14 +83,14 @@ export default function Analytics({ gaId: ga, gtmId, locale }: { gaId: string; g
     const first = requestAnimationFrame(() => setAsk(choice === null || location.hash === "#cookies"));
     window.addEventListener("hashchange", reopen);
 
-    // GTM : l'événement va dans le dataLayer ; GA4 en direct : gtag. Rien n'est envoyé tant que le script n'est pas chargé.
-    const send = (name: string, params: Record<string, unknown>) => {
-      if (gaId.startsWith("GTM-")) { if (document.getElementById("gtm-js")) window.dataLayer?.push({ event: name, ...params }); }
-      else window.gtag?.("event", name, params);
+    const onClick = (e: MouseEvent) => {
+      const el = e.target as Element | null;
+      // « Gérer les cookies » : la question est reposée sur place
+      if (el?.closest?.("[data-cookies]")) { e.preventDefault(); setAsk(true); return; }
+      if (el?.closest?.('a[href*="wa.me"]')) push(gaId, "clic_whatsapp", { page: location.pathname });
     };
-    const onClick = (e: MouseEvent) => { const a = (e.target as Element | null)?.closest?.('a[href*="wa.me"]'); if (a) send("clic_whatsapp", { page: location.pathname }); };
-    const onOrder = (e: Event) => send("commande_envoyee", { currency: "MAD", ...(e as CustomEvent).detail });
-    const onChoice = (e: Event) => send("choix_offre", (e as CustomEvent).detail);
+    const onOrder = (e: Event) => push(gaId, "commande_envoyee", { ...(e as CustomEvent).detail, currency: "MAD" });
+    const onChoice = (e: Event) => push(gaId, "choix_offre", (e as CustomEvent).detail);
     document.addEventListener("click", onClick);
     window.addEventListener("otage:order", onOrder);
     window.addEventListener("otage:choice", onChoice);
@@ -82,13 +104,14 @@ export default function Analytics({ gaId: ga, gtmId, locale }: { gaId: string; g
     if (yes) load(gaId);
     setAsk(false);
   };
-  const btn = { minHeight: 44, padding: "0 18px", borderRadius: 999, font: "600 14px inherit", cursor: "pointer" } as const;
+  // « Refuser » et « Accepter » : même taille, même style, même niveau
+  const btn = { flex: 1, minHeight: 44, padding: "0 18px", borderRadius: 999, border: "1.5px solid #4a0d16", background: "#4a0d16", color: "#f7efe6", font: "600 14px inherit", cursor: "pointer" } as const;
   return (
-    <div role="dialog" aria-label={t.label} style={{ position: "fixed", insetInline: 12, bottom: 12, zIndex: 1000, maxWidth: 560, marginInline: "auto", padding: "14px 16px", borderRadius: 18, background: "#fffcf8", color: "#2b2223", boxShadow: "0 18px 50px -18px rgba(74,13,22,.55), inset 0 0 0 1px rgba(74,13,22,.12)", fontSize: 14, lineHeight: 1.5 }}>
-      <p style={{ margin: 0 }}>{t.msg} <a href={locale === "ar" ? "/ar/mentions-legales" : "/mentions-legales"} style={{ color: "#4a0d16", fontWeight: 600 }}>{t.more}</a></p>
-      <div style={{ display: "flex", gap: 8, marginTop: 10, justifyContent: "flex-end" }}>
-        <button type="button" onClick={() => answer(false)} style={{ ...btn, border: "1.5px solid rgba(74,13,22,.3)", background: "transparent", color: "#4a0d16" }}>{t.no}</button>
-        <button type="button" onClick={() => answer(true)} style={{ ...btn, border: 0, background: "#4a0d16", color: "#f7efe6" }}>{t.yes}</button>
+    <div role="dialog" aria-label={t.label} style={{ position: "fixed", insetInline: 12, bottom: above ? "calc(112px + env(safe-area-inset-bottom, 0px))" : "calc(12px + env(safe-area-inset-bottom, 0px))", zIndex: 1000, maxWidth: 560, marginInline: "auto", padding: "14px 16px", borderRadius: 18, background: "#fffcf8", color: "#2b2223", boxShadow: "0 18px 50px -18px rgba(42,10,15,.55)", fontSize: 14, lineHeight: 1.45 }}>
+      <p style={{ margin: 0 }}>{t.msg} <a href={locale === "ar" ? "/ar/mentions-legales#cookies" : "/mentions-legales#cookies"} style={{ color: "#4a0d16", fontWeight: 600 }}>{t.more}</a></p>
+      <div style={{ display: "flex", gap: 8, marginTop: 10 }}>
+        <button type="button" onClick={() => answer(false)} style={btn}>{t.no}</button>
+        <button type="button" onClick={() => answer(true)} style={btn}>{t.yes}</button>
       </div>
     </div>
   );

@@ -328,6 +328,7 @@ export const productUi = isolateAr({
   footReturns: { fr: "Retours sous 7 jours", ar: "الإرجاع خلال 7 أيام" },
   footAdvice: { fr: "Tous les soins", ar: "كل المنتجات" },
   footCgv: { fr: "CGV", ar: "شروط البيع" },
+  footCookies: { fr: "Gérer les cookies", ar: "إدارة ملفات تعريف الارتباط" },
   // ticket
   ticket: { fr: "Ta commande", ar: "طلبك" },
   ticketNo: { fr: "Ticket", ar: "تذكرة" },

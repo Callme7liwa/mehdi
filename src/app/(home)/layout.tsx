@@ -13,7 +13,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       <head><FontPreload locale="fr" /></head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale="fr" />
+        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale="fr" />
       </body>
     </html>
   );

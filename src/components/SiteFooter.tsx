@@ -25,7 +25,10 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
           </div>
           <div>
             <p className="t">{t.footBrand}</p>
-            <ul>{trustPages.map((p) => <li key={p.path}><Link prefetch={false} href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}</ul>
+            <ul>
+              {trustPages.map((p) => <li key={p.path}><Link prefetch={false} href={localePath(locale, p.path)}>{p.label[locale]}</Link></li>)}
+              <li><a href={`${localePath(locale, "/mentions-legales")}#cookies`} data-cookies="">{t.manageCookies}</a></li>
+            </ul>
           </div>
           <div>
             <p className="t">{t.footFollow}</p>

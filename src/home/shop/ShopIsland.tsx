@@ -140,7 +140,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
       page: location.href.split("#")[0],
     };
     setSending(true);
-    const res: { ok: boolean; numero?: string; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
+    const res: { ok: boolean; numero?: string; subtotal?: number; error?: string; fields?: string[] } | null = await fetch("/api/order", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify(order) })
       .then((r) => (r.status >= 500 ? null : r.json()), () => null);
     setSending(false);
     if (res && !res.ok) { // refusée par le serveur : on explique, rien n'est enregistré
@@ -153,7 +153,8 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
     if (!res) { // panne ou hors connexion : gardée sur l'appareil, renvoyée plus tard
       try { localStorage.setItem(QUEUE, JSON.stringify([...JSON.parse(localStorage.getItem(QUEUE) || "[]"), order])); } catch { /* stockage indisponible */ }
     }
-    window.dispatchEvent(new CustomEvent("otage:order", { detail: { type: "unite", format: [...new Set(entries.map((x) => x.f))].join("+"), value: subtotal } })); // mesure d'audience, si acceptée
+    // mesure d'audience (si acceptée) : commande confirmée par le serveur seulement ; jamais de donnée personnelle
+    if (res?.ok) window.dispatchEvent(new CustomEvent("otage:order", { detail: { offre: `unite:${entries.map((x) => `${x.p.key}-${x.f}x${x.qty}`).join("+")}`, value: res.subtotal, numero: res.numero } }));
     setDone({ name: val("nom").split(/\s+/)[0], numero: res?.numero || "", subtotal, lines: entries.map((x) => `${x.qty} × ${x.p.name}${t.comma}${fmtName(x.p, x.f)} ${x.v.ml} ${t.ml}`) });
     dlg.current?.querySelector(".qv-card")?.scrollTo(0, 0);
   };

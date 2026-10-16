@@ -46,8 +46,14 @@ export default function Page() {
 
       <h2 id="cookies">Cookies et mesure d'audience</h2>
       <p>Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper.</p>
-      {/* affiché seulement quand la mesure d'audience est configurée (site.gaId) */}
-      {site.gaId && <p>Avec ton accord seulement, nous mesurons la fréquentation du site avec Google Analytics (pages vues, clics sur WhatsApp, commandes envoyées). Sans ton accord, aucun script de mesure n'est chargé et aucun cookie de mesure n'est déposé. Tu peux changer d'avis à tout moment en rouvrant <a href="#cookies">cette section</a> : la question t'est reposée.</p>}
+      {/* affiché seulement quand la mesure d'audience est configurée (GTM ou GA4) */}
+      {(site.gtmId || site.gaId) && (
+        <>
+          <p><b>Mesure d'audience (Google Analytics), seulement avec ton accord.</b> Quand tu cliques sur « Accepter », nous utilisons Google Analytics, chargé par Google Tag Manager, pour mesurer la fréquentation du site : pages vues, provenance des visites (Instagram, Google, assistant IA…), type d'appareil, pays ou ville approximatifs, clics vers WhatsApp, offres choisies et commandes envoyées (montant, offre et numéro de commande). Ton nom, ton téléphone, ta ville et ton adresse ne sont jamais transmis.</p>
+          <p>Finalité : comprendre comment le site est utilisé, pour l'améliorer. Ces données sont traitées par Google (Google Ireland Limited et Google LLC), y compris hors du Maroc. Les cookies de mesure (_ga, _ga_…) sont conservés 13 mois au plus ; les statistiques, 14 mois au plus.</p>
+          <p>Tu peux refuser : sans ton accord, aucun script Google n'est chargé et aucun cookie de mesure n'est déposé, et le site fonctionne de la même façon. Ton choix est gardé dans ton navigateur. Tu peux le changer à tout moment avec le lien « <a href="#cookies" data-cookies="">Gérer les cookies</a> », en bas de chaque page.</p>
+        </>
+      )}
 
       <h2>Produits cosmétiques</h2>
       <p>Les soins OTAGE sont des produits cosmétiques. Ils ne remplacent pas un avis médical. En cas de doute, de grossesse, d'allaitement ou de réaction cutanée, demande l'avis d'un médecin ou d'un pharmacien.</p>

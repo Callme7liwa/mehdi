@@ -14,7 +14,7 @@ export default function HomeArLayout({ children }: { children: React.ReactNode }
       <head><FontPreload locale="ar" /></head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale="ar" />
+        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale="ar" />
       </body>
     </html>
   );

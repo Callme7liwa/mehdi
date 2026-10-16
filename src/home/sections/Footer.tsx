@@ -48,6 +48,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
             <p className="fc-t">{t.footerOtage}</p>
             <ul>
               {trustPages.map((p) => <li key={p.path}><a href={localePath(locale, p.path)}>{p.label[locale]}</a></li>)}
+              <li><a href={`${localePath(locale, "/mentions-legales")}#cookies`} data-cookies="">{t.footerCookies}</a></li>
               <li><a href={locale === "fr" ? "/ar" : "/"} lang={locale === "fr" ? "ar" : "fr"} dir={locale === "fr" ? "rtl" : "ltr"}>{t.footerTxt}</a></li>
             </ul>
           </div>

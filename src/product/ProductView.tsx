@@ -235,6 +235,7 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
               <a href={`${localePath(locale, "/livraison-paiement")}#retours`}>{t.footReturns}</a>
               <a href={localePath(locale, "/soins")}>{t.footAdvice}</a>
               <a href={localePath(locale, "/cgv")}>{t.footCgv}</a>
+              <a href={`${localePath(locale, "/mentions-legales")}#cookies`} data-cookies="">{t.footCookies}</a>
               <a href={`https://wa.me/${site.whatsapp.wa}`} target="_blank" rel="noopener">WhatsApp</a>
             </nav>
           </footer>

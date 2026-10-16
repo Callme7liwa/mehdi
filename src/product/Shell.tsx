@@ -19,7 +19,7 @@ export default function ProductShell({ locale, children }: { locale: Locale; chi
       </head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale={locale} />
+        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale={locale} />
       </body>
     </html>
   );

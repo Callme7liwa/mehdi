@@ -114,60 +114,41 @@ export const problems: ProblemPage[] = [
   {
     slug: "taches-acne",
     label: "Taches d'acné",
-    h1: "Taches d'acné : pourquoi les boutons laissent des marques",
-    metaTitle: "Taches d'acné : causes, conseils et routine | OTAGE",
-    metaDescription: "Les marques brunes laissées par les boutons sont une hyperpigmentation post-inflammatoire. Ce qui les aggrave, ce qui aide, et quelle routine suivre.",
+    h1: "Taches d'acné : pourquoi elles restent et comment les atténuer",
+    metaTitle: "Taches d'acné : comment atténuer les marques | OTAGE",
+    metaDescription: "Taches d'acné : pourquoi les boutons laissent des marques brunes, ce qui les aggrave et la routine pour les atténuer. Conseils simples, sans promesse.",
     image: image("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches OTAGE"),
-    intro: [
-      "Après un bouton, il reste souvent une petite marque brune ou rosée. Ce n'est pas une cicatrice : c'est une tache. Quand elle est brune, on parle d'hyperpigmentation post-inflammatoire : la peau a fabriqué plus de pigment à l'endroit de l'inflammation. Quand elle est rose ou rouge, ce sont de petits vaisseaux encore dilatés (érythème post-inflammatoire).",
-      "Ces marques s'atténuent avec le temps, plus ou moins vite selon les peaux. Les taches brunes sont plus fréquentes sur les peaux mates et foncées.",
-    ],
+    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
+    intro: ["Une marque brune après un bouton est une tache, pas une cicatrice. Elle s'atténue avec le temps, plus vite si tu la protèges du soleil."],
     sections: [
       {
-        h2: "Tache ou cicatrice : faire la différence",
-        body: [
-          { list: [
-            "Une tache est plate : seule la couleur change (brun, rose, violacé). C'est le sujet de cette page ; la routine anti-taches concerne surtout les marques brunes.",
-            "Une cicatrice modifie le relief de la peau : un creux ou une bosse. Un soin cosmétique ne change pas le relief ; c'est au dermatologue de proposer une solution.",
-          ] },
-        ],
+        h2: "Tache ou cicatrice : comment faire la différence ?",
+        body: [{ list: ["Tache : plate, seule la couleur change. Brune, c'est une hyperpigmentation post-inflammatoire.", "Rose ou rouge : de petits vaisseaux encore dilatés, qui pâlissent avec le temps.", "Cicatrice : un creux ou une bosse. Un soin cosmétique n'y change rien."] }],
       },
       {
-        h2: "Ce qui aggrave les taches d'acné",
-        body: [
-          { list: [
-            "Percer ou gratter les boutons : l'inflammation dure plus longtemps et la marque est plus foncée.",
-            "Le soleil sans protection : il fonce les taches et les fait durer.",
-            "Les gommages agressifs et les produits irritants, qui entretiennent l'inflammation.",
-          ] },
-        ],
+        h2: "Qu'est-ce qui aggrave les taches d'acné ?",
+        body: [{ list: ["Percer ou gratter les boutons : la marque fonce.", "Le soleil sans protection : il fonce les taches et les fait durer.", "Les gommages agressifs et les produits irritants."] }],
       },
       {
-        h2: "Ce qui aide",
-        body: [
-          { list: [
-            "Nettoyer la peau en douceur, matin et soir, sans décaper.",
-            "Appliquer un écran solaire chaque matin.",
-            "Suivre une routine régulière, et lui laisser le temps d'agir.",
-            "Tester tout nouveau soin sur une petite zone avant de l'utiliser sur le visage.",
-          ] },
-        ],
+        h2: "Qu'est-ce qui aide ?",
+        body: [{ list: ["Nettoyer en douceur, matin et soir.", "Un écran solaire chaque matin.", "Une routine régulière, le temps qu'elle agisse.", "Tester tout nouveau soin 24 h sur une petite zone."] }],
       },
     ],
-    advice: "Si tu as encore des boutons (acné active), des kystes ou des cicatrices en creux, demande l'avis d'un dermatologue avant d'ajouter de nouveaux soins : l'acné se traite, et un traitement adapté évite de nouvelles marques.",
-    productsTitle: "Les soins OTAGE pour les marques brunes",
-    productsIntro: "La gamme anti-taches OTAGE est conçue pour les taches brunes et le teint irrégulier. Elle ne traite pas l'acné elle-même.",
+    adviceTitle: "Quand consulter un dermatologue ?",
+    advice: "Si tu as encore des boutons, des kystes ou des cicatrices en creux. L'acné se traite, et un traitement évite de nouvelles marques.",
+    productsTitle: "Quelle routine pour les marques brunes ?",
+    productsIntro: "Elle atténue les taches, elle ne traite pas l'acné. Le soir, sans écran.",
     products: [
-      { key: "gel", why: "Étape 1. Un nettoyage doux, sans sulfate, qui ne dessèche pas." },
-      { key: "serum", why: "Étape 2. Le soin concentré de la gamme, qui cible les taches." },
-      { key: "creme", why: "Étape 3. Hydrate et unifie le teint." },
-      { key: "ecran", why: "Étape 4, le matin. Sans protection solaire, les taches foncent et reviennent plus facilement." },
+      { key: "gel", why: "Nettoie sans dessécher, sans sulfate." },
+      { key: "serum", why: "3 à 4 gouttes sur peau sèche." },
+      { key: "creme", why: "Hydrate et unifie le teint." },
+      { key: "ecran", why: "Le matin, en dernier." },
     ],
     routine: true,
     faq: [
-      { q: "Les taches d'acné partent-elles toutes seules ?", a: ["Souvent, elles s'atténuent avec le temps, mais cela peut prendre plusieurs mois et le rythme varie d'une peau à l'autre. Le soleil sans protection les fait durer."] },
-      { q: "La routine anti-taches soigne-t-elle l'acné ?", a: ["Non. Elle est conçue pour les taches brunes et le teint irrégulier, pas pour traiter les boutons. Pour une acné active, demande l'avis d'un dermatologue."] },
-      { q: "Peut-on utiliser la routine sur une peau qui a encore des boutons ?", a: ["Demande d'abord l'avis d'un dermatologue ou d'un pharmacien, et fais un essai sur une petite zone pendant 24 h. En cas de rougeur ou d'irritation, arrête."] },
+      { q: "Les taches d'acné partent-elles toutes seules ?", a: ["Souvent, oui, en plusieurs mois. Le soleil sans protection les fait durer."] },
+      { q: "La routine anti-taches soigne-t-elle l'acné ?", a: ["Non : elle atténue les taches brunes, pas les boutons. Pour une acné active, vois un dermatologue."] },
+      { q: "Et si j'ai encore des boutons ?", a: ["Demande d'abord à un dermatologue ou à un pharmacien. Puis fais un test de 24 h sur une petite zone."] },
     ],
   },
 

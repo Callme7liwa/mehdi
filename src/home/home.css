@@ -1221,57 +1221,47 @@ html.qv-lock { overflow: hidden; }
 @keyframes flagIn { from { opacity: 0; transform: rotate(12deg) scale(0.6); } to { opacity: 1; transform: rotate(3deg) scale(1); } }
 @media (min-width: 640px) { .cta-wrap { display: inline-grid; } }
 
-/* ================= La campagne : un mur d'affiches ================= */
-.camp { position: relative; background: #ece2d5; }
-.camp-pin {
-  position: sticky; top: 0;
-  height: 100vh; height: 100svh;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: minmax(0, 1fr);
-  /* mur de plâtre : grain léger + raccords verticaux d'affichage */
+/* ================= Les soins en photos : le mur de l'atelier =================
+   Les affiches ne pilotent jamais le défilement de la page.
+   Mobile et tablette (< 1024 px) : bande horizontale native au doigt (overflow-x + scroll-snap), l'affiche suivante dépasse.
+   Desktop : collage fixe sur une toile de 1200 × 1346 (positions en %, voir Campaign.tsx), 3 plans de profondeur,
+   léger parallaxe en CSS seul (animation-timeline: view()), statique si non pris en charge ou mouvement réduit. */
+.camp {
+  position: relative; overflow: hidden;
+  padding: clamp(56px, 9vh, 100px) 0 clamp(64px, 10vh, 110px);
+  /* mur de plâtre : grain léger */
   background:
     radial-gradient(rgba(74, 13, 22, 0.05) 1px, transparent 1.2px) 0 0 / 5px 5px,
-    repeating-linear-gradient(90deg, transparent 0 239px, rgba(74, 13, 22, 0.035) 239px 240px),
     linear-gradient(180deg, #efe6da, #e7dccd);
 }
-.camp-head { padding: clamp(28px, 7vh, 64px) var(--gutter) 0; text-align: center; }
+.camp-head { padding: 0 var(--gutter); text-align: center; }
 .camp-head h2 { margin: 0; font-size: clamp(36px, 6.4vw, 72px); font-weight: 500; letter-spacing: -0.055em; line-height: 1; color: var(--bordeaux); }
 .camp-head p { margin: 10px auto 0; max-width: 40ch; font-size: clamp(14px, 1.5vw, 17px); color: var(--muted); }
 
-.camp-wall { position: relative; display: flex; align-items: center; min-height: 0; min-width: 0; }
-.camp-track {
-  --ph: min(58svh, 560px, 80vw);
-  display: flex; align-items: center;
-  gap: clamp(22px, 3.5vw, 48px);
-  padding: 0 max(var(--gutter), 8vw);
-  will-change: transform;
-  touch-action: pan-y;
+.wall {
+  --rot: var(--rm);
+  display: flex; align-items: flex-start; gap: 18px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+  padding: 40px var(--gutter) 30px;
+  scrollbar-width: none;
 }
+.wall::-webkit-scrollbar { display: none; }
 .poster {
-  position: relative;
-  flex: none;
-  height: var(--ph);
-  padding: 0; border: 0;
-  background: #fffdf8;
-  font: inherit; color: inherit; text-decoration: none;
-  cursor: pointer;
-  transform: rotate(var(--r)) translateY(var(--lift, 0px)) scale(var(--sc, 1));
-  transform-origin: 50% 0;
-  opacity: var(--op, 1);
+  --rot: var(--rm);
+  position: relative; flex: none;
+  width: min(78%, 340px);
+  scroll-snap-align: start;
+  display: block; padding: 8px 8px 0;
+  background: #fffdf8; color: inherit; text-decoration: none;
+  transform: rotate(var(--rot));
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 22px 34px -22px rgba(60, 30, 20, 0.55);
   -webkit-tap-highlight-color: transparent;
-  transition: box-shadow 0.4s ease;
+  transition: transform 0.36s cubic-bezier(.2, .8, .2, 1), box-shadow 0.36s ease, opacity 0.36s ease;
 }
-.poster.photo { padding: 8px 8px 0; }
-div.poster { cursor: default; } /* photo sans action (pas de bouton) */
-.p-img { display: block; height: calc(100% - 8px); overflow: hidden; background: #e8dccb; }
-.p-img img, .p-img video {
-  display: block; height: 100%; width: auto;
-  transform: translateX(var(--px, 0px)) scale(1.08);
-  transition: filter 0.4s ease;
-}
+html[dir="rtl"] .poster { --rot: calc(var(--rm) * -1); } /* miroir */
+.p-img { display: block; aspect-ratio: var(--ar); overflow: hidden; background: #e8dccb; }
+.p-img img, .p-img video { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* ruban adhésif */
 .tape {
   position: absolute; z-index: 2;
@@ -1280,60 +1270,62 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
+  transition: translate 0.36s cubic-bezier(.2, .8, .2, 1), box-shadow 0.36s ease;
 }
-.tape.t1 { top: -9px; left: 18px; transform: rotate(-7deg); }
-.tape.t2 { top: -8px; right: 16px; transform: rotate(6deg); }
-
-/* étiquette « Voir le soin » collée sur l'affiche */
-.p-tag {
-  position: absolute; left: 18px; right: 18px; bottom: 18px;
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 8px 8px 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 252, 248, 0.94);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px -12px rgba(42, 10, 15, 0.5);
-  color: var(--bordeaux);
-  transform: translateY(6px);
-  opacity: 0.96;
-  transition: transform 0.45s cubic-bezier(.2, .8, .2, 1), opacity 0.3s ease;
+.tape.t1 { top: -9px; inset-inline-start: 18px; transform: rotate(-7deg); }
+.tape.t2 { top: -8px; inset-inline-end: 16px; transform: rotate(6deg); }
+/* légende sur le papier : le texte du lien, toujours visible */
+.p-tag { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 10px 4px 12px; color: var(--bordeaux); }
+.p-name { font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+.p-go { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--red); }
+.p-go i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--red); color: var(--cream); transition: transform 0.36s cubic-bezier(.2, .8, .2, 1); }
+.p-go i svg { width: 14px; height: 14px; }
+html[dir="rtl"] .p-go i svg { scale: -1 1; }
+/* survol et focus : l'affiche se redresse, monte un peu, son scotch se soulève ; les autres s'effacent légèrement */
+.poster:hover, .poster:focus-visible {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 40px 56px -26px rgba(60, 30, 20, 0.7);
+  z-index: 6;
 }
-.p-name { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.p-go { display: inline-flex; align-items: center; gap: 8px; flex: none; font-size: 13px; font-weight: 600; color: var(--red); }
-.p-go i { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--red); color: var(--cream); transition: transform 0.45s cubic-bezier(.2, .8, .2, 1); }
-.p-go i svg { width: 15px; height: 15px; }
-@media (hover: hover) {
-  .poster:hover { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04), 0 34px 50px -24px rgba(60, 30, 20, 0.65); }
-  .poster:hover .p-tag { transform: translateY(0); opacity: 1; }
-  .poster:hover .p-go i { transform: rotate(90deg); }
-  .poster:hover .p-img img, .poster:hover .p-img video { filter: brightness(1.04) saturate(1.05); }
+.poster:hover .tape, .poster:focus-visible .tape { translate: 0 -3px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12); }
+.poster:hover .p-go i, .poster:focus-visible .p-go i { transform: translateX(3px); }
+html[dir="rtl"] .poster:hover .p-go i, html[dir="rtl"] .poster:focus-visible .p-go i { transform: translateX(-3px); }
+.wall:has(.poster:hover, .poster:focus-visible) .poster:not(:hover):not(:focus-visible) { opacity: 0.85; }
+.poster:focus-visible { outline: 3px solid var(--red); outline-offset: 6px; }
+.wall-note { display: none; }
+
+@media (min-width: 1024px) {
+  .wall {
+    position: relative; display: block; overflow: visible;
+    width: min(1200px, calc(100% - 2 * var(--gutter)));
+    aspect-ratio: 1200 / 1346;
+    margin: clamp(28px, 4vw, 48px) auto 0; padding: 0;
+  }
+  .poster { --rot: var(--r); position: absolute; inset-inline-start: var(--x); top: var(--y); width: var(--w); z-index: var(--d); }
+  html[dir="rtl"] .poster { --rot: calc(var(--r) * -1); }
+  .p-name { font-size: 15px; }
+  /* étiquettes d'atelier : du vrai texte, écrit à la main sur le mur */
+  .wall-note {
+    display: block; position: absolute; z-index: 4; margin: 0;
+    inset-inline-start: var(--x); top: var(--y);
+    font-family: var(--font-bodoni), Didot, Georgia, serif; font-style: italic;
+    font-size: clamp(18px, 1.7vw, 24px); color: var(--bordeaux);
+    transform: rotate(-2.5deg);
+  }
+  .wall-note.n2 { font-size: clamp(16px, 1.4vw, 20px); color: var(--red); transform: rotate(1.5deg); }
+  .wall-note.n2::before { content: ""; display: inline-block; width: 28px; height: 1.5px; margin-inline-end: 10px; vertical-align: middle; background: currentColor; }
 }
-.poster:active { --sc: 0.985; }
-.poster:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: 6px; }
-@media (max-width: 640px) {
-  .p-go { font-size: 0; gap: 0; }
-  .p-tag { left: 12px; right: 12px; bottom: 12px; padding: 6px 6px 6px 12px; }
-  .p-name { font-size: 13px; }
+/* profondeur : 3 plans, amplitude totale 40 px au plus, uniquement par translate */
+@keyframes wallPlx { from { translate: 0 var(--pa, 0px); } to { translate: 0 calc(var(--pa, 0px) * -1); } }
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .poster { animation: wallPlx linear both; animation-timeline: view(); animation-range: cover; }
+    .poster.pd1 { --pa: 6px; } .poster.pd2 { --pa: 13px; } .poster.pd3 { --pa: 20px; }
+  }
 }
-
-
-/* pied : compteur + barre de progression */
-.camp-foot { display: flex; align-items: center; gap: 16px; padding: 0 var(--gutter) calc(clamp(20px, 5vh, 44px) + 72px + env(safe-area-inset-bottom, 0px)); width: min(760px, 100%); margin: 0 auto; }
-.camp-count { font-family: var(--font-bodoni), Didot, Georgia, serif; font-size: 15px; color: var(--muted); white-space: nowrap; }
-.camp-count b { color: var(--bordeaux); font-weight: 600; }
-.camp-bar { position: relative; flex: 1; height: 2px; background: rgba(74, 13, 22, 0.15); border-radius: 2px; overflow: hidden; }
-.camp-bar i { position: absolute; inset: 0; background: var(--bordeaux); transform-origin: left; transform: scaleX(var(--cp, 0)); }
-.camp-hint { font-size: 13px; color: var(--muted); white-space: nowrap; transition: opacity 0.4s ease; }
-.camp.moved .camp-hint { opacity: 0; }
-
-/* sans animation : simple défilement horizontal au doigt */
+/* mouvement réduit : aucune rotation animée, aucun parallaxe */
 @media (prefers-reduced-motion: reduce) {
-  .camp-pin { position: relative; height: auto; padding-bottom: 32px; }
-  .camp-wall { overflow-x: auto; scroll-snap-type: x mandatory; padding: 40px 0; }
-  .poster { scroll-snap-align: center; transform: rotate(var(--r)); opacity: 1; }
-  .p-img img, .p-img video { transform: none; }
-  .camp-foot { display: none; }
+  .poster, .tape, .p-go i { transition: none; }
 }
 
 /* ================= Les questions : une conversation ================= */

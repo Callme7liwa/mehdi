@@ -81,7 +81,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Island name="offers" />
       <Shop t={t} locale={locale} />
       <Discover t={t} locale={locale} />
-      <Campaign t={t} />
+      <Campaign t={t} locale={locale} />
       <Island name="campaign" />
       <Conseils t={t} locale={locale} />
       <Faq t={t} locale={locale} />

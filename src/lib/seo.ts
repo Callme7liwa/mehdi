@@ -1,4 +1,5 @@
 /* Balises et données structurées, construites à partir de src/data/. */
+import { googleMaps, googleVerification } from "@/data/google";
 import type { Metadata } from "next";
 import { abs, site, type Locale } from "@/data/site";
 import { plain, type Faq } from "@/data/faq";
@@ -31,7 +32,7 @@ export function pageMetadata({ locale, path, title, description, image = OG_IMAG
     description,
     alternates: { canonical: url, languages: hidden ? undefined : languages },
     robots: hidden ? { index: false, follow: true } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
-    verification: { google: site.googleVerification },
+    verification: { google: googleVerification },
     openGraph: { type, siteName: site.brand[locale], locale: locale === "ar" ? "ar_MA" : "fr_MA", url, title, description, images: [img] },
     twitter: { card: "summary_large_image", title, description, images: [img] },
   };
@@ -52,7 +53,7 @@ export const orgLd = (locale: Locale = "fr") => ({
   image: abs(OG_IMAGE.src),
   description: site.description[locale],
   slogan: site.slogan[locale],
-  sameAs: [site.instagram.url, site.googleMaps],
+  sameAs: [site.instagram.url, googleMaps],
   areaServed: maroc(locale),
   founder: { "@id": abs("/#founder") },
   hasMerchantReturnPolicy: returnPolicy(),

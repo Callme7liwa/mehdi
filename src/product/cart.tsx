@@ -189,12 +189,13 @@ export function AddButton({ it, className }: { it: CartItem; className: string }
   const { isIn, toggle, t } = useCart();
   const on = isIn(it.key);
   return (
-    <button type="button" className={`${className}${on ? " on" : ""}`} aria-pressed={on} aria-label={fill(t.addX, { x: it.name })}
+    <button type="button" className={`${className}${on ? " on" : ""}`} aria-pressed={on}
       onClick={() => {
         toggle(it.key);
         if (window.matchMedia("(max-width:1020px)").matches) document.querySelector(".sheet-h")?.animate([{ transform: "none" }, { transform: "translateY(-8px)" }, { transform: "none" }], { duration: 380, easing: "ease-out" });
       }}>
-      {on ? <><Check />{t.added}</> : t.add}
+      {/* nom accessible = texte visible + nom du soin (règle « label in name ») */}
+      {on ? <><Check />{t.added}</> : t.add}<span className="sr"> {it.name}</span>
     </button>
   );
 }
@@ -205,7 +206,7 @@ export function MoreCard({ it }: { it: CartItem }) {
   const v = it.formats.find((x) => x.f === sel[it.key])!;
   return (
     <article className="ms-c">
-      <a className="ms-pic" href={it.url} aria-label={`${t.see} : ${it.name}`}>
+      <a className="ms-pic" href={it.url} aria-label={`N° ${it.no} · ${t.see} : ${it.name}`}>{/* le libellé commence par le texte visible (« N° 01 ») */}
         <span className="ms-no mono" dir="ltr">N° {it.no}</span>
         <Img className={it.wide ? "wide" : undefined} src={it.img.src} alt={it.name} width={it.img.w} height={it.img.h} sizes="200px" style={{ "--z": it.formats.length > 1 && sel[it.key] === "grand" ? 1.1 : 1 } as React.CSSProperties} draggable={false} />
       </a>

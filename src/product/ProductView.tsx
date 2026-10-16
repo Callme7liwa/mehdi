@@ -99,9 +99,9 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
             <div className={`hz-media${x.media === "pack" ? " is-pack" : ""}`} data-cursor={t.order}>
               <Img className={x.media === "pack" ? "pack" : undefined} src={media.src} alt={L(x.mediaAlt)} width={media.w} height={media.h} sizes={x.media === "pack" ? "(max-width: 1020px) 40vw, 260px" : "(max-width: 1020px) 100vw, 50vw"} loading="eager" preload fetchPriority="high" />
               <span className="hz-tag mono">{t.madeIn}</span>
-              <OpenButton className="badge" label={fill(t.orderFrom, { p: base })} mag>
+              <OpenButton className="badge" label={fill(t.orderFrom, { r: t.ring, p: base })} mag>
                 <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ring" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" /></defs><text>{/* l'arabe garde ses lettres liées (pas d'étirement) et part de la fin du cercle, de droite à gauche */}<textPath href="#ring" {...(locale === "ar" ? { startOffset: "100%" } : { textLength: "249", lengthAdjust: "spacing" })}>{t.ring}</textPath></text></svg>
-                <span><b>{base}</b><small>{t.dh}</small></span>
+                <span><b>{base}</b> <small>{t.dh}</small></span>
               </OpenButton>
             </div>
             <div className="hz-info">

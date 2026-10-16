@@ -265,7 +265,8 @@ export const productUi = isolateAr({
   home: { fr: "OTAGE, accueil", ar: "OTAGE، الصفحة الرئيسية" },
   onPage: { fr: "Sur cette page", ar: "في هذه الصفحة" },
   order: { fr: "Commander", ar: "اطلبي" },
-  orderFrom: { fr: "Commander, à partir de {p} DH", ar: "اطلبي، ابتداءً من {p} درهم" },
+  /** Libellé du badge de prix : il reprend d'abord le texte visible (l'anneau, puis « 85 DH »), règle « label in name ». */
+  orderFrom: { fr: "{r} {p} DH, commander", ar: "{r} {p} درهم، اطلبي" },
   ring: { fr: "Livré partout au Maroc ·", ar: "نوصل إلى كل المغرب ·" },
   from: { fr: "Dès {p} DH", ar: "ابتداءً من {p} درهم" },
   only: { fr: "{p} DH le pot", ar: "{p} درهم للعلبة" },
@@ -350,7 +351,6 @@ export const productUi = isolateAr({
   oneTap: { fr: "en 1 tap", ar: "بلمسة واحدة" },
   add: { fr: "+ Ajouter", ar: "+ أضيفي" },
   added: { fr: "Ajouté", ar: "تمت الإضافة" },
-  addX: { fr: "Ajouter {x}", ar: "إضافة {x}" },
   formatOf: { fr: "Format de {x}", ar: "حجم {x}" },
   petitShort: { fr: "Petit", ar: "صغير" },
   grandShort: { fr: "Grand", ar: "كبير" },

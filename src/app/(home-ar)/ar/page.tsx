@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { gamme } from "@/data/products";
 import JsonLd from "@/components/JsonLd";
 import { faq } from "@/data/faq";
-import { abs } from "@/data/site";
+import { abs, site } from "@/data/site";
 import HomePage from "@/home/HomePage";
 import { faqLd, founderLd, graph, orgLd, pageMetadata, webPageLd, websiteLd } from "@/lib/seo";
 
 /* Accueil en arabe. Textes « À relire par un natif ». */
-const title = "أوتاج للعناية بالبشرة (OTAGE): سيروم وكريم ضد البقع، مصنوعة في المغرب";
-const description = "روتين OTAGE ضد البقع: جل منظف، سيروم، كريم وواقي الشمس SPF 50 للبقع الصبغية والكلف. مصنوع في المغرب، والدفع عند الاستلام.";
+// الثمن من products.ts
+const title = `روتين ضد البقع مصنوع في المغرب، ابتداءً من ${gamme.formats.petit.price} درهم | OTAGE`;
+const description = `جل منظف، سيروم، كريم وواقي شمس SPF 50 لتخفيف البقع البنية. ابتداءً من ${gamme.formats.petit.price} درهم، توصيل مجاني ${site.delivery.label.ar}، والدفع عند الاستلام في كل المغرب.`;
 
 export const metadata: Metadata = pageMetadata({ locale: "ar", path: "/", title, description, hasAr: true });
 

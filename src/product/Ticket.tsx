@@ -4,9 +4,10 @@
    Trois cases (nom, téléphone, ville) ; l'envoi passe par /api/order comme les autres formulaires du site. */
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import CityField from "@/components/CityField";
+import Reassure from "@/components/Reassure";
 import Img from "@/components/Img";
 import { AddButton, FormatSwitch, fill, freeOf, Total, TotalLabel, useCart } from "./cart";
-import { Arrow, Card, Close, Undo, Up, Wa } from "./icons";
+import { Arrow, Close, Up, Wa } from "./icons";
 
 type Props = {
   fee: { min: number; max: number };
@@ -242,7 +243,6 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
           <div className="tk-sec sums">
             <div><span>{t.subtotal}</span><span><span className="num">{total}</span> {t.dh}</span></div>
             <div><span>{t.delivery} {vals.ville.trim() && fill(t.deliveryTo, { v: vals.ville.trim() })}</span><span>{fill(t.fee, { a: fee.min, b: fee.max })}</span></div>
-            <div><span>{t.payment}</span><span>{t.onReception}</span></div>
             <div className="tot"><span className="mono">{t.totalProducts}</span><b><Total /><small>{t.dh}</small></b></div>
           </div>
 
@@ -266,10 +266,7 @@ export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }
             <button key={shake} type="submit" form="order" className={`go${shake ? " buzz" : ""}`} data-mag="" disabled={sending} aria-busy={sending || undefined}><TotalLabel tpl={t.validate} /><i aria-hidden="true"><Arrow /></i></button>
             <a className="wa-btn" data-mag="" href={`https://wa.me/${wa}`} target="_blank" rel="noopener" aria-label={t.whatsapp} onClick={(e) => { e.currentTarget.href = waHref(); buzz(10); }}><Wa /><span>WhatsApp</span></a>
           </div>
-          <div className="reass">
-            <span><Card />{t.noOnline}</span>
-            <span><Undo />{t.trustReturn}</span>
-          </div>
+          <Reassure locale={locale} className="tk-reass" />
         </div>
 
         {done && (

@@ -5,7 +5,7 @@ const NO = <><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></>;
 const letter = (t: string, size: number) => <text x="12" y="15.2" textAnchor="middle" fontSize={size} fontFamily="DM Sans,sans-serif" fontWeight="700" fill="currentColor" stroke="none">{t}</text>;
 const DROP = <path d="M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z" />;
 
-const PERKS: Record<PerkIcon | "price" | "truck" | "cash" | "back", React.ReactNode> = {
+const PERKS: Record<PerkIcon | "price", React.ReactNode> = {
   spots: <><circle cx="12" cy="12" r="8" /><circle cx="9" cy="10" r="1.6" /><circle cx="14.5" cy="13.5" r="2.2" /><circle cx="10" cy="15" r=".9" /></>,
   leaf: <><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14" /><path d="M5 19c3-4 6-7 10-9" /></>,
   flower: <><circle cx="12" cy="12" r="2.5" /><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" /></>,
@@ -28,12 +28,9 @@ const PERKS: Record<PerkIcon | "price" | "truck" | "cash" | "back", React.ReactN
   noAl: <>{NO}{letter("Al", 7.5)}</>,
   noP: <>{NO}{letter("P", 8)}</>,
   price: <><path d="M3 12V4h8l10 10-8 8z" /><circle cx="7.5" cy="8.5" r="1.4" /></>,
-  truck: <><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></>,
-  cash: <><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="12" cy="12" r="2.5" /></>,
-  back: <><path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /></>,
 };
 
-export const PerkSvg = ({ name }: { name: PerkIcon | "price" | "truck" | "cash" | "back" }) => (
+export const PerkSvg = ({ name }: { name: PerkIcon | "price" }) => (
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{PERKS[name]}</svg>
 );
 
@@ -63,12 +60,6 @@ export const Pot = () => (
 );
 export const Spark = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z" /></svg>
-);
-export const Card = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2" /><path d="M2 10h20" /></svg>
-);
-export const Undo = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /></svg>
 );
 export const Wa = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 4.9-1.3A9.8 9.8 0 1 0 12 2.2zm0 17.8a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.5-.3z" /></svg>

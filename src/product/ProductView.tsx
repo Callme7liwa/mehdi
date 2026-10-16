@@ -4,6 +4,7 @@
 import type { Metadata } from "next";
 import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
+import Reassure from "@/components/Reassure";
 import { productFaq } from "@/data/faq";
 import { productPages, productUi } from "@/data/product-pages";
 import { problems } from "@/data/problems";
@@ -109,14 +110,12 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
               <ul className="perks">
                 {/* le bénéfice du soin, puis les 3 objections (livraison, paiement, retour) ; les actifs sont dans « L'étiquette » */}
                 <li><PerkSvg name={x.perks[0].icon} /><span>{L(x.perks[0].label)}</span></li>
-                <li><PerkSvg name="truck" /><span>{t.atoutDelivery}</span></li>
-                <li><PerkSvg name="cash" /><span>{t.atoutPay}</span></li>
-                <li><PerkSvg name="back" /><span>{t.atoutReturn}</span></li>
                 <li className="perk-price"><PerkSvg name="price" /><span>{priceTag}</span></li>
               </ul>
               <Offer upsellFlag={x.upsell && fill(L(x.upsell.flag), { d: diff })} unitWord={unitWord} />
               <OpenButton className="cta-big" mag><TotalLabel tpl={t.orderTotal} /><i aria-hidden="true"><Arrow /></i></OpenButton>
-              {/* frais de livraison à l'unité, visibles avant toute validation */}
+              {/* sous le bouton : la ligne de réassurance (livraison, paiement, retour), puis les frais à l'unité, visibles avant toute validation */}
+              <Reassure locale={locale} />
               <p className="hz-trust"><span>{fill(t.hzFee, { a: fee.min, b: fee.max })}</span></p>
             </div>
           </section>

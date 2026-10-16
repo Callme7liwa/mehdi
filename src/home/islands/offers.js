@@ -29,37 +29,26 @@ export default function init(cfg) {
       content: Object.keys(NOMS).map((k) => `${NOMS[k]}${F[fmt].ml[k] ? " " + F[fmt].ml[k] + " " + TXT.ml : ""}`).join(TXT.comma),
     };
     const fmtCh = sec.querySelector(".fmt").closest(".ch");
-    /* Galerie : photos du produit avec ses avantages (une galerie par problème) */
+    /* Galerie : les deux galeries (taches, cernes) sont écrites dans la page, chaque photo est un lien vers sa fiche.
+       Ici : on affiche celle du soin choisi et on dessine ses points. */
     let galFor = null;
-    const pic = (file) => [...document.querySelectorAll(".camp img")].find((i) => decodeURIComponent(i.src).includes(file))?.src;
-    const GAL = () => prod === "yeux" ? [
-      { img: document.querySelector('.src-yeux-life')?.src, ...TXT.galYeux[0] },
-      { img: sec.style.getPropertyValue("--ypack").replace(/^url\(['"]?|['"]?\)$/g, "").trim(), pack: true, ...TXT.galYeux[1] },
-      { img: pic("flacons-otage-trousse"), ...TXT.galYeux[2] },
-    ] : [
-      { img: pic("affiche-eclat"), ...TXT.galTaches[0] },
-      { img: pic("femme-serum"), ...TXT.galTaches[1] },
-      { img: pic("gel-nettoyant-anti-taches-mains"), ...TXT.galTaches[2] },
-      { img: pic("plage-bouee"), ...TXT.galTaches[3] },
-      { img: pic("papier-rouge"), ...TXT.galTaches[4] },
-    ];
-    const ogTrack = document.querySelector(".og-track"), ogDots = document.querySelector(".og-dots");
+    const ogTracks = [...document.querySelectorAll(".og-track")], ogDots = document.querySelector(".og-dots");
+    let ogTrack = ogTracks[0];
     const buildGallery = () => {
-      const g = GAL().filter((x) => x.img);
-      ogTrack.innerHTML = g.map((x) => `<figure class="og-s${x.pack ? " pack" : ""}" style="margin:0"><img src="${x.img}" alt="${x.t}" loading="lazy"><figcaption class="og-cap"><b>${x.t}</b><span>${x.s}</span></figcaption></figure>`).join("");
-      ogDots.innerHTML = g.map(() => "<i></i>").join("");
+      ogTracks.forEach((tr) => { tr.hidden = tr.dataset.gal !== (prod === "yeux" ? "yeux" : "taches"); });
+      ogTrack = ogTracks.find((tr) => !tr.hidden) || ogTracks[0];
+      ogDots.innerHTML = [...ogTrack.children].map(() => "<i></i>").join("");
       ogTrack.scrollLeft = 0;
       ogUpd();
     };
     const ogUpd = () => {
       const items = [...ogTrack.children]; if (!items.length) return;
-      const pl = parseFloat(getComputedStyle(ogTrack).paddingLeft);
       let idx = 0, best = 1e9;
       items.forEach((c, i) => { const d = Math.abs(startGap(ogTrack, c)); if (d < best) { best = d; idx = i; } });
       [...ogDots.children].forEach((d, i) => d.classList.toggle("on", i === idx));
     };
     let ogT = false;
-    ogTrack.addEventListener("scroll", () => { if (!ogT) { ogT = true; requestAnimationFrame(() => { ogT = false; ogUpd(); }); } }, { passive: true });
+    ogTracks.forEach((tr) => tr.addEventListener("scroll", () => { if (tr === ogTrack && !ogT) { ogT = true; requestAnimationFrame(() => { ogT = false; ogUpd(); }); } }, { passive: true }));
 
     /* en-tête du ticket : vrai logo, numéro, date et heure du Maroc */
     $(".tk-logo").src = document.querySelector(".logo img").src;

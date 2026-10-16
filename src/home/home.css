@@ -2217,14 +2217,9 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 .ogs-in { width: min(1180px, 100%); margin: 0 auto; }
 .ogs h2 { margin: 0 0 24px; padding: 0 var(--gutter); text-align: center; font-size: clamp(34px, 5.6vw, 60px); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
 .og { margin: 0; }
-/* trois points concrets sous le titre : les ingrédients, avec le soin qui les contient */
-.og-points { display: grid; gap: 10px; margin: 0 0 22px; padding: 0 var(--gutter); list-style: none; }
-.og-points li { display: grid; gap: 2px; padding: 14px 16px; border-radius: 18px; background: #fff; box-shadow: inset 0 0 0 1px rgba(74, 13, 22, 0.08); }
-.og-points b { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--bordeaux); }
-.og-points a { justify-self: start; display: inline-flex; align-items: center; min-height: 32px; font-size: 14px; color: var(--muted); text-decoration: underline; text-decoration-color: rgba(74, 13, 22, 0.25); text-underline-offset: 3px; }
-@media (min-width: 760px) { .og-points { grid-template-columns: repeat(3, 1fr); } }
 .og-track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--gutter) 6px; scroll-padding: 0 var(--gutter); scrollbar-width: none; overscroll-behavior-x: contain; }
 .og-track::-webkit-scrollbar { display: none; }
+.og-track[hidden] { display: none; } /* une galerie à la fois (taches ou cernes) */
 .og-track:focus-visible { outline: 3px solid var(--bordeaux); outline-offset: -3px; }
 .og-s {
   position: relative; flex: none;
@@ -2233,8 +2228,13 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
   border-radius: 24px; overflow: hidden;
   background: #efe3d4;
   box-shadow: 0 20px 36px -26px rgba(74, 13, 22, 0.55);
+  display: block; color: inherit; text-decoration: none;
 }
-.og-s img { width: 100%; height: 100%; object-fit: cover; }
+/* chaque photo est un lien vers la fiche du soin montré : léger zoom et flèche au survol, contour au focus */
+.og-s img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(.2, .8, .2, 1); }
+.og-s:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.og-s:hover img, .og-s:focus-visible img { transform: scale(1.04); }
+.og-s.pack:hover img, .og-s.pack:focus-visible img { transform: scale(1.02); }
 .og-s.pack img { object-fit: contain; padding: 18px 0 70px; background: radial-gradient(ellipse 60% 55% at 50% 60%, #fff, transparent 70%), #f1ece6; }
 .og-cap {
   position: absolute; left: 12px; right: 12px; bottom: 12px;
@@ -2247,6 +2247,12 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 }
 .og-cap b { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -0.01em; }
 .og-cap span { display: block; margin-top: 2px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.og-cap .og-go { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 13.5px; font-weight: 700; color: var(--red); }
+.og-go i { font-style: normal; transition: transform 0.3s ease, opacity 0.3s ease; }
+@media (hover: hover) { .og-go i { opacity: 0; transform: translateX(-4px); } .og-s:hover .og-go i, .og-s:focus-visible .og-go i { opacity: 1; transform: none; } }
+[dir="rtl"] .og-go i { transform: none; }
+@media (hover: hover) { [dir="rtl"] .og-go i { transform: translateX(4px); } [dir="rtl"] .og-s:hover .og-go i, [dir="rtl"] .og-s:focus-visible .og-go i { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .og-s img, .og-go i { transition: none; } }
 .og-dots { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
 .og-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(74, 13, 22, 0.2); transition: width 0.3s ease, background 0.3s ease; }
 .og-dots i.on { width: 22px; border-radius: 4px; background: var(--bordeaux); }

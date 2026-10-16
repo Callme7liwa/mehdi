@@ -267,6 +267,7 @@ const texts = {
     faqVoirToutesLesReponses: "Voir toutes les réponses d'un coup",
     // Gallery
     galleryLeProduitEnPhotos: "Le produit en photos",
+    galleryTousLesSoins: "Tous les soins",
     galleryCeQuiFaitLa: "Les soins en photos.",
     // Footer
     footerPiedDePage: "Pied de page",
@@ -570,6 +571,7 @@ const texts = {
     faqVoirToutesLesReponses: "عرض كل الأجوبة دفعة واحدة",
     // Gallery
     galleryLeProduitEnPhotos: "المنتج بالصور",
+    galleryTousLesSoins: "كل المنتجات",
     galleryCeQuiFaitLa: "منتجاتنا بالصور.",
     // Footer
     footerPiedDePage: "أسفل الصفحة",

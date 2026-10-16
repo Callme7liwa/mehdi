@@ -19,7 +19,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
         <SiteHeader locale="ar" />
         {children}
         <SiteFooter locale="ar" />
-        <Analytics gaId={site.gaId} locale="ar" />
+        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale="ar" />
       </body>
     </html>
   );

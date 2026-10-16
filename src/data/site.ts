@@ -69,6 +69,9 @@ export const site = {
   /** Mesure d'audience GA4 : identifiant « G-XXXXXXX » lu dans NEXT_PUBLIC_GA_ID (variable d'environnement Vercel).
       TODO : créer la propriété GA4 et renseigner la variable. Sans identifiant, aucun script et aucune bannière. */
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
+  /** Google Tag Manager (conteneur otage.ma). Chargé seulement après l'accord de la visiteuse (bandeau), comme GA4.
+      Les balises (GA4, etc.) se configurent dans GTM. NEXT_PUBLIC_GTM_ID permet de le changer sans toucher au code. */
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-K84L87K3",
   /** Google Search Console : jeton de la balise <meta name="google-site-verification"> (propriété otage.ma). */
   googleVerification: "BjBEMRIG80-T25QYFrUikbX9QefJWi7o4_jDHpaB7LY",
 

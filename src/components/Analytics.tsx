@@ -1,7 +1,11 @@
 "use client";
 
-/* Mesure d'audience (Google Analytics 4), seulement avec l'accord de la visiteuse (loi 09-08).
-   - Sans identifiant GA4 (NEXT_PUBLIC_GA_ID, voir site.gaId) : ce composant n'affiche rien et ne charge rien.
+/* Mesure d'audience (Google Tag Manager, ou GA4 en direct), seulement avec l'accord de la visiteuse (loi 09-08).
+   - Avec un conteneur GTM (prop gtmId = site.gtmId) : GTM est chargé après « Accepter », et les événements du site sont poussés
+     dans le dataLayer ({ event: "commande_envoyee", … }) : les balises GA4 se configurent dans GTM.
+     Pas de <noscript> GTM : sans JavaScript, la visiteuse ne peut pas donner son accord.
+   - Sans GTM mais avec un identifiant GA4 (NEXT_PUBLIC_GA_ID) : gtag.js en direct, comme avant.
+   - Sans aucun des deux : ce composant n'affiche rien et ne charge rien.
    - Sans accord : aucun script Google n'est chargé, aucun cookie n'est déposé.
    - Le choix est gardé dans le navigateur ; on peut le changer à l'adresse /mentions-legales#cookies.
    Événements envoyés : clic_whatsapp, commande_envoyee, choix_offre, visite_ia (arrivée depuis un assistant IA).
@@ -22,8 +26,17 @@ const TEXT = {
 };
 
 function load(id: string) {
-  if (window.gtag) return;
   window.dataLayer = window.dataLayer || [];
+  if (id.startsWith("GTM-")) {
+    if (document.getElementById("gtm-js")) return;
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    const s = document.createElement("script");
+    s.id = "gtm-js"; s.async = true; s.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
+    document.head.appendChild(s);
+    try { const ref = document.referrer && new URL(document.referrer).hostname; if (ref && AI.test(ref)) window.dataLayer.push({ event: "visite_ia", source_ia: ref }); } catch { /* adresse d'origine illisible */ }
+    return;
+  }
+  if (window.gtag) return;
   window.gtag = function gtag() { window.dataLayer!.push(arguments); }; // eslint-disable-line prefer-rest-params
   window.gtag("js", new Date());
   window.gtag("config", id);
@@ -33,8 +46,10 @@ function load(id: string) {
   try { const ref = document.referrer && new URL(document.referrer).hostname; if (ref && AI.test(ref)) window.gtag("event", "visite_ia", { source_ia: ref }); } catch { /* adresse d'origine illisible */ }
 }
 
-export default function Analytics({ gaId, locale }: { gaId: string; locale: "fr" | "ar" }) {
+export default function Analytics({ gaId: ga, gtmId, locale }: { gaId: string; gtmId?: string; locale: "fr" | "ar" }) {
   const [ask, setAsk] = useState(false);
+  // GTM en priorité (les balises GA4 y sont configurées) ; sinon GA4 en direct
+  const gaId = gtmId || ga;
 
   useEffect(() => {
     if (!gaId) return;
@@ -46,7 +61,11 @@ export default function Analytics({ gaId, locale }: { gaId: string; locale: "fr"
     const first = requestAnimationFrame(() => setAsk(choice === null || location.hash === "#cookies"));
     window.addEventListener("hashchange", reopen);
 
-    const send = (name: string, params: Record<string, unknown>) => window.gtag?.("event", name, params);
+    // GTM : l'événement va dans le dataLayer ; GA4 en direct : gtag. Rien n'est envoyé tant que le script n'est pas chargé.
+    const send = (name: string, params: Record<string, unknown>) => {
+      if (gaId.startsWith("GTM-")) { if (document.getElementById("gtm-js")) window.dataLayer?.push({ event: name, ...params }); }
+      else window.gtag?.("event", name, params);
+    };
     const onClick = (e: MouseEvent) => { const a = (e.target as Element | null)?.closest?.('a[href*="wa.me"]'); if (a) send("clic_whatsapp", { page: location.pathname }); };
     const onOrder = (e: Event) => send("commande_envoyee", { currency: "MAD", ...(e as CustomEvent).detail });
     const onChoice = (e: Event) => send("choix_offre", (e as CustomEvent).detail);

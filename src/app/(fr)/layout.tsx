@@ -18,7 +18,7 @@ export default function FrLayout({ children }: { children: React.ReactNode }) {
         <SiteHeader locale="fr" />
         {children}
         <SiteFooter locale="fr" />
-        <Analytics gaId={site.gaId} locale="fr" />
+        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale="fr" />
       </body>
     </html>
   );

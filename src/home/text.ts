@@ -101,7 +101,7 @@ const texts = {
     heroDh: "DH",
     hero21Offerte: "2 + 1 offerte",
     // la phrase sous le bouton du hero : ce que c'est, et comment on paie
-    heroPhrase: "4 soins pour atténuer les taches brunes.",
+    heroPhrase: "4 soins pour atténuer les taches brunes. Livraison offerte sur les gammes.",
     // le message de prix, le même partout : « Gamme complète dès 299 DH, livraison offerte » (le prix vient de products.ts)
     msgGammeA: "Gamme complète dès ",
     msgGammeB: " DH, livraison offerte",
@@ -406,7 +406,7 @@ const texts = {
     heroDes: "ابتداءً من",
     heroDh: "درهم",
     hero21Offerte: "2 + 1 مجانًا",
-    heroPhrase: "4 منتجات لتخفيف البقع البنية.",
+    heroPhrase: "4 منتجات لتخفيف البقع البنية. التوصيل مجاني على المجموعات.",
     msgGammeA: "المجموعة الكاملة ابتداءً من ",
     msgGammeB: " درهم، والتوصيل مجاني",
     heroLivraisonOfferte: "التوصيل من 24 إلى 72 ساعة",

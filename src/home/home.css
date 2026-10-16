@@ -1660,41 +1660,44 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 .dg-card:active { transform: scale(0.98); }
 
 .dg-res { margin-top: 16px; }
+/* Cartes « résultat » (routine anti-taches, déodorant) : photo + texte. Mobile : photo en haut ; dès 900 px : 50/50,
+   texte centré verticalement. Mêmes marges intérieures de tous les côtés ; la photo garde le haut des flacons. */
 .dg-r {
-  display: grid; grid-template-columns: 1fr; gap: 0;
+  --pad: clamp(32px, 5vw, 72px);
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 0;
   border-radius: 26px; overflow: hidden;
   background: #fff;
   box-shadow: inset 0 0 0 1px rgba(74, 13, 22, 0.08), 0 30px 50px -36px rgba(74, 13, 22, 0.5);
   animation: dgIn 0.5s cubic-bezier(.2, .8, .2, 1) both;
 }
 @keyframes dgIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.dg-r-pic { display: flex; align-items: center; justify-content: center; height: 260px; background: #f1ece6; overflow: hidden; }
-.dg-r-pic img { height: 100%; width: auto; max-width: none; object-fit: contain; }
-.dg-r-gamme { background: var(--bag-dg) 50% 70% / cover no-repeat, #ead9c4; }
-.dg-r-deo { position: relative; background: #ecc9b4; }
-.dg-r-deo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
-.dg-r-deo span { position: absolute; top: 14px; inset-inline-start: 14px; padding: 6px 14px; border-radius: 999px; background: var(--red); color: var(--cream); font-size: 14px; font-weight: 600; }
-.dg-r-txt { padding: 22px 20px 22px; }
+.dg-r-pic { position: relative; aspect-ratio: 4 / 3; background: #ead9c4; overflow: hidden; }
+.dg-r-pic img { object-fit: cover; }
+.dg-r-gamme img { object-position: 50% 12%; } /* pompe du gel et compte-gouttes du sérum visibles */
+.dg-r-deo { background: #ecc9b4; }
+.dg-r-deo img { object-position: 50% 40%; }
+.dg-r-deo span { position: absolute; z-index: 1; top: 14px; inset-inline-start: 14px; padding: 6px 14px; border-radius: 999px; background: var(--red); color: var(--cream); font-size: 14px; font-weight: 600; }
+.dg-r-txt { box-sizing: border-box; width: 100%; max-width: calc(32rem + 2 * var(--pad)); justify-self: center; padding: var(--pad); }
 .dg-k { margin: 0; font-size: 13px; font-weight: 600; color: var(--red); }
-.dg-r h2 { margin: 4px 0 0; font-size: clamp(26px, 3.4vw, 38px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); }
-
+.dg-r h2 { margin: 4px 0 0; font-size: clamp(26px, 3.4vw, 38px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.05; color: var(--bordeaux); text-wrap: balance; }
 .dg-r-txt > p { margin: 10px 0 0; font-size: 15.5px; line-height: 1.5; }
 
-/* les 4 soins de la routine, en liens vers leur fiche */
-.dg-fiches { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
-.dg-fiches a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1.5px rgba(74, 13, 22, 0.14); font-size: 14px; font-weight: 600; color: var(--bordeaux); text-decoration: none; }
-@media (hover: hover) { .dg-fiches a:hover { box-shadow: inset 0 0 0 2px var(--bordeaux); } }
-.dg-act { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }
+/* les 4 soins de la routine : des liens vers leur fiche, avec survol et focus visibles */
+.dg-fiches { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+.dg-fiches a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1.5px rgba(74, 13, 22, 0.16); font-size: 14px; font-weight: 600; color: var(--bordeaux); text-decoration: none; transition: background 0.2s, color 0.2s, box-shadow 0.2s; }
+@media (hover: hover) { .dg-fiches a:hover { background: var(--bordeaux); color: var(--cream); box-shadow: inset 0 0 0 1.5px var(--bordeaux); } }
+.dg-fiches a:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.dg-act { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 20px; }
+.dg-act .o-btn { width: 100%; justify-content: space-between; } /* mobile : bouton pleine largeur */
 .dg-link { min-height: 44px; padding: 0 2px; border: 0; background: none; font: 600 15px var(--font-dm-sans), Arial, sans-serif; color: var(--bordeaux); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(74, 13, 22, 0.3); cursor: pointer; }
 @media (max-width: 420px) {
   .dg-cards { gap: 8px; }
 
 }
 @media (min-width: 900px) {
-  .dg-r { grid-template-columns: 0.9fr 1.1fr; }
-  .dg-r-pic { height: 420px; }
-
-  .dg-r-txt { padding: 40px 44px; align-self: center; }
+  .dg-r { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; min-height: 440px; }
+  .dg-r-pic { align-self: stretch; aspect-ratio: auto; min-height: 440px; } /* toute la hauteur de la carte */
+  .dg-act .o-btn { width: auto; }
 }
 
 /* ---------- Découvrir les soins : après l'offre ---------- */

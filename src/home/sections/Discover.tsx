@@ -42,13 +42,13 @@ function YeuxSkin({ locale }: { locale: Locale }) {
 
 export default function Discover({ t, locale }: { t: HomeText; locale: Locale }) {
   return (
-    <section className="dgx" id="decouvrir" aria-label={t.discoverDecouvrirLesSoins} style={{ "--bag-dg": "url('/images/gamme-anti-taches-otage-trousse-vignette.webp')" } as React.CSSProperties}>
+    <section className="dgx" id="decouvrir" aria-label={t.discoverDecouvrirLesSoins}>
       <div className="dg-in">
         <div className="dg-res" aria-live="polite">
           {/* Résultat « taches » : les 4 soins sont présentés une seule fois, dans la routine du haut de page.
               Ici, un rappel court avec un lien vers chaque fiche (contenances, prix à l'unité, mode d'emploi). */}
           <article className="dg-r" data-r="taches" aria-label={t.discoverLaRoutineAntiTaches}>
-            <div className="dg-r-pic dg-r-gamme" aria-hidden="true"></div>
+            <div className="dg-r-pic dg-r-gamme" aria-hidden="true"><Img src="/images/gamme-anti-taches-otage-trousse.webp" alt="" fill sizes="(min-width: 900px) 50vw, 100vw" /></div>
             <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesTaches}</p>
               <h2>{t.discoverLaRoutineAntiTaches}</h2>
@@ -80,13 +80,13 @@ export default function Discover({ t, locale }: { t: HomeText; locale: Locale })
             </div>
           </article>
           <article className="dg-r" data-r="odeurs" hidden>
-            <div className="dg-r-pic dg-r-deo" aria-hidden="true"><Img src="/images/deodorant-creme-otage-50ml.webp" alt="" width={720} height={900} sizes="(min-width: 900px) 420px, 100vw" /><span>{t.discoverBientot}</span></div>
+            <div className="dg-r-pic dg-r-deo" aria-hidden="true"><Img src="/images/deodorant-creme-otage-50ml.webp" alt="" fill sizes="(min-width: 900px) 50vw, 100vw" /><span>{t.discoverBientot}</span></div>
             <div className="dg-r-txt">
               <p className="dg-k">{t.discoverPourLesOdeurs}</p>
               <h2>{t.discoverNotreDeodorantArriveBientot}</h2>
               <p>{t.discoverOnLePrepareAvec}{deoPrice}{t.discoverDh}{t.discoverLePotDe}{deo.ml.petit} {locale === "ar" ? "مل" : "ml"}.</p>
               <div className="dg-act">
-                <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}{deoPrice}{t.discoverDh}</a>
+                <a className="dg-link" href={localePath(locale, `/soins/${deo.slug}`)}>{t.discoverCommanderLeDeo}{deoPrice}{t.discoverDh}<span aria-hidden="true"> {locale === "ar" ? "←" : "→"}</span></a>
               </div>
             </div>
           </article>

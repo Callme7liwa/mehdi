@@ -1701,7 +1701,7 @@ div.poster { cursor: default; } /* photo sans action (pas de bouton) */
 }
 
 /* ---------- Découvrir les soins : après l'offre ---------- */
-.dgx { padding: 0 var(--gutter) clamp(56px, 9vh, 100px); background: var(--cream); color: var(--ink); }
+.dgx { padding: clamp(56px, 9vh, 100px) var(--gutter); /* même espace au-dessus et au-dessous : la carte est centrée dans sa section */ background: var(--cream); color: var(--ink); }
 .dgx [hidden] { display: none !important; }
 .dgx .dg-res { margin-top: 0; }
 

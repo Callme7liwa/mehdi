@@ -157,21 +157,21 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   yeux: {
     tag: { fr: "N° 05 · Contour des yeux", ar: "رقم 05 · محيط العين" },
-    eyebrow: { fr: "N° 05 · Contour des yeux", ar: "رقم 05 · مصنوع في المغرب" },
-    title: [{ fr: "Sérum", ar: "محيط" }, { fr: "contour des yeux.", ar: "العين." }],
-    lede: { fr: "Pour atténuer l'aspect des cernes et rafraîchir le regard, matin et soir.", ar: "سيروم خفيف للبشرة الرقيقة تحت العينين: يخفف مظهر الهالات وينعش النظرة، صباحًا ومساءً." },
+    eyebrow: { fr: "N° 05 · Contour des yeux", ar: "رقم 05 · محيط العين" },
+    title: [{ fr: "Sérum", ar: "سيروم" }, { fr: "contour des yeux.", ar: "محيط العين." }],
+    lede: { fr: "Pour atténuer l'aspect des cernes et rafraîchir le regard, matin et soir.", ar: "لتخفيف مظهر الهالات وإنعاش النظرة، صباحًا ومساءً." },
     media: "pack",
     mediaAlt: { fr: "Le flacon du sérum contour des yeux OTAGE, 15 ml", ar: "عبوة سيروم محيط العين من OTAGE، 15 مل" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "eye", label: { fr: "Atténue les cernes", ar: "يخفف الهالات" } }],
     unitWord: { one: { fr: "sérum", ar: "سيروم" }, many: { fr: "sérums", ar: "سيرومات" } },
     lab: {
-      title: [{ fr: "Le contour des yeux :", ar: "ثلاثة مكونات فعالة." }, { fr: "ses 3 actifs.", ar: "نظرة مرتاحة." }],
+      title: [{ fr: "Le contour des yeux :", ar: "سيروم محيط العين:" }, { fr: "ses 3 actifs.", ar: "مكوناته الثلاثة." }],
       alt: { fr: "L’étiquette du sérum contour des yeux : aloe vera, acide hyaluronique, caféine, 15 ml", ar: "ملصق سيروم محيط العين: ألوفيرا، حمض الهيالورونيك، كافيين، 15 مل" },
       ingredients: [
         { name: { fr: "Caféine", ar: "كافيين" }, where: label, role: { fr: "Aide à atténuer l'aspect des poches et des cernes.", ar: "يساعد على تخفيف مظهر الانتفاخ والهالات." } },
-        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Hydrate la peau fine sous l'œil.", ar: "يرطب البشرة الرقيقة حول العين." } },
-        { name: { fr: "Aloe vera", ar: "ألوفيرا" }, where: label, role: { fr: "Apaise et rafraîchit dès l'application.", ar: "تهدئ وتنعش." } },
+        { name: { fr: "Acide hyaluronique", ar: "حمض الهيالورونيك" }, where: label, role: { fr: "Hydrate la peau fine sous l'œil.", ar: "يرطب البشرة الرقيقة تحت العين." } },
+        { name: { fr: "Aloe vera", ar: "ألوفيرا" }, where: label, role: { fr: "Apaise et rafraîchit dès l'application.", ar: "تهدئ وتنعش من أول استعمال." } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)

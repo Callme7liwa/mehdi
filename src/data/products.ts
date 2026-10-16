@@ -229,10 +229,10 @@ export const products: Product[] = isolateAr([
     range: "yeux",
     name: { fr: "Sérum contour des yeux", ar: "سيروم محيط العين" },
     h1: { fr: "Sérum contour des yeux à la caféine, pour les cernes", ar: "سيروم محيط العين بالكافيين، للهالات السوداء" },
-    metaTitle: { fr: "Sérum contour des yeux à la caféine", ar: "سيروم محيط العين بالكافيين للهالات السوداء" },
+    metaTitle: { fr: "Sérum contour des yeux à la caféine", ar: "سيروم محيط العين بالكافيين" },
     metaDescription: {
       fr: "Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. {prix} DH, ou 3 pour {lot} DH, payé à la livraison.",
-      ar: "سيروم محيط العين من OTAGE رقم 05، 15 مل، بكرة دوارة: كافيين، حمض الهيالورونيك، ألوفيرا. للهالات السوداء ومحيط العين المتعب. مصنوع في المغرب.",
+      ar: "سيروم محيط العين بالكافيين، 15 مل، بكرة دوارة، لتخفيف مظهر الهالات والانتفاخ. {prix} درهم، أو 3 بـ {lot} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     },
     lead: { fr: "Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir.", ar: "بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً." },
     benefit: { fr: "Atténue l'aspect des cernes", ar: "يخفف مظهر الهالات السوداء" },

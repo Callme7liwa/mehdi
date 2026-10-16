@@ -134,7 +134,6 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                     <b><span data-total="">{P.price}</span>{t.offersDh}</b>
                   </div>
                   <p className="tk-save"><mark>{t.offersTuEconomises2}<span data-save="">{P.was - P.price}</span>{t.offersDh}</mark></p>
-                  <p className="tk-thanks">{t.offersMerciDeChoisirDes}</p>
                   <div className="tk-bars" aria-hidden="true"></div>
                   <div className="tk-ok" aria-hidden="true"><b>{t.offersConfirme}</b><span>{t.offersPaiementALaLivraison}</span></div>
                 </div>

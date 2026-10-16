@@ -37,6 +37,12 @@ export const site = {
     portrait: "/images/dr-seddiki-el-mehdi-portrait.webp",
     alt: { fr: "Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE", ar: "الدكتور المهدي الصديقي، صيدلي، مؤسس OTAGE" } as L,
     /** Son récit, à la première personne (texte fourni par le fondateur). L'arabe est « À relire par un natif ». */
+    /** Version courte de son récit, proposée pour la mission contenu-v3.
+        À afficher à la place de `story` seulement après l'accord du fondateur (docs/validation-client.md). */
+    storyShort: {
+      fr: "J'ai vu beaucoup de cosmétiques falsifiés au Maroc. J'ai créé OTAGE pour des soins de qualité, avec des informations claires.",
+      ar: "رأيت الكثير من مستحضرات التجميل المزورة في المغرب. أنشأت OTAGE لتقديم منتجات جيدة، بمعلومات واضحة.",
+    } as L,
     story: {
       fr: "J'ai constaté la présence de nombreux produits cosmétiques falsifiés sur le marché marocain. Face à ce constat, j'ai décidé de créer OTAGE, une marque de cosmétiques fondée sur une volonté de transparence, d'honnêteté et de confiance. Mon objectif est de proposer des produits avec une attention particulière portée à leur qualité et à la transparence des informations communiquées.",
       ar: "لاحظت وجود عدد كبير من مستحضرات التجميل المزورة في السوق المغربية. أمام هذا الواقع، قررت إنشاء OTAGE، علامة لمستحضرات التجميل قائمة على الشفافية والصدق والثقة. هدفي هو تقديم منتجات مع عناية خاصة بجودتها وبشفافية المعلومات المقدمة عنها.",

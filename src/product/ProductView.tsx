@@ -4,7 +4,6 @@
 import type { Metadata } from "next";
 import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
-import { cities } from "@/data/cities";
 import { productFaq } from "@/data/faq";
 import { productPages, productUi } from "@/data/product-pages";
 import { problems } from "@/data/problems";
@@ -23,7 +22,6 @@ import { Carousel, Fx, Ingredients, Question } from "./widgets";
 const path = (p: Product) => `/soins/${p.slug}`;
 const title = (p: Product, locale: Locale) => `${p.metaTitle[locale]} | OTAGE`;
 /** Villes proposées en un geste dans le ticket (les autres s'écrivent). */
-const QUICK = ["Casablanca", "Rabat", "Fès", "Marrakech", "Tanger", "Agadir", "Meknès", "Oujda"];
 /** Numéros des chapitres : i., ii., iii. en français ; أ. ب. ج. en arabe. */
 const CHAP = { fr: ["i.", "ii.", "iii.", "iv."], ar: ["أ.", "ب.", "ج.", "د."] };
 const LOGO = { src: "/images/logo-otage.webp", w: 206, h: 96 };
@@ -234,7 +232,6 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
         <Ticket
           fee={fee}
           wa={site.whatsapp.wa}
-          cities={QUICK.map((n) => cities.find((c) => c.fr === n)![locale])}
           links={{ cgv: localePath(locale, "/cgv"), returns: `${localePath(locale, "/livraison-paiement")}#retours` }}
           upsell={x.upsell && fill(L(x.upsell.nudge), { d: diff })}
           unitWord={unitWord}

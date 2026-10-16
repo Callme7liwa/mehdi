@@ -3,6 +3,7 @@
 /* Le ticket : la commande, toujours à portée de main. Colonne collante sur ordinateur, feuille qui monte du bas sur mobile.
    Trois cases (nom, téléphone, ville) ; l'envoi passe par /api/order comme les autres formulaires du site. */
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import CityField from "@/components/CityField";
 import Img from "@/components/Img";
 import { AddButton, FormatSwitch, fill, freeOf, Total, TotalLabel, useCart } from "./cart";
 import { Arrow, Card, Close, Undo, Up, Wa } from "./icons";
@@ -10,7 +11,6 @@ import { Arrow, Card, Close, Undo, Up, Wa } from "./icons";
 type Props = {
   fee: { min: number; max: number };
   wa: string;
-  cities: string[];
   links: { cgv: string; returns: string };
   /** Rappel « Passe au grand format » (soins en deux formats), déjà chiffré. */
   upsell?: string;
@@ -29,7 +29,7 @@ const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2
 const esc = (v: string) => v.replace(/[&<>"']/g, (ch) => `&#${ch.charCodeAt(0)};`);
 const buzz = (p: number | number[]) => { try { navigator.vibrate?.(p); } catch { /* vibration indisponible */ } };
 
-export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb, logo }: Props) {
+export default function Ticket({ fee, wa, links, upsell, unitWord, thumb, logo }: Props) {
   const c = useCart();
   const { t, lines, item, others, total, count, locale } = c;
   const [no, setNo] = useState("····");
@@ -250,10 +250,7 @@ export default function Ticket({ fee, wa, cities, links, upsell, unitWord, thumb
             <div className="tk-k mono"><span>{t.weDeliver}</span><span>{t.threeBoxes}</span></div>
             <div className="f"><label htmlFor="f-nom">{t.nom}</label><input id="f-nom" name="nom" autoComplete="name" autoCapitalize="words" enterKeyHint="next" placeholder={t.nomEx} value={vals.nom} className={okCls("nom")} onChange={(e) => set("nom", e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); document.getElementById("f-tel")?.focus(); } }} {...inv("nom")} /></div>
             <div className="f"><label htmlFor="f-tel">{t.tel} <small>{t.telHint}</small></label><input id="f-tel" name="tel" type="tel" inputMode="numeric" autoComplete="tel-national" enterKeyHint="next" placeholder="06 12 34 56 78" dir="ltr" value={vals.tel} className={okCls("tel")} onChange={(e) => set("tel", e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); document.getElementById("f-ville")?.focus(); } }} {...inv("tel")} /></div>
-            <div className="f"><label htmlFor="f-ville">{t.ville}</label><input id="f-ville" name="ville" autoComplete="address-level2" enterKeyHint="done" placeholder={t.villeEx} value={vals.ville} className={okCls("ville")} onChange={(e) => set("ville", e.target.value)} {...inv("ville")} /></div>
-            <div className="cities" role="group" aria-label={t.quickCities}>
-              {cities.map((v) => <button key={v} type="button" aria-pressed={vals.ville.trim().toLowerCase() === v.toLowerCase()} onClick={() => { set("ville", v); buzz(8); }}>{v}</button>)}
-            </div>
+            <CityField locale={locale} id="f" look="product" input={{ value: vals.ville, className: okCls("ville"), onChange: (e) => set("ville", e.target.value), ...inv("ville") }} />
             <div className="f"><label htmlFor="f-email">{t.email} <small>{t.emailOpt}</small></label><input id="f-email" name="email" type="email" inputMode="email" autoComplete="email" enterKeyHint="done" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="f-email-info" value={vals.email} className={okCls("email")} onChange={(e) => set("email", e.target.value)} {...inv("email")} /><small id="f-email-info" className="f-info"><b>{t.emailHint}</b> {t.emailConsent}</small></div>
             <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1 }} />
             <label className="agree">

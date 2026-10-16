@@ -332,9 +332,6 @@ export const productUi = isolateAr({
   nomEx: { fr: "Salma Bennani", ar: "سلمى بناني" },
   tel: { fr: "Ton téléphone", ar: "هاتفك" },
   telHint: { fr: "on t’appelle pour confirmer", ar: "نتصل بك للتأكيد" },
-  ville: { fr: "Ta ville", ar: "مدينتك" },
-  villeEx: { fr: "Fès", ar: "فاس" },
-  quickCities: { fr: "Villes rapides", ar: "مدن سريعة" },
   // champ e-mail : mêmes textes que les formulaires de l'accueil (src/home/text.ts, offersEmail…)
   email: { fr: "E-mail", ar: "البريد الإلكتروني" },
   emailOpt: { fr: "facultatif", ar: "اختياري" },

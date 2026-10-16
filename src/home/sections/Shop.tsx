@@ -47,7 +47,7 @@ export default function Shop({ t, locale }: { t: HomeText; locale: Locale }) {
           article: t.shopArticle, articles: t.shopArticles, plusDelivery: t.shopPlusLivraison, order: t.heroCommander,
           cart: js.cartTitle, delivery: js.delivery, feeA: t.shopFraisA, feeB: t.shopFraisB, feeC: t.shopFraisC, subtotal: js.cartSubtotal, note: js.cartNote,
           close: t.hesiteFermer,
-          nom: t.offersNomComplet, nomEx: t.offersExSalmaBennani, tel: t.offersTelephone, ville: t.offersVille, villeEx: t.offersExCasablanca, villeInfo: t.offersAutreVille,
+          nom: t.offersNomComplet, nomEx: t.offersExSalmaBennani, tel: t.offersTelephone,
           adresse: t.offersAdresse, adresseOpt: t.offersFacultatifOnPeutLa, adresseEx: t.offersQuartierRueNumero,
           email: t.offersEmail, emailOpt: t.offersEmailOpt, emailHint: t.offersEmailHint, emailConsent: t.offersEmailConsent,
           agreeA: t.offersAgreeA, agreeCgv: t.offersAgreeCgv, agreeAnd: t.offersAgreeAnd, agreeReturns: t.offersAgreeReturns,

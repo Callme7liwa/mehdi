@@ -1,7 +1,7 @@
 import type { HomeText } from "../text";
 import Img from "@/components/Img";
 import { bundleTotal, bundleUnit, gamme } from "@/data/products";
-import { cities } from "@/data/cities";
+import CityField, { CityList } from "@/components/CityField";
 import { site, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
@@ -63,10 +63,10 @@ export default function Offers({ t, locale }: { t: HomeText; locale: Locale }) {
                   <p className="back-recap"><span data-recap=""></span><b><span data-total2="">{P.price}</span>{t.offersDh}</b></p>
                   <label className="fld"><span>{t.offersNomComplet}</span><input name="nom" autoComplete="name" placeholder={t.offersExSalmaBennani} /></label>
                   <label className="fld"><span>{t.offersTelephone}</span><input name="tel" type="tel" inputMode="tel" autoComplete="tel" placeholder="06 12 34 56 78" /></label>
-                  <label className="fld"><span>{t.offersVille}</span><input name="ville" list="villes" autoComplete="address-level2" placeholder={t.offersExCasablanca} aria-describedby="tk-ville-info" /><small id="tk-ville-info" className="fld-info">{t.offersAutreVille}</small></label>
+                  <CityField locale={locale} id="tk" look="home" listId="villes" />
                   <label className="fld"><span>{t.offersAdresse}<small>{t.offersFacultatifOnPeutLa}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.offersQuartierRueNumero} /></label>
                   <label className="fld"><span>{t.offersEmail}<small>{t.offersEmailOpt}</small></span><input name="email" type="email" inputMode="email" autoComplete="email" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="tk-email-info" /><small id="tk-email-info" className="fld-info"><b>{t.offersEmailHint}</b> {t.offersEmailConsent}</small></label>
-                  <datalist id="villes">{cities.map((c) => <option key={c.fr}>{c[locale]}</option>)}</datalist>
+                  <CityList id="villes" locale={locale} />
                   <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <label className="agree">
                     <input type="checkbox" name="cgv" />

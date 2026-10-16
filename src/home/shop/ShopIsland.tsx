@@ -5,6 +5,7 @@
    Le navigateur n'envoie que les choix (produit, format, quantité) à /api/order : les prix sont recalculés par le serveur,
    comme pour la gamme. Les montants affichés ici viennent de src/data/products.ts et src/data/site.ts. */
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import CityField from "@/components/CityField";
 import Img from "@/components/Img";
 import type { FormatKey, ProductKey } from "@/data/products";
 import type { Locale } from "@/data/site";
@@ -250,7 +251,7 @@ export default function ShopIsland({ items, locale, fee, links, t }: Props) {
               <p className="sd-note">{t.note}</p>
               <label className="fld"><span>{t.nom}</span><input name="nom" autoComplete="name" placeholder={t.nomEx} {...bad("nom")} /></label>
               <label className="fld"><span>{t.tel}</span><input name="tel" type="tel" inputMode="tel" autoComplete="tel" placeholder="06 12 34 56 78" {...bad("tel")} /></label>
-              <label className="fld"><span>{t.ville}</span><input name="ville" list="villes" autoComplete="address-level2" placeholder={t.villeEx} aria-describedby="sd-ville-info" {...bad("ville")} /><small id="sd-ville-info" className="fld-info">{t.villeInfo}</small></label>
+              <CityField locale={locale} id="sd" look="home" listId="villes" input={bad("ville")} />
               <label className="fld"><span>{t.adresse}<small>{t.adresseOpt}</small></span><input name="adresse" autoComplete="address-line1" placeholder={t.adresseEx} /></label>
               <label className="fld"><span>{t.email}<small>{t.emailOpt}</small></span><input name="email" type="email" inputMode="email" autoComplete="email" dir="ltr" placeholder="prenom@exemple.com" aria-describedby="sd-email-info" {...bad("email")} /><small id="sd-email-info" className="fld-info"><b>{t.emailHint}</b> {t.emailConsent}</small></label>
               <input className="hp" name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" />

@@ -79,9 +79,14 @@ export default function Analytics({ gaId: ga, gtmId, locale, above }: { gaId: st
     try { choice = localStorage.getItem(KEY); } catch { /* stockage indisponible : on redemandera */ }
     if (choice === "oui") load(gaId);
     const reopen = () => { if (location.hash === "#cookies") setAsk(true); };
-    // la question s'affiche après le premier rendu (le choix est lu dans le navigateur, pas sur le serveur)
-    const first = requestAnimationFrame(() => setAsk(choice === null || location.hash === "#cookies"));
     window.addEventListener("hashchange", reopen);
+    // sans choix enregistré, la question s'affiche à la première interaction (défilement, toucher, clavier) :
+    // rien n'est mesuré avant l'accord, et le bandeau ne devient pas le plus grand élément du premier affichage (LCP)
+    const INPUT = ["scroll", "wheel", "pointerdown", "keydown", "touchstart"] as const;
+    const show = () => { INPUT.forEach((ev) => window.removeEventListener(ev, show)); setAsk(true); };
+    // arrivée sur /mentions-legales#cookies : la question est posée tout de suite (après le premier rendu)
+    const first = location.hash === "#cookies" ? requestAnimationFrame(() => setAsk(true)) : 0;
+    if (!first && choice === null) INPUT.forEach((ev) => window.addEventListener(ev, show, { passive: true, once: true }));
 
     const onClick = (e: MouseEvent) => {
       const el = e.target as Element | null;
@@ -94,7 +99,7 @@ export default function Analytics({ gaId: ga, gtmId, locale, above }: { gaId: st
     document.addEventListener("click", onClick);
     window.addEventListener("otage:order", onOrder);
     window.addEventListener("otage:choice", onChoice);
-    return () => { cancelAnimationFrame(first); window.removeEventListener("hashchange", reopen); document.removeEventListener("click", onClick); window.removeEventListener("otage:order", onOrder); window.removeEventListener("otage:choice", onChoice); };
+    return () => { cancelAnimationFrame(first); INPUT.forEach((ev) => window.removeEventListener(ev, show)); window.removeEventListener("hashchange", reopen); document.removeEventListener("click", onClick); window.removeEventListener("otage:order", onOrder); window.removeEventListener("otage:choice", onChoice); };
   }, [gaId]);
 
   if (!gaId || !ask) return null;

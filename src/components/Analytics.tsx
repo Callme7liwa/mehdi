@@ -1,7 +1,7 @@
 "use client";
 
 /* Mesure d'audience (Google Tag Manager, ou GA4 en direct), seulement avec l'accord de la visiteuse (loi 09-08).
-   - Avec un conteneur GTM (prop gtmId = site.gtmId) : GTM est chargé après « Accepter », et les événements du site sont
+   - Avec un conteneur GTM (prop gtmId, écrit en dur dans data/google.ts) : GTM est chargé après « Accepter », et les événements du site sont
      poussés dans le dataLayer ; les balises GA4 se configurent dans GTM. Pas de <noscript> GTM : sans JavaScript,
      la visiteuse ne peut pas donner son accord.
    - Sans GTM mais avec un identifiant GA4 (NEXT_PUBLIC_GA_ID) : gtag.js en direct.

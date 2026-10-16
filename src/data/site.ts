@@ -56,8 +56,6 @@ export const site = {
     display: "+212 6 88 91 82 01",
   },
   instagram: { handle: "@otage.ma", url: "https://www.instagram.com/otage.ma" },
-  /** Fiche d'établissement Google (Google Maps) : lien stable par identifiant (cid), relié au site par le JSON-LD (sameAs). */
-  googleMaps: "https://maps.google.com/?cid=6247617281648532441",
   email: "Dr.mouldwa@gmail.com",
   /** Satisfaction : résultat d'une enquête interne, toujours affiché avec la taille de l'échantillon. Jamais dans le JSON-LD. */
   satisfaction: { percent: 85, sample: 20 },
@@ -69,11 +67,6 @@ export const site = {
   /** Mesure d'audience GA4 : identifiant « G-XXXXXXX » lu dans NEXT_PUBLIC_GA_ID (variable d'environnement Vercel).
       TODO : créer la propriété GA4 et renseigner la variable. Sans identifiant, aucun script et aucune bannière. */
   gaId: process.env.NEXT_PUBLIC_GA_ID || "",
-  /** Google Tag Manager (conteneur otage.ma). Chargé seulement après l'accord de la visiteuse (bandeau), comme GA4.
-      Les balises (GA4, etc.) se configurent dans GTM. NEXT_PUBLIC_GTM_ID permet de le changer sans toucher au code. */
-  gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-K84L87K3",
-  /** Google Search Console : jeton de la balise <meta name="google-site-verification"> (propriété otage.ma). */
-  googleVerification: "BjBEMRIG80-T25QYFrUikbX9QefJWi7o4_jDHpaB7LY",
 
   /* L'adresse du script Google qui enregistre les commandes n'est plus ici : elle est dans la variable
      d'environnement ORDERS_ENDPOINT, lue seulement par le serveur (src/app/api/order/route.ts). */

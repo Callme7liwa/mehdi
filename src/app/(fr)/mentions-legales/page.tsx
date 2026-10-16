@@ -1,3 +1,4 @@
+import { gtmId } from "@/data/google";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -47,7 +48,7 @@ export default function Page() {
       <h2 id="cookies">Cookies et mesure d'audience</h2>
       <p>Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper.</p>
       {/* affiché seulement quand la mesure d'audience est configurée (GTM ou GA4) */}
-      {(site.gtmId || site.gaId) && (
+      {(gtmId || site.gaId) && (
         <>
           <p><b>Mesure d'audience (Google Analytics), seulement avec ton accord.</b> Quand tu cliques sur « Accepter », nous utilisons Google Analytics, chargé par Google Tag Manager, pour mesurer la fréquentation du site : pages vues, provenance des visites (Instagram, Google, assistant IA…), type d'appareil, pays ou ville approximatifs, clics vers WhatsApp, offres choisies et commandes envoyées (montant, offre et numéro de commande). Ton nom, ton téléphone, ta ville et ton adresse ne sont jamais transmis.</p>
           <p>Finalité : comprendre comment le site est utilisé, pour l'améliorer. Ces données sont traitées par Google (Google Ireland Limited et Google LLC), y compris hors du Maroc. Les cookies de mesure (_ga, _ga_…) sont conservés 13 mois au plus ; les statistiques, 14 mois au plus.</p>

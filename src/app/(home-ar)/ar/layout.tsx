@@ -1,3 +1,4 @@
+import { gtmId } from "@/data/google";
 import type { Metadata, Viewport } from "next";
 import "../../rtl.css";
 import Analytics from "@/components/Analytics";
@@ -14,7 +15,7 @@ export default function HomeArLayout({ children }: { children: React.ReactNode }
       <head><FontPreload locale="ar" /></head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale="ar" />
+        <Analytics gaId={site.gaId} gtmId={gtmId} above locale="ar" />
       </body>
     </html>
   );

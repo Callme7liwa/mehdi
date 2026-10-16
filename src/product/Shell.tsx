@@ -1,4 +1,5 @@
 /* <html> des fiches produits, en français ou en arabe : leur propre feuille de style, sans l'en-tête ni le pied des pages intérieures. */
+import { gtmId } from "@/data/google";
 import Analytics from "@/components/Analytics";
 import FontPreload from "@/components/FontPreload";
 import { site, type Locale } from "@/data/site";
@@ -19,7 +20,7 @@ export default function ProductShell({ locale, children }: { locale: Locale; chi
       </head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale={locale} />
+        <Analytics gaId={site.gaId} gtmId={gtmId} above locale={locale} />
       </body>
     </html>
   );

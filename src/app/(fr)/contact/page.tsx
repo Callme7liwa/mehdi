@@ -1,3 +1,4 @@
+import { googleMaps } from "@/data/google";
 import Link from "next/link";
 import { WaIcon } from "@/components/icons";
 import { site, waLink } from "@/data/site";
@@ -30,7 +31,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener">{site.instagram.handle}</a> : nos nouveautés, et les messages privés pour nous écrire.</p>
 
       <h2>Google Maps</h2>
-      <p><a href={site.googleMaps} target="_blank" rel="noopener">OTAGE.MA sur Google Maps</a> : notre fiche Google, pour nous trouver et laisser un avis.</p>
+      <p><a href={googleMaps} target="_blank" rel="noopener">OTAGE.MA sur Google Maps</a> : notre fiche Google, pour nous trouver et laisser un avis.</p>
 
       <h2>Commander</h2>
       <p>Commande <Link href="/#offres">sur le site</Link> ou sur WhatsApp. Livraison en {site.delivery.label.fr}, paiement à la livraison.</p>

@@ -1,3 +1,4 @@
+import { gtmId } from "@/data/google";
 import { site } from "@/data/site";
 import TextPage, { textMetadata } from "@/templates/TextPage";
 
@@ -46,7 +47,7 @@ export default function Page() {
 
       <h2 id="cookies">ملفات تعريف الارتباط وقياس الزيارات</h2>
       <p>هذا الموقع لا يستعمل ملفات تعريف ارتباط إشهارية. يسجل فقط، في متصفحك، اختياراتك في العرض ومعلومات التوصيل التي أدخلتها، حتى لا تعيدي كتابتها.</p>
-      {(site.gtmId || site.gaId) && (
+      {(gtmId || site.gaId) && (
         <>
           <p><b>قياس الزيارات (<span dir="ltr" lang="en">Google Analytics</span>)، بموافقتك فقط.</b> حين تضغطين على «أوافق»، نستعمل <span dir="ltr" lang="en">Google Analytics</span>، الذي يحمّله <span dir="ltr" lang="en">Google Tag Manager</span>، لقياس زيارات الموقع: الصفحات التي تمت زيارتها، مصدر الزيارات (إنستغرام، Google، مساعد ذكاء اصطناعي…)، نوع الجهاز، البلد أو المدينة بشكل تقريبي، النقر على واتساب، العروض المختارة والطلبات المرسلة (المبلغ، العرض ورقم الطلب). لا يُرسل أبدًا اسمك ولا رقم هاتفك ولا مدينتك ولا عنوانك.</p>
           <p>الغاية: فهم طريقة استعمال الموقع من أجل تحسينه. تعالج Google هذه المعطيات (<span dir="ltr" lang="en">Google Ireland Limited</span> و<span dir="ltr" lang="en">Google LLC</span>)، بما في ذلك خارج المغرب. تُحفظ ملفات تعريف القياس (<span dir="ltr">_ga</span>، <span dir="ltr">_ga_…</span>) مدة 13 شهرًا على الأكثر، والإحصائيات 14 شهرًا على الأكثر.</p>

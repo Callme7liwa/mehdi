@@ -1,3 +1,4 @@
+import { gtmId } from "@/data/google";
 import type { Metadata, Viewport } from "next";
 import Analytics from "@/components/Analytics";
 import FontPreload from "@/components/FontPreload";
@@ -13,7 +14,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
       <head><FontPreload locale="fr" /></head>
       <body>
         {children}
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} above locale="fr" />
+        <Analytics gaId={site.gaId} gtmId={gtmId} above locale="fr" />
       </body>
     </html>
   );

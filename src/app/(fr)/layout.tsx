@@ -1,3 +1,4 @@
+import { gtmId } from "@/data/google";
 import type { Metadata, Viewport } from "next";
 import "../site.css";
 import Analytics from "@/components/Analytics";
@@ -18,7 +19,7 @@ export default function FrLayout({ children }: { children: React.ReactNode }) {
         <SiteHeader locale="fr" />
         {children}
         <SiteFooter locale="fr" />
-        <Analytics gaId={site.gaId} gtmId={site.gtmId} locale="fr" />
+        <Analytics gaId={site.gaId} gtmId={gtmId} locale="fr" />
       </body>
     </html>
   );

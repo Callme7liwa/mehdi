@@ -51,7 +51,10 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Voir les offres | اكتشفي العروض |
 | dès 299 DH | ابتداءً من 299 درهم |
 | 2 + 1 offerte | 2 + 1 مجانًا |
-| 4 soins pour atténuer les taches brunes, payés à la livraison. | 4 منتجات لتخفيف البقع البنية، والدفع عند الاستلام. |
+| Livraison 24–72 h | التوصيل من 24 إلى 72 ساعة |
+| Paiement à la livraison | الدفع عند الاستلام |
+| Retour 7 jours | الإرجاع خلال 7 أيام |
+| 4 soins pour atténuer les taches brunes. Livraison offerte sur les gammes. | 4 منتجات لتخفيف البقع البنية. التوصيل مجاني على المجموعات. |
 | Voir le détail : Gel nettoyant anti-taches | عرض التفاصيل: جل منظف ضد البقع |
 | Voir le soin | اكتشفي المنتج |
 | Voir le détail : Sérum anti-taches | عرض التفاصيل: سيروم ضد البقع |
@@ -67,7 +70,6 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Sans sulfate | بدون سلفات |
 | Comment : matin et soir, sur peau humide. Masse 30 secondes, puis rince. | الطريقة: صباحًا ومساءً، على بشرة مبللة. دلّكي 30 ثانية ثم اشطفي. |
 | Voir la fiche du soin | صفحة المنتج |
-| Commander la gamme | اطلبي المجموعة |
 | Étape 2 sur 4 | الخطوة 2 من 4 |
 | Sérum anti-taches | سيروم ضد البقع |
 | Le soin concentré de la gamme, qui cible les taches. | العناية المركزة في المجموعة، تستهدف البقع. |
@@ -88,6 +90,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Haute protection | حماية عالية |
 | Comment : le matin, en dernier. Renouvelle toutes les 2 heures au soleil. | الطريقة: في الصباح، كآخر خطوة. جدديه كل ساعتين تحت الشمس. |
 | Le soir, ta routine s'arrête à l'étape 3. | في المساء، يتوقف روتينك عند الخطوة 3. |
+| Commander la gamme | اطلبي المجموعة |
 | Étapes | الخطوات |
 | Fermer | إغلاق |
 | Voir l'étape dans la routine | مكانه في الروتين |
@@ -101,7 +104,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | J'ai des cernes | عندي هالات سوداء |
 | Cernes, contour des yeux fatigué | هالات سوداء، محيط عين متعب |
 | Des odeurs sous les bras | روائح تحت الإبط |
-| Déodorant crème, sans aluminium | مزيل عرق كريم، بدون ألمنيوم |
+| Déodorant crème, 5 ingrédients | مزيل عرق كريم، 5 مكونات |
 | Nouveau · 85 DH | جديد · 85 درهم |
 | Sérum contour des yeux N°05 tenu près du visage | سيروم محيط العين رقم 05 قرب الوجه |
 | La gamme anti-taches complète. | مجموعة العناية الكاملة ضد البقع. |
@@ -130,105 +133,13 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Quartier, rue, numéro | الحي، الشارع، الرقم |
 | E-mailfacultatif | البريد الإلكترونياختياري |
 | Reçois ta confirmation par email. Ton adresse sert uniquement à t'envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
-| Casablanca | الدار البيضاء |
-| Rabat | الرباط |
-| Salé | سلا |
-| Fès | فاس |
-| Marrakech | مراكش |
-| Tanger | طنجة |
-| Agadir | أكادير |
-| Meknès | مكناس |
-| Oujda | وجدة |
-| Kénitra | القنيطرة |
-| Tétouan | تطوان |
-| Témara | تمارة |
-| Safi | آسفي |
-| Mohammédia | المحمدية |
-| El Jadida | الجديدة |
-| Béni Mellal | بني ملال |
-| Nador | الناظور |
-| Khouribga | خريبكة |
-| Settat | سطات |
-| Laâyoune | العيون |
-| Aïn Harrouda | عين حرودة |
-| Aït Melloul | آيت ملول |
-| Al Hoceïma | الحسيمة |
-| Asilah | أصيلة |
-| Azemmour | أزمور |
-| Azilal | أزيلال |
-| Azrou | أزرو |
-| Ben Guerir | ابن جرير |
-| Benslimane | بنسليمان |
-| Berkane | بركان |
-| Berrechid | برشيد |
-| Biougra | بيوكرى |
-| Boujdour | بوجدور |
-| Bouskoura | بوسكورة |
-| Bouznika | بوزنيقة |
-| Chefchaouen | شفشاون |
-| Chichaoua | شيشاوة |
-| Dakhla | الداخلة |
-| Dar Bouazza | دار بوعزة |
-| Dcheira El Jihadia | الدشيرة الجهادية |
-| Demnate | دمنات |
-| Driouch | الدريوش |
-| El Hajeb | الحاجب |
-| El Kelâa des Sraghna | قلعة السراغنة |
-| Errachidia | الرشيدية |
-| Essaouira | الصويرة |
-| Es-Semara | السمارة |
-| Fnideq | الفنيدق |
-| Fquih Ben Salah | الفقيه بن صالح |
-| Guelmim | كلميم |
-| Guercif | جرسيف |
-| Ifrane | إفران |
-| Imzouren | إمزورن |
-| Inezgane | إنزكان |
-| Jerada | جرادة |
-| Kasba Tadla | قصبة تادلة |
-| Khémisset | الخميسات |
-| Khénifra | خنيفرة |
-| Ksar El Kébir | القصر الكبير |
-| Larache | العرائش |
-| Martil | مرتيل |
-| M'diq | المضيق |
-| Médiouna | مديونة |
-| Midelt | ميدلت |
-| Mechra Bel Ksiri | مشرع بلقصيري |
-| Nouaceur | النواصر |
-| Oualidia | الوليدية |
-| Ouarzazate | ورزازات |
-| Ouazzane | وزان |
-| Oued Zem | وادي زم |
-| Oulad Teïma | أولاد تايمة |
-| Sefrou | صفرو |
-| Sidi Bennour | سيدي بنور |
-| Sidi Ifni | سيدي إفني |
-| Sidi Kacem | سيدي قاسم |
-| Sidi Slimane | سيدي سليمان |
-| Sidi Yahya El Gharb | سيدي يحيى الغرب |
-| Skhirat | الصخيرات |
-| Souk El Arbaa | سوق الأربعاء |
-| Tan-Tan | طانطان |
-| Taounate | تاونات |
-| Taourirt | تاوريرت |
-| Taroudant | تارودانت |
-| Tata | طاطا |
-| Taza | تازة |
-| Tiflet | تيفلت |
-| Tinghir | تنغير |
-| Tit Mellil | تيط مليل |
-| Tiznit | تزنيت |
-| Youssoufia | اليوسفية |
-| Zagora | زاكورة |
-| Zaïo | زايو |
 | J'ai lu et j'accepte les | قرأت وأوافق على |
 | CGV | الشروط العامة للبيع |
 | et la | وعلى |
 | politique de retour | سياسة الإرجاع |
 | Valider ma commande | تأكيد طلبي |
-| Tu paies | تدفعين |
-| à la livraison · Livraison offerte en 24 à 72 h · Retour sous 7 jours | عند الاستلام · توصيل مجاني خلال 24 إلى 72 ساعة · إرجاع خلال 7 أيام |
+| Total : | المجموع: |
+| , livraison offerte | ، والتوصيل مجاني |
 | Merci ! | شكرًا! |
 | Ta commande est bien enregistrée. On t'appelle pour confirmer avant la livraison. | تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل. |
 | Droit de rétractation de 7 jours après réception (loi 31-08). | حق التراجع خلال 7 أيام من الاستلام (القانون 31-08). |
@@ -245,9 +156,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Soins de la peau, fabriqués au Maroc | عناية بالبشرة، مصنوعة في المغرب |
 | Ticket n° | تذكرة رقم |
 | Tu économises | توفرين |
-| Merci de choisir des soins honnêtes. | شكرًا لاختيارك عناية صادقة. |
 | Confirmé | مؤكَّد |
-| Paiement à la livraison | الدفع عند الاستلام |
 | Ta commande est enregistrée. On t'appelle pour confirmer avant la livraison. Tu peux garder ce ticket en capture d'écran. | تم تسجيل طلبك. سنتصل بك للتأكيد قبل التوصيل. يمكنك الاحتفاظ بهذه التذكرة في لقطة شاشة. |
 | Un seul soin te suffit ? | منتج واحد يكفيك؟ |
 | Chaque soin seul. Livraison 35 à 45 DH selon ta ville, paiement à la livraison. | كل منتج على حدة. التوصيل من 35 إلى 45 درهمًا حسب مدينتك، والدفع عند الاستلام. |
@@ -293,7 +202,7 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Ajouter Sérum contour des yeux | أضيفي سيروم محيط العين |
 | 50 ml | 50 مل |
 | Déodorant crème | مزيل العرق كريم |
-| Agit sur les odeurs, sans aluminium | يعمل على الروائح، بدون ألمنيوم |
+| Agit sur les odeurs, 5 ingrédients | يعمل على الروائح، 5 مكونات |
 | Oxyde de zinc · Huile de coco · Huile de jojoba | أكسيد الزنك · زيت جوز الهند · زيت الجوجوبا |
 | Format unique 50 ml | حجم واحد 50 مل |
 | 85DH | 85درهم |
@@ -323,22 +232,19 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Nouveau | جديد |
 | Pour les odeurs | للروائح |
 | Notre déodorant crème est là. | مزيل العرق كريم وصل. |
-| 5 ingrédients, sans sels d'aluminium. 85 DH le pot de 50 ml. | 5 مكونات، بدون أملاح الألمنيوم. 85 درهم العلبة 50 مل. |
+| 5 ingrédients, en pot de 50 ml. 85 DH le pot de 50 ml. | 5 مكونات، في علبة 50 مل. 85 درهم العلبة 50 مل. |
 | Commander le déodorant · 85 DH | اطلبي مزيل العرق · 85 درهم |
-| On l'affiche partout. | نعرضها في كل مكان. |
+| Les soins OTAGE en photos | منتجات OTAGE بالصور |
 | Touche une affiche pour voir le soin. | اضغطي على ملصق لرؤية المنتج. |
 | Affiche « Éclat » avec le sérum anti-taches | ملصق «إشراقة» مع سيروم ضد البقع |
 | L'écran solaire à la plage, à travers une bouée | واقي الشمس على الشاطئ، من خلال عوامة |
 | Une cliente souriante tend le gel nettoyant | زبونة مبتسمة تحمل الجل المنظف |
 | Panneau publicitaire « Ton teint, révélé » avec la crème | لوحة إعلانية «بشرتك، بإشراقها» مع الكريم |
-| Fabriqué au Maroc | صنع في المغرب |
 | Les 4 soins tenus par des mains à travers un papier rouge | المنتجات الأربعة بين أيدٍ من خلال ورق أحمر |
 | La gamme complète | المجموعة الكاملة |
 | Une femme tend le sérum anti-taches | امرأة تحمل سيروم ضد البقع |
 | Une pluie de flacons OTAGE sort d'une trousse | عبوات OTAGE تتساقط من حقيبة |
 | Le gel nettoyant tenu entre deux mains | الجل المنظف بين يدين |
-| Ta trousse | حقيبتك |
-| t'attend. | في انتظارك. |
 | Fais défiler | مرّري |
 | Conseils | نصائح |
 | Comprendre ta peau. | افهمي بشرتك. |
@@ -393,8 +299,8 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Au Maroc, avec un laboratoire partenaire. Parmi les ingrédients : figue de Barbarie et louban. | في المغرب، مع مختبر شريك. من مكوناتها: التين الشوكي واللبان. |
 | Les soins en photos. | منتجاتنا بالصور. |
 | Le produit en photos | المنتج بالصور |
-| Ta routine du soir t'attend. | روتينك المسائي في انتظارك. |
-| Gamme complète dès 299 DH, livraison offerte. Paiement à la livraison. | المجموعة الكاملة ابتداءً من 299 درهم، والتوصيل مجاني. الدفع عند الاستلام. |
+| La gamme anti-taches en 4 soins | مجموعة ضد البقع في 4 منتجات |
+| Gamme complète dès 299 DH, livraison offerte. | المجموعة الكاملة ابتداءً من 299 درهم، والتوصيل مجاني. |
 | Pied de page | أسفل الصفحة |
 | Le site | الموقع |
 | Les affiches | الملصقات |
@@ -416,13 +322,10 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Conditions générales de vente | الشروط العامة للبيع |
 | Nous suivre | تابعينا |
 | WhatsApp | واتساب |
-| Nos engagements | التزاماتنا |
-| Livraison en 24 à 72 h | التوصيل من 24 إلى 72 ساعة |
-| OTAGE fabrique au Maroc une routine anti-taches, un sérum contour des yeux et un déodorant. Livraison en 24 à 72 h, paiement à la livraison. | تصنع OTAGE في المغرب روتينًا ضد البقع، وسيروم لمحيط العين ومزيل عرق. التوصيل خلال 24 إلى 72 ساعة، والدفع عند الاستلام. |
+| OTAGE fabrique au Maroc une routine anti-taches, un sérum contour des yeux et un déodorant. | تصنع OTAGE في المغرب روتينًا ضد البقع، وسيروم لمحيط العين ومزيل عرق. |
 | OTAGE Cosmétiques. Des soins honnêtes, fabriqués au Maroc. | أوتاج للعناية بالبشرة. عناية صادقة، مصنوعة في المغرب. |
 | Mis à jour le 11 octobre 2026. | آخر تحديث: 11 أكتوبر 2026. |
-| Tu hésites ? C'est normal. | مترددة؟ هذا طبيعي. |
-| Trois façons de te décider, sans pression. | ثلاث طرق لتقرري، بدون أي ضغط. |
+| Avis, résultats et fondateur | الآراء والنتائج والمؤسس |
 | Les résultats | النتائج |
 | Le fondateur | المؤسس |
 | Aperçu : ces messages sont des exemples. Remplace-les par de vrais avis de clientes avant la mise en ligne. | معاينة: هذه الرسائل أمثلة. يجب تعويضها بآراء حقيقية قبل النشر. |
@@ -435,14 +338,11 @@ Français : `/` · Arabe : `/ar` · Source de l'arabe : src/home/text.ts (sectio
 | Voir les captures des messages | شاهدي لقطات الرسائل الأصلية |
 | de satisfaction. | رضا. |
 | Enquête auprès de 20 clientes. | حسب استطلاع شمل 20 زبونة. |
-| Tu paies à la livraison. Rien à avancer en ligne. | تدفعين عند الاستلام. لا شيء يُدفع مسبقًا عبر الإنترنت. |
-| Livraison en 24 à 72 h partout au Maroc. | التوصيل من 24 إلى 72 ساعة في كل أنحاء المغرب. |
 | Fabriqué au Maroc, avec des ingrédients d'ici. | صنع في المغرب، بمكونات من هنا. |
 | Salam ! Ici le fondateur d'OTAGE. Une question sur ta peau, un soin ou ta commande ? Écris-moi directement, je te réponds moi-même. | سلام! معك مؤسس OTAGE. سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسليني مباشرة، وأجيبك بنفسي. |
 | Écrire au fondateur sur WhatsApp | راسلي المؤسس على واتساب |
 | Poser ma question | اطرحي سؤالك |
 | C'est bon, je commande | تمام، أطلب الآن |
-| Livrée en 24 à 72 h · Retour 7 jours | التوصيل خلال 24 إلى 72 ساعة · الإرجاع خلال 7 أيام |
 | Commander · 299 DH | اطلبي · 299 درهم |
 
 ## Tous les soins
@@ -452,7 +352,7 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Soins anti-taches, contour des yeux et déodorant \| OTAGE | منتجات ضد البقع، لمحيط العين ومزيل العرق \| OTAGE |
-| **Description (Google)** Les 6 soins OTAGE fabriqués au Maroc : routine anti-taches, contour des yeux, déodorant. Dès 85 DH, livrés en 24 à 72 h, payés à la livraison. | منتجات OTAGE الستة المصنوعة في المغرب: روتين ضد البقع، محيط العين ومزيل العرق. ابتداءً من 85 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
+| **Description (Google)** Les 6 soins OTAGE fabriqués au Maroc : routine anti-taches, contour des yeux, déodorant. Dès 85 DH, livrés en 24 à 72 h, paiement à la livraison. | منتجات OTAGE الستة المصنوعة في المغرب: روتين ضد البقع، محيط العين ومزيل العرق. ابتداءً من 85 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
 | Aller au contenu | الانتقال إلى المحتوى |
 | OTAGE, Accueil | OTAGE, الرئيسية |
 | Soins | المنتجات |
@@ -463,7 +363,7 @@ Français : `/soins` · Arabe : `/ar/soins` · Source de l'arabe : src/templates
 | Accueil | الرئيسية |
 | Fil d'Ariane | مسار التصفح |
 | Soins anti-taches, contour des yeux et déodorant | منتجات ضد البقع، لمحيط العين ومزيل العرق |
-| Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة، والدفع عند الاستلام. |
+| Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison. | مصنوعة في المغرب، التوصيل من 24 إلى 72 ساعة، والدفع عند الاستلام. |
 | Gel nettoyant anti-taches OTAGE N°01 | جل منظف ضد البقع OTAGE رقم 01 |
 | dès 91 DH | ابتداءً من 91 درهم |
 | Voir le gel nettoyant anti-taches | اكتشفي المنتج: جل منظف ضد البقع |
@@ -497,7 +397,7 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Gel nettoyant anti-taches sans sulfate \| OTAGE | جل منظف ضد البقع بدون سلفات \| OTAGE |
-| **Description (Google)** Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès 91 DH, livré en 24 à 72 h partout au Maroc, payé à la livraison. | جل منظف ضد البقع بدون سلفات، بالتين الشوكي واللبان، مصنوع في المغرب. ابتداءً من 91 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
+| **Description (Google)** Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès 91 DH, livré en 24 à 72 h partout au Maroc, paiement à la livraison. | جل منظف ضد البقع بدون سلفات، بالتين الشوكي واللبان، مصنوع في المغرب. ابتداءً من 91 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
 | Sur cette page | في هذه الصفحة |
 | Ingrédients | المكونات |
 | Mode d’emploi | طريقة الاستعمال |
@@ -509,8 +409,6 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | anti-taches. | ضد البقع. |
 | Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches. | لتنظيف بشرتك دون تجفيفها، قبل السيروم ضد البقع. |
 | Ne dessèche pas | لا يجفف البشرة |
-| Livraison 24 à 72 h | التوصيل خلال 24 إلى 72 ساعة |
-| Retour 7 jours | الإرجاع خلال 7 أيام |
 | Dès 91 DH | ابتداءً من 91 درهم |
 | Petit format125 ml · pour essayer | الحجم الصغير125 مل · للتجربة |
 | 91 DH | 91 درهم |
@@ -596,7 +494,7 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Retours sous 7 jours | الإرجاع خلال 7 أيام |
 | CGV | شروط البيع |
 | Ta commande | طلبك |
-| DHPayé à la livraison | درهمالدفع عند الاستلام |
+| DHPaiement à la livraison | درهمالدفع عند الاستلام |
 | Commander | اطلبي |
 | Ticket N° ···· | تذكرة N° ···· |
 | Fermer le ticket | إغلاق الطلب |
@@ -610,8 +508,6 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | en 1 tap | بلمسة واحدة |
 | Sous-total | المجموع الفرعي |
 | 35 à 45 DH | من 35 إلى 45 درهم |
-| Paiement | الدفع |
-| à la réception | عند الاستلام |
 | Total produits | مجموع المنتجات |
 | On te livre | نوصل إليك |
 | 3 cases, l’e-mail si tu veux | 3 خانات، والبريد إن أردت |
@@ -619,14 +515,11 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Salma Bennani | سلمى بناني |
 | Ton téléphone on t’appelle pour confirmer | هاتفك نتصل بك للتأكيد |
 | Ta ville | مدينتك |
-| Villes rapides | مدن سريعة |
 | E-mail facultatif | البريد الإلكتروني اختياري |
 | Reçois ta confirmation par email. Ton adresse sert uniquement à t’envoyer la confirmation de cette commande. Tu peux demander sa suppression à tout moment (loi 09-08). | توصلي بتأكيد طلبك عبر البريد الإلكتروني. يُستعمل عنوانك فقط لإرسال تأكيد هذا الطلب. يمكنك طلب حذفه في أي وقت (القانون 09-08). |
 | J’ai lu et j’accepte les | قرأت وأوافق على |
 | Valider · | تأكيد · |
 | Commander sur WhatsApp | اطلبي عبر واتساب |
-| Rien à payer en ligne | لا دفع عبر الإنترنت |
-| 7 jours pour changer d’avis | 7 أيام لتغيير رأيك |
 
 ## Fiche produit : serum-anti-taches
 
@@ -635,7 +528,7 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Sérum anti-taches à l'alpha-arbutine \| OTAGE | سيروم ضد البقع بالألفا أربوتين \| OTAGE |
-| **Description (Google)** Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès 163 DH, livré en 24 à 72 h, payé à la livraison. | سيروم ضد البقع بالألفا أربوتين والماتشا والآذريون، لتخفيف البقع البنية. ابتداءً من 163 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
+| **Description (Google)** Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès 163 DH, livré en 24 à 72 h, paiement à la livraison. | سيروم ضد البقع بالألفا أربوتين والماتشا والآذريون، لتخفيف البقع البنية. ابتداءً من 163 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
 | Le flacon compte-gouttes du sérum anti-taches OTAGE, 30 ml | عبوة السيروم ضد البقع من OTAGE بقطارة، 30 مل |
 | Commander, à partir de 163 DH | اطلبي، ابتداءً من 163 درهم |
 | N° 02 sur 04 · Routine anti-taches | رقم 02 من 04 · روتين ضد البقع |
@@ -680,7 +573,7 @@ Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` 
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Crème anti-taches à la niacinamide \| OTAGE | كريم ضد البقع بالنياسيناميد \| OTAGE |
-| **Description (Google)** Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès 130 DH, livrée en 24 à 72 h, payée à la livraison. | كريم ضد البقع بالنياسيناميد وحمض الهيالورونيك: يرطب ويوحد لون البشرة. ابتداءً من 130 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
+| **Description (Google)** Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès 130 DH, livrée en 24 à 72 h, paiement à la livraison. | كريم ضد البقع بالنياسيناميد وحمض الهيالورونيك: يرطب ويوحد لون البشرة. ابتداءً من 130 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
 | Le flacon pompe de la crème anti-taches OTAGE, 50 ml | عبوة الكريم ضد البقع من OTAGE بمضخة، 50 مل |
 | Commander, à partir de 130 DH | اطلبي، ابتداءً من 130 درهم |
 | N° 03 sur 04 · Routine anti-taches | رقم 03 من 04 · روتين ضد البقع |
@@ -721,7 +614,7 @@ Français : `/soins/ecran-solaire-spf50` · Arabe : `/ar/soins/ecran-solaire-spf
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Écran solaire SPF 50 anti-taches \| OTAGE | واقي الشمس SPF 50 ضد البقع \| OTAGE |
-| **Description (Google)** Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès 112 DH, livré en 24 à 72 h au Maroc, payé à la livraison. | واقي الشمس SPF 50، حماية عالية من UVA و UVB للحد من عودة البقع. ابتداءً من 112 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
+| **Description (Google)** Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès 112 DH, livré en 24 à 72 h au Maroc, paiement à la livraison. | واقي الشمس SPF 50، حماية عالية من UVA و UVB للحد من عودة البقع. ابتداءً من 112 درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام. |
 | Le flacon pompe de l’écran solaire SPF 50 OTAGE, 50 ml | عبوة واقي الشمس SPF 50 من OTAGE بمضخة، 50 مل |
 | Commander, à partir de 112 DH | اطلبي، ابتداءً من 112 درهم |
 | N° 04 sur 04 · Routine anti-taches | رقم 04 من 04 · روتين ضد البقع |
@@ -761,7 +654,7 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Sérum contour des yeux à la caféine \| OTAGE | سيروم محيط العين بالكافيين \| OTAGE |
-| **Description (Google)** Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. 185 DH, ou 3 pour 370 DH, payé à la livraison. | سيروم محيط العين بالكافيين، 15 مل، بكرة دوارة، لتخفيف مظهر الهالات والانتفاخ. 185 درهم، أو 3 بـ 370 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
+| **Description (Google)** Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. 185 DH, ou 3 pour 370 DH, paiement à la livraison. | سيروم محيط العين بالكافيين، 15 مل، بكرة دوارة، لتخفيف مظهر الهالات والانتفاخ. 185 درهم، أو 3 بـ 370 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
 | Le flacon du sérum contour des yeux OTAGE, 15 ml | عبوة سيروم محيط العين من OTAGE، 15 مل |
 | Commander, à partir de 185 DH | اطلبي، ابتداءً من 185 درهم |
 | N° 05 · Contour des yeux | رقم 05 · محيط العين |
@@ -807,11 +700,11 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | Français | العربية |
 |---|---|
 | **Titre de l'onglet (title)** Déodorant crème OTAGE, 5 ingrédients \| OTAGE | مزيل العرق كريم OTAGE، 5 مكونات \| OTAGE |
-| **Description (Google)** Déodorant crème sans sels d'aluminium, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. 85 DH, payé à la livraison. | مزيل العرق كريم بدون أملاح الألمنيوم، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. 85 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
+| **Description (Google)** Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. 85 DH, paiement à la livraison. | مزيل العرق كريم OTAGE مصنوع في المغرب، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. 85 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
 | Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume | علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم |
 | Commander, à partir de 85 DH | اطلبي، ابتداءً من 85 درهم |
 | N° 06 · Nouveau · 50 ml | رقم 06 · جديد · 50 مل |
-| Pour les odeurs, avec 5 ingrédients et sans sels d'aluminium. | للروائح، بـ 5 مكونات وبدون أملاح الألمنيوم. |
+| Pour les odeurs, avec 5 ingrédients seulement. | للروائح، بـ 5 مكونات فقط. |
 | Agit sur les odeurs | يعمل على الروائح |
 | 85 DH le pot | 85 درهم للعلبة |
 | 1 potPour essayer | 1 علبةللتجربة |
@@ -834,7 +727,7 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | Vitamine E | فيتامين E |
 | Antioxydant qui protège la formule dans le temps. | مضاد للأكسدة يحمي التركيبة مع الوقت. |
 | Le déodorant crème, pour qui ? | مزيل العرق كريم، لمن؟ |
-| Pour toi si tu veux un déodorant sans sels d'aluminium. Il agit sur les odeurs, pas sur la transpiration. | لك إن كنت تريدين مزيل عرق بدون أملاح الألمنيوم. يعمل على الروائح، لا على التعرق. |
+| Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration. | لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق. |
 | Comment utiliser le déodorant crème ? | كيف أستعمل مزيل العرق كريم؟ |
 | Le matin, sur une aisselle propre et sèche. | في الصباح، على إبط نظيف وجاف. |
 | Prends un peu de baume du bout du doigt. | خذي قليلًا من البلسم بطرف الإصبع. |
@@ -1063,12 +956,12 @@ Français : `/livraison-paiement` · Arabe : `/ar/livraison-paiement` · Source 
 | **Titre de l'onglet (title)** Livraison 24 à 72 h, paiement à la livraison \| OTAGE | التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام \| OTAGE |
 | **Description (Google)** Livraison en 24 à 72 h partout au Maroc : offerte pour la gamme complète, 35 à 45 DH à l'unité. Paiement à la livraison, retour sous 7 jours. | التوصيل من 24 إلى 72 ساعة في كل المغرب: مجاني للمجموعة الكاملة، ومن 35 إلى 45 درهمًا للمنتج المنفرد. الدفع عند الاستلام، والإرجاع خلال 7 أيام. |
 | Livraison et paiement à la livraison | التوصيل والدفع عند الاستلام |
-| Livraison en 24 à 72 h partout au Maroc, offerte pour la gamme complète. Tu paies à la réception, en espèces. | التوصيل من 24 إلى 72 ساعة في كل المغرب، مجاني للمجموعة الكاملة. تدفعين عند الاستلام، نقدًا. |
+| Livraison en 24 à 72 h partout au Maroc, offerte pour la gamme complète. Paiement à la livraison, en espèces. | التوصيل من 24 إلى 72 ساعة في كل المغرب، مجاني للمجموعة الكاملة. الدفع عند الاستلام، نقدًا. |
 | Comment se passe une commande ? | كيف يتم الطلب؟ |
 | Tu commandes sur le site en 20 secondes (nom, téléphone, ville) ou sur WhatsApp. | تطلبين من الموقع في 20 ثانية (الاسم، الهاتف، المدينة) أو عبر واتساب. |
 | On t'appelle pour confirmer ta commande et ton adresse. | نتصل بك لتأكيد طلبك وعنوانك. |
 | Ton colis part et arrive en 24 à 72 h, partout au Maroc. | يُرسل طردك ويصل من 24 إلى 72 ساعة، في كل المغرب. |
-| Tu paies à la réception, en espèces, quand le livreur te remet ton colis. | تدفعين عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك. |
+| Paiement à la livraison, en espèces, quand le livreur te remet ton colis. | الدفع عند الاستلام، نقدًا، حين يسلمك عامل التوصيل طردك. |
 | En combien de temps suis-je livrée ? | متى يصلني الطلب؟ |
 | 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | من 24 إلى 72 ساعة، في كل المغرب. نتصل بك أولًا للتأكيد. |
 | Combien coûte la livraison ? | كم يكلف التوصيل؟ |
@@ -1211,10 +1104,8 @@ Source de l'arabe : src/home/text-js.ts. `{n}`, `{s}`, `{name}`… sont remplac�
 | Offerte | مجاني |
 | 35 à 45 DH | من 35 إلى 45 درهمًا |
 | selon la ville | حسب المدينة |
-| à la livraison · Livraison offerte en 24 à 72 h · Retour sous 7 jours | عند الاستلام · توصيل مجاني خلال 24 إلى 72 ساعة · إرجاع خلال 7 أيام |
-| à la livraison · Livraison 35 à 45 DH selon la ville · Retour sous 7 jours | عند الاستلام · التوصيل من 35 إلى 45 درهمًا حسب المدينة · إرجاع خلال 7 أيام |
-| Paiement | الدفع |
-| À la livraison | عند الاستلام |
+| , livraison offerte | ، والتوصيل مجاني |
+| + livraison 35 à 45 DH selon ta ville | + التوصيل من 35 إلى 45 درهمًا حسب مدينتك |
 | Pour ton sérum contour des yeux. | لسيروم محيط العين. |
 | Les 4 soins de la routine, livraison offerte partout au Maroc. | منتجات الروتين الأربعة، والتوصيل مجاني في كل المغرب. |
 | DH le sérum | درهم للسيروم |
@@ -1292,7 +1183,7 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | Français | العربية |
 |---|---|
 | Commander, à partir de {p} DH | اطلبي، ابتداءً من {p} درهم |
-| Paiement à la réception · Partout au Maroc · | الدفع عند الاستلام · في كل المغرب · |
+| Livré partout au Maroc · Prix affiché · | نوصل إلى كل المغرب · السعر واضح · |
 | Dès {p} DH | ابتداءً من {p} درهم |
 | {p} DH le pot | {p} درهم للعلبة |
 | 3 pour {p} DH | 3 مقابل {p} درهم |
@@ -1302,7 +1193,6 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | ≈ {p} DH le {u} | ≈ {p} درهم لل{u} |
 | Commander · {t} DH | اطلبي · {t} درهم |
 | Je veux essayer · {t} DH | أريد التجربة · {t} درهم |
-| Paiement à la réception | الدفع عند الاستلام |
 | Livraison {a} à {b} DH | التوصيل من {a} إلى {b} درهم |
 | L’étiquette, sans filtre | الملصق، بدون فلتر |
 | Rôles relus par notre pharmacien | أدوار المكونات راجعها صيدلينا |
@@ -1320,7 +1210,6 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | Ticket | تذكرة |
 | {n} article | {n} منتج |
 | {n} articles | {n} منتجات |
-| Payé à la livraison | الدفع عند الاستلام |
 | {n} articles · + livraison | {n} منتجات · + التوصيل |
 | Quantité de {x} | كمية {x} |
 | Retirer {x} | إزالة {x} |
@@ -1352,8 +1241,8 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | Coche la case pour accepter les CGV et la politique de retour. | ضعي علامة في الخانة للموافقة على الشروط العامة للبيع وسياسة الإرجاع. |
 | Confirmé | تم التأكيد |
 | Merci, {n} ! | شكرًا، {n}! |
-| Ta commande N° <b>{no}</b> est bien reçue. On t’appelle au <b>{tel}</b> pour confirmer, puis on expédie. Tu paies à la réception. | طلبك رقم <b>{no}</b> وصلنا. سنتصل بك على <b>{tel}</b> للتأكيد، ثم نرسله. تدفعين عند الاستلام. |
-| Ta commande est gardée sur ton téléphone : elle part dès que la connexion revient. On t’appelle au <b>{tel}</b> pour confirmer. Tu paies à la réception. | طلبك محفوظ على هاتفك: سيُرسل بمجرد عودة الاتصال. سنتصل بك على <b>{tel}</b> للتأكيد. تدفعين عند الاستلام. |
+| Ta commande N° <b>{no}</b> est bien reçue. On t’appelle au <b>{tel}</b> pour confirmer, puis on expédie. Paiement à la livraison. | طلبك رقم <b>{no}</b> وصلنا. سنتصل بك على <b>{tel}</b> للتأكيد، ثم نرسله. الدفع عند الاستلام. |
+| Ta commande est gardée sur ton téléphone : elle part dès que la connexion revient. On t’appelle au <b>{tel}</b> pour confirmer. Paiement à la livraison. | طلبك محفوظ على هاتفك: سيُرسل بمجرد عودة الاتصال. سنتصل بك على <b>{tel}</b> للتأكيد. الدفع عند الاستلام. |
 | Continuer la visite | متابعة التصفح |
 | Bonjour OTAGE, je veux commander : | مرحبًا OTAGE، أريد أن أطلب: |
 | Total : {t} DH + livraison | المجموع: {t} درهم + التوصيل |
@@ -1364,4 +1253,4 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 
 ---
 
-1169 textes à relire.
+1058 textes à relire.

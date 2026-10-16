@@ -425,17 +425,24 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Résine traditionnelle qui aide à purifier la peau. | راتنج تقليدي يساعد على تنقية البشرة. |
 | Base lavante douce : la peau est propre, sans être décapée. | قاعدة غسل لطيفة: بشرة نظيفة دون أن تتهيج. |
 | ii.Mode d’emploi | ب.طريقة الاستعمال |
+| Le gel nettoyant anti-taches, mode d’emploi | جل منظف ضد البقع: طريقة الاستعمال |
+| Pour qui | لمن |
 | Le gel nettoyant anti-taches, pour qui ? | جل منظف ضد البقع، لمن؟ |
 | Pour toi si tu as des taches brunes ou un teint irrégulier. C'est l'étape 1 de la routine, matin et soir. | لك إن كانت لديك بقع بنية أو لون بشرة غير موحد. هو الخطوة 1 في الروتين، صباحًا ومساءً. |
 | Nos guides | دلائلنا |
 | Taches pigmentaires : causes et routine pour les atténuer | البقع الصبغية: الأسباب والروتين للتخفيف منها |
 | Taches d'acné : pourquoi elles restent et comment les atténuer | آثار حب الشباب: لماذا تبقى وكيف تخففينها |
+| Comment | كيف |
 | Comment utiliser le gel nettoyant anti-taches ? | كيف أستعمل جل منظف ضد البقع؟ |
 | Mouille ton visage, matin et soir. | بللي وجهك، صباحًا ومساءً. |
 | Masse le gel 30 secondes. | دلّكي بالجل 30 ثانية. |
 | Rince, puis applique le sérum anti-taches. | اشطفي، ثم ضعي السيروم ضد البقع. |
-| Combien de temps pour voir des résultats ? | متى تظهر النتائج؟ |
-| Tout de suite : une peau nettoyée en douceur. Sur les taches, c'est la routine complète qui agit, petit à petit. | فورًا: بشرة نظيفة بلطف. أما البقع، فالروتين الكامل هو الذي يعمل عليها، شيئًا فشيئًا. |
+| Résultats | النتائج |
+| Combien de temps pour voir des résultats avec le gel nettoyant anti-taches ? | متى تظهر نتائج جل منظف ضد البقع؟ |
+| Dès l'application | منذ الاستعمال |
+| Une peau nettoyée en douceur. | بشرة نظيفة بلطف. |
+| Avec la routine complète | مع الروتين الكامل |
+| Les taches s'atténuent petit à petit. | تخف البقع شيئًا فشيئًا. |
 | Avis | آراء |
 | Précédent | السابق |
 | Suivant | التالي |
@@ -447,8 +454,8 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | AwatefMessage Instagram · 5 septembre | عواطفرسالة إنستغرام · 5 شتنبر |
 | Avis sur la routine complète | رأي في الروتين الكامل |
 | Je veux essayer · | أريد التجربة · |
-| iii.Questions fréquentes | ج.أسئلة شائعة |
-| Tu te poses la question ? | تتساءلين عن شيء؟ |
+| iii.FAQ | ج.الأسئلة |
+| Questions fréquentes sur le gel nettoyant anti-taches | أسئلة شائعة عن جل منظف ضد البقع |
 | Quel prix pour le gel nettoyant anti-taches ?+ | كم ثمن جل منظف ضد البقع؟+ |
 | 91 DH les 125 ml, 140 DH les 200 ml. Il est aussi dans la gamme complète, dès 299 DH. | 91 درهم لـ 125 مل، و140 درهم لـ 200 مل. يوجد أيضًا ضمن المجموعة الكاملة، ابتداءً من 299 درهم. |
 | Le gel nettoyant dessèche-t-il la peau ?+ | هل يجفف الجل المنظف البشرة؟+ |
@@ -456,6 +463,8 @@ Français : `/soins/gel-nettoyant` · Arabe : `/ar/soins/gel-nettoyant` · Sourc
 | Et si j'ai la peau sensible ?+ | وإذا كانت بشرتي حساسة؟+ |
 | Je suis enceinte ou j'allaite, je peux l'utiliser ?+ | أنا حامل أو مرضعة، هل يمكنني استعماله؟+ |
 | Je suis livrée en combien de temps ?+ | كم يستغرق التوصيل؟+ |
+| Une autre question ? | سؤال آخر؟ |
+| Écris-nous sur WhatsApp, on te répond 24 h/24. | راسلينا على واتساب، نجيبك على مدار الساعة. |
 | iv.Nos autres soins | د.منتجاتنا الأخرى |
 | Les autres soins OTAGE. | باقي منتجات OTAGE. |
 | Ajoute-les au même ticket : une seule livraison. | أضيفيها إلى نفس الطلب: توصيل واحد. |
@@ -545,6 +554,7 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | Thé vert antioxydant, qui aide le teint à retrouver de l'éclat. | شاي أخضر مضاد للأكسدة، يساعد البشرة على استعادة إشراقها. |
 | Fleur apaisante : le sérum reste doux, matin et soir. | زهرة مهدئة: السيروم يبقى لطيفًا، صباحًا ومساءً. |
 | Limite la production de mélanine : c'est l'actif qui agit sur les taches. | يحد من إنتاج الميلانين: هو المكوّن الذي يعمل على البقع. |
+| Le sérum anti-taches, mode d’emploi | سيروم ضد البقع: طريقة الاستعمال |
 | Le sérum anti-taches, pour qui ? | سيروم ضد البقع، لمن؟ |
 | Pour les taches brunes, l'hyperpigmentation et le teint irrégulier. C'est l'étape 2 de la routine, matin et soir. | للبقع البنية وفرط التصبغ ولون البشرة غير الموحد. هو الخطوة 2 في الروتين، صباحًا ومساءً. |
 | Mélasma et masque de grossesse : comprendre et se protéger | الكلف وقناع الحمل: الفهم والحماية |
@@ -552,7 +562,13 @@ Français : `/soins/serum-anti-taches` · Arabe : `/ar/soins/serum-anti-taches` 
 | Après le gel nettoyant, sèche ta peau. | بعد الجل المنظف، جففي بشرتك. |
 | Dépose 3 à 4 gouttes sur le visage. | ضعي 3 إلى 4 قطرات على الوجه. |
 | Tapote du bout des doigts, puis applique la crème. | ربّتي بأطراف الأصابع، ثم ضعي الكريم. |
-| Les taches s'atténuent petit à petit, pas en quelques jours. Le rythme dépend de ta peau, de ta régularité et de l'écran solaire. | البقع تخف شيئًا فشيئًا، وليس في أيام قليلة. الوتيرة تتوقف على بشرتك وانتظامك وواقي الشمس. |
+| Combien de temps pour voir des résultats avec le sérum anti-taches ? | متى تظهر نتائج سيروم ضد البقع؟ |
+| Les premiers jours | في الأيام الأولى |
+| Pas de changement visible : c'est normal. | لا تغيير واضح: هذا طبيعي. |
+| Avec la régularité | مع الانتظام |
+| Ce qui compte | ما يهم |
+| Ta peau, ta régularité et l'écran solaire. | بشرتك وانتظامك وواقي الشمس. |
+| Questions fréquentes sur le sérum anti-taches | أسئلة شائعة عن سيروم ضد البقع |
 | Quel prix pour le sérum anti-taches ?+ | كم ثمن سيروم ضد البقع؟+ |
 | 163 DH les 15 ml, 265 DH les 30 ml. Il est aussi dans la gamme complète, dès 299 DH. | 163 درهم لـ 15 مل، و265 درهم لـ 30 مل. يوجد أيضًا ضمن المجموعة الكاملة، ابتداءً من 299 درهم. |
 | Voir la fiche : Gel nettoyant anti-taches | صفحة المنتج : جل منظف ضد البقع |
@@ -590,13 +606,16 @@ Français : `/soins/creme-anti-taches` · Arabe : `/ar/soins/creme-anti-taches` 
 | Vitamine B3 : aide à unifier le teint et à atténuer les taches. | فيتامين B3: يساعد على توحيد لون البشرة وتخفيف مظهر البقع. |
 | Retient l'eau : la peau reste souple toute la journée. | يحتفظ بالماء: البشرة تبقى ليّنة طول اليوم. |
 | Acides de fruits qui affinent le grain de peau. Écran solaire le matin. | أحماض فواكه تنعّم ملمس البشرة. واقي الشمس في الصباح. |
+| La crème anti-taches, mode d’emploi | كريم ضد البقع: طريقة الاستعمال |
 | La crème anti-taches, pour qui ? | كريم ضد البقع، لمن؟ |
 | Pour un teint irrégulier ou marqué par des taches. C'est l'étape 3 de la routine, matin et soir, après le sérum. | للبشرة ذات اللون غير الموحد أو التي بها بقع. هو الخطوة 3 في الروتين، صباحًا ومساءً، بعد السيروم. |
 | Comment utiliser la crème anti-taches ? | كيف أستعمل كريم ضد البقع؟ |
 | Après le sérum, prends une noisette de crème. | بعد السيروم، خذي كمية صغيرة من الكريم. |
 | Applique sur le visage et le cou. | ضعيه على الوجه والرقبة. |
 | Masse vers le haut. Le matin, termine par l'écran solaire. | دلّكي نحو الأعلى. في الصباح، اختمي بواقي الشمس. |
-| La peau est hydratée dès l'application. Les taches, elles, s'atténuent petit à petit avec la routine complète. | البشرة مرطبة منذ الاستعمال. أما البقع فتخف شيئًا فشيئًا مع الروتين الكامل. |
+| Combien de temps pour voir des résultats avec la crème anti-taches ? | متى تظهر نتائج كريم ضد البقع؟ |
+| La peau est hydratée. | البشرة مرطبة. |
+| Questions fréquentes sur la crème anti-taches | أسئلة شائعة عن كريم ضد البقع |
 | Quel prix pour la crème anti-taches ?+ | كم ثمن كريم ضد البقع؟+ |
 | 130 DH les 30 ml, 205 DH les 50 ml. Elle est aussi dans la gamme complète, dès 299 DH. | 130 درهم لـ 30 مل، و205 درهم لـ 50 مل. يوجد أيضًا ضمن المجموعة الكاملة، ابتداءً من 299 درهم. |
 | Avant ou après le sérum ?+ | قبل السيروم أم بعده؟+ |
@@ -628,13 +647,18 @@ Français : `/soins/ecran-solaire-spf50` · Arabe : `/ar/soins/ecran-solaire-spf
 | L’étiquette de l’écran : SPF 50, haute protection UVA/UVB, 50 ml | ملصق الواقي: SPF 50، حماية عالية من UVA/UVB، 50 مل |
 | Le plus haut niveau de protection contre les coups de soleil (UVB). | أعلى مستوى من الحماية من حروق الشمس (UVB). |
 | Protège aussi des UVA, ceux qui foncent les taches et les font revenir. | يحمي أيضًا من UVA، الأشعة التي تُغمّق البقع وتعيدها. |
+| L'écran solaire SPF 50, mode d’emploi | واقي الشمس SPF 50: طريقة الاستعمال |
 | L'écran solaire SPF 50, pour qui ? | واقي الشمس SPF 50، لمن؟ |
 | Pour toute peau qui suit une routine anti-taches. C'est l'étape 4, le matin seulement. | لكل بشرة تتبع روتينًا ضد البقع. هو الخطوة 4، في الصباح فقط. |
 | Comment utiliser l'écran solaire SPF 50 ? | كيف أستعمل واقي الشمس SPF 50؟ |
 | Le matin, en dernier, après la crème. | في الصباح، كآخر خطوة بعد الكريم. |
 | Applique sur tout le visage. | ضعيه على كامل الوجه. |
 | Au soleil, renouvelle toutes les 2 heures. | تحت الشمس، جدديه كل ساعتين. |
-| L'écran ne fait pas disparaître les taches : il limite leur retour. C'est lui qui laisse le sérum et la crème agir. | الواقي لا يزيل البقع: يحد من عودتها. وهو ما يسمح للسيروم والكريم بالعمل. |
+| Combien de temps pour voir des résultats avec l'écran solaire SPF 50 ? | متى تظهر نتائج واقي الشمس SPF 50؟ |
+| Chaque matin | كل صباح |
+| Il laisse le sérum et la crème agir. | يسمح للسيروم والكريم بالعمل. |
+| Il limite le retour des taches. Il ne les fait pas disparaître. | يحد من عودة البقع. لا يزيلها. |
+| Questions fréquentes sur l'écran solaire SPF 50 | أسئلة شائعة عن واقي الشمس SPF 50 |
 | Quel prix pour l'écran solaire SPF 50 ?+ | كم ثمن واقي الشمس SPF 50؟+ |
 | 112 DH les 30 ml, 190 DH les 50 ml. Il est aussi dans la gamme complète, dès 299 DH. | 112 درهم لـ 30 مل، و190 درهم لـ 50 مل. يوجد أيضًا ضمن المجموعة الكاملة، ابتداءً من 299 درهم. |
 | Faut-il le mettre le soir ?+ | هل يوضع في المساء؟+ |
@@ -674,6 +698,7 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Aide à atténuer l'aspect des poches et des cernes. | يساعد على تخفيف مظهر الانتفاخ والهالات. |
 | Hydrate la peau fine sous l'œil. | يرطب البشرة الرقيقة تحت العين. |
 | Apaise et rafraîchit dès l'application. | تهدئ وتنعش من أول استعمال. |
+| Le sérum contour des yeux, mode d’emploi | سيروم محيط العين: طريقة الاستعمال |
 | Le sérum contour des yeux, pour qui ? | سيروم محيط العين، لمن؟ |
 | Pour les cernes et le contour des yeux fatigué. Texture légère, applicateur bille, compatible avec le maquillage. | للهالات السوداء ومحيط العين المتعب. قوام خفيف، بكرة دوارة، يوضع تحت المكياج. |
 | Cernes : causes et gestes pour un regard reposé | الهالات السوداء: الأسباب والخطوات لنظرة مرتاحة |
@@ -681,7 +706,10 @@ Français : `/soins/contour-des-yeux` · Arabe : `/ar/soins/contour-des-yeux` ·
 | Matin et soir, sur peau propre. | صباحًا ومساءً، على بشرة نظيفة. |
 | Passe la bille sous l'œil, de l'intérieur vers l'extérieur. | مرري البكرة تحت العين، من الداخل إلى الخارج. |
 | Tapote doucement du bout du doigt. | ربّتي بلطف بطرف الإصبع. |
-| Une sensation de fraîcheur dès l'application. Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment. | إحساس بالانتعاش منذ الاستعمال. أما الهالات، فالنتيجة تتوقف على سببها: الوراثة أو التعب أو الصبغة. |
+| Combien de temps pour voir des résultats avec le sérum contour des yeux ? | متى تظهر نتائج سيروم محيط العين؟ |
+| Une sensation de fraîcheur. | إحساس بالانتعاش. |
+| Sur les cernes, l'effet dépend de leur origine : hérédité, fatigue ou pigment. | على الهالات، النتيجة تتوقف على سببها: الوراثة أو التعب أو الصبغة. |
+| Questions fréquentes sur le sérum contour des yeux | أسئلة شائعة عن سيروم محيط العين |
 | Quel prix pour le sérum contour des yeux ?+ | كم ثمن سيروم محيط العين؟+ |
 | 185 DH les 15 ml. Avec l'offre 2 + 1 : 370 DH les 3, soit 123 DH le sérum. | 185 درهم لـ 15 مل. مع عرض 2 + 1: 370 درهم للثلاثة، أي 123 درهم للسيروم. |
 | Peut-on le mettre sous le maquillage ?+ | هل يمكن وضعه تحت المكياج؟+ |
@@ -701,7 +729,7 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 |---|---|
 | **Titre de l'onglet (title)** Déodorant crème OTAGE, 5 ingrédients \| OTAGE | مزيل العرق كريم OTAGE، 5 مكونات \| OTAGE |
 | **Description (Google)** Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. 85 DH, paiement à la livraison. | مزيل العرق كريم OTAGE مصنوع في المغرب، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. 85 درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام. |
-| Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume | علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم |
+| Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans la crème | علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في الكريم |
 | Commander, à partir de 85 DH | اطلبي، ابتداءً من 85 درهم |
 | N° 06 · Nouveau · 50 ml | رقم 06 · جديد · 50 مل |
 | Pour les odeurs, avec 5 ingrédients seulement. | للروائح، بـ 5 مكونات فقط. |
@@ -716,23 +744,28 @@ Français : `/soins/deodorant-creme` · Arabe : `/ar/soins/deodorant-creme` · S
 | Oxyde de zinc | أكسيد الزنك |
 | Huile de coco | زيت جوز الهند |
 | Huile de jojoba | زيت الجوجوبا |
-| Cire d’abeille · dans le baume | شمع العسل · في البلسم |
-| Vitamine E · dans le baume | فيتامين E · في البلسم |
+| Cire d’abeille · dans la crème | شمع العسل · في الكريم |
+| Vitamine E · dans la crème | فيتامين E · في الكريم |
 | Limite les bactéries qui causent les odeurs. | يحد من البكتيريا المسؤولة عن الروائح. |
-| Donne au baume sa texture fondante. | يمنح البلسم قوامه الذائب. |
+| Donne à la crème sa texture fondante. | يمنح الكريم قوامه الذائب. |
 | Nourrit et adoucit la peau des aisselles. | يغذي وينعّم بشرة الإبط. |
 | Cire d’abeille | شمع العسل |
-| dans le baume | في البلسم |
-| Donne sa tenue au baume. | يمنح البلسم تماسكه. |
+| dans la crème | في الكريم |
+| Donne sa tenue à la crème. | يمنح الكريم تماسكه. |
 | Vitamine E | فيتامين E |
 | Antioxydant qui protège la formule dans le temps. | مضاد للأكسدة يحمي التركيبة مع الوقت. |
+| Le déodorant crème, mode d’emploi | مزيل العرق كريم: طريقة الاستعمال |
 | Le déodorant crème, pour qui ? | مزيل العرق كريم، لمن؟ |
-| Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration. | لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق. |
+| Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration : transpirer est normal. | لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق: التعرق أمر طبيعي. |
 | Comment utiliser le déodorant crème ? | كيف أستعمل مزيل العرق كريم؟ |
 | Le matin, sur une aisselle propre et sèche. | في الصباح، على إبط نظيف وجاف. |
-| Prends un peu de baume du bout du doigt. | خذي قليلًا من البلسم بطرف الإصبع. |
-| Laisse-le fondre, puis applique. | اتركيه يذوب، ثم ضعيه. |
-| Il ne bloque pas la transpiration : transpirer est normal. Il agit sur les odeurs, et la tenue varie d'une personne à l'autre. | لا يمنع التعرق: التعرق أمر طبيعي. يعمل على الروائح، ومدة فعاليته تختلف من شخص لآخر. |
+| Prends un peu de crème du bout du doigt. | خذي قليلًا من الكريم بطرف الإصبع. |
+| Laisse-la fondre, puis applique. | اتركيه يذوب، ثم ضعيه. |
+| Combien de temps pour voir des résultats avec le déodorant crème ? | متى تظهر نتائج مزيل العرق كريم؟ |
+| Il agit sur les odeurs. | يعمل على الروائح. |
+| Dans la journée | خلال اليوم |
+| La tenue varie d'une personne à l'autre. | مدة فعاليته تختلف من شخص لآخر. |
+| Questions fréquentes sur le déodorant crème | أسئلة شائعة عن مزيل العرق كريم |
 | Quel prix pour le déodorant crème ?+ | كم ثمن مزيل العرق كريم؟+ |
 | 85 DH le pot de 50 ml. Avec l'offre 2 + 1 : 170 DH les 3, soit 57 DH le pot. | 85 درهم لـ 50 مل. مع عرض 2 + 1: 170 درهم للثلاثة، أي 57 درهم للعلبة. |
 | Déodorant crème50 ml · 85 DH | مزيل العرق كريم50 مل · 85 درهم |
@@ -1183,7 +1216,7 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | Français | العربية |
 |---|---|
 | Commander, à partir de {p} DH | اطلبي، ابتداءً من {p} درهم |
-| Livré partout au Maroc · Prix affiché · | نوصل إلى كل المغرب · السعر واضح · |
+| Livré partout au Maroc · | نوصل إلى كل المغرب · |
 | Dès {p} DH | ابتداءً من {p} درهم |
 | {p} DH le pot | {p} درهم للعلبة |
 | 3 pour {p} DH | 3 مقابل {p} درهم |
@@ -1197,14 +1230,16 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 | L’étiquette, sans filtre | الملصق، بدون فلتر |
 | Rôles relus par notre pharmacien | أدوار المكونات راجعها صيدلينا |
 | Message Instagram · {d} | رسالة إنستغرام · {d} |
-| Questions fréquentes | أسئلة شائعة |
-| Tu te poses | تتساءلين |
-| la question ? | عن شيء؟ |
+| Questions fréquentes sur {x} | أسئلة شائعة عن {x} |
+| Écris-nous sur WhatsApp, on te répond {d}. | راسلينا على واتساب، نجيبك {d}. |
+| Bonjour OTAGE, j'ai une question sur {x}. | مرحبًا OTAGE، عندي سؤال عن {x}. |
 | Nos autres soins | منتجاتنا الأخرى |
 | Les autres | باقي |
 | soins OTAGE. | منتجات OTAGE. |
+| {x}, mode d’emploi | {x}: طريقة الاستعمال |
 | {x}, pour qui ? | {x}، لمن؟ |
 | Comment utiliser {x} ? | كيف أستعمل {x}؟ |
+| Combien de temps pour voir des résultats avec {x} ? | متى تظهر نتائج {x}؟ |
 | Livraison : {a} à {b} DH selon ta ville. | التوصيل: من {a} إلى {b} درهم حسب مدينتك. |
 | Voir la fiche | صفحة المنتج |
 | Ticket | تذكرة |
@@ -1253,4 +1288,4 @@ Source de l'arabe : src/data/product-pages.ts (productUi). `{n}`, `{p}`, `{u}`�
 
 ---
 
-1058 textes à relire.
+1093 textes à relire.

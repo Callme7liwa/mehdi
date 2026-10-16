@@ -101,10 +101,10 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Sérum anti-taches", ar: "سيروم ضد البقع" },
     h1: { fr: "Sérum anti-taches à l'alpha-arbutine, fabriqué au Maroc", ar: "سيروم ضد البقع بالألفا أربوتين، مصنوع في المغرب" },
-    metaTitle: { fr: "Sérum anti-taches à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين في المغرب" },
+    metaTitle: { fr: "Sérum anti-taches à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين" },
     metaDescription: {
       fr: "Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès {prix} DH, livré en 24 à 72 h, payé à la livraison.",
-      ar: "سيروم ضد البقع من OTAGE رقم 02: ألفا أربوتين، ماتشا، آذريون. العناية المركزة التي تستهدف البقع الصبغية. مصنوع في المغرب، الدفع عند الاستلام.",
+      ar: "سيروم ضد البقع بالألفا أربوتين والماتشا والآذريون، لتخفيف البقع البنية. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Le soin concentré de la gamme, qui cible les taches.", ar: "العناية المركزة في المجموعة، تستهدف البقع." },
     benefit: { fr: "Atténue les taches brunes", ar: "يخفف البقع البنية" },

@@ -68,21 +68,21 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   serum: {
     tag: { fr: "N° 02 · Routine anti-taches", ar: "رقم 02 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 02 sur 04 · Routine anti-taches", ar: "رقم 02 من 04 · العناية المركزة" },
+    eyebrow: { fr: "N° 02 sur 04 · Routine anti-taches", ar: "رقم 02 من 04 · روتين ضد البقع" },
     title: [{ fr: "Sérum", ar: "سيروم" }, { fr: "anti-taches.", ar: "ضد البقع." }],
-    lede: { fr: "Pour atténuer les taches brunes et unifier le teint, goutte après goutte.", ar: "العناية المركزة في الروتين: يستهدف البقع البنية ويوحد لون البشرة، قطرة بعد قطرة." },
+    lede: { fr: "Pour atténuer les taches brunes et unifier le teint, goutte après goutte.", ar: "لتخفيف البقع البنية وتوحيد لون البشرة، قطرة بعد قطرة." },
     media: "pack",
     mediaAlt: { fr: "Le flacon compte-gouttes du sérum anti-taches OTAGE, 30 ml", ar: "عبوة السيروم ضد البقع من OTAGE بقطارة، 30 مل" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "spots", label: { fr: "Atténue les taches", ar: "يخفف البقع" } }],
     upsell: { flag: { fr: "2× plus de sérum pour {d} DH de plus", ar: "ضعف كمية السيروم مقابل {d} درهم إضافية" }, nudge: { fr: "2× plus de sérum pour {d} DH", ar: "ضعف كمية السيروم مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Le sérum anti-taches :", ar: "ثلاثة مكونات فعالة." }, { fr: "ses 3 actifs.", ar: "مهمة واحدة." }],
+      title: [{ fr: "Le sérum anti-taches :", ar: "السيروم ضد البقع:" }, { fr: "ses 3 actifs.", ar: "مكوناته الثلاثة." }],
       alt: { fr: "L’étiquette du sérum : matcha, calendula, alpha-arbutine, 30 ml", ar: "ملصق السيروم: ماتشا، آذريون، ألفا أربوتين، 30 مل" },
       ingredients: [
-        { name: { fr: "Matcha", ar: "ماتشا" }, where: label, role: { fr: "Thé vert antioxydant, qui aide le teint à retrouver de l'éclat.", ar: "شاي أخضر غني بمضادات الأكسدة، يحمي البشرة من الاعتداءات اليومية." } },
-        { name: { fr: "Calendula", ar: "آذريون (كاليندولا)" }, where: label, role: { fr: "Fleur apaisante : le sérum reste doux, matin et soir.", ar: "زهرة معروفة بتهدئة البشرة الحساسة." } },
-        { name: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" }, where: label, role: { fr: "Limite la production de mélanine : c'est l'actif qui agit sur les taches.", ar: "المكوّن الذي يستهدف البقع البنية بالحد من إنتاج الميلانين." } },
+        { name: { fr: "Matcha", ar: "ماتشا" }, where: label, role: { fr: "Thé vert antioxydant, qui aide le teint à retrouver de l'éclat.", ar: "شاي أخضر مضاد للأكسدة، يساعد البشرة على استعادة إشراقها." } },
+        { name: { fr: "Calendula", ar: "آذريون (كاليندولا)" }, where: label, role: { fr: "Fleur apaisante : le sérum reste doux, matin et soir.", ar: "زهرة مهدئة: السيروم يبقى لطيفًا، صباحًا ومساءً." } },
+        { name: { fr: "Alpha-arbutine", ar: "ألفا أربوتين" }, where: label, role: { fr: "Limite la production de mélanine : c'est l'actif qui agit sur les taches.", ar: "يحد من إنتاج الميلانين: هو المكوّن الذي يعمل على البقع." } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)

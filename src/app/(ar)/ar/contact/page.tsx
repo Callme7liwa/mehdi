@@ -8,8 +8,8 @@ const info = {
   path: "/contact",
   label: "اتصلي بنا",
   title: "اتصلي بـ OTAGE: واتساب، بريد إلكتروني وإنستغرام",
-  description: "سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلي OTAGE على واتساب، بالبريد الإلكتروني أو على إنستغرام. نجيبك على مدار الساعة.",
-  h1: "اتصلي بنا",
+  description: `سؤال عن بشرتك، عن منتج أو عن طلبك؟ راسلي OTAGE على واتساب، بالبريد الإلكتروني أو على إنستغرام ${site.instagram.handle}. نجيبك ${site.availability.ar}، طيلة الأسبوع.`,
+  h1: "اتصلي بـ OTAGE",
   schemaType: "ContactPage",
 };
 export const metadata = textMetadata(info, "ar");
@@ -31,7 +31,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener"><span dir="ltr">{site.instagram.handle}</span></a>: جديدنا، والرسائل الخاصة لمراسلتنا.</p>
 
       <h2>الطلب</h2>
-      <p>يمكنك الطلب <Link href="/ar#offres">من الموقع</Link> أو مباشرة عبر واتساب. التوصيل في كل أنحاء المغرب خلال {site.delivery.label.ar}: مجاني للمجموعة الكاملة، ومن {site.delivery.unitFee.min} إلى {site.delivery.unitFee.max} درهمًا حسب المدينة عند شراء منتجات منفردة، والدفع عند الاستلام.</p>
+      <p>اطلبي <Link href="/ar#offres">من الموقع</Link> أو عبر واتساب. التوصيل {site.delivery.label.ar}، والدفع عند الاستلام.</p>
     </TextPage>
   );
 }

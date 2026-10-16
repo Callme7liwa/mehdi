@@ -106,7 +106,7 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
             </div>
             <div className="hz-info">
               <p className="mono hz-eye">{L(x.eyebrow)}</p>
-              <h1 className="hero-title serif" id="t-hero"><span className="ln"><span>{L(x.title[0])}</span></span><span className="ln"><span><em>{L(x.title[1])}</em></span></span></h1>
+              <h1 className="hero-title serif" id="t-hero"><span className="ln"><span>{L(x.title[0])}</span></span>{" "}<span className="ln"><span><em>{L(x.title[1])}</em></span></span></h1>
               <p className="hz-lede">{L(x.lede)}</p>
               <ul className="perks">
                 {/* le bénéfice du soin, puis les 3 objections (livraison, paiement, retour) ; les actifs sont dans « L'étiquette » */}

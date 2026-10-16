@@ -60,10 +60,11 @@ export default function Hero({ t, locale }: { t: HomeText; locale: Locale }) {
           <span className="s85-bar" aria-hidden="true"><i></i></span>
         </button>
 
-        {/* Le surtitre « Routine anti-taches » reste dans le H1 : c'est lui qui porte le mot-clé de la page. */}
+        {/* Le surtitre « Routine anti-taches » reste dans le H1 : c'est lui qui porte le mot-clé de la page.
+            Les {" "} séparent les lignes dans le texte brut (moteurs, IA) ; à l'écran, chaque ligne est un bloc. */}
         <h1 className="title">
-          <span className="line kick">{t.heroRoutineAntiTaches}</span>
-          <span className="line">{t.heroDesSoins}<span className="hn">{t.heroHonnetes}</span></span>
+          <span className="line kick">{t.heroRoutineAntiTaches}</span>{" "}
+          <span className="line">{t.heroDesSoins}<span className="hn">{t.heroHonnetes}</span></span>{" "}
           <span className="line l2">{t.heroFabriquesAuMaroc}</span>
         </h1>
 

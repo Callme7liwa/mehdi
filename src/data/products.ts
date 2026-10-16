@@ -183,10 +183,10 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Écran solaire SPF 50", ar: "واقي الشمس SPF 50" },
     h1: { fr: "Écran solaire SPF 50, haute protection UVA/UVB", ar: "واقي الشمس SPF 50، حماية عالية من UVA و UVB" },
-    metaTitle: { fr: "Écran solaire SPF 50 anti-taches", ar: "واقي الشمس SPF 50 ضد البقع، مصنوع في المغرب" },
+    metaTitle: { fr: "Écran solaire SPF 50 anti-taches", ar: "واقي الشمس SPF 50 ضد البقع" },
     metaDescription: {
       fr: "Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès {prix} DH, livré en 24 à 72 h au Maroc, payé à la livraison.",
-      ar: "واقي الشمس من OTAGE رقم 04: SPF 50، حماية عالية من UVA و UVB، حتى لا تعود البقع. آخر خطوة في روتين الصباح. مصنوع في المغرب.",
+      ar: "واقي الشمس SPF 50، حماية عالية من UVA و UVB للحد من عودة البقع. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Protège des UVA et des UVB pour que les taches ne reviennent pas.", ar: "يحمي من أشعة UVA و UVB حتى لا تعود البقع." },
     benefit: { fr: "Limite le retour des taches", ar: "يحد من عودة البقع" },

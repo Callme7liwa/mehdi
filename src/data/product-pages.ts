@@ -128,20 +128,20 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   },
   ecran: {
     tag: { fr: "N° 04 · Routine anti-taches", ar: "رقم 04 · روتين ضد البقع" },
-    eyebrow: { fr: "N° 04 sur 04 · Routine anti-taches", ar: "رقم 04 من 04 · الخطوة التي تحمي كل شيء" },
+    eyebrow: { fr: "N° 04 sur 04 · Routine anti-taches", ar: "رقم 04 من 04 · روتين ضد البقع" },
     title: [{ fr: "Écran solaire", ar: "واقي الشمس" }, { fr: "SPF 50.", ar: "SPF 50." }],
-    lede: { fr: "Pour protéger ta peau des UVA et des UVB, et limiter le retour des taches.", ar: "الشمس توقظ البقع. والواقي يمنعها من العودة: آخر خطوة في الصباح، كل يوم." },
+    lede: { fr: "Pour protéger ta peau des UVA et des UVB, et limiter le retour des taches.", ar: "لحماية بشرتك من UVA و UVB، والحد من عودة البقع." },
     media: "pack",
     mediaAlt: { fr: "Le flacon pompe de l’écran solaire SPF 50 OTAGE, 50 ml", ar: "عبوة واقي الشمس SPF 50 من OTAGE بمضخة، 50 مل" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "sun", label: { fr: "SPF 50, UVA et UVB", ar: "SPF 50، UVA و UVB" } }],
     upsell: { flag: { fr: "+20 ml pour {d} DH de plus", ar: "‎+20 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+20 ml pour {d} DH", ar: "‎+20 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "L'écran SPF 50 :", ar: "بدون واقي،" }, { fr: "ses 2 protections.", ar: "تعود البقع." }],
+      title: [{ fr: "L'écran SPF 50 :", ar: "واقي SPF 50:" }, { fr: "ses 2 protections.", ar: "نوعا الحماية." }],
       alt: { fr: "L’étiquette de l’écran : SPF 50, haute protection UVA/UVB, 50 ml", ar: "ملصق الواقي: SPF 50، حماية عالية من UVA/UVB، ‏50 مل" },
       ingredients: [
         { name: { fr: "SPF 50", ar: "SPF 50" }, where: label, role: { fr: "Le plus haut niveau de protection contre les coups de soleil (UVB).", ar: "أعلى مستوى من الحماية من حروق الشمس (UVB)." } },
-        { name: { fr: "UVA / UVB", ar: "UVA / UVB" }, where: label, role: { fr: "Protège aussi des UVA, ceux qui foncent les taches et les font revenir.", ar: "يحمي من نوعي الأشعة: UVB (حروق الشمس) و UVA (البقع، الشيخوخة)." } },
+        { name: { fr: "UVA / UVB", ar: "UVA / UVB" }, where: label, role: { fr: "Protège aussi des UVA, ceux qui foncent les taches et les font revenir.", ar: "يحمي أيضًا من UVA، الأشعة التي تُغمّق البقع وتعيدها." } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)

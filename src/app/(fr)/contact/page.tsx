@@ -7,8 +7,8 @@ const info = {
   path: "/contact",
   label: "Contact",
   title: "Contacter OTAGE : WhatsApp, e-mail et Instagram",
-  description: `Une question sur ta peau, un soin ou ta commande ? Écris à OTAGE sur WhatsApp, par e-mail ou sur Instagram ${site.instagram.handle}. Réponse ${site.availability.fr}.`,
-  h1: "Nous contacter",
+  description: `Une question sur ta peau, un soin ou ta commande ? Écris à OTAGE sur WhatsApp, par e-mail ou sur Instagram ${site.instagram.handle}. On te répond ${site.availability.fr}, 7 j/7.`,
+  h1: "Contacter OTAGE",
   schemaType: "ContactPage",
 };
 export const metadata = textMetadata(info);
@@ -30,7 +30,7 @@ export default function Page() {
       <p><a href={site.instagram.url} target="_blank" rel="noopener">{site.instagram.handle}</a> : nos nouveautés, et les messages privés pour nous écrire.</p>
 
       <h2>Commander</h2>
-      <p>Tu peux commander <Link href="/#offres">sur le site</Link> ou directement sur WhatsApp. Livraison en {site.delivery.label.fr} partout au Maroc : offerte pour la gamme complète, de {site.delivery.unitFee.min} à {site.delivery.unitFee.max} DH selon la ville pour un achat à l'unité, paiement à la livraison.</p>
+      <p>Commande <Link href="/#offres">sur le site</Link> ou sur WhatsApp. Livraison en {site.delivery.label.fr}, paiement à la livraison.</p>
       {/* TODO : adresse postale, si OTAGE souhaite l'afficher. */}
     </TextPage>
   );

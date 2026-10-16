@@ -55,7 +55,7 @@ export const site = {
     e164: "+212688918201",
     display: "+212 6 88 91 82 01",
   },
-  instagram: { handle: "@otage.1", url: "https://www.instagram.com/otage.1/" },
+  instagram: { handle: "@otage.ma", url: "https://www.instagram.com/otage.ma" },
   email: "Dr.mouldwa@gmail.com",
   /** Satisfaction : résultat d'une enquête interne, toujours affiché avec la taille de l'échantillon. Jamais dans le JSON-LD. */
   satisfaction: { percent: 85, sample: 20 },

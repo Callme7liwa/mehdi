@@ -55,7 +55,7 @@ OTAGE vend seulement en ligne : pas de fiche Google Business Profile (la marque 
 
 ## 6. Instagram
 
-- Bio de @otage.1 : remplacer le lien par `https://otage.ma`, et écrire le nom « OTAGE Cosmétiques ».
+- Bio de @otage.ma : remplacer le lien par `https://otage.ma`, et écrire le nom « OTAGE Cosmétiques ».
 - Même nom, même numéro WhatsApp (+212 6 88 91 82 01) et même description que sur le site.
 
 ## 7. Plus tard : frezabio.com

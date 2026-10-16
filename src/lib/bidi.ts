@@ -6,8 +6,8 @@
    les fait lire « 1 + 2 » et « % 85 » par une lectrice arabophone : c'était l'erreur de la première version.)
 
    Seuls les fragments qui forment un tout écrit en latin restent de gauche à droite : numéros de téléphone
-   (« +212 6 88 91 82 01 »), adresses e-mail, identifiants (« @otage.1 »), adresses de sites. Sans protection, le
-   navigateur les découpe (« otage.1@ », groupes de chiffres dans le désordre). isolate() les entoure de caractères
+   (« +212 6 88 91 82 01 »), adresses e-mail, identifiants (« @otage.ma »), adresses de sites. Sans protection, le
+   navigateur les découpe (« otage.ma@ », groupes de chiffres dans le désordre). isolate() les entoure de caractères
    d'isolement Unicode (LRI … PDI), invisibles, qui fonctionnent aussi dans les attributs (alt, aria-label…).
    Vérifié par `npm run check:bidi`, sur les pages rendues dans de vrais navigateurs. */
 export const LRI = "\u2066", PDI = "\u2069";

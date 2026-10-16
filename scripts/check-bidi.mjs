@@ -4,7 +4,7 @@
    La règle (src/lib/bidi.ts) :
    - une expression (« 2 + 1 », « 85 % », « 01 / 04 ») se lit dans le sens de la phrase. Dans un texte arabe, de droite à
      gauche : 2 est à droite, puis +, puis 1 ; 85 est à droite de %. Chaque nombre garde ses chiffres dans l'ordre.
-   - un numéro de téléphone, un e-mail, un identifiant (« @otage.1 ») restent d'un seul tenant, de gauche à droite.
+   - un numéro de téléphone, un e-mail, un identifiant (« @otage.ma ») restent d'un seul tenant, de gauche à droite.
 
    Deux contrôles, sur les 18 pages arabes :
    1. HTML servi : l'algorithme bidirectionnel Unicode (UAX 9) appliqué à chaque paragraphe. Rapide, sans navigateur.
@@ -120,13 +120,13 @@ let failed = 0;
 const check = (label, ok) => { console.log(`${ok ? "✓" : "✗"} ${label}`); if (!ok) failed++; };
 
 /* ---------- 1. La règle, sur des exemples ---------- */
-const offer = "عرض 2 + 1 مجانًا", rate = "85 % رضا", phone = "الرقم +212 6 88 91 82 01 للطلب", handle = "تابعينا على @otage.1 الآن";
+const offer = "عرض 2 + 1 مجانًا", rate = "85 % رضا", phone = "الرقم +212 6 88 91 82 01 للطلب", handle = "تابعينا على @otage.ma الآن";
 const forced = (t, f) => t.replace(f, LRI + f + PDI); // l'ancienne version du site : le fragment forcé de gauche à droite
 const bad = (t) => checkText(t, "rtl").problems.length > 0;
 check("« 2 + 1 مجانًا » et « 85 % » se lisent de droite à gauche, comme la phrase", !bad(isolate(offer)) && !bad(isolate(rate)));
 check("témoin : forcés de gauche à droite (« 1 + 2 », « % 85 » pour une lectrice arabophone), le test les refuse", bad(forced(offer, "2 + 1")) && bad(forced(rate, "85 %")));
-check("un numéro de téléphone et « @otage.1 » restent de gauche à droite avec isolate()", !bad(isolate(phone)) && !bad(isolate(handle)));
-check("témoin : sans isolate(), le test refuse le numéro découpé et « otage.1@ »", bad(phone) && bad(handle));
+check("un numéro de téléphone et « @otage.ma » restent de gauche à droite avec isolate()", !bad(isolate(phone)) && !bad(isolate(handle)));
+check("témoin : sans isolate(), le test refuse le numéro découpé et « otage.ma@ »", bad(phone) && bad(handle));
 check("isolate() ne touche ni à un texte sans arabe, ni aux balises, ni aux adresses des liens",
   isolate("Offre 2 + 1") === "Offre 2 + 1" && isolate('نص <a href="tel:+212688918201">اتصال</a>') === 'نص <a href="tel:+212688918201">اتصال</a>');
 

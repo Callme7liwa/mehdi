@@ -16,6 +16,7 @@
     "email:preview": "node scripts/email-preview.mjs",
     "check:order": "node scripts/check-order.mjs",
     "check:savings": "node --no-warnings scripts/check-savings.mjs",
+    "check:dates": "node --no-warnings scripts/check-dates.mjs",
     "relecture": "node --no-warnings scripts/relecture.mjs",
     "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "validation": "node --no-warnings scripts/validation-client.mjs",

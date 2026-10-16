@@ -237,7 +237,7 @@ export const productUi = isolateAr({
   onPage: { fr: "Sur cette page", ar: "في هذه الصفحة" },
   order: { fr: "Commander", ar: "اطلبي" },
   orderFrom: { fr: "Commander, à partir de {p} DH", ar: "اطلبي، ابتداءً من {p} درهم" },
-  ring: { fr: "Livré partout au Maroc · Prix affiché ·", ar: "نوصل إلى كل المغرب · السعر واضح ·" },
+  ring: { fr: "Livré partout au Maroc ·", ar: "نوصل إلى كل المغرب ·" },
   from: { fr: "Dès {p} DH", ar: "ابتداءً من {p} درهم" },
   only: { fr: "{p} DH le pot", ar: "{p} درهم للعلبة" },
   threeFor: { fr: "3 pour {p} DH", ar: "3 مقابل {p} درهم" },

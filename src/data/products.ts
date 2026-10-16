@@ -57,10 +57,10 @@ export const products: Product[] = isolateAr([
     range: "taches",
     name: { fr: "Gel nettoyant anti-taches", ar: "جل منظف ضد البقع" },
     h1: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع، خالٍ من السلفات" },
-    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع خالٍ من السلفات، مصنوع في المغرب" },
+    metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع بدون سلفات" },
     metaDescription: {
       fr: "Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès {prix} DH, livré en 24 à 72 h partout au Maroc, payé à la livraison.",
-      ar: "جل منظف ضد البقع من OTAGE رقم 01: التين الشوكي، اللبان، بدون سلفات. ينظف بلطف دون تجفيف البشرة. مصنوع في المغرب، الدفع عند الاستلام.",
+      ar: "جل منظف ضد البقع بدون سلفات، بالتين الشوكي واللبان، مصنوع في المغرب. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.", ar: "ينظف بلطف دون تجفيف البشرة ويهيئها لاستقبال باقي العناية." },
     benefit: { fr: "Nettoie sans dessécher", ar: "ينظف دون تجفيف البشرة" },

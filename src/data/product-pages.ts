@@ -39,20 +39,20 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   gel: {
     tag: { fr: "N° 01 · Routine anti-taches", ar: "رقم 01 · روتين ضد البقع" },
     eyebrow: { fr: "N° 01 sur 04 · Routine anti-taches", ar: "رقم 01 من 04 · روتين ضد البقع" },
-    title: [{ fr: "Gel nettoyant", ar: "جل" }, { fr: "anti-taches.", ar: "منظف." }],
-    lede: { fr: "Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches.", ar: "ينظف بلطف، دون تجفيف، ويهيئ البشرة لاستقبال العناية ضد البقع." },
+    title: [{ fr: "Gel nettoyant", ar: "جل منظف" }, { fr: "anti-taches.", ar: "ضد البقع." }],
+    lede: { fr: "Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches.", ar: "لتنظيف بشرتك دون تجفيفها، قبل السيروم ضد البقع." },
     media: "pack",
     mediaAlt: { fr: "Le flacon de gel nettoyant anti-taches OTAGE, 200 ml", ar: "عبوة الجل المنظف ضد البقع من OTAGE، 200 مل" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
     perks: [{ icon: "waves", label: { fr: "Ne dessèche pas", ar: "لا يجفف البشرة" } }],
     upsell: { flag: { fr: "+75 ml pour {d} DH de plus", ar: "‎+75 مل مقابل {d} درهم إضافية" }, nudge: { fr: "+75 ml pour {d} DH", ar: "‎+75 مل مقابل {d} درهم" } },
     lab: {
-      title: [{ fr: "Le gel nettoyant :", ar: "ثلاث كلمات على الملصق." }, { fr: "ses 3 actifs.", ar: "وكل شيء قيل." }],
+      title: [{ fr: "Le gel nettoyant :", ar: "الجل المنظف:" }, { fr: "ses 3 actifs.", ar: "مكوناته الثلاثة." }],
       alt: { fr: "L’étiquette du gel : figue de Barbarie, louban, sans sulfate, 200 ml", ar: "ملصق الجل: التين الشوكي، اللبان، بدون سلفات، 200 مل" },
       ingredients: [
-        { name: { fr: "Figue de Barbarie", ar: "التين الشوكي" }, where: label, role: { fr: "Adoucit et hydrate, sans tiraillement après le rinçage.", ar: "مكوّن مغربي معروف بتنعيم البشرة وترطيبها." } },
-        { name: { fr: "Louban", ar: "اللبان" }, where: label, role: { fr: "Résine traditionnelle qui aide à purifier la peau.", ar: "راتنج تقليدي يُستعمل منذ زمن طويل لتنقية البشرة." } },
-        { name: { fr: "Sans sulfate", ar: "بدون سلفات" }, where: label, role: { fr: "Base lavante douce : la peau est propre, sans être décapée.", ar: "قاعدة غسل لطيفة، بدون سلفات قاسية." } },
+        { name: { fr: "Figue de Barbarie", ar: "التين الشوكي" }, where: label, role: { fr: "Adoucit et hydrate, sans tiraillement après le rinçage.", ar: "ينعّم ويرطب، دون شد بعد الشطف." } },
+        { name: { fr: "Louban", ar: "اللبان" }, where: label, role: { fr: "Résine traditionnelle qui aide à purifier la peau.", ar: "راتنج تقليدي يساعد على تنقية البشرة." } },
+        { name: { fr: "Sans sulfate", ar: "بدون سلفات" }, where: label, role: { fr: "Base lavante douce : la peau est propre, sans être décapée.", ar: "قاعدة غسل لطيفة: بشرة نظيفة دون أن تتهيج." } },
       ],
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)

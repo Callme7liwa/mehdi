@@ -13,9 +13,9 @@ const lowest = Math.min(...products.flatMap((p) => unitFormats(p).map((f) => p.u
 const copy = {
   fr: {
     title: "Soins anti-taches, contour des yeux et déodorant | OTAGE",
-    description: `Les 6 soins OTAGE fabriqués au Maroc : routine anti-taches, contour des yeux, déodorant. Dès ${lowest} DH, livrés en 24 à 72 h, payés à la livraison.`,
+    description: `Les 6 soins OTAGE fabriqués au Maroc : routine anti-taches, contour des yeux, déodorant. Dès ${lowest} DH, livrés en 24 à 72 h, paiement à la livraison.`,
     h1: "Soins anti-taches, contour des yeux et déodorant",
-    lead: "Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.",
+    lead: "Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison.",
     offer: (p: number) => `La gamme complète dès ${p} DH, livraison offerte.`,
     orderRange: (p: number) => `Commander la gamme · ${p} DH`,
   },

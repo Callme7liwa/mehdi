@@ -34,13 +34,13 @@ const items: (Faq & { id?: string })[] = [
 
 export default function Page() {
   return (
-    <TextPage info={info} lead={`Livraison en ${site.delivery.label.fr} partout au Maroc, offerte pour la gamme complète. Tu paies à la réception, en espèces.`} extraLd={[faqLd(items, `${abs(info.path)}#faq`)]}>
+    <TextPage info={info} lead={`Livraison en ${site.delivery.label.fr} partout au Maroc, offerte pour la gamme complète. Paiement à la livraison, en espèces.`} extraLd={[faqLd(items, `${abs(info.path)}#faq`)]}>
       <h2>Comment se passe une commande ?</h2>
       <ol>
         <li><b>Tu commandes</b> sur le site en 20 secondes (nom, téléphone, ville) ou sur WhatsApp.</li>
         <li><b>On t'appelle</b> pour confirmer ta commande et ton adresse.</li>
         <li><b>Ton colis part</b> et arrive en {site.delivery.label.fr}, partout au Maroc.</li>
-        <li><b>Tu paies à la réception</b>, en espèces, quand le livreur te remet ton colis.</li>
+        <li><b>Paiement à la livraison</b>, en espèces, quand le livreur te remet ton colis.</li>
       </ol>
 
       <div id="faq">

@@ -87,7 +87,7 @@ md += table(["Texte", "Contenu affiché", "Source"], [
   row(["Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran)", "Avis sur la routine complète", "src/data/reviews.ts"]),
   row(["Fiches : titre des questions", `${productUi.faqTitle.fr} ${productUi.faqTitleEm.fr}`, "src/data/product-pages.ts"]),
   row(["Fiches : case de consentement", `${productUi.agreeA.fr} ${productUi.agreeCgv.fr} ${productUi.agreeAnd.fr} ${productUi.agreeReturns.fr}.`, "src/data/product-pages.ts"]),
-  row(["Page /soins : chapeau", "Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison.", "src/templates/ProductsIndex.tsx"]),
+  row(["Page /soins : chapeau", "Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison.", "src/templates/ProductsIndex.tsx"]),
   row(["Description générale du site (Google, JSON-LD, llms.txt)", site.description.fr, "src/data/site.ts, description"]),
   row(["CGV, article 2 « Produits » : liste générée", products.map((p) => `${p.name.fr} (${unitFormats(p).map((f) => `${p.ml[f]} ml`).join(" ou ")})`).join(" ; "), "src/app/(fr)/cgv/page.tsx, depuis products.ts"]),
 ]);

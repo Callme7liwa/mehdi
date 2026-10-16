@@ -59,7 +59,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع، خالٍ من السلفات" },
     metaTitle: { fr: "Gel nettoyant anti-taches sans sulfate", ar: "جل منظف ضد البقع بدون سلفات" },
     metaDescription: {
-      fr: "Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès {prix} DH, livré en 24 à 72 h partout au Maroc, payé à la livraison.",
+      fr: "Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès {prix} DH, livré en 24 à 72 h partout au Maroc, paiement à la livraison.",
       ar: "جل منظف ضد البقع بدون سلفات، بالتين الشوكي واللبان، مصنوع في المغرب. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Nettoie en douceur sans dessécher et prépare la peau à recevoir les soins.", ar: "ينظف بلطف دون تجفيف البشرة ويهيئها لاستقبال باقي العناية." },
@@ -103,7 +103,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Sérum anti-taches à l'alpha-arbutine, fabriqué au Maroc", ar: "سيروم ضد البقع بالألفا أربوتين، مصنوع في المغرب" },
     metaTitle: { fr: "Sérum anti-taches à l'alpha-arbutine", ar: "سيروم ضد البقع بالألفا أربوتين" },
     metaDescription: {
-      fr: "Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès {prix} DH, livré en 24 à 72 h, payé à la livraison.",
+      fr: "Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès {prix} DH, livré en 24 à 72 h, paiement à la livraison.",
       ar: "سيروم ضد البقع بالألفا أربوتين والماتشا والآذريون، لتخفيف البقع البنية. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Le soin concentré de la gamme, qui cible les taches.", ar: "العناية المركزة في المجموعة، تستهدف البقع." },
@@ -142,7 +142,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Crème anti-taches à la niacinamide, fabriquée au Maroc", ar: "كريم ضد البقع بالنياسيناميد، مصنوع في المغرب" },
     metaTitle: { fr: "Crème anti-taches à la niacinamide", ar: "كريم ضد البقع بالنياسيناميد" },
     metaDescription: {
-      fr: "Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès {prix} DH, livrée en 24 à 72 h, payée à la livraison.",
+      fr: "Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès {prix} DH, livrée en 24 à 72 h, paiement à la livraison.",
       ar: "كريم ضد البقع بالنياسيناميد وحمض الهيالورونيك: يرطب ويوحد لون البشرة. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Hydrate, unifie le teint et scelle le sérum.", ar: "يرطب، يوحد لون البشرة ويثبت السيروم." },
@@ -185,7 +185,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Écran solaire SPF 50, haute protection UVA/UVB", ar: "واقي الشمس SPF 50، حماية عالية من UVA و UVB" },
     metaTitle: { fr: "Écran solaire SPF 50 anti-taches", ar: "واقي الشمس SPF 50 ضد البقع" },
     metaDescription: {
-      fr: "Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès {prix} DH, livré en 24 à 72 h au Maroc, payé à la livraison.",
+      fr: "Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès {prix} DH, livré en 24 à 72 h au Maroc, paiement à la livraison.",
       ar: "واقي الشمس SPF 50، حماية عالية من UVA و UVB للحد من عودة البقع. ابتداءً من {prix} درهم، التوصيل من 24 إلى 72 ساعة في كل المغرب والدفع عند الاستلام.",
     },
     lead: { fr: "Protège des UVA et des UVB pour que les taches ne reviennent pas.", ar: "يحمي من أشعة UVA و UVB حتى لا تعود البقع." },
@@ -231,7 +231,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Sérum contour des yeux à la caféine, pour les cernes", ar: "سيروم محيط العين بالكافيين، للهالات السوداء" },
     metaTitle: { fr: "Sérum contour des yeux à la caféine", ar: "سيروم محيط العين بالكافيين" },
     metaDescription: {
-      fr: "Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. {prix} DH, ou 3 pour {lot} DH, payé à la livraison.",
+      fr: "Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. {prix} DH, ou 3 pour {lot} DH, paiement à la livraison.",
       ar: "سيروم محيط العين بالكافيين، 15 مل، بكرة دوارة، لتخفيف مظهر الهالات والانتفاخ. {prix} درهم، أو 3 بـ {lot} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     },
     lead: { fr: "Un applicateur bille pour le contour de l'œil. Une texture légère qui se glisse sous le maquillage, matin et soir.", ar: "بكرة دوارة لمحيط العين. قوام خفيف يوضع تحت المكياج، صباحًا ومساءً." },
@@ -268,7 +268,7 @@ export const products: Product[] = isolateAr([
     h1: { fr: "Déodorant crème OTAGE", ar: "مزيل العرق كريم OTAGE" },
     metaTitle: { fr: "Déodorant crème OTAGE, 5 ingrédients", ar: "مزيل العرق كريم OTAGE، 5 مكونات" },
     metaDescription: {
-      fr: "Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison.",
+      fr: "Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, paiement à la livraison.",
       ar: "مزيل العرق كريم OTAGE مصنوع في المغرب، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. {prix} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },

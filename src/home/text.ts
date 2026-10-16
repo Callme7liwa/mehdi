@@ -48,7 +48,7 @@ const texts = {
     shopFraisA: "",
     shopFraisB: " à ",
     shopFraisC: " DH selon ta ville",
-    shopTuPaies: "Tu paies à la livraison, en espèces : ",
+    shopTuPaies: "Paiement à la livraison, en espèces : ",
     shopA: " à ",
     // Hero
     heroOtageAccueil: "OTAGE, accueil",
@@ -355,7 +355,7 @@ const texts = {
     shopFraisA: "من ",
     shopFraisB: " إلى ",
     shopFraisC: " درهمًا حسب مدينتك",
-    shopTuPaies: "تدفعين عند الاستلام، نقدًا: ",
+    shopTuPaies: "الدفع عند الاستلام، نقدًا: ",
     shopA: " إلى ",
     // Hero
     heroOtageAccueil: "OTAGE، الصفحة الرئيسية",

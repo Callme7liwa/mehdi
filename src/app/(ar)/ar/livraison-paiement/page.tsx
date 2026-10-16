@@ -34,13 +34,13 @@ const items: (Faq & { id?: string })[] = [
 
 export default function Page() {
   return (
-    <TextPage locale="ar" info={info} lead={`التوصيل ${site.delivery.label.ar} في كل المغرب، مجاني للمجموعة الكاملة. تدفعين عند الاستلام، نقدًا.`} extraLd={[faqLd(items, `${abs("/ar" + info.path)}#faq`)]}>
+    <TextPage locale="ar" info={info} lead={`التوصيل ${site.delivery.label.ar} في كل المغرب، مجاني للمجموعة الكاملة. الدفع عند الاستلام، نقدًا.`} extraLd={[faqLd(items, `${abs("/ar" + info.path)}#faq`)]}>
       <h2>كيف يتم الطلب؟</h2>
       <ol>
         <li><b>تطلبين</b> من الموقع في 20 ثانية (الاسم، الهاتف، المدينة) أو عبر واتساب.</li>
         <li><b>نتصل بك</b> لتأكيد طلبك وعنوانك.</li>
         <li><b>يُرسل طردك</b> ويصل {site.delivery.label.ar}، في كل المغرب.</li>
-        <li><b>تدفعين عند الاستلام</b>، نقدًا، حين يسلمك عامل التوصيل طردك.</li>
+        <li><b>الدفع عند الاستلام</b>، نقدًا، حين يسلمك عامل التوصيل طردك.</li>
       </ol>
 
       <div id="faq">

@@ -53,7 +53,7 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Déodorant : titre de la page (H1), neutre | Déodorant crème OTAGE. | src/data/product-pages.ts, deo.title | ☐ Validé | ☐ À modifier : |
 | Déodorant : variante du H1, activée seulement après validation de « sans aluminium » | Déodorant crème sans aluminium. | src/data/product-pages.ts (commentaire au-dessus de deo.title) | ☐ Validé | ☐ À modifier : |
 | Déodorant : titre dans Google | Déodorant crème OTAGE, 5 ingrédients \| OTAGE | src/data/products.ts, metaTitle | ☐ Validé | ☐ À modifier : |
-| Déodorant : description dans Google (et JSON-LD) | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
+| Déodorant : description dans Google (et JSON-LD) | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, paiement à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
 | Déodorant : « Pour qui ? » | Pour celles et ceux qui veulent un déodorant crème simple, qui agit sur les odeurs sans bloquer la transpiration. | src/data/products.ts, forWho | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Quel prix pour le déodorant crème ? » | 85 DH le pot de 50 ml. Avec l'offre 2 + 1 : 170 DH les 3, soit 57 DH le pot. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Et si j'ai la peau sensible ? » | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
@@ -66,7 +66,7 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran) | Avis sur la routine complète | src/data/reviews.ts | ☐ Validé | ☐ À modifier : |
 | Fiches : titre des questions | Tu te poses la question ? | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
 | Fiches : case de consentement | J’ai lu et j’accepte les CGV et la politique de retour. | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
-| Page /soins : chapeau | Fabriqués au Maroc, livrés en 24 à 72 h, payés à la livraison. | src/templates/ProductsIndex.tsx | ☐ Validé | ☐ À modifier : |
+| Page /soins : chapeau | Fabriqués au Maroc, livrés en 24 à 72 h, paiement à la livraison. | src/templates/ProductsIndex.tsx | ☐ Validé | ☐ À modifier : |
 | Description générale du site (Google, JSON-LD, llms.txt) | Marque marocaine de soins : gamme anti-taches (gel nettoyant, sérum, crème, écran solaire SPF 50), sérum contour des yeux et déodorant crème, fabriqués au Maroc. | src/data/site.ts, description | ☐ Validé | ☐ À modifier : |
 | CGV, article 2 « Produits » : liste générée | Gel nettoyant anti-taches (125 ml ou 200 ml) ; Sérum anti-taches (15 ml ou 30 ml) ; Crème anti-taches (30 ml ou 50 ml) ; Écran solaire SPF 50 (30 ml ou 50 ml) ; Sérum contour des yeux (15 ml) ; Déodorant crème (50 ml) | src/app/(fr)/cgv/page.tsx, depuis products.ts | ☐ Validé | ☐ À modifier : |
 

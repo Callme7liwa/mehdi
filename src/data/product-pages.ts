@@ -188,9 +188,9 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
   deo: {
     tag: { fr: "N° 06 · Soin du corps · 50 ml", ar: "رقم 06 · العناية بالجسم · 50 مل" },
     eyebrow: { fr: "N° 06 · Nouveau · 50 ml", ar: "رقم 06 · جديد · 50 مل" },
-    // H1 neutre en attendant la validation ; variante prête : [{ fr: "Déodorant crème", ar: "مزيل العرق كريم" }, { fr: "sans aluminium.", ar: "بدون ألمنيوم." }]
+    // H1 neutre : l'allégation n'apparaît nulle part sur le site tant que docs/validation-client.md ne l'a pas validée. Variante prête : [{ fr: "Déodorant crème", ar: "مزيل العرق كريم" }, { fr: "sans aluminium.", ar: "بدون ألمنيوم." }]
     title: [{ fr: "Déodorant crème", ar: "مزيل العرق كريم" }, { fr: "OTAGE.", ar: "OTAGE." }],
-    lede: { fr: "Pour les odeurs, avec 5 ingrédients et sans sels d'aluminium.", ar: "للروائح، بـ 5 مكونات وبدون أملاح الألمنيوم." },
+    lede: { fr: "Pour les odeurs, avec 5 ingrédients seulement.", ar: "للروائح، بـ 5 مكونات فقط." },
     media: "photo",
     mediaAlt: { fr: "Le pot de déodorant crème OTAGE ouvert, tenu à deux mains, un doigt dans le baume", ar: "علبة مزيل العرق كريم OTAGE مفتوحة بين يدين، وإصبع في البلسم" },
     // le bénéfice du soin (les 3 objections et le prix sont communs à toutes les fiches)
@@ -217,7 +217,7 @@ export const productPages: Record<ProductKey, ProductPageText> = isolateAr({
     },
     // mode d'emploi : pour qui (60 mots max), étapes, résultats honnêtes (arabe « À relire par un natif »)
     use: {
-      forWho: { fr: "Pour toi si tu veux un déodorant sans sels d'aluminium. Il agit sur les odeurs, pas sur la transpiration.", ar: "لك إن كنت تريدين مزيل عرق بدون أملاح الألمنيوم. يعمل على الروائح، لا على التعرق." },
+      forWho: { fr: "Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration.", ar: "لك إن كنت تريدين مزيل عرق كريم بسيطًا، بـ 5 مكونات. يعمل على الروائح، لا على التعرق." },
       steps: [
         { fr: "Le matin, sur une aisselle propre et sèche.", ar: "في الصباح، على إبط نظيف وجاف." },
         { fr: "Prends un peu de baume du bout du doigt.", ar: "خذي قليلًا من البلسم بطرف الإصبع." },

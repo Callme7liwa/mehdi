@@ -265,17 +265,17 @@ export const products: Product[] = isolateAr([
     no: "N° 06",
     range: "corps",
     name: { fr: "Déodorant crème", ar: "مزيل العرق كريم" },
-    h1: { fr: "Déodorant crème sans sels d'aluminium", ar: "مزيل عرق كريم بدون أملاح الألمنيوم" },
+    h1: { fr: "Déodorant crème OTAGE", ar: "مزيل العرق كريم OTAGE" },
     metaTitle: { fr: "Déodorant crème OTAGE, 5 ingrédients", ar: "مزيل العرق كريم OTAGE، 5 مكونات" },
     metaDescription: {
-      fr: "Déodorant crème sans sels d'aluminium, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison.",
-      ar: "مزيل العرق كريم بدون أملاح الألمنيوم، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. {prix} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
+      fr: "Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison.",
+      ar: "مزيل العرق كريم OTAGE مصنوع في المغرب، 5 مكونات، علبة 50 مل. يعمل على الروائح دون منع التعرق. {prix} درهم، التوصيل من 24 إلى 72 ساعة والدفع عند الاستلام.",
     },
     lead: { fr: "Un baume fondant qui s'occupe des odeurs. Cinq ingrédients, rien d'autre.", ar: "بلسم ذائب يعتني بالروائح. خمسة مكونات، لا شيء غيرها." },
-    benefit: { fr: "Agit sur les odeurs, sans aluminium", ar: "يعمل على الروائح، بدون ألمنيوم" },
+    benefit: { fr: "Agit sur les odeurs, 5 ingrédients", ar: "يعمل على الروائح، 5 مكونات" },
     forWho: {
-      fr: "Pour celles et ceux qui veulent un déodorant sans sels d'aluminium, qui agit sur les odeurs sans bloquer la transpiration.",
-      ar: "لمن يبحث عن مزيل عرق بدون أملاح الألمنيوم، يعمل على الروائح دون أن يمنع التعرق.",
+      fr: "Pour celles et ceux qui veulent un déodorant crème simple, qui agit sur les odeurs sans bloquer la transpiration.",
+      ar: "لمن يبحث عن مزيل عرق كريم بسيط، يعمل على الروائح دون أن يمنع التعرق.",
     },
     ingredients: [
       { fr: "Oxyde de zinc", ar: "أكسيد الزنك" },

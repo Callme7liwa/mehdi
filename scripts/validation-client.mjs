@@ -62,7 +62,7 @@ md += table(["Donnée", "Valeur affichée", "Source"], [
 ]);
 md += `### Allégations : À valider\n\n« 100 % naturel » (et « naturel », « ingrédients naturels ») a été **retiré partout** (fiche, méta, JSON-LD, llms.txt, accueil, arabe) en attendant votre validation. Les allégations ci-dessous sont affichées ; elles restent **à valider**.\n\n`;
 md += table(["Allégation", "Où elle apparaît", "Statut"], [
-  row(["Sans sels d'aluminium", "fiche (accroche, bénéfice, description Google), accueil (carte « odeurs », « À l'unité »), FAQ, llms.txt. Retiré du H1 et du titre Google en attendant la validation.", "À valider"]),
+  row(["Sans sels d'aluminium", "Nulle part : retiré du site (accueil, cartes, boutique à l'unité, fiche, meta, JSON-LD, llms.txt, arabe) en attendant votre validation.", "À valider avant de le rétablir"]),
   row(["Sans parabène", "fiche (avantage)", "À valider"]),
   row(["Ne bloque pas la transpiration (agit sur les odeurs)", "fiche (avantage, « Pour qui ? », FAQ « Est-ce qu'il bloque la transpiration ? »)", "À valider"]),
   row(["Sans sulfate", "fiche (avantage) — venait de la maquette", "À valider"]),

@@ -39,7 +39,7 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 
 | Allégation | Où elle apparaît | Statut | Validé | À modifier (préciser) |
 |---|---|---|---|---|
-| Sans sels d'aluminium | fiche (accroche, bénéfice, description Google), accueil (carte « odeurs », « À l'unité »), FAQ, llms.txt. Retiré du H1 et du titre Google en attendant la validation. | À valider | ☐ Validé | ☐ À modifier : |
+| Sans sels d'aluminium | Nulle part : retiré du site (accueil, cartes, boutique à l'unité, fiche, meta, JSON-LD, llms.txt, arabe) en attendant votre validation. | À valider avant de le rétablir | ☐ Validé | ☐ À modifier : |
 | Sans parabène | fiche (avantage) | À valider | ☐ Validé | ☐ À modifier : |
 | Ne bloque pas la transpiration (agit sur les odeurs) | fiche (avantage, « Pour qui ? », FAQ « Est-ce qu'il bloque la transpiration ? ») | À valider | ☐ Validé | ☐ À modifier : |
 | Sans sulfate | fiche (avantage) — venait de la maquette | À valider | ☐ Validé | ☐ À modifier : |
@@ -53,15 +53,15 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Déodorant : titre de la page (H1), neutre | Déodorant crème OTAGE. | src/data/product-pages.ts, deo.title | ☐ Validé | ☐ À modifier : |
 | Déodorant : variante du H1, activée seulement après validation de « sans aluminium » | Déodorant crème sans aluminium. | src/data/product-pages.ts (commentaire au-dessus de deo.title) | ☐ Validé | ☐ À modifier : |
 | Déodorant : titre dans Google | Déodorant crème OTAGE, 5 ingrédients \| OTAGE | src/data/products.ts, metaTitle | ☐ Validé | ☐ À modifier : |
-| Déodorant : description dans Google (et JSON-LD) | Déodorant crème sans sels d'aluminium, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
-| Déodorant : « Pour qui ? » | Pour celles et ceux qui veulent un déodorant sans sels d'aluminium, qui agit sur les odeurs sans bloquer la transpiration. | src/data/products.ts, forWho | ☐ Validé | ☐ À modifier : |
+| Déodorant : description dans Google (et JSON-LD) | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, payé à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
+| Déodorant : « Pour qui ? » | Pour celles et ceux qui veulent un déodorant crème simple, qui agit sur les odeurs sans bloquer la transpiration. | src/data/products.ts, forWho | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Quel prix pour le déodorant crème ? » | 85 DH le pot de 50 ml. Avec l'offre 2 + 1 : 170 DH les 3, soit 57 DH le pot. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Et si j'ai la peau sensible ? » | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Je suis enceinte ou j'allaite, je peux l'utiliser ? » | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Je suis livrée en combien de temps ? » | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
-| Accueil : carte « odeurs » | Des odeurs sous les bras — Déodorant crème, sans aluminium — Nouveau · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
-| Accueil : résultat « odeurs » | Notre déodorant crème est là. 5 ingrédients, sans sels d'aluminium. 85 DH. Bouton : Commander le déodorant · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
-| Accueil et /soins : bénéfice du déodorant sur sa carte | Agit sur les odeurs, sans aluminium | src/data/products.ts, benefit | ☐ Validé | ☐ À modifier : |
+| Accueil : carte « odeurs » | Des odeurs sous les bras — Déodorant crème, 5 ingrédients — Nouveau · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
+| Accueil : résultat « odeurs » | Notre déodorant crème est là. 5 ingrédients, en pot de 50 ml. 85 DH. Bouton : Commander le déodorant · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
+| Accueil et /soins : bénéfice du déodorant sur sa carte | Agit sur les odeurs, 5 ingrédients | src/data/products.ts, benefit | ☐ Validé | ☐ À modifier : |
 | Fiches : mention sous chaque avis | Chaque peau est différente : c’est un témoignage, pas une promesse. | src/data/product-pages.ts, reviewNote | ☐ Validé | ☐ À modifier : |
 | Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran) | Avis sur la routine complète | src/data/reviews.ts | ☐ Validé | ☐ À modifier : |
 | Fiches : titre des questions | Tu te poses la question ? | src/data/product-pages.ts | ☐ Validé | ☐ À modifier : |
@@ -188,9 +188,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
-| Bénéfice (cartes, accueil, /soins) | Agit sur les odeurs, sans aluminium | ☐ Validé | ☐ À modifier : |
-| Accroche de la fiche | Pour les odeurs, avec 5 ingrédients et sans sels d'aluminium. | ☐ Validé | ☐ À modifier : |
-| Pour qui ? | Pour toi si tu veux un déodorant sans sels d'aluminium. Il agit sur les odeurs, pas sur la transpiration. | ☐ Validé | ☐ À modifier : |
+| Bénéfice (cartes, accueil, /soins) | Agit sur les odeurs, 5 ingrédients | ☐ Validé | ☐ À modifier : |
+| Accroche de la fiche | Pour les odeurs, avec 5 ingrédients seulement. | ☐ Validé | ☐ À modifier : |
+| Pour qui ? | Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration. | ☐ Validé | ☐ À modifier : |
 | Comment l'utiliser ? | 1. Le matin, sur une aisselle propre et sèche. 2. Prends un peu de baume du bout du doigt. 3. Laisse-le fondre, puis applique. | ☐ Validé | ☐ À modifier : |
 | Résultats | Il ne bloque pas la transpiration : transpirer est normal. Il agit sur les odeurs, et la tenue varie d'une personne à l'autre. | ☐ Validé | ☐ À modifier : |
 

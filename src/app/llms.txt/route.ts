@@ -44,7 +44,7 @@ export function GET() {
     "",
     `## ${deo.name.fr} ${deo.no}`,
     "",
-    `[Page du produit](${abs(`/soins/${deo.slug}`)}). ${deo.benefit.fr}. ${deo.forWho.fr} ${deo.ml.petit} ml, sans sels d'aluminium. Ingrédients : ${ingredientList(deo)}. ${deo.when.fr} : ${deo.how.fr} Prix : ${deoPrice} DH, ou ${bundleUnit(deoPrice)} DH le pot avec l'offre 2 + 1 (${bundleTotal(deoPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
+    `[Page du produit](${abs(`/soins/${deo.slug}`)}). ${deo.benefit.fr}. ${deo.forWho.fr} ${deo.ml.petit} ml. Ingrédients : ${ingredientList(deo)}. ${deo.when.fr} : ${deo.how.fr} Prix : ${deoPrice} DH, ou ${bundleUnit(deoPrice)} DH le pot avec l'offre 2 + 1 (${bundleTotal(deoPrice)} DH les 3). Livraison : de ${site.delivery.unitFee.min} à ${site.delivery.unitFee.max} DH selon la ville.`,
     "",
     "## Commander, livraison et paiement",
     "",

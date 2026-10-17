@@ -1,3 +1,4 @@
+import { linkedin } from "@/data/google";
 import Link from "next/link";
 import { problemPages, trustPages } from "@/data/pages";
 import { products } from "@/data/products";
@@ -33,7 +34,8 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
           <div>
             <p className="t">{t.footFollow}</p>
             <ul>
-              <li><a href={site.instagram.url} target="_blank" rel="noopener">{locale === "ar" ? "إنستغرام" : "Instagram"}&nbsp;<span dir="ltr">{site.instagram.handle}</span></a></li>
+              <li><a href={site.instagram.url} target="_blank" rel="me noopener">{locale === "ar" ? "إنستغرام" : "Instagram"}&nbsp;<span dir="ltr">{site.instagram.handle}</span></a></li>
+              <li><a href={linkedin} target="_blank" rel="me noopener"><span dir="ltr" lang="en">LinkedIn</span></a></li>
               <li><a href={waLink()} target="_blank" rel="noopener">{locale === "ar" ? "واتساب" : "WhatsApp"}&nbsp;<span dir="ltr">{site.whatsapp.display}</span></a></li>
               <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
               <li><a href={locale === "fr" ? "/" : "/ar"}>{t.home}</a></li>

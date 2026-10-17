@@ -53,8 +53,10 @@ export const orgLd = (locale: Locale = "fr") => ({
   image: abs(OG_IMAGE.src),
   description: site.description[locale],
   slogan: site.slogan[locale],
-  // profils officiels : Instagram, fiche Google (Maps), LinkedIn dès qu'il est renseigné (data/google.ts)
-  sameAs: [site.instagram.url, googleMaps, linkedin].filter((u): u is string => Boolean(u)),
+  // profils officiels d'OTAGE (data/google.ts) ; la fiche Google Maps est celle de la société Mouldwa
+  sameAs: [site.instagram.url, linkedin],
+  // société : seulement son nom et sa fiche Google (aucune autre donnée juridique tant qu'elle n'est pas dans les mentions légales)
+  parentOrganization: { "@type": "Organization", name: "Mouldwa", sameAs: [googleMaps] },
   areaServed: maroc(locale),
   founder: { "@id": abs("/#founder") },
   hasMerchantReturnPolicy: returnPolicy(),

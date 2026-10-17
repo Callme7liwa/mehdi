@@ -1,3 +1,4 @@
+import { linkedin } from "@/data/google";
 import type { HomeText } from "../text";
 import { problemPages, trustPages } from "@/data/pages";
 import { gamme } from "@/data/products";
@@ -55,7 +56,8 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
           <div>
             <p className="fc-t">{t.footerNousSuivre}</p>
             <ul>
-              <li><a href={site.instagram.url} target="_blank" rel="noopener" className="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg><span dir="ltr">{site.instagram.handle}</span></a></li>
+              <li><a href={site.instagram.url} target="_blank" rel="me noopener" className="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg><span dir="ltr">{site.instagram.handle}</span></a></li>
+              <li><a href={linkedin} target="_blank" rel="me noopener" className="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" /><path d="M8 10.5V16M8 7.8v.1M11.5 16v-5.5M11.5 13a2.3 2.3 0 0 1 4.6 0v3" /></svg><span dir="ltr" lang="en">LinkedIn</span></a></li>
               <li><a href={waLink()} target="_blank" rel="noopener" className="fc-ic foot-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" /></svg><span>{t.footerWhatsapp}</span></a></li>
               <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
             </ul>

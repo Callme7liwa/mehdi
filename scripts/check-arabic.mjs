@@ -5,7 +5,7 @@
    Sont ignorés : les éléments marqués lang="fr" / lang="en" ou dir="ltr" (messages de clientes, adresse de
    l'hébergeur, identifiants), et la liste ALLOW ci-dessous (marque, sigles, unités). */
 const BASE = process.env.BASE || "http://localhost:3000";
-const ALLOW = new Set(["OTAGE", "otage", "Google", "Analytics", "SPF", "UVA", "UVB", "AHA", "ICE", "N", "WhatsApp"]);
+const ALLOW = new Set(["OTAGE", "otage", "Mouldwa", "Google", "Analytics", "SPF", "UVA", "UVB", "AHA", "ICE", "N", "WhatsApp"]); // Mouldwa : nom de la société (JSON-LD parentOrganization)
 const PAGES = [
   "/ar", "/ar/soins",
   ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux", "deodorant-creme"].map((s) => `/ar/soins/${s}`),

@@ -1,6 +1,7 @@
 /* Fiche produit (/soins/<soin> et /ar/soins/<soin>) : « le ticket qui s'écrit en direct ».
    Le HTML de toute la page est rendu par le serveur (titres, offre, étiquette, avis, questions, autres soins) ;
    le navigateur ajoute le ticket et les gestes. Textes de la fiche : src/data/product-pages.ts ; prix : src/data/products.ts. */
+import { linkedin } from "@/data/google";
 import type { Metadata } from "next";
 import Img from "@/components/Img";
 import CityList from "@/components/CityList";
@@ -237,6 +238,8 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
               <a href={localePath(locale, "/cgv")}>{t.footCgv}</a>
               <a href={`${localePath(locale, "/mentions-legales")}#cookies`} data-cookies="">{t.footCookies}</a>
               <a href={`https://wa.me/${site.whatsapp.wa}`} target="_blank" rel="noopener">WhatsApp</a>
+              <a href={site.instagram.url} target="_blank" rel="me noopener">{locale === "ar" ? "إنستغرام" : "Instagram"}</a>
+              <a href={linkedin} target="_blank" rel="me noopener"><span dir="ltr" lang="en">LinkedIn</span></a>
             </nav>
           </footer>
         </main>

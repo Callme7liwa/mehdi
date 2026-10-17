@@ -10,3 +10,6 @@ export const googleVerification = "BjBEMRIG80-T25QYFrUikbX9QefJWi7o4_jDHpaB7LY";
 /** Google Tag Manager (conteneur otage.ma). Écrit en dur : ce n'est pas un secret, et le site ne dépend plus d'une
     variable d'environnement Vercel. Chargé seulement après l'accord de la visiteuse (components/Analytics.tsx). */
 export const gtmId = "GTM-K84L87K3";
+
+/** Page LinkedIn d'OTAGE : à renseigner (URL complète) ; ajoutée alors automatiquement au sameAs du JSON-LD Organization. */
+export const linkedin: string | null = null;

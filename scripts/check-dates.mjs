@@ -30,6 +30,13 @@ for (const p of products) sources[`/soins/${p.slug}`] = [
 const reviewed = {
   "/soins": { daad349: "alignement des cartes, espace insécable avant « DH » : technique" },
   "/avis": { e4415b4: "texte arabe seulement (l'URL du sitemap est la page française)" },
+  "/": {
+    "8e484e2": "contenu, mais antérieur au commit retenu (6fc9fa1)",
+    "7d5955e": "bandeau de consentement et lien « Gérer les cookies » du pied de page : hors contenu",
+    aced2ce: "message d'erreur affiché seulement si la commande échoue : hors contenu",
+    "70644a6": "fusion de branche",
+  },
+  "/contact": { "5283864": "identifiants Google déplacés dans un fichier serveur : technique" },
 };
 
 let missing = 0, review = 0;

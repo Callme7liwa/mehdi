@@ -1,5 +1,5 @@
 /* Balises et données structurées, construites à partir de src/data/. */
-import { googleMaps, googleVerification } from "@/data/google";
+import { googleMaps, googleVerification, linkedin } from "@/data/google";
 import type { Metadata } from "next";
 import { abs, site, type Locale } from "@/data/site";
 import { plain, type Faq } from "@/data/faq";
@@ -53,7 +53,8 @@ export const orgLd = (locale: Locale = "fr") => ({
   image: abs(OG_IMAGE.src),
   description: site.description[locale],
   slogan: site.slogan[locale],
-  sameAs: [site.instagram.url, googleMaps],
+  // profils officiels : Instagram, fiche Google (Maps), LinkedIn dès qu'il est renseigné (data/google.ts)
+  sameAs: [site.instagram.url, googleMaps, linkedin].filter((u): u is string => Boolean(u)),
   areaServed: maroc(locale),
   founder: { "@id": abs("/#founder") },
   hasMerchantReturnPolicy: returnPolicy(),

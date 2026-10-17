@@ -6,10 +6,10 @@ import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
 import { problems, type Block, type ProblemPage as Problem } from "@/data/problems";
 import { bundleTotal, gamme, lowestPrice, productByKey, yeuxPrice } from "@/data/products";
-import { abs, formatDate, isReviewed, reviewers, site, waLink, type Locale } from "@/data/site";
+import { abs, formatDate, isReviewed, reviewers, waLink, type Locale } from "@/data/site";
 import { reviewerLd } from "@/lib/seo";
 import { hasArProblem, problemsAr } from "@/data/problems.ar";
-import { contentUpdated } from "@/data/updated";
+import { pageUpdated } from "@/data/updated";
 import { ui } from "@/data/ui";
 import { articleLd, breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
 
@@ -54,8 +54,8 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
   const parts = p.sections.some((s) => s.part);
   const P = gamme.formats.petit;
   const review = isReviewed(p.reviewed) ? p.reviewed : null;
-  // date de la dernière modification du contenu de cette page (src/data/updated.ts), sinon celle du site
-  const updated = contentUpdated[path]?.slice(0, 10) ?? site.updated;
+  // date de la dernière modification du contenu de cette page (src/data/updated.ts), la même que dans le pied de page
+  const updated = pageUpdated(path);
   const reviewer = review && reviewers[review.by];
   return (
     <>

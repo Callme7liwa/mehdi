@@ -2,6 +2,7 @@
 import { googleMaps, googleVerification, linkedin } from "@/data/google";
 import type { Metadata } from "next";
 import { abs, reviewers, site, type Locale, type ReviewerId } from "@/data/site";
+import { pageUpdated } from "@/data/updated";
 import { plain, type Faq } from "@/data/faq";
 import { gamme, unitFormats, type FormatKey, type Img, type Product, productDescription } from "@/data/products";
 
@@ -109,7 +110,7 @@ export const webPageLd = (o: { locale: Locale; path: string; title: string; desc
     isPartOf: { "@id": abs("/#website") },
     about: ORG,
     primaryImageOfPage: { "@type": "ImageObject", url: abs(image.src), width: image.w, height: image.h },
-    dateModified: site.updated,
+    dateModified: pageUpdated(o.path),
   };
 };
 
@@ -205,7 +206,7 @@ export function gammeLd(format: FormatKey, desc: string) {
   };
 }
 
-/** Article : dates de publication et de modification de la page si elles sont connues, sinon site.updated. */
+/** Article : date de publication de la page (p.published, sinon sa date de contenu) ; modification : src/data/updated.ts. */
 export const articleLd = (o: { locale: Locale; path: string; title: string; description: string; image: Img; published?: string; modified?: string }) => {
   const url = abs(localePath(o.locale, o.path));
   return {
@@ -215,8 +216,8 @@ export const articleLd = (o: { locale: Locale; path: string; title: string; desc
     description: o.description,
     image: abs(o.image.src),
     inLanguage: o.locale === "ar" ? "ar-MA" : "fr-MA",
-    datePublished: o.published ?? site.updated,
-    dateModified: o.modified ?? site.updated,
+    datePublished: o.published ?? pageUpdated(o.path),
+    dateModified: o.modified ?? pageUpdated(o.path),
     author: ORG,
     publisher: ORG,
     mainEntityOfPage: url,

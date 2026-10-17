@@ -1,6 +1,8 @@
 /* Informations générales du site OTAGE.
    Tout ce qui est écrit ici est repris par les pages, le JSON-LD, le sitemap et llms.txt. */
 
+import { lastContentUpdate } from "./updated";
+
 export type Locale = "fr" | "ar";
 /** Texte dans les deux langues. L'arabe est « À relire par un natif ». */
 export type L = { fr: string; ar: string };
@@ -129,8 +131,8 @@ export const site = {
     hebergeur: "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
   },
 
-  /** Date de dernière mise à jour du contenu (affichée et envoyée aux moteurs). */
-  updated: "2026-10-11",
+  /** Dernière mise à jour du contenu du site : la plus récente des dates de src/data/updated.ts (ne pas l'écrire ici). */
+  updated: lastContentUpdate,
 
   /** Les pages en arabe restent hors de l'index Google (noindex, absentes du sitemap et des hreflang)
       tant que la traduction n'a pas été relue par un natif. Après relecture : remplacer la ligne par

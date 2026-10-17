@@ -7,7 +7,7 @@
      npm run indexnow -- --send --all                # toutes les pages du sitemap
 
    Par défaut : les pages dont la date de modification (lastmod) est la plus récente du sitemap, c'est-à-dire celles
-   de la dernière mise à jour du contenu (site.updated). La clé est dans src/data/site.ts et servie par public/<clé>.txt. */
+   de la dernière mise à jour du contenu (src/data/updated.ts). La clé est dans src/data/site.ts et servie par public/<clé>.txt. */
 import { readFileSync } from "node:fs";
 
 const src = readFileSync(new URL("../src/data/site.ts", import.meta.url), "utf8");

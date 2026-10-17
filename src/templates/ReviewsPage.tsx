@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
 import { reviewName, reviews } from "@/data/reviews";
 import { formatDate, site, waLink, type Locale } from "@/data/site";
+import { pageUpdated } from "@/data/updated";
 import { ui } from "@/data/ui";
 import { breadcrumbLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
 
@@ -95,7 +96,7 @@ export default function ReviewsPage({ locale }: { locale: Locale }) {
               <a className="btn btn-ghost" href={waLink()} target="_blank" rel="noopener">{t.askWhatsApp}<WaIcon /></a>
             </div>
           </div>
-          <p className="updated" style={{ marginTop: 20 }}>{t.updated} <time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>.</p>
+          <p className="updated" style={{ marginTop: 20 }}>{t.updated} <time dateTime={pageUpdated("/avis")}>{formatDate(pageUpdated("/avis"), locale)}</time>.</p>
         </section>
       </main>
     </>

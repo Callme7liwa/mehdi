@@ -21,7 +21,7 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
     { href: localePath(locale, "/contact"), label: t.contact },
   ];
   const home = localePath(locale, "/");
-  // pages françaises sans version arabe : le sélecteur de langue mène alors à l'accueil arabe
+  // pages françaises sans version arabe : pas de sélecteur de langue (ni de hreflang arabe, voir problemMetadata)
   const frOnly = problems.filter((p) => !hasArProblem(p.slug)).map((p) => `/${p.slug}`);
   // le prix sur le bouton, toujours lu dans products.ts
   const yeux = productByKey("yeux");

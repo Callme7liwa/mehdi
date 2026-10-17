@@ -34,7 +34,7 @@ export interface ProblemPage {
   faq: Faq[];
   /** Sources citées dans le texte par [n] (n = rang dans cette liste, à partir de 1). */
   sources?: { label: string; url: string }[];
-  /** Date de première publication (AAAA-MM-JJ), pour le JSON-LD Article ; sinon site.updated. */
+  /** Date de première publication (AAAA-MM-JJ), pour le JSON-LD Article (datePublished). */
   published?: string;
   /** Relecture du pharmacien confirmée. Sans elle : noindex, hors sitemap et llms.txt, sans mention « Relu par ». */
   reviewed?: Review;
@@ -46,8 +46,8 @@ export const problems: ProblemPage[] = [
   /* ------------------------------------------------------------------ Relu par Dr Seddiki le 17 octobre 2026 : /taches-brunes-visage
      Pilier « taches brunes » (docs/carte-thematique.md), texte de docs/brouillons/01-pilier-taches-brunes-visage.md validé tel quel.
      Remplace /taches-pigmentaires (redirection 301, next.config.ts). Pas encore de version arabe.
-     Les pages prévues par la carte et pas encore créées sont citées sans lien ; le mélasma renvoie à /melasma-grossesse
-     en attendant /melasma. */
+     Aucune phrase de renvoi sans lien : les renvois vers les pages prévues par la carte et pas encore créées sont retirés,
+     on les remettra (phrase + lien) à la création de chaque page. Le mélasma renvoie à /melasma-grossesse en attendant /melasma. */
   {
     slug: "taches-brunes-visage",
     label: "Taches brunes du visage",
@@ -77,8 +77,7 @@ export const problems: ProblemPage[] = [
           "Savoir d'où vient ta tache aide à choisir les bons gestes. Voici les trois cas les plus fréquents.",
           "**Le mélasma.** Des plaques brunes, souvent des deux côtés du visage, de façon presque symétrique. Elles apparaissent surtout sur les joues, le front, le nez et au-dessus de la lèvre supérieure [2]. Il touche plus souvent les femmes, et plus souvent les peaux mates [2][7]. Pendant la grossesse, on l'appelle aussi « masque de grossesse ». Tout savoir : [le mélasma](/melasma-grossesse).",
           "**Les marques d'acné.** Une tache plate et brune, à l'endroit exact d'un ancien bouton. Ce n'est pas une cicatrice : la surface de la peau est lisse, seule la couleur change [8]. Ces marques sont plus fréquentes et plus foncées sur peau mate [1][8]. Tout savoir : [les taches d'acné](/taches-acne).",
-          "**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4]. Tout savoir : les taches solaires.",
-          "Tu as la peau mate et tu marques facilement ? Lis aussi les taches sur peau mate.",
+          "**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4].",
           "Si tu ne sais pas à quel type appartient ta tache, demande à un dermatologue : lui seul peut poser un diagnostic.",
         ],
       },
@@ -87,15 +86,15 @@ export const problems: ProblemPage[] = [
         body: [
           "Le soleil est le premier ennemi des taches brunes. Il pousse la peau à fabriquer plus de mélanine, et les zones déjà foncées réagissent plus vite que le reste du visage [2][7].",
           "C'est pour ça qu'une tache peut s'atténuer pendant l'hiver, puis revenir en quelques jours d'été. Pour le mélasma, ce retour est fréquent, même après un bon résultat [2][6].",
-          "Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été. Plus de détails : le soleil au Maroc, toute l'année.",
+          "Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été.",
           "Les gestes recommandés par l'Organisation mondiale de la santé, dans cet ordre [5] :",
           { list: [
             "Chercher l'ombre, surtout au milieu de la journée.",
             "Porter un chapeau à larges bords et des lunettes de soleil.",
             "Mettre un écran solaire à large spectre sur la peau que les vêtements ne couvrent pas.",
           ] },
-          "L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas. Bien l'appliquer : notre guide de l'écran solaire.",
-          "Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12]. La liste complète : les erreurs qui aggravent les taches.",
+          "L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas.",
+          "Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12].",
         ],
       },
       {
@@ -110,7 +109,7 @@ export const problems: ProblemPage[] = [
             "La [crème anti-taches](/soins/creme-anti-taches), à la niacinamide, qui hydrate et unifie le teint.",
             "Le matin seulement : l'[écran solaire SPF 50](/soins/ecran-solaire-spf50), en dernier, pour limiter le retour des taches.",
           ] },
-          "Le soir, la routine s'arrête à l'étape 3. Le détail, étape par étape : la routine matin et soir. Pour comprendre ce que contient chaque soin : les actifs de la routine.",
+          "Le soir, la routine s'arrête à l'étape 3.",
           "En combien de temps ? Personne ne peut te promettre un délai. Les taches s'atténuent petit à petit, avec la régularité et l'écran solaire chaque matin. Le temps dépend de ta peau, du type de tache et de son ancienneté [2][3]. Les premiers jours, ne t'attends pas à voir une différence : c'est normal.",
           "Avant tout nouveau soin, fais un test de 24 h sur une petite zone, par exemple dans le pli du coude. En cas de rougeur ou de brûlure, arrête et demande conseil [12].",
           "Enceinte ou allaitante ? Demande d'abord à ton médecin ou à ton pharmacien avant d'utiliser un soin contre les taches. Montre-lui la liste des ingrédients [14].",
@@ -126,7 +125,7 @@ export const problems: ProblemPage[] = [
         "Une tache qui saigne, démange ou ne ressemble pas aux autres.",
         "Une nouvelle tache qui apparaît et grandit.",
       ] },
-      "Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3]. Plus de détails : quand consulter un dermatologue.",
+      "Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3].",
     ],
     // la routine et ses 4 soins sont dans le texte (section 4) : pas de bloc « soins » en double
     productsTitle: "",
@@ -163,6 +162,7 @@ export const problems: ProblemPage[] = [
   /* ------------------------------------------------------------------ À relire : /cernes */
   {
     slug: "cernes",
+    published: "2026-10-10", // 6132920 : première mise en ligne des pages conseils
     label: "Cernes",
     h1: "Cernes : causes et gestes pour un regard reposé",
     metaTitle: "Cernes : causes et soin contour des yeux | OTAGE",
@@ -202,6 +202,7 @@ export const problems: ProblemPage[] = [
   /* ------------------------------------------------------------------ À relire : /taches-acne */
   {
     slug: "taches-acne",
+    published: "2026-10-10", // 6132920 : première mise en ligne des pages conseils
     label: "Taches d'acné",
     h1: "Taches d'acné : pourquoi elles restent et comment les atténuer",
     metaTitle: "Taches d'acné : comment atténuer les marques | OTAGE",
@@ -244,6 +245,7 @@ export const problems: ProblemPage[] = [
   /* ------------------------------------------------------------------ À relire : /melasma-grossesse */
   {
     slug: "melasma-grossesse",
+    published: "2026-10-10", // 6132920 : première mise en ligne des pages conseils
     label: "Mélasma et grossesse",
     h1: "Mélasma et masque de grossesse : comprendre et se protéger",
     metaTitle: "Mélasma et masque de grossesse : que faire ? | OTAGE",

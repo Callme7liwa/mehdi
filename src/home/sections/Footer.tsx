@@ -4,6 +4,7 @@ import { problemPagesFor, trustPages } from "@/data/pages";
 import { gamme } from "@/data/products";
 import { products } from "@/data/products";
 import { formatDate, site, type Locale, waLink } from "@/data/site";
+import { pageUpdated } from "@/data/updated";
 import Reassure from "@/components/Reassure";
 import { localePath } from "@/lib/seo";
 
@@ -66,7 +67,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
       </div>
       <p className="foot-about">{t.footerOtageEstUneMarque}</p>
       <div className="foot-word" aria-hidden="true"></div>
-      <p className="foot-legal">© <span data-year="" suppressHydrationWarning>{new Date().getFullYear()}</span> {site.brand[locale]}.{t.footerOtageDesSoinsHonnetes}<span className="foot-upd">{t.footerMisAJourLe}<time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>.</span></p>
+      <p className="foot-legal">© <span data-year="" suppressHydrationWarning>{new Date().getFullYear()}</span> {site.brand[locale]}.{t.footerOtageDesSoinsHonnetes}<span className="foot-upd">{t.footerMisAJourLe}<time dateTime={pageUpdated("/")}>{formatDate(pageUpdated("/"), locale)}</time>.</span></p>
     </footer>
   );
 }

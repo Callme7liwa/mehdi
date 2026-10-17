@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { formatDate, site, type Locale } from "@/data/site";
+import { formatDate, type Locale } from "@/data/site";
+import { pageUpdated } from "@/data/updated";
 import { ui } from "@/data/ui";
 import { breadcrumbLd, graph, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
 
@@ -30,7 +31,7 @@ export default function TextPage({ info, lead, children, extraLd = [], locale = 
         </header>
         <div className="prose">
           {children}
-          <p className="updated">{t.updated} <time dateTime={site.updated}>{formatDate(site.updated, locale)}</time>.</p>
+          <p className="updated">{t.updated} <time dateTime={pageUpdated(info.path)}>{formatDate(pageUpdated(info.path), locale)}</time>.</p>
         </div>
       </main>
     </>

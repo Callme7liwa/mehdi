@@ -19,6 +19,7 @@
     "check:dates": "node --no-warnings scripts/check-dates.mjs",
     "check:overflow": "node --no-warnings scripts/check-overflow.mjs",
     "check:datalayer": "node scripts/check-datalayer.mjs",
+    "check:renvois": "node --no-warnings scripts/check-renvois.mjs",
     "relecture": "node --no-warnings scripts/relecture.mjs",
     "relecture:pharmacien": "node scripts/relecture-pharmacien.mjs",
     "validation": "node --no-warnings scripts/validation-client.mjs",

@@ -1,14 +1,18 @@
-/* Pages « conseils peau » en arabe : /ar/cernes, /ar/taches-acne, /ar/melasma-grossesse.
-   Même structure et même contenu que src/data/problems.ts (français), dans le même ordre.
-   Une page française sans texte arabe ici (le pilier /taches-brunes-visage, pour l'instant) n'a pas de version arabe :
+/* Pages « conseils peau » en arabe : /ar/cernes, /ar/taches-acne.
+   /ar/cernes traduit la page française actuelle. /ar/taches-acne traduit l'ANCIENNE version française (avant le guide
+   du 17 octobre 2026) : à retraduire à partir de src/data/guides.ts avant de rendre l'arabe indexable.
+   Une page française sans texte arabe ici (le pilier et les autres guides, pour l'instant) n'a pas de version arabe :
    pas de /ar/…, pas de hreflang, et les liens arabes vers elle sont retirés (voir hasArProblem).
+   Aucune page arabe ne porte de statut (« Relu par » ou mention de l'équipe) : seuls les textes français sont approuvés.
    TOUS LES TEXTES DE CE FICHIER SONT « À RELIRE PAR UN NATIF » (et, comme le français, par un dermatologue
    ou un pharmacien). Aucune promesse médicale. */
 import { isolateAll, isolateAr } from "../lib/bidi";
 import { problems, type ProblemPage } from "./problems";
+import type { ProductKey } from "./products";
 
-// la relecture (reviewed) vient de la page française
-type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed"> & { products: string[] };
+// la page arabe garde ses propres soins (la page française peut avoir changé) ; ni statut, ni encadrés, ni sources du français
+type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed" | "editorial" | "essentials" | "maroc" | "solution" | "sources" | "noSale">
+  & { products: { key: ProductKey; why: string }[]; routine: boolean };
 
 const ar: Record<string, Ar> = {
   /* ------------------------------------------------------------------ À relire par un natif : /ar/cernes */
@@ -36,7 +40,8 @@ const ar: Record<string, Ar> = {
     advice: "إذا ظهرت الهالات فجأة، أو في جهة واحدة، أو مع انتفاخ. طبيب الجلد يشرح لك أيضًا الهالات الواضحة منذ الصغر.",
     productsTitle: "عناية OTAGE للهالات",
     productsIntro: "",
-    products: ["كافيين، حمض الهيالورونيك وألوفيرا، ببكرة دوارة، 15 مل."],
+    products: [{ key: "yeux", why: "كافيين، حمض الهيالورونيك وألوفيرا، ببكرة دوارة، 15 مل." }],
+    routine: false,
     faq: [
       { q: "هل يُخفي السيروم الهالات تمامًا؟", a: ["لا، لا يمكن لأي عناية أن تعد بذلك. حسب سببها، تخف بدرجات مختلفة."] },
       { q: "هل يمكن وضعه تحت المكياج؟", a: ["نعم. قوامه الخفيف يندمج تحت المكياج."] },
@@ -70,56 +75,16 @@ const ar: Record<string, Ar> = {
     productsTitle: "أي روتين للآثار البنية؟",
     productsIntro: "يخفف البقع، ولا يعالج حب الشباب. في المساء، بدون واقي.",
     products: [
-      "ينظف دون تجفيف، بدون سلفات.",
-      "3 إلى 4 قطرات على بشرة جافة.",
-      "يرطب ويوحد لون البشرة.",
-      "في الصباح، كآخر خطوة.",
+      { key: "gel", why: "ينظف دون تجفيف، بدون سلفات." },
+      { key: "serum", why: "3 إلى 4 قطرات على بشرة جافة." },
+      { key: "creme", why: "يرطب ويوحد لون البشرة." },
+      { key: "ecran", why: "في الصباح، كآخر خطوة." },
     ],
+    routine: true,
     faq: [
       { q: "هل تزول آثار حب الشباب وحدها؟", a: ["غالبًا نعم، خلال عدة أشهر. الشمس بدون حماية تطيل بقاءها."] },
       { q: "هل يعالج روتين البقع حب الشباب؟", a: ["لا: يخفف البقع البنية، لا الحبوب. لحب الشباب النشط، استشيري طبيب الجلد."] },
       { q: "وإذا كانت لدي حبوب بعد؟", a: ["اسألي أولًا طبيب الجلد أو الصيدلي. ثم جربي 24 ساعة على منطقة صغيرة."] },
-    ],
-  },
-
-  /* ------------------------------------------------------------------ À relire par un natif : /ar/melasma-grossesse */
-  "melasma-grossesse": {
-    label: "الكلف والحمل",
-    h1: "الكلف وقناع الحمل: الفهم والحماية",
-    metaTitle: "الكلف وقناع الحمل: ماذا تفعلين؟ | OTAGE",
-    metaDescription: "الكلف وقناع الحمل: الأسباب، دور الشمس، الاحتياطات أثناء الحمل والرضاعة، وما تسألين طبيبك قبل استعمال أي عناية. نصائح بسيطة وواضحة من علامة OTAGE المغربية.",
-    intro: ["الكلف يعطي بقعًا بنية متناظرة، غالبًا أثناء الحمل. الخطوة الأهم: حماية بشرتك من الشمس، كل يوم."],
-    sections: [
-      {
-        h2: "لماذا يظهر الكلف؟",
-        body: [{ list: ["الهرمونات: الحمل، وسائل منع الحمل، التغيرات الهرمونية.", "الشمس: تُظهر البقع وتُغمقها، ولو في وقت قصير.", "الاستعداد: البشرة السمراء وبعض العائلات أكثر عرضة."] }],
-      },
-      {
-        h2: "ما الذي يساعد على الحد منه؟",
-        body: [{ list: ["الحماية من الشمس كل يوم: قبعة، ظل، واقي.", "تجنب الشمس في الساعات الحارة.", "عدم تهييج البشرة: لا تقشير قوي.", "الصبر: لا عناية تعد بإخفائه تمامًا."] }],
-      },
-      {
-        h2: "حامل أو مرضعة: ما الاحتياطات؟",
-        body: [{ list: ["الحماية من الشمس، بواقٍ يوافق عليه طبيبك.", "عدم الإكثار من المنتجات: اعرضي كل عناية على الطبيب.", "لا علاج للبقع بدون رأي طبي.", "الريتينويدات والهيدروكينون غير منصوح بها أثناء الحمل."] }],
-      },
-      {
-        h2: "وبعد الحمل؟",
-        body: ["القناع يخف غالبًا في الأشهر التالية، لكن ليس دائمًا. إذا بقي، قد يساعد روتين ضد البقع وواقي الشمس."],
-      },
-    ],
-    adviceTitle: "متى تستشيرين طبيب الجلد؟",
-    advice: "إذا كان الكلف منتشرًا أو قديمًا أو مستمرًا. توجد علاجات طبية، تقررينها معه.",
-    productsTitle: "أي عناية من OTAGE، بموافقة طبيبك؟",
-    productsIntro: "حامل أو مرضعة، استعمليها فقط بعد موافقة طبيبك.",
-    products: [
-      "خطوة الصباح، للحد من عودة البقع.",
-      "يخفف البقع البنية.",
-      "يرطب ويوحد لون البشرة.",
-    ],
-    faq: [
-      { q: "هل يختفي قناع الحمل بعد الولادة؟", a: ["غالبًا يخف خلال أشهر، لكن ليس دائمًا. إذا بقي، استشيري طبيب الجلد."] },
-      { q: "هل يمكنني استعمال منتجات OTAGE وأنا حامل أو مرضعة؟", a: ["اسألي أولًا طبيبك أو الصيدلي. اعرضي عليه قائمة المكونات."] },
-      { q: "هل تزيد الشمس من الكلف؟", a: ["نعم. تُغمق البقع، والكلف يعود بسرعة بعد التعرض لها."] },
     ],
   },
 };
@@ -128,13 +93,16 @@ const ar: Record<string, Ar> = {
 const imageAlt: Record<string, string> = {
   cernes: "سيروم محيط العين OTAGE رقم 05 قرب الوجه",
   "taches-acne": "امرأة تحمل سيروم OTAGE ضد البقع",
-  "melasma-grossesse": "واقي الشمس SPF 50 من OTAGE على الشاطئ",
 };
 
 export const problemsAr: ProblemPage[] = isolateAr(problems.filter((p) => ar[p.slug]).map((p) => {
   const t = isolateAll(ar[p.slug]);
   // adviceTitle : seulement celui de l'arabe (sans repli sur le français)
-  return { ...p, ...t, adviceTitle: t.adviceTitle, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
+  return {
+    ...p, ...t, adviceTitle: t.adviceTitle, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } },
+    // rien du français qui ne soit pas traduit ou pas approuvé pour l'arabe
+    reviewed: undefined, editorial: undefined, essentials: undefined, maroc: undefined, solution: undefined, sources: undefined, noSale: undefined,
+  };
 }));
 
 /** La page conseil existe-t-elle en arabe ? */

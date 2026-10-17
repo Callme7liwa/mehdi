@@ -1,16 +1,22 @@
-/* Pages « problèmes de peau » : /taches-brunes-visage (le pilier), /cernes, /taches-acne, /melasma-grossesse.
+/* Pages conseils : le pilier /taches-brunes-visage, les guides « taches brunes » (src/data/guides.ts) et /cernes.
    Conseils généraux, sans promesse médicale. Les informations sur les produits viennent de products.ts.
-   TOUS LES TEXTES DE CE FICHIER SONT « À RELIRE » (idéalement par un dermatologue ou un pharmacien)
-   avant la mise en ligne : chaque page est marquée ci-dessous.
-   Une page entre dans l'index seulement quand sa relecture est confirmée : champ `reviewed` (voir Review dans site.ts),
-   par exemple `reviewed: { date: "2026-11-02", by: "dr-seddiki" }`. La version arabe suit le statut de la page française. */
+
+   Statut de chaque page (voir pageStatus) :
+   - `reviewed: { date, by }` : approuvée par son relecteur. Indexée (sitemap, llms.txt), mention « Relu par Dr Seddiki
+     El Mehdi, pharmacien, [date] », JSON-LD reviewedBy + lastReviewed. Uniquement pour un texte qu'il a approuvé.
+   - `editorial: true` : pas encore approuvée. Indexée, mention « Guide rédigé par l'équipe OTAGE à partir de sources
+     médicales… », author = OTAGE, sans reviewedBy. Quand `reviewed` est ajouté, la page bascule seule (même adresse) :
+     mettre aussi à jour sa date dans src/data/updated.ts (dateModified).
+   - aucun des deux : noindex, hors sitemap et llms.txt, sans mention.
+   Les versions arabes n'héritent d'aucun statut : le relecteur a approuvé les textes français, pas leur traduction. */
+import { guides } from "./guides";
 import type { Faq } from "./faq";
 import type { Img, ProductKey } from "./products";
-import type { Review } from "./site";
+import { isReviewed, type Review } from "./site";
 
-/** Un bloc de texte : un paragraphe, une liste à puces, ou des étapes numérotées.
-    Texte enrichi (paragraphes, puces, étapes, intro, encadré) : [libellé](/chemin) = lien interne, **gras**, [n] = renvoi à la source n. */
-export type Block = string | { list: string[] } | { steps: string[] };
+/** Un bloc de texte : un paragraphe, une liste à puces, des étapes numérotées, une liste de cases à cocher, ou un tableau.
+    Texte enrichi (partout sauf la FAQ) : [libellé](/chemin) = lien interne, **gras**, [n] = renvoi à la source n. */
+export type Block = string | { list: string[] } | { steps: string[] } | { checklist: string[] } | { table: { head: string[]; rows: string[][] } };
 export interface ProblemPage {
   slug: string;
   label: string;
@@ -18,13 +24,21 @@ export interface ProblemPage {
   metaTitle: string;
   metaDescription: string;
   image: Img;
+  /** « L'essentiel » : quelques phrases autonomes, en tête de page. */
+  essentials?: string[];
   intro: string[];
   /** `part` : titre d'une grande partie, affiché avant la section (les titres des sections passent alors en h3). */
   sections: { part?: string; h2: string; body: Block[] }[];
-  /** Encadré « demande l'avis d'un professionnel » : une phrase, ou plusieurs blocs. */
+  /** Encadré « demande l'avis d'un professionnel » : une phrase, ou plusieurs blocs (vide = pas d'encadré). */
   advice: string | Block[];
   /** Titre en question au-dessus de l'encadré (« Quand consulter un dermatologue ? ») ; sans titre, l'encadré commence par « Demande l'avis d'un professionnel ». */
   adviceTitle?: string;
+  /** Encadré « Au Maroc ». */
+  maroc?: Block[];
+  /** Encadré « Notre solution » : les soins OTAGE, ce qu'ils font et ne font pas. */
+  solution?: { title: string; body: Block[] };
+  /** Page sans vente (sécurité) : ni bloc « soins », ni bandeau de commande. */
+  noSale?: boolean;
   productsTitle: string;
   productsIntro: string;
   /** Les soins conseillés ; vide = pas de bloc « soins » (le texte les présente déjà). */
@@ -36,9 +50,17 @@ export interface ProblemPage {
   sources?: { label: string; url: string }[];
   /** Date de première publication (AAAA-MM-JJ), pour le JSON-LD Article (datePublished). */
   published?: string;
-  /** Relecture du pharmacien confirmée. Sans elle : noindex, hors sitemap et llms.txt, sans mention « Relu par ». */
+  /** Approuvée par son relecteur (voir l'en-tête). */
   reviewed?: Review;
+  /** Publiée sans relecture, avec la mention de l'équipe (voir l'en-tête). Ignoré quand `reviewed` est présent. */
+  editorial?: boolean;
 }
+
+/** Statut d'une page : approuvée, publiée par l'équipe, ou brouillon (noindex). */
+export const pageStatus = (p: Pick<ProblemPage, "reviewed" | "editorial">): "reviewed" | "editorial" | "draft" =>
+  isReviewed(p.reviewed) ? "reviewed" : p.editorial ? "editorial" : "draft";
+/** Page indexée (sitemap, llms.txt, index des moteurs). */
+export const isIndexed = (p: Pick<ProblemPage, "reviewed" | "editorial">) => pageStatus(p) !== "draft";
 
 const image = (file: string, w: number, h: number, fr: string): Img => ({ src: `/images/${file}`, w, h, alt: { fr, ar: fr } });
 
@@ -46,8 +68,8 @@ export const problems: ProblemPage[] = [
   /* ------------------------------------------------------------------ Relu par Dr Seddiki le 17 octobre 2026 : /taches-brunes-visage
      Pilier « taches brunes » (docs/carte-thematique.md), texte de docs/brouillons/01-pilier-taches-brunes-visage.md validé tel quel.
      Remplace /taches-pigmentaires (redirection 301, next.config.ts). Pas encore de version arabe.
-     Aucune phrase de renvoi sans lien : les renvois vers les pages prévues par la carte et pas encore créées sont retirés,
-     on les remettra (phrase + lien) à la création de chaque page. Le mélasma renvoie à /melasma-grossesse en attendant /melasma. */
+     Aucune phrase de renvoi sans lien. Le 17 octobre 2026 (lot 2), ajout des liens vers les guides publiés
+     (docs/brouillons/pilier-ajouts.md, approuvé par Dr Seddiki) ; /masque-de-grossesse et la page auteur suivront. */
   {
     slug: "taches-brunes-visage",
     label: "Taches brunes du visage",
@@ -75,9 +97,10 @@ export const problems: ProblemPage[] = [
         h2: "Comment reconnaître son type de taches : mélasma, marques d'acné, taches solaires ?",
         body: [
           "Savoir d'où vient ta tache aide à choisir les bons gestes. Voici les trois cas les plus fréquents.",
-          "**Le mélasma.** Des plaques brunes, souvent des deux côtés du visage, de façon presque symétrique. Elles apparaissent surtout sur les joues, le front, le nez et au-dessus de la lèvre supérieure [2]. Il touche plus souvent les femmes, et plus souvent les peaux mates [2][7]. Pendant la grossesse, on l'appelle aussi « masque de grossesse ». Tout savoir : [le mélasma](/melasma-grossesse).",
+          "**Le mélasma.** Des plaques brunes, souvent des deux côtés du visage, de façon presque symétrique. Elles apparaissent surtout sur les joues, le front, le nez et au-dessus de la lèvre supérieure [2]. Il touche plus souvent les femmes, et plus souvent les peaux mates [2][7]. Pendant la grossesse, on l'appelle aussi « masque de grossesse ». Tout savoir : [le mélasma](/melasma).",
           "**Les marques d'acné.** Une tache plate et brune, à l'endroit exact d'un ancien bouton. Ce n'est pas une cicatrice : la surface de la peau est lisse, seule la couleur change [8]. Ces marques sont plus fréquentes et plus foncées sur peau mate [1][8]. Tout savoir : [les taches d'acné](/taches-acne).",
-          "**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4].",
+          "**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4]. Tout savoir : [les taches solaires](/taches-solaires).",
+          "Tu as la peau mate et tu marques facilement ? Lis aussi [les taches sur peau mate](/taches-peau-mate).",
           "Si tu ne sais pas à quel type appartient ta tache, demande à un dermatologue : lui seul peut poser un diagnostic.",
         ],
       },
@@ -86,15 +109,15 @@ export const problems: ProblemPage[] = [
         body: [
           "Le soleil est le premier ennemi des taches brunes. Il pousse la peau à fabriquer plus de mélanine, et les zones déjà foncées réagissent plus vite que le reste du visage [2][7].",
           "C'est pour ça qu'une tache peut s'atténuer pendant l'hiver, puis revenir en quelques jours d'été. Pour le mélasma, ce retour est fréquent, même après un bon résultat [2][6].",
-          "Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été.",
+          "Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été. Plus de détails : [se protéger du soleil toute l'année au Maroc](/soleil-maroc-taches).",
           "Les gestes recommandés par l'Organisation mondiale de la santé, dans cet ordre [5] :",
           { list: [
             "Chercher l'ombre, surtout au milieu de la journée.",
             "Porter un chapeau à larges bords et des lunettes de soleil.",
             "Mettre un écran solaire à large spectre sur la peau que les vêtements ne couvrent pas.",
           ] },
-          "L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas.",
-          "Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12].",
+          "L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas. Bien l'appliquer : [le mode d'emploi de l'écran solaire](/appliquer-ecran-solaire).",
+          "Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12]. La liste complète : [les erreurs qui foncent les taches](/erreurs-taches-visage).",
         ],
       },
       {
@@ -109,7 +132,7 @@ export const problems: ProblemPage[] = [
             "La [crème anti-taches](/soins/creme-anti-taches), à la niacinamide, qui hydrate et unifie le teint.",
             "Le matin seulement : l'[écran solaire SPF 50](/soins/ecran-solaire-spf50), en dernier, pour limiter le retour des taches.",
           ] },
-          "Le soir, la routine s'arrête à l'étape 3.",
+          "Le soir, la routine s'arrête à l'étape 3. Le détail, étape par étape : [la routine matin et soir](/routine-taches-matin-soir). Pour bien choisir un soin : [choisir une crème anti-taches](/choisir-creme-anti-taches).",
           "En combien de temps ? Personne ne peut te promettre un délai. Les taches s'atténuent petit à petit, avec la régularité et l'écran solaire chaque matin. Le temps dépend de ta peau, du type de tache et de son ancienneté [2][3]. Les premiers jours, ne t'attends pas à voir une différence : c'est normal.",
           "Avant tout nouveau soin, fais un test de 24 h sur une petite zone, par exemple dans le pli du coude. En cas de rougeur ou de brûlure, arrête et demande conseil [12].",
           "Enceinte ou allaitante ? Demande d'abord à ton médecin ou à ton pharmacien avant d'utiliser un soin contre les taches. Montre-lui la liste des ingrédients [14].",
@@ -125,7 +148,7 @@ export const problems: ProblemPage[] = [
         "Une tache qui saigne, démange ou ne ressemble pas aux autres.",
         "Une nouvelle tache qui apparaît et grandit.",
       ] },
-      "Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3].",
+      "Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3]. Tous les signes, un par un : [quand consulter un dermatologue](/taches-quand-consulter).",
     ],
     // la routine et ses 4 soins sont dans le texte (section 4) : pas de bloc « soins » en double
     productsTitle: "",
@@ -158,6 +181,8 @@ export const problems: ProblemPage[] = [
     published: "2026-10-17",
     reviewed: { date: "2026-10-17", by: "dr-seddiki" },
   },
+
+  ...guides,
 
   /* ------------------------------------------------------------------ À relire : /cernes */
   {
@@ -199,94 +224,6 @@ export const problems: ProblemPage[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ À relire : /taches-acne */
-  {
-    slug: "taches-acne",
-    published: "2026-10-10", // 6132920 : première mise en ligne des pages conseils
-    label: "Taches d'acné",
-    h1: "Taches d'acné : pourquoi elles restent et comment les atténuer",
-    metaTitle: "Taches d'acné : comment atténuer les marques | OTAGE",
-    metaDescription: "Taches d'acné : pourquoi les boutons laissent des marques brunes, ce qui les aggrave et la routine pour les atténuer. Conseils simples, sans promesse.",
-    image: image("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches OTAGE"),
-    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
-    intro: ["Une marque brune après un bouton est une tache, pas une cicatrice. Elle s'atténue avec le temps, plus vite si tu la protèges du soleil."],
-    sections: [
-      {
-        h2: "Tache ou cicatrice : comment faire la différence ?",
-        body: [{ list: ["Tache : plate, seule la couleur change. Brune, c'est une hyperpigmentation post-inflammatoire.", "Rose ou rouge : de petits vaisseaux encore dilatés, qui pâlissent avec le temps.", "Cicatrice : un creux ou une bosse. Un soin cosmétique n'y change rien."] }],
-      },
-      {
-        h2: "Qu'est-ce qui aggrave les taches d'acné ?",
-        body: [{ list: ["Percer ou gratter les boutons : la marque fonce.", "Le soleil sans protection : il fonce les taches et les fait durer.", "Les gommages agressifs et les produits irritants."] }],
-      },
-      {
-        h2: "Qu'est-ce qui aide ?",
-        body: [{ list: ["Nettoyer en douceur, matin et soir.", "Un écran solaire chaque matin.", "Une routine régulière, le temps qu'elle agisse.", "Tester tout nouveau soin 24 h sur une petite zone."] }],
-      },
-    ],
-    adviceTitle: "Quand consulter un dermatologue ?",
-    advice: "Si tu as encore des boutons, des kystes ou des cicatrices en creux. L'acné se traite, et un traitement évite de nouvelles marques.",
-    productsTitle: "Quelle routine pour les marques brunes ?",
-    productsIntro: "Elle atténue les taches, elle ne traite pas l'acné. Le soir, sans écran.",
-    products: [
-      { key: "gel", why: "Nettoie sans dessécher, sans sulfate." },
-      { key: "serum", why: "3 à 4 gouttes sur peau sèche." },
-      { key: "creme", why: "Hydrate et unifie le teint." },
-      { key: "ecran", why: "Le matin, en dernier." },
-    ],
-    routine: true,
-    faq: [
-      { q: "Les taches d'acné partent-elles toutes seules ?", a: ["Souvent, oui, en plusieurs mois. Le soleil sans protection les fait durer."] },
-      { q: "La routine anti-taches soigne-t-elle l'acné ?", a: ["Non : elle atténue les taches brunes, pas les boutons. Pour une acné active, vois un dermatologue."] },
-      { q: "Et si j'ai encore des boutons ?", a: ["Demande d'abord à un dermatologue ou à un pharmacien. Puis fais un test de 24 h sur une petite zone."] },
-    ],
-  },
-
-  /* ------------------------------------------------------------------ À relire : /melasma-grossesse */
-  {
-    slug: "melasma-grossesse",
-    published: "2026-10-10", // 6132920 : première mise en ligne des pages conseils
-    label: "Mélasma et grossesse",
-    h1: "Mélasma et masque de grossesse : comprendre et se protéger",
-    metaTitle: "Mélasma et masque de grossesse : que faire ? | OTAGE",
-    metaDescription: "Mélasma et masque de grossesse : causes, rôle du soleil, précautions pendant la grossesse et l'allaitement, et quoi demander à ton médecin avant un soin.",
-    image: image("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire SPF 50 OTAGE à la plage"),
-    // réponse directe en 2 phrases, en haut de page : le bloc que les moteurs et les IA peuvent citer tel quel
-    intro: ["Le mélasma donne des taches brunes symétriques, souvent pendant la grossesse. Le geste clé : te protéger du soleil, chaque jour."],
-    sections: [
-      {
-        h2: "Pourquoi le mélasma apparaît-il ?",
-        body: [{ list: ["Les hormones : grossesse, contraception, changements hormonaux.", "Le soleil : il déclenche et fonce les taches, même en peu de temps.", "Le terrain : peaux mates et certaines familles y sont plus sujettes."] }],
-      },
-      {
-        h2: "Qu'est-ce qui aide à le limiter ?",
-        body: [{ list: ["Te protéger du soleil chaque jour : chapeau, ombre, écran.", "Éviter le soleil aux heures chaudes.", "Ne pas irriter la peau : pas de gommage agressif.", "Être patiente : aucun soin ne peut promettre de le faire disparaître."] }],
-      },
-      {
-        h2: "Enceinte ou allaitante : quelles précautions ?",
-        body: [{ list: ["Te protéger du soleil, avec un écran validé par ton médecin.", "Ne pas multiplier les produits : fais valider chaque soin.", "Aucun traitement des taches sans avis médical.", "Rétinoïdes et hydroquinone sont déconseillés pendant la grossesse."] }],
-      },
-      {
-        h2: "Et après la grossesse ?",
-        body: ["Le masque s'atténue souvent dans les mois qui suivent, pas toujours. S'il reste, une routine anti-taches et l'écran solaire peuvent aider."],
-      },
-    ],
-    adviceTitle: "Quand consulter un dermatologue ?",
-    advice: "Si ton mélasma est étendu, ancien ou s'il persiste. Il existe des traitements médicaux, à décider avec lui.",
-    productsTitle: "Quels soins OTAGE, avec l'accord de ton médecin ?",
-    productsIntro: "Enceinte ou allaitante, utilise-les seulement après l'accord de ton médecin.",
-    products: [
-      { key: "ecran", why: "Le geste du matin, pour limiter le retour des taches." },
-      { key: "serum", why: "Atténue les taches brunes." },
-      { key: "creme", why: "Hydrate et unifie le teint." },
-    ],
-    routine: false,
-    faq: [
-      { q: "Le masque de grossesse disparaît-il après l'accouchement ?", a: ["Souvent, il s'atténue en quelques mois, pas toujours. S'il reste, vois un dermatologue."] },
-      { q: "Puis-je utiliser les soins OTAGE enceinte ou en allaitant ?", a: ["Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients."] },
-      { q: "Le soleil aggrave-t-il le mélasma ?", a: ["Oui. Il fonce les taches et le mélasma revient vite après une exposition."] },
-    ],
-  },
 ];
 
 export const problemBySlug = (slug: string) => problems.find((p) => p.slug === slug);

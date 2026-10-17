@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { problemBySlug, problems } from "@/data/problems";
 import ProblemPage, { problemMetadata } from "@/templates/ProblemPage";
 
-// /taches-pigmentaires, /cernes, /taches-acne, /melasma-grossesse
+// pages conseils : le pilier, les guides (src/data/guides.ts) et /cernes
 export const dynamicParams = false;
 export const generateStaticParams = () => problems.map((p) => ({ problem: p.slug }));
 

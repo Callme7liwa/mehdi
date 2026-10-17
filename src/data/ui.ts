@@ -131,6 +131,9 @@ const fr = {
   seeOffer: "Voir l'offre",
   otherAdvice: "Autres conseils peau",
   sources: "Sources",
+  essentials: "L'essentiel",
+  inMorocco: "Au Maroc",
+  editorialNote: "Guide rédigé par l'équipe OTAGE à partir de sources médicales (liste en bas de page). Il ne remplace pas l'avis d'un professionnel de santé.",
   todo: "À compléter",
   // dmp: "Enregistrement DMP n°", (libellé retiré avec la ligne DMP des fiches produits)
   breadcrumb: "Fil d'Ariane",
@@ -281,6 +284,10 @@ const ar: Ui = isolateAll({
   seeOffer: "اكتشفي العرض",
   otherAdvice: "نصائح أخرى للبشرة",
   sources: "المصادر",
+  // À relire par un natif
+  essentials: "الأساسي",
+  inMorocco: "في المغرب",
+  editorialNote: "دليل من إعداد فريق OTAGE اعتمادًا على مصادر طبية (القائمة أسفل الصفحة). لا يعوّض رأي مهني الصحة.",
   todo: "يُستكمل لاحقًا",
   // dmp: "رقم التسجيل لدى مديرية الأدوية والصيدلة:",
   breadcrumb: "مسار التصفح",

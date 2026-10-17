@@ -1,18 +1,19 @@
 /* /llms.txt : résumé du site pour les assistants IA, généré à partir de src/data/. */
 import { faq, plain } from "@/data/faq";
-import { problems } from "@/data/problems";
+import { isIndexed, problems } from "@/data/problems";
 import { problemsAr } from "@/data/problems.ar";
 import { bundleTotal, bundleUnit, gamme, gammeSaving, ingredientList, products, rangeProducts, yeuxPrice } from "@/data/products";
 import { trustPages } from "@/data/pages";
-import { abs, formatDate, isReviewed, site } from "@/data/site";
+import { abs, formatDate, site } from "@/data/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
   const P = gamme.formats.petit, G = gamme.formats.grand;
-  // pages conseils : listées seulement quand leur relecture par le pharmacien est confirmée (p.reviewed)
-  const advice = problems.filter((p) => isReviewed(p.reviewed));
-  const adviceAr = problemsAr.filter((p) => isReviewed(p.reviewed));
+  // pages conseils : listées seulement quand elles sont indexées (approuvées ou publiées par l'équipe, voir pageStatus) ;
+  // les pages arabes n'ont pas de statut (traductions non approuvées) : aucune n'est listée
+  const advice = problems.filter(isIndexed);
+  const adviceAr = problemsAr.filter(isIndexed);
   const yeux = products.find((p) => p.key === "yeux")!;
   const deo = products.find((p) => p.key === "deo")!, deoPrice = deo.unitPrice.petit as number;
   const ml = (f: "petit" | "grand") => rangeProducts.map((p) => `${p.name.fr.replace(" anti-taches", "").toLowerCase()} ${p.ml[f]} ml`).join(", ");

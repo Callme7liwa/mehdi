@@ -117,6 +117,26 @@ main { display: block; }
 .note-blocks p { margin: 0; }
 .cite { font-size: 0.7em; line-height: 0; }
 .cite a { font-weight: 500; text-decoration: none; color: var(--muted); }
+.box .box-t { font-weight: 700; color: var(--bordeaux); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.essentials { margin-top: 4px; max-width: 720px; }
+.maroc { border-inline-start-color: var(--bordeaux); }
+.solution { border-inline-start-color: var(--bordeaux); background: #fff; }
+.prose .checklist { list-style: none; padding-inline-start: 0; }
+.prose .checklist li { position: relative; padding-inline-start: 28px; }
+.prose .checklist li::before { content: ""; position: absolute; inset-inline-start: 0; top: .2em; width: 16px; height: 16px; border: 1.5px solid var(--bordeaux); border-radius: 4px; }
+.table-wrap { overflow-x: auto; max-width: 100%; }
+.table-wrap table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+.table-wrap th, .table-wrap td { text-align: start; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.table-wrap thead th { color: var(--bordeaux); font-size: 13px; letter-spacing: .03em; border-bottom: 2px solid var(--bordeaux); }
+.table-wrap tbody th { font-weight: 600; }
+/* mobile : une carte par ligne, chaque valeur précédée du titre de sa colonne */
+@media (max-width: 640px) {
+  .table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap th, .table-wrap td { display: block; min-width: 0; }
+  .table-wrap thead { display: none; }
+  .table-wrap tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .table-wrap th, .table-wrap td { border: 0; padding: 2px 0; }
+  .table-wrap td::before { content: attr(data-label) " : "; font-weight: 600; color: var(--bordeaux); }
+}
 .sources { max-width: 720px; margin: 0; padding-inline-start: 22px; display: grid; gap: 8px; font-size: 14px; color: var(--muted); }
 .sources li { overflow-wrap: anywhere; scroll-margin-top: 90px; }
 .sources a { color: var(--bordeaux); }

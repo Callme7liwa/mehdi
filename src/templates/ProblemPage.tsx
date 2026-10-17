@@ -4,9 +4,9 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
-import { problems, type Block, type ProblemPage as Problem } from "@/data/problems";
+import { isIndexed, pageStatus, problems, type Block, type ProblemPage as Problem } from "@/data/problems";
 import { bundleTotal, gamme, lowestPrice, productByKey, yeuxPrice } from "@/data/products";
-import { abs, formatDate, isReviewed, reviewers, waLink, type Locale } from "@/data/site";
+import { abs, formatDate, reviewers, waLink, type Locale } from "@/data/site";
 import { reviewerLd } from "@/lib/seo";
 import { hasArProblem, problemsAr } from "@/data/problems.ar";
 import { pageUpdated } from "@/data/updated";
@@ -19,10 +19,10 @@ const nbsp = (t: string) => t.replace(/ ([:?!])/g, "\u00a0$1");
 /** Les pages conseils dans une langue (mêmes adresses, sous /ar pour l'arabe). */
 export const problemsFor = (locale: Locale) => (locale === "ar" ? problemsAr : problems);
 
-/** Relecture du pharmacien confirmée pour cette page (p.reviewed) : sinon elle reste hors de l'index. */
+/** Page approuvée (reviewed) ou publiée par l'équipe (editorial) : indexée ; sinon hors de l'index. */
 export const problemMetadata = (p: Problem, locale: Locale): Metadata => {
   const m = pageMetadata({ locale, path: `/${p.slug}`, title: p.metaTitle, description: p.metaDescription, image: p.image, type: "article", hasAr: hasArProblem(p.slug) });
-  return isReviewed(p.reviewed) ? m : { ...m, robots: { index: false, follow: true } };
+  return isIndexed(p) ? m : { ...m, robots: { index: false, follow: true } };
 };
 
 /** Texte enrichi des pages conseils : [libellé](/chemin) = lien interne, **gras**, [n] = renvoi vers la source n. */
@@ -37,11 +37,31 @@ function Rich({ text, locale }: { text: string; locale: Locale }) {
   });
 }
 
-/** Un bloc de texte : paragraphe, liste à puces ou étapes numérotées. */
+/** Un bloc de texte : paragraphe, liste à puces, étapes numérotées, cases à cocher ou tableau. */
 function BlockView({ b, locale }: { b: Block; locale: Locale }) {
   if (typeof b === "string") return <p><Rich text={b} locale={locale} /></p>;
   if ("steps" in b) return <ol>{b.steps.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ol>;
+  if ("checklist" in b) return <ul className="checklist">{b.checklist.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ul>;
+  if ("table" in b)
+    return (
+      <div className="table-wrap">
+        <table>
+          <thead><tr>{b.table.head.map((h, i) => <th key={i} scope="col"><Rich text={h} locale={locale} /></th>)}</tr></thead>
+          <tbody>{b.table.rows.map((r, i) => <tr key={i}>{r.map((c, k) => (k === 0 ? <th key={k} scope="row"><Rich text={c} locale={locale} /></th> : <td key={k} data-label={b.table.head[k]}><Rich text={c} locale={locale} /></td>))}</tr>)}</tbody>
+        </table>
+      </div>
+    );
   return <ul>{b.list.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ul>;
+}
+
+/** Encadré titré (L'essentiel, Au Maroc, Notre solution). */
+function Box({ title, blocks, locale, className = "" }: { title: string; blocks: Block[]; locale: Locale; className?: string }) {
+  return (
+    <aside className={`note note-blocks box ${className}`}>
+      <p className="box-t">{title}</p>
+      {blocks.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}
+    </aside>
+  );
 }
 
 /** Page « problème de peau » : causes, conseils, routine, soins OTAGE adaptés, FAQ, sources. */
@@ -53,7 +73,8 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
   const yeux = p.products.length > 0 && p.products.every((x) => x.key === "yeux");
   const parts = p.sections.some((s) => s.part);
   const P = gamme.formats.petit;
-  const review = isReviewed(p.reviewed) ? p.reviewed : null;
+  const status = pageStatus(p);
+  const review = status === "reviewed" ? p.reviewed! : null;
   // date de la dernière modification du contenu de cette page (src/data/updated.ts), la même que dans le pied de page
   const updated = pageUpdated(path);
   const reviewer = review && reviewers[review.by];
@@ -74,9 +95,12 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
           <header className="page-head">
             <p className="kicker">{t.advice}</p>
             <h1>{nbsp(p.h1)}</h1>
+            {p.essentials?.length ? <Box title={t.essentials} blocks={[{ list: p.essentials }]} locale={locale} className="essentials" /> : null}
             {p.intro.map((t) => <p className="lead" key={t}><Rich text={t} locale={locale} /></p>)}
             <p className="updated">{t.updated} <time dateTime={updated}>{formatDate(updated, locale)}</time>{ar ? "، " : ", "}{t.byTeam}.</p>
             {/* affiché seulement quand la relecture de cette page est confirmée (p.reviewed) */}
+            {/* page publiée par l'équipe, pas encore approuvée (p.editorial) */}
+            {status === "editorial" && <p className="updated reviewed">{t.editorialNote}</p>}
             {review && reviewer && <p className="updated reviewed">{t.reviewedBy} {ar ? reviewer.nameAr : reviewer.name}{ar ? "، " : ", "}{reviewer.jobTitle[locale].toLowerCase()}{ar ? "، " : ", "}<time dateTime={review.date}>{formatDate(review.date, locale)}</time>.</p>}
           </header>
 
@@ -88,7 +112,8 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
                 {s.body.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}
               </section>
             ))}
-            {p.adviceTitle ? (
+            {p.maroc?.length ? <Box title={t.inMorocco} blocks={p.maroc} locale={locale} className="maroc" /> : null}
+            {typeof p.advice !== "string" && !p.advice.length ? null : p.adviceTitle ? (
               <section style={{ display: "grid", gap: 14 }}>
                 <h2>{nbsp(p.adviceTitle)}</h2>
                 {typeof p.advice === "string" ? <p className="note">{p.advice}</p> : <div className="note note-blocks">{p.advice.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}</div>}
@@ -96,6 +121,7 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
             ) : (
               typeof p.advice === "string" ? <p className="note"><b>{t.askPro}</b> {p.advice}</p> : <div className="note note-blocks"><p><b>{t.askPro}</b></p>{p.advice.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}</div>
             )}
+            {p.solution ? <Box title={p.solution.title} blocks={p.solution.body} locale={locale} className="solution" /> : null}
           </div>
         </article>
 
@@ -123,7 +149,7 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
           })()}
         </section>}
 
-        <section className="sec">
+        {!p.noSale && <section className="sec">
           <div className="band">
             <h2>{yeux ? t.bandYeux : t.bandRange}</h2>
             <p>
@@ -136,7 +162,7 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
               <a className="btn btn-ghost" href={waLink(ar ? `مرحبًا OTAGE، لدي سؤال عن: ${p.label}.` : `Bonjour OTAGE, j'ai une question sur : ${p.label.toLowerCase()}.`)} target="_blank" rel="noopener">{t.askWhatsApp}<WaIcon /></a>
             </div>
           </div>
-        </section>
+        </section>}
 
         <section className="sec" aria-labelledby="faq-t">
           <div className="sec-head"><h2 id="faq-t">{t.faq}</h2></div>

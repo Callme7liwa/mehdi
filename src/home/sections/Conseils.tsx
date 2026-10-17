@@ -6,7 +6,8 @@ import { localePath } from "@/lib/seo";
 
 /** « Conseils » : cinq portes d'entrée vers les pages conseils existantes (de vrais liens, sans script).
     En arabe, seulement les pages qui ont une version arabe (pas encore le pilier « taches brunes »).
-    « Grossesse et allaitement » n'a pas de page à elle : le lien mène à la page mélasma, qui traite ces précautions.
+    « Grossesse et allaitement » n'a pas encore de page publiée (/masque-de-grossesse attend son approbation) : le lien mène
+    à la page mélasma.
     La mention de relecture suit le champ `reviewed` de chaque page : elle n'apparaît que quand toutes les pages liées
     sont relues par le même relecteur, avec la date de la dernière relecture. */
 export default function Conseils({ t, locale }: { t: HomeText; locale: Locale }) {
@@ -14,8 +15,8 @@ export default function Conseils({ t, locale }: { t: HomeText; locale: Locale })
     { slug: "taches-brunes-visage", title: t.conseilsTaches, sub: t.conseilsTachesSub },
     { slug: "cernes", title: t.conseilsCernes, sub: t.conseilsCernesSub },
     { slug: "taches-acne", title: t.conseilsAcne, sub: t.conseilsAcneSub },
-    { slug: "melasma-grossesse", title: t.conseilsMelasma, sub: t.conseilsMelasmaSub },
-    { slug: "melasma-grossesse", title: t.conseilsGrossesse, sub: t.conseilsGrossesseSub },
+    { slug: "melasma", title: t.conseilsMelasma, sub: t.conseilsMelasmaSub },
+    { slug: "melasma", title: t.conseilsGrossesse, sub: t.conseilsGrossesseSub },
   ].filter((c) => locale === "fr" || hasArProblem(c.slug)); // en arabe : seulement les pages traduites
   const reviews = cards.map((c) => problemBySlug(c.slug)?.reviewed);
   const all = reviews.every((r) => isReviewed(r) && r.by === reviews[0]?.by);

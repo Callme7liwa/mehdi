@@ -43,7 +43,7 @@ Ces trois taches n'ont pas la même origine. Seul un dermatologue peut confirmer
 | Cause | UV accumulés [1] | Soleil, hormones, terrain familial [2][3] | [SOURCE À TROUVER] |
 | Quand s'inquiéter | Si elle change [1][4] | Si elle s'étend ou fonce malgré la protection [5] | Si elle change (règle ABCDE) [4] |
 
-Pour le mélasma : [tout savoir sur le mélasma](/melasma-grossesse).
+Pour le mélasma : [tout savoir sur le mélasma](/melasma).
 
 ## Pourquoi apparaissent-elles avec les années ?
 

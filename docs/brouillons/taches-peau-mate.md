@@ -42,7 +42,7 @@ Seul un dermatologue peut confirmer le type de tache. Voici les plus courantes :
 | Mélasma | Plaques brunes, souvent symétriques, joues, front, lèvre supérieure [6] | Soleil, hormones, terrain familial [6][7] | Protection solaire stricte, avis d'un dermatologue [6][8] |
 | Tache solaire | Petite tache ronde, bien délimitée, sur une zone exposée [9] | Le soleil accumulé [9] | Protection solaire, surveiller qu'elle ne change pas [9] |
 
-Les deux premières sont les plus fréquentes sur peau mate [2][7]. Tout savoir : [le mélasma](/melasma-grossesse) et [les taches d'acné](/taches-acne).
+Les deux premières sont les plus fréquentes sur peau mate [2][7]. Tout savoir : [le mélasma](/melasma) et [les taches d'acné](/taches-acne).
 
 ## Pourquoi les produits irritants foncent-ils la peau mate ?
 

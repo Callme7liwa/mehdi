@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
       // son ancienne version arabe : le pilier n'a pas encore de version arabe (redirection temporaire,
       // à faire pointer vers /ar/taches-brunes-visage quand elle existera)
       { source: "/ar/taches-pigmentaires", destination: "/taches-brunes-visage", statusCode: 302 },
+      // mélasma : la page générale devient /melasma (guide du 17 octobre 2026) ; la grossesse aura /masque-de-grossesse
+      { source: "/melasma-grossesse", destination: "/melasma", statusCode: 301 },
+      // son ancienne version arabe : pas encore de version arabe du guide (redirection temporaire)
+      { source: "/ar/melasma-grossesse", destination: "/melasma", statusCode: 302 },
       // un seul domaine : www.otage.ma → otage.ma
       { source: "/:path*", has: [{ type: "host", value: `www.${DOMAIN}` }], destination: `https://${DOMAIN}/:path*`, statusCode: 301 },
       // en production, toute adresse *.vercel.app (otage-maroc.vercel.app compris) renvoie vers otage.ma.

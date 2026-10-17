@@ -63,7 +63,7 @@ Consulte aussi si :
 - tu as encore des boutons, des kystes ou des boutons douloureux : traiter l'acné évite de nouvelles marques [4][7] ;
 - tu as des creux ou des reliefs après l'acné : ce sont des cicatrices, un soin cosmétique n'y change rien [8].
 
-Tout savoir : [les taches solaires](/taches-solaires)[LIEN EN ATTENTE]. Et aussi : [le mélasma](/melasma-grossesse) et [les taches d'acné](/taches-acne).
+Tout savoir : [les taches solaires](/taches-solaires)[LIEN EN ATTENTE]. Et aussi : [le mélasma](/melasma) et [les taches d'acné](/taches-acne).
 
 ## Comment se passe la consultation ?
 

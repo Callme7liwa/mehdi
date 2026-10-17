@@ -236,6 +236,9 @@ const FIGURES: Record<FigureKey, { svg: () => React.JSX.Element; mobile: () => R
   },
 };
 
+/** La légende affichée sur grand écran (pour compter les mots de la page). */
+export const figureCaption = (name: FigureKey) => FIGURES[name].caption;
+
 export default function GuideFigure({ name }: { name: FigureKey }) {
   const f = FIGURES[name];
   const Svg = f.svg, Mobile = f.mobile;

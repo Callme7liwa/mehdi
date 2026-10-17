@@ -5,7 +5,8 @@
 
    Pour chaque page du sitemap : elle doit avoir sa date dans updated.ts ; on calcule l'empreinte (SHA-256) de son contenu
    affiché, tel que le serveur l'envoie : title, meta description, et le texte de <main> (pour l'accueil, la page sans
-   l'en-tête ni le pied de page), sans les scripts ni les dates (<time>), qui viennent elles-mêmes de updated.ts.
+   l'en-tête ni le pied de page), sans les scripts, ni les dates (<time>), qui viennent elles-mêmes de updated.ts,
+   ni le sommaire des pages longues, qui reprend leurs titres.
    On la compare à l'empreinte enregistrée :
    - même contenu, même date : ✓ ;
    - même contenu, date changée : ? la date a bougé sans changement de contenu (commit technique ?) ;
@@ -35,6 +36,8 @@ function content(html) {
   const text = decode(body
     .replace(/<(script|style|noscript|template)\b[\s\S]*?<\/\1>/g, " ")
     .replace(/<time\b[\s\S]*?<\/time>/g, " ")
+    // le sommaire reprend les titres de la page : navigation, pas contenu (un titre changé est vu dans le titre lui-même)
+    .replace(/<nav class="toc"[\s\S]*?<\/nav>/g, " ")
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
   return `${title}\n${description}\n${text}`;

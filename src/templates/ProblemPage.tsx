@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import FaqList from "@/components/FaqList";
-import GuideFigure from "@/components/GuideFigure";
+import GuideFigure, { figureCaption } from "@/components/GuideFigure";
 import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
 import { isIndexed, pageStatus, problems, type Block, type ProblemPage as Problem } from "@/data/problems";
@@ -60,10 +60,11 @@ function BlockView({ b, locale }: { b: Block; locale: Locale }) {
 /** Ancre d'un titre : « Quels signes doivent m'alerter ? » → « quels-signes-doivent-m-alerter ». */
 const anchor = (title: string) => title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-/** Nombre de mots du contenu d'une page (texte enrichi compris), pour décider d'afficher le sommaire. */
-function words(p: Problem) {
-  const text = (b: Block): string => (typeof b === "string" ? b : "figure" in b ? "" : "table" in b ? [...b.table.head, ...b.table.rows.flat()].join(" ") : ("steps" in b ? b.steps : "checklist" in b ? b.checklist : b.list).join(" "));
-  const all = [...p.intro, ...(p.essentials ?? []), ...p.sections.flatMap((s) => [s.h2, ...s.body.map(text)]), ...(typeof p.advice === "string" ? [p.advice] : p.advice.map(text)),
+/** Nombre de mots que lit le lecteur (titre, essentiel, sections, légendes, encadrés, avis du pharmacien, FAQ),
+    pour décider d'afficher le sommaire. */
+function words(p: Problem, extra: string[] = []) {
+  const text = (b: Block): string => (typeof b === "string" ? b : "figure" in b ? figureCaption(b.figure) : "table" in b ? [...b.table.head, ...b.table.rows.flat()].join(" ") : ("steps" in b ? b.steps : "checklist" in b ? b.checklist : b.list).join(" "));
+  const all = [...extra, p.h1, ...p.intro, ...(p.essentials ?? []), p.pharmacistNote?.text ?? "", p.adviceTitle ?? "", p.solution?.title ?? "", ...p.sections.flatMap((s) => [s.h2, ...s.body.map(text)]), ...(typeof p.advice === "string" ? [p.advice] : p.advice.map(text)),
     ...(p.maroc ?? []).map(text), ...(p.solution?.body ?? []).map(text), ...p.faq.flatMap((f) => [f.q, ...f.a])].join(" ");
   return all.replace(/\[\d+\]|\]\([^)]*\)/g, " ").split(/\s+/).filter((w) => /[\p{L}\d]/u.test(w)).length;
 }
@@ -108,7 +109,10 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
   const reviewer = review && reviewers[review.by];
   // sommaire (pages longues) : les questions de la page, l'encadré « quand consulter », la FAQ et les sources
   const hasAdvice = typeof p.advice === "string" || p.advice.length > 0;
-  const toc = words(p) > TOC_FROM
+  // les lignes fixes que le lecteur lit aussi : surtitre, dates, relecture, titres d'encadrés, signature
+  const fixed = [t.advice, `${t.updated} ${formatDate(updated, locale)} ${t.byTeam}`, review && reviewer ? `${t.reviewedBy} ${reviewer.name} ${reviewer.jobTitle[locale]} ${formatDate(review.date, locale)}` : "",
+    p.essentials?.length ? t.essentials : "", p.maroc?.length ? t.inMorocco : "", p.pharmacistNote ? `${t.pharmacistNote} ${reviewers[p.pharmacistNote.by].name} ${reviewers[p.pharmacistNote.by].jobTitle[locale]}` : ""];
+  const toc = words(p, fixed) > TOC_FROM
     ? [...p.sections.map((s) => ({ id: anchor(s.h2), title: s.h2 })), ...(hasAdvice && p.adviceTitle ? [{ id: anchor(p.adviceTitle), title: p.adviceTitle }] : []), { id: "faq-t", title: t.faq }, ...(p.sources?.length ? [{ id: "sources-t", title: t.sources }] : [])]
     : [];
   return (

@@ -1,0 +1,94 @@
+{
+  "/": {
+    "date": "2026-10-17T13:45:00+02:00",
+    "empreinte": "2c8b764864b1ce4e"
+  },
+  "/soins": {
+    "date": "2026-10-16T09:30:06+02:00",
+    "empreinte": "05f7389f569ae254"
+  },
+  "/soins/gel-nettoyant": {
+    "date": "2026-10-17T12:35:47+02:00",
+    "empreinte": "c567ccf5c47ec6cc"
+  },
+  "/soins/serum-anti-taches": {
+    "date": "2026-10-17T13:45:00+02:00",
+    "empreinte": "955c01e8be6ee352"
+  },
+  "/soins/creme-anti-taches": {
+    "date": "2026-10-17T13:45:00+02:00",
+    "empreinte": "2348b27b8276f7de"
+  },
+  "/soins/ecran-solaire-spf50": {
+    "date": "2026-10-17T13:45:00+02:00",
+    "empreinte": "f7111a3eb091021b"
+  },
+  "/soins/contour-des-yeux": {
+    "date": "2026-10-16T10:05:26+02:00",
+    "empreinte": "e28ab77472d4e720"
+  },
+  "/soins/deodorant-creme": {
+    "date": "2026-10-16T10:05:26+02:00",
+    "empreinte": "1605cc9d69d85dd5"
+  },
+  "/taches-brunes-visage": {
+    "date": "2026-10-17T13:45:00+02:00",
+    "empreinte": "e12cd264ea48616d"
+  },
+  "/melasma": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "9b96ed3f298446f3"
+  },
+  "/taches-acne": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "755d839bbc6bd284"
+  },
+  "/taches-solaires": {
+    "date": "2026-10-17T15:08:00+02:00",
+    "empreinte": "0a03db37f5749a69"
+  },
+  "/taches-peau-mate": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "1be43053df133f90"
+  },
+  "/soleil-maroc-taches": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "75245869f458a6f3"
+  },
+  "/appliquer-ecran-solaire": {
+    "date": "2026-10-17T15:08:00+02:00",
+    "empreinte": "fcaf77a1fd922b4a"
+  },
+  "/routine-taches-matin-soir": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "d8bb4c9e7f846e92"
+  },
+  "/erreurs-taches-visage": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "85a0f490df3631e1"
+  },
+  "/choisir-creme-anti-taches": {
+    "date": "2026-10-17T15:01:20+02:00",
+    "empreinte": "d9ce778e5308a991"
+  },
+  "/taches-quand-consulter": {
+    "date": "2026-10-17T15:08:00+02:00",
+    "empreinte": "6f64231b1101225d"
+  },
+  "/avis": {
+    "date": "2026-10-16T02:47:39+02:00",
+    "empreinte": "0b65677026d0af49"
+  },
+  "/a-propos": {
+    "date": "2026-10-16T02:47:39+02:00",
+    "empreinte": "bd3a5216386b07ca"
+  },
+  "/livraison-paiement": {
+    "date": "2026-10-16T09:30:06+02:00",
+    "empreinte": "310f547df6641b0e"
+  },
+  "/contact": {
+    "date": "2026-10-16T12:52:38+02:00",
+    "empreinte": "cbcdd3152c48d713"
+  }
+}

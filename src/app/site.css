@@ -124,6 +124,14 @@ main { display: block; }
 .prose [id], .sec-head h2[id] { scroll-margin-top: 96px; }
 .guide-fig { margin: 4px 0; display: grid; gap: 8px; }
 .guide-fig svg { width: 100%; height: auto; max-width: 640px; font-family: var(--sans); }
+/* variante simplifiée sous 720 px : la variante large y descendrait sous 12 px de texte (voir GuideFigure.tsx) */
+.guide-fig .fig-m { display: none; }
+.guide-fig svg.fig-m { max-width: 480px; }
+@media (max-width: 719.98px) {
+  .guide-fig .fig-d { display: none; }
+  .guide-fig svg.fig-m { display: block; }
+  .guide-fig span.fig-m { display: inline; }
+}
 .guide-fig figcaption { font-size: 14px; color: var(--muted); }
 .box .box-t { font-weight: 700; color: var(--bordeaux); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
 .essentials { margin-top: 4px; max-width: 720px; }

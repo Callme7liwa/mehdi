@@ -13,7 +13,7 @@ import { guides } from "./guides";
 import type { Faq } from "./faq";
 import type { FigureKey } from "../components/GuideFigure";
 import type { Img, ProductKey } from "./products";
-import { isReviewed, type Review } from "./site";
+import { isReviewed, type Review, type ReviewerId } from "./site";
 
 /** Un bloc de texte : un paragraphe, une liste à puces, des étapes numérotées, une liste de cases à cocher, un tableau,
     ou un schéma (src/components/GuideFigure.tsx).
@@ -35,6 +35,9 @@ export interface ProblemPage {
   advice: string | Block[];
   /** Titre en question au-dessus de l'encadré (« Quand consulter un dermatologue ? ») ; sans titre, l'encadré commence par « Demande l'avis d'un professionnel ». */
   adviceTitle?: string;
+  /** Encadré « L'avis du pharmacien », après la 2e section : ses mots, fidèlement (seules retouches : ponctuation,
+      tutoiement), signés. Uniquement un texte écrit ou validé par lui. */
+  pharmacistNote?: { text: string; by: ReviewerId };
   /** Encadré « Au Maroc ». */
   maroc?: Block[];
   /** Encadré « Notre solution » : les soins OTAGE, ce qu'ils font et ne font pas. */
@@ -153,6 +156,7 @@ export const problems: ProblemPage[] = [
       "Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3]. Tous les signes, un par un : [quand consulter un dermatologue](/taches-quand-consulter).",
     ],
     // la routine et ses 4 soins sont dans le texte (section 4) : pas de bloc « soins » en double
+    pharmacistNote: { text: "Vouloir les faire disparaître trop vite en utilisant plusieurs actifs à la fois. Ça peut irriter la peau et aggraver les taches.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],

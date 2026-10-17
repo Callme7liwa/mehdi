@@ -11,7 +11,7 @@ import { problems, type ProblemPage } from "./problems";
 import type { ProductKey } from "./products";
 
 // la page arabe garde ses propres soins (la page française peut avoir changé) ; ni statut, ni encadrés, ni sources du français
-type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed" | "editorial" | "essentials" | "maroc" | "solution" | "sources" | "noSale">
+type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed" | "editorial" | "essentials" | "maroc" | "solution" | "sources" | "noSale" | "pharmacistNote">
   & { products: { key: ProductKey; why: string }[]; routine: boolean };
 
 const ar: Record<string, Ar> = {
@@ -101,7 +101,7 @@ export const problemsAr: ProblemPage[] = isolateAr(problems.filter((p) => ar[p.s
   return {
     ...p, ...t, adviceTitle: t.adviceTitle, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } },
     // rien du français qui ne soit pas traduit ou pas approuvé pour l'arabe
-    reviewed: undefined, editorial: undefined, essentials: undefined, maroc: undefined, solution: undefined, sources: undefined, noSale: undefined,
+    reviewed: undefined, editorial: undefined, essentials: undefined, maroc: undefined, solution: undefined, sources: undefined, noSale: undefined, pharmacistNote: undefined,
   };
 }));
 

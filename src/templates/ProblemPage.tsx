@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Fragment } from "react";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import FaqList from "@/components/FaqList";
 import GuideFigure from "@/components/GuideFigure";
@@ -69,6 +70,18 @@ function words(p: Problem) {
 /** Au-delà de ce nombre de mots, la page affiche un sommaire en tête. */
 const TOC_FROM = 800;
 
+/** « L'avis du pharmacien » : ses mots en citation, signés (nom et qualité du relecteur, src/data/site.ts). */
+function PharmacistNote({ note, locale, title }: { note: NonNullable<Problem["pharmacistNote"]>; locale: Locale; title: string }) {
+  const r = reviewers[note.by];
+  return (
+    <figure className="note avis">
+      <p className="box-t">{title}</p>
+      <blockquote><p>{note.text}</p></blockquote>
+      <figcaption>{locale === "ar" ? r.nameAr : r.name}{locale === "ar" ? "، " : ", "}{r.jobTitle[locale].toLowerCase()}</figcaption>
+    </figure>
+  );
+}
+
 /** Encadré titré (L'essentiel, Au Maroc, Notre solution). */
 function Box({ title, blocks, locale, className = "" }: { title: string; blocks: Block[]; locale: Locale; className?: string }) {
   return (
@@ -132,12 +145,16 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
           )}
 
           <div className="prose">
-            {p.sections.map((s) => (
-              <section key={s.h2} style={{ display: "grid", gap: 14 }}>
+            {p.sections.map((s, i) => (
+              <Fragment key={s.h2}>
+              <section style={{ display: "grid", gap: 14 }}>
                 {s.part && <h2 className="part">{nbsp(s.part)}</h2>}
                 {parts ? <h3 id={anchor(s.h2)}>{nbsp(s.h2)}</h3> : <h2 id={anchor(s.h2)}>{nbsp(s.h2)}</h2>}
-                {s.body.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}
+                {s.body.map((b, k) => <BlockView key={k} b={b} locale={locale} />)}
               </section>
+              {/* l'avis du pharmacien, après la 2e section */}
+              {i === Math.min(1, p.sections.length - 1) && p.pharmacistNote && <PharmacistNote note={p.pharmacistNote} locale={locale} title={t.pharmacistNote} />}
+              </Fragment>
             ))}
             {p.maroc?.length ? <Box title={t.inMorocco} blocks={p.maroc} locale={locale} className="maroc" /> : null}
             {!hasAdvice ? null : p.adviceTitle ? (

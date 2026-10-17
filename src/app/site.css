@@ -133,7 +133,13 @@ main { display: block; }
   .guide-fig span.fig-m { display: inline; }
 }
 .guide-fig figcaption { font-size: 14px; color: var(--muted); }
-.box .box-t { font-weight: 700; color: var(--bordeaux); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.avis { margin: 0; max-width: 720px; display: grid; gap: 8px; border-inline-start-color: var(--bordeaux); }
+.avis blockquote { margin: 0; }
+.avis blockquote p { margin: 0; font-family: var(--serif); font-size: clamp(18px, 2vw, 21px); line-height: 1.45; color: var(--bordeaux); }
+.avis blockquote p::before { content: "«\00a0"; }
+.avis blockquote p::after { content: "\00a0»"; }
+.avis figcaption { font-size: 14px; color: var(--muted); }
+.box .box-t, .avis .box-t { font-weight: 700; color: var(--bordeaux); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
 .essentials { margin-top: 4px; max-width: 720px; }
 .maroc { border-inline-start-color: var(--bordeaux); }
 .solution { border-inline-start-color: var(--bordeaux); background: #fff; }

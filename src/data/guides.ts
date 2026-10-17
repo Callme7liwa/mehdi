@@ -111,6 +111,7 @@ export const guides: ProblemPage[] = [
         ]
       }
     ],
+    pharmacistNote: { text: "Ne te décourage pas. Le mélasma est souvent chronique et peut récidiver, mais il existe des solutions pour le contrôler. La régularité, la photoprotection et un suivi dermatologique font une vraie différence.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -283,6 +284,7 @@ export const guides: ProblemPage[] = [
         ]
       }
     ],
+    pharmacistNote: { text: "Arrête de les percer ! Tu risques d'aggraver l'inflammation, de laisser des cicatrices et de provoquer des taches. Mieux vaut adopter des soins adaptés et consulter si l'acné persiste.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -454,6 +456,7 @@ export const guides: ProblemPage[] = [
         "Ce qu'ils ne font pas : ils ne font pas disparaître une tache solaire, et ils ne remplacent pas l'avis d'un dermatologue sur une tache qui change. Le guide complet : [taches brunes du visage](/taches-brunes-visage)."
       ]
     },
+    pharmacistNote: { text: "N'attends pas qu'elles se multiplient pour adopter une bonne routine : protection solaire quotidienne, soins doux et consultation si une tache est suspecte.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -617,6 +620,7 @@ export const guides: ProblemPage[] = [
         "Ce qu'ils ne font pas : ils ne traitent pas l'acné ni le mélasma. Pour toute la routine : [le guide des taches brunes du visage](/taches-brunes-visage)."
       ]
     },
+    pharmacistNote: { text: "Ne perce pas tes boutons et protège ta peau du soleil. L'inflammation peut laisser des taches pigmentaires qui persistent plusieurs mois.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -770,6 +774,7 @@ export const guides: ProblemPage[] = [
         "Ce qu'il ne fait pas : il ne remplace ni l'ombre ni le chapeau, et il ne fait pas disparaître les taches. Le guide complet : [taches brunes du visage](/taches-brunes-visage)."
       ]
     },
+    pharmacistNote: { text: "Les UV sont présents même en hiver. Leur intensité varie, mais une protection solaire reste utile, notamment en cas d'exposition prolongée ou de taches pigmentaires.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -944,6 +949,7 @@ export const guides: ProblemPage[] = [
         "Pour le reste du guide : [taches brunes du visage](/taches-brunes-visage)."
       ]
     },
+    pharmacistNote: { text: "Ne pas en appliquer assez et oublier d'en remettre. Il faut aussi penser au cou, aux oreilles et aux autres zones exposées.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -1016,7 +1022,7 @@ export const guides: ProblemPage[] = [
         "h2": "Dans quel ordre appliquer les soins le matin ?",
         "body": [
           "Les dermatologues conseillent un ordre logique : on nettoie, on applique le soin de traitement juste après, puis l'hydratant et l'écran solaire, puis le maquillage si tu en mets [1].",
-          "Avec la [routine anti-taches OTAGE](/), le matin, cela donne 4 étapes :",
+          "Pour commencer, trois gestes suffisent : nettoyer, hydrater et, le matin, protéger du soleil. La [routine anti-taches OTAGE](/) y ajoute un soin ciblé contre les taches, le sérum, juste après le nettoyage. Le matin, cela donne 4 étapes :",
           {
             "steps": [
               "**Nettoyer.** Le [gel nettoyant](/soins/gel-nettoyant), sur peau humide. Masse 30 secondes, puis rince. Sèche en tapotant, sans frotter.",
@@ -1104,6 +1110,7 @@ export const guides: ProblemPage[] = [
       },
       "Enceinte ou allaitante ? Demande l'accord de ton médecin avant de commencer la routine. Montre-lui la liste des ingrédients [9]."
     ],
+    pharmacistNote: { text: "Trois soins suffisent pour commencer : un nettoyant doux, une crème hydratante et une protection solaire le matin. On peut ensuite ajouter un soin ciblé selon les besoins de sa peau.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -1112,7 +1119,7 @@ export const guides: ProblemPage[] = [
       {
         "q": "Faut-il utiliser les 4 soins ?",
         "a": [
-          "Le matin, oui : l'écran solaire est indispensable, sans lui les taches reviennent. Le soir, les 3 premiers suffisent."
+          "Pas forcément. Pour commencer, trois gestes suffisent : nettoyer, hydrater et, le matin, protéger du soleil. Le sérum anti-taches est le soin ciblé qu'on ajoute ensuite. L'écran solaire, lui, est indispensable le matin : sans lui, les taches reviennent."
         ]
       },
       {
@@ -1303,6 +1310,7 @@ export const guides: ProblemPage[] = [
         "Ce qu'ils ne font pas : ils ne réparent pas une brûlure ni une peau abîmée par un produit, et ils ne remplacent pas un avis médical. Pour le reste : [taches brunes du visage](/taches-brunes-visage)."
       ]
     },
+    pharmacistNote: { text: "Les crèmes anti-taches de composition inconnue, surtout celles qui promettent des résultats spectaculaires en quelques jours. Certains produits peuvent contenir des substances dangereuses.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -1486,6 +1494,7 @@ export const guides: ProblemPage[] = [
         "Le guide complet : [taches brunes du visage](/taches-brunes-visage). La routine pas à pas : [matin et soir](/routine-taches-matin-soir)."
       ]
     },
+    pharmacistNote: { text: "La liste des ingrédients, les actifs, leur concentration lorsqu'elle est indiquée et les précautions d'utilisation. Je regarde aussi si le produit correspond réellement aux besoins de la peau.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],
@@ -1684,6 +1693,7 @@ export const guides: ProblemPage[] = [
       "Au Maroc, ton pharmacien est souvent le premier à voir une tache : pour une tache banale, il peut te conseiller ; pour une tache qui change, saigne ou démange, demande-lui de t'orienter vers un dermatologue."
     ],
     advice: [],
+    pharmacistNote: { text: "Une tache qui change rapidement de taille, de forme ou de couleur, ou qui saigne. Dans ce cas, il faut la faire examiner par un dermatologue.", by: "dr-seddiki" }, // réponse écrite de Dr Seddiki, 17 octobre 2026
     productsTitle: "",
     productsIntro: "",
     products: [],

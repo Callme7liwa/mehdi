@@ -4,13 +4,15 @@ import { problems } from "@/data/problems";
 import { problemsAr } from "@/data/problems.ar";
 import { bundleTotal, bundleUnit, gamme, gammeSaving, ingredientList, products, rangeProducts, yeuxPrice } from "@/data/products";
 import { trustPages } from "@/data/pages";
-import { abs, formatDate, site } from "@/data/site";
+import { abs, formatDate, isReviewed, site } from "@/data/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
   const P = gamme.formats.petit, G = gamme.formats.grand;
-  const advice = site.medicalReview.validated && Boolean(site.medicalReview.date);
+  // pages conseils : listées seulement quand leur relecture par le pharmacien est confirmée (p.reviewed)
+  const advice = problems.filter((p) => isReviewed(p.reviewed));
+  const adviceAr = problemsAr.filter((p) => isReviewed(p.reviewed));
   const yeux = products.find((p) => p.key === "yeux")!;
   const deo = products.find((p) => p.key === "deo")!, deoPrice = deo.unitPrice.petit as number;
   const ml = (f: "petit" | "grand") => rangeProducts.map((p) => `${p.name.fr.replace(" anti-taches", "").toLowerCase()} ${p.ml[f]} ml`).join(", ");
@@ -56,8 +58,7 @@ export function GET() {
     `- Réclamations : ${site.claims.fr}`,
     `- Contact (${site.availability.fr}) : WhatsApp ${site.whatsapp.e164}, e-mail ${site.email}, Instagram ${site.instagram.handle} (${site.instagram.url}).`,
     "",
-    // pages conseils : listées seulement quand la relecture du pharmacien est confirmée (site.medicalReview)
-    ...(advice ? ["## Conseils peau", "", ...problems.map((p) => `- [${p.label}](${abs(`/${p.slug}`)}) : ${p.metaDescription}`), ""] : []),
+    ...(advice.length ? ["## Conseils peau", "", ...advice.map((p) => `- [${p.label}](${abs(`/${p.slug}`)}) : ${p.metaDescription}`), ""] : []),
     "## Questions fréquentes",
     "",
     ...faq.fr.map((f) => `- **${f.q}** ${plain(f)}`),
@@ -75,7 +76,7 @@ export function GET() {
     `- [الصفحة الرئيسية](${abs("/ar")})`,
     `- [كل المنتجات](${abs("/ar/soins")})`,
     ...products.map((p) => `- [${p.name.ar} ${p.no}](${abs(`/ar/soins/${p.slug}`)}) : ${p.benefit.ar}. ${ingredientList(p, "ar")}.`),
-    ...(advice ? problemsAr.map((p) => `- [${p.label}](${abs(`/ar/${p.slug}`)}) : ${p.metaDescription}`) : []),
+    ...adviceAr.map((p) => `- [${p.label}](${abs(`/ar/${p.slug}`)}) : ${p.metaDescription}`),
     ...trustPages.map((p) => `- [${p.label.ar}](${abs(`/ar${p.path}`)})`),
     "",
     `الأسعار بالدرهم المغربي: مجموعة العناية ضد البقع ${P.price} درهم (الحجم الصغير) أو ${G.price} درهم (الحجم الكبير)؛ سيروم محيط العين ${yeuxPrice} درهم؛ مزيل العرق كريم ${deoPrice} درهم. التوصيل خلال ${site.delivery.label.ar}، والدفع عند الاستلام. ${site.delivery.rule.ar}. ${site.returns.right.ar}`,

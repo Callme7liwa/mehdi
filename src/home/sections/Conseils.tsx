@@ -1,10 +1,12 @@
 import type { HomeText } from "../text";
-import { formatDate, site, type Locale } from "@/data/site";
+import { problemBySlug } from "@/data/problems";
+import { formatDate, isReviewed, reviewers, type Locale } from "@/data/site";
 import { localePath } from "@/lib/seo";
 
 /** « Conseils » : cinq portes d'entrée vers les pages conseils existantes (de vrais liens, sans script).
     « Grossesse et allaitement » n'a pas de page à elle : le lien mène à la page mélasma, qui traite ces précautions.
-    La mention de relecture suit site.medicalReview : rien tant que le pharmacien n'a pas validé les pages. */
+    La mention de relecture suit le champ `reviewed` de chaque page : elle n'apparaît que quand toutes les pages liées
+    sont relues par le même relecteur, avec la date de la dernière relecture. */
 export default function Conseils({ t, locale }: { t: HomeText; locale: Locale }) {
   const cards = [
     { slug: "taches-pigmentaires", title: t.conseilsTaches, sub: t.conseilsTachesSub },
@@ -13,7 +15,10 @@ export default function Conseils({ t, locale }: { t: HomeText; locale: Locale })
     { slug: "melasma-grossesse", title: t.conseilsMelasma, sub: t.conseilsMelasmaSub },
     { slug: "melasma-grossesse", title: t.conseilsGrossesse, sub: t.conseilsGrossesseSub },
   ];
-  const { validated, date } = site.medicalReview;
+  const reviews = cards.map((c) => problemBySlug(c.slug)?.reviewed);
+  const all = reviews.every((r) => isReviewed(r) && r.by === reviews[0]?.by);
+  const date = all ? reviews.map((r) => r!.date).sort().at(-1)! : null;
+  const reviewer = all ? reviewers[reviews[0]!.by] : null;
   return (
     <section className="cs" id="conseils" aria-labelledby="cs-title">
       <div className="cs-in">
@@ -21,7 +26,7 @@ export default function Conseils({ t, locale }: { t: HomeText; locale: Locale })
           <p className="shop-k">{t.conseilsConseils}</p>
           <h2 id="cs-title">{t.conseilsComprendreTaPeau}</h2>
           <p>{t.conseilsDesReponsesSimples}</p>
-          {validated && date && <p className="cs-badge ok">✓ {t.conseilsReluPar}{locale === "ar" ? site.founder.nameAr : site.founder.name}{t.conseilsPharmacienLe}{formatDate(date, locale)}</p>}
+          {reviewer && date && <p className="cs-badge ok">✓ {t.conseilsReluPar}{locale === "ar" ? reviewer.nameAr : reviewer.name}{t.conseilsPharmacienLe}{formatDate(date, locale)}</p>}
         </header>
         <div className="cs-grid">
           {cards.map((c, i) => (

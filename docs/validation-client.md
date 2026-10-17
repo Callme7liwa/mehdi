@@ -106,7 +106,7 @@ Une allégation non prouvée doit être retirée du site. État au 17 octobre 20
 
 ## 4. Rôles des ingrédients « [À VALIDER] » des 6 fiches — pharmacien
 
-Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (contenu v3). La mention « Rôles relus par notre pharmacien » reste masquée tant que `site.medicalReview.validated` n'est pas à true.
+Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (contenu v3). La mention « Rôles relus par notre pharmacien » reste masquée sur chaque fiche tant que sa relecture n'est pas confirmée (`labReviewed` dans src/data/product-pages.ts).
 
 ### N° 01 · Gel nettoyant anti-taches
 
@@ -256,7 +256,7 @@ La version actuelle reste en ligne ; la version courte ne remplace l'actuelle qu
 
 ### Pages conseils réécrites : pharmacien
 
-Elles restent en noindex tant que `site.medicalReview.validated` n'est pas à true. Une ligne par bloc de la page.
+Chacune reste en noindex tant que sa relecture n'est pas confirmée (champ `reviewed` dans src/data/problems.ts). Une ligne par bloc de la page.
 
 #### /taches-pigmentaires : Taches pigmentaires : causes et routine pour les atténuer
 

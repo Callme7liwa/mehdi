@@ -4,7 +4,7 @@
    {d} est remplacé par l'écart de prix entre le Petit et le Grand format. L'arabe est « À relire par un natif ». */
 import { isolateAr } from "../lib/bidi";
 import type { ProductKey } from "./products";
-import type { L } from "./site";
+import type { L, Review } from "./site";
 
 export type PerkIcon =
   | "spots" | "leaf" | "flower" | "star" | "noSulfate" | "fig" | "drop" | "waves" | "drop2" | "halfTone" | "flask" | "helix"
@@ -30,6 +30,8 @@ export type ProductPageText = {
   /** Soins à offre 2 + 1 : le mot pour un article (« sérum », « pot »). */
   unitWord?: { one: L; many: L };
   lab: { title: [L, L]; alt: L; ingredients: Ingredient[]; spots?: { x: number; y: number; tip: L }[] };
+  /** Rôles des ingrédients relus par le pharmacien (docs/validation-client.md, partie 4) : la fiche l'annonce sous « L'étiquette ». */
+  labReviewed?: Review;
   /** Section « Mode d'emploi » : pour qui (60 mots max), 3 étapes numérotées avec leur pictogramme,
       et une frise « résultats » : quand, et à quoi s'attendre (uniquement des faits déjà validés, sans promesse chiffrée). */
   use?: { forWho: L; steps: L[]; icons: StepIcon[]; timeline: { when: L; what: L }[] };

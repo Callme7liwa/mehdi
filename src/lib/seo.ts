@@ -1,7 +1,7 @@
 /* Balises et données structurées, construites à partir de src/data/. */
 import { googleMaps, googleVerification, linkedin } from "@/data/google";
 import type { Metadata } from "next";
-import { abs, site, type Locale } from "@/data/site";
+import { abs, reviewers, site, type Locale, type ReviewerId } from "@/data/site";
 import { plain, type Faq } from "@/data/faq";
 import { gamme, unitFormats, type FormatKey, type Img, type Product, productDescription } from "@/data/products";
 
@@ -88,7 +88,11 @@ export const founderLd = (locale: Locale = "fr") => ({
 });
 
 /** Le relecteur des pages conseils (JSON-LD reviewedBy), quand la relecture est confirmée. */
-export const reviewerLd = (locale: Locale = "fr") => ({ "@type": "Person", "@id": abs("/#founder"), name: locale === "ar" ? site.founder.nameAr : site.founder.name, jobTitle: site.founder.jobTitle[locale] });
+/** Le relecteur d'une page (reviewedBy) ; le fondateur garde son @id, celui du reste du graphe. */
+export const reviewerLd = (locale: Locale, by: ReviewerId) => {
+  const r = reviewers[by];
+  return { "@type": "Person", ...(r === site.founder ? { "@id": abs("/#founder") } : {}), name: locale === "ar" ? r.nameAr : r.name, jobTitle: r.jobTitle[locale] };
+};
 
 export const websiteLd = (locale: Locale = "fr") => ({ "@type": "WebSite", "@id": abs("/#website"), url: abs("/"), name: site.brand[locale], alternateName: site.name, inLanguage: ["fr-MA", "ar-MA"], publisher: ORG });
 

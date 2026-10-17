@@ -13,7 +13,7 @@ import { problems } from "@/data/problems";
 import { problemsAr } from "@/data/problems.ar";
 import { reviewName, reviewsFor } from "@/data/reviews";
 import { products, unitFormats, hasBundle, type Product, productDescription, nameWithArticle } from "@/data/products";
-import { abs, site, waLink, type Locale } from "@/data/site";
+import { abs, isReviewed, site, waLink, type Locale } from "@/data/site";
 import { breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, productLd, webPageLd } from "@/lib/seo";
 import { CartProvider, MoreCard, Offer, OpenButton, TotalLabel } from "./cart";
 import { fill, type CartItem } from "./shared";
@@ -132,8 +132,8 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
                 spots={x.lab.spots?.map((s) => ({ x: s.x, y: s.y, tip: L(s.tip) }))}
                 items={x.lab.ingredients.map((g, i) => ({ n: `0${i + 1}`, name: L(g.name), where: L(g.where), role: L(g.role), why: g.why && L(g.why) }))}
               />
-              {/* tant que la relecture du pharmacien n'est pas confirmée (site.medicalReview), on ne l'annonce pas */}
-              {site.medicalReview.validated && <div className="lab-note mono">{t.labNote}</div>}
+              {/* tant que la relecture des rôles par le pharmacien n'est pas confirmée pour ce soin (labReviewed), on ne l'annonce pas */}
+              {isReviewed(x.labReviewed) && <div className="lab-note mono">{t.labNote}</div>}
             </div>
           </section>
 

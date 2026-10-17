@@ -129,13 +129,6 @@ export const site = {
     hebergeur: "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
   },
 
-  /** Relecture des pages conseils (taches pigmentaires, cernes, taches d'acné, mélasma et grossesse) par le pharmacien.
-      Tant que `validated` est false : ces 4 pages restent hors de l'index (noindex, absentes du sitemap et de llms.txt)
-      et n'affichent aucune mention de relecture.
-      Quand la relecture est confirmée : mettre `validated: true` et la date (AAAA-MM-JJ). Les pages affichent alors
-      « Relu par Dr Seddiki El Mehdi, pharmacien, le … » et le JSON-LD porte reviewedBy + lastReviewed. */
-  medicalReview: { validated: false as boolean, date: null as string | null },
-
   /** Date de dernière mise à jour du contenu (affichée et envoyée aux moteurs). */
   updated: "2026-10-11",
 
@@ -144,6 +137,19 @@ export const site = {
       `arIndexable: true,`. (AR_INDEXABLE=1 au build permet de tester sans modifier ce fichier.) */
   arIndexable: process.env.AR_INDEXABLE === "1",
 } as const;
+
+/** Les relecteurs (relecture médicale des pages conseils et des rôles des ingrédients). */
+export const reviewers = { "dr-seddiki": site.founder } as const;
+export type ReviewerId = keyof typeof reviewers;
+
+/** Relecture d'une page, confirmée par son relecteur : la date (AAAA-MM-JJ) et qui a relu.
+    Une page conseil sans relecture reste hors de l'index (noindex, absente du sitemap et de llms.txt)
+    et n'affiche aucune mention « Relu par ». Avec : « Relu par Dr Seddiki El Mehdi, pharmacien, le … »,
+    et le JSON-LD porte reviewedBy + lastReviewed. */
+export type Review = { date: string; by: ReviewerId };
+
+/** Relecture confirmée : une date et un relecteur connu. */
+export const isReviewed = (r?: Review | null): r is Review => Boolean(r?.date && reviewers[r.by]);
 
 /** Adresse absolue d'un chemin du site. */
 export const abs = (path = "/") => `${site.url}${path === "/" ? "/" : path}`;

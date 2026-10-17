@@ -1,9 +1,12 @@
 /* Pages « problèmes de peau » : /taches-pigmentaires, /cernes, /taches-acne, /melasma-grossesse.
    Conseils généraux, sans promesse médicale. Les informations sur les produits viennent de products.ts.
    TOUS LES TEXTES DE CE FICHIER SONT « À RELIRE » (idéalement par un dermatologue ou un pharmacien)
-   avant la mise en ligne : chaque page est marquée ci-dessous. */
+   avant la mise en ligne : chaque page est marquée ci-dessous.
+   Une page entre dans l'index seulement quand sa relecture est confirmée : champ `reviewed` (voir Review dans site.ts),
+   par exemple `reviewed: { date: "2026-11-02", by: "dr-seddiki" }`. La version arabe suit le statut de la page française. */
 import type { Faq } from "./faq";
 import type { Img, ProductKey } from "./products";
+import type { Review } from "./site";
 
 /** Un bloc de texte : un paragraphe, une liste à puces, ou des étapes numérotées. */
 export type Block = string | { list: string[] } | { steps: string[] };
@@ -27,6 +30,8 @@ export interface ProblemPage {
   /** Afficher la routine anti-taches en 4 étapes. */
   routine: boolean;
   faq: Faq[];
+  /** Relecture du pharmacien confirmée. Sans elle : noindex, hors sitemap et llms.txt, sans mention « Relu par ». */
+  reviewed?: Review;
 }
 
 const image = (file: string, w: number, h: number, fr: string): Img => ({ src: `/images/${file}`, w, h, alt: { fr, ar: fr } });

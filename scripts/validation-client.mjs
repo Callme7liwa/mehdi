@@ -121,7 +121,7 @@ md += table(["Texte", "Contenu affiché", "Source"], [
 ]);
 
 /* ---------- 4. Rôles des ingrédients ---------- */
-md += `## 4. Rôles des ingrédients « [À VALIDER] » des 6 fiches — pharmacien\n\nTextes de la section « L'étiquette, sans filtre », raccourcis à une ligne (contenu v3). La mention « Rôles relus par notre pharmacien » reste masquée tant que \`site.medicalReview.validated\` n'est pas à true.\n\n`;
+md += `## 4. Rôles des ingrédients « [À VALIDER] » des 6 fiches — pharmacien\n\nTextes de la section « L'étiquette, sans filtre », raccourcis à une ligne (contenu v3). La mention « Rôles relus par notre pharmacien » reste masquée sur chaque fiche tant que sa relecture n'est pas confirmée (\`labReviewed\` dans src/data/product-pages.ts).\n\n`;
 for (const p of products) {
   const x = productPages[p.key];
   md += `### ${p.no} · ${p.name.fr}\n\n`;
@@ -150,7 +150,7 @@ for (const p of products) {
 }
 md += `### Citation du fondateur (À propos)\n\nLa version actuelle reste en ligne ; la version courte ne remplace l'actuelle qu'après votre accord.\n\n`;
 md += table(["Version", "Texte"], [row(["Actuelle (en ligne)", site.founder.story.fr]), row(["Courte (proposée)", site.founder.storyShort.fr])]);
-md += `### Pages conseils réécrites : pharmacien\n\nElles restent en noindex tant que \`site.medicalReview.validated\` n'est pas à true. Une ligne par bloc de la page.\n\n`;
+md += `### Pages conseils réécrites : pharmacien\n\nChacune reste en noindex tant que sa relecture n'est pas confirmée (champ \`reviewed\` dans src/data/problems.ts). Une ligne par bloc de la page.\n\n`;
 const blk = (b) => (typeof b === "string" ? b : (b.list ?? b.steps).map((x) => `• ${x}`).join(" "));
 for (const p of problems) {
   md += `#### /${p.slug} : ${p.h1}\n\n`;

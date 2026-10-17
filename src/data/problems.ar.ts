@@ -5,7 +5,8 @@
 import { isolateAll, isolateAr } from "../lib/bidi";
 import { problems, type ProblemPage } from "./problems";
 
-type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products"> & { products: string[] };
+// la relecture (reviewed) vient de la page française
+type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed"> & { products: string[] };
 
 const ar: Record<string, Ar> = {
   /* ------------------------------------------------------------------ À relire par un natif : /ar/taches-pigmentaires */

@@ -1,24 +1,58 @@
 > **Fichier généré par `npm run validation` : le copier avant de le remplir.** Le relancer écrase ce fichier, cases cochées comprises.
 
-# Validation client : fiches produits v2 et contenu v3
+# Validation client : le site otage.ma
 
 Document à faire remplir par le client (et par le pharmacien pour les parties indiquées).
 Pour chaque ligne : cocher **Validé**, ou **À modifier** en écrivant la bonne valeur. Toute correction sera reportée sur le site.
 
-Généré le 16 octobre 2026, à partir du code : les valeurs sont celles que le site affiche aujourd'hui.
+Généré le 17 octobre 2026, à partir du code : les valeurs sont celles que le site affiche aujourd'hui.
 
 Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/data/ar-relecture.md`, à faire relire par un natif.
 
+## Ce qu'on attend de toi
+
+Ce document reprend ce que le site otage.ma affiche aujourd'hui. Pour chaque ligne, coche **Validé**, ou **À modifier** en écrivant la correction. Merci de nous le rendre complet : tant qu'une ligne n'est pas validée, elle peut être fausse sur le site.
+
+1. **Valider les prix** (partie 1) : gamme, soins à l'unité, offres 2 + 1, livraison.
+2. **Valider les allégations** (partie 2) : ce que l'on dit des soins (« sans sulfate », « ne bloque pas la transpiration », etc.). Si une allégation n'est pas prouvée, elle doit être retirée.
+3. **Faire relire par le pharmacien** les rôles des ingrédients (partie 4), le mode d'emploi et les résultats de chaque fiche (partie 6) et les **4 pages conseils** (partie 6). Ces pages restent invisibles sur Google tant qu'il ne les a pas validées.
+4. **Donner le parcours du pharmacien** (tableau ci-dessous), pour la page « À propos » et la mention « Relu par notre pharmacien ».
+
+### Le parcours du pharmacien (page « À propos »)
+
+| Information | À compléter | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Nom tel qu'il doit apparaître | Dr Seddiki El Mehdi | ☐ Validé | ☐ À modifier : |
+| Faculté de pharmacie (ville, pays) | … | ☐ Validé | ☐ À modifier : |
+| Année du diplôme | … | ☐ Validé | ☐ À modifier : |
+| Officine (nom, ville) et années d'exercice | … | ☐ Validé | ☐ À modifier : |
+| Autres formations ou spécialités (dermocosmétique, etc.) | … | ☐ Validé | ☐ À modifier : |
+| Phrase de présentation souhaitée (facultatif) | … | ☐ Validé | ☐ À modifier : |
+
 ## 1. Prix et offres (client)
+
+### La gamme anti-taches (4 soins)
 
 | Donnée | Valeur affichée sur le site | Source dans le code | Validé | À modifier (préciser) |
 |---|---|---|---|---|
-| Sérum contour des yeux N° 05 : prix à l'unité | 185 DH (ancien prix : 130 DH), 15 ml | src/data/products.ts, produit « yeux », unitPrice | ☐ Validé | ☐ À modifier : |
+| Gamme Petit format | 299 DH (au lieu de 496 DH, le prix des 4 soins à l'unité) ; offre 2 + 1 : 3 gammes pour 598 DH (≈ 199 DH la gamme) | src/data/products.ts, gamme | ☐ Validé | ☐ À modifier : |
+| Gamme Grand format | 599 DH (au lieu de 800 DH, le prix des 4 soins à l'unité) ; offre 2 + 1 : 3 gammes pour 1198 DH (≈ 399 DH la gamme) | src/data/products.ts, gamme | ☐ Validé | ☐ À modifier : |
+| Livraison de la gamme | Offerte | src/data/site.ts, delivery | ☐ Validé | ☐ À modifier : |
+
+### Les soins à l'unité
+
+| Soin | Prix affiché | Source dans le code | Validé | À modifier (préciser) |
+|---|---|---|---|---|
+| Gel nettoyant anti-taches (N° 01) | Petit 125 ml : 91 DH ; Grand 200 ml : 140 DH | src/data/products.ts, produit « gel », unitPrice | ☐ Validé | ☐ À modifier : |
+| Sérum anti-taches (N° 02) | Petit 15 ml : 163 DH ; Grand 30 ml : 265 DH | src/data/products.ts, produit « serum », unitPrice | ☐ Validé | ☐ À modifier : |
+| Crème anti-taches (N° 03) | Petit 30 ml : 130 DH ; Grand 50 ml : 205 DH | src/data/products.ts, produit « creme », unitPrice | ☐ Validé | ☐ À modifier : |
+| Écran solaire SPF 50 (N° 04) | Petit 30 ml : 112 DH ; Grand 50 ml : 190 DH | src/data/products.ts, produit « ecran », unitPrice | ☐ Validé | ☐ À modifier : |
+| Sérum contour des yeux N° 05 | 185 DH (ancien prix : 130 DH), 15 ml | src/data/products.ts, produit « yeux », unitPrice | ☐ Validé | ☐ À modifier : |
 | Sérum contour des yeux : offre 2 + 1 | 3 sérums pour 370 DH au lieu de 555 DH (≈ 123 DH le sérum) | src/data/products.ts, bundleKeys | ☐ Validé | ☐ À modifier : |
-| Déodorant crème N° 06 : prix | 85 DH, format unique de 50 ml | src/data/products.ts, produit « deo », unitPrice et ml | ☐ Validé | ☐ À modifier : |
+| Déodorant crème N° 06 | 85 DH, format unique de 50 ml | src/data/products.ts, produit « deo », unitPrice et ml | ☐ Validé | ☐ À modifier : |
 | Déodorant crème : offre 2 + 1 | 3 pots pour 170 DH au lieu de 255 DH (≈ 57 DH le pot) | src/data/products.ts, bundleKeys | ☐ Validé | ☐ À modifier : |
-| Règle de l'offre 2 + 1 à l'unité | Pour le sérum contour des yeux et le déodorant crème : 1 article offert pour 3 identiques dans la même commande, cumulable (6 = 2 offerts), y compris quand le soin est ajouté depuis la fiche d'un autre produit. Calculé par le serveur. | src/data/products.ts (freeCount), src/lib/order/compute.ts | ☐ Validé | ☐ À modifier : |
-| Livraison du déodorant et du contour des yeux | Payante : de 35 à 45 DH selon la ville (comme tout achat à l'unité) | src/data/site.ts, delivery.unitFee | ☐ Validé | ☐ À modifier : |
+| Règle de l'offre 2 + 1 à l'unité | Pour le sérum contour des yeux et le déodorant crème : 1 article offert pour 3 identiques dans la même commande, cumulable (6 = 2 offerts). Calculé par le serveur. | src/data/products.ts (freeCount) | ☐ Validé | ☐ À modifier : |
+| Livraison d'un achat à l'unité | De 35 à 45 DH selon la ville | src/data/site.ts, delivery.unitFee | ☐ Validé | ☐ À modifier : |
 
 ## 2. Déodorant crème N° 06 (client, pharmacien pour les allégations)
 
@@ -33,18 +67,18 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Mode d'emploi | Prends un peu de crème du bout du doigt, laisse-la fondre puis applique-la sur l'aisselle propre et sèche. | src/data/products.ts, how (texte écrit par nous, pas dans la maquette) | ☐ Validé | ☐ À modifier : |
 | Photos (le texte de l'étiquette doit correspondre au produit vendu) | deodorant-creme-n06-pot.webp ; deodorant-creme-n06-mains.webp ; deodorant-creme-n06-etiquette.webp | public/images/ | ☐ Validé | ☐ À modifier : |
 
-### Allégations : À valider
+### Allégations : à valider
 
-« 100 % naturel » (et « naturel », « ingrédients naturels ») a été **retiré partout** (fiche, méta, JSON-LD, llms.txt, accueil, arabe) en attendant votre validation. Les allégations ci-dessous sont affichées ; elles restent **à valider**.
+Une allégation non prouvée doit être retirée du site. État au 17 octobre 2026, relevé sur les pages en ligne :
 
-| Allégation | Où elle apparaît | Statut | Validé | À modifier (préciser) |
+| Allégation | Soin | Où elle apparaît aujourd'hui | Validé | À modifier (préciser) |
 |---|---|---|---|---|
-| Sans sels d'aluminium | Nulle part : retiré du site (accueil, cartes, boutique à l'unité, fiche, meta, JSON-LD, llms.txt, arabe) en attendant votre validation. | À valider avant de le rétablir | ☐ Validé | ☐ À modifier : |
-| Sans parabène | fiche (avantage) | À valider | ☐ Validé | ☐ À modifier : |
-| Ne bloque pas la transpiration (agit sur les odeurs) | fiche (avantage, « Pour qui ? », FAQ « Est-ce qu'il bloque la transpiration ? ») | À valider | ☐ Validé | ☐ À modifier : |
-| Sans sulfate | fiche (avantage) — venait de la maquette | À valider | ☐ Validé | ☐ À modifier : |
-| « Cinq ingrédients, rien d'autre » | fiche (texte d'accroche), accueil | À valider (la liste complète est-elle bien de 5 ingrédients ?) | ☐ Validé | ☐ À modifier : |
-| « 100 % naturel » | retiré partout | À rétablir seulement si validé | ☐ Validé | ☐ À modifier : |
+| Sans sulfate | Gel nettoyant | fiche du gel, accueil, /soins, llms.txt (aussi écrit sur l'étiquette) | ☐ Validé | ☐ À modifier : |
+| Ne bloque pas la transpiration (agit sur les odeurs) | Déodorant | fiche du déodorant (« Pour qui ? », description Google), llms.txt | ☐ Validé | ☐ À modifier : |
+| 5 ingrédients | Déodorant | carte et fiche du déodorant, accueil, titre Google | ☐ Validé | ☐ À modifier : |
+| Sans sels d'aluminium | Déodorant | nulle part : retiré du site en attendant votre validation | ☐ Validé | ☐ À modifier : |
+| Sans parabène | Déodorant | nulle part : retiré du site en attendant votre validation | ☐ Validé | ☐ À modifier : |
+| « 100 % naturel » | Tous | nulle part : retiré du site ; à rétablir seulement si validé | ☐ Validé | ☐ À modifier : |
 
 ## 3. Textes que nous avons écrits (absents des maquettes) — client
 
@@ -53,14 +87,14 @@ Les traductions arabes ne sont pas reprises ici : elles sont toutes dans `src/da
 | Déodorant : titre de la page (H1), neutre | Déodorant crème OTAGE. | src/data/product-pages.ts, deo.title | ☐ Validé | ☐ À modifier : |
 | Déodorant : variante du H1, activée seulement après validation de « sans aluminium » | Déodorant crème sans aluminium. | src/data/product-pages.ts (commentaire au-dessus de deo.title) | ☐ Validé | ☐ À modifier : |
 | Déodorant : titre dans Google | Déodorant crème OTAGE, 5 ingrédients \| OTAGE | src/data/products.ts, metaTitle | ☐ Validé | ☐ À modifier : |
-| Déodorant : description dans Google (et JSON-LD) | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. {prix} DH, paiement à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
+| Déodorant : description dans Google (et JSON-LD) | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. 85 DH, paiement à la livraison. | src/data/products.ts, metaDescription | ☐ Validé | ☐ À modifier : |
 | Déodorant : « Pour qui ? » | Pour celles et ceux qui veulent un déodorant crème simple, qui agit sur les odeurs sans bloquer la transpiration. | src/data/products.ts, forWho | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Quel prix pour le déodorant crème ? » | 85 DH le pot de 50 ml. Avec l'offre 2 + 1 : 170 DH les 3, soit 57 DH le pot. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Et si j'ai la peau sensible ? » | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Je suis enceinte ou j'allaite, je peux l'utiliser ? » | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Déodorant : FAQ « Je suis livrée en combien de temps ? » | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | src/data/faq.ts (réponse générée) et products.ts | ☐ Validé | ☐ À modifier : |
 | Accueil : carte « odeurs » | Des odeurs sous les bras — Déodorant crème, 5 ingrédients — Nouveau · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
-| Accueil : résultat « odeurs » | Notre déodorant crème est là. 5 ingrédients, en pot de 50 ml. 85 DH. Bouton : Commander le déodorant · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
+| Accueil : résultat « odeurs » | Notre déodorant crème est là. 5 ingrédients. 85 DH. Bouton : Commander le déodorant · 85 DH | src/home/text.ts | ☐ Validé | ☐ À modifier : |
 | Accueil et /soins : bénéfice du déodorant sur sa carte | Agit sur les odeurs, 5 ingrédients | src/data/products.ts, benefit | ☐ Validé | ☐ À modifier : |
 | Fiches : mention sous chaque avis | Chaque peau est différente : c’est un témoignage, pas une promesse. | src/data/product-pages.ts, reviewNote | ☐ Validé | ☐ À modifier : |
 | Fiches : intitulé de l'avis d'Awatef (gel, sérum, crème, écran) | Avis sur la routine complète | src/data/reviews.ts | ☐ Validé | ☐ À modifier : |
@@ -128,7 +162,6 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 | Point | Situation actuelle | Fichier | Validé | À modifier (préciser) |
 |---|---|---|---|---|
 | CGV, article 3 « Prix » | Liste générée depuis products.ts : la gamme (Petit et Grand format, offre 2 + 1), puis sérum contour des yeux 185 DH (123 DH avec l'offre 2 + 1) et déodorant crème 85 DH (57 DH avec l'offre 2 + 1). Les prix à l'unité des 4 soins de la gamme n'y figurent pas. | src/app/(fr)/cgv/page.tsx et src/app/(ar)/ar/cgv/page.tsx | ☐ Validé | ☐ À modifier : |
-| Commandes gardées hors connexion avant la case CGV | Renvoyées avec cgv: true (les formulaires de l'accueil exigeaient déjà la case avant de les enregistrer). | src/home/islands/offers.js | ☐ Validé | ☐ À modifier : |
 
 ## 6. Contenu v3 : nouveaux textes courts (client, pharmacien pour les fiches et les conseils)
 
@@ -138,6 +171,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Gel nettoyant anti-taches. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Gel nettoyant anti-taches sans sulfate \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Gel nettoyant anti-taches sans sulfate, à la figue de Barbarie et au louban. Dès 91 DH, livré en 24 à 72 h partout au Maroc, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Nettoie sans dessécher | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour nettoyer ta peau sans la dessécher, avant le sérum anti-taches. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour toi si tu as des taches brunes ou un teint irrégulier. C'est l'étape 1 de la routine, matin et soir. | ☐ Validé | ☐ À modifier : |
@@ -148,6 +184,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Sérum anti-taches. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Sérum anti-taches à l'alpha-arbutine \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Sérum anti-taches à l'alpha-arbutine, au matcha et au calendula, pour atténuer les taches brunes. Dès 163 DH, livré en 24 à 72 h, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Atténue les taches brunes | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour atténuer les taches brunes et unifier le teint, goutte après goutte. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour les taches brunes, l'hyperpigmentation et le teint irrégulier. C'est l'étape 2 de la routine, matin et soir. | ☐ Validé | ☐ À modifier : |
@@ -158,6 +197,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Crème anti-taches. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Crème anti-taches à la niacinamide \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Crème anti-taches à la niacinamide et à l'acide hyaluronique : hydrate et unifie le teint. Dès 130 DH, livrée en 24 à 72 h, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Hydrate et unifie le teint | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour hydrater, unifier le teint et fixer le sérum, avant l'écran solaire. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour un teint irrégulier ou marqué par des taches. C'est l'étape 3 de la routine, matin et soir, après le sérum. | ☐ Validé | ☐ À modifier : |
@@ -168,6 +210,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Écran solaire SPF 50. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Écran solaire SPF 50 anti-taches \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Écran solaire SPF 50, haute protection UVA et UVB, pour limiter le retour des taches. Dès 112 DH, livré en 24 à 72 h au Maroc, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Limite le retour des taches | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour protéger ta peau des UVA et des UVB, et limiter le retour des taches. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour toute peau qui suit une routine anti-taches. C'est l'étape 4, le matin seulement. | ☐ Validé | ☐ À modifier : |
@@ -178,6 +223,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Sérum contour des yeux. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Sérum contour des yeux à la caféine \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Sérum contour des yeux à la caféine, 15 ml, applicateur bille, pour atténuer l'aspect des cernes. 185 DH, ou 3 pour 370 DH, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Atténue l'aspect des cernes | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour atténuer l'aspect des cernes et rafraîchir le regard, matin et soir. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour les cernes et le contour des yeux fatigué. Texture légère, applicateur bille, compatible avec le maquillage. | ☐ Validé | ☐ À modifier : |
@@ -188,6 +236,9 @@ Textes de la section « L'étiquette, sans filtre », raccourcis à une ligne (c
 
 | Texte | Contenu affiché | Validé | À modifier (préciser) |
 |---|---|---|---|
+| Titre de la page (H1) | Déodorant crème OTAGE. | ☐ Validé | ☐ À modifier : |
+| Titre dans Google | Déodorant crème OTAGE, 5 ingrédients \| OTAGE | ☐ Validé | ☐ À modifier : |
+| Description dans Google | Déodorant crème OTAGE fabriqué au Maroc, 5 ingrédients, pot de 50 ml. Agit sur les odeurs sans bloquer la transpiration. 85 DH, paiement à la livraison. | ☐ Validé | ☐ À modifier : |
 | Bénéfice (cartes, accueil, /soins) | Agit sur les odeurs, 5 ingrédients | ☐ Validé | ☐ À modifier : |
 | Accroche de la fiche | Pour les odeurs, avec 5 ingrédients seulement. | ☐ Validé | ☐ À modifier : |
 | Pour qui ? | Pour toi si tu veux un déodorant crème simple, à 5 ingrédients. Il agit sur les odeurs, pas sur la transpiration : transpirer est normal. | ☐ Validé | ☐ À modifier : |
@@ -263,4 +314,96 @@ Elles restent en noindex tant que `site.medicalReview.validated` n'est pas à tr
 | FAQ : Le masque de grossesse disparaît-il après l'accouchement ? | Souvent, il s'atténue en quelques mois, pas toujours. S'il reste, vois un dermatologue. | ☐ Validé | ☐ À modifier : |
 | FAQ : Puis-je utiliser les soins OTAGE enceinte ou en allaitant ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
 | FAQ : Le soleil aggrave-t-il le mélasma ? | Oui. Il fonce les taches et le mélasma revient vite après une exposition. | ☐ Validé | ☐ À modifier : |
+
+## 7. Questions fréquentes (client, pharmacien pour les questions de peau)
+
+Les réponses telles qu'affichées sur le site (et lues par Google : données structurées FAQ).
+
+### Accueil
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Je paie quand ? | À la livraison, en espèces. Rien à payer en ligne, pas de carte bancaire. | ☐ Validé | ☐ À modifier : |
+| La livraison est payante ? | Non pour une gamme complète : elle est offerte. À l'unité, compte 35 à 45 DH selon ta ville. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+| Combien coûte la gamme anti-taches ? | 299 DH en Petit format, 599 DH en Grand format. Avec l'offre 2 + 1, la 3e gamme est offerte. | ☐ Validé | ☐ À modifier : |
+| Qu'est-ce qu'il y a dans une gamme ? | Gel nettoyant, sérum, crème et écran SPF 50. Petit format : 125, 15, 30 et 30 ml. Grand format : 200, 30, 50 et 50 ml. | ☐ Validé | ☐ À modifier : |
+| Comment j'utilise la routine ? | Le matin : gel, sérum, crème, puis écran solaire. Le soir : les 3 premiers, sans écran. | ☐ Validé | ☐ À modifier : |
+| Je vois des résultats quand ? | Pas en quelques jours : les taches s'atténuent petit à petit. Régularité et écran solaire chaque matin comptent le plus. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Et après ma commande ? | On t'appelle pour confirmer ta commande et ton adresse. Ensuite, ton colis part. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai un problème avec ma commande ? | Produit abîmé ou erreur : on échange ou on rembourse, sans frais pour toi. Écris-nous sur WhatsApp. | ☐ Validé | ☐ À modifier : |
+| Je peux retourner ma commande ? | Oui, sous 7 jours après réception (loi 31-08, article 36). Produits non ouverts, retour à nos frais, remboursement ou échange. | ☐ Validé | ☐ À modifier : |
+| Vos soins sont fabriqués où ? | Au Maroc, avec un laboratoire partenaire. Parmi les ingrédients : figue de Barbarie et louban. | ☐ Validé | ☐ À modifier : |
+
+### N° 01 · Gel nettoyant anti-taches
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour le gel nettoyant anti-taches ? | 91 DH les 125 ml, 140 DH les 200 ml. Il est aussi dans la gamme complète, dès 299 DH. | ☐ Validé | ☐ À modifier : |
+| Le gel nettoyant dessèche-t-il la peau ? | Non : il est sans sulfate, avec figue de Barbarie et louban. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+### N° 02 · Sérum anti-taches
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour le sérum anti-taches ? | 163 DH les 15 ml, 265 DH les 30 ml. Il est aussi dans la gamme complète, dès 299 DH. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+### N° 03 · Crème anti-taches
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour la crème anti-taches ? | 130 DH les 30 ml, 205 DH les 50 ml. Elle est aussi dans la gamme complète, dès 299 DH. | ☐ Validé | ☐ À modifier : |
+| Avant ou après le sérum ? | Après. La crème est l'étape 3 : elle fixe le sérum appliqué juste avant. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+### N° 04 · Écran solaire SPF 50
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour l'écran solaire SPF 50 ? | 112 DH les 30 ml, 190 DH les 50 ml. Il est aussi dans la gamme complète, dès 299 DH. | ☐ Validé | ☐ À modifier : |
+| Faut-il le mettre le soir ? | Non. Le soir, la routine s'arrête à l'étape 3, la crème. | ☐ Validé | ☐ À modifier : |
+| Faut-il en mettre quand il n'y a pas de soleil ? | Oui. Les UVA traversent les nuages et les vitres. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+### N° 05 · Sérum contour des yeux
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour le sérum contour des yeux ? | 185 DH les 15 ml. Avec l'offre 2 + 1 : 370 DH les 3, soit 123 DH le sérum. | ☐ Validé | ☐ À modifier : |
+| Peut-on le mettre sous le maquillage ? | Oui. Sa texture légère se glisse sous le maquillage. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+### N° 06 · Déodorant crème
+
+| Question | Réponse affichée | Validé | À modifier (préciser) |
+|---|---|---|---|
+| Quel prix pour le déodorant crème ? | 85 DH le pot de 50 ml. Avec l'offre 2 + 1 : 170 DH les 3, soit 57 DH le pot. | ☐ Validé | ☐ À modifier : |
+| Et si j'ai la peau sensible ? | Fais d'abord un test de 24 h dans le pli du coude. En cas de rougeur, arrête et demande conseil. | ☐ Validé | ☐ À modifier : |
+| Je suis enceinte ou j'allaite, je peux l'utiliser ? | Demande d'abord à ton médecin ou à ton pharmacien. Montre-lui la liste des ingrédients. | ☐ Validé | ☐ À modifier : |
+| Je suis livrée en combien de temps ? | En 24 à 72 h, partout au Maroc. On t'appelle d'abord pour confirmer. | ☐ Validé | ☐ À modifier : |
+
+## 8. Mentions légales : cookies et mesure d'audience (client)
+
+Texte de la section « Cookies et mesure d'audience » (page Mentions légales, FR ; même contenu en arabe). Les durées doivent correspondre aux réglages de Google Analytics.
+
+| Paragraphe | Texte affiché | Validé | À modifier (préciser) |
+|---|---|---|---|
+| § 1 | Ce site n'utilise pas de cookies publicitaires. Il enregistre seulement, dans ton navigateur, tes préférences d'affichage et les informations de livraison que tu as saisies, pour t'éviter de les retaper. | ☐ Validé | ☐ À modifier : |
+| § 2 | Mesure d'audience (Google Analytics), seulement avec ton accord. Quand tu cliques sur « Accepter », nous utilisons Google Analytics, chargé par Google Tag Manager, pour mesurer la fréquentation du site : pages vues, provenance des visites (Instagram, Google, assistant IA…), type d'appareil, pays ou ville approximatifs, clics vers WhatsApp, offres choisies et commandes envoyées (montant, offre et numéro de commande). Ton nom, ton téléphone, ta ville et ton adresse ne sont jamais transmis. | ☐ Validé | ☐ À modifier : |
+| § 3 | Finalité : comprendre comment le site est utilisé, pour l'améliorer. Ces données sont traitées par Google (Google Ireland Limited et Google LLC), y compris hors du Maroc. Les cookies de mesure (_ga, _ga_…) sont conservés 13 mois au plus ; les statistiques, 14 mois au plus. | ☐ Validé | ☐ À modifier : |
+| § 4 | Tu peux refuser : sans ton accord, aucun script Google n'est chargé et aucun cookie de mesure n'est déposé, et le site fonctionne de la même façon. Ton choix est gardé dans ton navigateur. Tu peux le changer à tout moment avec le lien « Gérer les cookies », en bas de chaque page. | ☐ Validé | ☐ À modifier : |
 

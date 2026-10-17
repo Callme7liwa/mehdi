@@ -25,7 +25,8 @@ for (let i = 0; i < lines.length; i++) {
   // la note « fichier généré… » et le chemin du fichier arabe concernent l'équipe, pas le client
   if (l.startsWith("> ") || l.includes("ar-relecture.md")) { flush(); continue; }
   const h = l.match(/^(#{1,4}) (.*)/);
-  if (h) { flush(); html += `<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`; continue; }
+  // « Ce qu'on attend de toi » reste seule sur la première page : la partie 1 commence une nouvelle page
+  if (h) { flush(); const pb = h[1] === "##" && /^1\. /.test(h[2]) ? ' class="pb"' : ""; html += `<h${h[1].length}${pb}>${inline(h[2])}</h${h[1].length}>`; continue; }
   if (l.startsWith("|")) {
     flush();
     const head = cells(l); i++; // ligne de séparation
@@ -38,6 +39,12 @@ for (let i = 0; i < lines.length; i++) {
       html += `<tr>${r.map((c, k) => (keep[k] ? `<td${k === 0 ? ' class="k"' : ""}>${inline(c)}</td>` : "")).join("")}<td class="ck"><span class="box"></span></td><td class="ck"><span class="box"></span></td><td class="cm"></td></tr>`;
     }
     html += "</tbody></table>";
+    continue;
+  }
+  if (/^\d+\. /.test(l)) { // liste numérotée
+    flush(); const items = [l];
+    while (/^\d+\. /.test(lines[i + 1] || "")) items.push(lines[++i]);
+    html += `<ol>${items.map((x) => `<li>${inline(x.replace(/^\d+\. /, ""))}</li>`).join("")}</ol>`;
     continue;
   }
   if (!l.trim()) { flush(); continue; }
@@ -57,6 +64,8 @@ h2{font:600 14pt/1.2 "Bodoni Moda",serif;color:var(--ink);margin:18pt 0 6pt;padd
 h3{font-size:10.5pt;color:var(--red);margin:12pt 0 4pt;break-after:avoid}
 h4{font-size:9.6pt;color:var(--ink);margin:10pt 0 4pt;break-after:avoid}
 p{margin:0 0 5pt}
+h2.pb{break-before:page}
+ol{margin:0 0 8pt;padding-inline-start:18pt}ol li{margin:0 0 4pt}
 code{font-size:8.5pt;background:var(--soft);padding:0 2pt}
 table{width:100%;border-collapse:collapse;margin:4pt 0 8pt;table-layout:auto}
 thead{display:table-header-group}

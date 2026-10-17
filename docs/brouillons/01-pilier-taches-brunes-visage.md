@@ -30,13 +30,13 @@ Une tache brune n'est pas sale et ne vient pas d'un manque d'hygiène. Dans la g
 
 Savoir d'où vient ta tache aide à choisir les bons gestes. Voici les trois cas les plus fréquents.
 
-**Le mélasma.** Des plaques brunes, souvent des deux côtés du visage, de façon presque symétrique. Elles apparaissent surtout sur les joues, le front, le nez et au-dessus de la lèvre supérieure [2]. Il touche plus souvent les femmes, et plus souvent les peaux mates [2][7]. Pendant la grossesse, on l'appelle aussi « masque de grossesse ». Tout savoir : [le mélasma](/melasma).
+**Le mélasma.** Des plaques brunes, souvent des deux côtés du visage, de façon presque symétrique. Elles apparaissent surtout sur les joues, le front, le nez et au-dessus de la lèvre supérieure [2]. Il touche plus souvent les femmes, et plus souvent les peaux mates [2][7]. Pendant la grossesse, on l'appelle aussi « masque de grossesse ». Tout savoir : [le mélasma](/melasma)[LIEN EN ATTENTE].
 
 **Les marques d'acné.** Une tache plate et brune, à l'endroit exact d'un ancien bouton. Ce n'est pas une cicatrice : la surface de la peau est lisse, seule la couleur change [8]. Ces marques sont plus fréquentes et plus foncées sur peau mate [1][8]. Tout savoir : [les taches d'acné](/taches-acne).
 
-**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4]. Tout savoir : [les taches solaires](/taches-solaires).
+**Les taches solaires.** De petites taches rondes ou ovales, bien délimitées, d'une couleur assez uniforme. Elles apparaissent sur les zones les plus exposées au soleil, souvent avec les années [4]. Tout savoir : [les taches solaires](/taches-solaires)[LIEN EN ATTENTE].
 
-Tu as la peau mate et tu marques facilement ? Lis aussi [les taches sur peau mate](/taches-peau-mate).
+Tu as la peau mate et tu marques facilement ? Lis aussi [les taches sur peau mate](/taches-peau-mate)[LIEN EN ATTENTE].
 
 Si tu ne sais pas à quel type appartient ta tache, demande à un dermatologue : lui seul peut poser un diagnostic.
 
@@ -46,7 +46,7 @@ Le soleil est le premier ennemi des taches brunes. Il pousse la peau à fabrique
 
 C'est pour ça qu'une tache peut s'atténuer pendant l'hiver, puis revenir en quelques jours d'été. Pour le mélasma, ce retour est fréquent, même après un bon résultat [2][6]. [À VALIDER]
 
-Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été. Plus de détails : [le soleil au Maroc, toute l'année](/soleil-maroc-taches).
+Au Maroc, le soleil est présent presque toute l'année. Les UV restent présents même quand le ciel est couvert, et en hiver [5][9]. La protection ne s'arrête donc pas à l'été. Plus de détails : [le soleil au Maroc, toute l'année](/soleil-maroc-taches)[LIEN EN ATTENTE].
 
 Les gestes recommandés par l'Organisation mondiale de la santé, dans cet ordre [5] :
 
@@ -54,9 +54,9 @@ Les gestes recommandés par l'Organisation mondiale de la santé, dans cet ordre
 - Porter un chapeau à larges bords et des lunettes de soleil.
 - Mettre un écran solaire à large spectre sur la peau que les vêtements ne couvrent pas.
 
-L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas. Bien l'appliquer : [notre guide de l'écran solaire](/appliquer-ecran-solaire).
+L'écran solaire ne sert pas à rester plus longtemps au soleil [5]. Il complète l'ombre et le chapeau, il ne les remplace pas. Bien l'appliquer : [notre guide de l'écran solaire](/appliquer-ecran-solaire)[LIEN EN ATTENTE].
 
-Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12]. La liste complète : [les erreurs qui aggravent les taches](/erreurs-taches-visage).
+Certains gestes aggravent aussi les taches : le jus de citron vert sur la peau puis le soleil [10], gratter ou percer les boutons [11], ou des produits vendus sans contrôle, qui peuvent contenir des corticoïdes ou du mercure non déclarés [12]. La liste complète : [les erreurs qui aggravent les taches](/erreurs-taches-visage)[LIEN EN ATTENTE].
 
 ## Quelle routine suivre, et en combien de temps les taches s'atténuent-elles ?
 
@@ -71,7 +71,7 @@ La routine OTAGE suit cet ordre, en 4 étapes :
 3. La [crème anti-taches](/soins/creme-anti-taches), à la niacinamide, qui hydrate et unifie le teint. [À VALIDER]
 4. Le matin seulement : l'[écran solaire SPF 50](/soins/ecran-solaire-spf50), en dernier, pour limiter le retour des taches. [À VALIDER]
 
-Le soir, la routine s'arrête à l'étape 3. Le détail, étape par étape : [la routine matin et soir](/routine-taches-matin-soir). Pour comprendre ce que contient chaque soin : [les actifs de la routine](/ingredients).
+Le soir, la routine s'arrête à l'étape 3. Le détail, étape par étape : [la routine matin et soir](/routine-taches-matin-soir)[LIEN EN ATTENTE]. Pour comprendre ce que contient chaque soin : [les actifs de la routine](/ingredients)[LIEN EN ATTENTE].
 
 En combien de temps ? Personne ne peut te promettre un délai. Les taches s'atténuent petit à petit, avec la régularité et l'écran solaire chaque matin. [À VALIDER] Le temps dépend de ta peau, du type de tache et de son ancienneté [2][3]. Les premiers jours, ne t'attends pas à voir une différence : c'est normal.
 
@@ -90,7 +90,7 @@ La plupart des taches brunes du visage sont sans danger. Mais certaines doivent 
 - Une tache qui saigne, démange ou ne ressemble pas aux autres.
 - Une nouvelle tache qui apparaît et grandit.
 
-Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3]. Plus de détails : [quand consulter un dermatologue](/taches-quand-consulter).
+Consulte aussi si ton mélasma est étendu ou ancien, si tu as encore des boutons, ou si tu ne sais pas quel est ton type de tache. Un dermatologue peut proposer des traitements sur ordonnance ou des soins en cabinet [3]. Plus de détails : [quand consulter un dermatologue](/taches-quand-consulter)[LIEN EN ATTENTE].
 
 ## Questions fréquentes
 

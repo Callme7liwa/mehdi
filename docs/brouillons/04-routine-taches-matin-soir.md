@@ -4,7 +4,7 @@
 > Requête principale : routine visage taches brunes · secondaires : ordre des soins visage, routine du soir taches, sérum avant ou après crème
 > Inclut « combien de temps pour voir un résultat » (fusionné, voir la carte thématique), sans aucun délai chiffré.
 > Anti-cannibalisation : le title ne contient pas « routine anti-taches » (requête de l'accueil) ; la page lie l'accueil avec cette ancre.
-> Statut : noindex jusqu'à la relecture de Dr Seddiki.
+> Statut : noindex jusqu'à la relecture de Dr Seddiki. Mis à jour pour le lot 2 : blocs « Au Maroc » et « L'avis du pharmacien », liens en attente marqués [LIEN EN ATTENTE].
 > [À VALIDER] = phrase qui affirme un effet. Chiffres entre crochets [1] = sources en fin de page.
 
 Title : Taches brunes : l'ordre des soins matin et soir | OTAGE
@@ -26,7 +26,7 @@ Avec la [routine anti-taches OTAGE](/), le matin, cela donne 4 étapes :
 
 Pourquoi le sérum avant la crème ? Le soin de traitement s'applique sur la peau propre, juste après le nettoyage, et l'hydratant vient ensuite [1]. Laisse chaque produit pénétrer quelques instants avant le suivant.
 
-L'écran solaire est le dernier geste parce qu'il doit rester à la surface de la peau, sans être recouvert par une crème. [À VALIDER] [SOURCE À TROUVER] Les gestes complets : [bien appliquer son écran solaire](/appliquer-ecran-solaire).
+L'écran solaire est le dernier geste parce qu'il doit rester à la surface de la peau, sans être recouvert par une crème. [À VALIDER] [SOURCE À TROUVER] Les gestes complets : [bien appliquer son écran solaire](/appliquer-ecran-solaire)[LIEN EN ATTENTE].
 
 ## Pourquoi pas d'écran solaire le soir ?
 
@@ -51,7 +51,7 @@ Ce qu'on peut dire honnêtement :
 - Les premiers jours, ne t'attends pas à voir une différence. C'est normal.
 - Avec la régularité, les taches s'atténuent petit à petit. [À VALIDER]
 - Le temps dépend de ta peau, du type de tache, de sa profondeur et de son ancienneté [2][6].
-- Le soleil peut effacer des semaines d'efforts en quelques jours, surtout pour le mélasma [6]. [À VALIDER]
+- Le soleil peut faire revenir les taches, même après un bon résultat, surtout le mélasma [6].
 
 Pour suivre tes progrès, prends une photo de ton visage à la lumière du jour, au même endroit, de temps en temps. C'est plus fiable que le miroir de tous les jours.
 
@@ -80,7 +80,7 @@ Quelques règles simples :
 
 Tu peux garder ton maquillage habituel, à appliquer après l'écran solaire [1]. Le contour des yeux a son propre soin : le [sérum contour des yeux](/soins/contour-des-yeux).
 
-Pour comprendre ce que contient chaque soin : [les actifs de la routine](/ingredients). Les gestes à éviter : [les erreurs qui aggravent les taches](/erreurs-taches-visage).
+Pour comprendre ce que contient chaque soin : [les actifs de la routine](/ingredients)[LIEN EN ATTENTE]. Pour comprendre d'où viennent les taches : [le guide des taches brunes du visage](/taches-brunes-visage). Les gestes à éviter : [les erreurs qui aggravent les taches](/erreurs-taches-visage)[LIEN EN ATTENTE].
 
 > Encadré « Quand consulter un dermatologue ? »
 
@@ -92,6 +92,17 @@ Consulte si :
 - une tache change de forme, de couleur ou de taille, saigne ou démange [8].
 
 Enceinte ou allaitante ? Demande l'accord de ton médecin avant de commencer la routine. Montre-lui la liste des ingrédients [9].
+
+### Au Maroc
+
+[À VALIDER] Au Maroc, le soleil est présent une grande partie de l'année : l'écran du matin n'est pas réservé à l'été. Les jours de hammam, la peau a été frottée : le soir, garde une routine douce, et protège bien ta peau le lendemain. Si tu fais le ramadan, garde la même routine, matin et soir, aux heures qui te conviennent. [SOURCE À TROUVER] Aucune source sur une adaptation de routine pendant le ramadan : phrase à valider par Dr Seddiki.
+
+### L'avis du pharmacien
+
+> Ce que je vois le plus souvent à l'officine…
+> Mon conseil n°1…
+
+[À REMPLIR PAR DR SEDDIKI : 3 à 5 lignes]
 
 ## Questions fréquentes
 

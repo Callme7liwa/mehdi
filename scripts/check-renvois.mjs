@@ -1,5 +1,10 @@
 /* Vérifie les renvois dans les textes des pages conseils (src/data/problems.ts et problems.ar.ts), sans lancer le site.
    Usage : `npm run check:renvois`.
+     --brouillons                       vérifie aussi les liens des brouillons (docs/brouillons/*.md) : tout lien vers une
+                                        page pas encore publiée doit porter la marque [LIEN EN ATTENTE], et seulement eux.
+     --publier docs/brouillons/x.md     affiche le texte du brouillon prêt à publier : une phrase de renvoi dont tous les
+                                        liens sont en attente est retirée entière ; ailleurs, un lien en attente devient du
+                                        texte simple. Les marques [À VALIDER] et [SOURCE À TROUVER] restent visibles.
 
    Règle : aucune phrase de renvoi sans lien. Une phrase du type « Tout savoir : … », « Plus de détails : … »,
    « Lis aussi … » doit contenir un lien [libellé](/chemin) ; quand la page visée n'existe pas encore, on retire la
@@ -17,6 +22,46 @@ const { trustPages } = await import("../src/data/pages.ts");
 const pages = new Set(["/", "/soins", ...products.map((p) => `/soins/${p.slug}`), ...problems.map((p) => `/${p.slug}`), ...trustPages.map((p) => p.path)]);
 const RENVOI = /^(Tout savoir|Plus de détails|Pour en savoir plus|En savoir plus|Lis aussi|Lire aussi|Voir aussi|La liste complète|Le détail|Bien l'appliquer|Pour comprendre)\b/i;
 const LINK = /\[[^\]]+\]\((\/[^)]*)\)/g;
+
+const args = process.argv.slice(2);
+const PENDING = "[LIEN EN ATTENTE]";
+const DRAFT_LINK = /\[([^\]]+)\]\((\/[^)\s]*)\)(\[LIEN EN ATTENTE\])?/g;
+const published = (path) => pages.has(path.split("#")[0]);
+
+/** Phrase de renvoi : elle commence par une formule de renvoi (« Tout savoir : … »), ou n'est faite que d'un intitulé
+    court suivi de liens (« Plus de conseils : [a](/x) et [b](/y). »). Le gras et les marques de relecture en tête sont ignorés. */
+const ONLY_LINKS = /^[^:\[\]]{1,40} : (?:\[[^\]]+\]\(\/[^)\s]*\)(?:\[LIEN EN ATTENTE\])?(?:, | et |\s)*)+[.!?]?$/;
+function isRenvoiSentence(sentence) {
+  const plain = sentence.replace(/^\*\*[^*]+\*\*\s*/, "").replace(/^(\[(À VALIDER|SOURCE À TROUVER)[^\]]*\]\s*)+/, "").trim();
+  return RENVOI.test(plain) || ONLY_LINKS.test(plain);
+}
+
+/** Texte d'un brouillon prêt à publier : liens en attente retirés (voir l'en-tête). */
+function publish(md) {
+  const warnings = [];
+  const out = md.split("\n").map((line) => {
+    if (line.startsWith(">") || !line.includes(PENDING)) return line;
+    const sentences = line.split(/(?<=[.!?])\s+/);
+    const kept = sentences.filter((sentence) => {
+      const all = [...sentence.matchAll(DRAFT_LINK)];
+      const pending = all.filter((m) => m[3]);
+      const isRenvoi = isRenvoiSentence(sentence);
+      if (isRenvoi && pending.length && pending.length === all.length) return false; // phrase de renvoi sans lien restant : retirée
+      if (isRenvoi && pending.length) warnings.push(`phrase de renvoi gardée, avec un lien en attente devenu du texte : « ${sentence} »`);
+      return true;
+    });
+    return kept.join(" ").replace(DRAFT_LINK, (m, label, path, mark) => (mark ? label : m));
+  });
+  return { text: out.join("\n").replace(/\n{3,}/g, "\n\n"), warnings };
+}
+
+if (args[0] === "--publier") {
+  const { readFileSync } = await import("node:fs");
+  const { text, warnings } = publish(readFileSync(args[1], "utf8"));
+  console.log(text);
+  for (const w of warnings) console.error(`⚠ ${w}`);
+  process.exit(0);
+}
 
 let fails = 0, links = 0, renvois = 0;
 const fail = (where, msg) => { fails++; console.log(`✗ ${where} : ${msg}`); };
@@ -43,8 +88,7 @@ for (const [locale, list] of [["fr", problems], ["ar", problemsAr]]) {
       }
       // une phrase = jusqu'au point, au point d'interrogation ou d'exclamation (les liens restent dans leur phrase)
       for (const sentence of text.split(/(?<=[.!?])\s+/)) {
-        const plain = sentence.replace(/^\*\*[^*]+\*\*\s*/, "");
-        if (!RENVOI.test(plain)) continue;
+        if (!isRenvoiSentence(sentence)) continue;
         renvois++;
         if (!LINK.test(sentence)) fail(`${page}, ${where}`, `phrase de renvoi sans lien : « ${sentence} »`);
         LINK.lastIndex = 0;
@@ -54,5 +98,22 @@ for (const [locale, list] of [["fr", problems], ["ar", problemsAr]]) {
   }
 }
 
-console.log(fails ? `\n${fails} problème(s).` : `Renvois : ${renvois} phrase(s) de renvoi, toutes avec un lien ; ${links} lien(s) dans le texte, tous vers une page du site.`);
+let draftLinks = 0, draftPending = 0;
+if (args.includes("--brouillons")) {
+  const { readFileSync, readdirSync } = await import("node:fs");
+  const dir = new URL("../docs/brouillons/", import.meta.url);
+  for (const f of readdirSync(dir).filter((x) => x.endsWith(".md"))) {
+    readFileSync(new URL(f, dir), "utf8").split("\n").forEach((line, i) => {
+      if (line.startsWith(">")) return; // brief et notes : pas publiés
+      for (const m of line.matchAll(DRAFT_LINK)) {
+        draftLinks++;
+        if (m[3]) draftPending++;
+        if (!published(m[2]) && !m[3]) fail(`docs/brouillons/${f}:${i + 1}`, `lien vers ${m[2]}, page pas encore publiée, sans ${PENDING}`);
+        if (published(m[2]) && m[3]) fail(`docs/brouillons/${f}:${i + 1}`, `${PENDING} sur ${m[2]}, page déjà publiée`);
+      }
+    });
+  }
+}
+
+console.log(fails ? `\n${fails} problème(s).` : `Renvois : ${renvois} phrase(s) de renvoi, toutes avec un lien ; ${links} lien(s) dans le texte, tous vers une page du site.${args.includes("--brouillons") ? ` Brouillons : ${draftLinks} lien(s), dont ${draftPending} en attente, tous marqués correctement.` : ""}`);
 process.exit(fails ? 1 : 0);

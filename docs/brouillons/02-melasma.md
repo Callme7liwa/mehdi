@@ -2,7 +2,7 @@
 
 > Brouillon 2/4 · satellite « types » · URL prévue : /melasma (reprend la partie générale de /melasma-grossesse ; la grossesse aura sa page, /masque-de-grossesse)
 > Requête principale : mélasma visage · secondaires : mélasma causes, taches hormonales visage, taches pilule contraceptive
-> Statut : noindex jusqu'à la relecture de Dr Seddiki.
+> Statut : noindex jusqu'à la relecture de Dr Seddiki. Mis à jour pour le lot 2 : blocs « Au Maroc » et « L'avis du pharmacien », liens en attente marqués [LIEN EN ATTENTE].
 > [À VALIDER] = phrase qui affirme un effet. Chiffres entre crochets [1] = sources en fin de page.
 
 Title : Mélasma du visage : causes, pilule et soleil | OTAGE
@@ -38,7 +38,7 @@ C'est ce qu'on appelle souvent les « taches hormonales ». Ce n'est pas un autr
 
 D'autres facteurs peuvent jouer : certains médicaments qui rendent la peau sensible au soleil, et des problèmes de thyroïde [4]. Des cosmétiques parfumés peuvent aussi provoquer une réaction au soleil [1].
 
-Enceinte ? Les précautions sont différentes : lis [le masque de grossesse](/masque-de-grossesse).
+Enceinte ? Les précautions sont différentes : lis [le masque de grossesse](/masque-de-grossesse)[LIEN EN ATTENTE].
 
 ## Faut-il arrêter sa pilule ?
 
@@ -52,7 +52,7 @@ Même quand une pilule a déclenché le mélasma, l'arrêter ne suffit pas toujo
 
 Le mélasma est très sensible à la lumière. Les UV le foncent, mais aussi la lumière visible, celle qu'on voit, et les UVA longs [2]. [À VALIDER]
 
-Quelques jours de soleil suffisent parfois pour qu'il revienne, même après des mois d'efforts [1]. C'est frustrant, mais c'est connu : le mélasma est une affection qui dure et qui revient [1][2].
+Même après un bon résultat, il peut revenir avec le soleil de l'été [1]. C'est frustrant, mais c'est connu : le mélasma est une affection qui dure et qui revient [1][2].
 
 Ce qui aide, chaque jour, toute l'année [1][3] : [À VALIDER]
 
@@ -64,7 +64,7 @@ Les dermatologues conseillent souvent, pour le mélasma, un écran solaire teint
 
 > Note pour la relecture : l'écran OTAGE SPF 50 n'est pas présenté comme teinté ni comme contenant des oxydes de fer (non vérifié). Ne pas l'associer à ce paragraphe sans validation.
 
-Au Maroc, le soleil est fort une grande partie de l'année : [se protéger toute l'année](/soleil-maroc-taches).
+Au Maroc, le soleil est fort une grande partie de l'année : [se protéger toute l'année](/soleil-maroc-taches)[LIEN EN ATTENTE].
 
 ## Peut-on le faire disparaître ? Que peut proposer un dermatologue ?
 
@@ -90,6 +90,17 @@ Consulte si :
 - tu n'es pas sûre qu'il s'agisse d'un mélasma ;
 - une tache change de forme, de couleur ou de taille, saigne ou démange [8] ;
 - tu prends un traitement et tu penses qu'il joue un rôle : ne l'arrête pas seule, parles-en d'abord au médecin qui l'a prescrit [7].
+
+### Au Maroc
+
+[À VALIDER] Au Maroc, beaucoup de femmes ont la peau mate et vivent une grande partie de l'année au soleil : deux raisons pour lesquelles le mélasma est un motif fréquent de demande en pharmacie. Les remèdes maison, comme le citron, et les crèmes sans étiquette vendues au souk ou sur les réseaux sociaux peuvent l'aggraver. Pour la pilule, c'est ton médecin, ta sage-femme ou le centre de santé qui peut proposer une autre contraception. [SOURCE À TROUVER] Aucun chiffre sur la fréquence du mélasma au Maroc sans source.
+
+### L'avis du pharmacien
+
+> Ce que je vois le plus souvent à l'officine…
+> Mon conseil n°1…
+
+[À REMPLIR PAR DR SEDDIKI : 3 à 5 lignes]
 
 ## Questions fréquentes
 

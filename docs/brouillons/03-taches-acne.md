@@ -2,7 +2,7 @@
 
 > Brouillon 3/4 · satellite « types » · URL : /taches-acne (inchangée, page existante réécrite et enrichie)
 > Requête principale : taches d'acné · secondaires : marques de boutons visage, taches brunes après bouton, hyperpigmentation post-inflammatoire
-> Statut : noindex jusqu'à la relecture de Dr Seddiki.
+> Statut : noindex jusqu'à la relecture de Dr Seddiki. Mis à jour pour le lot 2 : blocs « Au Maroc » et « L'avis du pharmacien », liens en attente marqués [LIEN EN ATTENTE].
 > [À VALIDER] = phrase qui affirme un effet. Chiffres entre crochets [1] = sources en fin de page.
 
 Title : Taches d'acné : comment atténuer les marques | OTAGE
@@ -33,7 +33,7 @@ Ce qu'on peut faire à la place :
 - Appliquer le traitement anti-acné conseillé par ton médecin ou ton pharmacien [4].
 - Nettoyer ta peau en douceur, sans frotter.
 
-Les gommages à grains et les produits qui piquent irritent aussi la peau, et une peau irritée marque plus [3]. [À VALIDER] La liste des gestes à éviter : [les erreurs qui aggravent les taches](/erreurs-taches-visage).
+Les gommages à grains et les produits qui piquent irritent aussi la peau, et une peau irritée marque plus [3]. [À VALIDER] La liste des gestes à éviter : [les erreurs qui aggravent les taches](/erreurs-taches-visage)[LIEN EN ATTENTE].
 
 ## Les marques partent-elles toutes seules ?
 
@@ -59,7 +59,7 @@ La routine OTAGE, matin et soir :
 3. La crème anti-taches, qui hydrate et unifie le teint. [À VALIDER]
 4. Le matin seulement, l'écran solaire SPF 50, en dernier. [À VALIDER]
 
-Avec des boutons actifs, demande d'abord l'avis de ton dermatologue ou de ton pharmacien. Certains traitements contre l'acné ne s'associent pas avec tous les soins. Fais aussi un test de 24 h sur une petite zone. Le détail des étapes : [la routine matin et soir](/routine-taches-matin-soir).
+Avec des boutons actifs, demande d'abord l'avis de ton dermatologue ou de ton pharmacien. Certains traitements contre l'acné ne s'associent pas avec tous les soins. Fais aussi un test de 24 h sur une petite zone. Le détail des étapes : [la routine matin et soir](/routine-taches-matin-soir)[LIEN EN ATTENTE].
 
 ## Pourquoi les marques durent-elles plus sur peau mate ?
 
@@ -73,7 +73,7 @@ Sur peau mate, trois gestes comptent encore plus :
 - Choisir des soins doux, sans parfum si possible, et arrêter tout produit qui brûle ou pique [3].
 - Se protéger du soleil chaque jour [2][3].
 
-Plus de conseils : [les taches sur peau mate](/taches-peau-mate).
+Plus de conseils : [les taches sur peau mate](/taches-peau-mate)[LIEN EN ATTENTE]. Pour comparer avec les autres taches : [le guide des taches brunes du visage](/taches-brunes-visage).
 
 > Encadré « Quand consulter un dermatologue ? »
 
@@ -83,6 +83,17 @@ Consulte si :
 - tu as des creux ou des reliefs : ce sont des cicatrices, un soin cosmétique n'y changera rien [4] ;
 - les marques ne s'atténuent pas malgré une routine régulière et l'écran solaire [3] ;
 - une tache change de forme ou de couleur, saigne ou démange [5].
+
+### Au Maroc
+
+[À VALIDER] Au Maroc, les marques d'acné sont un motif fréquent de demande en pharmacie, surtout chez les ados et les jeunes adultes à la peau mate. Au hammam, le kessa et le savon noir frottent fort : sur des boutons ou des marques, mieux vaut un gommage doux et éviter les zones enflammées. Les crèmes « miracle » vendues sans étiquette sur les réseaux sociaux peuvent irriter la peau et foncer les marques. [SOURCE À TROUVER] Aucun chiffre sur l'acné au Maroc sans source.
+
+### L'avis du pharmacien
+
+> Ce que je vois le plus souvent à l'officine…
+> Mon conseil n°1…
+
+[À REMPLIR PAR DR SEDDIKI : 3 à 5 lignes]
 
 ## Questions fréquentes
 

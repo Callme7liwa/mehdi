@@ -67,7 +67,8 @@ export default function ProductView({ p, locale }: { p: Product; locale: Locale 
   // numéros des chapitres : la section « Mode d'emploi » s'insère après l'étiquette
   const chap = (n: number) => CHAP[locale][n + (n > 0 && !x.use ? -1 : 0)];
   // maillage fiche → guides : le titre du guide sert d'ancre
-  const guides = p.problems.map((slug) => (locale === "ar" ? problemsAr : problems).find((g) => g.slug === slug)!).map((g) => ({ href: localePath(locale, `/${g.slug}`), label: g.h1 }));
+  // (en arabe, seulement les guides qui ont une version arabe)
+  const guides = p.problems.flatMap((slug) => (locale === "ar" ? problemsAr : problems).find((g) => g.slug === slug) ?? []).map((g) => ({ href: localePath(locale, `/${g.slug}`), label: g.h1 }));
   const named = nameWithArticle(p, locale), Named = named.charAt(0).toUpperCase() + named.slice(1);
 
   return (

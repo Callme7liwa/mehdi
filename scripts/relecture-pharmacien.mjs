@@ -12,7 +12,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { AlignmentType, BorderStyle, Document, HeadingLevel, Packer, PageBreak, Paragraph, Table, TableCell, TableRow, TextRun, WidthType } from "docx";
 
 const BASE = process.env.BASE || "http://localhost:3000";
-const ADVICE = [["taches-pigmentaires", "Taches pigmentaires"], ["cernes", "Cernes"], ["taches-acne", "Taches d'acné"], ["melasma-grossesse", "Mélasma et précautions pendant la grossesse"]];
+// le pilier « taches brunes du visage » a sa propre relecture (docs/brouillons/relecture-pharmacien.pdf)
+const ADVICE = [["cernes", "Cernes"], ["taches-acne", "Taches d'acné"], ["melasma-grossesse", "Mélasma et précautions pendant la grossesse"]];
 const PRODUCTS = ["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux"];
 /* questions de la FAQ générale qui touchent à la santé (position dans src/data/faq.ts, identique en FR et en AR) */
 const HEALTH = [6, 7, 8, 9, 10, 11, 12]; // routine, ingrédients, résultats, écran solaire, peau sensible, grossesse, contour des yeux

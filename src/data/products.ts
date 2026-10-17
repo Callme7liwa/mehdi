@@ -85,7 +85,7 @@ export const products: Product[] = isolateAr([
       img("gel-nettoyant-anti-taches-mains.webp", 1195, 1600, "Le gel nettoyant tenu entre deux mains", "الجل المنظف بين يدين"),
       img("gel-nettoyant-anti-taches-n01-fond-blanc.webp", 1092, 1092, "Gel nettoyant anti-taches OTAGE N°01, flacon sur fond blanc", "جل منظف ضد البقع OTAGE رقم 01 على خلفية بيضاء"),
     ],
-    problems: ["taches-pigmentaires", "taches-acne"],
+    problems: ["taches-brunes-visage", "taches-acne"],
     extraFaq: [
       {
         q: { fr: "Le gel nettoyant dessèche-t-il la peau ?", ar: "هل يجفف الجل المنظف البشرة؟" },
@@ -129,7 +129,7 @@ export const products: Product[] = isolateAr([
       img("femme-serum-anti-taches.webp", 1195, 1600, "Une femme tend le sérum anti-taches", "امرأة تحمل السيروم ضد البقع"),
       img("serum-anti-taches-n02-fond-blanc.webp", 1092, 1092, "Sérum anti-taches OTAGE N°02, flacon sur fond blanc", "سيروم ضد البقع OTAGE رقم 02 على خلفية بيضاء"),
     ],
-    problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
+    problems: ["taches-brunes-visage", "taches-acne", "melasma-grossesse"],
     extraFaq: [],
   },
   {
@@ -167,7 +167,7 @@ export const products: Product[] = isolateAr([
       img("panneau-ton-teint-revele-creme-anti-taches.webp", 1195, 1600, "Panneau publicitaire « Ton teint, révélé » avec la crème anti-taches", "لوحة إعلانية «لون بشرتك، كما هو» مع الكريم ضد البقع"),
       img("creme-anti-taches-n03-fond-blanc.webp", 1092, 1092, "Crème anti-taches OTAGE N°03, flacon sur fond blanc", "كريم ضد البقع OTAGE رقم 03 على خلفية بيضاء"),
     ],
-    problems: ["taches-pigmentaires", "taches-acne", "melasma-grossesse"],
+    problems: ["taches-brunes-visage", "taches-acne", "melasma-grossesse"],
     extraFaq: [
       {
         q: { fr: "Avant ou après le sérum ?", ar: "قبل السيروم أم بعده؟" },
@@ -209,7 +209,7 @@ export const products: Product[] = isolateAr([
       img("ecran-solaire-spf50-plage-bouee.webp", 1600, 1600, "L'écran solaire à la plage, à travers une bouée", "واقي الشمس على الشاطئ، من خلال عوامة"),
       img("ecran-solaire-spf50-n04-fond-blanc.webp", 1092, 1092, "Écran solaire SPF 50 OTAGE N°04, flacon sur fond blanc", "واقي الشمس SPF 50 من OTAGE رقم 04 على خلفية بيضاء"),
     ],
-    problems: ["taches-pigmentaires", "melasma-grossesse", "taches-acne"],
+    problems: ["taches-brunes-visage", "melasma-grossesse", "taches-acne"],
     extraFaq: [
       {
         q: { fr: "Faut-il le mettre le soir ?", ar: "هل يوضع في المساء؟" },

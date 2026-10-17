@@ -9,11 +9,13 @@ const { chromium } = createRequire(import.meta.url)("playwright");
 const { products } = await import("../src/data/products.ts");
 const { problems } = await import("../src/data/problems.ts");
 const { trustPages } = await import("../src/data/pages.ts");
+const { hasArProblem } = await import("../src/data/problems.ar.ts");
 
 const BASE = process.env.BASE || "http://localhost:3000";
 const W = 390;
 const fr = ["/", "/soins", ...products.map((p) => `/soins/${p.slug}`), ...problems.map((p) => `/${p.slug}`), ...trustPages.map((p) => p.path)];
-const PAGES = [...fr, ...fr.map((p) => (p === "/" ? "/ar" : `/ar${p}`))];
+// en arabe : pas les pages conseils qui n'ont pas encore de version arabe
+const PAGES = [...fr, ...fr.filter((p) => !problems.some((x) => `/${x.slug}` === p && !hasArProblem(x.slug))).map((p) => (p === "/" ? "/ar" : `/ar${p}`))];
 
 const b = await chromium.launch();
 let bad = 0;

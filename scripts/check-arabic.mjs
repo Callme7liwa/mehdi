@@ -9,7 +9,7 @@ const ALLOW = new Set(["OTAGE", "otage", "Mouldwa", "Google", "Analytics", "SPF"
 const PAGES = [
   "/ar", "/ar/soins",
   ...["gel-nettoyant", "serum-anti-taches", "creme-anti-taches", "ecran-solaire-spf50", "contour-des-yeux", "deodorant-creme"].map((s) => `/ar/soins/${s}`),
-  "/ar/taches-pigmentaires", "/ar/cernes", "/ar/taches-acne", "/ar/melasma-grossesse",
+  "/ar/cernes", "/ar/taches-acne", "/ar/melasma-grossesse",
   "/ar/avis", "/ar/a-propos", "/ar/livraison-paiement", "/ar/contact", "/ar/mentions-legales", "/ar/cgv",
 ];
 const LATIN = /[A-Za-zÀ-ÖØ-öø-ÿ]{2,}/g;

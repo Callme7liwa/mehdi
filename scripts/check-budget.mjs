@@ -24,7 +24,7 @@ const PRODUCT = { js: 156, css: 10, html: 25, fonts: 64 };
 const PAGES = [
   ["/", HOME], ["/ar", HOME],
   ["/soins/serum-anti-taches", PRODUCT], ["/ar/soins/serum-anti-taches", PRODUCT], ["/soins/deodorant-creme", PRODUCT],
-  ["/taches-pigmentaires", PAGE], ["/ar/taches-pigmentaires", PAGE],
+  ["/taches-brunes-visage", PAGE], ["/ar/taches-acne", PAGE],
   ["/avis", PAGE], ["/ar/avis", PAGE],
 ];
 

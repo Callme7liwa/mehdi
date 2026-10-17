@@ -1,6 +1,6 @@
 import { linkedin } from "@/data/google";
 import Link from "next/link";
-import { problemPages, trustPages } from "@/data/pages";
+import { problemPagesFor, trustPages } from "@/data/pages";
 import { products } from "@/data/products";
 import { formatDate, site, waLink, type Locale } from "@/data/site";
 import { ui } from "@/data/ui";
@@ -22,7 +22,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
           </div>
           <div>
             <p className="t">{t.footAdvice}</p>
-            <ul>{problemPages.map((p) => <li key={p.slug}><Link prefetch={false} href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
+            <ul>{problemPagesFor(locale).map((p) => <li key={p.slug}><Link prefetch={false} href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</Link></li>)}</ul>
           </div>
           <div>
             <p className="t">{t.footBrand}</p>

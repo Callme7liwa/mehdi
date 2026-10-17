@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
       { source: "/fr", destination: "/", statusCode: 301 },
       { source: "/fr/:path*", destination: "/:path*", statusCode: 301 },
       { source: "/site.webmanifest", destination: "/manifest.webmanifest", statusCode: 301 },
+      // la page « taches pigmentaires » devient le pilier « taches brunes du visage » (docs/carte-thematique.md)
+      { source: "/taches-pigmentaires", destination: "/taches-brunes-visage", statusCode: 301 },
+      // son ancienne version arabe : le pilier n'a pas encore de version arabe (redirection temporaire,
+      // à faire pointer vers /ar/taches-brunes-visage quand elle existera)
+      { source: "/ar/taches-pigmentaires", destination: "/taches-brunes-visage", statusCode: 302 },
       // un seul domaine : www.otage.ma → otage.ma
       { source: "/:path*", has: [{ type: "host", value: `www.${DOMAIN}` }], destination: `https://${DOMAIN}/:path*`, statusCode: 301 },
       // en production, toute adresse *.vercel.app (otage-maroc.vercel.app compris) renvoie vers otage.ma.

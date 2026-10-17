@@ -1,5 +1,7 @@
-/* Pages « conseils peau » en arabe : /ar/taches-pigmentaires, /ar/cernes, /ar/taches-acne, /ar/melasma-grossesse.
+/* Pages « conseils peau » en arabe : /ar/cernes, /ar/taches-acne, /ar/melasma-grossesse.
    Même structure et même contenu que src/data/problems.ts (français), dans le même ordre.
+   Une page française sans texte arabe ici (le pilier /taches-brunes-visage, pour l'instant) n'a pas de version arabe :
+   pas de /ar/…, pas de hreflang, et les liens arabes vers elle sont retirés (voir hasArProblem).
    TOUS LES TEXTES DE CE FICHIER SONT « À RELIRE PAR UN NATIF » (et, comme le français, par un dermatologue
    ou un pharmacien). Aucune promesse médicale. */
 import { isolateAll, isolateAr } from "../lib/bidi";
@@ -9,42 +11,6 @@ import { problems, type ProblemPage } from "./problems";
 type Ar = Omit<ProblemPage, "slug" | "image" | "routine" | "products" | "reviewed"> & { products: string[] };
 
 const ar: Record<string, Ar> = {
-  /* ------------------------------------------------------------------ À relire par un natif : /ar/taches-pigmentaires */
-  "taches-pigmentaires": {
-    label: "البقع الصبغية",
-    h1: "البقع الصبغية: الأسباب والروتين للتخفيف منها",
-    metaTitle: "البقع الصبغية: الأسباب والروتين | OTAGE",
-    metaDescription: "البقع الصبغية: من أين تأتي، ما الذي يجعلها أغمق، والروتين للتخفيف منها خطوة بخطوة. نصائح بسيطة وواضحة، بدون وعود مبالغ فيها، من علامة OTAGE المغربية.",
-    // جواب مباشر في جملتين أعلى الصفحة
-    intro: ["البقعة الصبغية منطقة تنتج فيها البشرة الكثير من الميلانين. للتخفيف منها: واقي الشمس كل صباح وروتين منتظم، مع الصبر."],
-    sections: [
-      {
-        h2: "من أين تأتي البقع الصبغية؟",
-        body: [{ list: ["الشمس: الأشعة تحفز الميلانين، فتغمق البقع.", "الهرمونات: الحمل أو وسائل منع الحمل قد تسبب الكلف.", "الالتهاب: حبة أو حرق يترك أثرًا بنيًا.", "العمر: تراكم الشمس يُظهر بقعًا صغيرة."] }],
-      },
-      {
-        h2: "ما الذي يساعد فعلًا؟",
-        body: [{ list: ["واقي الشمس كل يوم، حتى في الشتاء.", "الانتظام صباحًا ومساءً، أهم من عدد المنتجات.", "عدم حك الحبوب أو عصرها.", "تجربة كل منتج جديد 24 ساعة على منطقة صغيرة."] }],
-      },
-    ],
-    adviceTitle: "متى تستشيرين طبيب الجلد؟",
-    advice: "في أغلب الحالات، البقعة الصبغية ليست خطيرة. استشيري إذا تغير شكلها أو لونها أو حجمها، أو نزفت أو سببت حكة.",
-    productsTitle: "أي روتين للتخفيف من البقع؟",
-    productsIntro: "في الصباح، الخطوات الأربع. في المساء، الثلاث الأولى.",
-    products: [
-      "دلكي 30 ثانية على بشرة مبللة، ثم اشطفي.",
-      "3 إلى 4 قطرات على بشرة جافة، بالنقر الخفيف.",
-      "كمية بحجم حبة البندق على الوجه والعنق.",
-      "في الصباح، كآخر خطوة.",
-    ],
-    faq: [
-      { q: "كم من الوقت للتخفيف من بقعة صبغية؟", a: ["لا توجد مدة مضمونة. البقع تخف شيئًا فشيئًا، مع الانتظام وواقي الشمس."] },
-      { q: "هل يمكن أن تعود البقع؟", a: ["نعم، خاصة مع الشمس. لهذا واقي SPF 50 جزء من روتين الصباح."] },
-      { q: "هل أضع واقي الشمس حين لا تكون هناك شمس؟", a: ["نعم. أشعة UVA تخترق الغيوم والزجاج."] },
-      { q: "بشرتي حساسة، هل يمكنني اتباع الروتين؟", a: ["جربي أولًا 24 ساعة على منطقة صغيرة. في حال الاحمرار، توقفي واطلبي النصيحة."] },
-    ],
-  },
-
   /* ------------------------------------------------------------------ À relire par un natif : /ar/cernes */
   cernes: {
     label: "الهالات السوداء",
@@ -158,16 +124,18 @@ const ar: Record<string, Ar> = {
   },
 };
 
-/** Les pages en arabe : mêmes adresses, mêmes images et mêmes produits que le français. */
+/** Les pages en arabe : mêmes adresses, mêmes images et mêmes produits que le français, pour les pages traduites. */
 const imageAlt: Record<string, string> = {
-  "taches-pigmentaires": "المنتجات الأربعة لروتين OTAGE ضد البقع",
   cernes: "سيروم محيط العين OTAGE رقم 05 قرب الوجه",
   "taches-acne": "امرأة تحمل سيروم OTAGE ضد البقع",
   "melasma-grossesse": "واقي الشمس SPF 50 من OTAGE على الشاطئ",
 };
 
-export const problemsAr: ProblemPage[] = isolateAr(problems.map((p) => {
+export const problemsAr: ProblemPage[] = isolateAr(problems.filter((p) => ar[p.slug]).map((p) => {
   const t = isolateAll(ar[p.slug]);
   // adviceTitle : seulement celui de l'arabe (sans repli sur le français)
   return { ...p, ...t, adviceTitle: t.adviceTitle, image: { ...p.image, alt: { fr: p.image.alt.fr, ar: imageAlt[p.slug] } }, products: p.products.map((x, i) => ({ key: x.key, why: t.products[i] })) };
 }));
+
+/** La page conseil existe-t-elle en arabe ? */
+export const hasArProblem = (slug: string) => problemsAr.some((p) => p.slug === slug);

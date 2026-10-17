@@ -205,7 +205,8 @@ export function gammeLd(format: FormatKey, desc: string) {
   };
 }
 
-export const articleLd = (o: { locale: Locale; path: string; title: string; description: string; image: Img }) => {
+/** Article : dates de publication et de modification de la page si elles sont connues, sinon site.updated. */
+export const articleLd = (o: { locale: Locale; path: string; title: string; description: string; image: Img; published?: string; modified?: string }) => {
   const url = abs(localePath(o.locale, o.path));
   return {
     "@type": "Article",
@@ -214,8 +215,8 @@ export const articleLd = (o: { locale: Locale; path: string; title: string; desc
     description: o.description,
     image: abs(o.image.src),
     inLanguage: o.locale === "ar" ? "ar-MA" : "fr-MA",
-    datePublished: site.updated,
-    dateModified: site.updated,
+    datePublished: o.published ?? site.updated,
+    dateModified: o.modified ?? site.updated,
     author: ORG,
     publisher: ORG,
     mainEntityOfPage: url,

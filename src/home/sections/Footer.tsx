@@ -1,6 +1,6 @@
 import { linkedin } from "@/data/google";
 import type { HomeText } from "../text";
-import { problemPages, trustPages } from "@/data/pages";
+import { problemPagesFor, trustPages } from "@/data/pages";
 import { gamme } from "@/data/products";
 import { products } from "@/data/products";
 import { formatDate, site, type Locale, waLink } from "@/data/site";
@@ -42,7 +42,7 @@ export default function Footer({ t, locale }: { t: HomeText; locale: Locale }) {
           <div>
             <p className="fc-t">{t.footerConseilsPeau}</p>
             <ul>
-              {problemPages.map((p) => <li key={p.slug}><a href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</a></li>)}
+              {problemPagesFor(locale).map((p) => <li key={p.slug}><a href={localePath(locale, `/${p.slug}`)}>{p.label[locale]}</a></li>)}
             </ul>
           </div>
           <div>

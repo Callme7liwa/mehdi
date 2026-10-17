@@ -11,12 +11,14 @@
    Les versions arabes n'héritent d'aucun statut : le relecteur a approuvé les textes français, pas leur traduction. */
 import { guides } from "./guides";
 import type { Faq } from "./faq";
+import type { FigureKey } from "../components/GuideFigure";
 import type { Img, ProductKey } from "./products";
 import { isReviewed, type Review } from "./site";
 
-/** Un bloc de texte : un paragraphe, une liste à puces, des étapes numérotées, une liste de cases à cocher, ou un tableau.
+/** Un bloc de texte : un paragraphe, une liste à puces, des étapes numérotées, une liste de cases à cocher, un tableau,
+    ou un schéma (src/components/GuideFigure.tsx).
     Texte enrichi (partout sauf la FAQ) : [libellé](/chemin) = lien interne, **gras**, [n] = renvoi à la source n. */
-export type Block = string | { list: string[] } | { steps: string[] } | { checklist: string[] } | { table: { head: string[]; rows: string[][] } };
+export type Block = string | { list: string[] } | { steps: string[] } | { checklist: string[] } | { table: { head: string[]; rows: string[][] } } | { figure: FigureKey };
 export interface ProblemPage {
   slug: string;
   label: string;

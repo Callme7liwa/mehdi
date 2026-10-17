@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import FaqList from "@/components/FaqList";
+import GuideFigure from "@/components/GuideFigure";
 import JsonLd from "@/components/JsonLd";
 import { BagIcon, WaIcon } from "@/components/icons";
 import { isIndexed, pageStatus, problems, type Block, type ProblemPage as Problem } from "@/data/problems";
 import { bundleTotal, gamme, lowestPrice, productByKey, yeuxPrice } from "@/data/products";
 import { abs, formatDate, reviewers, waLink, type Locale } from "@/data/site";
 import { reviewerLd } from "@/lib/seo";
-import { hasArProblem, problemsAr } from "@/data/problems.ar";
+import { arUpToDate, problemsAr } from "@/data/problems.ar";
 import { pageUpdated } from "@/data/updated";
 import { ui } from "@/data/ui";
 import { articleLd, breadcrumbLd, faqLd, graph, localePath, orgLd, pageMetadata, webPageLd } from "@/lib/seo";
@@ -21,7 +22,7 @@ export const problemsFor = (locale: Locale) => (locale === "ar" ? problemsAr : p
 
 /** Page approuvée (reviewed) ou publiée par l'équipe (editorial) : indexée ; sinon hors de l'index. */
 export const problemMetadata = (p: Problem, locale: Locale): Metadata => {
-  const m = pageMetadata({ locale, path: `/${p.slug}`, title: p.metaTitle, description: p.metaDescription, image: p.image, type: "article", hasAr: hasArProblem(p.slug) });
+  const m = pageMetadata({ locale, path: `/${p.slug}`, title: p.metaTitle, description: p.metaDescription, image: p.image, type: "article", hasAr: arUpToDate(p.slug) });
   return isIndexed(p) ? m : { ...m, robots: { index: false, follow: true } };
 };
 
@@ -41,6 +42,7 @@ function Rich({ text, locale }: { text: string; locale: Locale }) {
 function BlockView({ b, locale }: { b: Block; locale: Locale }) {
   if (typeof b === "string") return <p><Rich text={b} locale={locale} /></p>;
   if ("steps" in b) return <ol>{b.steps.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ol>;
+  if ("figure" in b) return <GuideFigure name={b.figure} />;
   if ("checklist" in b) return <ul className="checklist">{b.checklist.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ul>;
   if ("table" in b)
     return (
@@ -53,6 +55,19 @@ function BlockView({ b, locale }: { b: Block; locale: Locale }) {
     );
   return <ul>{b.list.map((li) => <li key={li}><Rich text={li} locale={locale} /></li>)}</ul>;
 }
+
+/** Ancre d'un titre : « Quels signes doivent m'alerter ? » → « quels-signes-doivent-m-alerter ». */
+const anchor = (title: string) => title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+/** Nombre de mots du contenu d'une page (texte enrichi compris), pour décider d'afficher le sommaire. */
+function words(p: Problem) {
+  const text = (b: Block): string => (typeof b === "string" ? b : "figure" in b ? "" : "table" in b ? [...b.table.head, ...b.table.rows.flat()].join(" ") : ("steps" in b ? b.steps : "checklist" in b ? b.checklist : b.list).join(" "));
+  const all = [...p.intro, ...(p.essentials ?? []), ...p.sections.flatMap((s) => [s.h2, ...s.body.map(text)]), ...(typeof p.advice === "string" ? [p.advice] : p.advice.map(text)),
+    ...(p.maroc ?? []).map(text), ...(p.solution?.body ?? []).map(text), ...p.faq.flatMap((f) => [f.q, ...f.a])].join(" ");
+  return all.replace(/\[\d+\]|\]\([^)]*\)/g, " ").split(/\s+/).filter((w) => /[\p{L}\d]/u.test(w)).length;
+}
+/** Au-delà de ce nombre de mots, la page affiche un sommaire en tête. */
+const TOC_FROM = 800;
 
 /** Encadré titré (L'essentiel, Au Maroc, Notre solution). */
 function Box({ title, blocks, locale, className = "" }: { title: string; blocks: Block[]; locale: Locale; className?: string }) {
@@ -78,6 +93,11 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
   // date de la dernière modification du contenu de cette page (src/data/updated.ts), la même que dans le pied de page
   const updated = pageUpdated(path);
   const reviewer = review && reviewers[review.by];
+  // sommaire (pages longues) : les questions de la page, l'encadré « quand consulter », la FAQ et les sources
+  const hasAdvice = typeof p.advice === "string" || p.advice.length > 0;
+  const toc = words(p) > TOC_FROM
+    ? [...p.sections.map((s) => ({ id: anchor(s.h2), title: s.h2 })), ...(hasAdvice && p.adviceTitle ? [{ id: anchor(p.adviceTitle), title: p.adviceTitle }] : []), { id: "faq-t", title: t.faq }, ...(p.sources?.length ? [{ id: "sources-t", title: t.sources }] : [])]
+    : [];
   return (
     <>
       <JsonLd
@@ -104,18 +124,25 @@ export default function ProblemPage({ p, locale }: { p: Problem; locale: Locale 
             {review && reviewer && <p className="updated reviewed">{t.reviewedBy} {ar ? reviewer.nameAr : reviewer.name}{ar ? "، " : ", "}{reviewer.jobTitle[locale].toLowerCase()}{ar ? "، " : ", "}<time dateTime={review.date}>{formatDate(review.date, locale)}</time>.</p>}
           </header>
 
+          {toc.length > 0 && (
+            <nav className="toc" aria-labelledby="toc-t">
+              <p className="toc-t" id="toc-t">{t.toc}</p>
+              <ol>{toc.map((x) => <li key={x.id}><a href={`#${x.id}`}>{x.title}</a></li>)}</ol>
+            </nav>
+          )}
+
           <div className="prose">
             {p.sections.map((s) => (
               <section key={s.h2} style={{ display: "grid", gap: 14 }}>
                 {s.part && <h2 className="part">{nbsp(s.part)}</h2>}
-                {parts ? <h3>{nbsp(s.h2)}</h3> : <h2>{nbsp(s.h2)}</h2>}
+                {parts ? <h3 id={anchor(s.h2)}>{nbsp(s.h2)}</h3> : <h2 id={anchor(s.h2)}>{nbsp(s.h2)}</h2>}
                 {s.body.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}
               </section>
             ))}
             {p.maroc?.length ? <Box title={t.inMorocco} blocks={p.maroc} locale={locale} className="maroc" /> : null}
-            {typeof p.advice !== "string" && !p.advice.length ? null : p.adviceTitle ? (
+            {!hasAdvice ? null : p.adviceTitle ? (
               <section style={{ display: "grid", gap: 14 }}>
-                <h2>{nbsp(p.adviceTitle)}</h2>
+                <h2 id={anchor(p.adviceTitle)}>{nbsp(p.adviceTitle)}</h2>
                 {typeof p.advice === "string" ? <p className="note">{p.advice}</p> : <div className="note note-blocks">{p.advice.map((b, i) => <BlockView key={i} b={b} locale={locale} />)}</div>}
               </section>
             ) : (

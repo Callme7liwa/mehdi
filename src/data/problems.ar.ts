@@ -107,3 +107,9 @@ export const problemsAr: ProblemPage[] = isolateAr(problems.filter((p) => ar[p.s
 
 /** La page conseil existe-t-elle en arabe ? */
 export const hasArProblem = (slug: string) => problemsAr.some((p) => p.slug === slug);
+
+/** Pages arabes qui traduisent une ancienne version de la page française : elles restent en ligne (côté arabe),
+    mais sans hreflang ni sélecteur de langue entre les deux versions, tant qu'elles ne sont pas retraduites. */
+const outdatedAr = new Set(["taches-acne"]);
+/** La page arabe existe ET traduit la version française actuelle : seules ces paires sont liées (hreflang, sélecteur). */
+export const arUpToDate = (slug: string) => hasArProblem(slug) && !outdatedAr.has(slug);

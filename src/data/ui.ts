@@ -132,6 +132,7 @@ const fr = {
   otherAdvice: "Autres conseils peau",
   sources: "Sources",
   essentials: "L'essentiel",
+  toc: "Sommaire",
   inMorocco: "Au Maroc",
   editorialNote: "Guide rédigé par l'équipe OTAGE à partir de sources médicales (liste en bas de page). Il ne remplace pas l'avis d'un professionnel de santé.",
   todo: "À compléter",
@@ -286,6 +287,7 @@ const ar: Ui = isolateAll({
   sources: "المصادر",
   // À relire par un natif
   essentials: "الأساسي",
+  toc: "المحتويات",
   inMorocco: "في المغرب",
   editorialNote: "دليل من إعداد فريق OTAGE اعتمادًا على مصادر طبية (القائمة أسفل الصفحة). لا يعوّض رأي مهني الصحة.",
   todo: "يُستكمل لاحقًا",

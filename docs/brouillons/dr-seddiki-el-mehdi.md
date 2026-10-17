@@ -35,11 +35,9 @@ Meta description : Dr Seddiki El Mehdi, pharmacien, fondateur d'OTAGE : son parc
 - [Taches brunes du visage : le guide d'un pharmacien](/taches-brunes-visage), relu le 17 octobre 2026.
 - Les autres guides s'ajouteront ici à leur publication, avec leur date de relecture.
 
-## Comment il relit un guide
+## Comment les guides sont validés
 
-Chaque guide est écrit à partir de sources médicales publiques (sociétés de dermatologie, Organisation mondiale de la santé, revues scientifiques), citées en bas de page. Dr Seddiki vérifie chaque paragraphe, corrige ce qui doit l'être, et valide la page avant sa mise en ligne. La date de relecture est affichée sur chaque guide.
-
-[À VALIDER] Ce texte décrit le processus réel suivi pour le pilier ; à confirmer par Dr Seddiki.
+Chaque guide est écrit à partir de sources médicales publiques (sociétés de dermatologie, Organisation mondiale de la santé, revues scientifiques), citées en bas de page. Dr Seddiki valide chaque guide avant sa mise en ligne. La date de validation est affichée sur chaque page.
 
 ## Le contacter
 

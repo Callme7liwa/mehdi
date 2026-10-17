@@ -81,7 +81,7 @@ const fail = (where, msg) => { fails++; console.log(`✗ ${where} : ${msg}`); };
 function* texts(p) {
   for (const [i, t] of p.intro.entries()) yield [`intro ${i + 1}`, t];
   for (const [i, t] of (p.essentials ?? []).entries()) yield [`l'essentiel ${i + 1}`, t];
-  const items = (b) => ("steps" in b ? b.steps : "checklist" in b ? b.checklist : "table" in b ? [...b.table.head, ...b.table.rows.flat()] : b.list);
+  const items = (b) => ("figure" in b ? [] : "steps" in b ? b.steps : "checklist" in b ? b.checklist : "table" in b ? [...b.table.head, ...b.table.rows.flat()] : b.list);
   const blocks = (where, list) => list.flatMap((b, i) => (typeof b === "string" ? [[`${where} §${i + 1}`, b]] : items(b).map((li, k) => [`${where} §${i + 1}.${k + 1}`, li])));
   for (const s of p.sections) yield* blocks(`« ${s.h2} »`, s.body);
   yield* typeof p.advice === "string" ? [["encadré", p.advice]] : blocks("encadré", p.advice);

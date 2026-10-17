@@ -1,6 +1,6 @@
 /* Toutes les pages du site, avec leurs images : utilisé par le sitemap et llms.txt. */
 import { isIndexed, problems } from "@/data/problems";
-import { hasArProblem } from "@/data/problems.ar";
+import { arUpToDate } from "@/data/problems.ar";
 import { gamme, products } from "@/data/products";
 import { trustPages } from "@/data/pages";
 import { abs, site } from "@/data/site";
@@ -16,7 +16,7 @@ export const routes: Route[] = [
   { path: "/soins", priority: 0.8, hasAr: true, indexed: true, images: products.map((p) => img(p.pack.src)) },
   ...products.map((p) => ({ path: `/soins/${p.slug}`, priority: 0.9, hasAr: true, indexed: true, images: [p.hd ?? p.pack, ...p.photos].map((i) => img(i.src)) })),
   // pages conseils : indexées si approuvées (reviewed) ou publiées par l'équipe (editorial), voir pageStatus
-  ...problems.map((p) => ({ path: `/${p.slug}`, priority: 0.7, hasAr: hasArProblem(p.slug), indexed: isIndexed(p), images: [img(p.image.src)] })),
+  ...problems.map((p) => ({ path: `/${p.slug}`, priority: 0.7, hasAr: arUpToDate(p.slug), indexed: isIndexed(p), images: [img(p.image.src)] })),
   ...trustPages.map((p) => ({
     path: p.path as string,
     priority: 0.4,

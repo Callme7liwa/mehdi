@@ -20,17 +20,17 @@ export const contentUpdated: Record<string, string> = {
   "/a-propos": "2026-10-16T02:47:39+02:00", // 471dd5e : sans « cosmétique naturelle »
   "/livraison-paiement": "2026-10-16T09:30:06+02:00", // 9f16fc6 : « Paiement à la livraison »
   "/taches-brunes-visage": "2026-10-17T13:45:00+02:00", // lot 2 : liens vers les guides publiés (pilier-ajouts.md, approuvé)
-  // guides « taches brunes », approuvés par Dr Seddiki le 17 octobre 2026 (src/data/guides.ts)
-  "/melasma": "2026-10-17T13:45:00+02:00",
-  "/taches-acne": "2026-10-17T13:45:00+02:00",
-  "/taches-solaires": "2026-10-17T13:45:00+02:00",
-  "/taches-peau-mate": "2026-10-17T13:45:00+02:00",
-  "/soleil-maroc-taches": "2026-10-17T13:45:00+02:00",
-  "/appliquer-ecran-solaire": "2026-10-17T13:45:00+02:00",
-  "/routine-taches-matin-soir": "2026-10-17T13:45:00+02:00",
-  "/erreurs-taches-visage": "2026-10-17T13:45:00+02:00",
-  "/choisir-creme-anti-taches": "2026-10-17T13:45:00+02:00",
-  "/taches-quand-consulter": "2026-10-17T13:45:00+02:00",
+  // guides « taches brunes », approuvés par Dr Seddiki le 17 octobre 2026 (src/data/guides.ts) ; 15 h 20 : corrections avant mise en ligne
+  "/melasma": "2026-10-17T15:20:00+02:00",
+  "/taches-acne": "2026-10-17T15:20:00+02:00",
+  "/taches-solaires": "2026-10-17T15:20:00+02:00",
+  "/taches-peau-mate": "2026-10-17T15:20:00+02:00",
+  "/soleil-maroc-taches": "2026-10-17T15:20:00+02:00",
+  "/appliquer-ecran-solaire": "2026-10-17T15:20:00+02:00",
+  "/routine-taches-matin-soir": "2026-10-17T15:20:00+02:00",
+  "/erreurs-taches-visage": "2026-10-17T15:20:00+02:00",
+  "/choisir-creme-anti-taches": "2026-10-17T15:20:00+02:00",
+  "/taches-quand-consulter": "2026-10-17T15:20:00+02:00",
   "/contact": "2026-10-16T12:52:38+02:00", // 26414c8 : section « Google Maps »
   // pages hors index (noindex) : leur date sert à l'affichage et au JSON-LD
   "/cernes": "2026-10-16T02:24:19+02:00", // e263dff : contenu v3

@@ -30,8 +30,7 @@ export const guides: ProblemPage[] = [
             "list": [
               "Elles sont souvent symétriques : les deux joues, ou les deux côtés du front [1].",
               "Elles touchent surtout les joues, le front, le nez, le menton et le dessus de la lèvre supérieure [1].",
-              "Leur couleur va du brun clair au brun foncé, parfois grisâtre [1].",
-              "Elles foncent l'été et pâlissent un peu l'hiver."
+              "Leur couleur va du brun clair au brun foncé, parfois grisâtre [1]."
             ]
           },
           "Il touche plus souvent les femmes adultes, et plus souvent les peaux mates [1][4]. Il arrive aussi qu'un proche de la famille en ait déjà [4].",
@@ -270,7 +269,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au hammam, le kessa et le savon noir frottent fort : sur des boutons ou des marques, mieux vaut un gommage doux et éviter les zones enflammées."
+      "Au Maroc, ton pharmacien peut t'aider à faire la différence entre une marque brune et une cicatrice, et t'orienter vers un dermatologue si tu as encore des boutons."
     ],
     adviceTitle: "Quand consulter un dermatologue ?",
     advice: [
@@ -363,6 +362,7 @@ export const guides: ProblemPage[] = [
         "h2": "Tache solaire, mélasma ou grain de beauté : comment les distinguer ?",
         "body": [
           "Ces trois taches n'ont pas la même origine. Seul un dermatologue peut confirmer le diagnostic.",
+          { "figure": "taches" },
           {
             "table": {
               "head": [
@@ -441,7 +441,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, le soleil est présent une grande partie de l'année, et beaucoup d'activités se font dehors : trajets, marché, travail aux champs, plage. Les taches solaires apparaissent souvent sur le visage et le dos des mains. Les mains sont souvent oubliées : mets aussi de l'écran dessus."
+      "Au Maroc, beaucoup d'activités se font dehors toute l'année : trajets, marché, travail aux champs. Pense au dos des mains, souvent oublié quand on met de l'écran."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -462,7 +462,7 @@ export const guides: ProblemPage[] = [
       {
         "q": "Une tache solaire peut-elle devenir un cancer ?",
         "a": [
-          "Le lentigo solaire est bénin. Mais il signale beaucoup de soleil reçu, et il est lié à un risque plus élevé de mélanome. D'où l'intérêt de surveiller sa peau."
+          "Non. Selon DermNet, le lentigo solaire est bénin : non traité, il persiste en général, mais reste bénin. En revanche, une lésion plus dangereuse, comme un mélanome débutant, peut lui ressembler. C'est pour ça qu'une tache doit être examinée par un dermatologue, parfois avec un dermatoscope ou une biopsie. Le lentigo solaire signale aussi beaucoup de soleil reçu : il est associé à un risque plus élevé de mélanome."
         ]
       },
       {
@@ -603,7 +603,8 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, le hammam, avec le kessa et le savon noir, frotte fort la peau : sur une peau mate qui marque, mieux vaut un gommage doux et pas sur les zones irritées. Le soleil est fort une grande partie de l'année : l'écran n'est pas réservé à l'été."
+      "Au Maroc, le hammam fait partie de la semaine de beaucoup de familles. Le gommage au kessa et au savon noir frotte fort : sur une peau mate qui marque, frotte doucement et évite les zones irritées ou les marques récentes [10].",
+      "Au souk ou sur les réseaux sociaux, méfie-toi des crèmes sans étiquette claire, présentées comme des solutions miracles pour le teint. Avant d'en acheter une, demande à ton pharmacien de lire l'étiquette avec toi."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -756,7 +757,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, le soleil est présent une grande partie de l'année, du nord au sud, et beaucoup de déplacements se font à pied ou en voiture. L'été, le soleil de midi est fort. L'hiver, il reste lumineux, surtout dans le sud et en montagne. Le chapeau, le foulard et l'ombre font partie des habitudes : garde-les, et ajoute l'écran sur le visage."
+      "Au Maroc, le chapeau, le foulard et l'ombre font déjà partie des habitudes : garde-les, et ajoute l'écran sur le visage. En voiture, pense au côté du visage tourné vers la vitre [3]."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -847,7 +848,8 @@ export const guides: ProblemPage[] = [
       {
         "h2": "Quelle quantité d'écran solaire mettre sur le visage ?",
         "body": [
-          "Au moins une cuillère à café pour le visage, selon l'Académie américaine de dermatologie [1]. C'est souvent plus que ce qu'on met spontanément.",
+          "Au moins une cuillère à café pour le visage, selon l'Académie américaine de dermatologie, soit à peu près la longueur de ton index et de ton majeur [1]. C'est souvent plus que ce qu'on met spontanément.",
+          { "figure": "ecran" },
           "Pour ne pas en manquer :",
           {
             "steps": [
@@ -863,7 +865,7 @@ export const guides: ProblemPage[] = [
         "h2": "Avant ou après la crème, et combien de temps avant de sortir ?",
         "body": [
           "Le matin, l'écran solaire se met en dernier soin, après le nettoyage, le soin de traitement et la crème, et avant le maquillage [3][2].",
-          "Mets-le avant de sortir : il faut environ 15 minutes pour que la peau soit protégée [1]."
+          "Mets-le avant de sortir : il faut environ 15 minutes pour que la peau absorbe l'écran et soit protégée [1]."
         ]
       },
       {
@@ -928,7 +930,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, l'écran solaire est souvent réservé à la plage. Pourtant, le soleil est présent une grande partie de l'année, sur les trajets, au marché, en terrasse. Garde un écran dans ton sac pour le renouveler à midi. Après le hammam, la peau a été frottée : protège-la bien le lendemain. Pour le quand (hiver, nuages, vitres) : [le soleil au Maroc, toute l'année](/soleil-maroc-taches)."
+      "Au Maroc, garde un écran dans ton sac : il se renouvelle facilement à midi, entre deux trajets. Pour savoir quand te protéger (hiver, nuages, vitres) : [le soleil au Maroc, toute l'année](/soleil-maroc-taches)."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -1087,7 +1089,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, le soleil est présent une grande partie de l'année : l'écran du matin n'est pas réservé à l'été. Les jours de hammam, la peau a été frottée : le soir, garde une routine douce, et protège bien ta peau le lendemain."
+      "Au Maroc, la routine du matin se termine par l'écran, même en hiver."
     ],
     adviceTitle: "Quand consulter un dermatologue ?",
     advice: [
@@ -1287,7 +1289,8 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, on se transmet des recettes : citron, bicarbonate, mélanges maison. On achète aussi au souk ou sur les réseaux sociaux des crèmes sans étiquette claire, parfois en pot sans nom. Au hammam, le gommage au kessa et au savon noir est une tradition : sur une peau marquée de taches, mieux vaut frotter doucement et ne pas frotter les zones irritées. Avant d'acheter une crème, demande à ton pharmacien de lire l'étiquette avec toi."
+      "Au Maroc, on se transmet des recettes contre les taches : citron, bicarbonate, mélanges maison. Au souk ou sur les réseaux sociaux, on trouve aussi des crèmes sans étiquette claire, parfois vendues en pot sans nom.",
+      "Au hammam, le gommage au kessa et au savon noir est une tradition : sur une peau marquée de taches, frotte doucement et évite les zones irritées [3]. Avant d'acheter une crème, demande à ton pharmacien de lire l'étiquette avec toi."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -1469,7 +1472,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, on trouve des crèmes anti-taches en pharmacie, en parapharmacie, en grande surface, au souk et sur les réseaux sociaux. Les produits sans étiquette ou vendus en pot sans nom circulent surtout hors des circuits contrôlés. Le pharmacien peut lire l'étiquette avec toi et te dire si un produit convient à ta peau."
+      "Au Maroc, on trouve des crèmes anti-taches en pharmacie, en parapharmacie, en grande surface et en ligne. Ton pharmacien peut lire l'étiquette avec toi et te dire si un produit convient à ta peau."
     ],
     adviceTitle: "Quand consulter ?",
     advice: [
@@ -1566,6 +1569,7 @@ export const guides: ProblemPage[] = [
         "h2": "Quels signes doivent m'alerter sur une tache ?",
         "body": [
           "Retiens la règle ABCDE, utilisée par les dermatologues [1]. Un seul de ces signes suffit pour consulter.",
+          { "figure": "abcde" },
           {
             "table": {
               "head": [
@@ -1677,7 +1681,7 @@ export const guides: ProblemPage[] = [
       }
     ],
     maroc: [
-      "Au Maroc, beaucoup de femmes demandent d'abord conseil à la pharmacie, au hammam ou à leur entourage. C'est une bonne première étape pour une tache banale. Mais pour une tache qui change, saigne ou démange, seul un dermatologue peut trancher : demande à ton pharmacien ou à ton médecin traitant de t'orienter."
+      "Au Maroc, ton pharmacien est souvent le premier à voir une tache : pour une tache banale, il peut te conseiller ; pour une tache qui change, saigne ou démange, demande-lui de t'orienter vers un dermatologue."
     ],
     advice: [],
     productsTitle: "",
